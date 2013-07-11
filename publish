@@ -1,0 +1,6 @@
+#!/bin/bash
+
+node render.js
+rsync -av --delete public/* out/
+rsync -av --delete rendered/* out/
+rsync -av --delete out/* astrohacker@funnylogic.com:~/ryanxcharles.com/
