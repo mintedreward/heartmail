@@ -24,7 +24,7 @@
           <%
             var d=documents[i].header.date;
             var dyear=d.getFullYear();
-            var dmonth=d.getMonth();
+            var dmonth=d.getMonth()+1;
             if (String(dmonth).length==1) {dmonth="0"+dmonth};
             var ddate=d.getDate();
             if (String(ddate).length==1) {ddate="0"+ddate};
