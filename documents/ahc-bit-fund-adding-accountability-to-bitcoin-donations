@@ -1,0 +1,52 @@
+{
+  "title":"Bit Fund: Adding Accountability to Bitcoin Donations",
+  "date":"2011-05-27 CST",
+  "origin":"Astrohacker",
+  "url":"ahc-bit-fund-adding-accountability-to-bitcoin-donations",
+  "author":"Ryan X. Charles"
+}
+
+
+<p>
+<a href="http://www.bitcoin.org/">Bitcoin</a> makes it very easy to send payments (in bitcoins) over the internet.
+Transactions are &#8220;pseudo-anonymous&#8221; which means it is very difficult to know which real-world people were involved in each transaction, but at the same time, each transaction is known to everyone who runs the software.
+What that means in practice is that bitcoin transactions are effectively anonymous unless you do extensive analyses of the block chain in combination with enormous quantities of other information in order to piece together (probably inconclusively) who is responsible for what transactions.
+It&#8217;s fantastic that this is a fundamental feature of bitcoin.
+But, there are times when we do not want transactions to be anonymous.
+In particular, when we are donating or investing, we want to be sure the person we are donating or investing to is trustworthy.
+Conversely, if we are receiving donations or receiving investments, we want to be sure the people making us promises to deliver bitcoins are trustworthy.
+This is the problem of accountability.
+</p>
+
+<p>
+Bitcoins have enormous potential to be used for funding (either donations or investments) since the barriers for sending them are so low.
+Bit Fund (which I introduced in the <a href="ahc/bit-fund-funding-for-authenticated-bitcoin-projects/">previous post</a>) is a project to connect funders to fundees, and has the following central feature: <em>optional</em> accountability.
+Users will be able to authenticate their posts with their PGP identity, as well as digitally sign their statements.
+In doing so, they will be choosing to give up some of their anonymity in exchange for being able to use their reputation to their advantage.
+Fundees, people who want to be funded, will be able to show they are reliable based on their history of interactions.
+And funders, people who want to do the funding, will also be able to show they are reliable.
+When people make this choice, to lower their anonymity, and raise their accountability, they will make themselves more trustworthy, and thus more likely to be funded, or more likely to be trusted to do the funding.
+</p>
+
+<p>
+The way I envision this site is something like <a href="http://www.reddit.com/">reddit</a>, except with proposals and bounties instead of links, and bitcoins instead of upvotes.
+A proposal will be a statement of what a fundee plans to do with their bitcoins.
+They can optionally authenticate their account, and optionally sign their proposal.
+Funders will make the decision based on that user's reputation whether or not they will actually do what they say they will do with the funds.
+A bounty, on the other hand, will be a statement of what funder wants someone to do for some amount of bitcoins.
+They, too, can optionally authenticate their account, and optionally sign their bounty.
+Fundees will make the decision based on that user's reputation whether or not to trust that they will actually hand out the bounty.
+And finally, attached to each proposal will be the quantity of bitcoins in their account.
+If it's a proposal, the bitcoins will be how many they have gotten.
+If it's a bounty, the bitcoins will be how many they have available.
+This information can be retrieved by analyzing the block chain and will be displayed automatically by the site.
+</p>
+
+<p>
+There are many features the site could have after the basic framework is up and running.
+For instance, the site could allow users to create contracts, and digitally sign them.
+It could also allow people to create bitcoin accounts on the site to hold and distribute money according to algorithms, like distributing bitcoins in monthly installments.
+Bit Fund would be a general purpose funding vehicle that could be used for charities or businesses.
+It would attach people with the funds to the people who need it.
+</p>
+

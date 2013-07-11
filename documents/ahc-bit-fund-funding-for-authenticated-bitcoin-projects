@@ -1,0 +1,41 @@
+{
+  "title":"Bit Fund: Funding for Authenticated Bitcoin Projects",
+  "date":"2011-05-23 CST",
+  "origin":"Astrohacker",
+  "url":"ahc-bit-fund-funding-for-authenticated-bitcoin-projects",
+  "author":"Ryan X. Charles"
+}
+
+
+
+<p>One of the features of <a href="http://www.bitcoin.org/">bitcoin</a> is that you can send and receive bitcoins with pseudo-anonymity.
+It is very hard to figure out who is sending what to who without doing complicated and possibly inconclusive analyses of the block chain.
+This is seen as being a plus, and indeed it probably is wise to have this property built into the fundamentals of the protocol.
+However, sometimes we want to have information about who is receiving what.
+For people who are sending donations, they would like to know which charities, organizations or people are in most need of the bitcoins.
+A service that attaches identities to bitcoin addresses would be able to read the block chain and see how much has been donated to each identity, and optionally from who.
+That is the idea for a new service I plan to create, called Bit Fund.</p>
+
+<p>Bit Fund will allow people to register their identity (using a private-public key pair) and post proposals for projects that they would like to be funded with bitcoins.
+For each project, the bitcoin address would be listed, and next to it would be the quantity of bitcoins deposited in that address.
+Because of the distributed nature of bitcoin, it is possible for a third-party like Bit Fund to know the quantity of bitcoins deposited to that address by merely knowing the address.
+Donors would be able to browse through projects looking to be funded, and they could decide who or what to fund based not just on what the project is, but based on how much they need the money (because some will have already received more than enough, and others will have only just gotten started).
+Donors would also know that they are sending to the right charity, organization or person, because their identity would be verified with their public key.
+</p>
+
+<p>The front page will basically be a list of proposals.
+It will be sort of like <a href="http://www.reddit.com/">reddit</a>, except with proposals instead of links, and quantity of bitcoins donated rather than upvotes.
+The donations to each project will be displayed in real time, and a donor will be able to see their donation show up quickly.
+Each proposal will have a description of the project, and will allow comments from other authenticated users.
+Once a project is submitted, it cannot be changed.
+However, the bitcoin address can be removed when the owner decides the funding objective has been achieved.</p>
+
+<p>The primary purpose of this website is to enable donors to know how much money each project has so that they can use this information, along with the proposal, to decide which projects to fund.
+And of course, it should also enable project creators to find funding easily.
+All of this can be done without any bitcoins passing through Bit Fund.
+Bit Fund will merely serve as the authentication service, and will provide the convenience of analyzing the block chain for the donors.
+Bit Fund will not, however, allow people to easily figure out who donated to which projects.
+That is a service that may be offered to donors at a later time.
+Naturally, Bit Fund will be a charity, and will be funded by proposals submitted to itself.
+</p>
+

@@ -1,0 +1,37 @@
+{
+  "title":"Three Kinds of Probability: Bayesian, Frequency, Quantum",
+  "date":"2011-10-10 CST",
+  "origin":"Funny Logic",
+  "url":"text-three-kinds-of-probability-bayesian-frequency-quantum",
+  "author":"Ryan X. Charles"
+}
+
+
+
+<p><em>I had a hard time grasping statistical mechanics and quantum mechanics on an intuitive level as an undergrad.
+<a href="http://physicsandphysicists.blogspot.com/2011/10/you-can-do-it-but-did-you-understand-it.html">I&#8217;m not the only one</a>.
+Here is my response to that article detailing my own understanding of the issue.
+</em></p>
+
+<p>
+I had the same experience. For me, the problem was the concept of probability. This term was left undefined in every textbook, and I had no intuitive grasp of it like I had of charge, mass, space, time, etc. The key, for me any way, was the information theoretic interpretation. But it&#8217;s not as simple as saying that probabilities (and entropy) represent knowledge (and uncertainty). So here&#8217;s my interpretation which makes perfect sense to me, and now all the pieces fit.
+</p>
+
+<p>
+There are three kinds of probabilities that are relevant in statistical mechanics. One is Bayesian probability. These represent your knowledge or uncertainty. Another is frequency. These represent the fraction of the time a system has a certain state. Then there are quantum probabilities. These represent the information in the environment with respect to some basis (a basis is an extension of the concept of a frame of reference&#8212;just like a particle can have a different location in a different frame of reference, the information in the environment can be different and, bizarrely, have different amounts of entropy in different bases).
+</p>
+
+<p>
+In statistical mechanics, you might be tempted to ask whether probabilities are Bayesian or frequency. This is a false dichotomy. In your model, the probabilities are Bayesian. In the physical system of interest, they are frequencies. If your Bayesian probabilities are the same as the frequencies, then your model is accurate. Being accurate does not necessarily mean being certain.
+</p>
+
+<p>
+Same thing with quantum mechanics. Your model has Bayesian probabilities which are accurate if they match the real probabilities in the system of interest. (Note that the probabilities of your model need to be the same in every basis, not just one, if your model is to be accurate.) Being accurate does not necessarily mean being certain (although, actually, entropy is always zero in a basis where the state is a basis element).
+</p>
+
+<p>
+I have never seen a textbook that distinguishes between the different kinds of probability. If I wrote such a book, I would put it front and center. Instead, textbooks treat the different probabilities as different interpretations of the same thing. This isn't just misleading, but is actually false. No wonder students are confused.
+</p>
+
+<p><em>For more information on this subject, I highly recommend E.T. Jaynes&#8217;s book &#8220;Probability Theory: The Logic of Science,&#8221; which, though it does not give the exact same interpretation of probabilities I&#8217;ve given here, will nonetheless give you a pretty solid grasp of Bayesian probabilities and how they fit into physics.</em></p>
+

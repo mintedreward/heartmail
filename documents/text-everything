@@ -1,0 +1,71 @@
+{
+  "title":"Everything",
+  "date":"2011-10-16 CST",
+  "origin":"Funny Logic",
+  "url":"text-everything",
+  "author":"Ryan X. Charles"
+}
+
+
+<p>I have found it valuable to be able to talk about &#8220;everything.&#8221;
+Here&#8217;s what I mean.</p>
+
+<p>The <strong>universe</strong> is, by definition, everything that exists.
+We may break up the universe into its subsystems.
+For instance, the universe is made up of Earth and Not-Earth, whereby Not-Earth we mean everything that is not Earth.
+In set theory, we would say that the universe is made up of the union of the set Earth and the set Not-Earth.
+</p>
+
+<p>There is more than one way to break up the universe into its subsystems.
+Each way is called a <strong>basis</strong> (this word is taken by analogy to linear algebra).
+For instance, we may call the basis made up of Earth and Not-Earth as the &#8220;Earth basis.&#8221;
+But we could also break up the universe into, say, Saturn and Not-Saturn, or Milky Way and Not-Milky Way, or St. Louis and Not-St. Louis.
+</p>
+
+<p>It&#8217;s important that each basis contain everything.
+It will typically be necessary to include a <strong>not system</strong> made up of everything not mentioned in the other systems.
+</p>
+
+<p>We may make more complicated models of the universe.
+For instance, another basis may be St. Louis, Chicago, and every other city on the planet, and then also everything that is not a city.
+This model is more complicated because the basis has many more than just two elements like the Earth basis.
+</p>
+
+<p>Suppose you wish to learn about everything.
+One way to do so would be to construct a basis where everything was enumerated in a way conducive to learning about it.
+For example:
+</p>
+
+<ul>
+<li>Academic subjects.
+<ul>
+<li>Physics.</li>
+<li>Mathematics.</li>
+<li>Economics.</li>
+<li>Every academic subject that is not one of the above subjects.</li>
+</ul>
+</li>
+<li>Everything that is not an academic subject.
+<ul>
+<li>Baseball.</li>
+<li>Everything that is not baseball.</li>
+</ul>
+</li>
+</ul>
+
+<p>If you learned about everything on this list, you would be sure you had learned about everything.
+If you would like to learn about things in more detail, then construct a more detailed basis.
+</p>
+
+<p>A complication is time.
+The state of the universe or any of its subsystems change in time.
+I have not thought about this in detail and so can&#8217;t comment on the implications.</p>
+
+<p>It is interesting to consider that any basis is itself something in the universe, and thus it occurs to us to break up the universe into the basis This Basis and Not-This Basis.
+This might make us curious about Godel-like paradoxes involving self-reference, but since the universe is not actually the same thing as our model of the universe, no self-reference occurs.
+</p>
+
+<p>The strategy of breaking up the universe, or everything, into its subsystems is an extremely valuable tool whenever talking about everything, because you can be sure you are really talking about everything.</p>
+
+
+

@@ -1,0 +1,16 @@
+{
+  "title":"Proofnet: A P2P Broadcast Network Powered By Proof-of-Work",
+  "date":"2011-07-23 CST",
+  "origin":"Astrohacker",
+  "url":"ahc-proofnet-a-p2p-broadcast-network-proof-of-work",
+  "author":"Ryan X. Charles"
+}
+
+
+
+<p>A broadcasted message is a message that is heard by everyone.
+There is no general purpose broadcast protocol that anyone can use, possibly because it would be plagued by spam.
+I have designed a broadcast protocol for a P2P network based on proof-of-work to minimize spam, called Proofnet.
+<a href="https://bitcointalk.org/index.php?topic=31038.0">See this post on the Bitcoin Forum for more information</a>.
+</p>
+

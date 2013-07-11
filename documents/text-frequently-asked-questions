@@ -1,0 +1,134 @@
+{
+  "title":"Frequently Asked Questions",
+  "date":"2005-04-25 CST",
+  "origin":"Funny Logic",
+  "url":"text-frequently-asked-questions",
+  "author":"Ryan X. Charles"
+}
+
+
+
+			
+
+
+		<p><strong>Q:</strong> Where are my keys?</p>
+
+	<p>Check your pocket. If they are not there, ask yourself: do I have keys? If the answer is &#8220;leather couch and a picture frame,&#8221; go away because you&#8217;re not paying attention. Otherwise, ask your roommates; if they say no, quit looking. You don&#8217;t have keys. Otherwise, start looking for them. They are lost. Check your oven&#8212;that&#8217;s where mine usually end up. Not that you&#8217;re anything like me, but still.</p>
+
+	<p><strong>Q:</strong> Am I pregnant?</p>
+
+
+
+	<p>Did you have sex? If not, you have nothing to worry about. If you did, however, ask yourself the following questions:</p>
+
+	<ol>
+
+	<li>Am I female?</li>
+
+	<li>Do I have an extrusive belly?</li>
+
+	<li>Is my womb filled with something that kicks a lot?</li>
+
+	<li>Am I in the hospital currently giving birth?</li>
+
+
+
+	</ol>
+
+	<p>If you answered yes to all of these questions, then there is a high likelihood that you are pregnant. See a psychic immediately.</p>
+
+	<p><strong>Q:</strong> What&#8217;s the weather like?</p>
+
+	<p>Good question. What&#8217;s weather, exactly? If it has something to do with going outside, I wouldn&#8217;t know. I prefer the comfort of four walls and a ceiling. Just kidding. I&#8217;m on a beach, actually, on a small unpopulated island in the Caribbean, and the weather is great. It&#8217;s unbearably hot, but great. Really.</p>
+
+
+
+	<p>Are you on an island? The weather might be similar if you&#8217;re near the equator, but if your island is far from the equator, it will be less warm. Do you live near mountains? Near a lake? Near a sun? Near a pole? All of these things might affect the weather. There&#8217;s only one surefire way to find out: go outside. Sadly, this is an unattainable goal for most people.</p>
+
+	<p><strong>Q:</strong> What should I cook for dinner?</p>
+
+	<p>Fettuccine Tomato Basil Salad. You&#8217;ll need only fifteen minutes of preperation time, and five minutes to cook.</p>
+
+	<p><strong>Q:</strong> Did I just fall out of an airplane?</p>
+
+
+
+	<p>Is there an exuberant level of wind surrounding your body? Are you detached from any solid surface? Do you remember riding in an airplane within the past few moments? Chances are, you just fell out. Spread your arms and legs out to increase resistance. If you spread out far enough, you will increase the resistance enough to match your weight, and you will begin to fly. Enjoy it while you can; few people get to fall out of an airplane.</p>
+
+	<p><strong>Q:</strong> Yes or no?</p>
+
+	<p>No.</p>
+
+	<p><strong>Q:</strong> How?</p>
+
+	<p>There are a variety of methods. Several involve forms of apathy, but most of them involve forms of action. In performing an action, it&#8217;s important to keep your goals separate from your emotions. Remember: this isn&#8217;t a game, this is real life. Or whatever. Use your brain, use your body, and, most importantly, quit reading about it and go do it.</p>
+
+
+
+	<p><strong>Q:</strong> How what?</p>
+
+	<p>It&#8217;s not important.</p>
+
+	<p><strong>Q:</strong> What is the sum of the series from n equals one to infinity of one over two to the nth power?</p>
+
+	<p>Symbolically:</p>
+
+
+
+	<p style="text-align: center;"><img src="images/faq/series-1.png" alt=""/></p>
+
+	<p>Clearly,</p>
+
+	<p style="text-align: center;"><img src="images/faq/series-2.png" alt=""/></p>
+
+	<p>This is a geometric series of the form <img src="images/faq/series-3.png" alt=""/>, where</p>
+
+	<p style="text-align: center;"><img src="images/faq/series-4.png" alt=""/>,<br/> <img src="images/faq/series-5.png" alt=""/></p>
+
+	<p>and</p>
+
+	<p style="text-align: center;"><img src="images/faq/series-6.png" alt=""/>.</p>
+
+	<p>Therefore,</p>
+
+	<p style="text-align: center;"><img src="images/faq/series-7.png" alt=""/></p>
+
+	<p>This solves the <a href="http://en.wikipedia.org/wiki/Zeno%27s_paradoxes">dichotomy paradox</a>. According to Wikipedia:</p>
+
+
+
+	<blockquote><p>&#8220;Suppose Homer wants to catch a stationary bus. Before he can get there, he must get halfway there. Before he can get halfway there, he must get a quarter of the way there. Before traveling a fourth, he must travel one-eighth; before an eighth, one-sixteenth; and so on.&#8221;</p></blockquote>
+
+	<p>By adding 1/2 of some distance, plus 1/2 of that, plus 1/2 of that, and so on, an infinite number of times, we see the result is 1, a finite number. If we stop adding at any point along the way, the result is less than one. We see the same is true for time: if it takes 1/2 a minute to walk 1/2 the length of a room, and 1/2 that time to walk 1/2 that distance, and so on, we see the total time adds up to 1 minute. Even though it takes an infinite process to walk from one end of a room to another, that doesn&#8217;t imply it can&#8217;t be done.</p>
+
+	<p>However, this might not appear to solve the paradox, because before we can worry about walking the length of a room, we must worry about making the first step. How can we walk 1/2 of the way if we must first walk through 1/2 of that distance, and so on? But this is no different than the reverse, except that (to be redundant) time is backwards. In other words, the mathematics are the same.</p>
+
+	<p>It&#8217;s hard to disagree with the following statement:</p>
+
+	<p style="text-align: center;"><img src="images/faq/series-8.png" alt=""/></p>
+
+	<p>Saying that it is impossible to start walking is no different than saying it&#8217;s impossible to stop. But despite our intuition, an infinite number of numbers can add up to a finite number. When you walk half of some distance, before which you walked half of that distance, and so on, you literally pass through an infinite number of points, and yet it takes finite time and finite distance.</p>
+
+	<p><strong>Q:</strong> Up or down?</p>
+
+	<p>Sideways.</p>
+
+
+
+	<p><strong>Q:</strong> Why do all living things have to die?</p>
+
+	<p>First and foremost, living things do not necessarily have to die; at least not until the end of the universe. So why do all living things die before that happens? The simple answer is simply that death must be an important part of a species&#8217; survival&#8212;the survival of individuals within a species is irrelevent, as far as evolution is concerned.</p>
+
+	<p>I could take a guess:</p>
+
+	<p>In order for the evolution of a species to occur, the &#8220;newer models,&#8221; so to speak, must replace the older ones. When a new generation of a species crops up, it is in their best interest for the old generation to die out, because they use up valuable resources. Without death, the older generations would prevent newer, fitter generations from competing with other species in the battle of survival. The death of individuals within a species raises the odds that the species will survive. There have quite possibly been species where the individual lives forever (and there might be now, for all I know), but it&#8217;s an evolutionary disadvantage to the species, so the species might lose that &#8220;ability&#8221; after so many generations.</p>
+
+
+
+	<p><strong>Q:</strong> What do you know?</p>
+
+	<p>Yeah, I know.</p>
+
+		
+		
+
