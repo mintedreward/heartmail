@@ -1,0 +1,51 @@
+<% var i=thisdocindex; %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><%- documents[i].header.title %> | Ryan X. Charles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet" media="screen">
+</head>
+<body class="page-document">
+<div class="container">
+  <div class="row-fluid">
+    <div class="span4">
+      <div class="headerbox">
+        <a href="/"><img src="/images/andromeda-circle.png" alt="Ryan X. Charles"></a>
+        <h1>Ryan X. Charles</h1>
+        <p>Anti-aggression. Pro-bitcoin.</p>
+        <p>Home | <a href="/archive/">Archive</a> | <a href="/about/">About</a></p>
+      </div>
+    </div>
+    <div class="span8">
+        <article>
+          <h1><a href="/archive/<%- documents[i].filename %>/"><%- documents[i].header.title %></a></h1>
+          <%
+            var d=documents[i].header.date;
+            var dyear=d.getFullYear();
+            var dmonth=d.getMonth();
+            if (String(dmonth).length==1) {dmonth="0"+dmonth};
+            var ddate=d.getDate();
+            if (String(ddate).length==1) {ddate="0"+ddate};
+            var ddisplay=dyear+"-"+dmonth+"-"+ddate;
+          %>
+          <p class="author"><time><%- ddisplay %></time> | <%- documents[i].header.author %></p>
+          <hr>
+          <%- documents[i].body %>
+        </article>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <hr>
+      <div class="footer">
+        <p><a href="/">&lt;3, RXC</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
