@@ -13,7 +13,7 @@ fs.readdir('./documents', function(err, files) {
         var str=content.toString();
         var newdoc=jh.parseStr(str,jh.dateReviver);
         newdoc.filename=files[j];
-        if (newdoc.header.title!=undefined) {
+        if (newdoc.header!==null) {
           documents.push(newdoc);
         };
         if (docsloaded==files.length) {
