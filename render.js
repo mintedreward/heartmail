@@ -11,7 +11,7 @@ fs.readdir('./documents', function(err, files) {
       fs.readFile('./documents/'+files[j], function(err, content) {
         docsloaded++;
         var str=content.toString();
-        var newdoc=jh.parseStr(str,jh.dateReviver);
+        var newdoc=jh.parse(str,jh.dateReviver);
         newdoc.filename=files[j];
         if (newdoc.header!==null) {
           documents.push(newdoc);
