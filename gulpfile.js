@@ -13,11 +13,29 @@ let PageIndex = React.createFactory(require('./react/page-index.jsx'))
 let PagePost = React.createFactory(require('./react/page-post.jsx'))
 
 gulp.task('copy-bootstrap', function () {
-  return new Promise((resolve, reject) => {
-    fs.createReadStream(path.join(__dirname, 'node_modules', 'bootstrap', 'dist', 'css', 'bootstrap.css'))
-      .pipe(fs.createWriteStream(path.join(__dirname, 'build', 'bootstrap.css')))
-      .on('close', resolve)
-      .on('error', reject)
+  return asink(function *() {
+    yield new Promise((resolve, reject) => {
+      fs.mkdir(path.join(__dirname, 'build', 'css'), (err) => {
+        if (err) {
+        }
+        resolve()
+      })
+    })
+    return new Promise((resolve, reject) => {
+      fs.createReadStream(path.join(__dirname, 'node_modules', 'bootstrap', 'dist', 'css', 'bootstrap.css'))
+        .pipe(fs.createWriteStream(path.join(__dirname, 'build', 'css', 'bootstrap.css')))
+        .on('close', resolve)
+        .on('error', reject)
+    })
+  })
+})
+
+gulp.task('copy-static', function () {
+  return asink(function *() {
+    return new Promise((resolve, reject) => {
+      gulp.src(path.join(__dirname, 'static/**'))
+        .pipe(gulp.dest(path.join(__dirname, 'build')));
+    })
   })
 })
 
@@ -87,5 +105,5 @@ gulp.task('build-page-index', function () {
 gulp.task('build-pages', ['build-page-index', 'build-posts'], function () {
 })
 
-gulp.task('build', ['copy-bootstrap', 'build-pages'], function () {
+gulp.task('build', ['copy-bootstrap', 'copy-static', 'build-pages'], function () {
 })
