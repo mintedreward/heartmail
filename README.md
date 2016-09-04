@@ -5,7 +5,6 @@ My new personal homepage will collect things that don't fit on social media.
 
 Outline:
 - Yours
-- Research
 - Software
 - Social
   - Medium
@@ -16,3 +15,4 @@ Outline:
   - Slack
 - Education
 - Bio
+- Connect
