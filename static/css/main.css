@@ -1,0 +1,21 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.intro-header {
+  margin-top: 4em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.row {
+  margin-bottom: 2em;
+}
+
+.banner {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
