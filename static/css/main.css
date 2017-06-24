@@ -2,10 +2,18 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+a.btn {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 800px;
+}
+
 .intro-header {
   margin-top: 4em;
   text-align: center;
-  margin-bottom: 2em;
 }
 
 .row {
@@ -13,9 +21,5 @@ body {
 }
 
 .banner {
-  text-align: center;
-}
-
-footer {
   text-align: center;
 }
