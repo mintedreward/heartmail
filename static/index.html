@@ -90,6 +90,11 @@
           <div class="clearfix"></div>
           <h2 class="section-heading">Support me with Money Button</h2>
 
+          <script type="text/javascript">
+          window.onPayment = function (res) {
+            console.log(res)
+          }
+          </script>
 
 <!-- This line should where you want to place your button -->
 <div class="money-button"
@@ -102,9 +107,12 @@
   data-button-data="{}"
   data-type="tip"
   data-editable="true"
+  data-op-return="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  data-on-payment="onPayment"
 ></div>
 <!-- This line can go anywhere -->
 <script src="https://www.moneybutton.com/moneybutton.js"></script>
+<!--<script src="http://localhost:3000/moneybutton.js"></script>-->
 
 
 
