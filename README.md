@@ -3,6 +3,8 @@
 OpenSPV is an implementation of Simplified Payment Verification (SPV) as
 described in the Bitcoin white paper [1].
 
+Goals:
+
 1. Support ease-of-use by being internally consistent. It should not be
    necessary to read the source code of a class or function to know how to use it.
    Once you know how to use part of the library, the other parts should feel
@@ -41,9 +43,9 @@ described in the Bitcoin white paper [1].
 
 ## Environment Variables
 
-* `BSV_JS_BASE_URL` - Default "/".
-* `BSV_JS_BUNDLE_FILE` - Default "openspv.js"
-* `BSV_JS_WORKER_FILE` - Default "openspv-worker.js"
+* `OPENSPV_JS_BASE_URL` - Default "/".
+* `OPENSPV_JS_BUNDLE_FILE` - Default "openspv.js"
+* `OPENSPV_JS_WORKER_FILE` - Default "openspv-worker.js"
 * `NETWORK` - Default "mainnet"
 
 You can change the network to run the CLI in testnet mode:
