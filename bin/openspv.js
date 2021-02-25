@@ -2,10 +2,10 @@
 'use strict'
 const repl = require('repl')
 const bsv = require('../')
-// Make all Fullnode classes globally available.
+// Make all OpenSPV classes globally available.
 Object.assign(global, bsv, { bsv: bsv })
 repl.start({
-  prompt: 'bsv> ',
+  prompt: 'OpenSPV> ',
   useGlobal: true,
   ignoreUndefined: true
 })

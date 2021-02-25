@@ -4,8 +4,8 @@ module.exports = {
   entry: './entry.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bsv.bundle.js',
-    library: 'bsvjs'
+    filename: 'openspv.bundle.js',
+    library: 'openspv'
   },
   devtool: 'source-map',
   mode: 'production'

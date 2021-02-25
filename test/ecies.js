@@ -183,7 +183,7 @@ describe('#Ecies', function () {
     })
 
     it('errors', function () {
-      should.exist(bsv.errors.Ecies)
+      should.exist(openspv.errors.Ecies)
     })
 
     it('correctly fails if trying to decrypt a bad message', function () {
@@ -198,12 +198,12 @@ describe('#Ecies', function () {
       const secret = 'test'
 
       // test uncompressed
-      const alicePrivKey = bsv.PrivKey.fromObject({
+      const alicePrivKey = openspv.PrivKey.fromObject({
         bn: '1fa76f9c799ca3a51e2c7c901d3ba8e24f6d870beccf8df56faf30120b38f360',
         compressed: false,
         network: 'livenet'
       })
-      const alicePubKey = bsv.PubKey.fromPrivKey(alicePrivKey) // alicePrivKey.PubKey
+      const alicePubKey = openspv.PubKey.fromPrivKey(alicePrivKey) // alicePrivKey.PubKey
       alicePrivKey.compressed.should.equal(false)
 
       const cypher1 = Ecies().PrivKey(alicePrivKey).PubKey(alicePubKey)
@@ -218,12 +218,12 @@ describe('#Ecies', function () {
       const secret = 'test'
 
       // test compressed
-      const alicePrivKey = bsv.PrivKey.fromObject({
+      const alicePrivKey = openspv.PrivKey.fromObject({
         bn: '1fa76f9c799ca3a51e2c7c901d3ba8e24f6d870beccf8df56faf30120b38f360',
         compressed: true,
         network: 'livenet'
       })
-      const alicePubKey = bsv.PubKey.fromPrivKey(alicePrivKey) // alicePrivKey.PubKey
+      const alicePubKey = openspv.PubKey.fromPrivKey(alicePrivKey) // alicePrivKey.PubKey
       alicePrivKey.compressed.should.equal(true)
 
       const cypher1 = Ecies().PrivKey(alicePrivKey).PubKey(alicePubKey)

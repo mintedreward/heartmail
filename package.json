@@ -1,14 +1,14 @@
 {
-  "name": "bsv",
-  "description": "Javascript library for Bitcoin SV (BSV).",
-  "version": "2.0.4",
-  "author": "Yours Inc.",
-  "homepage": "https://github.com/moneybutton/bsv",
+  "name": "openspv",
+  "description": "Simplified Payment Verification",
+  "version": "0.1.0",
+  "author": "Coasian Inc.",
+  "homepage": "https://github.com/coasian/openspv",
   "source": "entry.js",
-  "main": "dist/bsv.js",
-  "module": "dist/bsv.modern.js",
-  "unpkg": "dist/bsv.bundle.js",
-  "library": "bsvjs",
+  "main": "dist/openspv.js",
+  "module": "dist/openspv.modern.js",
+  "unpkg": "dist/openspv.bundle.js",
+  "library": "openspv",
   "scripts": {
     "clean": "rm -rf node_modules/* yarn.lock",
     "lint": "standard *.js lib/**/*.js bin/**/*.js test/**/*.js",
@@ -20,65 +20,13 @@
     "prepublish": "yarn build",
     "doc": "documentation build entry.js -f html -o doc"
   },
-  "contributors": [
-    {
-      "name": "Daniel Cousens",
-      "email": "bitcoin@dcousens.com"
-    },
-    {
-      "name": "Gordon Hall",
-      "email": "gordon@bitpay.com"
-    },
-    {
-      "name": "Jeff Garzik",
-      "email": "jgarzik@bitpay.com"
-    },
-    {
-      "name": "Kyle Drake",
-      "email": "kyle@kyledrake.net"
-    },
-    {
-      "name": "Manuel Araoz",
-      "email": "manuelaraoz@gmail.com"
-    },
-    {
-      "name": "Matias Alejo Garcia",
-      "email": "ematiu@gmail.com"
-    },
-    {
-      "name": "Ryan X. Charles",
-      "email": "ryanxcharles@gmail.com"
-    },
-    {
-      "name": "Stefan Thomas",
-      "email": "moon@justmoon.net"
-    },
-    {
-      "name": "Stephen Pair",
-      "email": "stephen@bitpay.com"
-    },
-    {
-      "name": "Wei Lu",
-      "email": "luwei.here@gmail.com"
-    },
-    {
-      "name": "Josh Ellithorpe",
-      "email": "quest@mac.com"
-    }
-  ],
   "keywords": [
     "bitcoin",
-    "bsv",
-    "blockchain",
-    "bip32",
-    "bip39",
-    "bip68",
-    "multisig",
-    "ecies"
+    "bsv"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/moneybutton/bsv.git"
+    "url": "https://github.com/coasian/openspv.git"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -117,7 +65,7 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "standard": {
     "ignore": [
       "lib/interp.js",
