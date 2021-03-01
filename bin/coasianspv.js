@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 'use strict'
 const repl = require('repl')
-const bsv = require('../')
+const coasianspv = require('../')
 // Make all OpenSPV classes globally available.
-Object.assign(global, bsv, { bsv: bsv })
+Object.assign(global, coasianspv, { coasianspv: coasianspv })
 repl.start({
-  prompt: 'OpenSPV> ',
+  prompt: 'Coasian SPV> ',
   useGlobal: true,
   ignoreUndefined: true
 })

@@ -1,8 +1,8 @@
 /**
- * bsv
+ * coasianspv
  * ===
  *
- * index.js is an example of how to build a bundle with bsv. This
+ * index.js is an example of how to build a bundle with coasianspv. This
  * bundle includes the entire library, which uses the default configuration
  * (which is the same as Mainnet) and can be overridden. It also includes
  * Mainnet and Testnet configuration which are accessible even if you override
@@ -11,7 +11,7 @@
  * every component into your project. You can simply directly require the
  * elements of the library you need, and, if your project is browser-based,
  * browserify your project. For instance:
- * const Address = require('bsv/lib/address').
+ * const Address = require('coasianspv/lib/address').
  */
 'use strict'
 if (!global._babelPolyfill) {
@@ -19,83 +19,83 @@ if (!global._babelPolyfill) {
 }
 require('./lib/config')
 
-const bsv = module.exports
+const coasianspv = module.exports
 
-bsv.version = require('./package').version
+coasianspv.version = require('./package').version
 
 // Main bitcoin library - bitcoin protocols, standards, cryptography, and
 // utilities.
-bsv.Address = require('./lib/address')
-bsv.Bip32 = require('./lib/bip-32')
-bsv.Bip39 = require('./lib/bip-39')
-bsv.Bn = require('./lib/bn')
-bsv.Br = require('./lib/br')
-bsv.Bsm = require('./lib/bsm')
-bsv.Bw = require('./lib/bw')
-bsv.Base58 = require('./lib/base-58')
-bsv.Base58Check = require('./lib/base-58-check')
-bsv.Block = require('./lib/block')
-bsv.BlockHeader = require('./lib/block-header')
-bsv.Constants = require('./lib/constants')
-bsv.Ecdsa = require('./lib/ecdsa')
-bsv.Hash = require('./lib/hash')
-bsv.Interp = require('./lib/interp')
-bsv.KeyPair = require('./lib/key-pair')
-bsv.OpCode = require('./lib/op-code')
-bsv.Point = require('./lib/point')
-bsv.PrivKey = require('./lib/priv-key')
-bsv.PubKey = require('./lib/pub-key')
-bsv.Random = require('./lib/random')
-bsv.Script = require('./lib/script')
-bsv.Sig = require('./lib/sig')
-bsv.Struct = require('./lib/struct')
-bsv.Tx = require('./lib/tx')
-bsv.TxBuilder = require('./lib/tx-builder')
-bsv.TxIn = require('./lib/tx-in')
-bsv.TxOut = require('./lib/tx-out')
-bsv.TxOutMap = require('./lib/tx-out-map')
-bsv.TxVerifier = require('./lib/tx-verifier')
-bsv.VarInt = require('./lib/var-int')
-bsv.Workers = require('./lib/workers')
-bsv.WorkersResult = require('./lib/workers-result')
-bsv.cmp = require('./lib/cmp')
+coasianspv.Address = require('./lib/address')
+coasianspv.Bip32 = require('./lib/bip-32')
+coasianspv.Bip39 = require('./lib/bip-39')
+coasianspv.Bn = require('./lib/bn')
+coasianspv.Br = require('./lib/br')
+coasianspv.Bsm = require('./lib/bsm')
+coasianspv.Bw = require('./lib/bw')
+coasianspv.Base58 = require('./lib/base-58')
+coasianspv.Base58Check = require('./lib/base-58-check')
+coasianspv.Block = require('./lib/block')
+coasianspv.BlockHeader = require('./lib/block-header')
+coasianspv.Constants = require('./lib/constants')
+coasianspv.Ecdsa = require('./lib/ecdsa')
+coasianspv.Hash = require('./lib/hash')
+coasianspv.Interp = require('./lib/interp')
+coasianspv.KeyPair = require('./lib/key-pair')
+coasianspv.OpCode = require('./lib/op-code')
+coasianspv.Point = require('./lib/point')
+coasianspv.PrivKey = require('./lib/priv-key')
+coasianspv.PubKey = require('./lib/pub-key')
+coasianspv.Random = require('./lib/random')
+coasianspv.Script = require('./lib/script')
+coasianspv.Sig = require('./lib/sig')
+coasianspv.Struct = require('./lib/struct')
+coasianspv.Tx = require('./lib/tx')
+coasianspv.TxBuilder = require('./lib/tx-builder')
+coasianspv.TxIn = require('./lib/tx-in')
+coasianspv.TxOut = require('./lib/tx-out')
+coasianspv.TxOutMap = require('./lib/tx-out-map')
+coasianspv.TxVerifier = require('./lib/tx-verifier')
+coasianspv.VarInt = require('./lib/var-int')
+coasianspv.Workers = require('./lib/workers')
+coasianspv.WorkersResult = require('./lib/workers-result')
+coasianspv.cmp = require('./lib/cmp')
 
 // Encryption tools. Some bitcoin standards use Aes encryption, so that's why
 // these are available.
-bsv.Ach = require('./lib/ach')
-bsv.Aes = require('./lib/aes')
-bsv.Aescbc = require('./lib/aescbc')
-bsv.Cbc = require('./lib/cbc')
-bsv.Ecies = require('./lib/ecies')
+coasianspv.Ach = require('./lib/ach')
+coasianspv.Aes = require('./lib/aes')
+coasianspv.Aescbc = require('./lib/aescbc')
+coasianspv.Cbc = require('./lib/cbc')
+coasianspv.Ecies = require('./lib/ecies')
 
 // Dependencies, subject to change.
-bsv.deps = {}
-bsv.deps.aes = require('aes')
-bsv.deps.bnjs = require('bn.js')
-bsv.deps.bs58 = require('bs58')
-bsv.deps.Buffer = Buffer
-bsv.deps.elliptic = require('bitcoin-elliptic')
-bsv.deps.hashjs = require('hash.js')
-bsv.deps.pbkdf2compat = require('pbkdf2-compat')
+coasianspv.deps = {}
+coasianspv.deps.aes = require('aes')
+coasianspv.deps.bnjs = require('bn.js')
+coasianspv.deps.bs58 = require('bs58')
+coasianspv.deps.Buffer = Buffer
+coasianspv.deps.elliptic = require('bitcoin-elliptic')
+coasianspv.deps.hashjs = require('hash.js')
+coasianspv.deps.pbkdf2compat = require('pbkdf2-compat')
 
 // Mainnet classes for your convenience (in case default is not what you want).
 const Mainnet = {}
-Object.keys(bsv).forEach(function (key) {
-  Mainnet[key] = bsv[key].Mainnet
-    ? bsv[key].Mainnet
-    : bsv[key]
+Object.keys(coasianspv).forEach(function (key) {
+  Mainnet[key] = coasianspv[key].Mainnet
+    ? coasianspv[key].Mainnet
+    : coasianspv[key]
 })
 
 // Testnet classes for your convenience (in case default is not what you want).
 const Testnet = {}
-Object.keys(bsv).forEach(function (key) {
-  Testnet[key] = bsv[key].Testnet
-    ? bsv[key].Testnet
-    : bsv[key]
+Object.keys(coasianspv).forEach(function (key) {
+  Testnet[key] = coasianspv[key].Testnet
+    ? coasianspv[key].Testnet
+    : coasianspv[key]
 })
 
-bsv.Mainnet = Mainnet
-bsv.Testnet = Testnet
+coasianspv.Mainnet = Mainnet
+coasianspv.Testnet = Testnet
 
-bsv.browser = process.browser
-bsv.env = process.env
+coasianspv.browser = process.browser
+coasianspv.env = process.env

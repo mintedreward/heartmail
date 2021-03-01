@@ -1,13 +1,13 @@
-const bsv = require('./dist/bsv')
+const coasianspv = require('./dist/coasianspv')
 
-const Address = bsv.Address
-const PrivKey = bsv.PrivKey
-const PubKey = bsv.PubKey
-const TxBuilder = bsv.TxBuilder
-const TxOut = bsv.TxOut
-const Random = bsv.Random
-const Bn = bsv.Bn
-const KeyPair = bsv.KeyPair
+const Address = coasianspv.Address
+const PrivKey = coasianspv.PrivKey
+const PubKey = coasianspv.PubKey
+const TxBuilder = coasianspv.TxBuilder
+const TxOut = coasianspv.TxOut
+const Random = coasianspv.Random
+const Bn = coasianspv.Bn
+const KeyPair = coasianspv.KeyPair
 
 var randhex = 'adf4953b2e679fdc453d9cec93ba26c3bd9f0fb875975f3d72ed0c6c6835e26e'
 var randbn = new Bn().fromHex(randhex)

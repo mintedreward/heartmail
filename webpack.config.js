@@ -4,8 +4,8 @@ module.exports = {
   entry: './entry.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'openspv.bundle.js',
-    library: 'openspv'
+    filename: 'coasianspv.bundle.js',
+    library: 'coasianspv'
   },
   devtool: 'source-map',
   mode: 'production'

@@ -1,5 +1,5 @@
 /**
- * bsv
+ * coasianspv
  * ===
  *
  * entry.js is the entry point for a the js bundlers.

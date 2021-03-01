@@ -1,6 +1,6 @@
-# OpenSPV
+# Coasian SPV
 
-OpenSPV is an implementation of Simplified Payment Verification (SPV) as
+Coasian SPV is an implementation of Simplified Payment Verification (SPV) as
 described in the Bitcoin white paper [1].
 
 Goals:
@@ -43,15 +43,15 @@ Goals:
 
 ## Environment Variables
 
-* `OPENSPV_JS_BASE_URL` - Default "/".
-* `OPENSPV_JS_BUNDLE_FILE` - Default "openspv.js"
-* `OPENSPV_JS_WORKER_FILE` - Default "openspv-worker.js"
+* `COASIANSPV_JS_BASE_URL` - Default "/".
+* `COASIANSPV_JS_BUNDLE_FILE` - Default "coasianspv.js"
+* `COASIANSPV_JS_WORKER_FILE` - Default "coasianspv-worker.js"
 * `NETWORK` - Default "mainnet"
 
 You can change the network to run the CLI in testnet mode:
 
 ```
-NETWORK=testnet ./bin/openspv.js
+NETWORK=testnet ./bin/coasianspv.js
 ```
 
 [1] "Bitcoin: A Peer-to-Peer Electronic Cash System", Satoshi Nakamoto.

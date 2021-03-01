@@ -455,18 +455,18 @@ describe('Script', function () {
 
   describe('@fromSafeDataArray', function () {
     it('should create valid op return output', function () {
-      const script = Script.fromSafeDataArray([Buffer.from('yours bitcoin'), Buffer.from('bsv')])
+      const script = Script.fromSafeDataArray([Buffer.from('yours bitcoin'), Buffer.from('coasianspv')])
       script.isSafeDataOut().should.equal(true)
     })
   })
 
   describe('#getData', function () {
     it('should create valid op return output', function () {
-      const script = Script.fromSafeDataArray([Buffer.from('yours bitcoin'), Buffer.from('bsv')])
+      const script = Script.fromSafeDataArray([Buffer.from('yours bitcoin'), Buffer.from('coasianspv')])
       script.isSafeDataOut().should.equal(true)
       const bufs = script.getData()
       bufs[0].toString().should.equal('yours bitcoin')
-      bufs[1].toString().should.equal('bsv')
+      bufs[1].toString().should.equal('coasianspv')
     })
   })
 
