@@ -65,7 +65,7 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "SEE LICENSE",
   "standard": {
     "ignore": [
       "lib/interp.js",
