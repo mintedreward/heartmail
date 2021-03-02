@@ -983,7 +983,7 @@ describe('TxBuilder', function () {
         keyPair8,
         keyPair9,
         keyPair10,
-        keyPair11,
+        keyPair11
       ])
 
       // txb.changeAmountBn.toNumber().should.equal(49996250)
@@ -1004,7 +1004,7 @@ describe('TxBuilder', function () {
         keyPair8,
         keyPair9,
         keyPair10,
-        keyPair11,
+        keyPair11
       ])
       TxVerifier.verify(txb.tx, txb.uTxOutMap).should.equal(true)
     })
@@ -1965,7 +1965,7 @@ describe('TxBuilder', function () {
       keyPairs.push(KeyPair.fromJSON(JSON.parse('{"privKey":"805d3c50621207fc5783c82bf7e7f090161154818467258c49368dfbf95a6cb5a301","pubKey":"01043fb03af6776d59cdb6ae78dff502d36b5a51429f243116f827e3d7438343b213ab07f6bc08e1a0afba025e0cd34395afedce01bf8e9b6b7c6d385eaaee57403d"}')))
       keyPairs.push(KeyPair.fromJSON(JSON.parse('{"privKey":"80aaf1703f957b80a023088c5a04c9fb4d4950705dcd8b7aaf6cd9eea66e807f8801","pubKey":"0104582a67dd32baefe4063e0408809bc740df4233c44dc2e5e3737de5c2249f08630bb6640376b7ed60ed12ec161a458c8bbb3417a7e3474a3e9436cc32d9296627"}')))
 
-      let txVerifier = new TxVerifier(txb.tx, txb.uTxOutMap)
+      const txVerifier = new TxVerifier(txb.tx, txb.uTxOutMap)
 
       // txb.uTxOutMap.map.forEach((txOut, label) => {
       //   console.log(label, Address.fromTxOutScript(txOut.script).toString(), txOut.valueBn.toNumber())
@@ -1991,7 +1991,7 @@ describe('TxBuilder', function () {
       txb2.sort() // NOT sorting should lead to valid tx
       txb2.signWithKeyPairs(keyPairs)
 
-      let txVerifier2 = new TxVerifier(txb2.tx, txb2.uTxOutMap)
+      const txVerifier2 = new TxVerifier(txb2.tx, txb2.uTxOutMap)
 
       // txb2.uTxOutMap.map.forEach((txOut, label) => {
       //   console.log(label, Address.fromTxOutScript(txOut.script).toString(), txOut.valueBn.toNumber())

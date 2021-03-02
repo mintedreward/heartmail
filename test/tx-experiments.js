@@ -1,23 +1,22 @@
-/* global describe,it,before */
+/* global describe,it */
 'use strict'
 import { Address } from '../lib/address'
 import { Bn } from '../lib/bn'
 import { Hash } from '../lib/hash'
-import { Interp } from '../lib/interp'
 import { KeyPair } from '../lib/key-pair'
 import { PrivKey } from '../lib/priv-key'
-import { PubKey } from '../lib/pub-key'
 import { Script } from '../lib/script'
 import { Sig } from '../lib/sig'
-import { Tx } from '../lib/tx'
 import { TxBuilder } from '../lib/tx-builder'
 import { TxOut } from '../lib/tx-out'
-import { TxOutMap } from '../lib/tx-out-map'
 import { TxVerifier } from '../lib/tx-verifier'
 import should from 'should'
-import sinon from 'sinon'
 
 describe('Tx Experiments', function () {
+  it('should exist', function () {
+    should.exist(TxBuilder)
+  })
+
   it('should spend script template: Satoshi XOR', () => {
     // Satoshi XOR
     //

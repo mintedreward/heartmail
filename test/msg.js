@@ -148,7 +148,7 @@ describe('Msg', function () {
     })
 
     it('should throw an error for message over max size in strict mode', function () {
-      const msg = new Msg();
+      const msg = new Msg()
       const msgbuf2 = Buffer.from(msgbuf)
       msgbuf2.writeUInt32BE(msg.constants.MaxSize + 1, 4 + 12)
       ;(function () {
@@ -158,12 +158,12 @@ describe('Msg', function () {
       }.should.throw('message size greater than maxsize'))
     })
   })
-  
-  describe('#STN', function() {
+
+  describe('#STN', function () {
     it('should match initialized magicNum against STN magicnum', function () {
-      const msg = new Msg.STN();
-      msg.magicNum.should.equal(Constants.STN.Msg.magicNum);
-      msg.magicNum.should.not.equal(Constants.Mainnet.Msg.magicNum);
+      const msg = new Msg.STN()
+      msg.magicNum.should.equal(Constants.STN.Msg.magicNum)
+      msg.magicNum.should.not.equal(Constants.Mainnet.Msg.magicNum)
     })
   })
 

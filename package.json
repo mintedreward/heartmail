@@ -11,7 +11,7 @@
   "library": "coasianspv",
   "scripts": {
     "clean": "rm -rf node_modules/* yarn.lock",
-    "lint": "standard *.js lib/**/*.js bin/**/*.js test/**/*.js",
+    "lint": "standard *.js 'lib/**/*.js' 'bin/**/*.js' 'test/**/*.js'",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",
     "test:karma": "karma start --single-run",

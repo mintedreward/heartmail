@@ -89,7 +89,7 @@ describe('#Ecies', function () {
       const message = Buffer.from('this is my ECDH test message')
       const ecdhMessageEncryptedBob = Ecies.electrumEncrypt(message, bobKeyPair.pubKey, aliceKeyPair, true)
       const ecdhMessageEncryptedAlice = Ecies.electrumEncrypt(message, aliceKeyPair.pubKey, bobKeyPair, true)
-      ecdhMessageEncryptedBob.toString("base64").should.equal(ecdhMessageEncryptedAlice.toString("base64"))
+      ecdhMessageEncryptedBob.toString('base64').should.equal(ecdhMessageEncryptedAlice.toString('base64'))
       Ecies.electrumDecrypt(ecdhMessageEncryptedAlice, bobPrivKey, aliceKeyPair.pubKey).toString().should.equal('this is my ECDH test message')
       Ecies.electrumDecrypt(ecdhMessageEncryptedBob, alicePrivKey, bobKeyPair.pubKey).toString().should.equal('this is my ECDH test message')
     })
