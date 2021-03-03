@@ -11,6 +11,97 @@ import { TxBuilder } from '../lib/tx-builder'
 import { TxOut } from '../lib/tx-out'
 import { TxVerifier } from '../lib/tx-verifier'
 import should from 'should'
+/*
+@CSW I am learning Forth. The way to define a function in Forth is something
+like this:
+
+: travelingsalesman [code]
+
+This feature is not built into Bitcoin Script. 
+
+However, one could imagine creating a fully-featured Forth interpreter than
+compiles down to not just an individual script inside an input/output, but that
+compiles down to a transaction DAG that is negotiated between multiple parties.
+
+This is the Forth overlay network. It is very similar to Forth, except multiple
+different parties can access the shared state rather than just one party. Each
+party has their own keys.
+
+In the Forth overlay network we can define functions. The way to reference a
+function is by transaction ID and output number (txid/vout). The high-level
+Forth interpreter can let you define the function and then create the txid/vout
+that you can then use. The function is a script inside an output. Running the
+function would look like this:
+
+5 5 + travelingsalesman
+
+The “+” would compiled directly to OP_ADD in Bitcoin Script. The
+travelingsalesman function call however would have to do something different.
+The input in this case would be 10 (equal to 5 + 5) into the travelingsalesman
+function. So what we would need to do is take that value and put it into an
+input in another transaction that spends the output containing the
+travelingsalesman function.
+
+The way this can work is that when a script ends, the return stack is used as
+the input to the next script. The Forth interpreter takes the result of 5 5 +
+and uses that as the input to the travelingsalesman function.
+
+Thus, running this script actually involves at least two outputs. One for 5 5 +
+and one for travelingsalesman.
+
+We can do loops by iterating the sequence number of an input, or unrolling into
+a single script. Any computation can be performed.
+
+The difference with Bitcoin is that there is cash inside.
+
+Suppose I am willing to pay 5 BSV to have the travelingsalesman function run.
+Then I specify that like this:
+
+5: travelingsalesman [code]
+
+This is new syntax for Forth. Forth doesn't have cash, so I am suggesting the
+way to fund code is to prefix it with the quantity of Bitcoin you are funding
+the code with.
+
+This uses one's existing UTXOs to create a new transaction with 5 BSV in an output
+and the travelingsalesman function in the output. Anyone on the Forth overlay
+network can see that there is a bounty for running some code called
+"travelingsalesman". What is means to run the function is to find an input that
+makes spending it valid.
+
+Someone who is good at running part of travelingsalesman, but not all, can
+create a transaction with dependencies. The input is travelingsalesman, with
+two outputs specifing two subproblems, subproblem1 and subproblem2. If someone
+solves both of those, then all three transactions become valid and everyone gets
+their money.
+
+          C1
+A -> B ->
+          C2
+
+The output of A is travelingsalesman. The outputs of B are subproblems which
+are solved by C1 and C2.
+
+When solutions to C1 and C2 are found, the return values from those from those
+are placed into the input for B, which solves A (travelingsalesman).
+
+Thus, in this example, three different people collaborate to solve the
+travelingsalesman problem posed by a fourth person.
+
+Am I on the right track here? I can continue to brainstorm how to bring in
+arbitrary computation & contracts using these additional features of Bitcoin:
+
+* SIGHASH flags to constrain inputs/outputs and allow multiple parties to be
+  involved
+* OP_CODESEPARATOR to choose what parts of an output are enforced
+* nLocktime to prevent a transaction from being published until some future date
+* ANYONECANPAY to do the reverse of a bounty - pay me and I will run this code
+
+-------------------------
+
+
+
+*/
 
 describe('Tx Experiments', function () {
   it('should exist', function () {
