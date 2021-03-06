@@ -1,9 +1,9 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import { Struct } from '../lib/struct'
+import { Struct } from '../src/struct'
 import sinon from 'sinon'
-import { Br } from '../lib/br'
+import { Br } from '../src/br'
 
 describe('Struct', function () {
   it('should make a new struct', function () {

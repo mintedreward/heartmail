@@ -1,10 +1,10 @@
 /* global describe,it */
 'use strict'
-import { Ecies } from '../lib/ecies'
+import { Ecies } from '../src/ecies'
 import should from 'should'
-import { KeyPair } from '../lib/key-pair'
-import { PrivKey } from '../lib/priv-key'
-import { Hash } from '../lib/hash'
+import { KeyPair } from '../src/key-pair'
+import { PrivKey } from '../src/priv-key'
+import { Hash } from '../src/hash'
 
 describe('#Ecies', function () {
   it('should make a new Ecies object', function () {

@@ -4,14 +4,14 @@
   "version": "0.1.0",
   "author": "Coasian Inc.",
   "homepage": "https://github.com/coasian/spv",
-  "source": "entry.js",
+  "source": "src/index.js",
   "main": "dist/spv.js",
   "module": "dist/spv.modern.js",
   "unpkg": "dist/spv.bundle.js",
   "library": "spv",
   "scripts": {
     "clean": "rm -rf node_modules/* yarn.lock",
-    "lint": "standard *.js 'lib/**/*.js' 'bin/**/*.js' 'test/**/*.js'",
+    "lint": "standard *.js 'src/**/*.js' 'bin/**/*.js' 'test/**/*.js'",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",
     "test:karma": "karma start --single-run",
@@ -68,7 +68,7 @@
   "license": "SEE LICENSE",
   "standard": {
     "ignore": [
-      "lib/interp.js",
+      "src/interp.js",
       "dist/*"
     ]
   }

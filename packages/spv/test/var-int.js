@@ -1,10 +1,10 @@
 /* global describe,it */
 'use strict'
-import { Bn } from '../lib/bn'
+import { Bn } from '../src/bn'
 import should from 'should'
-import { Br } from '../lib/br'
-import { Bw } from '../lib/bw'
-import { VarInt } from '../lib/var-int'
+import { Br } from '../src/br'
+import { Bw } from '../src/bw'
+import { VarInt } from '../src/var-int'
 
 describe('VarInt', function () {
   it('should make a new varInt', function () {

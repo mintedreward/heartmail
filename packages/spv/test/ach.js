@@ -1,6 +1,6 @@
 /* global describe,it */
 'use strict'
-import { Ach } from '../lib/ach'
+import { Ach } from '../src/ach'
 import should from 'should'
 
 describe('Ach (Aes+Cbc+Hmac)', function () {

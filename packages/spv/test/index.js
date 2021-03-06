@@ -1,10 +1,10 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import * as coasianspv from '../entry'
+import * as spv from '../src/index'
 
-describe('coasianspv', function () {
+describe('spv', function () {
   it('should pass this sanity check on loading the main package', function () {
-    should.exist(coasianspv)
+    should.exist(spv)
   })
 })

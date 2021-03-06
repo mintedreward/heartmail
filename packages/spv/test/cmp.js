@@ -1,6 +1,6 @@
 /* global describe,it */
 'use strict'
-import { cmp } from '../lib/cmp'
+import { cmp } from '../src/cmp'
 import 'should'
 
 describe('cmp', function () {

@@ -1,6 +1,6 @@
 /* global describe,it */
 'use strict'
-import { Merkle } from '../lib/merkle'
+import { Merkle } from '../src/merkle'
 import should from 'should'
 
 describe('Merkle', function () {

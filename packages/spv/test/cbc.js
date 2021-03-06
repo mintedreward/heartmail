@@ -1,7 +1,7 @@
 /* global describe,it */
 'use strict'
-import { Aes } from '../lib/aes'
-import { Cbc } from '../lib/cbc'
+import { Aes } from '../src/aes'
+import { Cbc } from '../src/cbc'
 import 'should'
 
 describe('Cbc', function () {

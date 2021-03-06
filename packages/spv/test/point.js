@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import { Point } from '../lib/point'
-import { Bn } from '../lib/bn'
+import { Point } from '../src/point'
+import { Bn } from '../src/bn'
 
 describe('Point', function () {
   it('should create a point', function () {

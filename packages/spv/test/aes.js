@@ -1,7 +1,7 @@
 /* global describe,it */
 import should from 'should'
-import { Hash } from '../lib/hash'
-import { Aes } from '../lib/aes'
+import { Hash } from '../src/hash'
+import { Aes } from '../src/aes'
 import vectors from './vectors/aes.json'
 
 describe('Aes', function () {

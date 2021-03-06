@@ -32,9 +32,9 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
+    "@coasian/spv": "^0.1.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "license": "SEE LICENSE",
   "standard": {
     "ignore": [

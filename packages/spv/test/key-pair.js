@@ -1,9 +1,9 @@
 /* global describe,it */
 'use strict'
-import { KeyPair } from '../lib/key-pair'
-import { PrivKey } from '../lib/priv-key'
-import { PubKey } from '../lib/pub-key'
-import { Bn } from '../lib/bn'
+import { KeyPair } from '../src/key-pair'
+import { PrivKey } from '../src/priv-key'
+import { PubKey } from '../src/pub-key'
+import { Bn } from '../src/bn'
 import should from 'should'
 
 describe('KeyPair', function () {

@@ -1,12 +1,12 @@
 /* global describe,it */
 'use strict'
-import { Br } from '../lib/br'
-import { Bw } from '../lib/bw'
-import { Hash } from '../lib/hash'
-import { Msg } from '../lib/msg'
-import { Random } from '../lib/random'
+import { Br } from '../src/br'
+import { Bw } from '../src/bw'
+import { Hash } from '../src/hash'
+import { Msg } from '../src/msg'
+import { Random } from '../src/random'
 import should from 'should'
-import { Constants } from '../lib/constants'
+import { Constants } from '../src/constants'
 
 describe('Msg', function () {
   const msghex = 'e3e1f3e876657261636b000000000000000000005df6e0e2'

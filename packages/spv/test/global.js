@@ -6,7 +6,7 @@
  * hanging when the tests are done running so that the tests end properly.
  */
 'use strict'
-import { Workers } from '../lib/workers'
+import { Workers } from '../src/workers'
 
 after(function () {
   Workers.endGlobalWorkers()

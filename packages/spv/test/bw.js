@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
-import { Bw } from '../lib/bw'
-import { Br } from '../lib/br'
-import { Bn } from '../lib/bn'
+import { Bw } from '../src/bw'
+import { Br } from '../src/br'
+import { Bn } from '../src/bn'
 import should from 'should'
 
 describe('Bw', function () {

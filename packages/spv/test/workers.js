@@ -1,12 +1,12 @@
 /* global describe,it */
 'use strict'
-import { Bip32 } from '../lib/bip-32'
-import { Ecies } from '../lib/ecies'
-import { Hash } from '../lib/hash'
-import { PrivKey } from '../lib/priv-key'
-import { PubKey } from '../lib/pub-key'
-import { KeyPair } from '../lib/key-pair'
-import { Workers } from '../lib/workers'
+import { Bip32 } from '../src/bip-32'
+import { Ecies } from '../src/ecies'
+import { Hash } from '../src/hash'
+import { PrivKey } from '../src/priv-key'
+import { PubKey } from '../src/pub-key'
+import { KeyPair } from '../src/key-pair'
+import { Workers } from '../src/workers'
 import should from 'should'
 
 describe('Workers', function () {

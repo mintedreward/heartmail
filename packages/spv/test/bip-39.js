@@ -1,15 +1,15 @@
 /* global describe,it */
 'use strict'
-import { Address } from '../lib/address'
-import { Bip32 } from '../lib/bip-32'
-import { Bip39 } from '../lib/bip-39'
-import { Bip39Jp } from '../lib/bip-39-jp'
-import { Bip39En } from '../lib/bip-39-en'
-import { Random } from '../lib/random'
+import { Address } from '../src/address'
+import { Bip32 } from '../src/bip-32'
+import { Bip39 } from '../src/bip-39'
+import { Bip39Jp } from '../src/bip-39-jp'
+import { Bip39En } from '../src/bip-39-en'
+import { Random } from '../src/random'
 import should from 'should'
 import vectors from './vectors/bip39.json'
-import { wordList as enWordList } from '../lib/bip-39-en-wordlist'
-import { wordList as jpWordList } from '../lib/bip-39-jp-wordlist'
+import { wordList as enWordList } from '../src/bip-39-en-wordlist'
+import { wordList as jpWordList } from '../src/bip-39-jp-wordlist'
 
 describe('Bip39', function () {
   this.timeout(5000)

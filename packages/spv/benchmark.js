@@ -1,4 +1,4 @@
-const coasianspv = require('./dist/coasianspv')
+const coasianspv = require('./dist/spv')
 
 const Address = coasianspv.Address
 const PrivKey = coasianspv.PrivKey

@@ -1,11 +1,11 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import { SigOperations } from '../lib/sig-operations'
-import { KeyPair } from '../lib/key-pair'
-import { PrivKey } from '../lib/priv-key'
-import { Sig } from '../lib/sig'
-import { Address } from '../lib/address'
+import { SigOperations } from '../src/sig-operations'
+import { KeyPair } from '../src/key-pair'
+import { PrivKey } from '../src/priv-key'
+import { Sig } from '../src/sig'
+import { Address } from '../src/address'
 
 describe('SigOperations', function () {
   const txHashBuf = Buffer.alloc(32)

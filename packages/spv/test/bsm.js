@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
-import { Address } from '../lib/address'
-import { Bsm } from '../lib/bsm'
-import { KeyPair } from '../lib/key-pair'
+import { Address } from '../src/address'
+import { Bsm } from '../src/bsm'
+import { KeyPair } from '../src/key-pair'
 import should from 'should'
 
 describe('Bsm', function () {

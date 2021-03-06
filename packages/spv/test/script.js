@@ -1,10 +1,10 @@
 /* global describe,it */
 'use strict'
-import { Bn } from '../lib/bn'
-import { OpCode } from '../lib/op-code'
-import { PrivKey } from '../lib/priv-key'
-import { PubKey } from '../lib/pub-key'
-import { Script } from '../lib/script'
+import { Bn } from '../src/bn'
+import { OpCode } from '../src/op-code'
+import { PrivKey } from '../src/priv-key'
+import { PubKey } from '../src/pub-key'
+import { Script } from '../src/script'
 import should from 'should'
 
 import scriptInvalid from './vectors/bitcoind/script_invalid.json'

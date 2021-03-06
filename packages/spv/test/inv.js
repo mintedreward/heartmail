@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
-import { Inv } from '../lib/inv'
-import { Hash } from '../lib/hash'
-import { Bw } from '../lib/bw'
+import { Inv } from '../src/inv'
+import { Hash } from '../src/hash'
+import { Bw } from '../src/bw'
 import should from 'should'
 
 describe('Inv', function () {

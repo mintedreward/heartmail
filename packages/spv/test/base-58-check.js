@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import { Base58Check } from '../lib/base-58-check'
-import { Base58 } from '../lib/base-58'
+import { Base58Check } from '../src/base-58-check'
+import { Base58 } from '../src/base-58'
 
 describe('Base58Check', function () {
   const buf = Buffer.from([0, 1, 2, 3, 253, 254, 255])

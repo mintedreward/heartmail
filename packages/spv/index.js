@@ -3,70 +3,70 @@
  * ===========
  *
  * index.js is an example of how to build a bundle with spv. This
- * bundle includes the entire library, which uses the default configuration
+ * bundle includes the entire srcrary, which uses the default configuration
  * (which is the same as Mainnet) and can be overridden. It also includes
  * Mainnet and Testnet configuration which are accessible even if you override
  * the defaults. It is not necessary to  use Yours Bitcoin this way, since you
  * probably do not use every component, and therefore do not need to include
  * every component into your project. You can simply directly require the
- * elements of the library you need, and, if your project is browser-based,
+ * elements of the srcrary you need, and, if your project is browser-based,
  * browserify your project. For instance:
- * const Address = require('spv/lib/address').
+ * const Address = require('spv/src/address').
  */
 'use strict'
 if (!global._babelPolyfill) {
   require('babel-polyfill')
 }
-require('./lib/config')
+require('./src/config')
 
 const spv = module.exports
 
 spv.version = require('./package').version
 
-// Main bitcoin library - bitcoin protocols, standards, cryptography, and
+// Main bitcoin srcrary - bitcoin protocols, standards, cryptography, and
 // utilities.
-spv.Address = require('./lib/address')
-spv.Bip32 = require('./lib/bip-32')
-spv.Bip39 = require('./lib/bip-39')
-spv.Bn = require('./lib/bn')
-spv.Br = require('./lib/br')
-spv.Bsm = require('./lib/bsm')
-spv.Bw = require('./lib/bw')
-spv.Base58 = require('./lib/base-58')
-spv.Base58Check = require('./lib/base-58-check')
-spv.Block = require('./lib/block')
-spv.BlockHeader = require('./lib/block-header')
-spv.Constants = require('./lib/constants')
-spv.Ecdsa = require('./lib/ecdsa')
-spv.Hash = require('./lib/hash')
-spv.Interp = require('./lib/interp')
-spv.KeyPair = require('./lib/key-pair')
-spv.OpCode = require('./lib/op-code')
-spv.Point = require('./lib/point')
-spv.PrivKey = require('./lib/priv-key')
-spv.PubKey = require('./lib/pub-key')
-spv.Random = require('./lib/random')
-spv.Script = require('./lib/script')
-spv.Sig = require('./lib/sig')
-spv.Struct = require('./lib/struct')
-spv.Tx = require('./lib/tx')
-spv.TxBuilder = require('./lib/tx-builder')
-spv.TxIn = require('./lib/tx-in')
-spv.TxOut = require('./lib/tx-out')
-spv.TxOutMap = require('./lib/tx-out-map')
-spv.TxVerifier = require('./lib/tx-verifier')
-spv.VarInt = require('./lib/var-int')
-spv.Workers = require('./lib/workers')
-spv.WorkersResult = require('./lib/workers-result')
-spv.cmp = require('./lib/cmp')
+spv.Address = require('./src/address')
+spv.Bip32 = require('./src/bip-32')
+spv.Bip39 = require('./src/bip-39')
+spv.Bn = require('./src/bn')
+spv.Br = require('./src/br')
+spv.Bsm = require('./src/bsm')
+spv.Bw = require('./src/bw')
+spv.Base58 = require('./src/base-58')
+spv.Base58Check = require('./src/base-58-check')
+spv.Block = require('./src/block')
+spv.BlockHeader = require('./src/block-header')
+spv.Constants = require('./src/constants')
+spv.Ecdsa = require('./src/ecdsa')
+spv.Hash = require('./src/hash')
+spv.Interp = require('./src/interp')
+spv.KeyPair = require('./src/key-pair')
+spv.OpCode = require('./src/op-code')
+spv.Point = require('./src/point')
+spv.PrivKey = require('./src/priv-key')
+spv.PubKey = require('./src/pub-key')
+spv.Random = require('./src/random')
+spv.Script = require('./src/script')
+spv.Sig = require('./src/sig')
+spv.Struct = require('./src/struct')
+spv.Tx = require('./src/tx')
+spv.TxBuilder = require('./src/tx-builder')
+spv.TxIn = require('./src/tx-in')
+spv.TxOut = require('./src/tx-out')
+spv.TxOutMap = require('./src/tx-out-map')
+spv.TxVerifier = require('./src/tx-verifier')
+spv.VarInt = require('./src/var-int')
+spv.Workers = require('./src/workers')
+spv.WorkersResult = require('./src/workers-result')
+spv.cmp = require('./src/cmp')
 
 // Encryption tools. Some bitcoin standards use Aes encryption, so that's why
 // these are available.
-spv.Ach = require('./lib/ach')
-spv.Aes = require('./lib/aes')
-spv.Aescbc = require('./lib/aescbc')
-spv.Cbc = require('./lib/cbc')
-spv.Ecies = require('./lib/ecies')
+spv.Ach = require('./src/ach')
+spv.Aes = require('./src/aes')
+spv.Aescbc = require('./src/aescbc')
+spv.Cbc = require('./src/cbc')
+spv.Ecies = require('./src/ecies')
 
 // Dependencies, subject to change.
 spv.deps = {}

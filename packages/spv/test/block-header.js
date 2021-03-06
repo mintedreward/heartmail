@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
-import { BlockHeader } from '../lib/block-header'
-import { Bw } from '../lib/bw'
-import { Br } from '../lib/br'
+import { BlockHeader } from '../src/block-header'
+import { Bw } from '../src/bw'
+import { Br } from '../src/br'
 import should from 'should'
 
 describe('BlockHeader', function () {

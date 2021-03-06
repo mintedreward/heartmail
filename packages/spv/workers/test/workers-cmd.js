@@ -1,9 +1,9 @@
 /* global describe,it */
 'use strict'
-let Bip32 = require('../lib/bip-32')
-let Bw = require('../lib/bw')
-let WorkersCmd = require('../lib/workers-cmd')
-let cmp = require('../lib/cmp')
+let Bip32 = require('../src/bip-32')
+let Bw = require('../src/bw')
+let WorkersCmd = require('../src/workers-cmd')
+let cmp = require('../src/cmp')
 let should = require('should')
 
 describe('WorkersCmd', function () {
