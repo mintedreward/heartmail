@@ -1,6 +1,6 @@
 /**
- * coasianspv
- * ===
+ * Coasian SPV
+ * ===========
  *
  * entry.js is the entry point for a the js bundlers.
  * Webpack and microbundlers, both start use this file as

@@ -1,14 +1,14 @@
 {
   "name": "@coasian/spv",
-  "description": "Simplified Payment Verification",
+  "description": "Simplified Payment Verification (SPV).",
   "version": "0.1.0",
   "author": "Coasian Inc.",
-  "homepage": "https://github.com/coasian/coasianspv",
+  "homepage": "https://github.com/coasian/spv",
   "source": "entry.js",
-  "main": "dist/coasianspv.js",
-  "module": "dist/coasianspv.modern.js",
-  "unpkg": "dist/coasianspv.bundle.js",
-  "library": "coasianspv",
+  "main": "dist/spv.js",
+  "module": "dist/spv.modern.js",
+  "unpkg": "dist/spv.bundle.js",
+  "library": "spv",
   "scripts": {
     "clean": "rm -rf node_modules/* yarn.lock",
     "lint": "standard *.js 'lib/**/*.js' 'bin/**/*.js' 'test/**/*.js'",
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/coasian/coasianspv.git"
+    "url": "https://github.com/coasian/spv.git"
   },
   "engines": {
     "node": ">=14.0.0"

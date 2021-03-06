@@ -43,15 +43,15 @@ Goals:
 
 ## Environment Variables
 
-* `COASIANSPV_JS_BASE_URL` - Default "/".
-* `COASIANSPV_JS_BUNDLE_FILE` - Default "coasianspv.js"
-* `COASIANSPV_JS_WORKER_FILE` - Default "coasianspv-worker.js"
+* `SPV_JS_BASE_URL` - Default "/".
+* `SPV_JS_BUNDLE_FILE` - Default "spv.js"
+* `SPV_JS_WORKER_FILE` - Default "spv-worker.js"
 * `NETWORK` - Default "mainnet"
 
 You can change the network to run the CLI in testnet mode:
 
 ```
-NETWORK=testnet ./bin/coasianspv.js
+NETWORK=testnet ./bin/spv.js
 ```
 
 [1] "Bitcoin: A Peer-to-Peer Electronic Cash System", Satoshi Nakamoto.

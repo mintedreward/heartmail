@@ -1,0 +1,44 @@
+{
+  "name": "@coasian/forth",
+  "description": "Distributed Forth interpreter.",
+  "version": "0.1.0",
+  "author": "Coasian Inc.",
+  "homepage": "https://github.com/coasian/forth",
+  "source": "entry.js",
+  "main": "dist/forth.js",
+  "module": "dist/forth.modern.js",
+  "unpkg": "dist/forth.bundle.js",
+  "library": "coasianspv",
+  "scripts": {
+    "clean": "rm -rf node_modules/* yarn.lock",
+    "lint": "standard *.js 'lib/**/*.js' 'bin/**/*.js' 'test/**/*.js'",
+    "pretest": "yarn run lint",
+    "test:mocha": "mocha",
+    "test:karma": "karma start --single-run",
+    "test": "yarn run test:mocha && yarn run test:karma",
+    "build": "webpack && microbundle --target node -f modern,cjs",
+    "prepublish": "yarn build",
+    "doc": "documentation build entry.js -f html -o doc"
+  },
+  "keywords": [
+    "bitcoin",
+    "bsv"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coasian/forth.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "license": "SEE LICENSE",
+  "standard": {
+    "ignore": [
+      "dist/*"
+    ]
+  }
+}

@@ -6,7 +6,8 @@ Subprojects:
 
 - Coasian SPV
 - Coasian Forth
-- Coasian EDI
 - Coasian KYC
+- Coasian EDI
 - Coasian GUI
 - Coasian Store
+- Coasian Search
