@@ -93,9 +93,9 @@ class TxBuilder extends Struct {
     return this
   }
 
-  setFeePerKbNum (feePerKbNum) {
-    if (typeof feePerKbNum !== 'number' || feePerKbNum <= 0) {
-      throw new Error('cannot set a fee of zero or less')
+  setFeePerKbNum (feePerKbNum = Constants.feePerKbNum) {
+    if (typeof feePerKbNum !== 'number') {
+      throw new Error('fee must be a number')
     }
     this.feePerKbNum = feePerKbNum
     return this
