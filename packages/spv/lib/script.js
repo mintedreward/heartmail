@@ -352,9 +352,9 @@ class Script extends Struct {
      * Output the script to the script string format used in bitcoind data tests.
      */
   toAsmString () {
-    var str = ''
-    for (var i = 0; i < this.chunks.length; i++) {
-      var chunk = this.chunks[i]
+    let str = ''
+    for (let i = 0; i < this.chunks.length; i++) {
+      const chunk = this.chunks[i]
       str += this._chunkToString(chunk)
     }
 
@@ -362,8 +362,8 @@ class Script extends Struct {
   }
 
   _chunkToString (chunk, type) {
-    var opCodeNum = chunk.opCodeNum
-    var str = ''
+    const opCodeNum = chunk.opCodeNum
+    let str = ''
     if (!chunk.buf) {
       // no data chunk
       if (typeof OpCode.str[opCodeNum] !== 'undefined') {
@@ -379,7 +379,7 @@ class Script extends Struct {
           str = str + ' ' + new OpCode(opCodeNum).toString()
         }
       } else {
-        var numstr = opCodeNum.toString(16)
+        let numstr = opCodeNum.toString(16)
         if (numstr.length % 2 !== 0) {
           numstr = '0' + numstr
         }
@@ -483,6 +483,7 @@ class Script extends Struct {
           continue
         }
       }
+      return 1 // exactly equal?
     })
   }
 
@@ -551,8 +552,8 @@ class Script extends Struct {
     if (this.chunks[0].opCodeNum !== OpCode.OP_FALSE) {
       return false
     }
-    var chunks = this.chunks.slice(1)
-    var script2 = new Script(chunks)
+    const chunks = this.chunks.slice(1)
+    const script2 = new Script(chunks)
     return script2.isOpReturn()
   }
 

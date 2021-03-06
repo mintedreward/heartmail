@@ -9,14 +9,14 @@ const Random = coasianspv.Random
 const Bn = coasianspv.Bn
 const KeyPair = coasianspv.KeyPair
 
-var randhex = 'adf4953b2e679fdc453d9cec93ba26c3bd9f0fb875975f3d72ed0c6c6835e26e'
-var randbn = new Bn().fromHex(randhex)
-var privateKey = PrivKey.fromBn(randbn)
-var publicKey = PubKey.fromPrivKey(privateKey)
-var keyPair = new KeyPair(privateKey, publicKey)
-var fromAddress = Address.fromPrivKey(privateKey)
-var toAddress = fromAddress
-var changeAddress = toAddress
+const randhex = 'adf4953b2e679fdc453d9cec93ba26c3bd9f0fb875975f3d72ed0c6c6835e26e'
+const randbn = new Bn().fromHex(randhex)
+const privateKey = PrivKey.fromBn(randbn)
+const publicKey = PubKey.fromPrivKey(privateKey)
+const keyPair = new KeyPair(privateKey, publicKey)
+const fromAddress = Address.fromPrivKey(privateKey)
+const toAddress = fromAddress
+const changeAddress = toAddress
 
 const n = 10000
 const satoshis = 1e3

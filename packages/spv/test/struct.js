@@ -120,7 +120,7 @@ describe('Struct', function () {
 
     it('should throw a not implemented error', function () {
       ;(function () {
-        var buf = Buffer.from([])
+        const buf = Buffer.from([])
         new Struct().fromBuffer(buf)
       }.should.throw('not implemented'))
     })
@@ -135,7 +135,7 @@ describe('Struct', function () {
 
     it('should throw a not implemented error', function () {
       ;(function () {
-        var buf = Buffer.from([])
+        const buf = Buffer.from([])
         Struct.fromBuffer(buf)
       }.should.throw('not implemented'))
     })
@@ -150,7 +150,7 @@ describe('Struct', function () {
 
     it('should throw a not implemented error', function () {
       ;(function () {
-        var buf = Buffer.from([])
+        const buf = Buffer.from([])
         new Struct().asyncFromBuffer(buf)
       }.should.throw('not implemented'))
     })
@@ -165,7 +165,7 @@ describe('Struct', function () {
 
     it('should throw a not implemented error', function () {
       ;(function () {
-        var buf = Buffer.from([])
+        const buf = Buffer.from([])
         Struct.asyncFromBuffer(buf)
       }.should.throw('not implemented'))
     })

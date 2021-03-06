@@ -346,8 +346,8 @@ describe('Script', function () {
 
   describe('@fromAsmString', function () {
     it('should parse this known script in ASM', function () {
-      var asm = 'OP_DUP OP_HASH160 f4c03610e60ad15100929cc23da2f3a799af1725 OP_EQUALVERIFY OP_CHECKSIG'
-      var script = Script.fromAsmString(asm)
+      const asm = 'OP_DUP OP_HASH160 f4c03610e60ad15100929cc23da2f3a799af1725 OP_EQUALVERIFY OP_CHECKSIG'
+      const script = Script.fromAsmString(asm)
       script.chunks[0].opCodeNum.should.equal(OpCode.OP_DUP)
       script.chunks[1].opCodeNum.should.equal(OpCode.OP_HASH160)
       script.chunks[2].opCodeNum.should.equal(20)
@@ -357,17 +357,17 @@ describe('Script', function () {
     })
 
     it('should parse this known problematic script in ASM', function () {
-      var asm = 'OP_RETURN 026d02 0568656c6c6f'
-      var script = Script.fromAsmString(asm)
+      const asm = 'OP_RETURN 026d02 0568656c6c6f'
+      const script = Script.fromAsmString(asm)
       script.toAsmString().should.equal(asm)
     })
 
     it('should know this is invalid hex', function () {
-      var asm = 'OP_RETURN 026d02 0568656c6c6fzz'
+      const asm = 'OP_RETURN 026d02 0568656c6c6fzz'
       let errors = 0
       try {
         errors++
-        var script = Script.fromAsmString(asm)
+        const script = Script.fromAsmString(asm)
         script.toAsmString().should.equal(asm)
       } catch (err) {
         err.message.should.equal('invalid hex string in script')
@@ -376,41 +376,41 @@ describe('Script', function () {
     })
 
     it('should parse this long PUSHDATA1 script in ASM', function () {
-      var buf = Buffer.alloc(220, 0)
-      var asm = 'OP_RETURN ' + buf.toString('hex')
-      var script = Script.fromAsmString(asm)
+      const buf = Buffer.alloc(220, 0)
+      const asm = 'OP_RETURN ' + buf.toString('hex')
+      const script = Script.fromAsmString(asm)
       script.chunks[1].opCodeNum.should.equal(OpCode.OP_PUSHDATA1)
       script.toAsmString().should.equal(asm)
     })
 
     it('should parse this long PUSHDATA2 script in ASM', function () {
-      var buf = Buffer.alloc(1024, 0)
-      var asm = 'OP_RETURN ' + buf.toString('hex')
-      var script = Script.fromAsmString(asm)
+      const buf = Buffer.alloc(1024, 0)
+      const asm = 'OP_RETURN ' + buf.toString('hex')
+      const script = Script.fromAsmString(asm)
       script.chunks[1].opCodeNum.should.equal(OpCode.OP_PUSHDATA2)
       script.toAsmString().should.equal(asm)
     })
 
     it('should parse this long PUSHDATA4 script in ASM', function () {
-      var buf = Buffer.alloc(Math.pow(2, 17), 0)
-      var asm = 'OP_RETURN ' + buf.toString('hex')
-      var script = Script.fromAsmString(asm)
+      const buf = Buffer.alloc(Math.pow(2, 17), 0)
+      const asm = 'OP_RETURN ' + buf.toString('hex')
+      const script = Script.fromAsmString(asm)
       script.chunks[1].opCodeNum.should.equal(OpCode.OP_PUSHDATA4)
       script.toAsmString().should.equal(asm)
     })
 
     it('should return this script correctly', function () {
-      var asm1 = 'OP_FALSE'
-      var asm2 = 'OP_0'
-      var asm3 = '0'
+      const asm1 = 'OP_FALSE'
+      const asm2 = 'OP_0'
+      const asm3 = '0'
       Script.fromAsmString(asm1).toAsmString().should.equal(asm3)
       Script.fromAsmString(asm2).toAsmString().should.equal(asm3)
       Script.fromAsmString(asm3).toAsmString().should.equal(asm3)
     })
 
     it('should return this script correctly', function () {
-      var asm1 = 'OP_1NEGATE'
-      var asm2 = '-1'
+      const asm1 = 'OP_1NEGATE'
+      const asm2 = '-1'
       Script.fromAsmString(asm1).toAsmString().should.equal(asm2)
       Script.fromAsmString(asm2).toAsmString().should.equal(asm2)
     })
