@@ -1,14 +1,5 @@
 *.swp
-coverage
 node_modules
-build/coasianspv.js
-build/coasianspv-worker.js
-build/coasianspv-min.js
-build/coasianspv-worker-min.js
-build/tests.js
 npm-debug.log
-doc
-.cache
 dist
 package-lock.json
-.DS_Store
