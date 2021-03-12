@@ -1,15 +1,17 @@
 /* global describe,it */
 'use strict'
-import { Address } from '../src/address'
-import { Bn } from '../src/bn'
-import { Hash } from '../src/hash'
-import { KeyPair } from '../src/key-pair'
-import { PrivKey } from '../src/priv-key'
-import { Script } from '../src/script'
-import { Sig } from '../src/sig'
-import { TxBuilder } from '../src/tx-builder'
-import { TxOut } from '../src/tx-out'
-import { TxVerifier } from '../src/tx-verifier'
+import {
+  Address,
+  Bn,
+  Hash,
+  KeyPair,
+  PrivKey,
+  Script,
+  Sig,
+  TxBuilder,
+  TxOut,
+  TxVerifier
+} from '@coasian/spv'
 import should from 'should'
 /*
 @CSW I am learning Forth. The way to define a function in Forth is something
