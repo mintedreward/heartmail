@@ -75,3 +75,34 @@ Post-MVP:
 - Selling content will be a feature. I will sell content through the app. Each
   user will have a page.
 - The software itself will be sold using the software.
+
+Compliance:
+
+- Have an AML policy. Have an anti-terrorism policy.
+- Be an "unhosted wallet" only until we are ready to comply with hosted wallet
+  regulations.
+- Collect KYC/KYB information including country, verified name, verified
+  government ID.
+- Prohibit sanctioned countries:  Crimea region of Ukraine, Cuba, Iran, Sudan,
+  Syria, North Korea.
+- Prohibit sanctioned countries based on verified data, IP, email.
+- Comply with the travel rule - send customer data to receiving wallet
+
+## Launch Plan
+
+- Email sign up (with verification)
+- KYC (with $5.00 payment for ~ $1.25 cost per verification)
+- Upload avatar + description
+- Show documentation if you are signed in (and have therefore paid $5.00 + KYC)
+- oasian SPV
+- Coasian Keys
+- Coasian Messenger
+- Earn money for viewing ads
+- invitation affiliate system
+
+## Terms of Relationship
+
+Lying is always unacceptable. White lies are lies. If you feel compelled to lie,
+it is better not to say anything at all rather than to lie. If you are caught
+lying, you will be permanently banned from Coasian and your money will not be
+refunded.
