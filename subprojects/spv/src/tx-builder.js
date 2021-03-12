@@ -27,7 +27,7 @@ class TxBuilder extends Struct {
     txOuts = [],
     uTxOutMap = new TxOutMap(),
     sigOperations = new SigOperations(),
-    changeScript,
+    changeScript = new Script(),
     changeAmountBn,
     feeAmountBn,
     feePerKbNum = Constants.feePerKbNum,
@@ -64,7 +64,7 @@ class TxBuilder extends Struct {
     json.txOuts = this.txOuts.map(txOut => txOut.toHex())
     json.uTxOutMap = this.uTxOutMap.toJSON()
     json.sigOperations = this.sigOperations.toJSON()
-    json.changeScript = this.changeScript ? this.changeScript.toHex() : undefined
+    json.changeScript = this.changeScript.toHex()
     json.changeAmountBn = this.changeAmountBn ? this.changeAmountBn.toNumber() : undefined
     json.feeAmountBn = this.feeAmountBn ? this.feeAmountBn.toNumber() : undefined
     json.feePerKbNum = this.feePerKbNum
@@ -81,7 +81,7 @@ class TxBuilder extends Struct {
     this.txOuts = json.txOuts.map(txOut => TxOut.fromHex(txOut))
     this.uTxOutMap = new TxOutMap().fromJSON(json.uTxOutMap)
     this.sigOperations = new SigOperations().fromJSON(json.sigOperations)
-    this.changeScript = json.changeScript ? new Script().fromHex(json.changeScript) : undefined
+    this.changeScript = new Script().fromHex(json.changeScript)
     this.changeAmountBn = json.changeAmountBn ? new Bn(json.changeAmountBn) : undefined
     this.feeAmountBn = json.feeAmountBn ? new Bn(json.feeAmountBn) : undefined
     this.feePerKbNum = json.feePerKbNum || this.feePerKbNum
@@ -106,7 +106,7 @@ class TxBuilder extends Struct {
     return this
   }
 
-  setChangeScript (changeScript) {
+  setChangeScript (changeScript = new Script()) {
     this.changeScript = changeScript
     return this
   }
@@ -330,9 +330,6 @@ class TxBuilder extends Struct {
     if (this.txIns.length <= 0) {
       throw Error('tx-builder number of inputs must be greater than 0')
     }
-    if (!this.changeScript) {
-      throw new Error('must specify change script to use build method')
-    }
     for (
       let extraInputsNum = opts.useAllInputs ? this.txIns.length - 1 : 0;
       extraInputsNum < this.txIns.length;
@@ -383,6 +380,14 @@ class TxBuilder extends Struct {
         } else {
           throw new Error('unable to create change amount greater than dust')
         }
+      } else if (this.changeAmountBn.eq(new Bn(0))) {
+        // Remove the change amount since it is pointless since it is zero.
+        this.tx.txOuts.pop()
+        this.tx.txOutsVi = VarInt.fromNumber(this.tx.txOutsVi.toNumber() - 1)
+        this.feeAmountBn = this.feeAmountBn.add(this.changeAmountBn)
+        this.changeAmountBn = new Bn(0)
+      } else if (this.changeScript.chunks.length === 0) {
+        throw new Error('change output is necessary but no change script was provided')
       }
 
       this.tx.nLockTime = this.nLockTime

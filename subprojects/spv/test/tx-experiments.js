@@ -273,6 +273,87 @@ describe('Tx Experiments', function () {
     str.should.equal(false)
   })
 
+  it('should spend script template: Satoshi XOR (zero fees, zero dust, zero change)', () => {
+    // Satoshi XOR
+    //
+    // This is the same as above but with zero fees, zero dust, and zero change.
+
+    // make address to send to
+    const privKey1 = PrivKey.fromBn(new Bn(1))
+    const keyPair1 = KeyPair.fromPrivKey(privKey1)
+    const addr1 = Address.fromPubKey(keyPair1.pubKey)
+    const state = new Bn(9000).toBuffer() // the state we are propagating is the number 9000
+    const addr1StateHash = Hash.sha256Ripemd160(state)
+    const addr1XorHashBuf = Buffer.from(addr1.hashBuf)
+    for (let i = 0; i < addr1XorHashBuf.length; i++) {
+      addr1XorHashBuf[i] ^= addr1StateHash[i]
+    }
+    const addr1Xor = Address.fromPubKeyHashBuf(addr1XorHashBuf)
+
+    // script template Satoshi XOR
+    const scriptout1 = new Script().fromString(
+      `
+      OP_HASH160
+      OP_TOALTSTACK
+      OP_DUP
+      OP_HASH160
+      OP_FROMALTSTACK
+      OP_XOR
+      20 0x${addr1Xor.hashBuf.toString('hex')}
+      OP_EQUALVERIFY
+      OP_CHECKSIG
+      `
+    )
+
+    const outputScript0 = new Script()
+    const txOut0 = TxOut.fromProperties(new Bn(1), outputScript0)
+    const inputScript0 = new Script()
+
+    const txb1 = new TxBuilder()
+    txb1.setFeePerKbNum(0)
+    txb1.setDust(0)
+    const txHashBuf0 = Buffer.alloc(32)
+    txHashBuf0.fill(0)
+    const txOutNum0 = 0
+    txb1.inputFromScript(txHashBuf0, txOutNum0, txOut0, inputScript0, keyPair1.pubKey)
+    // because we aren't signing it, this tx is invalid. but we don't care. it
+    // is the next tx we are really testing and will bother to correctly sign.
+    txb1.outputToScript(new Bn(1), scriptout1)
+    txb1.build()
+    txb1.tx.txOuts.length.should.equal(1)
+
+    // to spend it, we must input:
+    // [signature][pubkey][state]
+    const txb2 = new TxBuilder()
+    txb2.setFeePerKbNum(0)
+    txb2.setDust(0)
+    txb2.setChangeAddress(addr1)
+    const txHashBuf1 = txb1.tx.hash()
+    const txOutNum1 = 0
+    const txOut1 = txb1.txOuts[0]
+    const nSequence2 = undefined
+    const inputScript1 = new Script().fromString(
+      `
+      0
+      0
+      ${state.length} 0x${state.toString('hex')}
+      `
+    )
+    txb2.inputFromScript(txHashBuf1, txOutNum1, txOut1, inputScript1, nSequence2)
+    const nHashType2 = Sig.SIGHASH_ALL | Sig.SIGHASH_FORKID
+    txb2.addSigOperation(txHashBuf1, txOutNum1, 0, 'sig', addr1.toString(), nHashType2)
+    txb2.addSigOperation(txHashBuf1, txOutNum1, 1, 'pubKey', addr1.toString())
+    txb2.build()
+    txb2.signWithKeyPairs([keyPair1])
+
+    // TxVerifier.verify(txb2.tx, txb2.uTxOutMap).should.equal(true)
+
+    const txVerifier = new TxVerifier(txb2.tx, txb2.uTxOutMap)
+    const str = txVerifier.verifyStr()
+
+    str.should.equal(false)
+  })
+
   it('should spend script template: Satoshi Iterator', () => {
     /**
      * The idea of the Satoshi Iterator is that it is possible to propagate

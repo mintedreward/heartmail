@@ -5,9 +5,9 @@ described in the Bitcoin white paper [1].
 
 ---------------------------
 
-* [ ] txbuilder: allow zero fee transactions
-* [ ] txbuilder: allow zero dust transactions
-* [ ] txbuilder: remove change requirement
+* [x] txbuilder: allow zero fee transactions
+* [x] txbuilder: allow zero dust transactions
+* [x] txbuilder: remove change requirement
 * [ ] have documentation that is at least as good as bsv 1.x
 * [ ] create migration guide from 1.x
 * [ ] check types for all common methods
