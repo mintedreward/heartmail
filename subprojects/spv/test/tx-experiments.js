@@ -290,6 +290,14 @@ describe('Tx Experiments', function () {
     }
     const addr1Xor = Address.fromPubKeyHashBuf(addr1XorHashBuf)
 
+    const inputScript1 = new Script().fromString(
+      `
+      0
+      0
+      ${state.length} 0x${state.toString('hex')}
+      `
+    )
+
     // script template Satoshi XOR
     const scriptout1 = new Script().fromString(
       `
@@ -332,13 +340,6 @@ describe('Tx Experiments', function () {
     const txOutNum1 = 0
     const txOut1 = txb1.txOuts[0]
     const nSequence2 = undefined
-    const inputScript1 = new Script().fromString(
-      `
-      0
-      0
-      ${state.length} 0x${state.toString('hex')}
-      `
-    )
     txb2.inputFromScript(txHashBuf1, txOutNum1, txOut1, inputScript1, nSequence2)
     const nHashType2 = Sig.SIGHASH_ALL | Sig.SIGHASH_FORKID
     txb2.addSigOperation(txHashBuf1, txOutNum1, 0, 'sig', addr1.toString(), nHashType2)
