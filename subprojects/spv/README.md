@@ -3,6 +3,22 @@
 Coasian SPV is an implementation of Simplified Payment Verification (SPV) as
 described in the Bitcoin white paper [1].
 
+---------------------------
+
+* [ ] txbuilder: allow zero fee transactions
+* [ ] txbuilder: allow zero dust transactions
+* [ ] txbuilder: remove change requirement
+* [ ] have documentation that is at least as good as bsv 1.x
+* [ ] create migration guide from 1.x
+* [ ] check types for all common methods
+* [ ] update script interpreter to match genesis
+* [ ] support spanish and chinese for bip 39 without increasing file size
+* [ ] document benchmarks
+* [ ] restore workers
+* [ ] make it so that in TESTNET/MAINNET mode when you generate a new object, it gives you what you expect
+
+---------------------------
+
 Goals:
 
 1. Support ease-of-use by being internally consistent. It should not be
