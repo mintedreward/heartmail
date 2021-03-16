@@ -5,9 +5,9 @@ In honor of Ronald Coase and Chicago's cool economics.
 Subprojects:
 
 - **Coasian SPV**
-- **Coasian Keys** (secure interface to sign/encrypt)
-- Coasian Forth
+- **Coasian Forth**
 - **Coasian KYC**
+- **Coasian Messenger**
 - Coasian AML
 - Coasian USD
 - Coasian Bank
@@ -19,7 +19,6 @@ Subprojects:
 - Coasian Document
 - Coasian Video
 - Coasian Image
-- **Coasian Messenger**
 - Coasian Git
 - Coasian Music
 - Coasian Store
@@ -29,16 +28,16 @@ Subprojects:
 
 - "Own your data" messenger - business model is take 30% of targeted ads to
   users.
-- Must be based on paymail and be decentralized in the sense that anyone can run a node.
+- Must be based on paymail and be decentralized in the sense that anyone can run
+  a node. Log in with your paymail.
 - The consumer version is free, but we take 30% of targeted ads
-- The messenger is for consumers, but I will also license a commercial version
-  for businesses to run their own
+- I will also license a commercial version for businesses to run their own
 
 Principles:
 
 - Bootstrap. Do not raise money. Earn money on Day 1.
 - Collect KYC information on Day 1. All relationships (customers, employees,
-  partners) must satisfy a list of moral requirements.
+  partners) must satisfy a list of moral requirements including not to lie.
 
 Consumers:
 
@@ -94,8 +93,8 @@ Compliance:
 - KYC (with $5.00 payment for ~ $1.25 cost per verification)
 - Upload avatar + description
 - Show documentation if you are signed in (and have therefore paid $5.00 + KYC)
-- oasian SPV
-- Coasian Keys
+- Coasian SPV
+- Coasian Forth
 - Coasian Messenger
 - Earn money for viewing ads
 - invitation affiliate system
