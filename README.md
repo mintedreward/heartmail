@@ -8,7 +8,7 @@ One's greatest work of art is one's life.
 -----------------------------------------
 
 MVP:
-- "Ten Years of Bitcoin"
+- "The Hero with a Thousand Bitcoins"
 - Posted on May 13, 2021.
 - Free preview. An entire share-able article that is compelling and
   share-worthy. Has social media sharing links.
@@ -30,6 +30,9 @@ MVP:
   buy it.
 - Allow people to buy the article *for others*. That way people who don't have
   the money can still read the article.
+- Hire an artist to create graphical representations of the major events in the
+  book.
+- A "contact me" page.
 
 Marketing:
 - Video on YouTube.
@@ -41,8 +44,30 @@ Marketing:
 - Buy the article for a friend.
 
 Spiritual goal:
-- Believe that I can sell this article to 10,000 people by the end of May.
+- Believe that Hollywood will purchase the story for a major motion picture
+  this year.
+
+Every major event:
+- Created by an anonymous figure - Satoshi Nakamoto
+- "Five blind men found the blockchain"
+- Price rise and fall
+- Exchanges get "hacked"
+- Blockstream -> Antitrust
+- Every type of major sin: green, lust, etc.
+- Behind the scenes
+- Lost keys -> bitcoin is frozen and cannot be accessed
+- Beautiful women being the spokespeople of cryptocurrency publications
+- Altcoins -> blockchain -> cryptocurrency -> defi
+- Tether
+- Silk Road
+- The lead figure is completely defeated after being betrayed by everyone and
+  losing all of his money. He is redeemed by creating a real business - after
+  the pay wall. (I am the lead figure, but so is everyone.)
 
 Future articles:
+- Ten Years of Bitcoin
 - The Hero with a Thousand Bitcoins
 - I Landed in Silicon Valley
+- A Vision for SPV / Bitcoin 2031
+- Golden Gate Gym
+- "Bitcoin" is not Bitcoin
