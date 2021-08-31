@@ -1,6 +1,6 @@
 {
   "packages": [
-    "subprojects/*"
+    "sub/*"
   ],
   "version": "0.0.0"
 }
