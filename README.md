@@ -1,18 +1,25 @@
 # Coasian
 
-In honor of Ronald Coase and Chicago's cool economics.
+## What if Chicago invented the internet?
+
+## Lower transaction fees for everyone, everywhere, always.
+
+## Lower transaction fees always and everywhere.
+
+## Be your own Google.
 
 Subprojects:
 
 - **Coasian SPV**
 - **Coasian Forth**
 - **Coasian KYC**
+- **Coasian AML**
 - **Coasian Messenger**
-- Coasian AML
 - Coasian USD
 - Coasian Bank
 - Coasian Exchange
 - Coasian Contract
+- Coasian Accountant
 - Coasian EDI
 - Coasian GUI
 - Coasian Spreadsheet
@@ -23,6 +30,7 @@ Subprojects:
 - Coasian Music
 - Coasian Store
 - Coasian Search
+- Coasian Advertising / Anti-Click Fraud
 
 ## Plan
 
@@ -105,3 +113,18 @@ Lying is always unacceptable. White lies are lies. If you feel compelled to lie,
 it is better not to say anything at all rather than to lie. If you are caught
 lying, you will be permanently banned from Coasian and your money will not be
 refunded.
+
+## Hiring / Culture
+
+- Hire up: Every employee must be better than everyone else at the company at what they do
+
+## Software Development Principles
+
+- Everything is designed to scale to 5 billion daily active users with minimal
+  maintenance
+- 99% test coverage with unit tests, and a few integration tests
+- Environment variables
+- Feature flags
+- Everything is javascript. Exceptions:
+  - C++/rust extensions to javascript
+  - Mobile where javascript doesn't work
