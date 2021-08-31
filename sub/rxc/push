@@ -1,0 +1,4 @@
+#!/bin/bash
+ssh rxc@rxc "cd ~/dev/rxc && git checkout not-master"
+git push origin master
+ssh rxc@rxc "cd ~/dev/rxc && git checkout master"
