@@ -1,6 +1,6 @@
-# Coasian SPV
+# Open SPV
 
-Coasian SPV is an implementation of Simplified Payment Verification (SPV) as
+Open SPV is an implementation of Simplified Payment Verification (SPV) as
 described in the Bitcoin white paper [1].
 
 ---------------------------
