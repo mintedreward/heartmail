@@ -1,9 +1,9 @@
 {
-  "name": "@coasian/forth",
+  "name": "@itisbit/forth",
   "description": "Distributed Forth interpreter on Bitcoin.",
   "version": "0.1.0",
   "author": "It is Bit Inc.",
-  "homepage": "https://github.com/coasian/forth",
+  "homepage": "https://github.com/itisbit/forth",
   "source": "entry.js",
   "main": "dist/forth.js",
   "module": "dist/forth.modern.js",
@@ -26,13 +26,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/coasian/forth.git"
+    "url": "https://github.com/itisbit/forth.git"
   },
   "engines": {
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "@coasian/spv": "^0.1.0"
+    "@itisbit/spv": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",

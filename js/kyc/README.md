@@ -1,4 +1,4 @@
-# Coasian KYC
+# It is Bit KYC
 
 The purpose of this module is to provide a way to collect KYC information from
 customers. Included in this package will be:
