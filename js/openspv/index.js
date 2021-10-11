@@ -1,15 +1,15 @@
 /**
  * OpenSPV
- * ===========
+ * =======
  *
  * index.js is an example of how to build a bundle with spv. This
- * bundle includes the entire srcrary, which uses the default configuration
+ * bundle includes the entire library, which uses the default configuration
  * (which is the same as Mainnet) and can be overridden. It also includes
  * Mainnet and Testnet configuration which are accessible even if you override
  * the defaults. It is not necessary to  use Yours Bitcoin this way, since you
  * probably do not use every component, and therefore do not need to include
  * every component into your project. You can simply directly require the
- * elements of the srcrary you need, and, if your project is browser-based,
+ * elements of the library you need, and, if your project is browser-based,
  * browserify your project. For instance:
  * const Address = require('spv/src/address').
  */
@@ -23,7 +23,7 @@ const spv = module.exports
 
 spv.version = require('./package').version
 
-// Main bitcoin srcrary - bitcoin protocols, standards, cryptography, and
+// Main bitcoin library - bitcoin protocols, standards, cryptography, and
 // utilities.
 spv.Address = require('./src/address')
 spv.Bip32 = require('./src/bip-32')

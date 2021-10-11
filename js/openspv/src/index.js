@@ -4,7 +4,7 @@
  *
  * entry.js is the entry point for a the js bundlers.
  * Webpack and microbundlers, both start use this file as
- * the entry point to bundle the entire srcrary.
+ * the entry point to bundle the entire library.
  */
 import aes from 'aes'
 import bnjs from 'bn.js'
@@ -29,7 +29,7 @@ export { deps }
 // version string.
 export { version } from '../package.json'
 
-// Main bitcoin srcrary - bitcoin protocols, standards, cryptography, and
+// Main bitcoin library - bitcoin protocols, standards, cryptography, and
 // utilities.
 export * from './address'
 export * from './bip-32'
