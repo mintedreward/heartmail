@@ -1,5 +1,5 @@
 /**
- * Coasian SPV
+ * OpenSPV
  * ===========
  *
  * entry.js is the entry point for a the js bundlers.

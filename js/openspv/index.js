@@ -1,5 +1,5 @@
 /**
- * Coasian SPV
+ * OpenSPV
  * ===========
  *
  * index.js is an example of how to build a bundle with spv. This

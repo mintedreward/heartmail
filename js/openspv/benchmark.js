@@ -1,13 +1,13 @@
-const coasianspv = require('./dist/spv')
+const openspv = require('./dist/spv')
 
-const Address = coasianspv.Address
-const PrivKey = coasianspv.PrivKey
-const PubKey = coasianspv.PubKey
-const TxBuilder = coasianspv.TxBuilder
-const TxOut = coasianspv.TxOut
-const Random = coasianspv.Random
-const Bn = coasianspv.Bn
-const KeyPair = coasianspv.KeyPair
+const Address = openspv.Address
+const PrivKey = openspv.PrivKey
+const PubKey = openspv.PubKey
+const TxBuilder = openspv.TxBuilder
+const TxOut = openspv.TxOut
+const Random = openspv.Random
+const Bn = openspv.Bn
+const KeyPair = openspv.KeyPair
 
 const randhex = 'adf4953b2e679fdc453d9cec93ba26c3bd9f0fb875975f3d72ed0c6c6835e26e'
 const randbn = new Bn().fromHex(randhex)
