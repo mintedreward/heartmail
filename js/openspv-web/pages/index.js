@@ -13,7 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <span className={styles.logoheader}>
-            <Image src="/openspv-header-light.png" alt="OpenSPV" width="300" height="100" />
+            <Image src="/openspv-header-light.png" alt="OpenSPV" width="400" height="133" />
         </span>
       </main>
 
