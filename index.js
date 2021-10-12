@@ -1,8 +1,8 @@
 /**
- * bsv
- * ===
+ * OpenSPV
+ * =======
  *
- * index.js is an example of how to build a bundle with bsv. This
+ * index.js is an example of how to build a bundle with spv. This
  * bundle includes the entire library, which uses the default configuration
  * (which is the same as Mainnet) and can be overridden. It also includes
  * Mainnet and Testnet configuration which are accessible even if you override
@@ -11,92 +11,91 @@
  * every component into your project. You can simply directly require the
  * elements of the library you need, and, if your project is browser-based,
  * browserify your project. For instance:
- * const Address = require('bsv/lib/address').
+ * const Address = require('spv/src/address').
  */
 'use strict'
 if (!global._babelPolyfill) {
   require('babel-polyfill')
 }
-require('./lib/config')
+require('./src/config')
 
-const bsv = module.exports
+const spv = module.exports
 
-bsv.version = require('./package').version
+spv.version = require('./package').version
 
 // Main bitcoin library - bitcoin protocols, standards, cryptography, and
 // utilities.
-bsv.Address = require('./lib/address')
-bsv.Bip32 = require('./lib/bip-32')
-bsv.Bip39 = require('./lib/bip-39')
-bsv.Bn = require('./lib/bn')
-bsv.Br = require('./lib/br')
-bsv.Bsm = require('./lib/bsm')
-bsv.Bw = require('./lib/bw')
-bsv.Base58 = require('./lib/base-58')
-bsv.Base58Check = require('./lib/base-58-check')
-bsv.Block = require('./lib/block')
-bsv.BlockHeader = require('./lib/block-header')
-bsv.Constants = require('./lib/constants')
-bsv.Ecdsa = require('./lib/ecdsa')
-bsv.Hash = require('./lib/hash')
-bsv.Interp = require('./lib/interp')
-bsv.KeyPair = require('./lib/key-pair')
-bsv.OpCode = require('./lib/op-code')
-bsv.Point = require('./lib/point')
-bsv.PrivKey = require('./lib/priv-key')
-bsv.PubKey = require('./lib/pub-key')
-bsv.Random = require('./lib/random')
-bsv.Script = require('./lib/script')
-bsv.Sig = require('./lib/sig')
-bsv.SigOperations = require('./lib/sig-operations')
-bsv.Struct = require('./lib/struct')
-bsv.Tx = require('./lib/tx')
-bsv.TxBuilder = require('./lib/tx-builder')
-bsv.TxIn = require('./lib/tx-in')
-bsv.TxOut = require('./lib/tx-out')
-bsv.TxOutMap = require('./lib/tx-out-map')
-bsv.TxVerifier = require('./lib/tx-verifier')
-bsv.VarInt = require('./lib/var-int')
-bsv.Workers = require('./lib/workers')
-bsv.WorkersResult = require('./lib/workers-result')
-bsv.cmp = require('./lib/cmp')
+spv.Address = require('./src/address')
+spv.Bip32 = require('./src/bip-32')
+spv.Bip39 = require('./src/bip-39')
+spv.Bn = require('./src/bn')
+spv.Br = require('./src/br')
+spv.Bsm = require('./src/bsm')
+spv.Bw = require('./src/bw')
+spv.Base58 = require('./src/base-58')
+spv.Base58Check = require('./src/base-58-check')
+spv.Block = require('./src/block')
+spv.BlockHeader = require('./src/block-header')
+spv.Constants = require('./src/constants')
+spv.Ecdsa = require('./src/ecdsa')
+spv.Hash = require('./src/hash')
+spv.Interp = require('./src/interp')
+spv.KeyPair = require('./src/key-pair')
+spv.OpCode = require('./src/op-code')
+spv.Point = require('./src/point')
+spv.PrivKey = require('./src/priv-key')
+spv.PubKey = require('./src/pub-key')
+spv.Random = require('./src/random')
+spv.Script = require('./src/script')
+spv.Sig = require('./src/sig')
+spv.Struct = require('./src/struct')
+spv.Tx = require('./src/tx')
+spv.TxBuilder = require('./src/tx-builder')
+spv.TxIn = require('./src/tx-in')
+spv.TxOut = require('./src/tx-out')
+spv.TxOutMap = require('./src/tx-out-map')
+spv.TxVerifier = require('./src/tx-verifier')
+spv.VarInt = require('./src/var-int')
+spv.Workers = require('./src/workers')
+spv.WorkersResult = require('./src/workers-result')
+spv.cmp = require('./src/cmp')
 
 // Encryption tools. Some bitcoin standards use Aes encryption, so that's why
 // these are available.
-bsv.Ach = require('./lib/ach')
-bsv.Aes = require('./lib/aes')
-bsv.Aescbc = require('./lib/aescbc')
-bsv.Cbc = require('./lib/cbc')
-bsv.Ecies = require('./lib/ecies')
+spv.Ach = require('./src/ach')
+spv.Aes = require('./src/aes')
+spv.Aescbc = require('./src/aescbc')
+spv.Cbc = require('./src/cbc')
+spv.Ecies = require('./src/ecies')
 
 // Dependencies, subject to change.
-bsv.deps = {}
-bsv.deps.aes = require('aes')
-bsv.deps.bnjs = require('bn.js')
-bsv.deps.bs58 = require('bs58')
-bsv.deps.Buffer = Buffer
-bsv.deps.elliptic = require('bitcoin-elliptic')
-bsv.deps.hashjs = require('hash.js')
-bsv.deps.pbkdf2compat = require('pbkdf2-compat')
+spv.deps = {}
+spv.deps.aes = require('aes')
+spv.deps.bnjs = require('bn.js')
+spv.deps.bs58 = require('bs58')
+spv.deps.Buffer = Buffer
+spv.deps.elliptic = require('bitcoin-elliptic')
+spv.deps.hashjs = require('hash.js')
+spv.deps.pbkdf2compat = require('pbkdf2-compat')
 
 // Mainnet classes for your convenience (in case default is not what you want).
 const Mainnet = {}
-Object.keys(bsv).forEach(function (key) {
-  Mainnet[key] = bsv[key].Mainnet
-    ? bsv[key].Mainnet
-    : bsv[key]
+Object.keys(spv).forEach(function (key) {
+  Mainnet[key] = spv[key].Mainnet
+    ? spv[key].Mainnet
+    : spv[key]
 })
 
 // Testnet classes for your convenience (in case default is not what you want).
 const Testnet = {}
-Object.keys(bsv).forEach(function (key) {
-  Testnet[key] = bsv[key].Testnet
-    ? bsv[key].Testnet
-    : bsv[key]
+Object.keys(spv).forEach(function (key) {
+  Testnet[key] = spv[key].Testnet
+    ? spv[key].Testnet
+    : spv[key]
 })
 
-bsv.Mainnet = Mainnet
-bsv.Testnet = Testnet
+spv.Mainnet = Mainnet
+spv.Testnet = Testnet
 
-bsv.browser = process.browser
-bsv.env = process.env
+spv.browser = process.browser
+spv.env = process.env
