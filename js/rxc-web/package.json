@@ -1,5 +1,5 @@
 {
-  "name": "rxc-web",
+  "name": "@coasian/rxc-web",
   "version": "1.0.1",
   "description": "ryanxcharles.com",
   "private": true,

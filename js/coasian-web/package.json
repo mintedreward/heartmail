@@ -1,7 +1,6 @@
 {
-  "name": "coasian-web",
+  "name": "@coasian/coasian-web",
   "version": "1.0.1",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
