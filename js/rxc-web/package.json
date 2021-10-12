@@ -1,7 +1,8 @@
 {
-  "name": "rxc",
+  "name": "rxc-web",
   "version": "0.1.0",
   "description": "ryanxcharles.com",
+  "private": true,
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.14.1",
