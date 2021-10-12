@@ -12,9 +12,12 @@ RUN rm -f .npmrc
 # Rebuild the source code only when needed
 FROM node:alpine AS builder
 WORKDIR /app
+ARG NPM_TOKEN
+COPY .npmrc .npmrc
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
+RUN rm -f .npmrc
 
 # Production image, copy all the files and run next
 FROM node:alpine AS runner
