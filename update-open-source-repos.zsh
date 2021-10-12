@@ -12,7 +12,7 @@ dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 rm -rf ../openspv/*
 
 # copy all files into external repo
-rsync -av --progress js/openspv/* ../openspv --exclude node_modules
+rsync -aq --progress js/openspv/* ../openspv --exclude node_modules
 
 # commit changes and push to github
 cd ../openspv
