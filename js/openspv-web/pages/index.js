@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>OpenSPV</title>
         <meta name="description" content="Truth, Love & Beauty" />
-        <link rel="icon" href="/openspv-avatar-dark.png" />
+        <link rel="icon" href="/openspv-avatar-light.png" />
       </Head>
 
       <main className={styles.main}>
