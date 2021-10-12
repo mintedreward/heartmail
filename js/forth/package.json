@@ -1,7 +1,7 @@
 {
   "name": "@coasian/forth",
   "description": "Distributed Forth interpreter on Bitcoin.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "It is Bit Inc.",
   "homepage": "https://github.com/coasian/forth",
   "private": true,

@@ -1,6 +1,6 @@
 {
   "name": "rxc-web",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ryanxcharles.com",
   "private": true,
   "main": "index.js",
@@ -8,7 +8,6 @@
     "body-parser": "^1.14.1",
     "express": "^4.13.3"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
