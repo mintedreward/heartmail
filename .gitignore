@@ -1,6 +1,7 @@
 *.swp
 node_modules
 npm-debug.log
+lerna-debug.log
 dist
 package-lock.json
 doc
