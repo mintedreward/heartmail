@@ -1,6 +1,6 @@
 {
   "name": "rxc-web",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ryanxcharles.com",
   "private": true,
   "main": "index.js",
