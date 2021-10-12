@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
-import { PrivKey } from '../lib/priv-key'
-import { Bn } from '../lib/bn'
-import { Point } from '../lib/point'
+import { PrivKey } from '../src/priv-key'
+import { Bn } from '../src/bn'
+import { Point } from '../src/point'
 import should from 'should'
 
 describe('PrivKey', function () {

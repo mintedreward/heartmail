@@ -2,7 +2,7 @@
 'use strict'
 import should from 'should'
 import assert from 'assert'
-import { Bn } from '../lib/bn'
+import { Bn } from '../src/bn'
 
 describe('Bn', function () {
   it('should create a bn', function () {

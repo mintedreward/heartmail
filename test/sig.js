@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
-import { Bn } from '../lib/bn'
+import { Bn } from '../src/bn'
 import should from 'should'
-import { Sig } from '../lib/sig'
+import { Sig } from '../src/sig'
 import vectors from './vectors/sig.json'
 
 describe('Sig', function () {

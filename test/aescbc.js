@@ -1,7 +1,7 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import { Aescbc } from '../lib/aescbc'
+import { Aescbc } from '../src/aescbc'
 import vectors from './vectors/aescbc.json'
 
 describe('Aescbc', function () {

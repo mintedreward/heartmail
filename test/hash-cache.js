@@ -1,6 +1,6 @@
 /* global describe,it */
 'use strict'
-import { HashCache } from '../lib/hash-cache'
+import { HashCache } from '../src/hash-cache'
 import should from 'should'
 
 describe('HashCache', function () {

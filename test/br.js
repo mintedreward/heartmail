@@ -1,9 +1,9 @@
 /* global describe,it */
 'use strict'
-import { Br } from '../lib/br'
-import { Bw } from '../lib/bw'
+import { Br } from '../src/br'
+import { Bw } from '../src/bw'
 import should from 'should'
-import { Bn } from '../lib/bn'
+import { Bn } from '../src/bn'
 
 describe('Br', function () {
   it('should make a new Br', function () {

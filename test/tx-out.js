@@ -1,10 +1,10 @@
 /* global describe,it */
 'use strict'
-import { Bn } from '../lib/bn'
-import { Br } from '../lib/br'
-import { Script } from '../lib/script'
-import { TxOut } from '../lib/tx-out'
-import { VarInt } from '../lib/var-int'
+import { Bn } from '../src/bn'
+import { Br } from '../src/br'
+import { Script } from '../src/script'
+import { TxOut } from '../src/tx-out'
+import { VarInt } from '../src/var-int'
 import should from 'should'
 
 describe('TxOut', function () {

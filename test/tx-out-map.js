@@ -1,11 +1,11 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import { TxOutMap } from '../lib/tx-out-map'
-import { Tx } from '../lib/tx'
-import { TxOut } from '../lib/tx-out'
-import { Script } from '../lib/script'
-import { Bn } from '../lib/bn'
+import { TxOutMap } from '../src/tx-out-map'
+import { Tx } from '../src/tx'
+import { TxOut } from '../src/tx-out'
+import { Script } from '../src/script'
+import { Bn } from '../src/bn'
 
 describe('TxOutMap', function () {
   const txHashBuf = Buffer.alloc(32)

@@ -1,11 +1,11 @@
 /* global describe,it */
 'use strict'
-import { Br } from '../lib/br'
-import { Bw } from '../lib/bw'
-import { Block } from '../lib/block'
-import { BlockHeader } from '../lib/block-header'
-import { Tx } from '../lib/tx'
-import { VarInt } from '../lib/var-int'
+import { Br } from '../src/br'
+import { Bw } from '../src/bw'
+import { Block } from '../src/block'
+import { BlockHeader } from '../src/block-header'
+import { Tx } from '../src/tx'
+import { VarInt } from '../src/var-int'
 import largesttxblockvector from './vectors/largesttxblock'
 import should from 'should'
 

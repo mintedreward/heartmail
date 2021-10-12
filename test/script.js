@@ -1,10 +1,10 @@
 /* global describe,it */
 'use strict'
-import { Bn } from '../lib/bn'
-import { OpCode } from '../lib/op-code'
-import { PrivKey } from '../lib/priv-key'
-import { PubKey } from '../lib/pub-key'
-import { Script } from '../lib/script'
+import { Bn } from '../src/bn'
+import { OpCode } from '../src/op-code'
+import { PrivKey } from '../src/priv-key'
+import { PubKey } from '../src/pub-key'
+import { Script } from '../src/script'
 import should from 'should'
 
 import scriptInvalid from './vectors/bitcoind/script_invalid.json'
@@ -346,8 +346,8 @@ describe('Script', function () {
 
   describe('@fromAsmString', function () {
     it('should parse this known script in ASM', function () {
-      var asm = 'OP_DUP OP_HASH160 f4c03610e60ad15100929cc23da2f3a799af1725 OP_EQUALVERIFY OP_CHECKSIG'
-      var script = Script.fromAsmString(asm)
+      const asm = 'OP_DUP OP_HASH160 f4c03610e60ad15100929cc23da2f3a799af1725 OP_EQUALVERIFY OP_CHECKSIG'
+      const script = Script.fromAsmString(asm)
       script.chunks[0].opCodeNum.should.equal(OpCode.OP_DUP)
       script.chunks[1].opCodeNum.should.equal(OpCode.OP_HASH160)
       script.chunks[2].opCodeNum.should.equal(20)
@@ -357,17 +357,17 @@ describe('Script', function () {
     })
 
     it('should parse this known problematic script in ASM', function () {
-      var asm = 'OP_RETURN 026d02 0568656c6c6f'
-      var script = Script.fromAsmString(asm)
+      const asm = 'OP_RETURN 026d02 0568656c6c6f'
+      const script = Script.fromAsmString(asm)
       script.toAsmString().should.equal(asm)
     })
 
     it('should know this is invalid hex', function () {
-      var asm = 'OP_RETURN 026d02 0568656c6c6fzz'
+      const asm = 'OP_RETURN 026d02 0568656c6c6fzz'
       let errors = 0
       try {
         errors++
-        var script = Script.fromAsmString(asm)
+        const script = Script.fromAsmString(asm)
         script.toAsmString().should.equal(asm)
       } catch (err) {
         err.message.should.equal('invalid hex string in script')
@@ -376,41 +376,41 @@ describe('Script', function () {
     })
 
     it('should parse this long PUSHDATA1 script in ASM', function () {
-      var buf = Buffer.alloc(220, 0)
-      var asm = 'OP_RETURN ' + buf.toString('hex')
-      var script = Script.fromAsmString(asm)
+      const buf = Buffer.alloc(220, 0)
+      const asm = 'OP_RETURN ' + buf.toString('hex')
+      const script = Script.fromAsmString(asm)
       script.chunks[1].opCodeNum.should.equal(OpCode.OP_PUSHDATA1)
       script.toAsmString().should.equal(asm)
     })
 
     it('should parse this long PUSHDATA2 script in ASM', function () {
-      var buf = Buffer.alloc(1024, 0)
-      var asm = 'OP_RETURN ' + buf.toString('hex')
-      var script = Script.fromAsmString(asm)
+      const buf = Buffer.alloc(1024, 0)
+      const asm = 'OP_RETURN ' + buf.toString('hex')
+      const script = Script.fromAsmString(asm)
       script.chunks[1].opCodeNum.should.equal(OpCode.OP_PUSHDATA2)
       script.toAsmString().should.equal(asm)
     })
 
     it('should parse this long PUSHDATA4 script in ASM', function () {
-      var buf = Buffer.alloc(Math.pow(2, 17), 0)
-      var asm = 'OP_RETURN ' + buf.toString('hex')
-      var script = Script.fromAsmString(asm)
+      const buf = Buffer.alloc(Math.pow(2, 17), 0)
+      const asm = 'OP_RETURN ' + buf.toString('hex')
+      const script = Script.fromAsmString(asm)
       script.chunks[1].opCodeNum.should.equal(OpCode.OP_PUSHDATA4)
       script.toAsmString().should.equal(asm)
     })
 
     it('should return this script correctly', function () {
-      var asm1 = 'OP_FALSE'
-      var asm2 = 'OP_0'
-      var asm3 = '0'
+      const asm1 = 'OP_FALSE'
+      const asm2 = 'OP_0'
+      const asm3 = '0'
       Script.fromAsmString(asm1).toAsmString().should.equal(asm3)
       Script.fromAsmString(asm2).toAsmString().should.equal(asm3)
       Script.fromAsmString(asm3).toAsmString().should.equal(asm3)
     })
 
     it('should return this script correctly', function () {
-      var asm1 = 'OP_1NEGATE'
-      var asm2 = '-1'
+      const asm1 = 'OP_1NEGATE'
+      const asm2 = '-1'
       Script.fromAsmString(asm1).toAsmString().should.equal(asm2)
       Script.fromAsmString(asm2).toAsmString().should.equal(asm2)
     })
@@ -455,18 +455,18 @@ describe('Script', function () {
 
   describe('@fromSafeDataArray', function () {
     it('should create valid op return output', function () {
-      const script = Script.fromSafeDataArray([Buffer.from('yours bitcoin'), Buffer.from('bsv')])
+      const script = Script.fromSafeDataArray([Buffer.from('yours bitcoin'), Buffer.from('openspv')])
       script.isSafeDataOut().should.equal(true)
     })
   })
 
   describe('#getData', function () {
     it('should create valid op return output', function () {
-      const script = Script.fromSafeDataArray([Buffer.from('yours bitcoin'), Buffer.from('bsv')])
+      const script = Script.fromSafeDataArray([Buffer.from('yours bitcoin'), Buffer.from('openspv')])
       script.isSafeDataOut().should.equal(true)
       const bufs = script.getData()
       bufs[0].toString().should.equal('yours bitcoin')
-      bufs[1].toString().should.equal('bsv')
+      bufs[1].toString().should.equal('openspv')
     })
   })
 
@@ -1147,136 +1147,6 @@ describe('Script', function () {
         .writeBuffer(buf)
         .checkMinimalPush(0)
         .should.equal(true)
-    })
-  })
-
-  describe('#isOpReturn', () => {
-    it('returns true if the script its only an OP_RETURN opcode', () => {
-      const script = new Script().writeOpCode(OpCode.OP_RETURN)
-      should(script.isOpReturn()).be.true()
-    })
-
-    it('returns false if the script starts with an opcode that is not OP_RETURN', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_ADD)
-      should(script.isOpReturn()).be.false()
-    })
-
-    it('returns false if the script starts with a push data', () => {
-      const script = new Script()
-        .writeBuffer(Buffer.from("I'm a buffer"))
-      should(script.isOpReturn()).be.false()
-    })
-
-    it('returns false if the script starts with "OP_FALSE OP_RETURN"', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_FALSE)
-        .writeOpCode(OpCode.OP_RETURN)
-      should(script.isOpReturn()).be.false()
-    })
-
-    it('returns false if the script starts OP_RETURN and is followed by an OP_FALSE', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_RETURN)
-        .writeOpCode(OpCode.OP_FALSE)
-      should(script.isOpReturn()).be.false()
-    })
-
-    it('returns false if the script starts OP_RETURN and is followed by data and then OP_FALSE', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_RETURN)
-        .writeBuffer(Buffer.from("I'm a buffer"))
-        .writeOpCode(OpCode.OP_FALSE)
-      should(script.isOpReturn()).be.false()
-    })
-
-    it('returns false for the asm script "OP_RETURN 0"', () => {
-      const script = Script.fromAsmString('OP_RETURN 0')
-      should(script.isOpReturn()).be.false()
-    })
-
-    it('throws for empty script', () => {
-      const script = new Script()
-      should(() => script.isOpReturn()).throw()
-    })
-
-    it('returns false for only push data script', () => {
-      const script = new Script().writeBuffer(Buffer.from("I'm a lonely buffer"))
-      should(script.isOpReturn()).be.false()
-    })
-  })
-
-  describe('#isNonSpendable', () => {
-    it('returns false when OP_TRUE only', () => {
-      const script = new Script().writeOpCode(OpCode.OP_TRUE)
-      should(script.isNonSpendable()).be.false()
-    })
-
-    it('returns true when "OP_FALSE OP_RETURN"', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_FALSE)
-        .writeOpCode(OpCode.OP_RETURN)
-      should(script.isNonSpendable()).be.true()
-    })
-
-    it('returns false when starts with OP_FALSE but is followed by opcode that is not OP_RETURN', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_FALSE)
-        .writeOpCode(OpCode.OP_ADD)
-      should(script.isNonSpendable()).be.false()
-    })
-
-    it('returns false when is only OP_FALSE', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_FALSE)
-      should(script.isNonSpendable()).be.false()
-    })
-
-    it('returns true when is OP_FALSE OP_RETURN and then data', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_FALSE)
-        .writeOpCode(OpCode.OP_RETURN)
-        .writeBuffer(Buffer.from('some'))
-        .writeBuffer(Buffer.from('data'))
-
-      should(script.isNonSpendable()).be.true()
-    })
-
-    it('returns true when is OP_FALSE OP_RETURN and then data plus opcodes', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_FALSE)
-        .writeOpCode(OpCode.OP_RETURN)
-        .writeBuffer(Buffer.from('some'))
-        .writeBuffer(Buffer.from('data'))
-        .writeOpCode(OpCode.OP_ADD)
-        .writeBuffer(Buffer.from('more data'))
-
-      should(script.isNonSpendable()).be.true()
-    })
-
-    it('returns true when is OP_FALSE OP_RETURN and then opcodes', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_FALSE)
-        .writeOpCode(OpCode.OP_RETURN)
-        .writeOpCode(OpCode.OP_ADD)
-        .writeOpCode(OpCode.OP_MUL)
-
-      should(script.isNonSpendable()).be.true()
-    })
-
-    it('returns true when is OP_FALSE OP_RETURN and then OP_FALSE', () => {
-      const script = new Script()
-        .writeOpCode(OpCode.OP_FALSE)
-        .writeOpCode(OpCode.OP_RETURN)
-        .writeOpCode(OpCode.OP_FALSE)
-
-      should(script.isNonSpendable()).be.true()
-    })
-
-    it('returns true when for asm script "OP_FALSE OP_RETURN 0"', () => {
-      const script = new Script().fromAsmString('OP_FALSE OP_RETURN 0')
-
-      should(script.isNonSpendable()).be.true()
     })
   })
 

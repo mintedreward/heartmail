@@ -1,6 +1,6 @@
 /* global describe,it */
 'use strict'
-import { Base58 } from '../lib/base-58'
+import { Base58 } from '../src/base-58'
 import should from 'should'
 
 describe('Base58', function () {

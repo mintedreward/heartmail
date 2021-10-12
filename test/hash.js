@@ -1,7 +1,7 @@
 /* global describe,it */
 'use strict'
 import 'should'
-import { Hash } from '../lib/hash'
+import { Hash } from '../src/hash'
 import vectors from './vectors/hash'
 
 describe('Hash', function () {

@@ -1,10 +1,10 @@
 /* global describe,it */
 'use strict'
-import { Address } from '../lib/address'
-import { Constants } from '../lib/constants'
-import { PrivKey } from '../lib/priv-key'
-import { PubKey } from '../lib/pub-key'
-import { Script } from '../lib/script'
+import { Address } from '../src/address'
+import { Constants } from '../src/constants'
+import { PrivKey } from '../src/priv-key'
+import { PubKey } from '../src/pub-key'
+import { Script } from '../src/script'
 import should from 'should'
 
 describe('Address', function () {

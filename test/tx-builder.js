@@ -1,18 +1,18 @@
 /* global describe,it,before */
 'use strict'
-import { Address } from '../lib/address'
-import { Bn } from '../lib/bn'
-import { Interp } from '../lib/interp'
-import { KeyPair } from '../lib/key-pair'
-import { PrivKey } from '../lib/priv-key'
-import { PubKey } from '../lib/pub-key'
-import { Script } from '../lib/script'
-import { Sig } from '../lib/sig'
-import { Tx } from '../lib/tx'
-import { TxBuilder } from '../lib/tx-builder'
-import { TxOut } from '../lib/tx-out'
-import { TxOutMap } from '../lib/tx-out-map'
-import { TxVerifier } from '../lib/tx-verifier'
+import { Address } from '../src/address'
+import { Bn } from '../src/bn'
+import { Interp } from '../src/interp'
+import { KeyPair } from '../src/key-pair'
+import { PrivKey } from '../src/priv-key'
+import { PubKey } from '../src/pub-key'
+import { Script } from '../src/script'
+import { Sig } from '../src/sig'
+import { Tx } from '../src/tx'
+import { TxBuilder } from '../src/tx-builder'
+import { TxOut } from '../src/tx-out'
+import { TxOutMap } from '../src/tx-out-map'
+import { TxVerifier } from '../src/tx-verifier'
 import should from 'should'
 import sinon from 'sinon'
 
@@ -202,13 +202,6 @@ describe('TxBuilder', function () {
       txb.setFeePerKbNum(1000)
       txb.feePerKbNum.should.equal(1000)
     })
-
-    it('allows zero', function () {
-      const obj = prepareTxBuilder()
-      const txb = obj.txb
-      txb.setFeePerKbNum(0)
-      should(txb.feePerKbNum).be.eql(0)
-    })
   })
 
   describe('#setChangeAddress', function () {
@@ -345,63 +338,6 @@ describe('TxBuilder', function () {
       txb.build({ useAllInputs: true })
 
       txb.tx.txIns.length.should.equal(3)
-    })
-
-    it('should buld a tx with zero fees', function () {
-      const txb = new TxBuilder()
-
-      const changePrivKey = new PrivKey().fromBn(new Bn(1))
-      const changeKeyPair = new KeyPair().fromPrivKey(changePrivKey)
-      const changeAddr = new Address().fromPubKey(changeKeyPair.pubKey)
-
-      const inputPrivKey = new PrivKey().fromBn(new Bn(2))
-      const inputKeyPair = new KeyPair().fromPrivKey(inputPrivKey)
-      const inputAddress = new Address().fromPubKey(inputKeyPair.pubKey)
-
-      const txHashBuf = Buffer.alloc(32).fill(1)
-      const txOutNum = 0
-      const inputAmount = Bn().fromNumber(1000)
-      const inputScript = inputAddress.toTxOutScript()
-      const txOut = TxOut.fromProperties(inputAmount, inputScript)
-
-      txb.inputFromPubKeyHash(txHashBuf, txOutNum, txOut, inputKeyPair.pubKey)
-      txb.setChangeAddress(changeAddr)
-      txb.setFeePerKbNum(0)
-
-      should(() => txb.build()).not.throw()
-
-      const tx = txb.tx
-      should(tx.txOuts[0].valueBn.toString()).be.eql(inputAmount.toString())
-    })
-
-    it('builds a tx whith unspendable output containing OP_FALSE and output less than dust', () => {
-      const txb = new TxBuilder()
-      txb.setDust(145)
-
-      // input
-      const inputPrivKey = new PrivKey().fromBn(new Bn(2))
-      const inputKeyPair = new KeyPair().fromPrivKey(inputPrivKey)
-      const inputAddress = new Address().fromPubKey(inputKeyPair.pubKey)
-      const txHashBuf = Buffer.alloc(32).fill(1)
-      const inputAmount = Bn().fromNumber(1000)
-      const inputScript = inputAddress.toTxOutScript()
-      const txOut = TxOut.fromProperties(inputAmount, inputScript)
-      txb.inputFromPubKeyHash(txHashBuf, 0, txOut, inputKeyPair.pubKey)
-
-      // change
-      const changePrivKey = new PrivKey().fromBn(new Bn(1))
-      const changeKeyPair = new KeyPair().fromPrivKey(changePrivKey)
-      const changeAddr = new Address().fromPubKey(changeKeyPair.pubKey)
-      txb.setChangeAddress(changeAddr)
-
-      // build
-      txb.outputToScript(new Bn().fromNumber(0), Script.fromAsmString('OP_FALSE OP_RETURN 0'))
-
-      // assertions
-      should(() => txb.build()).not.throw()
-      const tx = txb.tx
-      should(tx.txOuts[0].valueBn).be.eql(new Bn().fromNumber(0))
-      should(tx.txOuts[0].script).be.eql(Script.fromAsmString('OP_FALSE OP_RETURN 0'))
     })
   })
 
@@ -905,38 +841,6 @@ describe('TxBuilder', function () {
       TxVerifier.verify(txb.tx, txb.uTxOutMap).should.equal(true)
     })
 
-    it('should work with custom scripts', () => {
-      // make change address
-      const privKey = new PrivKey().fromBn(new Bn(100))
-      const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
-
-      // make addresses to send from (and to)
-      const privKey1 = new PrivKey().fromBn(new Bn(1))
-      const keyPair1 = new KeyPair().fromPrivKey(privKey1)
-      const addr1 = new Address().fromPubKey(keyPair1.pubKey)
-
-      const customScript = new Script().fromString('OP_DUP OP_HASH160 20 0x' + addr1.hashBuf.toString('hex') + ' OP_EQUALVERIFY OP_CHECKSIG')
-      
-      const txOut1 = TxOut.fromProperties(new Bn(1e8), customScript)
-      
-      const txHashBuf = Buffer.alloc(32)
-      txHashBuf.fill(1)
-      
-
-      const txb = new TxBuilder()
-      txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
-      txb.inputFromScript(
-        txHashBuf, 
-        0, 
-        txOut1, 
-        customScript
-      )
-      txb.build()
-      should(() => txb.signWithKeyPairs([keyPair1])).not.throw()
-    })
-
     it('should sign and verify a lot of inputs and outputs', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
@@ -1079,7 +983,7 @@ describe('TxBuilder', function () {
         keyPair8,
         keyPair9,
         keyPair10,
-        keyPair11,
+        keyPair11
       ])
 
       // txb.changeAmountBn.toNumber().should.equal(49996250)
@@ -1100,7 +1004,7 @@ describe('TxBuilder', function () {
         keyPair8,
         keyPair9,
         keyPair10,
-        keyPair11,
+        keyPair11
       ])
       TxVerifier.verify(txb.tx, txb.uTxOutMap).should.equal(true)
     })
@@ -2061,7 +1965,7 @@ describe('TxBuilder', function () {
       keyPairs.push(KeyPair.fromJSON(JSON.parse('{"privKey":"805d3c50621207fc5783c82bf7e7f090161154818467258c49368dfbf95a6cb5a301","pubKey":"01043fb03af6776d59cdb6ae78dff502d36b5a51429f243116f827e3d7438343b213ab07f6bc08e1a0afba025e0cd34395afedce01bf8e9b6b7c6d385eaaee57403d"}')))
       keyPairs.push(KeyPair.fromJSON(JSON.parse('{"privKey":"80aaf1703f957b80a023088c5a04c9fb4d4950705dcd8b7aaf6cd9eea66e807f8801","pubKey":"0104582a67dd32baefe4063e0408809bc740df4233c44dc2e5e3737de5c2249f08630bb6640376b7ed60ed12ec161a458c8bbb3417a7e3474a3e9436cc32d9296627"}')))
 
-      let txVerifier = new TxVerifier(txb.tx, txb.uTxOutMap)
+      const txVerifier = new TxVerifier(txb.tx, txb.uTxOutMap)
 
       // txb.uTxOutMap.map.forEach((txOut, label) => {
       //   console.log(label, Address.fromTxOutScript(txOut.script).toString(), txOut.valueBn.toNumber())
@@ -2087,7 +1991,7 @@ describe('TxBuilder', function () {
       txb2.sort() // NOT sorting should lead to valid tx
       txb2.signWithKeyPairs(keyPairs)
 
-      let txVerifier2 = new TxVerifier(txb2.tx, txb2.uTxOutMap)
+      const txVerifier2 = new TxVerifier(txb2.tx, txb2.uTxOutMap)
 
       // txb2.uTxOutMap.map.forEach((txOut, label) => {
       //   console.log(label, Address.fromTxOutScript(txOut.script).toString(), txOut.valueBn.toNumber())

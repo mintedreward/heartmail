@@ -1,7 +1,7 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import { OpCode } from '../lib/op-code'
+import { OpCode } from '../src/op-code'
 
 describe('OpCode', function () {
   it('should create a new OpCode', function () {

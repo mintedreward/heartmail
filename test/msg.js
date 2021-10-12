@@ -1,12 +1,12 @@
 /* global describe,it */
 'use strict'
-import { Br } from '../lib/br'
-import { Bw } from '../lib/bw'
-import { Hash } from '../lib/hash'
-import { Msg } from '../lib/msg'
-import { Random } from '../lib/random'
+import { Br } from '../src/br'
+import { Bw } from '../src/bw'
+import { Hash } from '../src/hash'
+import { Msg } from '../src/msg'
+import { Random } from '../src/random'
 import should from 'should'
-import { Constants } from '../lib/constants'
+import { Constants } from '../src/constants'
 
 describe('Msg', function () {
   const msghex = 'e3e1f3e876657261636b000000000000000000005df6e0e2'
@@ -148,7 +148,7 @@ describe('Msg', function () {
     })
 
     it('should throw an error for message over max size in strict mode', function () {
-      const msg = new Msg();
+      const msg = new Msg()
       const msgbuf2 = Buffer.from(msgbuf)
       msgbuf2.writeUInt32BE(msg.constants.MaxSize + 1, 4 + 12)
       ;(function () {
@@ -158,12 +158,12 @@ describe('Msg', function () {
       }.should.throw('message size greater than maxsize'))
     })
   })
-  
-  describe('#STN', function() {
+
+  describe('#STN', function () {
     it('should match initialized magicNum against STN magicnum', function () {
-      const msg = new Msg.STN();
-      msg.magicNum.should.equal(Constants.STN.Msg.magicNum);
-      msg.magicNum.should.not.equal(Constants.Mainnet.Msg.magicNum);
+      const msg = new Msg.STN()
+      msg.magicNum.should.equal(Constants.STN.Msg.magicNum)
+      msg.magicNum.should.not.equal(Constants.Mainnet.Msg.magicNum)
     })
   })
 

@@ -1,7 +1,7 @@
 /* global describe,it */
 'use strict'
-import { WorkersResult } from '../lib/workers-result'
-import { cmp } from '../lib/cmp'
+import { WorkersResult } from '../src/workers-result'
+import { cmp } from '../src/cmp'
 import should from 'should'
 
 describe('WorkersResult', function () {

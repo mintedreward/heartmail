@@ -1,5 +1,5 @@
 /* global describe,it */
-import { Random } from '../lib/random'
+import { Random } from '../src/random'
 import 'should'
 
 describe('Random', function () {

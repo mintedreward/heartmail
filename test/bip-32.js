@@ -1,8 +1,8 @@
 /* global describe,it */
 'use strict'
-import { Bip32 } from '../lib/bip-32'
-import { Base58Check } from '../lib/base-58-check'
-import { PrivKey } from '../lib/priv-key'
+import { Bip32 } from '../src/bip-32'
+import { Base58Check } from '../src/base-58-check'
+import { PrivKey } from '../src/priv-key'
 import should from 'should'
 
 describe('Bip32', function () {

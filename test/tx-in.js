@@ -1,14 +1,14 @@
 /* global describe,it */
 'use strict'
 import should from 'should'
-import { Script } from '../lib/script'
-import { TxIn } from '../lib/tx-in'
-import { TxOut } from '../lib/tx-out'
-import { VarInt } from '../lib/var-int'
-import { Br } from '../lib/br'
-import { Bn } from '../lib/bn'
-import { KeyPair } from '../lib/key-pair'
-import { Address } from '../lib/address'
+import { Script } from '../src/script'
+import { TxIn } from '../src/tx-in'
+import { TxOut } from '../src/tx-out'
+import { VarInt } from '../src/var-int'
+import { Br } from '../src/br'
+import { Bn } from '../src/bn'
+import { KeyPair } from '../src/key-pair'
+import { Address } from '../src/address'
 
 describe('TxIn', function () {
   const txHashBuf = Buffer.alloc(32)

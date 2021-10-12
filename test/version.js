@@ -1,9 +1,9 @@
 /* global describe,it */
 'use strict'
-import { Version } from '../lib/version'
-import { Bn } from '../lib/bn'
+import { Version } from '../src/version'
+import { Bn } from '../src/bn'
 import should from 'should'
-import { VarInt } from '../lib/var-int'
+import { VarInt } from '../src/var-int'
 
 describe('Version', function () {
   it('should exist', function () {
