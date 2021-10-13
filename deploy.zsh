@@ -16,10 +16,10 @@ docker push ryanxcharles/coasian-web:${version}
 echo Deploying coasian-web
 ssh -t coasian-web-1 'docker kill $(docker ps -q)'
 ssh -t coasian-web-1 'docker rm $(docker ps -a -q)'
-ssh -t coasian-web-1 "docker run -p 80:3000 ryanxcharles/coasian-web:${version}"
+ssh -t coasian-web-1 "docker run --detach -p 80:3000 ryanxcharles/coasian-web:${version}"
 ssh -t coasian-web-2 'docker kill $(docker ps -q)'
 ssh -t coasian-web-2 'docker rm $(docker ps -a -q)'
-ssh -t coasian-web-2 "docker run -p 80:3000 ryanxcharles/coasian-web:${version}"
+ssh -t coasian-web-2 "docker run --detach -p 80:3000 ryanxcharles/coasian-web:${version}"
 
 cd $dir/js/openspv-web
 echo Building openspv-web
@@ -29,7 +29,7 @@ docker push ryanxcharles/openspv-web:${version}
 echo Deploying openspv-web
 ssh -t openspv-web-1 'docker kill $(docker ps -q)'
 ssh -t openspv-web-1 'docker rm $(docker ps -a -q)'
-ssh -t openspv-web-1 "docker run -p 80:3000 ryanxcharles/openspv-web:${version}"
+ssh -t openspv-web-1 "docker run --detach -p 80:3000 ryanxcharles/openspv-web:${version}"
 ssh -t openspv-web-2 'docker kill $(docker ps -q)'
 ssh -t openspv-web-2 'docker rm $(docker ps -a -q)'
-ssh -t openspv-web-2 "docker run -p 80:3000 ryanxcharles/openspv-web:${version}"
+ssh -t openspv-web-2 "docker run --detach -p 80:3000 ryanxcharles/openspv-web:${version}"
