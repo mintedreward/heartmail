@@ -6,6 +6,7 @@
 
 # make sure we are in the coasian source directory
 dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+cd $dir
 
 # assume openspv is in the same containing folder as coasian
 # delete all non-hidden files in that repo
