@@ -1,0 +1,31 @@
+# Coasian
+
+Host coasian-web-1
+  HostName 34.222.33.11
+  User ec2-user
+  IdentityFile ~/.ssh/coasian.pem
+
+Host coasian-web-2
+  HostName 35.86.133.10
+  User ec2-user
+  IdentityFile ~/.ssh/coasian.pem
+
+Host heartmail-web-1
+  HostName 54.68.33.129
+  User ec2-user
+  IdentityFile ~/.ssh/coasian.pem
+
+Host heartmail-web-2
+  HostName 34.213.188.9
+  User ec2-user
+  IdentityFile ~/.ssh/coasian.pem
+
+Host openspv-web-1
+  HostName 54.201.54.80
+  User ec2-user
+  IdentityFile ~/.ssh/coasian.pem
+
+Host openspv-web-2
+  HostName 54.202.251.156
+  User ec2-user
+  IdentityFile ~/.ssh/coasian.pem

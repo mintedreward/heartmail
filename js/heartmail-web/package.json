@@ -1,5 +1,5 @@
 {
-  "name": "@coasian/openspv-web",
+  "name": "@coasian/heartmail-web",
   "version": "3.0.9",
   "scripts": {
     "dev": "next dev",
