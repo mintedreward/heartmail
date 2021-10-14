@@ -37,12 +37,10 @@ docker tag openspv-web ryanxcharles/openspv-web:${version}
 docker push ryanxcharles/openspv-web:${version}
 echo Deploying openspv-web
 ssh -t openspv-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -t openspv-web-1 'docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD'
 ssh -t openspv-web-1 'docker kill $(docker ps -q)'
 ssh -t openspv-web-1 'docker rm $(docker ps -a -q)'
 ssh -t openspv-web-1 "docker run --detach -p 80:3000 ryanxcharles/openspv-web:${version}"
 ssh -t openspv-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -t openspv-web-2 'docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD'
 ssh -t openspv-web-2 'docker kill $(docker ps -q)'
 ssh -t openspv-web-2 'docker rm $(docker ps -a -q)'
 ssh -t openspv-web-2 "docker run --detach -p 80:3000 ryanxcharles/openspv-web:${version}"
