@@ -6,14 +6,14 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Coasian</title>
-        <meta name="description" content="Truth, Love & Beauty" />
-        <link rel="icon" href="/pixel-heart-dark.png" />
+        <title>HeartMail</title>
+        <meta name="description" content="Love your colleagues as yourself." />
+        <link rel="icon" href="/heartmail-avatar-light.png" />
       </Head>
 
       <main className={styles.main}>
         <span className={styles.logoheader}>
-            <Image src="/coasian-header-light.png" alt="Coasian" width="300" height="200" />
+            <Image src="/heartmail-header-light.png" alt="HeartMail" width="440" height="160" />
         </span>
       </main>
 
