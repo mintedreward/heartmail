@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>HeartMail</title>
         <meta name="description" content="Love your colleagues as yourself." />
-        <link rel="icon" href="/heartmail-avatar-light.png" />
+        <link rel="icon" href="/heartmail-avatar-dark.png" />
       </Head>
 
       <main className={styles.main}>
