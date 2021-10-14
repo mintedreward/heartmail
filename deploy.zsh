@@ -5,7 +5,7 @@ dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 cd $dir
 
 # load environment variables for production
-source .env.prod
+source keys/.env.prod
 
 # publish latest version to npm
 lerna publish
