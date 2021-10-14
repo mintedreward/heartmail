@@ -1,6 +1,6 @@
 {
   "name": "@coasian/openspv-web",
-  "version": "3.0.16",
+  "version": "3.0.17",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
