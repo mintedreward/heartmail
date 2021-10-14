@@ -16,7 +16,9 @@ version=`git describe --tags --exact-match`
 # deploy coasian-web
 cd $dir/js/coasian-web
 echo Building coasian-web
+echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t coasian-web
+rm .npmrc
 docker tag coasian-web ryanxcharles/coasian-web:${version}
 docker push ryanxcharles/coasian-web:${version}
 echo Deploying coasian-web
@@ -32,7 +34,9 @@ ssh -F $dir/ssh_config -i $dir/keys/coasian.pem -t coasian-web-2 "docker run --d
 # deploy openspv-web
 cd $dir/js/openspv-web
 echo Building openspv-web
+echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t openspv-web
+rm .npmrc
 docker tag openspv-web ryanxcharles/openspv-web:${version}
 docker push ryanxcharles/openspv-web:${version}
 echo Deploying openspv-web
@@ -48,7 +52,9 @@ ssh -F $dir/ssh_config -i $dir/keys/coasian.pem -t openspv-web-2 "docker run --d
 # deploy heartmail-web
 cd $dir/js/heartmail-web
 echo Building heartmail-web
+echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t heartmail-web
+rm .npmrc
 docker tag heartmail-web ryanxcharles/heartmail-web:${version}
 docker push ryanxcharles/heartmail-web:${version}
 echo Deploying heartmail-web
