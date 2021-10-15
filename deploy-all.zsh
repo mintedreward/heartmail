@@ -5,4 +5,5 @@
 ./deploy-openspv-web.zsh
 ./deploy-rxc-web.zsh
 ./deploy-tob-web.zsh
+./deploy-itisbit-web.zsh
 ./deploy-open-source-repos.zsh
