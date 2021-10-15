@@ -16,16 +16,16 @@ export default function Home() {
             <Image src="/rxc-header-light.png" alt="Coasian" width="300" height="200" />
         </span>
         <p>
-          <a href="https://twitter.com/ryanxcharles" class="btn btn-default btn-sm"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-          <a href="https://instagram.com/ryan_x_charles" class="btn btn-default btn-sm"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
-          <a href="https://medium.com/@ryanxcharles" class="btn btn-default btn-sm"><i class="fa fa-medium fa-fw"></i> <span class="network-name">Medium</span></a>
-          <a href="https://github.com/ryanxcharles" class="btn btn-default btn-sm"><i class="fa fa-github fa-fw"></i> <span class="network-name">GitHub</span></a>
+          <a href="https://twitter.com/ryanxcharles" className="btn btn-default btn-sm"><i className="fa fa-twitter fa-fw"></i> <span className="network-name">Twitter</span></a>
+          <a href="https://instagram.com/ryan_x_charles" className="btn btn-default btn-sm"><i className="fa fa-instagram fa-fw"></i> <span className="network-name">Instagram</span></a>
+          <a href="https://medium.com/@ryanxcharles" className="btn btn-default btn-sm"><i className="fa fa-medium fa-fw"></i> <span className="network-name">Medium</span></a>
+          <a href="https://github.com/ryanxcharles" className="btn btn-default btn-sm"><i className="fa fa-github fa-fw"></i> <span className="network-name">GitHub</span></a>
         </p>
         <p>
-          <a href="https://www.youtube.com/user/ryanxcharles/" class="btn btn-default btn-sm"><i class="fa fa-youtube fa-fw"></i> <span class="network-name">YouTube</span></a>
-          <a href="https://www.linkedin.com/in/ryanxcharles" class="btn btn-default btn-sm"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">LinkedIn</span></a>
-          <a href="https://www.facebook.com/ryanxcharles" class="btn btn-default btn-sm"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
-          <a href="http://www.last.fm/user/ryancarnated" class="btn btn-default btn-sm"><i class="fa fa-lastfm fa-fw"></i> <span class="network-name">Last.fm</span></a>
+          <a href="https://www.youtube.com/user/ryanxcharles/" className="btn btn-default btn-sm"><i className="fa fa-youtube fa-fw"></i> <span className="network-name">YouTube</span></a>
+          <a href="https://www.linkedin.com/in/ryanxcharles" className="btn btn-default btn-sm"><i className="fa fa-linkedin fa-fw"></i> <span className="network-name">LinkedIn</span></a>
+          <a href="https://www.facebook.com/ryanxcharles" className="btn btn-default btn-sm"><i className="fa fa-facebook fa-fw"></i> <span className="network-name">Facebook</span></a>
+          <a href="http://www.last.fm/user/ryancarnated" className="btn btn-default btn-sm"><i className="fa fa-lastfm fa-fw"></i> <span className="network-name">Last.fm</span></a>
         </p>
       </main>
 

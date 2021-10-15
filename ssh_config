@@ -32,3 +32,11 @@ Host rxc-web-2
   HostName 54.202.232.190
   User ec2-user
 
+Host tob-web-1
+  HostName 34.221.179.76
+  User ec2-user
+
+Host tob-web-2
+  HostName 54.213.127.46
+  User ec2-user
+

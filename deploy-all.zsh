@@ -4,4 +4,5 @@
 ./deploy-heartmail-web.zsh
 ./deploy-openspv-web.zsh
 ./deploy-rxc-web.zsh
+./deploy-tob-web.zsh
 ./deploy-open-source-repos.zsh
