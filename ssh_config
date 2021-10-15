@@ -23,3 +23,12 @@ Host openspv-web-1
 Host openspv-web-2
   HostName 54.202.251.156
   User ec2-user
+
+Host rxc-web-1
+  HostName 35.85.143.8
+  User ec2-user
+
+Host rxc-web-2
+  HostName 54.202.232.190
+  User ec2-user
+

@@ -1,16 +1,20 @@
 {
   "name": "@coasian/rxc-web",
-  "version": "1.0.2",
-  "description": "ryanxcharles.com",
-  "private": true,
-  "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3"
-  },
+  "version": "3.0.18",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "author": "Ryan X. Charles",
-  "license": "UNLICENSED"
+  "dependencies": {
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sharp": "^0.29.1"
+  },
+  "devDependencies": {
+    "eslint": "8.0.0",
+    "eslint-config-next": "11.1.2"
+  }
 }
