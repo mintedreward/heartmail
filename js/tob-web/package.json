@@ -1,5 +1,5 @@
 {
-  "name": "@coasian/rxc-web",
+  "name": "@coasian/tob-web",
   "version": "3.0.20",
   "scripts": {
     "dev": "next dev",
