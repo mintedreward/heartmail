@@ -16,6 +16,14 @@ Host heartmail-web-2
   HostName 34.213.188.9
   User ec2-user
 
+Host heartx-web-1
+  HostName 35.85.146.168
+  User ec2-user
+
+Host heartx-web-2
+  HostName 52.34.76.155
+  User ec2-user
+
 Host openspv-web-1
   HostName 54.201.54.80
   User ec2-user
