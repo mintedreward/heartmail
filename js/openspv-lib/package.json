@@ -1,7 +1,7 @@
 {
   "name": "@openspv/lib",
   "description": "Heart-to-heart electronic cash.",
-  "version": "3.0.32",
+  "version": "6.0.0",
   "author": "Coasian",
   "homepage": "https://github.com/openspv/openspv",
   "source": "src/index.js",
