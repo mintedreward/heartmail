@@ -72,5 +72,6 @@
       "dist/*"
     ]
   },
-  "gitHead": "1f5501792603cecb6428964ac37a5f226078956a"
+  "gitHead": "1f5501792603cecb6428964ac37a5f226078956a",
+  "packageManager": "yarn@3.0.2"
 }
