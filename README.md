@@ -47,15 +47,14 @@ emphasis to HeartMail and other projects.
 * Key is generated on the server and shared with Alice ("shared key")
 * Alice can use that key, or: Alice can generate a new key which is not shared
   with the server ("sovereign key"). Alice can choose to rely on the sovereign
-  key instead of the shared key as her primary key, but can use either for identity or kkk
+  key instead of the shared key as her primary key.
 * Bob can visit wallet.heartmail.com and generates a paymail with a key
 * Bob generates a new sovereign key
 * Alice can send a payment p2p to Bob with Merkle proofs (genuine SPV)
 
 # OpenSVP Business Model
 
-* Sell paymails
-* Documentation market place (allow users to post content for a price & take
-  10% of revenue)
+* Paymail sales and auctions
+* Documentation sales and marketplace
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.
