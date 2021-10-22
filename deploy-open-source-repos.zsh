@@ -8,15 +8,18 @@
 dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 cd $dir
 
-# assume openspv is in the same containing folder as coasian
-# delete all non-hidden files in that repo
-rm -rf ../openspv/*
+# delete all non-hidden files in OpenSPV
+cd $dir/../openspv
+rm -rf ./*
 
-# copy all files into external repo
-rsync -aq --progress js/openspv/* ../openspv --exclude node_modules
+# copy all files from npm
+curl `npm view openspv dist.tarball` > openspv.tgz
+tar -xzf openspv.tgz
+mv package/* ./
+mv package/.* ./
+rmdir package
 
-# commit changes and push to github
-cd ../openspv
+version=`npm view openspv version`
 git add .
-git commit -m "commit"
+git commit -m "$version"
 git push origin master
