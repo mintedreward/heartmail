@@ -52,4 +52,10 @@ emphasis to HeartMail and other projects.
 * Bob generates a new sovereign key
 * Alice can send a payment p2p to Bob with Merkle proofs (genuine SPV)
 
+# OpenSVP Business Model
+
+* Sell paymails
+* Documentation market place (allow users to post content for a price & take
+  10% of revenue)
+
 Copyright (c) 2021 Coasian Inc. All rights reserved.
