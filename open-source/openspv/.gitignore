@@ -1,0 +1,10 @@
+*.swp
+node_modules
+npm-debug.log
+.cache
+package-lock.json
+.DS_Store
+.vscode
+
+dist
+node_modules.nosync
