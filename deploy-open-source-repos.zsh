@@ -9,7 +9,7 @@ dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 cd $dir
 
 # get all open-source repos ("subtree" - currently only OpenSPV)
-git subtree pull-all
+git subtree pull --prefix=open-source/openspv openspv master
 
 # delete all non-hidden files in OpenSPV
 cd $dir/open-source/openspv
