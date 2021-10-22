@@ -9,7 +9,6 @@ dist
 package-lock.json
 doc
 .DS_Store
-*.env
-*.env.*
+*.env.prod
 
 node_modules.nosync
