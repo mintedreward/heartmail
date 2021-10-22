@@ -4,5 +4,6 @@
   "packageManager": "yarn@3.0.2",
   "workspaces": [
     "js/*"
-  ]
+  ],
+  "private", true
 }
