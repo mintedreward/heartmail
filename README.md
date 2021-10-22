@@ -19,7 +19,7 @@ software ourselves and push to npm and GitHub.
 
 # OpenSPV
 
-* [ ] OpenSPV Library
+* [x] OpenSPV Library
 * [ ] OpenSPV DB
 * [ ] OpenSPV Web API
 * [ ] OpenSPV IFrame API
