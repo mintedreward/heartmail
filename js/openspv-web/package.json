@@ -17,6 +17,6 @@
     "eslint": "8.0.0",
     "eslint-config-next": "11.1.2"
   },
-  "gitHead": "1f5501792603cecb6428964ac37a5f226078956a",
+  "gitHead": "0fc69f2e1b4219cad3ee027b83b98edc82466245",
   "packageManager": "yarn@3.0.2"
 }

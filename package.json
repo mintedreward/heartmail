@@ -4,5 +4,6 @@
   "devDependencies": {
     "lerna": "^4.0.0"
   },
+  "workspaces": "js/*",
   "packageManager": "yarn@3.0.2"
 }
