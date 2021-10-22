@@ -8,11 +8,11 @@
 dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 cd $dir
 
-# make sure we get all subtrees
-git submodule update --init --recursive
+# get all open-source repos ("subtree" - currently only OpenSPV)
+git subtree pull-all
 
 # delete all non-hidden files in OpenSPV
-cd $dir/../openspv
+cd $dir/open-source/openspv
 rm -rf ./*
 rm ./.*
 
@@ -24,7 +24,7 @@ mv package/.* ./
 rmdir package
 
 # update on github
-version=`npm view openspv version`
-git add .
-git commit -m "$version"
-git push origin master
+#version=`npm view openspv version`
+#git add .
+#git commit -m "$version"
+#git push origin master
