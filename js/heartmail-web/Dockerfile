@@ -6,7 +6,7 @@ WORKDIR /app
 ARG NPM_TOKEN
 COPY .npmrc .npmrc
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install
 RUN rm -f .npmrc
 
 # Rebuild the source code only when needed
