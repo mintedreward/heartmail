@@ -1,7 +1,7 @@
 {
   "name": "openspv",
   "description": "Heart-to-heart electronic cash.",
-  "version": "3.0.17",
+  "version": "3.0.26",
   "author": "Coasian",
   "homepage": "https://github.com/openspv/openspv",
   "source": "src/index.js",
@@ -71,5 +71,6 @@
       "src/interp.js",
       "dist/*"
     ]
-  }
+  },
+  "gitHead": "de17fbc93f6f3ee3585773e415da5b88191a4485"
 }
