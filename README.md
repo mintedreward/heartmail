@@ -25,6 +25,8 @@ identity features. It will have a white label form and will be re-used in most
 other projects, such as HeartMail. After OpenSPV gets video, we can then shift
 emphasis to HeartMail and other projects.
 
+## OpenSPV Subprojects
+
 * [x] OpenSPV Library
 * [ ] OpenSPV DB
 * [ ] OpenSPV Web API
@@ -34,8 +36,20 @@ emphasis to HeartMail and other projects.
 * [ ] OpenSPV Mobile Components
 * [ ] OpenSPV iOS
 * [ ] OpenSPV Android
-* [ ] OpenSPV Documentation
+* [ ] OpenSPV Documentation Marketplace
 * [ ] OpenSPV Deployment
 * [ ] OpenSPV White Label
+
+# OpenSPV MVP
+
+* Alice visits wallet.openspv.com
+* Alice gets a paymail with a key
+* Key is generated on the server and shared with Alice ("shared key")
+* Alice can use that key, or: Alice can generate a new key which is not shared
+  with the server ("sovereign key"). Alice can choose to rely on the sovereign
+  key instead of the shared key as her primary key, but can use either for identity or kkk
+* Bob can visit wallet.heartmail.com and generates a paymail with a key
+* Bob generates a new sovereign key
+* Alice can send a payment p2p to Bob with Merkle proofs (genuine SPV)
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.
