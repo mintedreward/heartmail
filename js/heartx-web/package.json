@@ -16,5 +16,6 @@
   "devDependencies": {
     "eslint": "8.0.0",
     "eslint-config-next": "11.1.2"
-  }
+  },
+  "gitHead": "b1de868388209858562f9a99859490b73111795c"
 }
