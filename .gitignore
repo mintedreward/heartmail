@@ -10,5 +10,6 @@ package-lock.json
 doc
 .DS_Store
 *.env.prod
+*.pem
 
 node_modules.nosync
