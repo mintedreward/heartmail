@@ -24,7 +24,9 @@ mv package/.* ./
 rmdir package
 
 # update on github
-#version=`npm view openspv version`
-#git add .
-#git commit -m "$version"
-#git push origin master
+version=`npm view openspv version`
+git add .
+git commit -m "$version"
+
+cd $dir
+git subtree push --prefix=open-source/openspv openspv master
