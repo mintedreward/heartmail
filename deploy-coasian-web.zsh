@@ -13,7 +13,7 @@ version=`git rev-parse --verify HEAD`
 # deploy coasian-web
 cd $dir/js/coasian-web
 yarn version patch
-yarn publish
+yarn npm publish
 echo Building coasian-web
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t coasian-web

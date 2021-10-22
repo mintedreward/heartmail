@@ -1,6 +1,6 @@
 {
   "name": "@coasian/coasian-web",
-  "version": "3.0.32",
+  "version": "3.0.33",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
