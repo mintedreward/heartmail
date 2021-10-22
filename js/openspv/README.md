@@ -2,8 +2,6 @@
 
 ![OpenSPV](https://github.com/openspv/openspv/blob/master/openspv-landscape-dark.png)
 
-OpenSPV is heart-to-heart electronic cash.
-
 ## Environment Variables
 
 * `NETWORK` - Default "mainnet"
