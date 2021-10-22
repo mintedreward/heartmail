@@ -18,5 +18,6 @@
     "eslint-config-next": "11.1.2"
   },
   "gitHead": "0fc69f2e1b4219cad3ee027b83b98edc82466245",
+  "license": "UNLICENSED",
   "packageManager": "yarn@3.0.2"
 }

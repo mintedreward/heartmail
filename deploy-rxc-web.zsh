@@ -7,14 +7,13 @@ cd $dir
 # load environment variables for production
 source keys/.env.prod
 
-# publish latest version to npm
-lerna publish
-
 # get the latest commit hash as the docker version number
 version=`git rev-parse --verify HEAD`
 
 # deploy rxc-web
 cd $dir/js/rxc-web
+yarn version minor
+yarn npm publish
 echo Building rxc-web
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t rxc-web

@@ -12,7 +12,7 @@ version=`git rev-parse --verify HEAD`
 
 # deploy coasian-web
 cd $dir/js/coasian-web
-yarn version patch
+yarn version minor
 yarn npm publish
 echo Building coasian-web
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
