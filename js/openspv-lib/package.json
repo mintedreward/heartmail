@@ -1,5 +1,5 @@
 {
-  "name": "openspv",
+  "name": "@openspv/lib",
   "description": "Heart-to-heart electronic cash.",
   "version": "3.0.32",
   "author": "Coasian",
@@ -72,6 +72,5 @@
       "dist/*"
     ]
   },
-  "gitHead": "0fc69f2e1b4219cad3ee027b83b98edc82466245",
   "packageManager": "yarn@3.0.2"
 }

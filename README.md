@@ -17,4 +17,19 @@ subtree in the <code>open-source</code> folder and pushed to GitHub.
 We do not accept pull requests from the outside. We create all open-source
 software ourselves and push to npm and GitHub.
 
+# OpenSPV
+
+* [ ] OpenSPV Bitcoin
+* [ ] OpenSPV DB
+* [ ] OpenSPV Web API
+* [ ] OpenSPV IFrame API
+* [ ] OpenSPV Web Components
+* [ ] OpenSPV Web
+* [ ] OpenSPV Mobile Components
+* [ ] OpenSPV iOS
+* [ ] OpenSPV Android
+* [ ] OpenSPV Documentation
+* [ ] OpenSPV Deployment
+* [ ] OpenSPV White Label
+
 Copyright (c) 2021 Coasian Inc. All rights reserved.
