@@ -2642,9 +2642,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openspv/bitcoin@workspace:.":
+"@openspv/lib@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@openspv/bitcoin@workspace:."
+  resolution: "@openspv/lib@workspace:."
   dependencies:
     "@babel/core": ^7.13.8
     "@babel/plugin-transform-runtime": ^7.13.9
