@@ -62,6 +62,7 @@ All software is open source and open protocol. I own my content and brands.
 * OpenSPV: Paymail trades & auctions
 * OpenSPV: Documentation sales
 * OpenSPV: Documentation marketplace
-* SBW: Paid ad placement for search results ("Better than Google")
+* Ad Doodle: Paid ad placement for search results ("Better than Google")
+* Planck Times: Citizen journalism. My customized source of news.
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.
