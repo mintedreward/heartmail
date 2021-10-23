@@ -1,10 +1,8 @@
 {
-  "name": "coasian",
+  "name": "openspv",
   "private": true,
   "packageManager": "yarn@3.0.2",
   "workspaces": [
-    "private/*",
-    "public/*",
-    "public/openspv/*"
+    "./*"
   ]
 }
