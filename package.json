@@ -1,11 +1,15 @@
 {
   "name": "openspv",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 548f10141da12b01aa4526fc8def3807b7cd8e03
   "private": true,
   "packageManager": "yarn@3.0.2",
   "workspaces": [
     "projects/*"
   ]
+<<<<<<< HEAD
 =======
   "description": "Heart-to-heart electronic cash.",
   "version": "3.0.29",
@@ -80,4 +84,6 @@
     ]
   }
 >>>>>>> 3e0392b6aaf703ed6055e785fb535b137056eb31
+=======
+>>>>>>> 548f10141da12b01aa4526fc8def3807b7cd8e03
 }
