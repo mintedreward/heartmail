@@ -16,7 +16,7 @@ cd $dir/open-source/openspv
 rm -rf ./projects/*
 
 # copy all files from the latest version on npm
-curl `npm view @openspv/lib dist.tarball` > openspv-lib.tgz
+curl `npm view "@openspv/lib" dist.tarball` > openspv-lib.tgz
 tar -xzf openspv-lib.tgz
 mv package/* ./projects/openspv-lib
 mv package/.* ./projects/openspv-lib
