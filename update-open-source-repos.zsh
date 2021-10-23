@@ -15,13 +15,10 @@ git subtree pull --prefix=open-source/openspv openspv master
 cd $dir/open-source/openspv
 rm -rf ./projects/*
 
-# copy all files from the latest version on npm
+# copy all files from the latest version in the repo
 tarball=`npm pack ../../projects/openspv-lib`
 tar -xzf $tarball
-mkdir ./projects/openspv-lib
-mv package/* ./projects/openspv-lib
-mv package/.* ./projects/openspv-lib
-rm -rf package
+mv package ./projects/openspv-lib
 rm $tarball
 
 # update on github
