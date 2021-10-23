@@ -9,11 +9,11 @@ dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 cd $dir
 
 # get all open-source repos ("subtree" - currently only OpenSPV)
-git subtree pull --prefix=open-source/openspv openspv master
+git subtree pull --prefix=private/openspv openspv master
 
 # update on github
 version=`npm view @openspv/lib version`
 git add .
 git commit -m "$version"
 cd $dir
-git subtree push --prefix=open-source/openspv openspv master
+git subtree push --prefix=private/openspv openspv master
