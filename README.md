@@ -11,9 +11,11 @@ inside the <code>js</code> folder whether they are open source or not.
 ## Open Source
 
 All projects are published to npm (using yarn) and may be open source or not
-depending on the license and whether they are publicly exposed. After
-publishing to npm, all open source repos are copied from npm into the git
-subtree in the <code>open-source</code> folder and pushed to GitHub.
+depending on the license and whether they are publicly exposed.
+
+All open source repos are copied into the git subtree in the
+<code>open-source</code> folder and pushed to GitHub. For now there is only one
+open-source project which is OpenSPV.
 
 We do not accept pull requests from the outside. We create all open-source
 software ourselves and push to npm and GitHub.
@@ -52,10 +54,14 @@ emphasis to HeartMail and other projects.
 * Bob generates a new sovereign key
 * Alice can send a payment p2p to Bob with Merkle proofs (genuine SPV)
 
-# OpenSVP Business Model
+# Business Models
 
-* OpenSPV: Paymail sales and auctions
-* OpenSPV: Documentation sales and marketplace
+All software is open source and open protocol. I own my content and brands.
+
+* OpenSPV: Paymail sales
+* OpenSPV: Paymail trades & auctions
+* OpenSPV: Documentation sales
+* OpenSPV: Documentation marketplace
 * SBW: Paid ad placement for search results ("Better than Google")
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.

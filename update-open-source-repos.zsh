@@ -22,7 +22,7 @@ mv package ./projects/openspv-lib
 rm $tarball
 
 # update on github
-version=`npm view openspv version`
+version=`npm view @openspv/lib version`
 git add .
 git commit -m "$version"
 cd $dir
