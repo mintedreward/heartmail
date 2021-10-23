@@ -20,7 +20,7 @@ tar -xzf openspv-lib.tgz
 mkdir ./projects/openspv-lib
 mv package/* ./projects/openspv-lib
 mv package/.* ./projects/openspv-lib
-rmdir package
+rm -rf package
 rm openspv-lib.tgz
 
 # update on github
