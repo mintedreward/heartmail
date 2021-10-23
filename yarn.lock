@@ -10279,6 +10279,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"openspv@workspace:open-source/openspv":
+  version: 0.0.0-use.local
+  resolution: "openspv@workspace:open-source/openspv"
+  languageName: unknown
+  linkType: soft
+
 "optionator@npm:^0.9.1":
   version: 0.9.1
   resolution: "optionator@npm:0.9.1"

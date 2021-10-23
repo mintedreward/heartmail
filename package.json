@@ -3,6 +3,8 @@
   "private": true,
   "packageManager": "yarn@3.0.2",
   "workspaces": [
-    "projects/*"
+    "projects/*",
+    "open-source/*",
+    "open-source/openspv/projects/*"
   ]
 }
