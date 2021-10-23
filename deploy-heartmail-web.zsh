@@ -11,7 +11,7 @@ source .env.prod
 version=`git rev-parse --verify HEAD`
 
 # deploy heartmail-web
-cd $dir/js/heartmail-web
+cd $dir/private/heartmail-web
 yarn version minor
 yarn npm publish
 echo Building heartmail-web
