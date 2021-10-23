@@ -1,8 +1,89 @@
 {
   "name": "openspv",
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 548f10141da12b01aa4526fc8def3807b7cd8e03
   "private": true,
   "packageManager": "yarn@3.0.2",
   "workspaces": [
     "projects/*"
   ]
+<<<<<<< HEAD
+=======
+  "description": "Heart-to-heart electronic cash.",
+  "version": "3.0.29",
+  "author": "Coasian",
+  "homepage": "https://github.com/openspv/openspv",
+  "source": "src/index.js",
+  "main": "dist/spv.js",
+  "module": "dist/spv.modern.js",
+  "unpkg": "dist/spv.bundle.js",
+  "library": "spv",
+  "scripts": {
+    "clean": "rm -rf node_modules/* yarn.lock",
+    "lint": "standard *.js 'src/**/*.js' 'bin/**/*.js' 'test/**/*.js'",
+    "pretest": "yarn run lint",
+    "test:mocha": "mocha",
+    "test:karma": "karma start --single-run",
+    "test": "yarn run test:mocha && yarn run test:karma",
+    "build": "webpack && microbundle --target node -f modern,cjs",
+    "prepublish": "yarn build",
+    "doc": "documentation build src/index.js -f html -o doc"
+  },
+  "keywords": [
+    "bitcoin",
+    "bsv"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openspv/openspv.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "aes": "0.1.0",
+    "bitcoin-elliptic": "^7.0.1",
+    "bn.js": "^5.2.0",
+    "bs58": "4.0.1",
+    "chai": "^4.3.3",
+    "hash.js": "^1.1.7",
+    "is-hex": "1.1.3",
+    "pbkdf2": "3.1.1",
+    "randombytes": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-transform-runtime": "^7.13.9",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/register": "^7.13.8",
+    "@babel/runtime": "^7.13.9",
+    "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "documentation": "^13.1.1",
+    "karma": "^6.1.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-firefox-launcher": "^2.1.0",
+    "karma-mocha": "^2.0.1",
+    "karma-webpack": "^5.0.0",
+    "microbundle": "^0.12.0",
+    "mocha": "^8.3.1",
+    "npm-link-shared": "^0.5.6",
+    "should": "^13.2.3",
+    "sinon": "^9.2.4",
+    "standard": "^16.0.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "license": "MIT",
+  "standard": {
+    "ignore": [
+      "src/interp.js",
+      "dist/*"
+    ]
+  }
+>>>>>>> 3e0392b6aaf703ed6055e785fb535b137056eb31
+=======
+>>>>>>> 548f10141da12b01aa4526fc8def3807b7cd8e03
 }
