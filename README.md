@@ -54,7 +54,8 @@ emphasis to HeartMail and other projects.
 
 # OpenSVP Business Model
 
-* Paymail sales and auctions
-* Documentation sales and marketplace
+* OpenSPV: Paymail sales and auctions
+* OpenSPV: Documentation sales and marketplace
+* SBW: Paid ad placement for search results ("Better than Google")
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.
