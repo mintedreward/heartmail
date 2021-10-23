@@ -21,6 +21,7 @@ tar -xzf openspv-lib.tgz
 mv package/* ./projects/openspv-lib
 mv package/.* ./projects/openspv-lib
 rmdir package
+rm openspv-lib.tgz
 
 # update on github
 version=`npm view openspv version`
