@@ -13,6 +13,7 @@ git subtree pull --prefix=open-source/openspv openspv master
 
 # delete all non-hidden files in OpenSPV
 cd $dir/open-source/openspv
+rm -rf ./projects/*
 
 # copy all files from the latest version on npm
 curl `npm view "@openspv/lib" dist.tarball` > openspv-lib.tgz
