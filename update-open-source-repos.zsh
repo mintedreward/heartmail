@@ -22,9 +22,9 @@ mv package/* ./projects/openspv-lib
 mv package/.* ./projects/openspv-lib
 rmdir package
 
-## update on github
-#version=`npm view openspv version`
-#git add .
-#git commit -m "$version"
-#cd $dir
-#git subtree push --prefix=open-source/openspv openspv master
+# update on github
+version=`npm view openspv version`
+git add .
+git commit -m "$version"
+cd $dir
+git subtree push --prefix=open-source/openspv openspv master
