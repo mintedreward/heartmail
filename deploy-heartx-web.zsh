@@ -11,7 +11,7 @@ source .env.prod
 version=`git rev-parse --verify HEAD`
 
 # deploy heartx-web
-cd $dir/private/heartx-web
+cd $dir/private/heartx/web
 yarn version minor
 yarn npm publish
 echo Building heartx-web

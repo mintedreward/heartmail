@@ -11,7 +11,7 @@ source .env.prod
 version=`git rev-parse --verify HEAD`
 
 # deploy itisbit-web
-cd $dir/private/itisbit-web
+cd $dir/private/itisbit/web
 yarn version minor
 yarn npm publish
 echo Building itisbit-web

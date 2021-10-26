@@ -11,7 +11,7 @@ source .env.prod
 version=`git rev-parse --verify HEAD`
 
 # deploy rxc-web
-cd $dir/private/rxc-web
+cd $dir/private/rxc/web
 yarn version minor
 yarn npm publish
 echo Building rxc-web

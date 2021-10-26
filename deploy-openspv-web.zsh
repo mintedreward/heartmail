@@ -11,7 +11,7 @@ source .env.prod
 version=`git rev-parse --verify HEAD`
 
 # deploy openspv-web
-cd $dir/private/openspv-web
+cd $dir/private/openspv/web
 yarn version minor
 yarn npm publish
 echo Building openspv-web
