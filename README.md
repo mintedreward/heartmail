@@ -49,6 +49,7 @@ emphasis to HeartMail and other projects.
 ## OpenSPV Subprojects
 
 * [x] OpenSPV Library
+* [ ] OpenSPV Keyfile
 * [ ] OpenSPV DB
 * [ ] OpenSPV Web API
 * [ ] OpenSPV IFrame API
@@ -73,31 +74,44 @@ emphasis to HeartMail and other projects.
 * Bob generates a new sovereign key
 * Alice can send a payment p2p to Bob with Merkle proofs (genuine SPV)
 
-# Social Bitcoin Web Standards
-
-* Key File
-* Two Factor Friend
-* Paymail Authentication
-* Paymail Permissions
-* Paymail Payments
-
 # Businesses
 
-All software is open source and open protocol. I own my content and brands.
-
-* Coasian: Build and manage subsidiaries that leverage truth, love, and beauty
-  to solve every problem.
-* OpenSPV: Paymail sales
-* OpenSPV: Paymail trades & auctions
-* OpenSPV: Documentation sales
-* OpenSPV: Documentation marketplace
-* Ad Doodle: Paid ad placement for search results ("Better than Google")
-* Planck Times: Citizen journalism. Customized source of news.
-* Contract.IO: One person. Many companies. (Legal contract management)
-* Two Factor Friend: It's like a dating app, but for computer security.
+* Ryan X. Charles: License content created by RXC.
+* Coasian: Build and manage subsidiaries.
+* OpenSPV: Paymail sales, trades, & auctions.
+* OpenSPV: Documentation sales & marketplace.
+* OpenSPV: WaaS for businesses.
+* OpenSPV: Paid video mail hosting, processing, transmission.
+* OpenSPV: Paid ad placement for search results, front page, categories.
+* Two Factor Friend: It's like a dating app, but for infosec. BFF+2FA=2FF.
+* HeartMail: Paymail sales, trades, & auctions.
+* HeartMail: Paid video mail hosting, processing, transmission.
+* HeartMail: Paid ad placement for search results, front page, categories.
+* HeartMail: Mainstream video sales & marketplace.
+* HeartX: Real asset exchange.
+* HeartX: HeartUSD.
+* Coasetodian: Custodian of financial assets.
+* HeartMiner: Paid block explorer. Free tx viewing under 50kb, paid over.
+* HeartMiner: Paid merkle proofs. Free tx proofs under 50kb, paid over.
+* HeartMiner: Bitcoin mining.
+* Coasian KYC: Verify identity of people and corporations.
+* Coasian Headlines: See what's hot and buy it (Twitter+PayWall+Affiliates)
+* Anarchoscience: Science crowdfunding.
+* It is Bit: Information theory education marketplace.
+* Planck Times: Physics journal.
+* Contract.IO: Contract signing & execution. One person, many companies.
+* SF Liberals: Economics education marketplace.
+* Golden Gate Gym: Virtue signal dating app.
+* Astrohacker: Spaceships.
+* The Megabits: Band.
+* Theory of Bitcoin: Educational material on Bitcoin.
+* Social Bitcoin Web: The front-page of the Social Bitcoin Web. Ads & search.
+* Coasian Computer: Pay for solutions to problems.
+* The Dream that Lasted Forever: Movies and video games.
 
 # Principles
 
+* All protocols are open-source and open-protocol.
 * Every app is a browser.
 * If someone dies, everything should keep working.
 * Everything should feel right.
@@ -105,12 +119,13 @@ All software is open source and open protocol. I own my content and brands.
 # Central Points of Failure
 
 All central points of failure should be eliminated over time, including
-ourselves. We do not one part of the system to create cascading failures. Any
-part should be able to be removed and the system should keep functioning.
+ourselves. We do not want the failure of one part of the system to create
+cascading failures. Any part should be able to be removed and the system should
+keep functioning.
 
-* Domain names
+* Domain names (AWS)
 * Cloud (AWS)
-* Email
-* RXC
+* Email (Google)
+* Ryan X. Charles
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.
