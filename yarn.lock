@@ -1786,25 +1786,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openspv/lib@workspace:public/openspv/openspv-lib":
+"@openspv/keyfile@workspace:private/openspv-keyfile":
   version: 0.0.0-use.local
-  resolution: "@openspv/lib@workspace:public/openspv/openspv-lib"
+  resolution: "@openspv/keyfile@workspace:private/openspv-keyfile"
   dependencies:
     "@babel/core": ^7.13.8
     "@babel/plugin-transform-runtime": ^7.13.9
     "@babel/preset-env": ^7.13.9
     "@babel/register": ^7.13.8
     "@babel/runtime": ^7.13.9
-    aes: 0.1.0
+    "@openspv/lib": "workspace:public/openspv/lib"
     babel-loader: ^8.2.2
     babel-polyfill: ^6.26.0
-    bitcoin-elliptic: ^7.0.1
-    bn.js: ^5.2.0
-    bs58: 4.0.1
-    chai: ^4.3.3
     documentation: ^13.1.1
-    hash.js: ^1.1.7
-    is-hex: 1.1.3
     karma: ^6.1.1
     karma-chrome-launcher: ^3.1.0
     karma-firefox-launcher: ^2.1.0
@@ -1813,13 +1807,30 @@ __metadata:
     microbundle: ^0.12.0
     mocha: ^8.3.1
     npm-link-shared: ^0.5.6
-    pbkdf2: 3.1.1
-    randombytes: ^2.1.0
     should: ^13.2.3
     sinon: ^9.2.4
     standard: ^16.0.3
     webpack: ^4.43.0
     webpack-cli: ^3.3.11
+  languageName: unknown
+  linkType: soft
+
+"@openspv/lib@workspace:public/openspv/lib":
+  version: 0.0.0-use.local
+  resolution: "@openspv/lib@workspace:public/openspv/lib"
+  dependencies:
+    aes: 0.1.0
+    bitcoin-elliptic: ^7.0.1
+    bn.js: ^5.2.0
+    bs58: 4.0.1
+    hash.js: ^1.1.7
+    is-hex: 1.1.3
+    mocha: ^8.3.1
+    pbkdf2: 3.1.1
+    randombytes: ^2.1.0
+    should: ^13.2.3
+    sinon: ^9.2.4
+    standard: 16.0.4
   languageName: unknown
   linkType: soft
 
@@ -2842,13 +2853,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"assertion-error@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "assertion-error@npm:1.1.0"
-  checksum: fd9429d3a3d4fd61782eb3962ae76b6d08aa7383123fca0596020013b3ebd6647891a85b05ce821c47d1471ed1271f00b0545cf6a4326cf2fc91efcc3b0fbecf
-  languageName: node
-  linkType: hard
-
 "assign-symbols@npm:^1.0.0":
   version: 1.0.0
   resolution: "assign-symbols@npm:1.0.0"
@@ -3664,20 +3668,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chai@npm:^4.3.3":
-  version: 4.3.4
-  resolution: "chai@npm:4.3.4"
-  dependencies:
-    assertion-error: ^1.1.0
-    check-error: ^1.0.2
-    deep-eql: ^3.0.1
-    get-func-name: ^2.0.0
-    pathval: ^1.1.1
-    type-detect: ^4.0.5
-  checksum: 772c522b3bfe3fcf0e0e74edfe584cd886b0e85a73126dec750095300e023d4e1ec6d40e3c35a80d2bd8f33dca46c42767a36f5f50f32dca6fa31c88b5f49ab8
-  languageName: node
-  linkType: hard
-
 "chalk@npm:2.4.2, chalk@npm:^2.0.0, chalk@npm:^2.1.0, chalk@npm:^2.3.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -3747,13 +3737,6 @@ __metadata:
   version: 1.1.4
   resolution: "character-reference-invalid@npm:1.1.4"
   checksum: 20274574c70e05e2f81135f3b93285536bc8ff70f37f0809b0d17791a832838f1e49938382899ed4cb444e5bbd4314ca1415231344ba29f4222ce2ccf24fea0b
-  languageName: node
-  linkType: hard
-
-"check-error@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "check-error@npm:1.0.2"
-  checksum: d9d106504404b8addd1ee3f63f8c0eaa7cd962a1a28eb9c519b1c4a1dc7098be38007fc0060f045ee00f075fbb7a2a4f42abcf61d68323677e11ab98dc16042e
   languageName: node
   linkType: hard
 
@@ -4951,15 +4934,6 @@ __metadata:
   dependencies:
     mimic-response: ^2.0.0
   checksum: 4e783ca4dfe9417354d61349750fe05236f565a4415a6ca20983a311be2371debaedd9104c0b0e7b36e5f167aeaae04f84f1a0b3f8be4162f1d7d15598b8fdba
-  languageName: node
-  linkType: hard
-
-"deep-eql@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "deep-eql@npm:3.0.1"
-  dependencies:
-    type-detect: ^4.0.0
-  checksum: 4f4c9fb79eb994fb6e81d4aa8b063adc40c00f831588aa65e20857d5d52f15fb23034a6576ecf886f7ff6222d5ae42e71e9b7d57113e0715b1df7ea1e812b125
   languageName: node
   linkType: hard
 
@@ -6695,13 +6669,6 @@ fsevents@^1.2.7:
   version: 2.0.5
   resolution: "get-caller-file@npm:2.0.5"
   checksum: b9769a836d2a98c3ee734a88ba712e62703f1df31b94b784762c433c27a386dd6029ff55c2a920c392e33657d80191edbf18c61487e198844844516f843496b9
-  languageName: node
-  linkType: hard
-
-"get-func-name@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "get-func-name@npm:2.0.0"
-  checksum: 8d82e69f3e7fab9e27c547945dfe5cc0c57fc0adf08ce135dddb01081d75684a03e7a0487466f478872b341d52ac763ae49e660d01ab83741f74932085f693c3
   languageName: node
   linkType: hard
 
@@ -10279,35 +10246,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"openspv-keyfile@workspace:private/openspv-keyfile":
-  version: 0.0.0-use.local
-  resolution: "openspv-keyfile@workspace:private/openspv-keyfile"
-  dependencies:
-    "@babel/core": ^7.13.8
-    "@babel/plugin-transform-runtime": ^7.13.9
-    "@babel/preset-env": ^7.13.9
-    "@babel/register": ^7.13.8
-    "@babel/runtime": ^7.13.9
-    "@openspv/lib": "workspace:public/openspv/openspv-lib"
-    babel-loader: ^8.2.2
-    babel-polyfill: ^6.26.0
-    documentation: ^13.1.1
-    karma: ^6.1.1
-    karma-chrome-launcher: ^3.1.0
-    karma-firefox-launcher: ^2.1.0
-    karma-mocha: ^2.0.1
-    karma-webpack: ^5.0.0
-    microbundle: ^0.12.0
-    mocha: ^8.3.1
-    npm-link-shared: ^0.5.6
-    should: ^13.2.3
-    sinon: ^9.2.4
-    standard: ^16.0.3
-    webpack: ^4.43.0
-    webpack-cli: ^3.3.11
-  languageName: unknown
-  linkType: soft
-
 "openspv@workspace:public/openspv":
   version: 0.0.0-use.local
   resolution: "openspv@workspace:public/openspv"
@@ -10689,13 +10627,6 @@ fsevents@^1.2.7:
   version: 4.0.0
   resolution: "path-type@npm:4.0.0"
   checksum: 5b1e2daa247062061325b8fdbfd1fb56dde0a448fb1455453276ea18c60685bdad23a445dc148cf87bc216be1573357509b7d4060494a6fd768c7efad833ee45
-  languageName: node
-  linkType: hard
-
-"pathval@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "pathval@npm:1.1.1"
-  checksum: 090e3147716647fb7fb5b4b8c8e5b55e5d0a6086d085b6cd23f3d3c01fcf0ff56fd3cc22f2f4a033bd2e46ed55d61ed8379e123b42afe7d531a2a5fc8bb556d6
   languageName: node
   linkType: hard
 
@@ -13148,7 +13079,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"standard@npm:^16.0.3":
+"standard@npm:16.0.4, standard@npm:^16.0.3":
   version: 16.0.4
   resolution: "standard@npm:16.0.4"
   dependencies:
@@ -14014,7 +13945,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"type-detect@npm:4.0.8, type-detect@npm:^4.0.0, type-detect@npm:^4.0.5, type-detect@npm:^4.0.8":
+"type-detect@npm:4.0.8, type-detect@npm:^4.0.8":
   version: 4.0.8
   resolution: "type-detect@npm:4.0.8"
   checksum: 62b5628bff67c0eb0b66afa371bd73e230399a8d2ad30d852716efcc4656a7516904570cd8631a49a3ce57c10225adf5d0cbdcb47f6b0255fe6557c453925a15

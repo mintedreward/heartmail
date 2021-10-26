@@ -12,7 +12,7 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
-    "@openspv/lib": "workspace:public/openspv/openspv-lib"
+    "@openspv/lib": "workspace:public/openspv/lib"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
