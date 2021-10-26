@@ -2,7 +2,7 @@
  * OpenSPV
  * =======
  *
- * index.js is an example of how to build a bundle with OpenSPV. This
+ * index.js is an example of how to build a bundle with OpenSPVLib. This
  * bundle includes the entire library, which uses the default configuration
  * (which is the same as Mainnet) and can be overridden. It also includes
  * Mainnet and Testnet configuration which are accessible even if you override
@@ -19,83 +19,83 @@ if (!global._babelPolyfill) {
 }
 require('./src/config')
 
-const OpenSPV = module.exports
+const OpenSPVLib = module.exports
 
-OpenSPV.version = require('./package').version
+OpenSPVLib.version = require('./package').version
 
 // Main bitcoin library - bitcoin protocols, standards, cryptography, and
 // utilities.
-OpenSPV.Address = require('./src/address')
-OpenSPV.Bip32 = require('./src/bip-32')
-OpenSPV.Bip39 = require('./src/bip-39')
-OpenSPV.Bn = require('./src/bn')
-OpenSPV.Br = require('./src/br')
-OpenSPV.Bsm = require('./src/bsm')
-OpenSPV.Bw = require('./src/bw')
-OpenSPV.Base58 = require('./src/base-58')
-OpenSPV.Base58Check = require('./src/base-58-check')
-OpenSPV.Block = require('./src/block')
-OpenSPV.BlockHeader = require('./src/block-header')
-OpenSPV.Constants = require('./src/constants')
-OpenSPV.Ecdsa = require('./src/ecdsa')
-OpenSPV.Hash = require('./src/hash')
-OpenSPV.Interp = require('./src/interp')
-OpenSPV.KeyPair = require('./src/key-pair')
-OpenSPV.OpCode = require('./src/op-code')
-OpenSPV.Point = require('./src/point')
-OpenSPV.PrivKey = require('./src/priv-key')
-OpenSPV.PubKey = require('./src/pub-key')
-OpenSPV.Random = require('./src/random')
-OpenSPV.Script = require('./src/script')
-OpenSPV.Sig = require('./src/sig')
-OpenSPV.Struct = require('./src/struct')
-OpenSPV.Tx = require('./src/tx')
-OpenSPV.TxBuilder = require('./src/tx-builder')
-OpenSPV.TxIn = require('./src/tx-in')
-OpenSPV.TxOut = require('./src/tx-out')
-OpenSPV.TxOutMap = require('./src/tx-out-map')
-OpenSPV.TxVerifier = require('./src/tx-verifier')
-OpenSPV.VarInt = require('./src/var-int')
-OpenSPV.Workers = require('./src/workers')
-OpenSPV.WorkersResult = require('./src/workers-result')
-OpenSPV.cmp = require('./src/cmp')
+OpenSPVLib.Address = require('./src/address')
+OpenSPVLib.Bip32 = require('./src/bip-32')
+OpenSPVLib.Bip39 = require('./src/bip-39')
+OpenSPVLib.Bn = require('./src/bn')
+OpenSPVLib.Br = require('./src/br')
+OpenSPVLib.Bsm = require('./src/bsm')
+OpenSPVLib.Bw = require('./src/bw')
+OpenSPVLib.Base58 = require('./src/base-58')
+OpenSPVLib.Base58Check = require('./src/base-58-check')
+OpenSPVLib.Block = require('./src/block')
+OpenSPVLib.BlockHeader = require('./src/block-header')
+OpenSPVLib.Constants = require('./src/constants')
+OpenSPVLib.Ecdsa = require('./src/ecdsa')
+OpenSPVLib.Hash = require('./src/hash')
+OpenSPVLib.Interp = require('./src/interp')
+OpenSPVLib.KeyPair = require('./src/key-pair')
+OpenSPVLib.OpCode = require('./src/op-code')
+OpenSPVLib.Point = require('./src/point')
+OpenSPVLib.PrivKey = require('./src/priv-key')
+OpenSPVLib.PubKey = require('./src/pub-key')
+OpenSPVLib.Random = require('./src/random')
+OpenSPVLib.Script = require('./src/script')
+OpenSPVLib.Sig = require('./src/sig')
+OpenSPVLib.Struct = require('./src/struct')
+OpenSPVLib.Tx = require('./src/tx')
+OpenSPVLib.TxBuilder = require('./src/tx-builder')
+OpenSPVLib.TxIn = require('./src/tx-in')
+OpenSPVLib.TxOut = require('./src/tx-out')
+OpenSPVLib.TxOutMap = require('./src/tx-out-map')
+OpenSPVLib.TxVerifier = require('./src/tx-verifier')
+OpenSPVLib.VarInt = require('./src/var-int')
+OpenSPVLib.Workers = require('./src/workers')
+OpenSPVLib.WorkersResult = require('./src/workers-result')
+OpenSPVLib.cmp = require('./src/cmp')
 
 // Encryption tools. Some bitcoin standards use Aes encryption, so that's why
 // these are available.
-OpenSPV.Ach = require('./src/ach')
-OpenSPV.Aes = require('./src/aes')
-OpenSPV.Aescbc = require('./src/aescbc')
-OpenSPV.Cbc = require('./src/cbc')
-OpenSPV.Ecies = require('./src/ecies')
+OpenSPVLib.Ach = require('./src/ach')
+OpenSPVLib.Aes = require('./src/aes')
+OpenSPVLib.Aescbc = require('./src/aescbc')
+OpenSPVLib.Cbc = require('./src/cbc')
+OpenSPVLib.Ecies = require('./src/ecies')
 
 // Dependencies, subject to change.
-OpenSPV.deps = {}
-OpenSPV.deps.aes = require('aes')
-OpenSPV.deps.bnjs = require('bn.js')
-OpenSPV.deps.bs58 = require('bs58')
-OpenSPV.deps.Buffer = Buffer
-OpenSPV.deps.elliptic = require('bitcoin-elliptic')
-OpenSPV.deps.hashjs = require('hash.js')
-OpenSPV.deps.pbkdf2compat = require('pbkdf2-compat')
+OpenSPVLib.deps = {}
+OpenSPVLib.deps.aes = require('aes')
+OpenSPVLib.deps.bnjs = require('bn.js')
+OpenSPVLib.deps.bs58 = require('bs58')
+OpenSPVLib.deps.Buffer = Buffer
+OpenSPVLib.deps.elliptic = require('bitcoin-elliptic')
+OpenSPVLib.deps.hashjs = require('hash.js')
+OpenSPVLib.deps.pbkdf2compat = require('pbkdf2-compat')
 
 // Mainnet classes for your convenience (in case default is not what you want).
 const Mainnet = {}
-Object.keys(OpenSPV).forEach(function (key) {
-  Mainnet[key] = OpenSPV[key].Mainnet
-    ? OpenSPV[key].Mainnet
-    : OpenSPV[key]
+Object.keys(OpenSPVLib).forEach(function (key) {
+  Mainnet[key] = OpenSPVLib[key].Mainnet
+    ? OpenSPVLib[key].Mainnet
+    : OpenSPVLib[key]
 })
 
 // Testnet classes for your convenience (in case default is not what you want).
 const Testnet = {}
-Object.keys(OpenSPV).forEach(function (key) {
-  Testnet[key] = OpenSPV[key].Testnet
-    ? OpenSPV[key].Testnet
-    : OpenSPV[key]
+Object.keys(OpenSPVLib).forEach(function (key) {
+  Testnet[key] = OpenSPVLib[key].Testnet
+    ? OpenSPVLib[key].Testnet
+    : OpenSPVLib[key]
 })
 
-OpenSPV.Mainnet = Mainnet
-OpenSPV.Testnet = Testnet
+OpenSPVLib.Mainnet = Mainnet
+OpenSPVLib.Testnet = Testnet
 
-OpenSPV.browser = process.browser
-OpenSPV.env = process.env
+OpenSPVLib.browser = process.browser
+OpenSPVLib.env = process.env
