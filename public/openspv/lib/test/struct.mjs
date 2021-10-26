@@ -57,48 +57,10 @@ describe('Struct', function () {
     })
   })
 
-  describe('#asyncFromBr', function () {
-    it('should throw an error if arg is not a Br', function () {
-      ;(function () {
-        new Struct().asyncFromBr({})
-      }.should.throw('br must be a buffer reader'))
-    })
-
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        const br = new Br()
-        new Struct().asyncFromBr(br)
-      }.should.throw('not implemented'))
-    })
-  })
-
-  describe('@asyncFromBr', function () {
-    it('should throw an error if arg is not a Br', function () {
-      ;(function () {
-        Struct.asyncFromBr({})
-      }.should.throw('br must be a buffer reader'))
-    })
-
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        const br = new Br()
-        Struct.asyncFromBr(br)
-      }.should.throw('not implemented'))
-    })
-  })
-
   describe('#toBw', function () {
     it('should throw a not implemented error', function () {
       ;(function () {
         new Struct().toBw()
-      }.should.throw('not implemented'))
-    })
-  })
-
-  describe('#asyncToBw', function () {
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        new Struct().asyncToBw()
       }.should.throw('not implemented'))
     })
   })
@@ -137,36 +99,6 @@ describe('Struct', function () {
       ;(function () {
         const buf = Buffer.from([])
         Struct.fromBuffer(buf)
-      }.should.throw('not implemented'))
-    })
-  })
-
-  describe('#asyncFromBuffer', function () {
-    it('should throw an error if arg is not a buffer', function () {
-      ;(function () {
-        new Struct().asyncFromBuffer({})
-      }.should.throw('buf must be a buffer'))
-    })
-
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        const buf = Buffer.from([])
-        new Struct().asyncFromBuffer(buf)
-      }.should.throw('not implemented'))
-    })
-  })
-
-  describe('@asyncFromBuffer', function () {
-    it('should throw an error if arg is not a buffer', function () {
-      ;(function () {
-        Struct.asyncFromBuffer({})
-      }.should.throw('buf must be a buffer'))
-    })
-
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        const buf = Buffer.from([])
-        Struct.asyncFromBuffer(buf)
       }.should.throw('not implemented'))
     })
   })
@@ -213,14 +145,6 @@ describe('Struct', function () {
     it('should throw a not implemented error', function () {
       ;(function () {
         new Struct().toBuffer()
-      }.should.throw('not implemented'))
-    })
-  })
-
-  describe('#asyncToBuffer', function () {
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        new Struct().asyncToBuffer()
       }.should.throw('not implemented'))
     })
   })
@@ -310,14 +234,6 @@ describe('Struct', function () {
     })
   })
 
-  describe('#asyncToHex', function () {
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        new Struct().asyncToHex()
-      }.should.throw('not implemented'))
-    })
-  })
-
   describe('#toFastHex', function () {
     it('should return an empty string for blank data', function () {
       const hex = new Struct().toFastHex()
@@ -354,46 +270,10 @@ describe('Struct', function () {
     })
   })
 
-  describe('#asyncFromString', function () {
-    it('should throw an error for invalid string', function () {
-      ;(function () {
-        new Struct().asyncFromString({})
-      }.should.throw('str must be a string'))
-    })
-
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        new Struct().asyncFromString('00')
-      }.should.throw('not implemented'))
-    })
-  })
-
-  describe('@asyncFromString', function () {
-    it('should throw an error for invalid string', function () {
-      ;(function () {
-        Struct.asyncFromString({})
-      }.should.throw('str must be a string'))
-    })
-
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        Struct.asyncFromString('00')
-      }.should.throw('not implemented'))
-    })
-  })
-
   describe('#toString', function () {
     it('should throw a not implemented error', function () {
       ;(function () {
         new Struct().toString()
-      }.should.throw('not implemented'))
-    })
-  })
-
-  describe('#asyncToString', function () {
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        new Struct().asyncToString()
       }.should.throw('not implemented'))
     })
   })
@@ -414,22 +294,6 @@ describe('Struct', function () {
     })
   })
 
-  describe('#asyncFromJSON', function () {
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        new Struct().asyncFromJSON()
-      }.should.throw('not implemented'))
-    })
-  })
-
-  describe('@asyncFromJSON', function () {
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        Struct.asyncFromJSON()
-      }.should.throw('not implemented'))
-    })
-  })
-
   describe('#toJSON', function () {
     it('should convert an object into a json string', function () {
       const obj = new Struct()
@@ -440,14 +304,6 @@ describe('Struct', function () {
 
       should.exist(json.arr)
       should.exist(json.anotherObj)
-    })
-  })
-
-  describe('#asyncToJSON', function () {
-    it('should throw a not implemented error', function () {
-      ;(function () {
-        new Struct().asyncToJSON()
-      }.should.throw('not implemented'))
     })
   })
 

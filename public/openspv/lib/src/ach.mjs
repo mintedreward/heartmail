@@ -12,8 +12,6 @@
 
 import { Aescbc } from './aescbc.mjs'
 import { Hash } from './hash.mjs'
-import { Random } from './random.mjs'
-import { Workers } from './workers.mjs'
 import { cmp } from './cmp.mjs'
 
 class Ach { }
@@ -22,15 +20,6 @@ Ach.encrypt = function (messageBuf, cipherKeyBuf, ivBuf) {
   const encBuf = Aescbc.encrypt(messageBuf, cipherKeyBuf, ivBuf)
   const hmacbuf = Hash.sha256Hmac(encBuf, cipherKeyBuf)
   return Buffer.concat([hmacbuf, encBuf])
-}
-
-Ach.asyncEncrypt = async function (messageBuf, cipherKeyBuf, ivBuf) {
-  if (!ivBuf) {
-    ivBuf = Random.getRandomBuffer(128 / 8)
-  }
-  const args = [messageBuf, cipherKeyBuf, ivBuf]
-  const workersResult = await Workers.asyncClassMethod(Ach, 'encrypt', args)
-  return workersResult.resbuf
 }
 
 Ach.decrypt = function (encBuf, cipherKeyBuf) {
@@ -48,12 +37,6 @@ Ach.decrypt = function (encBuf, cipherKeyBuf) {
     )
   }
   return Aescbc.decrypt(encBuf, cipherKeyBuf)
-}
-
-Ach.asyncDecrypt = async function (encBuf, cipherKeyBuf) {
-  const args = [encBuf, cipherKeyBuf]
-  const workersResult = await Workers.asyncClassMethod(Ach, 'decrypt', args)
-  return workersResult.resbuf
 }
 
 export { Ach }

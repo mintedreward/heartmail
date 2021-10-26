@@ -7,7 +7,6 @@
  */
 'use strict'
 
-import { Workers } from './workers.mjs'
 import hashjs from 'hash.js'
 
 class Hash {}
@@ -23,12 +22,6 @@ Hash.sha1 = function (buf) {
 
 Hash.sha1.blockSize = 512
 
-Hash.asyncSha1 = async function (buf) {
-  const args = [buf]
-  const workersResult = await Workers.asyncClassMethod(Hash, 'sha1', args)
-  return workersResult.resbuf
-}
-
 Hash.sha256 = function (buf) {
   if (!Buffer.isBuffer(buf)) {
     throw new Error('sha256 hash must be of a buffer')
@@ -40,28 +33,12 @@ Hash.sha256 = function (buf) {
 
 Hash.sha256.blockSize = 512
 
-Hash.asyncSha256 = async function (buf) {
-  const args = [buf]
-  const workersResult = await Workers.asyncClassMethod(Hash, 'sha256', args)
-  return workersResult.resbuf
-}
-
 Hash.sha256Sha256 = function (buf) {
   try {
     return Hash.sha256(Hash.sha256(buf))
   } catch (e) {
     throw new Error('sha256Sha256 hash must be of a buffer: ' + e)
   }
-}
-
-Hash.asyncSha256Sha256 = async function (buf) {
-  const args = [buf]
-  const workersResult = await Workers.asyncClassMethod(
-    Hash,
-    'sha256Sha256',
-    args
-  )
-  return workersResult.resbuf
 }
 
 Hash.ripemd160 = function (buf) {
@@ -73,28 +50,12 @@ Hash.ripemd160 = function (buf) {
   return Buffer.from(hash)
 }
 
-Hash.asyncRipemd160 = async function (buf) {
-  const args = [buf]
-  const workersResult = await Workers.asyncClassMethod(Hash, 'ripemd160', args)
-  return workersResult.resbuf
-}
-
 Hash.sha256Ripemd160 = function (buf) {
   try {
     return Hash.ripemd160(Hash.sha256(buf))
   } catch (e) {
     throw new Error('sha256Ripemd160 hash must be of a buffer: ' + e)
   }
-}
-
-Hash.asyncSha256Ripemd160 = async function (buf) {
-  const args = [buf]
-  const workersResult = await Workers.asyncClassMethod(
-    Hash,
-    'sha256Ripemd160',
-    args
-  )
-  return workersResult.resbuf
 }
 
 Hash.sha512 = function (buf) {
@@ -104,12 +65,6 @@ Hash.sha512 = function (buf) {
   const Sha512 = hashjs.sha512
   const hash = new Sha512().update(buf).digest()
   return Buffer.from(hash)
-}
-
-Hash.asyncSha512 = async function (buf) {
-  const args = [buf]
-  const workersResult = await Workers.asyncClassMethod(Hash, 'sha512', args)
-  return workersResult.resbuf
 }
 
 Hash.sha512.blockSize = 1024
@@ -156,34 +111,16 @@ Hash.sha1Hmac = function (data, key) {
   return Hash.hmac('sha1', data, key)
 }
 
-Hash.asyncSha1Hmac = async function (data, key) {
-  const args = [data, key]
-  const workersResult = await Workers.asyncClassMethod(Hash, 'sha1Hmac', args)
-  return workersResult.resbuf
-}
-
 Hash.sha1Hmac.bitsize = 160
 
 Hash.sha256Hmac = function (data, key) {
   return Hash.hmac('sha256', data, key)
 }
 
-Hash.asyncSha256Hmac = async function (data, key) {
-  const args = [data, key]
-  const workersResult = await Workers.asyncClassMethod(Hash, 'sha256Hmac', args)
-  return workersResult.resbuf
-}
-
 Hash.sha256Hmac.bitsize = 256
 
 Hash.sha512Hmac = function (data, key) {
   return Hash.hmac('sha512', data, key)
-}
-
-Hash.asyncSha512Hmac = async function (data, key) {
-  const args = [data, key]
-  const workersResult = await Workers.asyncClassMethod(Hash, 'sha512Hmac', args)
-  return workersResult.resbuf
 }
 
 Hash.sha512Hmac.bitsize = 512

@@ -31,14 +31,6 @@ describe('Bsm', function () {
     })
   })
 
-  describe('@asyncMagicHash', function () {
-    it('should return a hash', async function () {
-      const buf = Buffer.from('001122', 'hex')
-      const hashBuf = await Bsm.asyncMagicHash(buf)
-      Buffer.isBuffer(hashBuf).should.equal(true)
-    })
-  })
-
   describe('@sign', function () {
     const messageBuf = Buffer.from('this is my message')
     const keyPair = new KeyPair().fromRandom()
@@ -68,17 +60,6 @@ describe('Bsm', function () {
     })
   })
 
-  describe('@asyncSign', function () {
-    const messageBuf = Buffer.from('this is my message')
-    const keyPair = new KeyPair().fromRandom()
-
-    it('should return the same as sign', async function () {
-      const sigstr1 = Bsm.sign(messageBuf, keyPair)
-      const sigstr2 = await Bsm.asyncSign(messageBuf, keyPair)
-      sigstr1.should.equal(sigstr2)
-    })
-  })
-
   describe('@verify', function () {
     const messageBuf = Buffer.from('this is my message')
     const keyPair = new KeyPair().fromRandom()
@@ -95,18 +76,6 @@ describe('Bsm', function () {
       const sigstr =
         'IOrTlbNBI0QO990xOw4HAjnvRl/1zR+oBMS6HOjJgfJqXp/1EnFrcJly0UcNelqJNIAH4f0abxOZiSpYmenMH4M='
       Bsm.verify(messageBuf, sigstr, address)
-    })
-  })
-
-  describe('@asyncVerify', function () {
-    const messageBuf = Buffer.from('this is my message')
-    const keyPair = new KeyPair().fromRandom()
-
-    it('should verify a signed message', async function () {
-      const sigstr = Bsm.sign(messageBuf, keyPair)
-      const addr = new Address().fromPubKey(keyPair.pubKey)
-      const verified = await Bsm.verify(messageBuf, sigstr, addr)
-      verified.should.equal(true)
     })
   })
 

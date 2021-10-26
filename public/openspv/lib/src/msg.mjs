@@ -43,22 +43,10 @@ class Msg extends Struct {
     return Hash.sha256Sha256(dataBuf).slice(0, 4)
   }
 
-  static async asyncChecksum (dataBuf) {
-    const hashBuf = await Hash.asyncSha256Sha256(dataBuf)
-    return hashBuf.slice(0, 4)
-  }
-
   setData (dataBuf) {
     this.dataBuf = dataBuf
     this.datasize = dataBuf.length
     this.checksumbuf = Msg.checksum(dataBuf)
-    return this
-  }
-
-  async asyncSetData (dataBuf) {
-    this.dataBuf = dataBuf
-    this.datasize = dataBuf.length
-    this.checksumbuf = await Msg.asyncChecksum(dataBuf)
     return this
   }
 
@@ -136,24 +124,11 @@ class Msg extends Struct {
     return cmp(checksumbuf, this.checksumbuf)
   }
 
-  async asyncIsValid () {
-    // TODO: Add more checks
-    const checksumbuf = await Msg.asyncChecksum(this.dataBuf)
-    return cmp(checksumbuf, this.checksumbuf)
-  }
-
   validate () {
     if (!this.isValid()) {
       throw new Error('invalid message')
     }
     return this
-  }
-
-  async asyncValidate () {
-    const isValid = await this.asyncIsValid()
-    if (isValid !== true) {
-      throw new Error('invalid message')
-    }
   }
 }
 

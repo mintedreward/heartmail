@@ -180,24 +180,6 @@ describe('Address', function () {
     })
   })
 
-  describe('#asyncFromPubKey', function () {
-    it('should asynchronously convert pubKey to address same as fromPubKey', async function () {
-      const pubKey = new PubKey().fromPrivKey(new PrivKey().fromRandom())
-      const address1 = new Address().fromPubKey(pubKey)
-      const address2 = await new Address().asyncFromPubKey(pubKey)
-      address1.toString().should.equal(address2.toString())
-    })
-  })
-
-  describe('@asyncFromPubKey', function () {
-    it('should asynchronously convert pubKey to address same as fromPubKey', async function () {
-      const pubKey = new PubKey().fromPrivKey(new PrivKey().fromRandom())
-      const address1 = Address.fromPubKey(pubKey)
-      const address2 = await Address.asyncFromPubKey(pubKey)
-      address1.toString().should.equal(address2.toString())
-    })
-  })
-
   describe('#fromPrivKey', function () {
     it('should make this address from a compressed pubKey', function () {
       const privKey = new PrivKey().fromRandom()
@@ -218,24 +200,6 @@ describe('Address', function () {
     })
   })
 
-  describe('#asyncFromPrivKey', function () {
-    it('should asynchronously convert privKey to address same as fromPrivKey', async function () {
-      const privKey = new PrivKey().fromRandom()
-      const address1 = new Address().fromPrivKey(privKey)
-      const address2 = await new Address().asyncFromPrivKey(privKey)
-      address1.toString().should.equal(address2.toString())
-    })
-  })
-
-  describe('@asyncFromPrivKey', function () {
-    it('should asynchronously convert privKey to address same as fromPrivKey', async function () {
-      const privKey = new PrivKey().fromRandom()
-      const address1 = Address.fromPrivKey(privKey)
-      const address2 = await Address.asyncFromPrivKey(privKey)
-      address1.toString().should.equal(address2.toString())
-    })
-  })
-
   describe('#fromRandom', function () {
     it('should make an address from random', function () {
       const address = new Address().fromRandom()
@@ -247,22 +211,6 @@ describe('Address', function () {
   describe('@fromRandom', function () {
     it('should make an address from random using static method', function () {
       const address = Address.fromRandom()
-      should.exist(address)
-      ;(address instanceof Address).should.equal(true)
-    })
-  })
-
-  describe('#asyncFromRandom', function () {
-    it('should asynchronously make an address from random', async function () {
-      const address = await new Address().asyncFromRandom()
-      should.exist(address)
-      ;(address instanceof Address).should.equal(true)
-    })
-  })
-
-  describe('@asyncFromRandom', function () {
-    it('should asynchronously make an address from random using static method', async function () {
-      const address = await Address.asyncFromRandom()
       should.exist(address)
       ;(address instanceof Address).should.equal(true)
     })
@@ -326,22 +274,6 @@ describe('Address', function () {
         .slice(1)
         .toString('hex')
         .should.equal(pubKeyHash.toString('hex'))
-    })
-  })
-
-  describe('#asyncFromString', function () {
-    it('should derive the same as fromString', async function () {
-      const address1 = new Address().fromString(str)
-      const address2 = await new Address().asyncFromString(str)
-      address1.toString().should.equal(address2.toString())
-    })
-  })
-
-  describe('@asyncFromString', function () {
-    it('should derive the same as fromString', async function () {
-      const address1 = Address.fromString(str)
-      const address2 = await Address.asyncFromString(str)
-      address1.toString().should.equal(address2.toString())
     })
   })
 
@@ -425,14 +357,6 @@ describe('Address', function () {
       const address = new Address()
       address.fromString(str)
       address.toString().should.equal(str)
-    })
-  })
-
-  describe('#asyncToString', function () {
-    it('should output the same as toString', async function () {
-      const str1 = new Address().fromString(str).toString()
-      const str2 = await new Address().fromString(str).asyncToString()
-      str1.should.equal(str2)
     })
   })
 

@@ -20,7 +20,6 @@ import { Merkle } from './merkle.mjs'
 import { Struct } from './struct.mjs'
 import { Tx } from './tx.mjs'
 import { VarInt } from './var-int.mjs'
-import { Workers } from './workers.mjs'
 
 class Block extends Struct {
   constructor (blockHeader, txsVi, txs) {
@@ -80,18 +79,8 @@ class Block extends Struct {
     return Hash.sha256Sha256(this.blockHeader.toBuffer())
   }
 
-  async asyncHash () {
-    const workersResult = await Workers.asyncObjectMethod(this, 'hash', [])
-    return workersResult.resbuf
-  }
-
   id () {
     return new Br(this.hash()).readReverse().toString('hex')
-  }
-
-  async asyncId () {
-    const workersResult = await Workers.asyncObjectMethod(this, 'id', [])
-    return JSON.parse(workersResult.resbuf.toString())
   }
 
   verifyMerkleRoot () {

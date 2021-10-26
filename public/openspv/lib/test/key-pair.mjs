@@ -168,24 +168,6 @@ describe('KeyPair', function () {
     })
   })
 
-  describe('#asyncFromPrivKey', function () {
-    it('should convert a privKey same as .fromPrivKey', async function () {
-      const privKey = new PrivKey().fromRandom()
-      const keyPair = new KeyPair().fromPrivKey(privKey)
-      const keyPair2 = await new KeyPair().asyncFromPrivKey(privKey)
-      keyPair.pubKey.toString().should.equal(keyPair2.pubKey.toString())
-    })
-  })
-
-  describe('@asyncFromPrivKey', function () {
-    it('should convert a privKey same as .fromPrivKey', async function () {
-      const privKey = new PrivKey().fromRandom()
-      const keyPair = KeyPair.fromPrivKey(privKey)
-      const keyPair2 = await KeyPair.asyncFromPrivKey(privKey)
-      keyPair.pubKey.toString().should.equal(keyPair2.pubKey.toString())
-    })
-  })
-
   describe('#fromRandom', function () {
     it('should make a new priv and pub, should be compressed, mainnet', function () {
       const key = new KeyPair()
@@ -222,22 +204,6 @@ describe('KeyPair', function () {
         .should.equal(true)
       key.privKey.compressed.should.equal(true)
       key.pubKey.compressed.should.equal(true)
-    })
-  })
-
-  describe('#asyncFromRandom', function () {
-    it('should have a privKey and pubKey and compute same as pubKey methods', async function () {
-      const keyPair = await new KeyPair().asyncFromRandom()
-      const pubKey = new PubKey().fromPrivKey(keyPair.privKey)
-      pubKey.toString().should.equal(keyPair.pubKey.toString())
-    })
-  })
-
-  describe('@asyncFromRandom', function () {
-    it('should have a privKey and pubKey and compute same as pubKey methods', async function () {
-      const keyPair = await KeyPair.asyncFromRandom()
-      const pubKey = new PubKey().fromPrivKey(keyPair.privKey)
-      pubKey.toString().should.equal(keyPair.pubKey.toString())
     })
   })
 })

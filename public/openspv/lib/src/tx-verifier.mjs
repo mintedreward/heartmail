@@ -9,7 +9,6 @@ import { Block } from './block.mjs'
 import { Interp } from './interp.mjs'
 import { Struct } from './struct.mjs'
 import { Tx } from './tx.mjs'
-import { Workers } from './workers.mjs'
 
 class TxVerifier extends Struct {
   constructor (tx, txOutMap, errStr, interp) {
@@ -31,25 +30,11 @@ class TxVerifier extends Struct {
     return !this.checkStr() && !this.verifyStr(flags)
   }
 
-  /*
-     * Returns true if the transaction was verified successfully (that is no
-     * error was found), and false otherwise. In case an error was found the
-     * error message can be accessed by calling this.getDebugString().
-     */
-  async asyncVerify (flags) {
-    const verifyStr = await this.asyncVerifyStr(flags)
-    return !this.checkStr() && !verifyStr
-  }
-
   /**
      * Convenience method to verify a transaction.
      */
   static verify (tx, txOutMap, flags) {
     return new TxVerifier(tx, txOutMap).verify(flags)
-  }
-
-  static asyncVerify (tx, txOutMap, flags) {
-    return new TxVerifier(tx, txOutMap).asyncVerify(flags)
   }
 
   /**
@@ -137,17 +122,6 @@ class TxVerifier extends Struct {
     return false
   }
 
-  async asyncVerifyStr (flags) {
-    for (let i = 0; i < this.tx.txIns.length; i++) {
-      const verifyNIn = await this.asyncVerifyNIn(i, flags)
-      if (!verifyNIn) {
-        this.errStr = 'input ' + i + ' failed script verify'
-        return this.errStr
-      }
-    }
-    return false
-  }
-
   /**
      * Verify a particular input by running the script interpreter. Returns true if
      * the input is valid, false otherwise.
@@ -171,26 +145,6 @@ class TxVerifier extends Struct {
       flags,
       valueBn
     )
-    return verified
-  }
-
-  async asyncVerifyNIn (nIn, flags) {
-    const txIn = this.tx.txIns[nIn]
-    const scriptSig = txIn.script
-    const txOut = this.txOutMap.get(txIn.txHashBuf, txIn.txOutNum)
-    if (!txOut) {
-      console.log('output ' + txIn.txOutNum + ' not found')
-      return false
-    }
-    const scriptPubKey = txOut.script
-    const valueBn = txOut.valueBn
-    this.interp = new Interp()
-    const workersResult = await Workers.asyncObjectMethod(
-      this.interp,
-      'verify',
-      [scriptSig, scriptPubKey, this.tx, nIn, flags, valueBn]
-    )
-    const verified = JSON.parse(workersResult.resbuf.toString())
     return verified
   }
 

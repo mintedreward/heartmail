@@ -34,12 +34,6 @@ Constants.Mainnet = {
   TxBuilder: {
     dust: 546, // number of satoshis that an output can't be less than
     feePerKbNum: 0.000005e8
-  },
-  Workers: {
-    // Cannot be 5 seconds. This is actually too low for low end devices. We
-    // have found by experimenting with Chrome developer tools that 60 seconds
-    // works on low end mobile.
-    timeout: 60000
   }
 }
 

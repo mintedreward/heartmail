@@ -1,22 +1,8 @@
 /**
  * OpenSPV
  * =======
- *
- * index.js is an example of how to build a bundle with OpenSPVLib. This
- * bundle includes the entire library, which uses the default configuration
- * (which is the same as Mainnet) and can be overridden. It also includes
- * Mainnet and Testnet configuration which are accessible even if you override
- * the defaults. It is not necessary to  use Yours Bitcoin this way, since you
- * probably do not use every component, and therefore do not need to include
- * every component into your project. You can simply directly require the
- * elements of the library you need, and, if your project is browser-based,
- * browserify your project. For instance:
- * const Address = require('@openspv/lib/src/address.mjs').
  */
 'use strict'
-if (!global._babelPolyfill) {
-  require('babel-polyfill')
-}
 require('./src/config.mjs')
 
 const OpenSPVLib = module.exports
@@ -62,8 +48,6 @@ OpenSPVLib.TxOutMap = require('./src/tx-out-map.mjs')
 OpenSPVLib.TxVerifier = require('./src/tx-verifier.mjs')
 OpenSPVLib.VarInt = require('./src/var-int.mjs')
 OpenSPVLib.Version = require('./src/version.mjs')
-OpenSPVLib.Workers = require('./src/workers.mjs')
-OpenSPVLib.WorkersResult = require('./src/workers-result.mjs')
 OpenSPVLib.cmp = require('./src/cmp.mjs')
 
 // Encryption tools. Some bitcoin standards use Aes encryption, so that's why

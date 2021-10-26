@@ -125,13 +125,6 @@ describe('Bip32', function () {
     child.toString().should.equal(vector1m0hPrivate)
   })
 
-  it("should asynchronously get m/0' ext. private key from test vector 1", async function () {
-    const bip32 = new Bip32().fromString(vector1mPrivate)
-    const child = await bip32.asyncDerive("m/0'")
-    should.exist(child)
-    child.toString().should.equal(vector1m0hPrivate)
-  })
-
   it("should get m/0' ext. public key from test vector 1", function () {
     const bip32 = new Bip32().fromString(vector1mPrivate)
     const child = bip32.derive("m/0'")
@@ -164,18 +157,6 @@ describe('Bip32', function () {
     const child = bip32.derive("m/0'")
     const childPub = new Bip32().fromString(child.toPublic().toString())
     const child2 = childPub.derive('m/1')
-    should.exist(child2)
-    child2
-      .toPublic()
-      .toString()
-      .should.equal(vector1m0h1Public)
-  })
-
-  it("should asynchronously get m/0'/1 ext. public key from m/0' public key from test vector 1", async function () {
-    const bip32 = new Bip32().fromString(vector1mPrivate)
-    const child = bip32.derive("m/0'")
-    const childPub = new Bip32().fromString(child.toPublic().toString())
-    const child2 = await childPub.asyncDerive('m/1')
     should.exist(child2)
     child2
       .toPublic()
@@ -506,60 +487,6 @@ describe('Bip32', function () {
     })
   })
 
-  describe('#asyncFromSeed', function () {
-    it('should initialize a new Bip32 correctly from test vector 1 seed', async function () {
-      const hex = vector1master
-      const bip32 = await new Bip32().asyncFromSeed(
-        Buffer.from(hex, 'hex'),
-        'mainnet'
-      )
-      should.exist(bip32)
-      bip32.toString().should.equal(vector1mPrivate)
-      bip32
-        .toPublic()
-        .toString()
-        .should.equal(vector1mPublic)
-    })
-
-    it('should initialize a new Bip32 correctly from test vector 2 seed', async function () {
-      const hex = vector2master
-      const bip32 = await new Bip32().asyncFromSeed(
-        Buffer.from(hex, 'hex'),
-        'mainnet'
-      )
-      should.exist(bip32)
-      bip32.toString().should.equal(vector2mPrivate)
-      bip32
-        .toPublic()
-        .toString()
-        .should.equal(vector2mPublic)
-    })
-  })
-
-  describe('@asyncFromSeed', function () {
-    it('should initialize a new Bip32 correctly from test vector 1 seed', async function () {
-      const hex = vector1master
-      const bip32 = await Bip32.asyncFromSeed(Buffer.from(hex, 'hex'), 'mainnet')
-      should.exist(bip32)
-      bip32.toString().should.equal(vector1mPrivate)
-      bip32
-        .toPublic()
-        .toString()
-        .should.equal(vector1mPublic)
-    })
-
-    it('should initialize a new Bip32 correctly from test vector 2 seed', async function () {
-      const hex = vector2master
-      const bip32 = await Bip32.asyncFromSeed(Buffer.from(hex, 'hex'), 'mainnet')
-      should.exist(bip32)
-      bip32.toString().should.equal(vector2mPrivate)
-      bip32
-        .toPublic()
-        .toString()
-        .should.equal(vector2mPublic)
-    })
-  })
-
   describe('#fromHex', function () {
     it('should make a bip32 from a hex string', function () {
       const str =
@@ -624,18 +551,6 @@ describe('Bip32', function () {
     })
   })
 
-  describe('#asyncFromString', function () {
-    it('should make a bip32 from a string asynchronously', async function () {
-      const str =
-        'xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi'
-      const bip32 = new Bip32().fromString(str)
-      should.exist(bip32)
-      const bip32b = await new Bip32().asyncFromString(str)
-      bip32.toString().should.equal(str)
-      bip32.toString().should.equal(bip32b.toString())
-    })
-  })
-
   describe('#toString', function () {
     const bip32 = new Bip32()
     bip32.fromRandom()
@@ -671,15 +586,6 @@ describe('Bip32', function () {
         .toString()
         .slice(0, 4)
         .should.equal('tpub')
-    })
-  })
-
-  describe('#asyncToString', function () {
-    it('should convert to a string same as toString', async function () {
-      const bip32 = new Bip32().fromRandom()
-      const str1 = bip32.toString()
-      const str2 = await bip32.asyncToString()
-      str1.should.equal(str2)
     })
   })
 

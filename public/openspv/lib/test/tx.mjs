@@ -265,25 +265,6 @@ describe('Tx', function () {
     })
   })
 
-  describe('#asyncSighash', function () {
-    it('should hash this transaction', async function () {
-      const hashBuf = await tx.asyncSighash(0, 0, new Script())
-      hashBuf.length.should.equal(32)
-    })
-
-    it('should return 1 for the SIGHASH_SINGLE bug', async function () {
-      const tx = Tx.fromBuffer(tx2buf)
-      tx.txOuts.length = 1
-      tx.txOutsVi = VarInt.fromNumber(1)
-      const hashBuf = await tx.asyncSighash(Sig.SIGHASH_SINGLE, 1, new Script())
-      hashBuf
-        .toString('hex')
-        .should.equal(
-          '0000000000000000000000000000000000000000000000000000000000000001'
-        )
-    })
-  })
-
   describe('#sign', function () {
     it('should return a signature', function () {
       const keyPair = new KeyPair().fromRandom()
@@ -301,50 +282,11 @@ describe('Tx', function () {
     })
   })
 
-  describe('#asyncSign', function () {
-    it('should return a signature', async function () {
-      const keyPair = new KeyPair().fromRandom()
-      const sig1 = tx.sign(keyPair, Sig.SIGHASH_ALL, 0, new Script())
-      const sig1b = await tx.asyncSign(keyPair, Sig.SIGHASH_ALL, 0, new Script())
-      const sig2 = tx.sign(keyPair, Sig.SIGHASH_SINGLE, 0, new Script())
-      const sig2b = await tx.asyncSign(
-        keyPair,
-        Sig.SIGHASH_SINGLE,
-        0,
-        new Script()
-      )
-      const sig3 = tx.sign(
-        keyPair,
-        Sig.SIGHASH_ALL,
-        0,
-        new Script().fromString('OP_RETURN')
-      )
-      const sig3b = await tx.asyncSign(
-        keyPair,
-        Sig.SIGHASH_ALL,
-        0,
-        new Script().fromString('OP_RETURN')
-      )
-      sig1.toString().should.equal(sig1b.toString())
-      sig2.toString().should.equal(sig2b.toString())
-      sig3.toString().should.equal(sig3b.toString())
-    })
-  })
-
   describe('#verify', function () {
     it('should return a signature', function () {
       const keyPair = new KeyPair().fromRandom()
       const sig1 = tx.sign(keyPair, Sig.SIGHASH_ALL, 0, new Script())
       tx.verify(sig1, keyPair.pubKey, 0, new Script()).should.equal(true)
-    })
-  })
-
-  describe('#asyncVerify', function () {
-    it('should return a signature', async function () {
-      const keyPair = new KeyPair().fromRandom()
-      const sig1 = tx.sign(keyPair, Sig.SIGHASH_ALL, 0, new Script())
-      const verified = await tx.asyncVerify(sig1, keyPair.pubKey, 0, new Script())
-      verified.should.equal(true)
     })
   })
 
@@ -361,31 +303,12 @@ describe('Tx', function () {
     })
   })
 
-  describe('#asyncHash', function () {
-    it('should correctly calculate the hash of this known transaction', async function () {
-      const tx = Tx.fromBuffer(tx2buf)
-      const txHashBuf = Buffer.from(
-        Array.apply([], Buffer.from(tx2idhex, 'hex')).reverse()
-      )
-      const hashBuf = await tx.asyncHash()
-      hashBuf.toString('hex').should.equal(txHashBuf.toString('hex'))
-    })
-  })
-
   describe('#id', function () {
     it('should correctly calculate the id of this known transaction', function () {
       const tx = Tx.fromBuffer(tx2buf)
       tx
         .id()
         .should.equal(tx2idhex)
-    })
-  })
-
-  describe('#asyncId', function () {
-    it('should correctly calculate the id of this known transaction', async function () {
-      const tx = Tx.fromBuffer(tx2buf)
-      const idbuf = await tx.asyncId()
-      idbuf.should.equal(tx2idhex)
     })
   })
 

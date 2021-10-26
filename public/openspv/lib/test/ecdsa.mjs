@@ -136,53 +136,6 @@ describe('Ecdsa', function () {
     })
   })
 
-  describe('#asyncCalcrecovery', function () {
-    it('should calculate pubKey recovery number', async function () {
-      ecdsa.randomK()
-      ecdsa.sign()
-      await ecdsa.asyncCalcrecovery()
-      should.exist(ecdsa.sig.recovery)
-    })
-
-    it('should calculate this known pubKey recovery number', async function () {
-      const hashBuf = Hash.sha256(Buffer.from('some data'))
-      const r = new Bn(
-        '71706645040721865894779025947914615666559616020894583599959600180037551395766',
-        10
-      )
-      const s = new Bn(
-        '109412465507152403114191008482955798903072313614214706891149785278625167723646',
-        10
-      )
-      const ecdsa = new Ecdsa()
-      ecdsa.keyPair = new KeyPair().fromPrivKey(
-        new PrivKey().fromBn(
-          new Bn().fromBuffer(Hash.sha256(Buffer.from('test')))
-        )
-      )
-      ecdsa.hashBuf = hashBuf
-      ecdsa.sig = Sig.fromObject({ r: r, s: s })
-
-      await ecdsa.asyncCalcrecovery()
-      ecdsa.sig.recovery.should.equal(1)
-    })
-
-    it('should do a round trip with signature parsing', async function () {
-      await ecdsa.asyncCalcrecovery()
-      const pubKey = ecdsa.keyPair.pubKey
-      let sig = ecdsa.sig
-      const hashBuf = ecdsa.hashBuf
-      Ecdsa.sig2PubKey(sig, hashBuf)
-        .toHex()
-        .should.equal(pubKey.toHex())
-
-      sig = sig.fromCompact(sig.toCompact())
-      Ecdsa.sig2PubKey(sig, hashBuf)
-        .toHex()
-        .should.equal(pubKey.toHex())
-    })
-  })
-
   describe('@calcrecovery', function () {
     it('should calculate pubKey recovery number same as #calcrecovery', function () {
       ecdsa.randomK()
@@ -217,48 +170,6 @@ describe('Ecdsa', function () {
 
       const sig1 = ecdsa.calcrecovery().sig
       const sig2 = Ecdsa.calcrecovery(
-        ecdsa.sig,
-        ecdsa.keyPair.pubKey,
-        ecdsa.hashBuf
-      )
-      Buffer.compare(sig1.toCompact(), sig2.toCompact()).should.equal(0)
-    })
-  })
-
-  describe('@asyncCalcrecovery', function () {
-    it('should calculate pubKey recovery number same as #calcrecovery', async function () {
-      ecdsa.randomK()
-      ecdsa.sign()
-      const sig1 = ecdsa.calcrecovery().sig
-      const sig2 = await Ecdsa.asyncCalcrecovery(
-        ecdsa.sig,
-        ecdsa.keyPair.pubKey,
-        ecdsa.hashBuf
-      )
-      Buffer.compare(sig1.toCompact(), sig2.toCompact()).should.equal(0)
-    })
-
-    it('should calulate this known pubKey recovery number same as #calcrecovery', async function () {
-      const hashBuf = Hash.sha256(Buffer.from('some data'))
-      const r = new Bn(
-        '71706645040721865894779025947914615666559616020894583599959600180037551395766',
-        10
-      )
-      const s = new Bn(
-        '109412465507152403114191008482955798903072313614214706891149785278625167723646',
-        10
-      )
-      const ecdsa = new Ecdsa()
-      ecdsa.keyPair = new KeyPair().fromPrivKey(
-        new PrivKey().fromBn(
-          new Bn().fromBuffer(Hash.sha256(Buffer.from('test')))
-        )
-      )
-      ecdsa.hashBuf = hashBuf
-      ecdsa.sig = Sig.fromObject({ r: r, s: s })
-
-      const sig1 = ecdsa.calcrecovery().sig
-      const sig2 = await Ecdsa.asyncCalcrecovery(
         ecdsa.sig,
         ecdsa.keyPair.pubKey,
         ecdsa.hashBuf
@@ -384,27 +295,6 @@ describe('Ecdsa', function () {
     })
   })
 
-  describe('#asyncSig2PubKey', function () {
-    it('should calculate the correct public key for this signature with low s', async function () {
-      ecdsa.sig = new Sig().fromString(
-        '3045022100ec3cfe0e335791ad278b4ec8eac93d0347a97877bb1d54d35d189e225c15f6650220278cf15b05ce47fb37d2233802899d94c774d5480bba9f0f2d996baa13370c43'
-      )
-      ecdsa.sig.recovery = 0
-      const pubKey = await ecdsa.asyncSig2PubKey()
-      pubKey.point.eq(ecdsa.keyPair.pubKey.point).should.equal(true)
-    })
-
-    it('should calculate the correct public key for this signature with high s', async function () {
-      ecdsa.sign()
-      ecdsa.sig = new Sig().fromString(
-        '3046022100ec3cfe0e335791ad278b4ec8eac93d0347a97877bb1d54d35d189e225c15f665022100d8730ea4fa31b804c82ddcc7fd766269f33a079ea38e012c9238f2e2bcff34fe'
-      )
-      ecdsa.sig.recovery = 1
-      const pubKey = await ecdsa.asyncSig2PubKey()
-      pubKey.point.eq(ecdsa.keyPair.pubKey.point).should.equal(true)
-    })
-  })
-
   describe('@sig2PubKey', function () {
     it('should calculate the correct public key', function () {
       ecdsa.k = new Bn(
@@ -444,49 +334,6 @@ describe('Ecdsa', function () {
       ecdsa.sig.recovery = 1
       const pubKey1 = ecdsa.sig2PubKey()
       const pubKey2 = Ecdsa.sig2PubKey(ecdsa.sig, ecdsa.hashBuf)
-      pubKey1.toString().should.equal(pubKey2.toString())
-    })
-  })
-
-  describe('@asyncSig2PubKey', function () {
-    it('should calculate the correct public key', async function () {
-      ecdsa.k = new Bn(
-        '114860389168127852803919605627759231199925249596762615988727970217268189974335',
-        10
-      )
-      ecdsa.sign()
-      ecdsa.sig.recovery = 0
-      const pubKey1 = ecdsa.sig2PubKey()
-      const pubKey2 = await Ecdsa.asyncSig2PubKey(ecdsa.sig, ecdsa.hashBuf)
-      pubKey1.toString().should.equal(pubKey2.toString())
-    })
-
-    it('should calculate the correct public key for this signature with low s', async function () {
-      ecdsa.k = new Bn(
-        '114860389168127852803919605627759231199925249596762615988727970217268189974335',
-        10
-      )
-      ecdsa.sig = new Sig().fromString(
-        '3045022100ec3cfe0e335791ad278b4ec8eac93d0347a97877bb1d54d35d189e225c15f6650220278cf15b05ce47fb37d2233802899d94c774d5480bba9f0f2d996baa13370c43'
-      )
-      ecdsa.sig.recovery = 0
-      const pubKey1 = ecdsa.sig2PubKey()
-      const pubKey2 = await Ecdsa.asyncSig2PubKey(ecdsa.sig, ecdsa.hashBuf)
-      pubKey1.toString().should.equal(pubKey2.toString())
-    })
-
-    it('should calculate the correct public key for this signature with high s', async function () {
-      ecdsa.k = new Bn(
-        '114860389168127852803919605627759231199925249596762615988727970217268189974335',
-        10
-      )
-      ecdsa.sign()
-      ecdsa.sig = new Sig().fromString(
-        '3046022100ec3cfe0e335791ad278b4ec8eac93d0347a97877bb1d54d35d189e225c15f665022100d8730ea4fa31b804c82ddcc7fd766269f33a079ea38e012c9238f2e2bcff34fe'
-      )
-      ecdsa.sig.recovery = 1
-      const pubKey1 = ecdsa.sig2PubKey()
-      const pubKey2 = await Ecdsa.asyncSig2PubKey(ecdsa.sig, ecdsa.hashBuf)
       pubKey1.toString().should.equal(pubKey2.toString())
     })
   })
@@ -553,16 +400,6 @@ describe('Ecdsa', function () {
     })
   })
 
-  describe('#asyncSign', function () {
-    it('should create the same signature as sign', async function () {
-      ecdsa.sign()
-      const sig = ecdsa.sig
-      const sig2 = ecdsa.sig
-      await ecdsa.asyncSign()
-      sig.toString().should.equal(sig2.toString())
-    })
-  })
-
   describe('#signRandomK', function () {
     it('should produce a signature, and be different when called twice', function () {
       ecdsa.signRandomK()
@@ -595,29 +432,10 @@ describe('Ecdsa', function () {
     })
   })
 
-  describe('#asyncVerify', function () {
-    it('should verify this known good signature', async function () {
-      ecdsa.verified = undefined
-      ecdsa.signRandomK()
-      await ecdsa.asyncVerify()
-      ecdsa.verified.should.equal(true)
-    })
-  })
-
   describe('@sign', function () {
     it('should produce a signature', function () {
       const sig = Ecdsa.sign(ecdsa.hashBuf, ecdsa.keyPair)
       ;(sig instanceof Sig).should.equal(true)
-    })
-  })
-
-  describe('@asyncSign', function () {
-    it('should produce the same signature as @sign', async function () {
-      const sig = Ecdsa.sign(ecdsa.hashBuf, ecdsa.keyPair)
-      const sigstr = sig.toString()
-      const sig2 = await Ecdsa.asyncSign(ecdsa.hashBuf, ecdsa.keyPair)
-      const sig2str = sig2.toString()
-      sigstr.should.equal(sig2str)
     })
   })
 
@@ -658,25 +476,6 @@ describe('Ecdsa', function () {
         ecdsa.keyPair.pubKey,
         'little'
       ).should.equal(true)
-    })
-  })
-
-  describe('@asyncVerify', function () {
-    it('should verify a valid signature, and unverify an invalid signature', async function () {
-      const sig = Ecdsa.sign(ecdsa.hashBuf, ecdsa.keyPair)
-      let verified = await Ecdsa.asyncVerify(
-        ecdsa.hashBuf,
-        sig,
-        ecdsa.keyPair.pubKey
-      )
-      verified.should.equal(true)
-      const fakesig = new Sig(sig.r.add(1), sig.s)
-      verified = await Ecdsa.asyncVerify(
-        ecdsa.hashBuf,
-        fakesig,
-        ecdsa.keyPair.pubKey
-      )
-      verified.should.equal(false)
     })
   })
 

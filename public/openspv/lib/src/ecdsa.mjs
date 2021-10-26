@@ -27,7 +27,6 @@ import { PubKey } from './pub-key.mjs'
 import { Random } from './random.mjs'
 import { Sig } from './sig.mjs'
 import { Struct } from './struct.mjs'
-import { Workers } from './workers.mjs'
 
 class Ecdsa extends Struct {
   constructor (sig, keyPair, hashBuf, k, endian, verified) {
@@ -91,15 +90,6 @@ class Ecdsa extends Struct {
     throw new Error('Unable to find valid recovery factor')
   }
 
-  async asyncCalcrecovery () {
-    const workersResult = await Workers.asyncObjectMethod(
-      this,
-      'calcrecovery',
-      []
-    )
-    return this.fromFastBuffer(workersResult.resbuf)
-  }
-
   /**
      * Calculates the recovery factor, and mutates sig so that it now contains
      * the recovery factor and the "compressed" variable. Throws an exception on
@@ -112,15 +102,6 @@ class Ecdsa extends Struct {
       hashBuf: hashBuf
     })
     return ecdsa.calcrecovery().sig
-  }
-
-  static async asyncCalcrecovery (sig, pubKey, hashBuf) {
-    const workersResult = await Workers.asyncClassMethod(
-      Ecdsa,
-      'calcrecovery',
-      [sig, pubKey, hashBuf]
-    )
-    return new Sig().fromFastBuffer(workersResult.resbuf)
   }
 
   fromString (str) {
@@ -264,30 +245,12 @@ class Ecdsa extends Struct {
     return pubKey
   }
 
-  async asyncSig2PubKey () {
-    const workersResult = await Workers.asyncObjectMethod(
-      this,
-      'sig2PubKey',
-      []
-    )
-    return PubKey.fromFastBuffer(workersResult.resbuf)
-  }
-
   static sig2PubKey (sig, hashBuf) {
     const ecdsa = new Ecdsa().fromObject({
       sig: sig,
       hashBuf: hashBuf
     })
     return ecdsa.sig2PubKey()
-  }
-
-  static async asyncSig2PubKey (sig, hashBuf) {
-    const ecdsa = new Ecdsa().fromObject({
-      sig: sig,
-      hashBuf: hashBuf
-    })
-    const pubKey = await ecdsa.asyncSig2PubKey()
-    return pubKey
   }
 
   verifyStr (enforceLowS = true) {
@@ -406,11 +369,6 @@ class Ecdsa extends Struct {
     return this
   }
 
-  async asyncSign () {
-    const workersResult = await Workers.asyncObjectMethod(this, 'sign', [])
-    return this.fromFastBuffer(workersResult.resbuf)
-  }
-
   signRandomK () {
     this.randomK()
     return this.sign()
@@ -442,13 +400,6 @@ class Ecdsa extends Struct {
     return this
   }
 
-  async asyncVerify (enforceLowS = true) {
-    const workersResult = await Workers.asyncObjectMethod(this, 'verify', [
-      enforceLowS
-    ])
-    return this.fromFastBuffer(workersResult.resbuf)
-  }
-
   static sign (hashBuf, keyPair, endian) {
     return new Ecdsa()
       .fromObject({
@@ -457,16 +408,6 @@ class Ecdsa extends Struct {
         keyPair: keyPair
       })
       .sign().sig
-  }
-
-  static async asyncSign (hashBuf, keyPair, endian) {
-    const ecdsa = new Ecdsa().fromObject({
-      hashBuf: hashBuf,
-      endian: endian,
-      keyPair: keyPair
-    })
-    await ecdsa.asyncSign()
-    return ecdsa.sig
   }
 
   static verify (hashBuf, sig, pubKey, endian, enforceLowS = true) {
@@ -478,17 +419,6 @@ class Ecdsa extends Struct {
         keyPair: new KeyPair().fromObject({ pubKey: pubKey })
       })
       .verify(enforceLowS).verified
-  }
-
-  static async asyncVerify (hashBuf, sig, pubKey, endian, enforceLowS = true) {
-    const ecdsa = new Ecdsa().fromObject({
-      hashBuf: hashBuf,
-      endian: endian,
-      sig: sig,
-      keyPair: new KeyPair().fromObject({ pubKey: pubKey })
-    })
-    await ecdsa.asyncVerify(enforceLowS)
-    return ecdsa.verified
   }
 }
 

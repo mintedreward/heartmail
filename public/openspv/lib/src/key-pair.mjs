@@ -88,16 +88,6 @@ class KeyPair extends Struct {
     return new this().fromPrivKey(privKey)
   }
 
-  async asyncFromPrivKey (privKey) {
-    this.privKey = privKey
-    this.pubKey = await new PubKey().asyncFromPrivKey(privKey)
-    return this
-  }
-
-  static asyncFromPrivKey (privKey) {
-    return new this().asyncFromPrivKey(privKey)
-  }
-
   fromRandom () {
     this.privKey = new this.PrivKey().fromRandom()
     this.pubKey = new PubKey().fromPrivKey(this.privKey)
@@ -106,15 +96,6 @@ class KeyPair extends Struct {
 
   static fromRandom () {
     return new this().fromRandom()
-  }
-
-  async asyncFromRandom () {
-    this.privKey = new this.PrivKey().fromRandom()
-    return this.asyncFromPrivKey(this.privKey)
-  }
-
-  static asyncFromRandom () {
-    return new this().asyncFromRandom()
   }
 }
 

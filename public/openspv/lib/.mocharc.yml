@@ -1,4 +1,2 @@
-require:
-  - './load-babel.cjs'
 reporter: 'progress'
 recursive: true

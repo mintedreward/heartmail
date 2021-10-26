@@ -29,18 +29,6 @@ describe('#Ecies', function () {
     })
   })
 
-  describe('@asyncBitcoreEncrypt', function () {
-    it('should return a buffer', async function () {
-      const encBuf = await Ecies.asyncBitcoreEncrypt(messageBuf, tokey.pubKey, fromkey)
-      Buffer.isBuffer(encBuf).should.equal(true)
-    })
-
-    it('should return a buffer if fromkey is not present', async function () {
-      const encBuf = await Ecies.asyncBitcoreEncrypt(messageBuf, tokey.pubKey)
-      Buffer.isBuffer(encBuf).should.equal(true)
-    })
-  })
-
   describe('@bitcoreDecrypt', function () {
     it('should decrypt that which was encrypted', function () {
       const encBuf = Ecies.bitcoreEncrypt(messageBuf, tokey.pubKey, fromkey)
@@ -51,20 +39,6 @@ describe('#Ecies', function () {
     it('should decrypt that which was encrypted if fromKeyPair was randomly generated', function () {
       const encBuf = Ecies.bitcoreEncrypt(messageBuf, tokey.pubKey)
       const messageBuf2 = Ecies.bitcoreDecrypt(encBuf, tokey.privKey)
-      messageBuf2.toString('hex').should.equal(messageBuf.toString('hex'))
-    })
-  })
-
-  describe('@asyncDecrypt', function () {
-    it('should decrypt that which was encrypted', async function () {
-      const encBuf = await Ecies.asyncBitcoreEncrypt(messageBuf, tokey.pubKey, fromkey)
-      const messageBuf2 = await Ecies.asyncBitcoreDecrypt(encBuf, tokey.privKey)
-      messageBuf2.toString('hex').should.equal(messageBuf.toString('hex'))
-    })
-
-    it('should decrypt that which was encrypted if fromKeyPair was randomly generated', async function () {
-      const encBuf = await Ecies.asyncBitcoreEncrypt(messageBuf, tokey.pubKey)
-      const messageBuf2 = await Ecies.asyncBitcoreDecrypt(encBuf, tokey.privKey)
       messageBuf2.toString('hex').should.equal(messageBuf.toString('hex'))
     })
   })

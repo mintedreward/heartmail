@@ -26,7 +26,6 @@ import { PubKey } from './pub-key.mjs'
 import { PrivKey } from './priv-key.mjs'
 import { Script } from './script.mjs'
 import { Struct } from './struct.mjs'
-import { Workers } from './workers.mjs'
 
 class Address extends Struct {
   constructor (versionByteNum, hashBuf, constants = null) {
@@ -68,20 +67,6 @@ class Address extends Struct {
     return new this().fromPubKey(pubKey)
   }
 
-  async asyncFromPubKey (pubKey) {
-    const args = [pubKey]
-    const workersResult = await Workers.asyncObjectMethod(
-      this,
-      'fromPubKey',
-      args
-    )
-    return this.fromFastBuffer(workersResult.resbuf)
-  }
-
-  static asyncFromPubKey (pubKey) {
-    return new this().asyncFromPubKey(pubKey)
-  }
-
   fromPrivKey (privKey) {
     const pubKey = new PubKey().fromPrivKey(privKey)
     const hashBuf = Hash.sha256Ripemd160(pubKey.toBuffer())
@@ -89,20 +74,6 @@ class Address extends Struct {
   }
 
   static fromPrivKey (privKey) {
-    return new this().fromPrivKey(privKey)
-  }
-
-  async asyncFromPrivKey (privKey) {
-    const args = [privKey]
-    const workersResult = await Workers.asyncObjectMethod(
-      this,
-      'fromPrivKey',
-      args
-    )
-    return this.fromFastBuffer(workersResult.resbuf)
-  }
-
-  static asyncFromPrivKey (privKey) {
     return new this().fromPrivKey(privKey)
   }
 
@@ -115,37 +86,9 @@ class Address extends Struct {
     return new this().fromRandom()
   }
 
-  async asyncFromRandom () {
-    const args = []
-    const workersResult = await Workers.asyncObjectMethod(
-      this,
-      'fromRandom',
-      args
-    )
-    return this.fromFastBuffer(workersResult.resbuf)
-  }
-
-  static asyncFromRandom () {
-    return new this().fromRandom()
-  }
-
   fromString (str) {
     const buf = Base58Check.decode(str)
     return this.fromBuffer(buf)
-  }
-
-  async asyncFromString (str) {
-    const args = [str]
-    const workersResult = await Workers.asyncObjectMethod(
-      this,
-      'fromString',
-      args
-    )
-    return this.fromFastBuffer(workersResult.resbuf)
-  }
-
-  static asyncFromString (str) {
-    return new this().asyncFromString(str)
   }
 
   static isValid (addrstr) {
@@ -224,16 +167,6 @@ class Address extends Struct {
 
   toString () {
     return Base58Check.encode(this.toBuffer())
-  }
-
-  async asyncToString () {
-    const args = []
-    const workersResult = await Workers.asyncObjectMethod(
-      this,
-      'toString',
-      args
-    )
-    return JSON.parse(workersResult.resbuf.toString())
   }
 
   validate () {

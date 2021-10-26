@@ -18,7 +18,6 @@ import { Struct } from './struct.mjs'
 import { TxIn } from './tx-in.mjs'
 import { TxOut } from './tx-out.mjs'
 import { VarInt } from './var-int.mjs'
-import { Workers } from './workers.mjs'
 
 class Tx extends Struct {
   constructor (
@@ -260,18 +259,6 @@ class Tx extends Struct {
     return new Br(Hash.sha256Sha256(buf)).readReverse()
   }
 
-  async asyncSighash (nHashType, nIn, subScript, valueBn, flags = 0, hashCache = {}) {
-    const workersResult = await Workers.asyncObjectMethod(this, 'sighash', [
-      nHashType,
-      nIn,
-      subScript,
-      valueBn,
-      flags,
-      hashCache
-    ])
-    return workersResult.resbuf
-  }
-
   // This function returns a signature but does not update any inputs
   sign (keyPair, nHashType = Sig.SIGHASH_ALL | Sig.SIGHASH_FORKID, nIn, subScript, valueBn, flags = Tx.SCRIPT_ENABLE_SIGHASH_FORKID, hashCache = {}) {
     const hashBuf = this.sighash(nHashType, nIn, subScript, valueBn, flags, hashCache)
@@ -279,19 +266,6 @@ class Tx extends Struct {
       nHashType: nHashType
     })
     return sig
-  }
-
-  async asyncSign (keyPair, nHashType = Sig.SIGHASH_ALL | Sig.SIGHASH_FORKID, nIn, subScript, valueBn, flags = Tx.SCRIPT_ENABLE_SIGHASH_FORKID, hashCache = {}) {
-    const workersResult = await Workers.asyncObjectMethod(this, 'sign', [
-      keyPair,
-      nHashType,
-      nIn,
-      subScript,
-      valueBn,
-      flags,
-      hashCache
-    ])
-    return new Sig().fromFastBuffer(workersResult.resbuf)
   }
 
   // This function takes a signature as input and does not parse any inputs
@@ -309,45 +283,12 @@ class Tx extends Struct {
     return Ecdsa.verify(hashBuf, sig, pubKey, 'little', enforceLowS)
   }
 
-  async asyncVerify (
-    sig,
-    pubKey,
-    nIn,
-    subScript,
-    enforceLowS = false,
-    valueBn,
-    flags = Tx.SCRIPT_ENABLE_SIGHASH_FORKID,
-    hashCache = {}
-  ) {
-    const workersResult = await Workers.asyncObjectMethod(this, 'verify', [
-      sig,
-      pubKey,
-      nIn,
-      subScript,
-      enforceLowS,
-      valueBn,
-      flags,
-      hashCache
-    ])
-    return JSON.parse(workersResult.resbuf.toString())
-  }
-
   hash () {
     return Hash.sha256Sha256(this.toBuffer())
   }
 
-  async asyncHash () {
-    const workersResult = await Workers.asyncObjectMethod(this, 'hash', [])
-    return workersResult.resbuf
-  }
-
   id () {
     return new Br(this.hash()).readReverse().toString('hex')
-  }
-
-  async asyncId () {
-    const workersResult = await Workers.asyncObjectMethod(this, 'id', [])
-    return JSON.parse(workersResult.resbuf.toString())
   }
 
   addTxIn (txHashBuf, txOutNum, script, nSequence) {

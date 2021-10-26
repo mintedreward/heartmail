@@ -73,22 +73,7 @@ class Struct {
     return new this().fromBr(br)
   }
 
-  asyncFromBr (br) {
-    if (!(br instanceof Br)) {
-      throw new Error('br must be a buffer reader')
-    }
-    throw new Error('not implemented')
-  }
-
-  static asyncFromBr (br) {
-    return new this().asyncFromBr(br)
-  }
-
   toBw (bw) {
-    throw new Error('not implemented')
-  }
-
-  asyncToBw (bw) {
     throw new Error('not implemented')
   }
 
@@ -154,18 +139,6 @@ class Struct {
     return new this().fromBuffer(...rest)
   }
 
-  asyncFromBuffer (buf, ...rest) {
-    if (!Buffer.isBuffer(buf)) {
-      throw new Error('buf must be a buffer')
-    }
-    const br = new Br(buf)
-    return this.asyncFromBr(br, ...rest)
-  }
-
-  static asyncFromBuffer (buf, ...rest) {
-    return new this().asyncFromBuffer(buf, ...rest)
-  }
-
   /**
      * The complement of toFastBuffer - see description for toFastBuffer
      */
@@ -187,10 +160,6 @@ class Struct {
      */
   toBuffer (...rest) {
     return this.toBw(...rest).toBuffer()
-  }
-
-  asyncToBuffer (...rest) {
-    return this.asyncToBw(...rest).then(bw => bw.toBuffer())
   }
 
   /**
@@ -228,18 +197,6 @@ class Struct {
     return new this().fromHex(hex, ...rest)
   }
 
-  asyncFromHex (hex, ...rest) {
-    if (!isHex(hex)) {
-      throw new Error('invalid hex string')
-    }
-    const buf = Buffer.from(hex, 'hex')
-    return this.asyncFromBuffer(buf, ...rest)
-  }
-
-  static asyncFromHex (hex, ...rest) {
-    return new this().asyncFromHex(hex, ...rest)
-  }
-
   fromFastHex (hex, ...rest) {
     if (!isHex(hex)) {
       throw new Error('invalid hex string')
@@ -254,10 +211,6 @@ class Struct {
 
   toHex (...rest) {
     return this.toBuffer(...rest).toString('hex')
-  }
-
-  asyncToHex (...rest) {
-    return this.asyncToBuffer(...rest).then(buf => buf.toString('hex'))
   }
 
   toFastHex (...rest) {
@@ -275,23 +228,8 @@ class Struct {
     return new this().fromString(str, ...rest)
   }
 
-  asyncFromString (str, ...rest) {
-    if (typeof str !== 'string') {
-      throw new Error('str must be a string')
-    }
-    return this.asyncFromHex(str, ...rest)
-  }
-
-  static asyncFromString (str, ...rest) {
-    return new this().asyncFromString(str, ...rest)
-  }
-
   toString (...rest) {
     return this.toHex(...rest)
-  }
-
-  asyncToString (...rest) {
-    return this.asyncToHex(...rest)
   }
 
   fromJSON (json) {
@@ -300,14 +238,6 @@ class Struct {
 
   static fromJSON (json, ...rest) {
     return new this().fromJSON(json, ...rest)
-  }
-
-  asyncFromJSON (json, ...rest) {
-    throw new Error('not implemented')
-  }
-
-  static asyncFromJSON (json, ...rest) {
-    return new this().asyncFromJSON(json, ...rest)
   }
 
   toJSON () {
@@ -352,10 +282,6 @@ class Struct {
     }
     return json
     // throw new Error('not implemented')
-  }
-
-  asyncToJSON () {
-    throw new Error('not implemented')
   }
 
   clone () {
