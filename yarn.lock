@@ -1453,9 +1453,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coasian/coasian-web@workspace:projects/coasian-web":
+"@coasian/coasian-web@workspace:private/coasian-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/coasian-web@workspace:projects/coasian-web"
+  resolution: "@coasian/coasian-web@workspace:private/coasian-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -1466,9 +1466,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/heartmail-web@workspace:projects/heartmail-web":
+"@coasian/heartmail-web@workspace:private/heartmail-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/heartmail-web@workspace:projects/heartmail-web"
+  resolution: "@coasian/heartmail-web@workspace:private/heartmail-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -1479,9 +1479,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/heartx-web@workspace:projects/heartx-web":
+"@coasian/heartx-web@workspace:private/heartx-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/heartx-web@workspace:projects/heartx-web"
+  resolution: "@coasian/heartx-web@workspace:private/heartx-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -1492,9 +1492,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/itisbit-web@workspace:projects/itisbit-web":
+"@coasian/itisbit-web@workspace:private/itisbit-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/itisbit-web@workspace:projects/itisbit-web"
+  resolution: "@coasian/itisbit-web@workspace:private/itisbit-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -1505,9 +1505,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/openspv-web@workspace:projects/openspv-web":
+"@coasian/openspv-web@workspace:private/openspv-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/openspv-web@workspace:projects/openspv-web"
+  resolution: "@coasian/openspv-web@workspace:private/openspv-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -1518,9 +1518,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/rxc-web@workspace:projects/rxc-web":
+"@coasian/rxc-web@workspace:private/rxc-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/rxc-web@workspace:projects/rxc-web"
+  resolution: "@coasian/rxc-web@workspace:private/rxc-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -1531,9 +1531,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/tob-web@workspace:projects/tob-web":
+"@coasian/tob-web@workspace:private/tob-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/tob-web@workspace:projects/tob-web"
+  resolution: "@coasian/tob-web@workspace:private/tob-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -1786,9 +1786,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openspv/lib@workspace:projects/openspv-lib":
+"@openspv/lib@workspace:public/openspv/openspv-lib":
   version: 0.0.0-use.local
-  resolution: "@openspv/lib@workspace:projects/openspv-lib"
+  resolution: "@openspv/lib@workspace:public/openspv/openspv-lib"
   dependencies:
     "@babel/core": ^7.13.8
     "@babel/plugin-transform-runtime": ^7.13.9
@@ -10279,9 +10279,38 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"openspv@workspace:open-source/openspv":
+"openspv-keyfile@workspace:private/openspv-keyfile":
   version: 0.0.0-use.local
-  resolution: "openspv@workspace:open-source/openspv"
+  resolution: "openspv-keyfile@workspace:private/openspv-keyfile"
+  dependencies:
+    "@babel/core": ^7.13.8
+    "@babel/plugin-transform-runtime": ^7.13.9
+    "@babel/preset-env": ^7.13.9
+    "@babel/register": ^7.13.8
+    "@babel/runtime": ^7.13.9
+    "@openspv/lib": "workspace:public/openspv/openspv-lib"
+    babel-loader: ^8.2.2
+    babel-polyfill: ^6.26.0
+    documentation: ^13.1.1
+    karma: ^6.1.1
+    karma-chrome-launcher: ^3.1.0
+    karma-firefox-launcher: ^2.1.0
+    karma-mocha: ^2.0.1
+    karma-webpack: ^5.0.0
+    microbundle: ^0.12.0
+    mocha: ^8.3.1
+    npm-link-shared: ^0.5.6
+    should: ^13.2.3
+    sinon: ^9.2.4
+    standard: ^16.0.3
+    webpack: ^4.43.0
+    webpack-cli: ^3.3.11
+  languageName: unknown
+  linkType: soft
+
+"openspv@workspace:public/openspv":
+  version: 0.0.0-use.local
+  resolution: "openspv@workspace:public/openspv"
   languageName: unknown
   linkType: soft
 

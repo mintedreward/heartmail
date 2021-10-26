@@ -4,16 +4,22 @@
 
 # Repo Overview
 
-Everything is written in javascript except deployment shell scripts.  We use
-yarn workspaces to manage the projects. All projects are contained inside the
-<code>projects</code> folder whether they are open source or not.
+Everything is written in javascript except deployment shell scripts. We use
+yarn workspaces to manage the projects. All private (closed course) projects
+are contained in the <code>private</code> folder and all public (open source)
+projects are contained inside the <code>public</code> folder.
+
+If we ever need to write something in a language other than javascript, we will
+still use yarn workspaces and npm packages to manage the project. Javascript
+and related tools wrap all projects. Javascript is always the first language
+and any other language is a form of optimization.
 
 ## Packages
 
 All projects are published to npm (using yarn) and may be open source or not
 depending on the license and whether they are publicly exposed. All projects
-begin life as closed and may become open when a license is chosen and published
-publicly.
+begin life as private and may become public when a license is chosen and
+published publicly.
 
 ## Deployments
 
@@ -25,16 +31,13 @@ across cloud providers.
 
 ## Domain names
 
-All domain names are managed by AWS at this time, but this too will be decentralized
+Domain names are distributed across:
 
-## Open Source
-
-All open source repos are copied into the git subtree in the
-<code>open-source</code> folder and pushed to GitHub. For now there is only one
-open-source project which is OpenSPV.
-
-We do not accept pull requests from the outside. We create all open-source
-software ourselves and push to npm and GitHub.
+* AWS
+* Namecheap
+* Uniregistry
+* Godaddy
+* NameBright
 
 # OpenSPV
 
@@ -70,6 +73,14 @@ emphasis to HeartMail and other projects.
 * Bob generates a new sovereign key
 * Alice can send a payment p2p to Bob with Merkle proofs (genuine SPV)
 
+# Social Bitcoin Web Standards
+
+* Key File
+* Two Factor Friend
+* Paymail Authentication
+* Paymail Permissions
+* Paymail Payments
+
 # Businesses
 
 All software is open source and open protocol. I own my content and brands.
@@ -82,9 +93,24 @@ All software is open source and open protocol. I own my content and brands.
 * OpenSPV: Documentation marketplace
 * Ad Doodle: Paid ad placement for search results ("Better than Google")
 * Planck Times: Citizen journalism. Customized source of news.
+* Contract.IO: One person. Many companies. (Legal contract management)
+* Two Factor Friend: It's like a dating app, but for computer security.
 
 # Principles
 
 * Every app is a browser.
+* If someone dies, everything should keep working.
+* Everything should feel right.
+
+# Central Points of Failure
+
+All central points of failure should be eliminated over time, including
+ourselves. We do not one part of the system to create cascading failures. Any
+part should be able to be removed and the system should keep functioning.
+
+* Domain names
+* Cloud (AWS)
+* Email
+* RXC
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.
