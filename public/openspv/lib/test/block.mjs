@@ -8,7 +8,6 @@ import { Tx } from '../src/tx.mjs'
 import { VarInt } from '../src/var-int.mjs'
 import { readFile } from 'fs/promises'
 const largesttxblockvector = JSON.parse(
-  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/largesttxblock.json', import.meta.url)
   )

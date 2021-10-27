@@ -11,7 +11,7 @@
     "lint": "standard *.mjs *.cjs 'src/**/*.mjs' 'bin/**/*.cjs' 'test/**/*.mjs'",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",
-    "test": "yarn run test:mocha"
+    "test": "yarn run pretest && yarn run test:mocha"
   },
   "keywords": [
     "bitcoin",
@@ -44,7 +44,18 @@
   "license": "MIT",
   "standard": {
     "ignore": [
-      "src/interp.mjs"
+      "src/interp.mjs",
+      "test/aes.mjs",
+      "test/aescbc.mjs",
+      "test/bip-39.mjs",
+      "test/block.mjs",
+      "test/ecdsa.mjs",
+      "test/hash.mjs",
+      "test/interp.mjs",
+      "test/script.mjs",
+      "test/sig.mjs",
+      "test/tx-verifier.mjs",
+      "test/tx.mjs"
     ]
   },
   "packageManager": "yarn@3.0.2"

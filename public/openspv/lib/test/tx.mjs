@@ -15,37 +15,31 @@ import sinon from 'sinon'
 
 import { readFile } from 'fs/promises'
 const vectorsBitcoindSighash = JSON.parse(
-  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/sighash.json', import.meta.url)
   )
 )
 const vectorsBitcoinABCSighash = JSON.parse(
-  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoin-abc/sighash.json', import.meta.url)
   )
 )
 const vectorsBitcoindTxValid = JSON.parse(
-  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/tx_valid.json', import.meta.url)
   )
 )
 const vectorsBitcoindTxInvalid = JSON.parse(
-  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/tx_invalid.json', import.meta.url)
   )
 )
 const largesttxvector = JSON.parse(
-  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/largesttx.json', import.meta.url)
   )
 )
 const fixture = JSON.parse(
-  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bip69.json', import.meta.url)
   )

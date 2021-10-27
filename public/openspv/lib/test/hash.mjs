@@ -4,7 +4,6 @@ import 'should'
 import { Hash } from '../src/hash.mjs'
 import { readFile } from 'fs/promises'
 const vectors = JSON.parse(
-  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/hash.json', import.meta.url)
   )
