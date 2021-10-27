@@ -93,7 +93,7 @@ emphasis to HeartMail and other projects.
 * HeartMail: Mainstream video sales & marketplace.
 * HeartX: Real asset exchange.
 * HeartMiner: Paid block explorer. Free tx viewing under 50kb, paid over.
-* HeartMiner: Paid merkle proofs. Free tx proofs under 50kb, paid over.
+* MerkleMarket: Paid merkle proofs. Free tx proofs under 50kb, paid over.
 * HeartMiner: Bitcoin mining.
 * Coasetodian: Custodian of financial assets.
 * Coasian Bank: HeartUSD.
