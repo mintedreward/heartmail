@@ -11,21 +11,25 @@ import { TxVerifier } from '../src/tx-verifier.mjs'
 import should from 'should'
 import { readFile } from 'fs/promises'
 const coolestTxVector = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/coolest-tx-ever-sent.json', import.meta.url)
   )
 )
 const sighashSingleVector = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/sighash-single-bug.json', import.meta.url)
   )
 )
 const txInvalid = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/tx_invalid.json', import.meta.url)
   )
 )
 const txValid = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/tx_valid.json', import.meta.url)
   )

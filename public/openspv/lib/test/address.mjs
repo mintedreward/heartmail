@@ -1,7 +1,6 @@
 /* global describe,it */
 'use strict'
 import { Address } from '../src/address.mjs'
-import { Constants } from '../src/constants.mjs'
 import { PrivKey } from '../src/priv-key.mjs'
 import { PubKey } from '../src/pub-key.mjs'
 import { Script } from '../src/script.mjs'

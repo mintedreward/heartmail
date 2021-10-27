@@ -11,6 +11,7 @@ import { Point } from '../src/point.mjs'
 import should from 'should'
 import { readFile } from 'fs/promises'
 const vectors = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/ecdsa.json', import.meta.url)
   )

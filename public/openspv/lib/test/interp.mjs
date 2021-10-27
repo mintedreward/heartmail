@@ -10,21 +10,25 @@ import { Sig } from '../src/sig.mjs'
 
 import { readFile } from 'fs/promises'
 const bitcoindScriptInvalid = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/script_invalid.json', import.meta.url)
   )
 )
 const bitcoindScriptValid = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/script_valid.json', import.meta.url)
   )
 )
 const bitcoinABCScriptTests = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoin-abc/script_tests.json', import.meta.url)
   )
 )
 const bitcoinSVScriptTests = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoin-sv/script_tests.json', import.meta.url)
   )

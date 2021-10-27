@@ -9,11 +9,13 @@ import should from 'should'
 
 import { readFile } from 'fs/promises'
 const scriptInvalid = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/script_invalid.json', import.meta.url)
   )
 )
 const scriptValid = JSON.parse(
+  // eslint-disable-next-line
   await readFile(
     new URL('./vectors/bitcoind/script_valid.json', import.meta.url)
   )
