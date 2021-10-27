@@ -16,15 +16,6 @@ describe('Bip32', function () {
       .toString()
       .slice(0, 4)
       .should.equal('xpub')
-    Bip32.Testnet.fromRandom()
-      .toString()
-      .slice(0, 4)
-      .should.equal('tprv')
-    Bip32.Testnet.fromRandom()
-      .toPublic()
-      .toString()
-      .slice(0, 4)
-      .should.equal('tpub')
   })
 
   // test vectors: https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki
@@ -378,30 +369,6 @@ describe('Bip32', function () {
       .should.equal(vector2m02147483647h12147483646h2Public)
   })
 
-  describe('testnet', function () {
-    it('should initialize a new Bip32 correctly from a random Bip32', function () {
-      const b1 = new Bip32.Testnet()
-      b1.fromRandom()
-      ;(b1.privKey instanceof PrivKey.Testnet).should.equal(true)
-      const b2 = new Bip32.Testnet().fromString(b1.toPublic().toString())
-      b2
-        .toPublic()
-        .toString()
-        .should.equal(b1.toPublic().toString())
-    })
-
-    it('should generate valid ext pub key for testnet', function () {
-      const b = new Bip32.Testnet()
-      b.fromRandom()
-      ;(b.privKey instanceof PrivKey.Testnet).should.equal(true)
-      b
-        .toPublic()
-        .toString()
-        .substring(0, 4)
-        .should.equal('tpub')
-    })
-  })
-
   describe('#fromObject', function () {
     it('should set this bip32', function () {
       const bip32 = new Bip32().fromString(vector1mPrivate)
@@ -554,8 +521,6 @@ describe('Bip32', function () {
   describe('#toString', function () {
     const bip32 = new Bip32()
     bip32.fromRandom()
-    const tip32 = new Bip32.Testnet()
-    tip32.fromRandom()
 
     it('should return an xprv string', function () {
       bip32
@@ -570,22 +535,6 @@ describe('Bip32', function () {
         .toString()
         .slice(0, 4)
         .should.equal('xpub')
-    })
-
-    it('should return a tprv string', function () {
-      tip32
-        .toString()
-        .slice(0, 4)
-        .should.equal('tprv')
-      ;(tip32.privKey instanceof PrivKey.Testnet).should.equal(true)
-    })
-
-    it('should return a tpub string', function () {
-      tip32
-        .toPublic()
-        .toString()
-        .slice(0, 4)
-        .should.equal('tpub')
     })
   })
 

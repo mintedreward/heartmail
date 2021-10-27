@@ -99,16 +99,4 @@ class KeyPair extends Struct {
   }
 }
 
-KeyPair.Mainnet = class extends KeyPair {
-  constructor (privKey, pubKey) {
-    super(privKey, pubKey, DefaultPrivKey.Mainnet)
-  }
-}
-
-KeyPair.Testnet = class extends KeyPair {
-  constructor (privKey, pubKey) {
-    super(privKey, pubKey, DefaultPrivKey.Testnet)
-  }
-}
-
 export { KeyPair }
