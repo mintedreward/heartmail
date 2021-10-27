@@ -5,7 +5,7 @@
   "author": "Coasian",
   "homepage": "https://github.com/openspv/openspv",
   "scripts": {
-    "lint": "standard *.js *.cjs 'src/**/*.mjs' 'bin/**/*.cjs' 'test/**/*.mjs'",
+    "lint": "standard *.mjs *.cjs 'src/**/*.mjs' 'bin/**/*.cjs' 'test/**/*.mjs'",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",
     "test": "yarn run test:mocha"
