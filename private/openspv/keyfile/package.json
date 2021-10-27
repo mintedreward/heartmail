@@ -1,6 +1,7 @@
 {
   "name": "@openspv/keyfile",
   "packageManager": "yarn@3.0.2",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules/* yarn.lock",
     "lint": "standard 'src/**/*.mjs' 'test/**/*.mjs'",

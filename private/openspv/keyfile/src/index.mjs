@@ -37,10 +37,6 @@
 'use strict'
 
 import { Struct, Hash, Ach, Address } from '@openspv/lib'
-// import { Struct } from '@openspv/lib/src/struct'
-// import { Hash } from '@openspv/lib/src/hash'
-// import { Ach } from '@openspv/lib/src/ach'
-// import { Address } from '@openspv/lib/src/address'
 
 class Keyfile extends Struct {
   constructor () {
