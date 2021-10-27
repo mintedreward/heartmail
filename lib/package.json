@@ -6,6 +6,7 @@
   "homepage": "https://github.com/openspv/openspv",
   "main": "./index.mjs",
   "exports": "./index.mjs",
+  "type": "module",
   "scripts": {
     "lint": "standard *.mjs *.cjs 'src/**/*.mjs' 'bin/**/*.cjs' 'test/**/*.mjs'",
     "pretest": "yarn run lint",
@@ -26,18 +27,18 @@
   },
   "dependencies": {
     "aes": "0.1.0",
-    "bitcoin-elliptic": "^7.0.1",
-    "bn.js": "^5.2.0",
+    "bitcoin-elliptic": "7.0.1",
+    "bn.js": "5.2.0",
     "bs58": "4.0.1",
-    "hash.js": "^1.1.7",
+    "hash.js": "1.1.7",
     "is-hex": "1.1.3",
     "pbkdf2": "3.1.2",
-    "randombytes": "^2.1.0"
+    "randombytes": "2.1.0"
   },
   "devDependencies": {
-    "mocha": "^8.3.1",
-    "should": "^13.2.3",
-    "sinon": "^9.2.4",
+    "mocha": "8.3.1",
+    "should": "13.2.3",
+    "sinon": "9.2.4",
     "standard": "16.0.4"
   },
   "license": "MIT",
