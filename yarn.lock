@@ -432,7 +432,7 @@ __metadata:
     hash.js: ^1.1.7
     is-hex: 1.1.3
     mocha: ^8.3.1
-    pbkdf2: 3.1.1
+    pbkdf2: 3.1.2
     randombytes: ^2.1.0
     should: ^13.2.3
     sinon: ^9.2.4
@@ -4485,20 +4485,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"pbkdf2@npm:3.1.1":
-  version: 3.1.1
-  resolution: "pbkdf2@npm:3.1.1"
-  dependencies:
-    create-hash: ^1.1.2
-    create-hmac: ^1.1.4
-    ripemd160: ^2.0.1
-    safe-buffer: ^5.0.1
-    sha.js: ^2.4.8
-  checksum: c3de26b8eb363180687e31138e1a486c509d407f361ae222e0af4748d9a252326e14e8f3311182945dbc27e7f235b49fb7a578ad340302a83481585bbd3947d3
-  languageName: node
-  linkType: hard
-
-"pbkdf2@npm:^3.0.3":
+"pbkdf2@npm:3.1.2, pbkdf2@npm:^3.0.3":
   version: 3.1.2
   resolution: "pbkdf2@npm:3.1.2"
   dependencies:
