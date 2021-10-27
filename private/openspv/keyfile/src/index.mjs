@@ -36,10 +36,6 @@
  */
 'use strict'
 
-if (!global._babelPolyfill) {
-  require('babel-polyfill')
-}
-
 import { Struct, Hash, Ach, Address } from '@openspv/lib'
 // import { Struct } from '@openspv/lib/src/struct'
 // import { Hash } from '@openspv/lib/src/hash'

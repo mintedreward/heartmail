@@ -3,38 +3,18 @@
   "packageManager": "yarn@3.0.2",
   "scripts": {
     "clean": "rm -rf node_modules/* yarn.lock",
-    "lint": "standard *.js 'src/**/*.js' 'test/**/*.js'",
+    "lint": "standard 'src/**/*.mjs' 'test/**/*.mjs'",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",
-    "test:karma": "karma start --single-run",
-    "test": "yarn run test:mocha && yarn run test:karma",
-    "build": "webpack && microbundle --target node -f modern,cjs",
+    "test": "yarn run test:mocha",
     "prepublish": "yarn build"
   },
   "dependencies": {
     "@openspv/lib": "workspace:public/openspv/lib"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/plugin-transform-runtime": "^7.13.9",
-    "@babel/preset-env": "^7.13.9",
-    "@babel/register": "^7.13.8",
-    "@babel/runtime": "^7.13.9",
-    "babel-loader": "^8.2.2",
-    "babel-polyfill": "^6.26.0",
-    "documentation": "^13.1.1",
-    "karma": "^6.1.1",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-firefox-launcher": "^2.1.0",
-    "karma-mocha": "^2.0.1",
-    "karma-webpack": "^5.0.0",
-    "microbundle": "^0.12.0",
     "mocha": "^8.3.1",
-    "npm-link-shared": "^0.5.6",
     "should": "^13.2.3",
-    "sinon": "^9.2.4",
-    "standard": "^16.0.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "standard": "^16.0.3"
   }
 }
