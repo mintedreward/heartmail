@@ -41,27 +41,41 @@ Domain names are distributed across:
 
 # OpenSPV
 
-The first major project is OpenSPV which includes a Bitcoin wallet with
-identity features. It will have a white label form and will be re-used in most
+The first major project is OpenSPV which includes a Bitcoin wallet with identity
+features. It will have a white label (OEM) form and will be re-used in most
 other projects, such as HeartMail. After OpenSPV gets video, we can then shift
 emphasis to HeartMail and other projects.
 
 ## OpenSPV Subprojects
 
-* [x] OpenSPV Library
-* [ ] OpenSPV Keyfile
-* [ ] OpenSPV Workers
+Private:
+* [x] OpenSPV Web (Landing Page)
+* [ ] OpenSPV Wallet Web
+* [ ] OpenSPV Wallet iOS
+* [ ] OpenSPV Wallet Android
+* [ ] OpenSPV Browser Web (Documentation Marketplace)
+* [ ] OpenSPV Browser iOS (Documentation Marketplace)
+* [ ] OpenSPV Browser Android (Documentation Marketplace)
+
+Public:
+* [x] OpenSPV Lib
+* [x] OpenSPV Keyfile
+* [ ] OpenSPV Paymail
+* [ ] OpenSPV Kubernetes
+* [ ] OpenSPV Crypto Workers
 * [ ] OpenSPV DB
-* [ ] OpenSPV Web API
+* [ ] OpenSPV Wallet Web API
 * [ ] OpenSPV IFrame API
 * [ ] OpenSPV Web Components
-* [ ] OpenSPV Web
 * [ ] OpenSPV Mobile Components
-* [ ] OpenSPV iOS
-* [ ] OpenSPV Android
-* [ ] OpenSPV Documentation Marketplace
-* [ ] OpenSPV Deployment
-* [ ] OpenSPV White Label
+* [ ] OpenSPV OEM Wallet Web
+* [ ] OpenSPV OEM Wallet iOS
+* [ ] OpenSPV OEM Wallet Android
+* [ ] OpenSPV Media Workers
+* [ ] OpenSPV Browser Web API
+* [ ] OpenSPV OEM Browser Web
+* [ ] OpenSPV OEM Browser iOS
+* [ ] OpenSPV OEM Browser Android
 
 # OpenSPV MVP
 
@@ -129,6 +143,8 @@ keep functioning.
 * Domain names (AWS)
 * Cloud (AWS)
 * Email (Google)
+* Docker Registry (Docker Hub)
+* NPM Registry (NPM)
 * Ryan X. Charles
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.
