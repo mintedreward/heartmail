@@ -4,6 +4,8 @@
   "version": "6.0.2",
   "author": "Coasian",
   "homepage": "https://github.com/openspv/openspv",
+  "main": "./index.mjs",
+  "exports": "./index.mjs",
   "scripts": {
     "lint": "standard *.mjs *.cjs 'src/**/*.mjs' 'bin/**/*.cjs' 'test/**/*.mjs'",
     "pretest": "yarn run lint",
