@@ -50,6 +50,7 @@ emphasis to HeartMail and other projects.
 
 * [x] OpenSPV Library
 * [ ] OpenSPV Keyfile
+* [ ] OpenSPV Workers
 * [ ] OpenSPV DB
 * [ ] OpenSPV Web API
 * [ ] OpenSPV IFrame API
@@ -64,20 +65,22 @@ emphasis to HeartMail and other projects.
 
 # OpenSPV MVP
 
-* Alice visits wallet.openspv.com
+* Alice visits spv.openspv.com
 * Alice gets a paymail with a key
 * Key is generated on the server and shared with Alice ("shared key")
 * Alice can use that key, or: Alice can generate a new key which is not shared
   with the server ("sovereign key"). Alice can choose to rely on the sovereign
   key instead of the shared key as her primary key.
-* Bob can visit wallet.heartmail.com and generates a paymail with a key
+* Bob can visit spv.heartmail.com and generates a paymail with a key
 * Bob generates a new sovereign key
 * Alice can send a payment p2p to Bob with Merkle proofs (genuine SPV)
 
 # Businesses
 
 * Ryan X. Charles: License content created by RXC.
-* Coasian: Build and manage subsidiaries.
+* Coasian: Create and license patents. Truth.
+* Coasian: Create and operate subsidiaries. Love.
+* Coasian: Create and license trademarks and brands. Beauty.
 * OpenSPV: Paymail sales, trades, & auctions.
 * OpenSPV: Documentation sales & marketplace.
 * OpenSPV: WaaS for businesses.
@@ -89,13 +92,15 @@ emphasis to HeartMail and other projects.
 * HeartMail: Paid ad placement for search results, front page, categories.
 * HeartMail: Mainstream video sales & marketplace.
 * HeartX: Real asset exchange.
-* HeartX: HeartUSD.
-* Coasetodian: Custodian of financial assets.
 * HeartMiner: Paid block explorer. Free tx viewing under 50kb, paid over.
 * HeartMiner: Paid merkle proofs. Free tx proofs under 50kb, paid over.
 * HeartMiner: Bitcoin mining.
+* Coasetodian: Custodian of financial assets.
+* Coasian Bank: HeartUSD.
+* Coasian Search: Market search. Search auction market with pay walls inside.
 * Coasian KYC: Verify identity of people and corporations.
 * Coasian Headlines: See what's hot and buy it (Twitter+PayWall+Affiliates)
+* Coasian Computer: Pay for solutions to problems.
 * Anarchoscience: Science crowdfunding.
 * It is Bit: Information theory education marketplace.
 * Planck Times: Physics journal.
@@ -105,8 +110,6 @@ emphasis to HeartMail and other projects.
 * Astrohacker: Spaceships.
 * The Megabits: Band.
 * Theory of Bitcoin: Educational material on Bitcoin.
-* Social Bitcoin Web: The front-page of the Social Bitcoin Web. Ads & search.
-* Coasian Computer: Pay for solutions to problems.
 * The Dream that Lasted Forever: Movies and video games.
 
 # Principles
