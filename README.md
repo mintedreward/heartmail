@@ -1,6 +1,6 @@
 # Coasian
 
-![Coasian](https://github.com/coasian/coasian/blob/master/design-assets/coasian-landscape-dark.png)
+![Coasian](https://github.com/coasian/coasian/blob/master/private/design-assets/coasian-landscape-dark.png)
 
 # Repo Overview
 
