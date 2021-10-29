@@ -122,14 +122,16 @@ A user can be a person or an organization.
 
 * userId: The bitcoin address string of the user's first key.
 * identityAddress: The root address from which other keys are derived.
-* derivationPrivKey: A randomly generated key held by the server. User can use
+* derivationPrivKey: A randomly generated key held by the server.
   this to derive derivedPrivKey.
 * derivationPubKey: The public key corresponding to derivationPrivKey.
 * derivedPubKey: The derived public key: derivedPubKey = identityPubKey + derivationPubKey.
 * derivedAddress: The address corresponding to derivedPubKey.
 * createdTime: The time this key was created.
 
-### Tx Outputs
+### Tx IO
+
+This table contains all of the user's inputs and outputs.
 
 This table is complex because it needs to account for:
 
@@ -138,30 +140,40 @@ This table is complex because it needs to account for:
   address) both at the time the tx was created and, when the tx is confirmed,
   after it is put into a block.
 
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| userId | identityAddress | scriptTemplateType | scriptTemplateData | txId | satoshis | txOut | usedTime | spentTime | spentTxId | blockId | blockIndex | conversionTime | priceUSD | confirmedBalanceSatoshis | unconfirmedBalanceSatoshis |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| userId | identityAddress | type | scriptTemplateType | scriptTemplateData | txId | satoshis | txIn | txOut | usedTime | spentTime | spentTxId | blockId | blockIndex | conversionTime | priceUSD | confirmedBalanceSatoshis | unconfirmedBalanceSatoshis |
+
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| userId | createdTime | identityAddress | scriptTemplateType | scriptTemplateData | txId | satoshis | txOut | usedTime | spentTime | spentTxId | blockId | blockIndex | conversionTime | priceUSD | confirmedBalanceSatoshis | unconfirmedBalanceSatoshis |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 * userId: The bitcoin address string of the user's first key.
 * identityAddress: The identity address whose derived keys we are computing the balance for.
-* userId: The bitcoin address string of the user's first key.
+* type: "in" or "out"
 * scriptTemplateType: For now, only includes "pubKeyHash"
 * scriptTemplateJSON: A JSON string blog containined data for the script
   template. For the typical script template type of pubKeyHash, this is a JSON
   blob containing the derivedAddress the user needs to know to spend this tx.
-* blockId: The block when the balance was computed.
+* txId: The ID of the transaction containing this output.
+* satoshis: The amount of money being sent in this output.
+* txIn: If this is an input, the raw tx input in hex. (null otherwise)
+* txOut: If this is an output, the raw tx output in hex. (null otherwise)
+* usedTime: If this is a UTXO, when the user decides to use this UTXO but before they have spent it.
+* spentTime: If this is a UTXO, when the user sends a fully signed transaction including this UTXO.
+* spentTxId: Spent by this tx.
+* blockId: The block the tx was included in & when the balance was computed.
 * blockIndex: The block index.
 * conversionTime: The time when the price was queried.
 * priceUSD: The price at this time.
-* confirmedBalanceSatoshis: The balance in satoshis of all confirmed transactions.
-* unconfirmedBalanceSatoshis: The balance in satoshis of all unconfirmed transactions.
+* confirmedBalanceSatoshis: The balance in satoshis of all confirmed transactions up to this UTXO.
+* unconfirmedBalanceSatoshis: The balance in satoshis of all unconfirmed transactions up to this UTXO.
 
 ### Invoices
 
-|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| userId | receivingPaymail | sendingPaymail | conversionTime | priceUSD | amountSatoshis | txOuts | createdTime | expiredTime | paidTime | paidTxIds |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id | userId | receivingPaymail | sendingPaymail | conversionTime | priceUSD | amountSatoshis | txOuts | createdTime | expiredTime | paidTime | paidTxIds |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 
+* id: A randomly generated id for the invoice.
 * userId: The bitcoin address string of the user's first key.
 * receivingPaymail: The paymail the user is using to receive this payment.
 * sendingPaymail: The paymail of the sender.
@@ -185,3 +197,8 @@ This table is complex because it needs to account for:
 
 * conversionTime: The time the conversion was made.
 * bitcoinPriceUSD: The price of one Bitcoin in USD at that time.
+
+### Two Factor Friends
+
+...
+
