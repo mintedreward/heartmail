@@ -61,9 +61,11 @@ Public:
 * [x] OpenSPV Lib
 * [x] OpenSPV Keyfile
 * [ ] OpenSPV Paymail
-* [ ] OpenSPV Kubernetes
-* [ ] OpenSPV Crypto Workers
 * [ ] OpenSPV DB
+* [ ] OpenSPV Kubernetes
+* [ ] OpenSPV Node Client <= HeartMiner Interface
+* [ ] OpenSPV Price Client <= HeartX Interface
+* [ ] OpenSPV Crypto Workers
 * [ ] OpenSPV Wallet Web API
 * [ ] OpenSPV IFrame API
 * [ ] OpenSPV Web Components
@@ -76,18 +78,73 @@ Public:
 * [ ] OpenSPV OEM Browser Web
 * [ ] OpenSPV OEM Browser iOS
 * [ ] OpenSPV OEM Browser Android
+* [ ] OpenSPV Alert Key
+
+Public:
+* [ ] HeartMiner Node Server <= OpenSPV Interface
+* [ ] HeartMiner Merkle Proofs
+* [ ] HeartMiner Block Headers
+* [ ] HeartMiner Tx Validator
+* [ ] HeartMiner Tx Storage
+
+Private:
+* [ ] HeartX Price Server <= OpenSPV Interface
+* [ ] HeartX USD
+* [ ] HeartX Trade
+
+Private:
+* [ ] HeartMail AI
+* [ ] HeartMail HeartSign
+* [ ] HeartMail Transcription
+* [ ] HeartMail Wallet Web
+* [ ] HeartMail Wallet iOS
+* [ ] HeartMail Wallet Android
+* [ ] HeartMail Browser Web (Mainstream Social Media)
+* [ ] HeartMail Browser iOS (Mainstream Social Media)
+* [ ] HeartMail Browser Android (Mainstream Social Media)
 
 # OpenSPV MVP
 
-* Alice visits spv.openspv.com
-* Alice gets a paymail with a key
-* Key is generated on the server and shared with Alice ("shared key")
-* Alice can use that key, or: Alice can generate a new key which is not shared
-  with the server ("sovereign key"). Alice can choose to rely on the sovereign
-  key instead of the shared key as her primary key.
-* Bob can visit spv.heartmail.com and generates a paymail with a key
-* Bob generates a new sovereign key
-* Alice can send a payment p2p to Bob with Merkle proofs (genuine SPV)
+* The user has their keys but never needs to write them down.
+* SPV transfers include input merkle proofs and are validated.
+* HeartMiner provides Merkle proofs and block headers.
+* HeartX provides price.
+
+Alice
+* Ryan visits wallet.openspv.com
+* Ryan logs in with the genesis account (public key built into the env vars)
+* Ryan funds account from Handcash
+* Ryan invites Alice to be 2FF
+* Alice visits wallet.openspv.com
+* Alice joins and becomes 2FF with Ryan
+* Alice receives 2FF gift of $5.00 from Ryan automatically during signup
+
+Bob
+* Ryan visits wallet.heartmail.com
+* Ryan logs in with the genesis account (public key built into the env vars)
+* Ryan funds account from Handcash
+* Ryan invites Bob to be 2FF
+* Bob visits wallet.heartmail.com
+* Bob joins and becomes 2FF with Ryan
+* Bob receives 2FF gift of $5.00 from Ryan automatically during signup
+
+Alice <-> Bob
+* Alice makes a payment of $5.00 to Bob
+* SPV transfer: alice@openspv.com -> bob@heartmail.com
+* Bob makes a payment of $5.00 to Alice
+* SPV transfer: bob@heartmail.com -> alice@openspv.com
+
+# IP protection
+
+* Patent: Paymail authentication
+* Patent: iframe API
+* Patent: Two Factor Friend
+* Trademark: OpenSPV
+* Trademark: HeartMail
+* Trademark: HeartX
+* Trademark: HeartMiner
+* Trademark: Two Factor Friend
+* Trademark: Coasian
 
 # Businesses
 
@@ -95,8 +152,10 @@ Public:
 * Coasian: Create and license patents. Truth.
 * Coasian: Create and operate subsidiaries. Love.
 * Coasian: Create and license trademarks and brands. Beauty.
+* OpenSPV: Non-SPV transfers cost 3%. SPV transfers are fee.
 * OpenSPV: Paymail sales, trades, & auctions.
 * OpenSPV: Documentation sales & marketplace.
+* OpenSPV: Bug bounty marketplace.
 * OpenSPV: WaaS for businesses.
 * OpenSPV: Paid video mail hosting, processing, transmission.
 * OpenSPV: Paid ad placement for search results, front page, categories.
@@ -107,7 +166,8 @@ Public:
 * HeartMail: Mainstream video sales & marketplace.
 * HeartX: Real asset exchange.
 * HeartMiner: Paid block explorer. Free tx viewing under 50kb, paid over.
-* MerkleMarket: Paid merkle proofs. Free tx proofs under 50kb, paid over.
+* HeartMiner: Paid merkle proofs. Free tx proofs under 50kb, paid over.
+* HeartMiner: Free tx validation.
 * HeartMiner: Bitcoin mining.
 * Coasetodian: Custodian of financial assets.
 * Coasian Bank: HeartUSD.
