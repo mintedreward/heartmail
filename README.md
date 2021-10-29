@@ -78,7 +78,6 @@ Public:
 * [ ] OpenSPV OEM Browser Web
 * [ ] OpenSPV OEM Browser iOS
 * [ ] OpenSPV OEM Browser Android
-* [ ] OpenSPV Alert Key
 
 Public:
 * [ ] HeartMiner Node Server <= OpenSPV Interface
@@ -134,6 +133,13 @@ Alice <-> Bob
 * Bob makes a payment of $5.00 to Alice
 * SPV transfer: bob@heartmail.com -> alice@openspv.com
 
+# OpenSPV Key Manager
+
+* passwords
+* ssh keys
+* env vars
+* API tokens
+
 # IP protection
 
 * Patent: Paymail authentication
@@ -175,6 +181,9 @@ Alice <-> Bob
 * Coasian KYC: Verify identity of people and corporations.
 * Coasian Headlines: See what's hot and buy it (Twitter+PayWall+Affiliates)
 * Coasian Computer: Pay for solutions to problems.
+* Coasian Analytics: View analytics data for your apps.
+* Coasian Key Manager: Manage passwords and other keys.
+* Coasian Ads: Display ads to target demographics.
 * Anarchoscience: Science crowdfunding.
 * It is Bit: Information theory education marketplace.
 * Planck Times: Physics journal.
