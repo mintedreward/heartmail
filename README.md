@@ -50,9 +50,14 @@ emphasis to HeartMail and other projects.
 
 Private:
 * [x] OpenSPV Web (Landing Page)
+* [ ] OpenSPV Mobile Components
+* [ ] OpenSPV OEM Wallet iOS
+* [ ] OpenSPV OEM Wallet Android
 * [ ] OpenSPV Wallet Web
 * [ ] OpenSPV Wallet iOS
 * [ ] OpenSPV Wallet Android
+* [ ] OpenSPV OEM Browser iOS
+* [ ] OpenSPV OEM Browser Android
 * [ ] OpenSPV Browser Web (Documentation Marketplace)
 * [ ] OpenSPV Browser iOS (Documentation Marketplace)
 * [ ] OpenSPV Browser Android (Documentation Marketplace)
@@ -69,15 +74,10 @@ Public:
 * [ ] OpenSPV Wallet Web API
 * [ ] OpenSPV IFrame API
 * [ ] OpenSPV Web Components
-* [ ] OpenSPV Mobile Components
 * [ ] OpenSPV OEM Wallet Web
-* [ ] OpenSPV OEM Wallet iOS
-* [ ] OpenSPV OEM Wallet Android
 * [ ] OpenSPV Media Workers
 * [ ] OpenSPV Browser Web API
 * [ ] OpenSPV OEM Browser Web
-* [ ] OpenSPV OEM Browser iOS
-* [ ] OpenSPV OEM Browser Android
 
 Public:
 * [ ] HeartMiner Node Server <= OpenSPV Interface
@@ -85,6 +85,7 @@ Public:
 * [ ] HeartMiner Block Headers
 * [ ] HeartMiner Tx Validator
 * [ ] HeartMiner Tx Storage
+* [ ] HeartMiner Filter
 
 Private:
 * [ ] HeartX Price Server <= OpenSPV Interface
