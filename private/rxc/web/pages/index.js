@@ -41,7 +41,7 @@ export default function Home() {
       <footer className={styles.footer}>
         <a href="https://www.ryanxcharles.com">
           <span className={styles.logofooter}>
-            <Image src="/rxc-footer-dark.png" alt="Ryan X. Charles" width={375} height={50} />
+            <Image src="/rxc-footer-light.png" alt="Ryan X. Charles" width={375} height={50} />
           </span>
         </a>
       </footer>

@@ -1,18 +1,16 @@
 .container {
-  min-height: 100vh;
   padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   background-color: #f8f3e7;
-  font: Helvetica, Roboto, Arial, sans-serif;
+  font-family: Helvetica Neue, Roboto, Arial, sans-serif;
   color: #4d4843;
 }
 
 .main {
-  padding: 1em 0 0;
+  padding: 1em 1em 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -30,7 +28,8 @@
 }
 
 .footer {
-  background-color: #4d4843;
+  margin: 1em 0;
+  background-color: #f8f3e7;
   width: 100%;
   height: 60px;
   display: flex;
