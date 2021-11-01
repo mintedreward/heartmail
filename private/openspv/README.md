@@ -1,43 +1,88 @@
-# Coasian
+# OpenSPV
 
-![Coasian](https://github.com/coasian/coasian/blob/master/private/design-assets/coasian-landscape-dark.png)
+## OpenSPV Subprojects
 
-# Repo Overview
+RNW = React Native Web / Expo
 
-Everything is written in javascript except deployment shell scripts. We use
-yarn workspaces to manage the projects. All private (closed course) projects
-are contained in the <code>private</code> folder and all public (open source)
-projects are contained inside the <code>public</code> folder.
+Private:
+* [x] OpenSPV Web (Landing Page)
+* [ ] OpenSPV Wallet RNW
+* [ ] OpenSPV Mail RNW
 
-If we ever need to write something in a language other than javascript, we will
-still use yarn workspaces and npm packages to manage the project. Javascript
-and related tools wrap all projects. Javascript is always the first language
-and any other language is a form of optimization.
+Public:
+* [x] OpenSPV Lib
+* [x] OpenSPV Keyfile
+* [ ] OpenSPV Paymail
+* [ ] OpenSPV DB
+* [ ] OpenSPV Kubernetes
+* [ ] OpenSPV Node Client <= HeartMiner Interface
+* [ ] OpenSPV Price Client <= HeartX Interface
+* [ ] OpenSPV Crypto Workers
+* [ ] OpenSPV Wallet Web API
+* [ ] OpenSPV IFrame API
+* [ ] OpenSPV Media Workers
+* [ ] OpenSPV Mail Web API
+* [ ] OpenSPV RNW Components
+* [ ] OpenSPV OEM Wallet RNW
+* [ ] OpenSPV OEM Mail RNW
 
-# Packages
+Public:
+* [ ] HeartMiner Node Server <= OpenSPV Interface
+* [ ] HeartMiner Merkle Proofs
+* [ ] HeartMiner Block Headers
+* [ ] HeartMiner Tx Validator
+* [ ] HeartMiner Tx Storage
+* [ ] HeartMiner Filter
 
-All projects are published to npm (using yarn) and may be open source or not
-depending on the license and whether they are publicly exposed. All projects
-begin life as private and may become public when a license is chosen and
-published publicly.
+Private:
+* [ ] HeartX Price Server <= OpenSPV Interface
+* [ ] HeartX USD
+* [ ] HeartX Trade
 
-# Deployments
+Private:
+* [ ] HeartMail AI
+* [ ] HeartMail HeartSign
+* [ ] HeartMail Transcription
+* [ ] HeartMail Wallet RNW
+* [ ] HeartMail RNW (Mainstream Social Media)
 
-All containers are published to Docker Hub. At this time, we use the AWS
-interface and shell scripts to manage deployments. However, it is planned to
-switch from shell scripts to Kubernetes. The goal is for the infrastructure to
-be deployable on AWS, Google Cloud, or Azure. Each app should be decentralized
-across cloud providers.
+# OpenSPV MVP
 
-# Domain names
+* The user has their keys but never needs to write them down.
+* SPV transfers include input merkle proofs and are validated.
+* HeartMiner provides Merkle proofs and block headers.
+* HeartX provides price.
 
-Domain names are distributed across:
+Alice
+* Ryan visits wallet.openspv.com
+* Ryan logs in with the genesis account (public key built into the env vars)
+* Ryan funds account from Handcash
+* Ryan invites Alice to be 2FF
+* Alice visits wallet.openspv.com
+* Alice joins and becomes 2FF with Ryan
+* Alice receives 2FF gift of $5.00 from Ryan automatically during signup
 
-* AWS
-* Namecheap
-* Uniregistry
-* Godaddy
-* NameBright
+Bob
+* Ryan visits wallet.heartmail.com
+* Ryan logs in with the genesis account (public key built into the env vars)
+* Ryan funds account from Handcash
+* Ryan invites Bob to be 2FF
+* Bob visits wallet.heartmail.com
+* Bob joins and becomes 2FF with Ryan
+* Bob receives 2FF gift of $5.00 from Ryan automatically during signup
+
+Alice <-> Bob
+* Alice makes a payment of $5.00 to Bob
+* SPV transfer: alice@openspv.com -> bob@heartmail.com
+* Bob makes a payment of $5.00 to Alice
+* SPV transfer: bob@heartmail.com -> alice@openspv.com
+
+# OpenSPV Key Manager
+
+* passwords
+* ssh keys
+* env vars
+* API tokens
 
 # IP protection
 
