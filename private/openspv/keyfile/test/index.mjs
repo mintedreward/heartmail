@@ -7,19 +7,19 @@ describe('Keyfile', () => {
     should.exist(Keyfile)
   })
 
-  describe('@passwordHashFromPassword', () => {
+  describe('@passwordHmacFromPassword', () => {
     it('should hash to this value', () => {
       const password = 'password'
-      const passwordHash = Keyfile.passwordHashFromPassword(password)
-      passwordHash.should.equal('e0c979c8c5cf3df1806d8b3ff56ac4afa7d58df2fa5315bef159261d393fa0be')
+      const passwordHmac = Keyfile.passwordHmacFromPassword(password)
+      passwordHmac.should.equal('783ab20a3f1924ad896c0533ebebda050c8400e3f7f5939ef4ad40935ac573c1')
     })
   })
 
-  describe('@passwordHashHashFromPassword', () => {
+  describe('@passwordHmacHmacFromPassword', () => {
     it('should hash to this value', () => {
       const password = 'password'
-      const passwordHash = Keyfile.passwordHashHashFromPassword(password)
-      passwordHash.should.equal('59d3451b5f37c2519189977c9a2581822be60c278c065596e56f534810c32345')
+      const passwordHmac = Keyfile.passwordHmacHmacFromPassword(password)
+      passwordHmac.should.equal('fc92e874d454d273b78c43c63d75bb1ddb591668776fd4e2202c39199b642559')
     })
   })
 
@@ -29,7 +29,7 @@ describe('Keyfile', () => {
       const privKey = PrivKey.fromBn(new Bn(500))
       const password = 'password'
       const encryptedPrivKey = Keyfile.encryptPrivKey(privKey, password, ivBuf)
-      encryptedPrivKey.should.equal('44de80ba381723e7f846ea6c01cea71e65fb3471b3338d282c94cada8ee53a290606060606060606060606060606060640f1341010a05e2f947ca84dab18ca154338f56a9b39c96624a94e2d5cc9420d926ee849ba16d90c2feb048b2c547090')
+      encryptedPrivKey.should.equal('bf68168d5369685cdab862c752cf41521f2aeb36d910bfada878121119729781060606060606060606060606060606068f68386de74b481c2c37b28d441daaad8fd2604afbc875e834640b90051e72955990851680487adbeae0ec3909466b0a')
     })
 
     it('should encrypt and decrypt without ivBuf', () => {
@@ -47,7 +47,7 @@ describe('Keyfile', () => {
       const privKey = PrivKey.fromBn(new Bn(500))
       const password = 'password'
       const encryptedPrivKey = Keyfile.encryptPrivKey(privKey, password, ivBuf)
-      encryptedPrivKey.should.equal('44de80ba381723e7f846ea6c01cea71e65fb3471b3338d282c94cada8ee53a290606060606060606060606060606060640f1341010a05e2f947ca84dab18ca154338f56a9b39c96624a94e2d5cc9420d926ee849ba16d90c2feb048b2c547090')
+      encryptedPrivKey.should.equal('bf68168d5369685cdab862c752cf41521f2aeb36d910bfada878121119729781060606060606060606060606060606068f68386de74b481c2c37b28d441daaad8fd2604afbc875e834640b90051e72955990851680487adbeae0ec3909466b0a')
       const privKey2 = Keyfile.decryptPrivKey(encryptedPrivKey, password, ivBuf)
       privKey2.toString().should.equal(privKey.toString())
     })
@@ -59,7 +59,7 @@ describe('Keyfile', () => {
       const password = 'password'
       const keyfile = new Keyfile()
       keyfile.addPrivKey(privKey, password)
-      Object.keys(keyfile.keysByPasswordHashHash).length.should.equal(1)
+      Object.keys(keyfile.keysByPasswordHmacHmac).length.should.equal(1)
     })
 
     it('should add a privKey and get the privKey back again', () => {
@@ -78,7 +78,7 @@ describe('Keyfile', () => {
       const keyfile = new Keyfile()
       const address = keyfile.addPrivKey(privKey, password, ivBuf)
       const jsonStr = JSON.stringify(keyfile.toJSON())
-      jsonStr.should.equal('{"keysByPasswordHashHash":{"41d2e53673e5b99ad93d8bbffcb9d2eb6dc088c09fe6cda7ed0dbb868edad793":{"186bbzwCAj6CcJqpB6og1Amifg2DGupMqn":"27bf795dcd74a11e0ca2e78701f0b5bdb621853621c20682eeb9df7564d071e407070707070707070707070707070707b44caf6a9b6bdc403171d646b775886c92be29b44f09c32ce80d170fd8600ce0bfd515d372711234b52f41aa5f85ac9b"}}}')
+      jsonStr.should.equal('{"keysByPasswordHmacHmac":{"bf6a1c062394557f4b79211f969a0d178d0debfc6d336cbe919232a3d26f6c1e":{"186bbzwCAj6CcJqpB6og1Amifg2DGupMqn":"89cc76e96e9c2bd1d876a6dcd46b5dcd83cdeb8751218a25f792fcd0c3d4125807070707070707070707070707070707d93e79bad8700c64b6f184771e4cb4b30ea872638e454e41cab20c3e50bc4d283ee48300eb1bdeaf84bb63c83fe54745"}}}')
     })
   })
 
@@ -88,7 +88,7 @@ describe('Keyfile', () => {
       const password1 = 'password 1'
       const keyfile = new Keyfile()
       const address = keyfile.addPrivKey(privKey, password1)
-      Object.keys(keyfile.keysByPasswordHashHash).length.should.equal(1)
+      Object.keys(keyfile.keysByPasswordHmacHmac).length.should.equal(1)
       const password2 = 'password 2'
       const number = keyfile.changePassword(password1, password2)
       number.should.equal(1)
@@ -103,7 +103,7 @@ describe('Keyfile', () => {
       const keyfile = new Keyfile()
       const address1 = keyfile.addPrivKey(privKey1, password1)
       const address2 = keyfile.addPrivKey(privKey2, password1)
-      Object.keys(keyfile.keysByPasswordHashHash).length.should.equal(1)
+      Object.keys(keyfile.keysByPasswordHmacHmac).length.should.equal(1)
       const password2 = 'password 2'
       const number = keyfile.changePassword(password1, password2)
       number.should.equal(2)
@@ -122,7 +122,7 @@ describe('Keyfile', () => {
       const keyfile = new Keyfile()
       const address1 = keyfile.addPrivKey(privKey1, password1)
       const address2 = keyfile.addPrivKey(privKey2, password1)
-      Object.keys(keyfile.keysByPasswordHashHash).length.should.equal(1)
+      Object.keys(keyfile.keysByPasswordHmacHmac).length.should.equal(1)
       const password2 = 'password 2'
       const number = keyfile.changePassword(password1, password2)
       number.should.equal(2)

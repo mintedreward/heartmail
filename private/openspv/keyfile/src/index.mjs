@@ -10,7 +10,7 @@
  * lost or stolen.
  *
  * The private keys are always encrypted with a hash of the user's password.
- * This is the passwordHash.
+ * This is the passwordHmac.
  *
  * Keys are never removed from this file. If you want to rotate your keys, then
  * create a new key and stop using the old ones. However, there is no reason to
@@ -40,13 +40,13 @@
  * File structure:
  *
  * {
- *   keysByPasswordHashHash: {
- *     [passwordHashHash]: {
+ *   keysByPasswordHmacHmac: {
+ *     [passwordHmacHmac]: {
  *       [addressStr]: [encryptedPrivKey],
  *       [addressStr]: [encryptedPrivKey],
  *       ...
  *     },
- *     [passwordHashHash]: {
+ *     [passwordHmacHmac]: {
  *       [addressStr]: [encryptedPrivKey],
  *       [addressStr]: [encryptedPrivKey],
  *       ...
@@ -63,43 +63,43 @@ import { Struct, Hash, Ach, Address, PrivKey, PubKey } from '@openspv/lib'
 class Keyfile extends Struct {
   constructor () {
     super()
-    this.keysByPasswordHashHash = {}
+    this.keysByPasswordHmacHmac = {}
   }
 
-  static passwordHashFromPassword (password = '') {
-    // the passwordHash is used to encrypt the key
-    return Hash.sha256Hmac(Buffer.from(password), Buffer.from('KeyFilePasswordHash')).toString('hex')
+  static passwordHmacFromPassword (password = '') {
+    // the passwordHmac is used to encrypt the key
+    return Hash.sha256Hmac(Buffer.from(password), Buffer.from('KeyFilePasswordHmac')).toString('hex')
   }
 
-  static passwordHashHashFromPassword (password = '') {
-    // the passwordHashHash is used to identify the password and is written to
+  static passwordHmacHmacFromPassword (password = '') {
+    // the passwordHmacHmac is used to identify the password and is written to
     // the keyfile
-    const passwordHash = Keyfile.passwordHashFromPassword(password)
-    return Hash.sha256Hmac(Buffer.from(passwordHash, 'hex'), Buffer.from('KeyFilePasswordHashHash')).toString('hex')
+    const passwordHmac = Keyfile.passwordHmacFromPassword(password)
+    return Hash.sha256Hmac(Buffer.from(passwordHmac, 'hex'), Buffer.from('KeyFilePasswordHmacHmac')).toString('hex')
   }
 
   static encryptPrivKey (privKey, password = '', ivBuf) {
-    const passwordHash = Keyfile.passwordHashFromPassword(password)
-    return Keyfile.encryptPrivKeyWithPasswordHash(privKey, passwordHash, ivBuf)
+    const passwordHmac = Keyfile.passwordHmacFromPassword(password)
+    return Keyfile.encryptPrivKeyWithpasswordHmac(privKey, passwordHmac, ivBuf)
   }
 
-  static encryptPrivKeyWithPasswordHash (privKey, passwordHash, ivBuf) {
-    // the private key is encrypted with the passwordHash
-    const passwordHashBuf = Buffer.from(passwordHash, 'hex')
+  static encryptPrivKeyWithpasswordHmac (privKey, passwordHmac, ivBuf) {
+    // the private key is encrypted with the passwordHmac
+    const passwordHmacBuf = Buffer.from(passwordHmac, 'hex')
     const privKeyBuf = privKey.toBuffer()
     const messageBuf = privKeyBuf
-    const cipherKeyBuf = passwordHashBuf
+    const cipherKeyBuf = passwordHmacBuf
     return Ach.encrypt(messageBuf, cipherKeyBuf, ivBuf).toString('hex')
   }
 
   static decryptPrivKey (encryptedPrivKey, password = '', ivBuf) {
-    const passwordHash = Keyfile.passwordHashFromPassword(password)
-    return Keyfile.decryptPrivKeyWithPasswordHash(encryptedPrivKey, passwordHash, ivBuf)
+    const passwordHmac = Keyfile.passwordHmacFromPassword(password)
+    return Keyfile.decryptPrivKeyWithpasswordHmac(encryptedPrivKey, passwordHmac, ivBuf)
   }
 
-  static decryptPrivKeyWithPasswordHash (encryptedPrivKey, passwordHash) {
+  static decryptPrivKeyWithpasswordHmac (encryptedPrivKey, passwordHmac) {
     const encBuf = Buffer.from(encryptedPrivKey, 'hex')
-    const cipherKeyBuf = Buffer.from(passwordHash, 'hex')
+    const cipherKeyBuf = Buffer.from(passwordHmac, 'hex')
     const privKeyBuf = Ach.decrypt(encBuf, cipherKeyBuf)
     const privKey = PrivKey.fromBuffer(privKeyBuf)
     return privKey
@@ -110,51 +110,51 @@ class Keyfile extends Struct {
     const address = Address.fromPubKey(pubKey)
     const addressStr = address.toString()
     const encryptedPrivKey = Keyfile.encryptPrivKey(privKey, password, ivBuf)
-    if (!this.keysByPasswordHashHash) {
-      this.keysByPasswordHashHash = {}
+    if (!this.keysByPasswordHmacHmac) {
+      this.keysByPasswordHmacHmac = {}
     }
-    const passwordHashHash = Keyfile.passwordHashHashFromPassword(password)
-    if (!this.keysByPasswordHashHash[passwordHashHash]) {
-      this.keysByPasswordHashHash[passwordHashHash] = {}
+    const passwordHmacHmac = Keyfile.passwordHmacHmacFromPassword(password)
+    if (!this.keysByPasswordHmacHmac[passwordHmacHmac]) {
+      this.keysByPasswordHmacHmac[passwordHmacHmac] = {}
     }
-    this.keysByPasswordHashHash[passwordHashHash][addressStr] = encryptedPrivKey
+    this.keysByPasswordHmacHmac[passwordHmacHmac][addressStr] = encryptedPrivKey
     return address
   }
 
   getPrivKey (address, password = '', ivBuf) {
     const addressStr = address.toString()
-    const passwordHashHash = Keyfile.passwordHashHashFromPassword(password)
-    const encryptedPrivKey = this.keysByPasswordHashHash[passwordHashHash][addressStr]
+    const passwordHmacHmac = Keyfile.passwordHmacHmacFromPassword(password)
+    const encryptedPrivKey = this.keysByPasswordHmacHmac[passwordHmacHmac][addressStr]
     const privKey = Keyfile.decryptPrivKey(encryptedPrivKey, password, ivBuf)
     return privKey
   }
 
   changePassword (oldPassword = '', newPassword = '', ivBuf) {
-    const oldPasswordHashHash = Keyfile.passwordHashHashFromPassword(oldPassword)
-    if (!this.keysByPasswordHashHash[oldPasswordHashHash]) {
+    const oldpasswordHmacHmac = Keyfile.passwordHmacHmacFromPassword(oldPassword)
+    if (!this.keysByPasswordHmacHmac[oldpasswordHmacHmac]) {
       throw new Error('no keys with that password')
     }
-    const addressStrings = Object.keys(this.keysByPasswordHashHash[oldPasswordHashHash])
+    const addressStrings = Object.keys(this.keysByPasswordHmacHmac[oldpasswordHmacHmac])
     const obj = {}
     for (const addressStr of addressStrings) {
       const address = Address.fromString(addressStr)
       const privKey = this.getPrivKey(address, oldPassword)
       this.addPrivKey(privKey, newPassword, ivBuf)
     }
-    delete this.keysByPasswordHashHash[oldPasswordHashHash]
-    const newPasswordHashHash = Keyfile.passwordHashHashFromPassword(newPassword)
+    delete this.keysByPasswordHmacHmac[oldpasswordHmacHmac]
+    const newpasswordHmacHmac = Keyfile.passwordHmacHmacFromPassword(newPassword)
     // return number of keys re-encrypted
-    return Object.keys(this.keysByPasswordHashHash[newPasswordHashHash]).length
+    return Object.keys(this.keysByPasswordHmacHmac[newpasswordHmacHmac]).length
   }
 
   fromJSON (json) {
-    this.keysByPasswordHashHash = json.keysByPasswordHashHash
+    this.keysByPasswordHmacHmac = json.keysByPasswordHmacHmac
     return this
   }
 
   toJSON () {
     return {
-      keysByPasswordHashHash: JSON.parse(JSON.stringify(this.keysByPasswordHashHash))
+      keysByPasswordHmacHmac: JSON.parse(JSON.stringify(this.keysByPasswordHmacHmac))
     }
   }
 }
