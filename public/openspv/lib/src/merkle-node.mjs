@@ -1,6 +1,6 @@
 /**
- * Merkle
- * ======
+ * MerkleNode
+ * ==========
  *
  * A node in a Merkle tree (possibly the root node, in which case it is the
  * Merkle root). A node either contains a buffer or links to two other nodes.
@@ -10,7 +10,7 @@
 import { Hash } from './hash.mjs'
 import { Struct } from './struct.mjs'
 
-class Merkle extends Struct {
+class MerkleNode extends Struct {
   constructor (hashBuf, buf, merkle1, merkle2) {
     super({ hashBuf, buf, merkle1, merkle2 })
   }
@@ -61,16 +61,16 @@ class Merkle extends Struct {
      */
   fromBufferArrays (bufs1, bufs2) {
     if (bufs1.length === 1) {
-      this.merkle1 = new Merkle(undefined, bufs1[0])
-      this.merkle2 = new Merkle(undefined, bufs2[0])
+      this.merkle1 = new MerkleNode(undefined, bufs1[0])
+      this.merkle2 = new MerkleNode(undefined, bufs2[0])
       return this
     }
     const bufs11 = bufs1.slice(0, bufs1.length / 2)
     const bufs12 = bufs1.slice(bufs1.length / 2)
-    this.merkle1 = new Merkle().fromBufferArrays(bufs11, bufs12)
+    this.merkle1 = new MerkleNode().fromBufferArrays(bufs11, bufs12)
     const bufs21 = bufs2.slice(0, bufs2.length / 2)
     const bufs22 = bufs2.slice(bufs2.length / 2)
-    this.merkle2 = new Merkle().fromBufferArrays(bufs21, bufs22)
+    this.merkle2 = new MerkleNode().fromBufferArrays(bufs21, bufs22)
     return this
   }
 
@@ -89,4 +89,4 @@ class Merkle extends Struct {
   }
 }
 
-export { Merkle }
+export { MerkleNode }
