@@ -1,4 +1,4 @@
-# bitcoin-elliptic
+# @openspv/elliptic
 
 Fast elliptic-curve cryptography in a plain javascript implementation.
 
