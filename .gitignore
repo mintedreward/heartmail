@@ -1,5 +1,4 @@
-projects/*/.yarn/install-state.gz
-.yarn/install-state.gz
+**/.yarn/install-state.gz
 
 *.swp
 node_modules
