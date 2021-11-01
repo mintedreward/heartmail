@@ -194,11 +194,8 @@ class MerkleProof extends Struct {
     return json
   }
 
-  verifyProof (blockHeader, tx = this.tx) {
+  isTxInBlock (blockHeader, tx) {
     // verify merkleProof tree against blockheader, tx
-    if (!tx) {
-      throw new Error('no tx provided')
-    }
   }
 }
 
