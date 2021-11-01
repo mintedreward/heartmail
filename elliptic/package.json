@@ -1,5 +1,5 @@
 {
-  "name": "bitcoin-elliptic",
+  "name": "@openspv/elliptic",
   "version": "7.0.1",
   "description": "EC cryptography",
   "main": "lib/elliptic.js",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:moneybutton/elliptic"
+    "url": "git@github.com:openspv/openspv"
   },
   "keywords": [
     "EC",
@@ -25,17 +25,8 @@
     "Cryptography"
   ],
   "author": "Fedor Indutny <fedor@indutny.com>",
-  "contributors": [
-    {
-      "name": "Ryan X. Charles",
-      "email": "ryanxcharles@gmail.com"
-    }
-  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/indutny/elliptic/issues"
-  },
-  "homepage": "https://github.com/moneybutton/elliptic",
+  "homepage": "https://github.com/openspv/openspv",
   "devDependencies": {
     "brfs": "^2.0.2",
     "coveralls": "^3.0.8",
