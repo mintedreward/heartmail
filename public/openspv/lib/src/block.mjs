@@ -16,7 +16,7 @@ import { Br } from './br.mjs'
 import { Bw } from './bw.mjs'
 import { BlockHeader } from './block-header.mjs'
 import { Hash } from './hash.mjs'
-import { MerkleNode } from './merkle-node.mjs'
+import { Merkle } from './merkle.mjs'
 import { Struct } from './struct.mjs'
 import { Tx } from './tx.mjs'
 import { VarInt } from './var-int.mjs'
@@ -85,7 +85,7 @@ class Block extends Struct {
 
   verifyMerkleRoot () {
     const txsbufs = this.txs.map(tx => tx.toBuffer())
-    const merkleRootBuf = MerkleNode.fromBuffers(txsbufs).hash()
+    const merkleRootBuf = Merkle.fromBuffers(txsbufs).hash()
     return Buffer.compare(merkleRootBuf, this.blockHeader.merkleRootBuf)
   }
 

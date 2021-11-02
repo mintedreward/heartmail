@@ -3,7 +3,11 @@
 import aes from 'aes'
 import bnjs from 'bn.js'
 import bs58 from 'bs58'
+<<<<<<< HEAD
 import elliptic from '@openspv/elliptic'
+=======
+import elliptic from 'bitcoin-elliptic'
+>>>>>>> 5213c6cffe0edaa0eccfc2318144b481f9143202
 import hashjs from 'hash.js'
 import pbkdf2 from 'pbkdf2'
 
@@ -41,7 +45,11 @@ export * from './hash.mjs'
 export * from './interp.mjs'
 export * from './inv.mjs'
 export * from './key-pair.mjs'
+<<<<<<< HEAD
 export * from './merkle-node.mjs'
+=======
+export * from './merkle.mjs'
+>>>>>>> 5213c6cffe0edaa0eccfc2318144b481f9143202
 export * from './msg.mjs'
 export * from './op-code.mjs'
 export * from './point.mjs'
