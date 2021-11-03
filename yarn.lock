@@ -1388,6 +1388,7 @@ __metadata:
   dependencies:
     "@openspv/elliptic": 7.0.1
     aes: 0.1.0
+    bitcoin-elliptic: 7.0.1
     bn.js: 5.2.0
     bs58: 4.0.1
     hash.js: 1.1.7
@@ -2264,6 +2265,21 @@ __metadata:
   dependencies:
     file-uri-to-path: 1.0.0
   checksum: 65b6b48095717c2e6105a021a7da4ea435aa8d3d3cd085cb9e85bcb6e5773cf318c4745c3f7c504412855940b585bdf9b918236612a1c7a7942491de176f1ae7
+  languageName: node
+  linkType: hard
+
+"bitcoin-elliptic@npm:7.0.1":
+  version: 7.0.1
+  resolution: "bitcoin-elliptic@npm:7.0.1"
+  dependencies:
+    bn.js: ^5.1.1
+    brorand: ^1.0.1
+    hash.js: ^1.0.0
+    hmac-drbg: ^1.0.0
+    inherits: ^2.0.1
+    minimalistic-assert: ^1.0.0
+    minimalistic-crypto-utils: ^1.0.0
+  checksum: e4055385d1ebcc7a57160ad24921b0f40560df365cb649fd1275d021dc6ee7a7268b06b28f7d5c56392b479d69e1598d122dd57b36d276ff4ffc64ff9dc6c11d
   languageName: node
   linkType: hard
 
