@@ -7870,7 +7870,7 @@ utils.encode = function encode(arr, enc) {
 
 },{}],30:[function(require,module,exports){
 module.exports={
-  "name": "bitcoin-elliptic",
+  "name": "@openspv/elliptic",
   "version": "7.0.1",
   "description": "EC cryptography",
   "main": "lib/elliptic.js",
