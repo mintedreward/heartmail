@@ -9,13 +9,13 @@ Private:
 * [ ] OpenSPV Wallet RNW
 * [ ] OpenSPV Mail RNW
 
-Public:
+Public (protocols shared with XAPI):
 * [x] OpenSPV Lib
 * [x] OpenSPV Keyfile
 * [ ] OpenSPV Paymail
 * [ ] OpenSPV DB
 * [ ] OpenSPV Kubernetes
-* [ ] OpenSPV Node Client <= HeartMiner Interface
+* [ ] OpenSPV Node Client <= TeraNode Interface
 * [ ] OpenSPV Price Client <= HeartX Interface
 * [ ] OpenSPV Crypto Workers
 * [ ] OpenSPV Wallet Web API
@@ -26,13 +26,13 @@ Public:
 * [ ] OpenSPV OEM Wallet RNW
 * [ ] OpenSPV OEM Mail RNW
 
-Public:
+Public (TeraNode):
 * [ ] HeartMiner Node Server <= OpenSPV Interface
-* [ ] HeartMiner Merkle Proofs
+* [ ] HeartMiner Merkle Proofs - already
 * [ ] HeartMiner Block Headers
 * [ ] HeartMiner Tx Validator
 * [ ] HeartMiner Tx Storage
-* [ ] HeartMiner Filter
+* [ ] HeartMiner Filter - teranode from june
 
 Private:
 * [ ] HeartX Price Server <= OpenSPV Interface
