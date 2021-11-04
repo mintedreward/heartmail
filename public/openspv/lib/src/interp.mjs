@@ -29,7 +29,10 @@ import { Struct } from './struct.mjs'
 import { Tx } from './tx.mjs'
 import { TxIn } from './tx-in.mjs'
 
-const MaxScriptNumLength = 250000
+const MaxScriptNumLength = 750000
+// from BSV node software:
+// // Maximum script number length after Genesis
+// static const uint64_t MAX_SCRIPT_NUM_LENGTH_AFTER_GENESIS = 750 * ONE_KILOBYTE; 
 
 class Interp extends Struct {
   constructor (
