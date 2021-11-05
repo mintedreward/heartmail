@@ -48,6 +48,7 @@ Domain names are distributed across:
 * Trademark: HeartMail
 * Trademark: HeartX
 * Trademark: HeartMiner
+* Trademark: CoaseBank
 * Trademark: Two Factor Friend
 * Trademark: Coasian
 
@@ -70,12 +71,12 @@ Domain names are distributed across:
 * HeartMail: Paid ad placement for search results, front page, categories.
 * HeartMail: Mainstream video sales & marketplace.
 * HeartX: Real asset exchange.
+* CoaseBank: HeartUSD.
+* Coasetodian: Custodian of financial assets.
 * HeartMiner: Paid block explorer. Free tx viewing under 50kb, paid over.
 * HeartMiner: Paid merkle proofs. Free tx proofs under 50kb, paid over.
 * HeartMiner: Free tx validation.
 * HeartMiner: Bitcoin mining.
-* Coasetodian: Custodian of financial assets.
-* Coasian Bank: HeartUSD.
 * Coasian Search: Market search. Search auction market with pay walls inside.
 * Coasian KYC: Verify identity of people and corporations.
 * Coasian Headlines: See what's hot and buy it (Twitter+PayWall+Affiliates)

@@ -2,14 +2,22 @@
 
 ## OpenSPV Subprojects
 
-RNW = React Native Web / Expo
+Expo is a front-end tool to create a front-end that works across Web, iPhone,
+Android. It is based on react-native and react-native-web. It looks like the
+best tool to get going for the front-end, and it is possible that it will
+continue to work forever. At least for the wallet.
 
 Private:
-* [x] OpenSPV Web (Landing Page)
-* [ ] OpenSPV Wallet RNW
-* [ ] OpenSPV Mail RNW
+* [x] OpenSPV Web
+* [x] HeartX Web
+* [ ] HeartMiner Web
+* [ ] CoaseBank Web
+* [ ] Coasetodian Web
+* [ ] CoaseML Web
+* [ ] OpenSPV Wallet Expo
+* [ ] OpenSPV Mail Expo
 
-Public (protocols shared with XAPI):
+Public:
 * [x] OpenSPV Lib
 * [x] OpenSPV Keyfile
 * [ ] OpenSPV Paymail
@@ -22,29 +30,41 @@ Public (protocols shared with XAPI):
 * [ ] OpenSPV IFrame API
 * [ ] OpenSPV Media Workers
 * [ ] OpenSPV Mail Web API
-* [ ] OpenSPV RNW Components
-* [ ] OpenSPV OEM Wallet RNW
-* [ ] OpenSPV OEM Mail RNW
+* [ ] OpenSPV Expo Components
+* [ ] OpenSPV OEM Wallet Expo
+* [ ] OpenSPV OEM Mail Expo
 
-Public (TeraNode):
+Public:
 * [ ] HeartMiner Node Server <= OpenSPV Interface
-* [ ] HeartMiner Merkle Proofs - already
+* [ ] HeartMiner Merkle Proofs
 * [ ] HeartMiner Block Headers
 * [ ] HeartMiner Tx Validator
 * [ ] HeartMiner Tx Storage
-* [ ] HeartMiner Filter - teranode from june
+* [ ] HeartMiner Filter
 
 Private:
 * [ ] HeartX Price Server <= OpenSPV Interface
-* [ ] HeartX USD
+* [ ] HeartX Custodian => Coasetodian
+* [ ] HeartX Account => CoaseBank
 * [ ] HeartX Trade
+* [ ] HeartX Wallet Expo
 
 Private:
-* [ ] HeartMail AI
+* [ ] CoaseBank Savings <= HeartX
+* [ ] CoaseBank Loans
+* [ ] CoaseBank Wire => HeartX Trade
+
+Private:
+* [ ] Coasetodian <= HeartX Cold Storage
+
+Private:
 * [ ] HeartMail HeartSign
 * [ ] HeartMail Transcription
-* [ ] HeartMail Wallet RNW
-* [ ] HeartMail RNW (Mainstream Social Media)
+* [ ] HeartMail Wallet Expo
+* [ ] HeartMail Front-Page Expo
+
+Private:
+* [ ] HeartBayes (AI / ML)
 
 ## OpenSPV MVP
 
