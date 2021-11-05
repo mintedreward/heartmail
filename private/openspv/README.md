@@ -8,14 +8,13 @@ best tool to get going for the front-end, and it is possible that it will
 continue to work forever. At least for the wallet.
 
 Private:
+* [x] Coasian Web
 * [x] OpenSPV Web
 * [x] HeartX Web
 * [ ] HeartMiner Web
 * [ ] CoaseBank Web
 * [ ] Coasetodian Web
 * [ ] CoaseML Web
-* [ ] OpenSPV Wallet Expo
-* [ ] OpenSPV Mail Expo
 
 Public:
 * [x] OpenSPV Lib
@@ -31,8 +30,11 @@ Public:
 * [ ] OpenSPV Media Workers
 * [ ] OpenSPV Mail Web API
 * [ ] OpenSPV Expo Components
-* [ ] OpenSPV OEM Wallet Expo
-* [ ] OpenSPV OEM Mail Expo
+* [ ] OpenSPV Wallet Expo
+* [ ] OpenSPV Mail Expo
+* [ ] OpenSPV Search Expo
+* [ ] OpenSPV Browser Expo
+* [ ] OpenSPV Trade Expo
 
 Public:
 * [ ] HeartMiner Node Server <= OpenSPV Interface
@@ -46,7 +48,7 @@ Private:
 * [ ] HeartX Price Server <= OpenSPV Interface
 * [ ] HeartX Custodian => Coasetodian
 * [ ] HeartX Account => CoaseBank
-* [ ] HeartX Trade
+* [ ] HeartX Trade Expo
 * [ ] HeartX Wallet Expo
 
 Private:
