@@ -29,6 +29,74 @@ switch from shell scripts to Kubernetes. The goal is for the infrastructure to
 be deployable on AWS, Google Cloud, or Azure. Each app should be decentralized
 across cloud providers.
 
+# Major Subprojects
+
+Expo is a front-end tool to create a front-end that works across Web, iPhone,
+Android. It is based on react-native and react-native-web. It looks like the
+best tool to get going for the front-end, and it is possible that it will
+continue to work forever. At least for the wallet.
+
+Private:
+* [x] Coasian Web
+* [x] OpenSPV Web
+* [x] HeartX Web
+* [ ] HeartMiner Web
+* [ ] CoaseBank Web
+* [ ] Coasetodian Web
+* [ ] CoaseML Web
+
+Public:
+* [x] OpenSPV Lib
+* [x] OpenSPV Keyfile
+* [ ] OpenSPV Paymail
+* [ ] OpenSPV DB
+* [ ] OpenSPV Kubernetes
+* [ ] OpenSPV Node Client <= TeraNode Interface
+* [ ] OpenSPV Price Client <= HeartX Interface
+* [ ] OpenSPV Crypto Workers
+* [ ] OpenSPV Wallet Web API
+* [ ] OpenSPV IFrame API
+* [ ] OpenSPV Media Workers
+* [ ] OpenSPV Mail Web API
+* [ ] OpenSPV Expo Components
+* [ ] OpenSPV Wallet Expo
+* [ ] OpenSPV Mail Expo
+* [ ] OpenSPV Search Expo
+* [ ] OpenSPV Browser Expo
+* [ ] OpenSPV Trade Expo
+
+Public:
+* [ ] HeartMiner Node Server <= OpenSPV Interface
+* [ ] HeartMiner Merkle Proofs
+* [ ] HeartMiner Block Headers
+* [ ] HeartMiner Tx Validator
+* [ ] HeartMiner Tx Storage
+* [ ] HeartMiner Filter
+
+Private:
+* [ ] HeartX Price Server <= OpenSPV Interface
+* [ ] HeartX Custodian => Coasetodian
+* [ ] HeartX Account => CoaseBank
+* [ ] HeartX Trade Expo
+* [ ] HeartX Wallet Expo
+
+Private:
+* [ ] CoaseBank Savings <= HeartX
+* [ ] CoaseBank Loans
+* [ ] CoaseBank Wire => HeartX Trade
+
+Private:
+* [ ] Coasetodian <= HeartX Cold Storage
+
+Private:
+* [ ] HeartMail HeartSign
+* [ ] HeartMail Transcription
+* [ ] HeartMail Wallet Expo
+* [ ] HeartMail Front-Page Expo
+
+Private:
+* [ ] HeartBayes (AI / ML)
+
 # Domain names
 
 Domain names are distributed across:
