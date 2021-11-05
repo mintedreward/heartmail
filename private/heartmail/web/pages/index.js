@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>HeartMail</title>
-        <meta name="description" content="Love your colleagues as yourself." />
+        <meta name="description" content="Coasian Mystery Product One" />
         <link rel="icon" href="/heartmail-avatar-dark.png" />
       </Head>
 

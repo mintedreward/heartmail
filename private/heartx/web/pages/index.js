@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>HeartX</title>
-        <meta name="description" content="Real asset exchange." />
+        <meta name="description" content="Coasian Mystery Product Two" />
         <link rel="icon" href="/heartx-avatar-dark.png" />
       </Head>
 
