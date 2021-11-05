@@ -16,7 +16,7 @@ yarn version minor
 yarn npm publish
 echo Building heartmail-web
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t heartmail-web --platform linux/x86_64
+docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t heartmail-web --platform linux/amd64
 rm .npmrc
 docker tag heartmail-web ryanxcharles/heartmail-web:${version}
 docker push ryanxcharles/heartmail-web:${version}
