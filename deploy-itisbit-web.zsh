@@ -16,7 +16,7 @@ yarn version minor
 yarn npm publish
 echo Building itisbit-web
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t itisbit-web
+docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t itisbit-web --platform linux/amd64
 rm .npmrc
 docker tag itisbit-web ryanxcharles/itisbit-web:${version}
 docker push ryanxcharles/itisbit-web:${version}

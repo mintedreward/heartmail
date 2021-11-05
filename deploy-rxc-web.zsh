@@ -16,7 +16,7 @@ yarn version minor
 yarn npm publish
 echo Building rxc-web
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t rxc-web
+docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t rxc-web --platform linux/amd64
 rm .npmrc
 docker tag rxc-web ryanxcharles/rxc-web:${version}
 docker push ryanxcharles/rxc-web:${version}

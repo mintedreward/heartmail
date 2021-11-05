@@ -16,7 +16,7 @@ yarn version minor
 yarn npm publish
 echo Building tob-web
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t tob-web
+docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t tob-web --platform linux/amd64
 rm .npmrc
 docker tag tob-web ryanxcharles/tob-web:${version}
 docker push ryanxcharles/tob-web:${version}

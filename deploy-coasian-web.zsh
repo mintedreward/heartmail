@@ -16,7 +16,7 @@ yarn version minor
 yarn npm publish
 echo Building coasian-web
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t coasian-web
+docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t coasian-web --platform linux/amd64
 rm .npmrc
 docker tag coasian-web ryanxcharles/coasian-web:${version}
 docker push ryanxcharles/coasian-web:${version}
