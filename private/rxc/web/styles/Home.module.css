@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   background-color: #f8f3e7;
-  font-family: Helvetica Neue, Roboto, Arial, sans-serif;
+  font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
   color: #4d4843;
 }
 
@@ -52,8 +52,5 @@
 }
 
 .logoheader {
-  max-width: 800px;
-}
-
-.logofooter {
+  text-align: center;
 }

@@ -12,7 +12,42 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>Introducing the Social Bitcoin Web</h1>
+
+        <span className={styles.logoheader}>
+          <img src="/rxc-header-light.png" alt="Ryan X. Charles" height="200" width="300" />
+        </span>
+
+        <h1>Building the Social Bitcoin Web</h1>
+
+        <h2>First Links in the Social Bitcoin Web</h2>
+
+        <p>Nov 6, 2021</p>
+
+        <p>The Social Bitcoin Web (SBW) is a new social network where everybody is a sovereign individual. The following individuals have agreed to be linked from my personal web page to begin building the SBW.</p>
+
+        <p><a href="https://bigbadbrad.com">Brad Meinert</a>. Growth Hacker.</p>
+
+        <p><a href="https://will.townsend.io">Will Townsend</a>. I'm a human being who writes software, enjoys music, and lives in Vancouver BC 🇨🇦.</p>
+
+        <p><a href="https://sebastianvanti.com">Sebastian Vanti</a> es un artista chileno - holandés.</p>
+
+        <p><a href="https://kurtwuckertjr.com">Kurt Wuckert Jr.</a> Bitcoin Historian. Fighter. Family Man.</p>
+
+        <p><a href="https://www.ryanwold.net">Ryan Wold</a>. I'm grateful to be a son, husband, and father.</p>
+
+        <p><a href="http://framore.net">Framore</a>. This site is how I believe the internet should be: not the products of big corporations but various sites curated by each user.</p>
+
+        <p><a href="https://february.sg">Stephan M. February</a>. Bitcoin developer.</p>
+
+        <p><a href="https://bryandaugherty.net">Bryan Daugherty</a>. Technology solution consultant.</p>
+
+        <p><a href="https://www.diddywheldon.co.uk">Diddy Wheldon</a>. Actress, Artist, B.Msc., BSV.</p>
+
+        <p>The SBW is based on the web, Bitcoin, and social networks. It uses new extensions to <a href="https://www.bsvalias.org">paymail</a> to make a true market of information. It is just getting started. To join the network, purchase a domain name for yourself, set up a personal web page, and get linked into it.</p>
+
+        <h2>Introducing the Social Bitcoin Web</h2>
+
+        <p>Nov 1, 2021</p>
 
         <p>The <b>Social Bitcoin Web (SBW)</b> is a set of protocol extensions to Paymail, Bitcoin, and the Web that connects real-world identity (private by default, of course) to electronic cash payments over the internet. This makes it possible to have a true market of information. The economics-first model fixes many issues, most especially the subversive misallocation of attention caused by the overreliance on ad-funded media (social and traditional). We will fix the attention issue first. Then we will fix every other issue.</p>
 
