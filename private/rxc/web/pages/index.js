@@ -25,7 +25,7 @@ export default function Home() {
         
         <p>If you are going to engage with other people in business, sometimes things go wrong. When they go wrong, corporations enable you to limit liability.</p>
 
-        <p>Imagine you provide a service like a hosted Bitcoin wallet. You take every precaution to secure your user's funds. Unfortunately, one day your service is hacked, and tremendous value is stolen.</p>
+        <p>Imagine you provide a service like a hosted Bitcoin wallet. You take every precaution to secure your users' funds. Unfortunately, one day your service is hacked, and your users' property is stolen.</p>
 
         <p>So long as you followed the law at every step, your users can sue your corporation for their funds, but they cannot sue you personally. This means while your corporation may go bankrupt in order to pay out to your users, you do not personally go bankrupt. This is the entire reason why corporations exist.</p>
 
