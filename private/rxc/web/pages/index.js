@@ -43,6 +43,8 @@ export default function Home() {
 
         <p><a href="https://www.diddywheldon.co.uk">Diddy Wheldon</a>. Actress, Artist, B.Msc., BSV.</p>
 
+        <p><a href="https://mrz1818.com">Mr Z</a>. "The majority see the obstacles; the few see the objectives; history records the successes of the latter, while oblivion is the reward of the former."</p>
+
         <p>The SBW is based on the web, Bitcoin, and social networks. It uses new extensions to <a href="https://www.bsvalias.org">paymail</a> to make a true market of information. It is just getting started. To join the network, purchase a domain name for yourself, set up a personal web page, and get linked into it.</p>
 
         <h2>Introducing the Social Bitcoin Web</h2>
