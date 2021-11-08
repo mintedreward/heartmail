@@ -94,7 +94,6 @@ export default function Home() {
         <p>My domain name is <a href="https://www.ryanxcharles.com/">ryanxcharles.com</a>. Bookmark my web page. You’ll notice this message is replicated across my web page, Twitter, Instagram, Facebook, Medium, and LinkedIn. Please share a link to your web page in the comments to this message on social media. I will link the ones I like from my web page. This is the beginning.</p>
 
         <p>
-          <a href="https://twitter.com/ryanxcharles" className="btn btn-default btn-sm"><i className="fa fa-twitter fa-fw"></i> <span className="network-name">Twitter</span></a> |
           <a href="https://instagram.com/ryan_x_charles" className="btn btn-default btn-sm"><i className="fa fa-instagram fa-fw"></i> <span className="network-name">Instagram</span></a> |
           <a href="https://medium.com/@ryanxcharles" className="btn btn-default btn-sm"><i className="fa fa-medium fa-fw"></i> <span className="network-name">Medium</span></a> |
           <a href="https://github.com/ryanxcharles" className="btn btn-default btn-sm"><i className="fa fa-github fa-fw"></i> <span className="network-name">GitHub</span></a> |
