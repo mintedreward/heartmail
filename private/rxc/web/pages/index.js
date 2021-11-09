@@ -77,6 +77,8 @@ export default function Home() {
 
         <p><a href="https://vegardwikeby.com">Vegard Wikeby</a>. I help businesses with getting their online business profitable.</p>
 
+        <p><a href="https://kevinmhealy.com">Kevin M. Healy</a>. Bitcoin developer.</p>
+
         <p>The SBW is based on the web, Bitcoin, and social networks. It uses new extensions to <a href="https://www.bsvalias.org">paymail</a> to make a true market of information. It is just getting started. To join the network, purchase a domain name for yourself, set up a personal web page, and get linked into it.</p>
 
         <h2>Introducing the Social Bitcoin Web</h2>
