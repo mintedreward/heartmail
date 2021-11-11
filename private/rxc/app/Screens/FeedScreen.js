@@ -1,8 +1,8 @@
 import * as React from "react";
 import CustomCard from "../Components/Card";
 import elements from "../CustomProperties/elements";
-import { ScrollView } from "react-native";
-import { StyleSheet } from "react-native";
+import { ScrollView, Image, StyleSheet, View, Text } from "react-native";
+import Heart from '../Components/Heart'
 
 const MusicRoute = () => {
   return (
@@ -20,6 +20,9 @@ const MusicRoute = () => {
             likes={ele.likes}
           />
         ))}
+        <View style={{alignItems: 'center'}}>
+          <Heart width={50} height={50} />
+        </View>
       </ScrollView>
     </React.Fragment>
   );

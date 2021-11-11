@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Appbar } from "react-native-paper";
+import { View } from 'react-native'
 
 // import { Image } from 'react-native'
 
