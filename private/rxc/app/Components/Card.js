@@ -8,26 +8,9 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     maxWidth: 800,
-    width: '100%',
+    width: '95%',
     marginVertical: 10,
-  },
-  img: {
-    width: 40,
-    height: 40,
-    borderRadius: 50,
-    borderWidth: 3,
-    borderColor: "#4169E1",
-    margin: 10,
-  },
-  contentStart: { flexDirection: "row", alignItems: "flex-start" },
-  contentEnd: { flexDirection: "row", alignItems: "flex-end" },
-  horizontalLine: {
-    borderBottomColor: "#ccc",
-    borderBottomWidth: 1,
-    marginHorizontal: 15,
-    paddingVertical: 5,
-  },
-  action: { flexDirection: "row", paddingTop: 5 },
+  }
 });
 
 const CustomCard = (props) => {

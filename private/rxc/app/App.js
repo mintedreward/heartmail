@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import theme from "./CustomProperties/Themes";
 
