@@ -1,9 +1,9 @@
 const elements = [
   {
     id: 1,
-    title: "Title 1",
+    title: "Introducing the Ryan X. Charles App",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "With live reloading in development on every platform simultaneously :)",
     uri: "https://picsum.photos/700",
     comment: "50",
     views: "1K",
