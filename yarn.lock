@@ -981,7 +981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.16.0, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.12.9":
+"@babel/core@npm:7.16.0, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6":
   version: 7.16.0
   resolution: "@babel/core@npm:7.16.0"
   dependencies:
@@ -2538,7 +2538,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@coasian/rxc-app@workspace:private/rxc/app"
   dependencies:
-    "@babel/core": ^7.12.9
     expo: ~43.0.2
     expo-splash-screen: ~0.13.5
     expo-status-bar: ~1.1.0
