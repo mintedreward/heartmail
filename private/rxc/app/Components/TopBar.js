@@ -6,7 +6,7 @@ const TopBar = () => (
   <Appbar.Header style={{backgroundColor: '#4d4843'}}>
     <View style={{flexDirection: 'row', textAlign: 'left'}}>
       <View>
-        <Avatar.Image size={50} source={require('../static/rxc-avatar.jpg')} />
+        <Avatar.Image size={40} source={require('../static/rxc-avatar.jpg')} />
       </View>
       <View>
         <Appbar.Content title='Ryan X. Charles' subtitle='ryan@ryanxcharles.com' color='#f8f3e7' />
