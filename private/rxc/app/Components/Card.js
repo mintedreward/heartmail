@@ -1,9 +1,6 @@
 import * as React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Card, Text, Paragraph } from "react-native-paper";
-
-import CardAction from "./CardAction";
-import Likes from "./Likes";
 
 const styles = StyleSheet.create({
   outerContainer: {
@@ -11,6 +8,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     maxWidth: 800,
+    width: '100%',
     marginVertical: 10,
   },
   img: {
@@ -38,33 +36,12 @@ const CustomCard = (props) => {
       <View style={styles.outerContainer}>
         <Card style={styles.innerContainer}>
           <Card.Content style={{ flexDirection: "row" }}>
-            <Image source={{ uri: props.uri }} style={styles.img} />
             <Paragraph style={{ marginTop: 15 }}>
               <Text style={{ fontWeight: "bold" }}>{props.title}</Text>
             </Paragraph>
           </Card.Content>
           <Card.Content>
-            <Paragraph>{props.content.substring(0, 100)}</Paragraph>
-          </Card.Content>
-          <Card.Cover source={{ uri: props.uri }} />
-
-          <Card.Actions>
-            <Card.Content style={styles.contentStart}>
-              <Likes likes={props.likes} />
-            </Card.Content>
-            <Card.Content style={styles.contentEnd}>
-              <Text>{props.comment} Comments . </Text>
-              <Text>{props.shares} Shares . </Text>
-              <Text>{props.views} Views</Text>
-            </Card.Content>
-          </Card.Actions>
-
-          <Card.Content style={styles.horizontalLine} />
-
-          <Card.Content style={styles.action}>
-            <CardAction name="thumb-up-outline" text="Like" />
-            <CardAction name="message-outline" text="Comment" />
-            <CardAction name="share-outline" text="Share" />
+            <Paragraph>{props.content}</Paragraph>
           </Card.Content>
         </Card>
       </View>

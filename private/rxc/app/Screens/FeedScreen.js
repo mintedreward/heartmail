@@ -4,15 +4,6 @@ import elements from "../CustomProperties/elements";
 import { ScrollView } from "react-native";
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
-  container: {
-    maxWidth: 200,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
 const MusicRoute = () => {
   return (
     <React.Fragment>
