@@ -12,11 +12,11 @@ const Screen = () => {
   //   { key: 'ryangram', title: 'Ryangram', icon: 'instagram', color: '#93bd6a' }
   // ])
   const [routes] = useState([
-    { key: 'ryan', title: 'Ryan', icon: 'account', color: '#dd664a' },
-    { key: 'ryanbook', title: 'Ryanbook', icon: 'facebook', color: '#dd664a' },
-    { key: 'ryantube', title: 'RyanTube', icon: 'youtube', color: '#dd664a' },
-    { key: 'ryr', title: 'Ryr', icon: 'twitter', color: '#dd664a' },
-    { key: 'ryangram', title: 'Ryangram', icon: 'instagram', color: '#dd664a' }
+    { key: 'ryan', title: 'Ryan', icon: 'account', color: '#4d4843' },
+    { key: 'ryanbook', title: 'Ryanbook', icon: 'facebook', color: '#4d4843' },
+    { key: 'ryantube', title: 'RyanTube', icon: 'youtube', color: '#4d4843' },
+    { key: 'ryr', title: 'Ryr', icon: 'twitter', color: '#4d4843' },
+    { key: 'ryangram', title: 'Ryangram', icon: 'instagram', color: '#4d4843' }
   ])
 
   const renderScene = BottomNavigation.SceneMap({
