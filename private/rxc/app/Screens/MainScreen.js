@@ -8,14 +8,18 @@ const Screen = () => {
     { key: 'ryanbook', title: 'Ryanbook', icon: 'facebook' },
     { key: 'ryantube', title: 'RyanTube', icon: 'youtube' },
     { key: 'ryr', title: 'Ryr', icon: 'twitter' },
-    { key: 'ryangram', title: 'Ryangram', icon: 'instagram' }
+    { key: 'ryangram', title: 'Ryangram', icon: 'instagram' },
+    { key: 'ryack', title: 'SlaX', icon: 'slack' },
+    { key: 'rmail', title: 'RMail', icon: 'gmail' },
   ])
 
   const renderScene = BottomNavigation.SceneMap({
     ryanbook: FeedRoute,
     ryantube: FeedRoute,
     ryr: FeedRoute,
-    ryangram: FeedRoute
+    ryangram: FeedRoute,
+    ryack: FeedRoute,
+    rmail: FeedRoute
   })
 
   return (
