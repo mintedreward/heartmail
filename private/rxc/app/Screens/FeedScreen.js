@@ -1,13 +1,21 @@
 import * as React from "react";
 import CustomCard from "../Components/Card";
-import SearchBar from "../Components/SearchBar";
 import elements from "../CustomProperties/elements";
 import { ScrollView } from "react-native";
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  container: {
+    maxWidth: 200,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 
 const MusicRoute = () => {
   return (
     <React.Fragment>
-      <SearchBar />
       <ScrollView>
         {elements.map((ele) => (
           <CustomCard

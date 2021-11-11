@@ -6,21 +6,20 @@ import theme from "./CustomProperties/Themes";
 import MainScreen from "./Screens/MainScreen";
 import TopBar from "./Components/TopBar";
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+
 export default function App() {
   return (
-    <PaperProvider theme={theme}>
+    <PaperProvider theme={theme} styles={styles.container}>
       <TopBar />
 
       <MainScreen />
     </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
