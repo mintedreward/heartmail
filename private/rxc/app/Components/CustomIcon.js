@@ -1,6 +1,6 @@
-import * as React from "react";
-import { View } from "react-native";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import * as React from 'react'
+import { View } from 'react-native'
+import Icon from '@expo/vector-icons/MaterialCommunityIcons'
 
 const CustomIcon = (props) => {
   return (
@@ -17,7 +17,7 @@ const CustomIcon = (props) => {
         }}
       />
     </View>
-  );
-};
+  )
+}
 
-export default CustomIcon;
+export default CustomIcon

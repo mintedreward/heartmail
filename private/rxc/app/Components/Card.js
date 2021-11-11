@@ -1,6 +1,6 @@
-import * as React from "react";
-import { View, StyleSheet } from "react-native";
-import { Card, Text, Paragraph } from "react-native-paper";
+import * as React from 'react'
+import { View, StyleSheet } from 'react-native'
+import { Card, Text, Paragraph } from 'react-native-paper'
 
 const styles = StyleSheet.create({
   outerContainer: {
@@ -11,16 +11,16 @@ const styles = StyleSheet.create({
     width: '95%',
     marginVertical: 10,
   }
-});
+})
 
 const CustomCard = (props) => {
   return (
     <React.Fragment>
       <View style={styles.outerContainer}>
         <Card style={styles.innerContainer}>
-          <Card.Content style={{ flexDirection: "row" }}>
+          <Card.Content style={{ flexDirection: 'row' }}>
             <Paragraph style={{ marginTop: 15 }}>
-              <Text style={{ fontWeight: "bold" }}>{props.title}</Text>
+              <Text style={{ fontWeight: 'bold' }}>{props.title}</Text>
             </Paragraph>
           </Card.Content>
           <Card.Content>
@@ -29,7 +29,7 @@ const CustomCard = (props) => {
         </Card>
       </View>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default CustomCard;
+export default CustomCard

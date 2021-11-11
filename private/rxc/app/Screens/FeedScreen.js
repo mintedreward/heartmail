@@ -1,7 +1,7 @@
-import * as React from "react";
-import CustomCard from "../Components/Card";
-import elements from "../CustomProperties/elements";
-import { ScrollView, Image, StyleSheet, View, Text } from "react-native";
+import * as React from 'react'
+import CustomCard from '../Components/Card'
+import elements from '../CustomProperties/elements'
+import { ScrollView, Image, StyleSheet, View, Text } from 'react-native'
 import Heart from '../Components/Heart'
 
 const MusicRoute = () => {
@@ -25,7 +25,7 @@ const MusicRoute = () => {
         </View>
       </ScrollView>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default MusicRoute;
+export default MusicRoute

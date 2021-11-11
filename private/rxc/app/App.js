@@ -1,9 +1,9 @@
-import React from "react";
-import { Provider as PaperProvider } from "react-native-paper";
-import theme from "./CustomProperties/Themes";
+import React from 'react'
+import { Provider as PaperProvider } from 'react-native-paper'
+import theme from './CustomProperties/Themes'
 
-import MainScreen from "./Screens/MainScreen";
-import TopBar from "./Components/TopBar";
+import MainScreen from './Screens/MainScreen'
+import TopBar from './Components/TopBar'
 
 export default function App() {
   return (
@@ -12,5 +12,5 @@ export default function App() {
 
       <MainScreen />
     </PaperProvider>
-  );
+  )
 }
