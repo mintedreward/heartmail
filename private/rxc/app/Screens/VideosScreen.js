@@ -1,19 +1,21 @@
 import * as React from 'react'
-import CustomCard from '../Components/Card'
+import VideoCard from '../Components/VideoCard'
 import db from '../db/db.js'
-import { ScrollView, Image, StyleSheet, View, Text } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import Heart from '../Components/Heart'
 
-const MusicRoute = () => {
+const videos = db.filter(obj => obj.metadata.type === 'video')
+
+const VideosScreen = () => {
   return (
     <React.Fragment>
       <ScrollView>
-        {db.map((ele) => (
-          <CustomCard
+        {videos.map((ele) => (
+          <VideoCard
             key={ele.filename}
             date={ele.date}
             title={ele.metadata.title}
-            content={ele.content}
+            youtubeId={ele.metadata.youtubeId}
           />
         ))}
         <View style={{alignItems: 'center'}}>
@@ -24,4 +26,4 @@ const MusicRoute = () => {
   )
 }
 
-export default MusicRoute
+export default VideosScreen

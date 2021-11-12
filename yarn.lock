@@ -2579,6 +2579,9 @@ __metadata:
     react-native-screens: ~3.8.0
     react-native-vector-icons: ^9.0.0
     react-native-web: 0.17.1
+    react-native-web-webview: ^1.0.2
+    react-native-webview: ^11.14.2
+    react-native-youtube-iframe: ^2.1.2
     standard: 16.0.4
   languageName: unknown
   linkType: soft
@@ -8427,7 +8430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"events@npm:^3.0.0":
+"events@npm:^3.0.0, events@npm:^3.2.0":
   version: 3.3.0
   resolution: "events@npm:3.3.0"
   checksum: f6f487ad2198aa41d878fa31452f1a3c00958f46e9019286ff4787c84aac329332ab45c9cdc8c445928fc6d7ded294b9e005a7fce9426488518017831b272780
@@ -10714,7 +10717,7 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
-"invariant@npm:^2.2.2, invariant@npm:^2.2.4":
+"invariant@npm:2.2.4, invariant@npm:^2.2.2, invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
   dependencies:
@@ -15675,6 +15678,15 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
+"qs@npm:^6.5.1":
+  version: 6.10.1
+  resolution: "qs@npm:6.10.1"
+  dependencies:
+    side-channel: ^1.0.4
+  checksum: 00e390dbf98eff4d8ff121b61ab2fe32106852290de99ecd0e40fc76651c4101f43fc6cc8313cb69423563876fc532951b11dda55d2917def05f292258263480
+  languageName: node
+  linkType: hard
+
 "qs@npm:~6.5.2":
   version: 6.5.2
   resolution: "qs@npm:6.5.2"
@@ -16009,6 +16021,18 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
+"react-native-web-webview@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "react-native-web-webview@npm:1.0.2"
+  dependencies:
+    qs: ^6.5.1
+  peerDependencies:
+    file-loader: "*"
+    react-native-web: "*"
+  checksum: 577f28367692dd8290f13cdd27f9aadf39f4ab926dfb2952ea823a007430fa39983318f7e6662977378910316c544be1e5129840b165b0761287898677630add
+  languageName: node
+  linkType: hard
+
 "react-native-web@npm:0.17.1":
   version: 0.17.1
   resolution: "react-native-web@npm:0.17.1"
@@ -16024,6 +16048,33 @@ fsevents@~2.1.1:
     react: ">=17.0.1"
     react-dom: ">=17.0.1"
   checksum: a06ec047082bb4edf49323a5a88b576ba93ddc965e4dd00c4c0b1f423a4175a430d9c2619f32d184f719181c4d3f08ffa8fa4f3b8c951f6a95176d3735e4bf7d
+  languageName: node
+  linkType: hard
+
+"react-native-webview@npm:^11.14.2":
+  version: 11.14.2
+  resolution: "react-native-webview@npm:11.14.2"
+  dependencies:
+    escape-string-regexp: 2.0.0
+    invariant: 2.2.4
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: dfec1ff8b4cbe5b1a7ccdcb6da34adc32caef0cfc0f88d284a81261bcfe9bbb1639d01c7be65ed67edc73cb14b32bdf146067a6b300d0424c2c1c79a4a82d569
+  languageName: node
+  linkType: hard
+
+"react-native-youtube-iframe@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "react-native-youtube-iframe@npm:2.1.2"
+  dependencies:
+    events: ^3.2.0
+  peerDependencies:
+    react: ">=16.8.6"
+    react-native: ">=0.60"
+    react-native-web-webview: ">=1.0.2"
+    react-native-webview: ">=7.0.0"
+  checksum: 55b5029bc369eb06ce66e38824b495b7a7f32517fabe6aa4c16cbb823d099ebdb4444a7bb2865a26c0d175110c6ee9c0c7d5da9841a00beb9276313689330117
   languageName: node
   linkType: hard
 

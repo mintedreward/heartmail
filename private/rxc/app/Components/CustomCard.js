@@ -20,7 +20,7 @@ const CustomCard = (props) => {
       <View style={styles.outerContainer}>
         <Card style={styles.innerContainer}>
           <Card.Content style={{ flexDirection: 'row' }}>
-            <Paragraph style={{ marginTop: 15 }}>
+            <Paragraph>
               <Text style={{ fontWeight: 'bold' }}>{props.title}</Text>
             </Paragraph>
           </Card.Content>
