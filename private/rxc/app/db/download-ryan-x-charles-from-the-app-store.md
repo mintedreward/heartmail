@@ -1,5 +1,5 @@
 ---
-title: Download Ryan X. Charles in the App Store
+title: Download Ryan X. Charles from the App Store
 author: ryan@ryanxcharles.com
 date: 2021-11-12
 type: article
@@ -15,6 +15,4 @@ Each app will have the option of adopting SBW protocols for things such as artic
 
 This is how a social network should be. It is not owned by one person or corporation. It is a protocol that anyone can adopt with no central point of failure. It is a reflection of the true social network, which are the people you are actually connected to in life.
 
-I will be giving away the source code to this app for free to help more people become sovereign. My goal is to become connected to the 150 strongest sovereign individuals in the world who share my values of Truth, Love, & Beauty.
-
-Please open my app or visit my web page from time to time for updates.
+I will be giving away the source code to this app for free to help more people become sovereign. My goal is to become connected to the 150 strongest sovereign individuals in the world who share my values of Truth, Love, & Beauty. Stay tuned. Please open my app or visit my web page from time to time for updates.
