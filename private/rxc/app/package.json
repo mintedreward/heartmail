@@ -6,7 +6,8 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "start": "react-native start",
+    "dev": "react-native start",
+    "start": "serve web-build",
     "postinstall": "expo-yarn-workspaces postinstall",
     "lint": "standard"
   },
@@ -30,10 +31,11 @@
     "react-native-web-webview": "^1.0.2",
     "react-native-webview": "^11.14.2",
     "react-native-youtube-iframe": "^2.1.2",
-    "standard": "16.0.4"
+    "serve": "^13.0.2"
   },
   "private": true,
   "devDependencies": {
-    "expo-yarn-workspaces": "^1.6.0"
+    "expo-yarn-workspaces": "^1.6.0",
+    "standard": "16.0.4"
   }
 }
