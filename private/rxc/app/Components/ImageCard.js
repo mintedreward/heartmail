@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Image } from 'react-native'
 import { Card, Text, Paragraph } from 'react-native-paper'
-import Markdown from 'react-native-markdown-display'
 
 const styles = StyleSheet.create({
   outerContainer: {
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const HeadlineCard = (props) => {
+const ImageCard = (props) => {
   return (
     <React.Fragment>
       <View style={styles.outerContainer}>
@@ -29,10 +28,13 @@ const HeadlineCard = (props) => {
               <Text>{new Date(props.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</Text>
             </Paragraph>
           </Card.Content>
+          <Card.Content>
+              <Image style={{height: 300}} source={{ uri: props.base64 }} />
+          </Card.Content>
         </Card>
       </View>
     </React.Fragment>
   )
 }
 
-export default HeadlineCard
+export default ImageCard

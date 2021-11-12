@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ArticlesScreen from './ArticlesScreen'
 import HeadlinesScreen from './HeadlinesScreen'
 import VideosScreen from './VideosScreen'
+import ImagesScreen from './ImagesScreen'
 import { BottomNavigation } from 'react-native-paper'
 
 const Screen = () => {
@@ -19,7 +20,7 @@ const Screen = () => {
     articles: ArticlesScreen,
     videos: VideosScreen,
     headlines: HeadlinesScreen,
-    images: ArticlesScreen,
+    images: ImagesScreen,
     chat: ArticlesScreen,
     mail: ArticlesScreen
   })
