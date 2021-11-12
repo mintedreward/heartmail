@@ -3,6 +3,8 @@ import ArticlesScreen from './ArticlesScreen'
 import HeadlinesScreen from './HeadlinesScreen'
 import VideosScreen from './VideosScreen'
 import ImagesScreen from './ImagesScreen'
+import ChatScreen from './ChatScreen'
+import MailScreen from './MailScreen'
 import { BottomNavigation } from 'react-native-paper'
 
 const Screen = () => {
@@ -21,8 +23,8 @@ const Screen = () => {
     videos: VideosScreen,
     headlines: HeadlinesScreen,
     images: ImagesScreen,
-    chat: ArticlesScreen,
-    mail: ArticlesScreen
+    chat: ChatScreen,
+    mail: MailScreen
   })
 
   return (

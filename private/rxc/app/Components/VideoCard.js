@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   innerContainer: {
     maxWidth: 800,
     width: '95%',
-    marginVertical: 10,
+    marginVertical: 10
   }
 })
 
@@ -30,7 +30,7 @@ const VideoCard = (props) => {
             </Paragraph>
           </Card.Content>
           <Card.Content>
-              <YoutubePlayer height={200} videoId={props.youtubeId} play={false} />
+              <YoutubePlayer height={200} width={350} videoId={props.youtubeId} play={false} />
           </Card.Content>
         </Card>
       </View>
