@@ -16,6 +16,10 @@ ARG NPM_TOKEN
 COPY .npmrc .npmrc
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
+# RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
+RUN npm install -g sharp-cli@1.15.0
+RUN yarn dlx expo-optimize
+RUN expo build-web
 COPY web-build web-build
 RUN rm -f .npmrc
 
@@ -31,10 +35,12 @@ RUN adduser -S appuser -u 1001
 # You only need to copy next.config.js if you are NOT using the default configuration
 # COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/web-build ./web-build
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+# COPY --from=builder /app/node_modules ./node_modules
+# COPY --from=builder /app/package.json ./package.json
 
 USER appuser
+
+RUN npm install -g serve@13.0.2
 
 EXPOSE 3000
 

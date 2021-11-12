@@ -16,11 +16,6 @@ cd $dir/private/rxc/app
 yarn version minor
 yarn npm publish
 
-# run this on your dev machine:
-# npm install -g sharp-cli
-yarn dlx expo-optimize
-expo build-web
-
 echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t rxc-app --platform linux/amd64
 rm .npmrc
