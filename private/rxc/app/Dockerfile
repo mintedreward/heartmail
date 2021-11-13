@@ -22,7 +22,7 @@ COPY --from=deps /app/node_modules ./node_modules
 # RUN npm install -g sharp-cli@1.15.0
 # RUN yarn dlx expo-optimize
 RUN ./node_modules/.bin/expo build-web
-COPY web-build web-build
+# COPY web-build web-build
 RUN rm -f .npmrc
 
 # Production image, copy all the files and run next
