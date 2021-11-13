@@ -8,6 +8,7 @@
     "web": "expo start --web",
     "dev": "react-native start",
     "start": "serve web-build",
+    "build": "expo build:web",
     "postinstall": "expo-yarn-workspaces postinstall",
     "lint": "standard"
   },
