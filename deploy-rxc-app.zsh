@@ -14,7 +14,6 @@ echo Building rxc-app
 
 cd $dir/private/rxc/app
 yarn version minor
-yarn npm publish
 
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t rxc-app --platform linux/amd64
 
