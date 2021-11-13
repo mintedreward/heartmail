@@ -5,6 +5,6 @@
 ./deploy-heartx-web.zsh
 ./deploy-itisbit-web.zsh
 ./deploy-openspv-web.zsh
-./deploy-rxc-web.zsh
+./deploy-rxc-app.zsh
 ./deploy-tob-web.zsh
 ./update-open-source-repos.zsh
