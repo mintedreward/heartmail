@@ -26,8 +26,8 @@ echo Deploying rxc-app
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-1 'docker kill $(docker ps -q)'
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-1 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-1 "docker run --detach -p 80:3000 ryanxcharles/rxc-web:${version}"
+ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-1 "docker run --detach -p 80:3000 ryanxcharles/rxc-app:${version}"
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-2 'docker kill $(docker ps -q)'
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-2 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-2 "docker run --detach -p 80:3000 ryanxcharles/rxc-web:${version}"
+ssh -F $dir/ssh_config -i $dir/coasian.pem -t rxc-web-2 "docker run --detach -p 80:3000 ryanxcharles/rxc-app:${version}"
