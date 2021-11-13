@@ -1,7 +1,7 @@
 ---
 title: Download Ryan X. Charles from the App Store
 author: ryan@ryanxcharles.com
-date: 2021-11-12 12:00:00 PST
+date: 2021-11-14 12:00:00 PST
 type: article
 ---
 
