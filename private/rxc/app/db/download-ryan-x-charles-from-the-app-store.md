@@ -2,10 +2,10 @@
 title: Download Ryan X. Charles from the App Store
 author: ryan@ryanxcharles.com
 date: 2021-11-12 12:00:00 PST
-type: hidden
+type: article
 ---
 
-The Social Bitcoin Web (SBW) is a social network of sovereign individuals. Every individual can own their own domain name, their own website, their own email, and their own interoperable social media app. I am not selling the SBW as a service. I am doing it myself and showing others what I do.
+The **Social Bitcoin Web (SBW)** is a social network of sovereign individuals. Every individual can own their own domain name, their own website, their own email, and their own interoperable social media app. I am not selling the SBW as a service. I am doing it myself and showing others what I do.
 
 Today I'm happy to announce that I have launched the first version of my personal social media app, eponymously titled Ryan X. Charles, which is available in the app store for iPhone and the play store for Android. It is also available on the web at [ryanxcharles.com](https://www.ryanxcharles.com).
 
