@@ -4,7 +4,8 @@ FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 ARG NPM_TOKEN
-COPY .npmrc .npmrc
+# COPY .npmrc .npmrc
+RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 COPY package.json yarn.lock ./
 RUN yarn install
 RUN rm -f .npmrc
@@ -13,7 +14,8 @@ RUN rm -f .npmrc
 FROM node:16-alpine AS builder
 WORKDIR /app
 ARG NPM_TOKEN
-COPY .npmrc .npmrc
+# COPY .npmrc .npmrc
+RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 # RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
