@@ -10,13 +10,11 @@ source .env.prod
 # get the latest commit hash as the docker version number
 version=`git rev-parse --verify HEAD`
 
-echo Building rxc-app
-
 cd $dir/rxc-app
 yarn version minor
 
+echo Building rxc-app
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t rxc-app --platform linux/amd64
-
 docker tag rxc-app ryanxcharles/rxc-app:${version}
 docker push ryanxcharles/rxc-app:${version}
 

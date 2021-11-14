@@ -9,7 +9,7 @@ const TopBar = () => (
         <Avatar.Image size={40} source={require('../static/rxc-avatar.jpg')} />
       </View>
       <View>
-        <Appbar.Content title='Ryan X. Charles' subtitle='ryan@ryanxcharles.com' color='#f8f3e7' />
+        <Appbar.Content title='Ryan X. Charles' subtitle='@ryanxcharles.com' color='#f8f3e7' />
       </View>
     </View>
   </Appbar.Header>

@@ -5,7 +5,9 @@ date: 2021-11-06 12:00:00 PST
 type: article
 ---
       
-The Social Bitcoin Web (SBW) is a new social network where everybody is a sovereign individual. The following individuals have agreed to be linked from my personal web page to begin building the SBW.
+The Social Bitcoin Web (SBW) is a new social network where everybody is a sovereign individual. The following individuals and organizations have agreed to be linked from my personal web page to begin building the SBW.
+
+**Individuals**.
 
 [Brad Meinert](https://bigbadbrad.com). Growth Hacker.
 
@@ -36,5 +38,11 @@ The Social Bitcoin Web (SBW) is a new social network where everybody is a sovere
 [Ty Everett](https://tyeverett.com/). An unquestioned answer is far worse than an unanswered question.
 
 [Ramiro Secco](https://ramirosecco.com). I’m a free thinker.
+
+**Organizations**.
+
+[Fluridium](http://www.fluridium.com). I am building a WARP enabled spaceship.
+
+[Blarecast](https://blarecast.com). BLARECAST is an innovative media distribution platform for artists and content creators.
 
 The SBW is based on the web, Bitcoin, and social networks. It uses new extensions to [paymail](https://www.bsvalias.org) to make a true market of information. It is just getting started. To join the network, purchase a domain name for yourself, set up a personal web page, and get linked into it.

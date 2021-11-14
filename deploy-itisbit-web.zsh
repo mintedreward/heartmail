@@ -10,7 +10,6 @@ source .env.prod
 # get the latest commit hash as the docker version number
 version=`git rev-parse --verify HEAD`
 
-# deploy itisbit-web
 cd $dir/itisbit-web
 yarn version minor
 

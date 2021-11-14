@@ -88,6 +88,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@coasian/openspv-web@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@coasian/openspv-web@workspace:."
+  dependencies:
+    eslint: 8.0.0
+    eslint-config-next: 11.1.2
+    next: 11.1.2
+    react: 17.0.2
+    react-dom: 17.0.2
+    sharp: ^0.29.1
+  languageName: unknown
+  linkType: soft
+
 "@eslint/eslintrc@npm:^1.0.2":
   version: 1.0.2
   resolution: "@eslint/eslintrc@npm:1.0.2"
@@ -304,19 +317,6 @@ __metadata:
   checksum: c96381d4a37448ea280951e46233f7e541058cf57a57d4094dd4bdcaae43fa5872b5f2eb6bfb004591a68e29c5877abe3cdc210cb3588cbf20ab2877f31a7de7
   languageName: node
   linkType: hard
-
-"@openspv/web@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@openspv/web@workspace:."
-  dependencies:
-    eslint: 8.0.0
-    eslint-config-next: 11.1.2
-    next: 11.1.2
-    react: 17.0.2
-    react-dom: 17.0.2
-    sharp: ^0.29.1
-  languageName: unknown
-  linkType: soft
 
 "@rushstack/eslint-patch@npm:^1.0.6":
   version: 1.0.7
