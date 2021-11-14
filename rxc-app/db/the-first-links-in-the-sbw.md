@@ -1,6 +1,6 @@
 ---
 title: First Links in the Social Bitcoin Web
-author: ryan@ryanxcharles.com
+author: "@ryanxcharles.com"
 date: 2021-11-06 12:00:00 PST
 type: article
 ---
@@ -38,6 +38,8 @@ The Social Bitcoin Web (SBW) is a new social network where everybody is a sovere
 [Ty Everett](https://tyeverett.com/). An unquestioned answer is far worse than an unanswered question.
 
 [Ramiro Secco](https://ramirosecco.com). I’m a free thinker.
+
+[Burton Cummings](https://burtoncummings.io). "You can have everything in life you want, if you will just help other people get what they want."
 
 **Organizations**.
 
