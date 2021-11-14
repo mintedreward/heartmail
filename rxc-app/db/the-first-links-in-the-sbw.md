@@ -35,4 +35,6 @@ The Social Bitcoin Web (SBW) is a new social network where everybody is a sovere
 
 [Ty Everett](https://tyeverett.com/). An unquestioned answer is far worse than an unanswered question.
 
+[Ramiro Secco](https://ramirosecco.com). I’m a free thinker.
+
 The SBW is based on the web, Bitcoin, and social networks. It uses new extensions to [paymail](https://www.bsvalias.org) to make a true market of information. It is just getting started. To join the network, purchase a domain name for yourself, set up a personal web page, and get linked into it.
