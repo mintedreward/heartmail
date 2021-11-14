@@ -2506,9 +2506,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coasian/coasian-web@workspace:private/coasian/web":
+"@coasian/coasian-web@workspace:coasian-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/coasian-web@workspace:private/coasian/web"
+  resolution: "@coasian/coasian-web@workspace:coasian-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -2519,9 +2519,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/heartmail-web@workspace:private/heartmail/web":
+"@coasian/heartmail-web@workspace:heartmail-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/heartmail-web@workspace:private/heartmail/web"
+  resolution: "@coasian/heartmail-web@workspace:heartmail-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -2532,9 +2532,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/heartx-web@workspace:private/heartx/web":
+"@coasian/heartx-web@workspace:heartx-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/heartx-web@workspace:private/heartx/web"
+  resolution: "@coasian/heartx-web@workspace:heartx-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -2545,9 +2545,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/itisbit-web@workspace:private/itisbit/web":
+"@coasian/itisbit-web@workspace:itisbit-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/itisbit-web@workspace:private/itisbit/web"
+  resolution: "@coasian/itisbit-web@workspace:itisbit-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -2558,9 +2558,67 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/rxc-app@workspace:private/rxc/app":
+"@coasian/openspv-elliptic@workspace:openspv-elliptic":
   version: 0.0.0-use.local
-  resolution: "@coasian/rxc-app@workspace:private/rxc/app"
+  resolution: "@coasian/openspv-elliptic@workspace:openspv-elliptic"
+  dependencies:
+    bn.js: ^5.1.1
+    brfs: ^2.0.2
+    brorand: ^1.0.1
+    coveralls: ^3.0.8
+    grunt: ^1.0.4
+    grunt-browserify: ^5.0.0
+    grunt-cli: ^1.2.0
+    grunt-contrib-connect: ^2.1.0
+    grunt-contrib-copy: ^1.0.0
+    grunt-contrib-uglify: ^4.0.1
+    grunt-mocha-istanbul: ^5.0.2
+    grunt-saucelabs: ^9.0.1
+    hash.js: ^1.0.0
+    hmac-drbg: ^1.0.0
+    inherits: ^2.0.1
+    istanbul: ^0.4.2
+    jscs: ^3.0.7
+    jshint: ^2.11.1
+    minimalistic-assert: ^1.0.0
+    minimalistic-crypto-utils: ^1.0.0
+    mocha: ^7.1.2
+  languageName: unknown
+  linkType: soft
+
+"@coasian/openspv-keyfile@workspace:openspv-keyfile":
+  version: 0.0.0-use.local
+  resolution: "@coasian/openspv-keyfile@workspace:openspv-keyfile"
+  dependencies:
+    "@coasian/openspv-lib": "workspace:openspv-lib"
+    mocha: ^8.3.1
+    should: ^13.2.3
+    standard: ^16.0.3
+  languageName: unknown
+  linkType: soft
+
+"@coasian/openspv-lib@workspace:openspv-lib":
+  version: 0.0.0-use.local
+  resolution: "@coasian/openspv-lib@workspace:openspv-lib"
+  dependencies:
+    "@openspv/elliptic": 7.0.1
+    aes: 0.1.0
+    bn.js: 5.2.0
+    bs58: 4.0.1
+    hash.js: 1.1.7
+    is-hex: 1.1.3
+    mocha: 8.3.1
+    pbkdf2: 3.1.2
+    randombytes: 2.1.0
+    should: 13.2.3
+    sinon: 9.2.4
+    standard: 16.0.4
+  languageName: unknown
+  linkType: soft
+
+"@coasian/rxc-app@workspace:rxc-app":
+  version: 0.0.0-use.local
+  resolution: "@coasian/rxc-app@workspace:rxc-app"
   dependencies:
     expo: ~43.0.2
     expo-splash-screen: ~0.13.5
@@ -2587,22 +2645,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/rxc-web@workspace:private/rxc/web":
+"@coasian/tob-web@workspace:tob-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/rxc-web@workspace:private/rxc/web"
-  dependencies:
-    eslint: 8.0.0
-    eslint-config-next: 11.1.2
-    next: 11.1.2
-    react: 17.0.2
-    react-dom: 17.0.2
-    sharp: ^0.29.1
-  languageName: unknown
-  linkType: soft
-
-"@coasian/tob-web@workspace:private/tob/web":
-  version: 0.0.0-use.local
-  resolution: "@coasian/tob-web@workspace:private/tob/web"
+  resolution: "@coasian/tob-web@workspace:tob-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -3162,67 +3207,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openspv/elliptic@7.0.1, @openspv/elliptic@workspace:public/openspv/elliptic":
-  version: 0.0.0-use.local
-  resolution: "@openspv/elliptic@workspace:public/openspv/elliptic"
+"@openspv/elliptic@npm:7.0.1":
+  version: 7.0.1
+  resolution: "@openspv/elliptic@npm:7.0.1"
   dependencies:
     bn.js: ^5.1.1
-    brfs: ^2.0.2
     brorand: ^1.0.1
-    coveralls: ^3.0.8
-    grunt: ^1.0.4
-    grunt-browserify: ^5.0.0
-    grunt-cli: ^1.2.0
-    grunt-contrib-connect: ^2.1.0
-    grunt-contrib-copy: ^1.0.0
-    grunt-contrib-uglify: ^4.0.1
-    grunt-mocha-istanbul: ^5.0.2
-    grunt-saucelabs: ^9.0.1
     hash.js: ^1.0.0
     hmac-drbg: ^1.0.0
     inherits: ^2.0.1
-    istanbul: ^0.4.2
-    jscs: ^3.0.7
-    jshint: ^2.11.1
     minimalistic-assert: ^1.0.0
     minimalistic-crypto-utils: ^1.0.0
-    mocha: ^7.1.2
-  languageName: unknown
-  linkType: soft
+  checksum: 04f527bf640a7fa492a8b985354800f28f66690af84d5f97f17a32c0bcd1593855ee62bb8636868613b5dd2edc3fb611305100072baaef775c82031347e8428d
+  languageName: node
+  linkType: hard
 
-"@openspv/keyfile@workspace:private/openspv/keyfile":
+"@openspv/web@workspace:openspv-web":
   version: 0.0.0-use.local
-  resolution: "@openspv/keyfile@workspace:private/openspv/keyfile"
-  dependencies:
-    "@openspv/lib": "workspace:public/openspv/lib"
-    mocha: ^8.3.1
-    should: ^13.2.3
-    standard: ^16.0.3
-  languageName: unknown
-  linkType: soft
-
-"@openspv/lib@workspace:public/openspv/lib":
-  version: 0.0.0-use.local
-  resolution: "@openspv/lib@workspace:public/openspv/lib"
-  dependencies:
-    "@openspv/elliptic": 7.0.1
-    aes: 0.1.0
-    bn.js: 5.2.0
-    bs58: 4.0.1
-    hash.js: 1.1.7
-    is-hex: 1.1.3
-    mocha: 8.3.1
-    pbkdf2: 3.1.2
-    randombytes: 2.1.0
-    should: 13.2.3
-    sinon: 9.2.4
-    standard: 16.0.4
-  languageName: unknown
-  linkType: soft
-
-"@openspv/web@workspace:private/openspv/web":
-  version: 0.0.0-use.local
-  resolution: "@openspv/web@workspace:private/openspv/web"
+  resolution: "@openspv/web@workspace:openspv-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2
@@ -7002,9 +7004,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"db@workspace:private/openspv/db":
+"db@workspace:openspv-db":
   version: 0.0.0-use.local
-  resolution: "db@workspace:private/openspv/db"
+  resolution: "db@workspace:openspv-db"
   dependencies:
     "@aws-sdk/client-s3": ^3.39.0
     cassandra-driver: ^4.6.3
@@ -14435,12 +14437,6 @@ fsevents@~2.1.1:
   checksum: 3333900ec0e420d64c23b831bc3467e57031461d843c801f569b2204a1acc3cd7b3ec3c7897afc9dde86491dfa289708eb92bba164093d8bd88fb2c231843c91
   languageName: node
   linkType: hard
-
-"openspv@workspace:public/openspv":
-  version: 0.0.0-use.local
-  resolution: "openspv@workspace:public/openspv"
-  languageName: unknown
-  linkType: soft
 
 "opn@npm:^5.3.0":
   version: 5.5.0

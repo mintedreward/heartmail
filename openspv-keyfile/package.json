@@ -1,5 +1,5 @@
 {
-  "name": "@openspv/keyfile",
+  "name": "@coasian/openspv-keyfile",
   "packageManager": "yarn@3.0.2",
   "type": "module",
   "scripts": {
@@ -11,7 +11,7 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
-    "@openspv/lib": "workspace:public/openspv/lib"
+    "@coasian/openspv-lib": "workspace:openspv-lib"
   },
   "devDependencies": {
     "mocha": "^8.3.1",
