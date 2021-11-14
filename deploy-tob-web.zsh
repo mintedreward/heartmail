@@ -11,7 +11,7 @@ source .env.prod
 version=`git rev-parse --verify HEAD`
 
 # deploy tob-web
-cd $dir/private/tob/web
+cd $dir/tob-web
 yarn version minor
 yarn npm publish
 echo Building tob-web

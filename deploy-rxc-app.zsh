@@ -12,7 +12,7 @@ version=`git rev-parse --verify HEAD`
 
 echo Building rxc-app
 
-cd $dir/private/rxc/app
+cd $dir/rxc-app
 yarn version minor
 
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t rxc-app --platform linux/amd64

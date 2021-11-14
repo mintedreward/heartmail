@@ -1,8 +1,0 @@
-{
-  "name": "openspv",
-  "private": true,
-  "packageManager": "yarn@3.0.2",
-  "workspaces": [
-    "./*"
-  ]
-}

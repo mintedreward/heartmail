@@ -3,15 +3,6 @@
   "private": true,
   "packageManager": "yarn@3.0.2",
   "workspaces": [
-    "private/*",
-    "private/openspv/*",
-    "private/coasian/*",
-    "private/itisbit/*",
-    "private/heartmail/*",
-    "private/heartx/*",
-    "private/tob/*",
-    "private/rxc/*",
-    "public/*",
-    "public/openspv/*"
+    "./*"
   ]
 }
