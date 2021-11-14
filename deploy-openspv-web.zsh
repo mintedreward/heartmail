@@ -14,12 +14,12 @@ version=`git rev-parse --verify HEAD`
 cd $dir/openspv-web
 yarn version minor
 yarn npm publish
+
 echo Building openspv-web
-echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t openspv-web --platform linux/amd64
-rm .npmrc
 docker tag openspv-web ryanxcharles/openspv-web:${version}
 docker push ryanxcharles/openspv-web:${version}
+
 echo Deploying openspv-web
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-1 'docker kill $(docker ps -q)'

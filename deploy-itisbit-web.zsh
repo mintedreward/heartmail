@@ -14,12 +14,12 @@ version=`git rev-parse --verify HEAD`
 cd $dir/itisbit-web
 yarn version minor
 yarn npm publish
+
 echo Building itisbit-web
-echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t itisbit-web --platform linux/amd64
-rm .npmrc
 docker tag itisbit-web ryanxcharles/itisbit-web:${version}
 docker push ryanxcharles/itisbit-web:${version}
+
 echo Deploying itisbit-web
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t itisbit-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t itisbit-web-1 'docker kill $(docker ps -q)'

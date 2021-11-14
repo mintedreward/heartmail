@@ -14,12 +14,12 @@ version=`git rev-parse --verify HEAD`
 cd $dir/coasian-web
 yarn version minor
 yarn npm publish
+
 echo Building coasian-web
-echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t coasian-web --platform linux/amd64
-rm .npmrc
 docker tag coasian-web ryanxcharles/coasian-web:${version}
 docker push ryanxcharles/coasian-web:${version}
+
 echo Deploying coasian-web
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-1 'docker kill $(docker ps -q)'

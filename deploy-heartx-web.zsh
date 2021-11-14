@@ -14,12 +14,12 @@ version=`git rev-parse --verify HEAD`
 cd $dir/heartx-web
 yarn version minor
 yarn npm publish
+
 echo Building heartx-web
-echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t heartx-web --platform linux/amd64
-rm .npmrc
 docker tag heartx-web ryanxcharles/heartx-web:${version}
 docker push ryanxcharles/heartx-web:${version}
+
 echo Deploying heartx-web
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
 ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-1 'docker kill $(docker ps -q)'

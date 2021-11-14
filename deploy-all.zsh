@@ -7,4 +7,3 @@
 ./deploy-openspv-web.zsh
 ./deploy-rxc-app.zsh
 ./deploy-tob-web.zsh
-./update-open-source-repos.zsh
