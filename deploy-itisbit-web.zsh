@@ -13,7 +13,6 @@ version=`git rev-parse --verify HEAD`
 # deploy itisbit-web
 cd $dir/itisbit-web
 yarn version minor
-yarn npm publish
 
 echo Building itisbit-web
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t itisbit-web --platform linux/amd64

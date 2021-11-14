@@ -13,7 +13,6 @@ version=`git rev-parse --verify HEAD`
 # deploy openspv-web
 cd $dir/openspv-web
 yarn version minor
-yarn npm publish
 
 echo Building openspv-web
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t openspv-web --platform linux/amd64

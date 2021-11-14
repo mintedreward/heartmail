@@ -13,7 +13,6 @@ version=`git rev-parse --verify HEAD`
 # deploy heartx-web
 cd $dir/heartx-web
 yarn version minor
-yarn npm publish
 
 echo Building heartx-web
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t heartx-web --platform linux/amd64

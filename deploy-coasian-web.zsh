@@ -13,7 +13,6 @@ version=`git rev-parse --verify HEAD`
 # deploy coasian-web
 cd $dir/coasian-web
 yarn version minor
-yarn npm publish
 
 echo Building coasian-web
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t coasian-web --platform linux/amd64

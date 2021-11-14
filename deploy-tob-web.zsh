@@ -13,7 +13,6 @@ version=`git rev-parse --verify HEAD`
 # deploy tob-web
 cd $dir/tob-web
 yarn version minor
-yarn npm publish
 
 echo Building tob-web
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t tob-web --platform linux/amd64

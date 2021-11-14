@@ -13,7 +13,6 @@ version=`git rev-parse --verify HEAD`
 # deploy heartmail-web
 cd $dir/heartmail-web
 yarn version minor
-yarn npm publish
 
 echo Building heartmail-web
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t heartmail-web --platform linux/amd64
