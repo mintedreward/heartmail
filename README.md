@@ -182,6 +182,6 @@ keep functioning.
 * Email (Google)
 * Docker Registry (Docker Hub)
 * NPM Registry (NPM)
-* Ryan X. Charles
+* Expo Build Infrastructure and Credentials
 
 Copyright (c) 2021 Coasian Inc. All rights reserved.

@@ -13,5 +13,11 @@
     "image": "static/rxc-splash-dark.png",
     "backgroundColor": "#4d4843",
     "resizeMode": "cover"
+  },
+  "ios": {
+    "bundleIdentifier": "com.ryanxcharles.app"
+  },
+  "android": {
+    "package": "com.ryanxcharles.app"
   }
 }
