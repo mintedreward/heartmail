@@ -8,5 +8,10 @@
     ]
   },
   "name": "rxc-app",
-  "icon": "static/rxc-avatar-dark.png"
+  "icon": "static/rxc-avatar-dark.png",
+  "splash": {
+    "image": "static/rxc-splash-dark.png",
+    "backgroundColor": "#4d4843",
+    "resizeMode": "cover"
+  }
 }
