@@ -3,8 +3,6 @@ import ArticlesScreen from './ArticlesScreen'
 import HeadlinesScreen from './HeadlinesScreen'
 import VideosScreen from './VideosScreen'
 import ImagesScreen from './ImagesScreen'
-import ChatScreen from './ChatScreen'
-import MailScreen from './MailScreen'
 import { BottomNavigation } from 'react-native-paper'
 
 const Screen = () => {
@@ -13,18 +11,14 @@ const Screen = () => {
     { key: 'articles', title: 'Articles', icon: 'facebook' },
     { key: 'videos', title: 'Videos', icon: 'youtube' },
     { key: 'headlines', title: 'Headlines', icon: 'twitter' },
-    { key: 'images', title: 'Photos', icon: 'instagram' },
-    { key: 'chat', title: 'Chat', icon: 'slack' },
-    { key: 'mail', title: 'Mail', icon: 'gmail' },
+    { key: 'images', title: 'Photos', icon: 'instagram' }
   ])
 
   const renderScene = BottomNavigation.SceneMap({
     articles: ArticlesScreen,
     videos: VideosScreen,
     headlines: HeadlinesScreen,
-    images: ImagesScreen,
-    chat: ChatScreen,
-    mail: MailScreen
+    images: ImagesScreen
   })
 
   return (

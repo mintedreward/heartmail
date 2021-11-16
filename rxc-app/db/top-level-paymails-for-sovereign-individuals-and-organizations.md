@@ -1,7 +1,7 @@
 ---
 title: Top-Level Paymails for Sovereign Individuals and Organizations
 author: "@ryanxcharles.com"
-date: 2021-11-16 08:00:00 PST
+date: 2021-11-15 12:00:00 PST
 type: article
 ---
 
