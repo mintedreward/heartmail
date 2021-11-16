@@ -35,6 +35,7 @@ RUN adduser -S appuser -u 1001
 COPY --from=builder /app/web-build ./web-build
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/serve.js ./serve.js
 
 USER appuser
 
