@@ -36,7 +36,6 @@ COPY --from=builder /app/web-build ./web-build
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 
-RUN npm install -g serve@13.0.2
 USER appuser
 
 EXPOSE 3000
