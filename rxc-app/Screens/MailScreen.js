@@ -10,7 +10,7 @@ const MailScreen = () => {
           <CustomCard
             key={'key'}
             date={'2021-11-11'}
-            title={'RMail'}
+            title={'Mail'}
             content={'Mail is coming soon.'}
           />
         <View style={{alignItems: 'center'}}>
