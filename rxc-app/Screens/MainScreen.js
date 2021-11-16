@@ -12,7 +12,7 @@ const Tab = createMaterialBottomTabNavigator();
 const Screen = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator activeColor='#f8f3e7' inactiveColor='#f8f3e7' barStyle={{ backgroundColor: '#4d4843' }}>
+      <Tab.Navigator activeColor='#f8f3e7' inactiveColor='#c5c0b6' barStyle={{ backgroundColor: '#4d4843' }}>
         <Tab.Screen name='Articles' component={ArticlesScreen} options={{ tabBarIcon: 'facebook' }} />
         <Tab.Screen name='Videos' component={VideosScreen} options={{ tabBarIcon: 'youtube' }} />
         <Tab.Screen name='Headlines' component={HeadlinesScreen} options={{ tabBarIcon: 'twitter' }} />
