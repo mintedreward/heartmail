@@ -2,22 +2,23 @@
   "expo": {
     "name": "Ryan X. Charles",
     "slug": "rxc-app",
+    "icon": "static/rxc-avatar-dark.png",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
-  },
-  "name": "rxc-app",
-  "icon": "static/rxc-avatar-dark.png",
-  "splash": {
-    "image": "static/rxc-splash-dark.png",
-    "backgroundColor": "#4d4843",
-    "resizeMode": "cover"
-  },
-  "ios": {
-    "bundleIdentifier": "com.ryanxcharles.app"
-  },
-  "android": {
-    "package": "com.ryanxcharles.app"
+    ],
+    "splash": {
+      "image": "static/rxc-splash-dark.png",
+      "backgroundColor": "#4d4843",
+      "resizeMode": "cover"
+    },
+    "ios": {
+      "bundleIdentifier": "com.ryanxcharles.app",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.ryanxcharles.app",
+      "versionCode": 1
+    }
   }
 }
