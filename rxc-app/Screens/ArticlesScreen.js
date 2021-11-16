@@ -9,7 +9,7 @@ const articles = db.filter(obj => obj.metadata.type === 'article')
 const ArticlesScreen = () => {
   return (
     <React.Fragment>
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: '#f8f3e7' }}>
         {articles.map((ele) => (
           <CustomCard
             key={ele.filename}

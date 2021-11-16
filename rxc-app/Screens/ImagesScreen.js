@@ -9,7 +9,7 @@ const images = db.filter(obj => obj.metadata.type === 'image')
 const ImagesScreen = () => {
   return (
     <React.Fragment>
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: '#f8f3e7' }}>
         {images.map((ele) => (
           <ImageCard
             key={ele.filename}

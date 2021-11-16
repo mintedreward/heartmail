@@ -9,7 +9,7 @@ const videos = db.filter(obj => obj.metadata.type === 'video')
 const VideosScreen = () => {
   return (
     <React.Fragment>
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: '#f8f3e7' }}>
         {videos.map((ele) => (
           <VideoCard
             key={ele.filename}

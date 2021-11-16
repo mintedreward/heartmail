@@ -1499,7 +1499,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@coasian/rxc-app@workspace:."
   dependencies:
+    "@react-navigation/bottom-tabs": ^6.0.9
+    "@react-navigation/material-bottom-tabs": ^6.0.9
     "@react-navigation/native": ^6.0.6
+    "@react-navigation/native-stack": ^6.2.5
     expo: ~43.0.2
     expo-splash-screen: ~0.13.5
     expo-status-bar: ~1.1.0
@@ -1511,7 +1514,7 @@ __metadata:
     react-native: 0.64.3
     react-native-gesture-handler: ~1.10.2
     react-native-markdown-display: ^7.0.0-alpha.2
-    react-native-paper: ^4.10.0
+    react-native-paper: ^4.10.1
     react-native-reanimated: ~2.2.0
     react-native-safe-area-context: 3.3.2
     react-native-screens: ~3.8.0
@@ -2090,6 +2093,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-navigation/bottom-tabs@npm:^6.0.9":
+  version: 6.0.9
+  resolution: "@react-navigation/bottom-tabs@npm:6.0.9"
+  dependencies:
+    "@react-navigation/elements": ^1.2.1
+    color: ^3.1.3
+    warn-once: ^0.1.0
+  peerDependencies:
+    "@react-navigation/native": ^6.0.0
+    react: "*"
+    react-native: "*"
+    react-native-safe-area-context: ">= 3.0.0"
+    react-native-screens: ">= 3.0.0"
+  checksum: 2e3594ee6f77c0243f147f96c96bb2355b68fb8c57fa9e8c321d5e311eb0be0cc52797f76dd650aaebb53d0d02b3c8b03307bc391b71b41242e95354214ebaca
+  languageName: node
+  linkType: hard
+
 "@react-navigation/core@npm:^6.1.0":
   version: 6.1.0
   resolution: "@react-navigation/core@npm:6.1.0"
@@ -2102,6 +2122,50 @@ __metadata:
   peerDependencies:
     react: "*"
   checksum: 02a00792e96ded2c2859b43d435fc6d6b6e84f6b1a0a04254b09f8742620ab384a99e745e0a918d334ef27f64cd8552d414579059046284af330e3efae77cba9
+  languageName: node
+  linkType: hard
+
+"@react-navigation/elements@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@react-navigation/elements@npm:1.2.1"
+  peerDependencies:
+    "@react-navigation/native": ^6.0.0
+    react: "*"
+    react-native: "*"
+    react-native-safe-area-context: ">= 3.0.0"
+  checksum: 9b303e1d69e668ec5c24ff27d5cf8fb74397af3825d172b186b16d92f5cfefafe653e8794c9bb15b3cc89a29a9f0349775b34237d96f46954262e344197b4739
+  languageName: node
+  linkType: hard
+
+"@react-navigation/material-bottom-tabs@npm:^6.0.9":
+  version: 6.0.9
+  resolution: "@react-navigation/material-bottom-tabs@npm:6.0.9"
+  dependencies:
+    "@react-navigation/elements": ^1.2.1
+  peerDependencies:
+    "@react-navigation/native": ^6.0.0
+    react: "*"
+    react-native: "*"
+    react-native-paper: ">= 3.0.0"
+    react-native-safe-area-context: ">= 3.0.0"
+    react-native-vector-icons: ">= 6.0.0"
+  checksum: ddbd32b77c88b55bc44ebb6de5abfab77a5f9932294a47bbb7c276a441ecb296c3c0948713fa2b171dcd7d2bd2f9c53a43c253647f7ee9909dd6af08ce26538d
+  languageName: node
+  linkType: hard
+
+"@react-navigation/native-stack@npm:^6.2.5":
+  version: 6.2.5
+  resolution: "@react-navigation/native-stack@npm:6.2.5"
+  dependencies:
+    "@react-navigation/elements": ^1.2.1
+    warn-once: ^0.1.0
+  peerDependencies:
+    "@react-navigation/native": ^6.0.0
+    react: "*"
+    react-native: "*"
+    react-native-safe-area-context: ">= 3.0.0"
+    react-native-screens: ">= 3.0.0"
+  checksum: 80242d2f15f66b00eedaeb9ae23bbadfccc23b4f2e56492f9e4b6682c317914a507cd87e55e810c52c8b84711d474c6aa90d61582d4e966fd3d4f072c20c02d3
   languageName: node
   linkType: hard
 
@@ -4019,7 +4083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color@npm:^3.0.0, color@npm:^3.1.2":
+"color@npm:^3.0.0, color@npm:^3.1.2, color@npm:^3.1.3":
   version: 3.2.1
   resolution: "color@npm:3.2.1"
   dependencies:
@@ -10997,9 +11061,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-native-paper@npm:^4.10.0":
-  version: 4.10.0
-  resolution: "react-native-paper@npm:4.10.0"
+"react-native-paper@npm:^4.10.1":
+  version: 4.10.1
+  resolution: "react-native-paper@npm:4.10.1"
   dependencies:
     "@callstack/react-theme-provider": ^3.0.7
     color: ^3.1.2
@@ -11008,7 +11072,7 @@ fsevents@^1.2.7:
     react: "*"
     react-native: "*"
     react-native-vector-icons: "*"
-  checksum: 277d5409e4ed80705a24ae7e93bfd7ae9fdd2a468e2734586e343697d18df78fc8857626385ddffd477481227ef523d914117ff757181e512ab685299c0d425b
+  checksum: c27e11db421d08949428c442fa02bcb4ce2fa08d29d1da103032d6f58aa2b5321cca402b16616294ffc1dff54fa6c08e1bc181b9ccfc5563b06c1ee434bf786b
   languageName: node
   linkType: hard
 

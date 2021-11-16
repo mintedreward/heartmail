@@ -9,7 +9,7 @@ const headlines = db.filter(obj => obj.metadata.type === 'headline')
 const HeadlinesScreen = () => {
   return (
     <React.Fragment>
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: '#f8f3e7' }}>
         {headlines.map((ele) => (
           <HeadlineCard
             key={ele.filename}

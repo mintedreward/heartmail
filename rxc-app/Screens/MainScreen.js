@@ -4,34 +4,23 @@ import HeadlinesScreen from './HeadlinesScreen'
 import VideosScreen from './VideosScreen'
 import ImagesScreen from './ImagesScreen'
 import PrivacyPolicyScreen from './PrivacyPolicyScreen'
-import { BottomNavigation } from 'react-native-paper'
+import { NavigationContainer } from '@react-navigation/native'
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
+const Tab = createMaterialBottomTabNavigator();
 
 const Screen = () => {
-  const [index, setIndex] = useState(0)
-  const [routes] = useState([
-    { key: 'articles', title: 'Articles', icon: 'facebook' },
-    { key: 'videos', title: 'Videos', icon: 'youtube' },
-    { key: 'headlines', title: 'Headlines', icon: 'twitter' },
-    { key: 'images', title: 'Photos', icon: 'instagram' },
-    { key: 'privacyPolicy', title: 'Privacy', icon: 'file-outline' }
-  ])
-
-  const renderScene = BottomNavigation.SceneMap({
-    articles: ArticlesScreen,
-    videos: VideosScreen,
-    headlines: HeadlinesScreen,
-    images: ImagesScreen,
-    privacyPolicy: PrivacyPolicyScreen
-  })
-
   return (
-    <BottomNavigation
-      barStyle={{backgroundColor: '#4d4843'}}
-      navigationState={{ index, routes }}
-      onIndexChange={setIndex}
-      renderScene={renderScene}
-    />
-  )
+    <NavigationContainer>
+      <Tab.Navigator activeColor='#f8f3e7' inactiveColor='#f8f3e7' barStyle={{ backgroundColor: '#4d4843' }}>
+        <Tab.Screen name='Articles' component={ArticlesScreen} options={{ tabBarIcon: 'facebook' }} />
+        <Tab.Screen name='Videos' component={VideosScreen} options={{ tabBarIcon: 'youtube' }} />
+        <Tab.Screen name='Headlines' component={HeadlinesScreen} options={{ tabBarIcon: 'twitter' }} />
+        <Tab.Screen name='Images' component={ImagesScreen} options={{ tabBarIcon: 'instagram' }} />
+        <Tab.Screen name='Privacy' component={PrivacyPolicyScreen} options={{ tabBarIcon: 'file-outline' }} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
 
 export default Screen
