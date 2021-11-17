@@ -14,16 +14,18 @@ cd $dir/heartx-web
 yarn version minor
 
 echo Building heartx-web
+
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t heartx-web --platform linux/amd64
 docker tag heartx-web ryanxcharles/heartx-web:${version}
 docker push ryanxcharles/heartx-web:${version}
 
 echo Deploying heartx-web
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-1 'docker kill $(docker ps -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-1 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-1 "docker run --detach -p 80:3000 ryanxcharles/heartx-web:${version}"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-2 'docker kill $(docker ps -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-2 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t heartx-web-2 "docker run --detach -p 80:3000 ryanxcharles/heartx-web:${version}"
+
+ssh -i ~/.ssh/coasian.pem -t heartx-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+ssh -i ~/.ssh/coasian.pem -t heartx-web-1 'docker kill $(docker ps -q)'
+ssh -i ~/.ssh/coasian.pem -t heartx-web-1 'docker rm $(docker ps -a -q)'
+ssh -i ~/.ssh/coasian.pem -t heartx-web-1 "docker run --detach -p 80:3000 ryanxcharles/heartx-web:${version}"
+ssh -i ~/.ssh/coasian.pem -t heartx-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+ssh -i ~/.ssh/coasian.pem -t heartx-web-2 'docker kill $(docker ps -q)'
+ssh -i ~/.ssh/coasian.pem -t heartx-web-2 'docker rm $(docker ps -a -q)'
+ssh -i ~/.ssh/coasian.pem -t heartx-web-2 "docker run --detach -p 80:3000 ryanxcharles/heartx-web:${version}"

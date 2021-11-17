@@ -14,16 +14,18 @@ cd $dir/tob-web
 yarn version minor
 
 echo Building tob-web
+
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t tob-web --platform linux/amd64
 docker tag tob-web ryanxcharles/tob-web:${version}
 docker push ryanxcharles/tob-web:${version}
 
 echo Deploying tob-web
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t tob-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t tob-web-1 'docker kill $(docker ps -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t tob-web-1 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t tob-web-1 "docker run --detach -p 80:3000 ryanxcharles/tob-web:${version}"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t tob-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t tob-web-2 'docker kill $(docker ps -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t tob-web-2 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t tob-web-2 "docker run --detach -p 80:3000 ryanxcharles/tob-web:${version}"
+
+ssh -i ~/.ssh/coasian.pem -t tob-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+ssh -i ~/.ssh/coasian.pem -t tob-web-1 'docker kill $(docker ps -q)'
+ssh -i ~/.ssh/coasian.pem -t tob-web-1 'docker rm $(docker ps -a -q)'
+ssh -i ~/.ssh/coasian.pem -t tob-web-1 "docker run --detach -p 80:3000 ryanxcharles/tob-web:${version}"
+ssh -i ~/.ssh/coasian.pem -t tob-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+ssh -i ~/.ssh/coasian.pem -t tob-web-2 'docker kill $(docker ps -q)'
+ssh -i ~/.ssh/coasian.pem -t tob-web-2 'docker rm $(docker ps -a -q)'
+ssh -i ~/.ssh/coasian.pem -t tob-web-2 "docker run --detach -p 80:3000 ryanxcharles/tob-web:${version}"

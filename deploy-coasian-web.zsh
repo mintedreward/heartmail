@@ -14,16 +14,18 @@ cd $dir/coasian-web
 yarn version minor
 
 echo Building coasian-web
+
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t coasian-web --platform linux/amd64
 docker tag coasian-web ryanxcharles/coasian-web:${version}
 docker push ryanxcharles/coasian-web:${version}
 
 echo Deploying coasian-web
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-1 'docker kill $(docker ps -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-1 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-1 "docker run --detach -p 80:3000 ryanxcharles/coasian-web:${version}"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-2 'docker kill $(docker ps -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-2 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t coasian-web-2 "docker run --detach -p 80:3000 ryanxcharles/coasian-web:${version}"
+
+ssh -i ~/.ssh/coasian.pem -t coasian-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+ssh -i ~/.ssh/coasian.pem -t coasian-web-1 'docker kill $(docker ps -q)'
+ssh -i ~/.ssh/coasian.pem -t coasian-web-1 'docker rm $(docker ps -a -q)'
+ssh -i ~/.ssh/coasian.pem -t coasian-web-1 "docker run --detach -p 80:3000 ryanxcharles/coasian-web:${version}"
+ssh -i ~/.ssh/coasian.pem -t coasian-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+ssh -i ~/.ssh/coasian.pem -t coasian-web-2 'docker kill $(docker ps -q)'
+ssh -i ~/.ssh/coasian.pem -t coasian-web-2 'docker rm $(docker ps -a -q)'
+ssh -i ~/.ssh/coasian.pem -t coasian-web-2 "docker run --detach -p 80:3000 ryanxcharles/coasian-web:${version}"

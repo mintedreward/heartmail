@@ -14,16 +14,18 @@ cd $dir/openspv-web
 yarn version minor
 
 echo Building openspv-web
+
 docker build --build-arg NPM_TOKEN=${NPM_TOKEN} . -t openspv-web --platform linux/amd64
 docker tag openspv-web ryanxcharles/openspv-web:${version}
 docker push ryanxcharles/openspv-web:${version}
 
 echo Deploying openspv-web
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-1 'docker kill $(docker ps -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-1 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-1 "docker run --detach -p 80:3000 ryanxcharles/openspv-web:${version}"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-2 'docker kill $(docker ps -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-2 'docker rm $(docker ps -a -q)'
-ssh -F $dir/ssh_config -i $dir/coasian.pem -t openspv-web-2 "docker run --detach -p 80:3000 ryanxcharles/openspv-web:${version}"
+
+ssh -i ~/.ssh/coasian.pem -t openspv-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+ssh -i ~/.ssh/coasian.pem -t openspv-web-1 'docker kill $(docker ps -q)'
+ssh -i ~/.ssh/coasian.pem -t openspv-web-1 'docker rm $(docker ps -a -q)'
+ssh -i ~/.ssh/coasian.pem -t openspv-web-1 "docker run --detach -p 80:3000 ryanxcharles/openspv-web:${version}"
+ssh -i ~/.ssh/coasian.pem -t openspv-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+ssh -i ~/.ssh/coasian.pem -t openspv-web-2 'docker kill $(docker ps -q)'
+ssh -i ~/.ssh/coasian.pem -t openspv-web-2 'docker rm $(docker ps -a -q)'
+ssh -i ~/.ssh/coasian.pem -t openspv-web-2 "docker run --detach -p 80:3000 ryanxcharles/openspv-web:${version}"
