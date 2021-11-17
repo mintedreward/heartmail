@@ -4,7 +4,7 @@
     "slug": "rxc-app",
     "scheme": "ryanxcharles.com",
     "icon": "static/rxc-avatar-dark.png",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -15,11 +15,11 @@
     },
     "ios": {
       "bundleIdentifier": "com.ryanxcharles.app",
-      "buildNumber": "2.0.0"
+      "buildNumber": "3.0.0"
     },
     "android": {
       "package": "com.ryanxcharles.app",
-      "versionCode": 2
+      "versionCode": 3
     }
   }
 }
