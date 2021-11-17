@@ -6,13 +6,8 @@ import ImagesScreen from './ImagesScreen'
 import PrivacyPolicyScreen from './PrivacyPolicyScreen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-// Install this package with `expo install expo-linking`
 import * as Linking from 'expo-linking';
 
-// Linking.createURL is available as of expo@40.0.1 and expo-linking@2.0.1. If
-// you are using older versions, you can upgrade or use Linking.makeUrl instead,
-// but note that your deep links in standalone apps will be in the format
-// scheme:/// rather than scheme:// if you use makeUrl.
 const prefix = Linking.createURL('/');
 const Tab = createMaterialBottomTabNavigator();
 
@@ -28,7 +23,7 @@ const Screen = () => {
         <Tab.Screen name='videos' component={VideosScreen} options={{ title: 'Videos', tabBarLabel: 'Videos', tabBarIcon: 'youtube' }} />
         <Tab.Screen name='headlines' component={HeadlinesScreen} options={{ title: 'Headlines', tabBarLabel: 'Headlines', tabBarIcon: 'twitter' }} />
         <Tab.Screen name='images' component={ImagesScreen} options={{ title: 'Images', tabBarLabel: 'Images', tabBarIcon: 'instagram' }} />
-        <Tab.Screen name='privacy' component={PrivacyPolicyScreen} options={{ title: 'Privacy', tabBarLabel: 'Privacy', tabBarIcon: 'file-outline' }} />
+        <Tab.Screen name='privacy-policy' component={PrivacyPolicyScreen} options={{ title: 'Privacy Policy', tabBarLabel: 'Privacy', tabBarIcon: 'file-outline' }} />
       </Tab.Navigator>
     </NavigationContainer>
   );
