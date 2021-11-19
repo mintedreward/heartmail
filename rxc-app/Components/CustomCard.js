@@ -30,7 +30,7 @@ const CustomCard = (props) => {
             </Paragraph>
           </Card.Content>
           <Card.Content>
-              <Markdown>{props.content}</Markdown>
+              <Markdown style={{ heading1: { fontSize: 20, marginBottom: 10, marginTop: 10 }}}>{props.content}</Markdown>
           </Card.Content>
         </Card>
       </View>
