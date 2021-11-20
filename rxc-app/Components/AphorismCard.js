@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Card, Text, Paragraph } from 'react-native-paper'
-import Markdown from 'react-native-markdown-display'
 
 const styles = StyleSheet.create({
   outerContainer: {
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const HeadlineCard = (props) => {
+const AphorismCard = (props) => {
   return (
     <React.Fragment>
       <View style={styles.outerContainer}>
@@ -38,4 +37,4 @@ const HeadlineCard = (props) => {
   )
 }
 
-export default HeadlineCard
+export default AphorismCard

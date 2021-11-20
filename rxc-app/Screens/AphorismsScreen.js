@@ -1,17 +1,17 @@
 import * as React from 'react'
-import HeadlineCard from '../Components/HeadlineCard'
+import AphorismCard from '../Components/AphorismCard'
 import db from '../db/db.js'
 import { ScrollView, View } from 'react-native'
 import Heart from '../Components/Heart'
 
-const headlines = db.filter(obj => obj.metadata.type === 'headline')
+const headlines = db.filter(obj => obj.metadata.type === 'aphorism')
 
-const HeadlinesScreen = () => {
+const AphorismsScreen = () => {
   return (
     <React.Fragment>
       <ScrollView style={{ backgroundColor: 'white' }}>
         {headlines.map((ele) => (
-          <HeadlineCard
+          <AphorismCard
             key={ele.filename}
             date={ele.date}
             author={ele.metadata.author}
@@ -26,4 +26,4 @@ const HeadlinesScreen = () => {
   )
 }
 
-export default HeadlinesScreen
+export default AphorismsScreen

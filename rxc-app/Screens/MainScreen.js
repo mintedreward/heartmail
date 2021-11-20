@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ArticlesScreen from './ArticlesScreen'
-import HeadlinesScreen from './HeadlinesScreen'
+import AphorismsScreen from './AphorismsScreen'
 import VideosScreen from './VideosScreen'
 import ImagesScreen from './ImagesScreen'
 import PrivacyPolicyScreen from './PrivacyPolicyScreen'
@@ -21,7 +21,7 @@ const Screen = () => {
       <Tab.Navigator activeColor='white' inactiveColor='#ddd' barStyle={{ backgroundColor: '#363431' }}>
         <Tab.Screen name='articles' component={ArticlesScreen} options={{ title: 'Articles', tabBarLabel: 'Articles', tabBarIcon: 'facebook' }} />
         <Tab.Screen name='videos' component={VideosScreen} options={{ title: 'Videos', tabBarLabel: 'Videos', tabBarIcon: 'youtube' }} />
-        <Tab.Screen name='headlines' component={HeadlinesScreen} options={{ title: 'Headlines', tabBarLabel: 'Headlines', tabBarIcon: 'twitter' }} />
+        <Tab.Screen name='aphorisms' component={AphorismsScreen} options={{ title: 'Aphorisms', tabBarLabel: 'Aphorisms', tabBarIcon: 'twitter' }} />
         <Tab.Screen name='images' component={ImagesScreen} options={{ title: 'Images', tabBarLabel: 'Images', tabBarIcon: 'instagram' }} />
         <Tab.Screen name='privacy-policy' component={PrivacyPolicyScreen} options={{ title: 'Privacy Policy', tabBarLabel: 'Privacy', tabBarIcon: 'file-outline' }} />
       </Tab.Navigator>
