@@ -13,7 +13,7 @@ That was more than ten years ago now. Since then I have had the fortunate of get
 
 My discussions with the inventor of Bitcoin are freely available in the [Theory of Bitcoin](https://www.theoryofbitcoin.com) interview series. [I recommend watching every interview in chronological order using this playlist](https://www.youtube.com/playlist?list=PLOqZWfHm-gzDjTBDiDAZEp8sBUkphnaGe). The full interview series is more than 50 hours in length which is the equivalent of about five audio books. It is is well worth the time of every person full-time involved in the industry to watch the entire interview series.
 
-This introduction is an outline of the key concepts discussed in Theory of Bitcoin. It is available both in the form of a video and this article summarizing all of the concepts.
+This introduction is an outline of the key concepts discussed in Theory of Bitcoin. It is available both in the form of a [video](https://youtu.be/fj6zk8DIimc) and this article summarizing all of the concepts.
 
 # Basics
 
