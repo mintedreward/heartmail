@@ -1,6 +1,6 @@
 ---
 title: Why I Deleted My Twitter Account
-author: "@ryanxcharles.com"
+author: "ryan@ryanxcharles.com"
 date: 2021-11-08 12:00:00 PST
 type: article
 ---

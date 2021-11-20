@@ -1,6 +1,6 @@
 ---
 title: Friend in Sonoma ❤️
-author: "@ryanxcharles.com"
+author: "ryan@ryanxcharles.com"
 date: 2021-10-17 12:00:00 PST
 type: image
 width: 600

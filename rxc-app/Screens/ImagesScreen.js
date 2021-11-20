@@ -9,11 +9,12 @@ const images = db.filter(obj => obj.metadata.type === 'image')
 const ImagesScreen = () => {
   return (
     <React.Fragment>
-      <ScrollView style={{ backgroundColor: '#f8f3e7' }}>
+      <ScrollView style={{ backgroundColor: 'white' }}>
         {images.map((ele) => (
           <ImageCard
             key={ele.filename}
             date={ele.date}
+            author={ele.metadata.author}
             title={ele.metadata.title}
             base64={ele.metadata.base64}
           />

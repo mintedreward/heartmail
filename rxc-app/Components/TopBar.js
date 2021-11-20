@@ -3,13 +3,13 @@ import { Appbar, Avatar } from 'react-native-paper'
 import { View } from 'react-native'
 
 const TopBar = () => (
-  <Appbar.Header style={{backgroundColor: '#4d4843'}}>
+  <Appbar.Header style={{backgroundColor: '#363431'}}>
     <View style={{flexDirection: 'row', textAlign: 'left'}}>
       <View>
         <Avatar.Image size={40} source={require('../static/rxc-avatar.jpg')} />
       </View>
       <View>
-        <Appbar.Content title='Ryan X. Charles' subtitle='@ryanxcharles.com' color='#f8f3e7' />
+        <Appbar.Content title='Ryan X. Charles' subtitle='ryan@ryanxcharles.com' color='white' />
       </View>
     </View>
   </Appbar.Header>

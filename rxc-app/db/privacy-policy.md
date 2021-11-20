@@ -1,6 +1,6 @@
 ---
 title: Privacy Policy
-author: "@ryanxcharles.com"
+author: "ryan@ryanxcharles.com"
 date: 2021-11-16 12:00:00 PST
 type: page
 ---

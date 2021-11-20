@@ -9,11 +9,12 @@ const articles = db.filter(obj => obj.filename === 'privacy-policy.md')
 const PrivacyPolicyScreen = () => {
   return (
     <React.Fragment>
-      <ScrollView style={{ backgroundColor: '#f8f3e7' }}>
+      <ScrollView style={{ backgroundColor: 'white' }}>
         {articles.map((ele) => (
           <CustomCard
             key={ele.filename}
             date={ele.date}
+            author={ele.metadata.author}
             title={ele.metadata.title}
             content={ele.content}
           />

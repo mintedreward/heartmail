@@ -26,6 +26,9 @@ const CustomCard = (props) => {
           </Card.Content>
           <Card.Content>
             <Paragraph>
+              <Text>{props.author}</Text>
+            </Paragraph>
+            <Paragraph>
               <Text>{new Date(props.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</Text>
             </Paragraph>
           </Card.Content>
