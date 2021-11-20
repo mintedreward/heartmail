@@ -153,6 +153,8 @@ Domain names are distributed across:
 * Coasian Key Manager: Manage passwords and other keys.
 * Coasian Ads: Display ads to target demographics.
 * Anarchoscience: Science crowdfunding.
+* It is Bit: Sell research articles ($5 for each paper).
+* It is Bit: Sell educational material.
 * It is Bit: Information theory education marketplace.
 * Planck Times: Physics journal.
 * Contract.IO: Contract signing & execution. One person, many companies.
