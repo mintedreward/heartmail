@@ -1,17 +1,21 @@
 import * as React from 'react'
-import CustomCard from '../Components/CustomCard'
+import ArticleCard from '../Components/ArticleCard'
 import db from '../db/db.js'
 import { ScrollView, View } from 'react-native'
 import Heart from '../Components/Heart'
+import { Image } from 'react-native'
 
-const articles = db.filter(obj => obj.metadata.type === 'article')
+const articles = db.filter(obj =>  obj.filename === 'friends.md')
 
-const ArticlesScreen = () => {
+const FriendsScreen = () => {
   return (
     <React.Fragment>
       <ScrollView style={{ backgroundColor: 'white' }}>
+        <View style={{alignItems: 'center'}}>
+          <Image style={{ width: 300, height: 200 }} source={require('../static/rxc-friends.png')} />
+        </View>
         {articles.map((ele) => (
-          <CustomCard
+          <ArticleCard
             key={ele.filename}
             date={ele.date}
             author={ele.metadata.author}
@@ -27,4 +31,4 @@ const ArticlesScreen = () => {
   )
 }
 
-export default ArticlesScreen
+export default FriendsScreen

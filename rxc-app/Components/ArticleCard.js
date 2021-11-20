@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const CustomCard = (props) => {
+const ArticleCard = (props) => {
   return (
     <React.Fragment>
       <View style={styles.outerContainer}>
@@ -41,4 +41,4 @@ const CustomCard = (props) => {
   )
 }
 
-export default CustomCard
+export default ArticleCard

@@ -32,7 +32,7 @@ const ImageCard = (props) => {
             </Paragraph>
           </Card.Content>
           <Card.Content>
-              <Image style={{height: 300, maxWidth: 400 }} source={{ uri: props.base64 }} />
+              <Image style={{ height: 300, maxWidth: 400 }} source={{ uri: props.base64 }} />
           </Card.Content>
         </Card>
       </View>
