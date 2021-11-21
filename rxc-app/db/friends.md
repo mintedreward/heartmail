@@ -45,6 +45,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 **Organizations**.
 
+[MetaNet.ICU](https://metanet.icu). The new global economy.
+
 [Fluridium](http://www.fluridium.com). I am building a WARP enabled spaceship.
 
 [Blarecast](https://blarecast.com). BLARECAST is an innovative media distribution platform for artists and content creators.
