@@ -2,6 +2,7 @@ import * as React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Card, Text, Paragraph } from 'react-native-paper'
 import YoutubePlayer from 'react-native-youtube-iframe'
+import Markdown from 'react-native-markdown-display'
 
 const styles = StyleSheet.create({
   outerContainer: {
@@ -34,6 +35,9 @@ const VideoCard = (props) => {
           </Card.Content>
           <Card.Content>
               <YoutubePlayer height={200} width={350} videoId={props.youtubeId} play={false} />
+          </Card.Content>
+          <Card.Content>
+              <Markdown style={{ heading1: { fontSize: 20, marginBottom: 10, marginTop: 10 }}}>{props.content}</Markdown>
           </Card.Content>
         </Card>
       </View>

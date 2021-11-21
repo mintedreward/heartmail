@@ -36,6 +36,7 @@ const ContentScreen = () => {
                 author={ele.metadata.author}
                 title={ele.metadata.title}
                 youtubeId={ele.metadata.youtubeId}
+                content={ele.content}
               />
             )
           } else if (ele.metadata.type === 'aphorism') {
