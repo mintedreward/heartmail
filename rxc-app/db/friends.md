@@ -9,7 +9,7 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 **Individuals**.
 
-[Craig Wright](https://craigwright.net). Creator of Bitcoin - Satoshi Nakamoto.
+[Craig Wright](https://craigwright.net). Creator of Bitcoin - Satoshi Nakamoto. Eternal student and researcher. nChain Chief Scientist. Lawyer, banker, economist, pastor, coder, investor, mathematician, stats, and world-curious. My opinions are my own.
 
 [Brad Meinert](https://bigbadbrad.com). Growth Hacker.
 
