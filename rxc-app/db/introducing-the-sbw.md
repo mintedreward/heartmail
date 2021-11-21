@@ -15,6 +15,6 @@ Step 2. **Host a personal web page on your domain name that you fully control an
 
 You should be able to get these things going in one day. If you’re busy, no more than one week. Remember you can iterate. The first version doesn’t have to be perfect. You can make it better tomorrow.
 
-My domain name is [ryanxcharles.com](https://www.ryanxcharles.com/). Bookmark my web page. You’ll notice this message is replicated across my web page, Twitter, Instagram, Facebook, Medium, and LinkedIn. Please share a link to your web page in the comments to this message on social media. I will link the ones I like from my web page. This is the beginning.
+My domain name is [ryanxcharles.com](https://www.ryanxcharles.com/). Bookmark my web page. You’ll notice this message is replicated across my web page, Instagram, Facebook, Medium, and LinkedIn. Please share a link to your web page in the comments to this message on social media. I will link the ones I like from my web page. This is the beginning.
 
 [Instagram](https://instagram.com/ryan_x_charles) | [Medium](https://medium.com/@ryanxcharles) | [GitHub](https://github.com/ryanxcharles) | [YouTube](https://www.youtube.com/user/ryanxcharles/) | [LinkedIn](https://www.linkedin.com/in/ryanxcharles) | [Facebook](https://www.facebook.com/ryanxcharles) | [Last.fm](http://www.last.fm/user/ryancarnated)
