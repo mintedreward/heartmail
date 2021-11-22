@@ -6,11 +6,11 @@ type: video
 youtubeId: 8hiPP_KlrmI
 ---
 
-I discovered David Turner this morning who has made reasonable arguments COVID but whose Twitter account with 25,000 followers has been deleted with no recourse. It seems he has been deplatformed by Twitter because his arguments don't fit the mainstream narrative.
+I discovered David Thunder this morning who has made reasonable arguments COVID but whose Twitter account with 25,000 followers has been deleted with no recourse. It seems he has been deplatformed by Twitter because his arguments don't fit the mainstream narrative.
 
-I recommend perusing his content available on [davidturner.com](http://www.davidturner.com) and arriving at your own opinion about whether it was the right call for Twitter to delete his profile. In my opinion this is obviously an abuse of Twitter's central position in society and a sign that we need to migrate everything off of Twitter and all other hyper-centralized social platforms (Google and Facebook) as quickly as possible.
+I recommend perusing his content available on [davidthunder.com](http://www.davidthunder.com) and arriving at your own opinion about whether it was the right call for Twitter to delete his profile. In my opinion this is obviously an abuse of Twitter's central position in society and a sign that we need to migrate everything off of Twitter and all other hyper-centralized social platforms (Google and Facebook) as quickly as possible.
 
-David owns his own domain name, davidturner.com, which means it's very difficult to fully censor him. Although Twitter has deleted his account, which comes at a great cost, his voice cannot be wiped out so long as he has alternatives.
+David owns his own domain name, davidthunder.com, which means it's very difficult to fully censor him. Although Twitter has deleted his account, which comes at a great cost, his voice cannot be wiped out so long as he has alternatives.
 
 The domain name system (DNS) is administered by [ICANN](https://www.icann.org) and [IANA](https://www.iana.org). Although technically centralized, DNS is actually widely distributed because many different organizations and countries control all of the top-level domains (TLDs) like .uk, .es, and .com. [IANA has a list of all the organizations that administer each TLD on their website](https://www.iana.org/domains/root/db). It is interesting to browse through that list. Compare that list of organizations with Twitter. DNS vs. Twitter is massively distributed vs. highly centralized.
 
