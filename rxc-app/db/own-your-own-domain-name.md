@@ -6,9 +6,9 @@ type: video
 youtubeId: 8hiPP_KlrmI
 ---
 
-I discovered David Thunder this morning who has made reasonable arguments COVID but whose Twitter account with 25,000 followers has been deleted with no recourse. It seems he has been deplatformed by Twitter because his arguments don't fit the mainstream narrative.
+David Thunder has made reasonable arguments about COVID, but his Twitter account with 25,000 followers has been deleted with no recourse. It seems he has been deplatformed by Twitter because his arguments don't fit the mainstream narrative. I discovered him just this morning and find it truly disturbing that Twitter has deleted his account simply for saying something they disagree with.
 
-I recommend perusing his content available on [davidthunder.com](http://www.davidthunder.com) and arriving at your own opinion about whether it was the right call for Twitter to delete his profile. In my opinion this is obviously an abuse of Twitter's central position in society and a sign that we need to migrate everything off of Twitter and all other hyper-centralized social platforms (Google and Facebook) as quickly as possible.
+I recommend perusing his content available on [davidthunder.com](http://www.davidthunder.com) and arriving at your own opinion about whether it was the right call for Twitter to delete his profile. In my opinion this is obviously an abuse of Twitter's central position in society and a sign that we need to migrate everything off of Twitter and all other hyper-centralized social platforms (Google and Facebook) as quickly as possible. David Thunder is not the first reasonable voice I have seen deplatformed by the big social media companies.
 
 David owns his own domain name, davidthunder.com, which means it's very difficult to fully censor him. Although Twitter has deleted his account, which comes at a great cost, his voice cannot be wiped out so long as he has alternatives.
 
