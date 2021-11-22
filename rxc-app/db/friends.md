@@ -66,3 +66,5 @@ I respect and follow these people but have not ever had direct engagements with 
 [Rob Henderson](https://www.robkhenderson.com). I am interested in human nature.
 
 [Jordan Peterson](https://www.jordanbpeterson.com). Dr. Jordan B. Peterson is a professor of psychology at the University of Toronto, a clinical psychologist, and the author of the bestsellers "Beyond Order: 12 More Rules for Life" & "12 Rules for Life: An Antidote to Chaos".
+
+[Dan Astin-Gregory](https://www.danjgregory.com). Over the past decade Dan has directly impacted the lives of more than 100,000 entrepreneurs and business leaders from over 90 different countries with his work in human potential, leadership and entrepreneurship.

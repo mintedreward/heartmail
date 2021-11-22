@@ -16,7 +16,7 @@ export default function Home() {
             <Image src="/tob-header-light.png" alt="Coasian" width="400" height="200" />
         </span>
         <p>
-          <a href="https://www.youtube.com/c/theoryofbitcoin/" className="btn btn-default btn-sm"><i className="fa fa-youtube fa-fw"></i> <span className="network-name">Watch the videos on YouTube</span></a>
+          <a href="https://www.youtube.com/playlist?list=PLOqZWfHm-gzDjTBDiDAZEp8sBUkphnaGe" className="btn btn-default btn-sm"><i className="fa fa-youtube fa-fw"></i> <span className="network-name">Watch the videos on YouTube</span></a>
         </p>
       </main>
 
