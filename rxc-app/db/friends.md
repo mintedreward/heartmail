@@ -7,7 +7,7 @@ type: page
 
 The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you own your own domain name with a personal web page and want want to get linked into the SBW? Please email me at ryan@ryanxcharles.com and I will give you a link.
 
-**Individuals**.
+# Individuals
 
 [Craig Wright](https://craigwright.net). Creator of Bitcoin - Satoshi Nakamoto. Eternal student and researcher. nChain Chief Scientist. Lawyer, banker, economist, pastor, coder, investor, mathematician, stats, and world-curious. My opinions are my own.
 
@@ -43,10 +43,26 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Burton Cummings](https://burtoncummings.io). "You can have everything in life you want, if you will just help other people get what they want."
 
-**Organizations**.
+# Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
 
 [Fluridium](http://www.fluridium.com). I am building a WARP enabled spaceship.
 
 [Blarecast](https://blarecast.com). BLARECAST is an innovative media distribution platform for artists and content creators.
+
+[Take Your Brand To The Blockchain](https://www.takeyourbrandtotheblockchain.com). Are you Ready to Monetize Your Content on the Blockchain? You’re in the right place!
+
+# Following
+
+I respect and follow these people but have not ever had direct engagements with them. They may or may not know who I am. Either way, they are doing good work and I recommend following them.
+
+[David Thunder](http://www.davidthunder.com). By profession I am a university lecturer and researcher in moral, political, and social philosophy.
+
+[Paul Saladino](https://carnivoremd.com). Carnivore MD. Attain radical health, strength, & vitality.
+
+[Shawn Baker](https://shawn-baker.com). Author of "The Carnivore Diet" and CEO of Revero Health.
+
+[Rob Henderson](https://www.robkhenderson.com). I am interested in human nature.
+
+[Jordan Peterson](https://www.jordanbpeterson.com). Dr. Jordan B. Peterson is a professor of psychology at the University of Toronto, a clinical psychologist, and the author of the bestsellers "Beyond Order: 12 More Rules for Life" & "12 Rules for Life: An Antidote to Chaos".
