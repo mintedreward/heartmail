@@ -43,6 +43,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Burton Cummings](https://burtoncummings.io). "You can have everything in life you want, if you will just help other people get what they want."
 
+[Wayne Gray](http://wayneg.net). I'm a father, programmer in logistics industry for many years, gamer, and occasional gardener.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
