@@ -70,3 +70,9 @@ I respect and follow these people but have not ever had direct engagements with 
 [Jordan Peterson](https://www.jordanbpeterson.com). Dr. Jordan B. Peterson is a professor of psychology at the University of Toronto, a clinical psychologist, and the author of the bestsellers "Beyond Order: 12 More Rules for Life" & "12 Rules for Life: An Antidote to Chaos".
 
 [Dan Astin-Gregory](https://www.danjgregory.com). Over the past decade Dan has directly impacted the lives of more than 100,000 entrepreneurs and business leaders from over 90 different countries with his work in human potential, leadership and entrepreneurship.
+
+[Children's Health Defense](https://childrenshealthdefense.org). “The greatest crisis that America faces today is the chronic disease epidemic in America’s children.” - Robert F. Kennedy Jr.
+
+[Corbett Report](http://corbettreport.com). Open source intelligence news.
+
+[Steve Kirsch](https://www.skirsch.io). I'm a serial entrepreneur who has started multiple high tech companies. See also [skirsch.com](https://www.skirsch.com).
