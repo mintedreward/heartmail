@@ -76,3 +76,9 @@ I respect and follow these people but have not ever had direct engagements with 
 [Corbett Report](http://corbettreport.com). Open source intelligence news.
 
 [Steve Kirsch](https://www.skirsch.io). I'm a serial entrepreneur who has started multiple high tech companies. See also [skirsch.com](https://www.skirsch.com).
+
+[Gary Null](https://garynull.com). Health. Happiness. Longevity.
+
+[Dr. Jessica Rose](https://i-do-not-consent.netlify.app). Jessica Rose is a Research Fellow at the Institute for Pure and Applied Knowledge.
+
+[Steve Patterson](http://steve-patterson.com). I am a philosopher, an author, and the host of "Patterson in Pursuit." I am obsessed with learning and have traveled the world to interview intellectuals about big ideas.
