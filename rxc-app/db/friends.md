@@ -47,6 +47,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Steve Patterson](http://steve-patterson.com). I am a philosopher, an author, and the host of "Patterson in Pursuit." I am obsessed with learning and have traveled the world to interview intellectuals about big ideas.
 
+[Marcel Gruber](https://www.marcelgruber.ca). Senior Web Developer and Digital Marketing Consultant at Luxica Consulting Corp.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
