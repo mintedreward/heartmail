@@ -45,6 +45,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Wayne Gray](http://wayneg.net). I'm a father, programmer in logistics industry for many years, gamer, and occasional gardener.
 
+[Steve Patterson](http://steve-patterson.com). I am a philosopher, an author, and the host of "Patterson in Pursuit." I am obsessed with learning and have traveled the world to interview intellectuals about big ideas.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
@@ -80,5 +82,3 @@ I respect and follow these people but have not ever had direct engagements with 
 [Gary Null](https://garynull.com). Health. Happiness. Longevity.
 
 [Dr. Jessica Rose](https://i-do-not-consent.netlify.app). Jessica Rose is a Research Fellow at the Institute for Pure and Applied Knowledge.
-
-[Steve Patterson](http://steve-patterson.com). I am a philosopher, an author, and the host of "Patterson in Pursuit." I am obsessed with learning and have traveled the world to interview intellectuals about big ideas.
