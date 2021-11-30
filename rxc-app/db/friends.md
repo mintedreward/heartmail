@@ -51,6 +51,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Steffen Sølling](https://bitcoinsteffen.com/). I help merchants let their customers pay with bitcoin.
 
+[Darren Kellenschwiler](https://www.kschw.com). Bitcoin entrepreneur.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
@@ -88,3 +90,5 @@ I respect and follow these people but have not ever had direct engagements with 
 [Dr. Jessica Rose](https://i-do-not-consent.netlify.app). Jessica Rose is a Research Fellow at the Institute for Pure and Applied Knowledge.
 
 [Doctors for COVID Ethics](https://doctors4covidethics.org). We are doctors and scientists from 30 countries, seeking to uphold medical ethics, patient safety and human rights in response to COVID-19.
+
+[Unknowing (Frank McCaughey)](https://www.unknowing.life/contact). What appears to be happening is reading this.
