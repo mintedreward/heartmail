@@ -96,3 +96,5 @@ I respect and follow these people but have not ever had direct engagements with 
 [Russell Brand](https://www.russellbrand.com). Celebrity podcaster.
 
 [Dr. Joe Dispenza](https://drjoedispenza.com). Our community is made up of doers, people who want to be challenged to do the uncommon, the supernatural, and the mystical.
+
+[Hoover Institution](https://www.hoover.org). With its eminent scholars and world-renowned Library and Archives, the Hoover Institution is a public policy think tank that seeks to improve the human condition by advancing ideas that promote economic opportunity and prosperity, while securing and safeguarding peace for America and all mankind.
