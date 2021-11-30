@@ -91,4 +91,8 @@ I respect and follow these people but have not ever had direct engagements with 
 
 [Doctors for COVID Ethics](https://doctors4covidethics.org). We are doctors and scientists from 30 countries, seeking to uphold medical ethics, patient safety and human rights in response to COVID-19.
 
-[Unknowing (Frank McCaughey)](https://www.unknowing.life/contact). What appears to be happening is reading this.
+[Unknowing (Frank McCaughey)](https://www.unknowing.life/). What appears to be happening is reading this.
+
+[Russell Brand](https://www.russellbrand.com). Celebrity podcaster.
+
+[Dr. Joe Dispenza](https://drjoedispenza.com). Our community is made up of doers, people who want to be challenged to do the uncommon, the supernatural, and the mystical.
