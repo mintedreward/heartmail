@@ -57,6 +57,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Anette P Monde](https://monde.no). Author of the Bitcoin protocol specification.
 
+[Brad 1121](https://76a91488.ac/). Bitcoin developer.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
