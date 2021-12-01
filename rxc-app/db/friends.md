@@ -59,6 +59,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Brad 1121](https://76a91488.ac/). Bitcoin developer.
 
+[S.H.](https://onchain.ch). Bitcoin developer.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
