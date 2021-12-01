@@ -53,6 +53,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Darren Kellenschwiler](https://www.kschw.com). Bitcoin entrepreneur.
 
+[Dave Mullen-Muhr](http://mullenmuhr.com/). Bitcoin investor.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
