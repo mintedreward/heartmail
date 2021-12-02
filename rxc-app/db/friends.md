@@ -61,6 +61,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [S.H.](https://onchain.ch). Bitcoin developer.
 
+[Mark Jackson](https://remjx.com). A software & systems engineer living in Ellicott City, MD
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
