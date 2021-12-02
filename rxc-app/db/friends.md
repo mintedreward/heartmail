@@ -61,7 +61,9 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [S.H.](https://onchain.ch). Bitcoin developer.
 
-[Mark Jackson](https://remjx.com). A software & systems engineer living in Ellicott City, MD
+[Mark Jackson](https://remjx.com). A software & systems engineer living in Ellicott City, MD.
+
+[Devar](https://devar.xyz). Bitcoin developer.
 
 # Organizations
 
@@ -108,3 +110,9 @@ I respect and follow these people but have not ever had direct engagements with 
 [Dr. Joe Dispenza](https://drjoedispenza.com). Our community is made up of doers, people who want to be challenged to do the uncommon, the supernatural, and the mystical.
 
 [Hoover Institution](https://www.hoover.org). With its eminent scholars and world-renowned Library and Archives, the Hoover Institution is a public policy think tank that seeks to improve the human condition by advancing ideas that promote economic opportunity and prosperity, while securing and safeguarding peace for America and all mankind.
+
+[Dr. Sam Bailey](https://drsambailey.com). The Natural Healing Force: "Within each of us is the greatest force in getting well" – Hippocrates.
+
+[Dr. Tom Cowen](https://drtomcowan.com). Forging a common sense approach to medicine and biology.
+
+[Mirjam Janse](https://www.mirjamjanse.com). Transformational coaching.
