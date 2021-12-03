@@ -75,6 +75,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Take Your Brand To The Blockchain](https://www.takeyourbrandtotheblockchain.com). Are you Ready to Monetize Your Content on the Blockchain? You’re in the right place!
 
+[Deep Thawtz](https://www.deepthawtz.com). DEEPTHAWTZ Studios grew out of a side hustle after Dylan Clendenin sold his first artwork in September 2020. Dylan draws and paints what he likes, doesn’t overthink it and will keep working regardless of the results.
+
 # Following
 
 I respect and follow these people but have not ever had direct engagements with them. They may or may not know who I am. Either way, they are doing good work and I recommend following them.
