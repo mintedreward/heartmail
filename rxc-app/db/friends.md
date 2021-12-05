@@ -67,6 +67,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Stephan Nilsson](https://stephannilsson.me). Welcome to the Social Bitcoin Web, think of it like a modern day webring, but utilising electronic peer-to-peer cash.
 
+[J. Christopher Stearns](https://stearns.pub). Everything.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
