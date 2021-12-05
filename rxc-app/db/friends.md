@@ -65,6 +65,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Devar](https://devar.xyz). Bitcoin developer.
 
+[Stephan Nilsson](https://stephannilsson.me). Welcome to the Social Bitcoin Web, think of it like a modern day webring, but utilising electronic peer-to-peer cash.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
@@ -76,6 +78,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 [Take Your Brand To The Blockchain](https://www.takeyourbrandtotheblockchain.com). Are you Ready to Monetize Your Content on the Blockchain? You’re in the right place!
 
 [Deep Thawtz](https://www.deepthawtz.com). DEEPTHAWTZ Studios grew out of a side hustle after Dylan Clendenin sold his first artwork in September 2020. Dylan draws and paints what he likes, doesn’t overthink it and will keep working regardless of the results.
+
+[Unisot](https://unisot.com/sbw/). Truth. Transparency. Trust.
 
 # Following
 
@@ -118,3 +122,7 @@ I respect and follow these people but have not ever had direct engagements with 
 [Dr. Tom Cowen](https://drtomcowan.com). Forging a common sense approach to medicine and biology.
 
 [Mirjam Janse](https://www.mirjamjanse.com). Transformational coaching.
+
+[America's Frontline Doctors](https://americasfrontlinedoctors.org). Medical And Legal Resources To Defend Your Freedom: Advocates for Liberty, Health, and Justice.
+
+[The Dr. Ardis Show](https://thedrardisshow.com). In early 2020 I lost my Father-in-law because of ill-advised hospital protocols. Since that time, I have been on a mission to help educate the public about the dangers to Americans, in many of our "institutes of health".
