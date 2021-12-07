@@ -71,6 +71,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Jack R Rogers](http://jackrrogers.uk). I am a Lecturer (Education & Scholarship) in the Economics Department of the University of Exeter Business School.
 
+[Daniel Douglas](https://www.danieldouglas.nl). Artist Daniel Douglas (1984) finds his inspiration in the Dutch masters from the 17th century. They were the first painters to start telling a story with light. Douglas brought this theme into our modern age.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
@@ -132,3 +134,5 @@ I respect and follow these people but have not ever had direct engagements with 
 [The Dr. Ardis Show](https://thedrardisshow.com). In early 2020 I lost my Father-in-law because of ill-advised hospital protocols. Since that time, I have been on a mission to help educate the public about the dangers to Americans, in many of our "institutes of health".
 
 [The Last American Vagabond](https://www.thelastamericanvagabond.com). Traveling the world, writing what the people need to know.
+
+[Global Research](https://www.globalresearch.ca). Centre for research on globalization.
