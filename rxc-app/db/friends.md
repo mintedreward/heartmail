@@ -130,3 +130,5 @@ I respect and follow these people but have not ever had direct engagements with 
 [America's Frontline Doctors](https://americasfrontlinedoctors.org). Medical And Legal Resources To Defend Your Freedom: Advocates for Liberty, Health, and Justice.
 
 [The Dr. Ardis Show](https://thedrardisshow.com). In early 2020 I lost my Father-in-law because of ill-advised hospital protocols. Since that time, I have been on a mission to help educate the public about the dangers to Americans, in many of our "institutes of health".
+
+[The Last American Vagabond](https://www.thelastamericanvagabond.com). Traveling the world, writing what the people need to know.
