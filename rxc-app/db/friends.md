@@ -69,6 +69,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [J. Christopher Stearns](https://stearns.pub). Everything.
 
+[Jack R Rogers](http://jackrrogers.uk). I am a Lecturer (Education & Scholarship) in the Economics Department of the University of Exeter Business School.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
