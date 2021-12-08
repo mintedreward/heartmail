@@ -136,3 +136,7 @@ I respect and follow these people but have not ever had direct engagements with 
 [The Last American Vagabond](https://www.thelastamericanvagabond.com). Traveling the world, writing what the people need to know.
 
 [Global Research](https://www.globalresearch.ca). Centre for research on globalization.
+
+[The Press and the Public](https://www.thepressandthepublic.com). Videos about the pandemic.
+
+[Max Igan | The CrowHouse](https://thecrowhouse.com). Spiritual leader who escaped the tyranny of Australia.
