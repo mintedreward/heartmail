@@ -140,3 +140,5 @@ I respect and follow these people but have not ever had direct engagements with 
 [The Press and the Public](https://www.thepressandthepublic.com). Videos about the pandemic.
 
 [Max Igan | The CrowHouse](https://thecrowhouse.com). Spiritual leader who escaped the tyranny of Australia.
+
+[ThriveOn](https://www.thriveon.com/). Kimberly Carter Gamble and Foster Gamble.
