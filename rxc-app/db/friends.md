@@ -73,6 +73,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Daniel Douglas](https://www.danieldouglas.nl). Artist Daniel Douglas (1984) finds his inspiration in the Dutch masters from the 17th century. They were the first painters to start telling a story with light. Douglas brought this theme into our modern age.
 
+[Valokuvia Suomesta](https://pjti.fi/?). Alapuolella näytetään sellaisia valokuvia, joita olen viime aikoina ottanut, ja joista pidän.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.

@@ -1,5 +1,5 @@
 ---
-title: Interview With Women of BSV
+title: Interview with Women of BSV
 author: "ryan@ryanxcharles.com"
 date: 2021-12-11 13:00:00 PST
 type: video
