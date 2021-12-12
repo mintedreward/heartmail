@@ -142,3 +142,7 @@ I respect and follow these people but have not ever had direct engagements with 
 [Max Igan | The CrowHouse](https://thecrowhouse.com). Spiritual leader who escaped the tyranny of Australia.
 
 [ThriveOn](https://www.thriveon.com/). Kimberly Carter Gamble and Foster Gamble.
+
+[Awaken with JP](https://awakenwithjp.com). It's funny because it's true.
+
+[David E. Martin](https://www.davidmartin.world/). Dr. David Martin knows who he is.  And he’s here to show others how to remember what it means to put humanity into the human experience.
