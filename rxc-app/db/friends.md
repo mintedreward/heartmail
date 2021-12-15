@@ -21,7 +21,7 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Ryan Wold](https://www.ryanwold.net). I'm grateful to be a son, husband, and father.
 
-[Framore](http://framore.net). This site is how I believe the internet should be: not the products of big corporations but various sites curated by each user.
+[Framore's Journal](http://framore.net). My digital garden.
 
 [Stephan M. February](https://february.sg). Bitcoin developer.
 
@@ -74,6 +74,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 [Daniel Douglas](https://www.danieldouglas.nl). Artist Daniel Douglas (1984) finds his inspiration in the Dutch masters from the 17th century. They were the first painters to start telling a story with light. Douglas brought this theme into our modern age.
 
 [Valokuvia Suomesta](https://pjti.fi/?). Alapuolella näytetään sellaisia valokuvia, joita olen viime aikoina ottanut, ja joista pidän.
+
+[Tom Hatcher](http://www.tomhatcher.us). These are mostly my creations, computer programs, stories, and videos, from the past and present.
 
 # Organizations
 
@@ -141,10 +143,14 @@ I respect and follow these people but have not ever had direct engagements with 
 
 [The Press and the Public](https://www.thepressandthepublic.com). Videos about the pandemic.
 
-[Max Igan | The CrowHouse](https://thecrowhouse.com). Spiritual leader who escaped the tyranny of Australia.
+[Max Igan](https://thecrowhouse.com). The CrowHouse. Spiritual leader who escaped the tyranny of Australia.
 
 [ThriveOn](https://www.thriveon.com/). Kimberly Carter Gamble and Foster Gamble.
 
 [Awaken with JP](https://awakenwithjp.com). It's funny because it's true.
 
 [David E. Martin](https://www.davidmartin.world/). Dr. David Martin knows who he is.  And he’s here to show others how to remember what it means to put humanity into the human experience.
+
+[Catherine Austin Fitts](https://home.solari.com). The Solari Report. Money, markets, and COVID.
+
+[Maria Ryan](https://www.drmariaryan.com). Be passionate and give back.
