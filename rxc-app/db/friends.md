@@ -77,6 +77,10 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Tom Hatcher](http://www.tomhatcher.us). These are mostly my creations, computer programs, stories, and videos, from the past and present.
 
+[Eric Martin](https://ericmartinpe.com). Mechanical engineer.
+
+[Diego Cortes](https://diegocortes.xyz/). CEO of Diego Cortes.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
