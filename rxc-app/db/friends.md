@@ -81,6 +81,10 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Diego Cortes](https://diegocortes.xyz/). CEO of Diego Cortes.
 
+[Liam Chai](https://www.liamchai.com). “The most important thing is to remember the most important thing.” – Suzuki Roshi
+
+[Peter Blain](https://www.peterblain.com). I'm a product focused technology leader and engineer.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
