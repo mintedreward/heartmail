@@ -164,3 +164,5 @@ I respect and follow these people but have not ever had direct engagements with 
 [Catherine Austin Fitts](https://home.solari.com). The Solari Report. Money, markets, and COVID.
 
 [Maria Ryan](https://www.drmariaryan.com). Be passionate and give back.
+
+[General Flynn](https://www.generalflynn.com). General Flynn was National Security Advisor to President Donald J Trump and previously he was the director of the Defence Intelligence Agency.

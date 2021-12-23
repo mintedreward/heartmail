@@ -1,6 +1,6 @@
 {
   "name": "@coasian/rxc-app",
-  "version": "3.62.0",
+  "version": "3.63.0",
   "main": "index.js",
   "scripts": {
     "android": "expo run:android",
