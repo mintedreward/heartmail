@@ -85,6 +85,10 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Peter Blain](https://www.peterblain.com). I'm a product focused technology leader and engineer.
 
+[Dr. Eamon J.G. McDermott](https://jackmaninov.ca). Independant researcher and theoretical chemist.
+
+[ZeMing Gao](https://zemgao.com/). Company-as-a-Product (CaaP) builder, intellectual property architect (patent attorney), business strategist, writer, entrepreneur and investor, with a focus on blockchain and Bitcoin.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
@@ -166,3 +170,7 @@ I respect and follow these people but have not ever had direct engagements with 
 [Maria Ryan](https://www.drmariaryan.com). Be passionate and give back.
 
 [General Flynn](https://www.generalflynn.com). General Flynn was National Security Advisor to President Donald J Trump and previously he was the director of the Defence Intelligence Agency.
+
+[Robert W Malone MD](https://www.rwmalonemd.com). As the original “inventor” of mRNA and DNA vaccines… I am concerned about how the technology is being developed and implemented.
+
+[Patriot Barbie](https://patriotbarbie.com). One mom's fight against tyranny!
