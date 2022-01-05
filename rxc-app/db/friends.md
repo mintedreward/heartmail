@@ -89,6 +89,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [ZeMing Gao](https://zemgao.com/). Company-as-a-Product (CaaP) builder, intellectual property architect (patent attorney), business strategist, writer, entrepreneur and investor, with a focus on blockchain and Bitcoin.
 
+[Brian Stockwell](http://brianstockwell.com/). Boutique Digital Marketing Agency.
+
 # Organizations
 
 [MetaNet.ICU](https://metanet.icu). The new global economy.
