@@ -7,23 +7,15 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>HeartMail</title>
-        <meta name="description" content="Coasian Mystery Product One" />
+        <meta name="description" content="Own your own social media." />
         <link rel="icon" href="/heartmail-avatar-dark.png" />
       </Head>
 
       <main className={styles.main}>
         <span className={styles.logoheader}>
-            <Image src="/heartmail-header-light.png" alt="HeartMail" width="440" height="160" />
+            <Image src="/heartmail-header-light.png" alt="HeartMail: Own your own social media." width="440" height="160" />
         </span>
       </main>
-
-      <footer className={styles.footer}>
-        <a href="https://www.coasian.com">
-          <span className={styles.logofooter}>
-            <Image src="/coasian-footer-dark.png" alt="Coasian" width={180} height={50} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
