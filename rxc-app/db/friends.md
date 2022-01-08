@@ -85,11 +85,21 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Peter Blain](https://www.peterblain.com). I'm a product focused technology leader and engineer.
 
-[Dr. Eamon J.G. McDermott](https://jackmaninov.ca). Independant researcher and theoretical chemist.
+[Dr. Eamon J.G. McDermott](https://jackmaninov.ca). Independent researcher and theoretical chemist.
 
 [ZeMing Gao](https://zemgao.com/). Company-as-a-Product (CaaP) builder, intellectual property architect (patent attorney), business strategist, writer, entrepreneur and investor, with a focus on blockchain and Bitcoin.
 
 [Brian Stockwell](http://brianstockwell.com/). Boutique Digital Marketing Agency.
+
+[Glauce Cerveira](https://www.glauce.com/). Brazilian-born British Artist in London, UK.
+
+[Peter Blain](https://www.peterblain.com). Director - product & artificial intelligence.
+
+[Mark T](https://govirtual.com.au). Mutual Existence wins over Spooky Action At a Distance.
+
+[Mark Kordusic](https://markkordusic.com). Trying to build a powerful team.
+
+[Ben Einhorn](https://devar.xyz). Think of it like a modern day webring, but utilising electronic peer-to-peer cash.
 
 # Organizations
 
@@ -176,3 +186,7 @@ I respect and follow these people but have not ever had direct engagements with 
 [Robert W Malone MD](https://www.rwmalonemd.com). As the original “inventor” of mRNA and DNA vaccines… I am concerned about how the technology is being developed and implemented.
 
 [Patriot Barbie](https://patriotbarbie.com). One mom's fight against tyranny!
+
+[World Council for Health](https://worldcouncilforhealth.org). There’s a better way to get the info you need for good health.
+
+[King of UK](https://www.kingof.uk). The Hidden King.
