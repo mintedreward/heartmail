@@ -23,8 +23,6 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 
 [Framore's Journal](http://framore.net). My digital garden.
 
-[Stephan M. February](https://february.sg). Bitcoin developer.
-
 [Bryan Daugherty](https://bryandaugherty.net). Technology solution consultant.
 
 [Diddy Wheldon](https://www.diddywheldon.co.uk). Actress, Artist, B.Msc., BSV.
@@ -100,6 +98,8 @@ The **Social Bitcoin Web (SBW)** is a network of sovereign individuals. Do you o
 [Mark Kordusic](https://markkordusic.com). Trying to build a powerful team.
 
 [Ben Einhorn](https://devar.xyz). Think of it like a modern day webring, but utilising electronic peer-to-peer cash.
+
+[Jose Juan Isaac Taveras Lopez](http://tangerinelaboratories.com/). I’m a computer engineer and I want to learn everything.
 
 # Organizations
 
