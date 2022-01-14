@@ -27,22 +27,15 @@
 }
 
 .cofoundersRow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   width: 100%;
 }
 
 .cofoundersColumn {
   width: 400px;
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
 }
 
 .contactCard {
-  
+  margin: 10px 0px;
 }
 
 .contactCardRow {
