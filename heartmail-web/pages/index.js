@@ -7,14 +7,49 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>HeartMail</title>
-        <meta name="description" content="Own your own social media." />
+        <meta name="description" content="Own your social media." />
         <link rel="icon" href="/heartmail-avatar-dark.png" />
       </Head>
 
       <main className={styles.main}>
-        <span className={styles.logoheader}>
-            <Image src="/heartmail-header-light.png" alt="HeartMail: Own your own social media." width="440" height="160" />
-        </span>
+        <div className={styles.logoheader}>
+            <Image src="/heartmail-header-light.png" alt="HeartMail: Own your social media." width="440" height="160" />
+        </div>
+
+        <div className={styles.cofounders}>
+          <div className={styles.cofoundersRow}>
+            <div className={styles.cofoundersColumn}>
+              <div className={styles.contactCard}>
+                <div className={styles.contactCardRow}>
+                  <div className={styles.contactCardImage}>
+                    <Image className={styles.contactCardImageImage} src="/ryan.jpg" alt="Ryan X. Charles" width="100" height="100" />
+                  </div>
+                  <div className={styles.contactCardText}>
+                    <div className={styles.contactCardName}>Ryan X. Charles</div>
+                    Cofounder &amp; CEO of HeartMail<br />
+                    ryan@ryanxcharles.com<br />
+                    ryanxcharles.com
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.cofoundersColumn}>
+              <div className={styles.contactCard}>
+                <div className={styles.contactCardRow}>
+                  <div className={styles.contactCardImage}>
+                    <Image className={styles.contactCardImageImage} src="/casey.jpg" alt="Casey N. Hamilton" width="100" height="100" />
+                  </div>
+                  <div className={styles.contactCardText}>
+                    <div className={styles.contactCardName}>Casey N. Hamilton</div>
+                    Cofounder &amp; COO of HeartMail<br />
+                    casey@caseynhamilton.com<br />
+                    caseynhamilton.com
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   )
