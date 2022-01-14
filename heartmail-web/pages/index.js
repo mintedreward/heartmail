@@ -16,6 +16,11 @@ export default function Home() {
             <Image src="/heartmail-wide.png" alt="HeartMail: Own your social media." width="460" height="80" />
         </div>
 
+        <div className={styles.content}>
+          <h1>Software to Own Your Social Media</h1>
+          <p>A new dawn is here. Thanks to Bitcoin, the foundation has been laid and honesty has been restored. The time has come to disrupt the world with a value network that enables the next wave of global commerce. Be the hero of your own story with agency on the Social Bitcoin Web.</p>
+        </div>
+
         <div className={styles.cofounders}>
           <div className={styles.cofoundersRow}>
             <div className={styles.cofoundersColumn}>

@@ -7,6 +7,7 @@
   align-items: center;
   height: 100vh;
   background-color: #f8f3e7;
+  color: #4f4942;
 }
 
 .main {
@@ -21,6 +22,14 @@
   max-width: 800px;
 }
 
+.content {
+  max-width: 600px;
+}
+
+.content h1 {
+  text-align: center;
+}
+
 .cofounders {
   max-width: 800px;
   align-items: center;
@@ -31,7 +40,7 @@
 }
 
 .cofoundersColumn {
-  width: 400px;
+  width: 600px;
 }
 
 .contactCard {
@@ -60,7 +69,7 @@
 .contactCardText {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  max-width: 500px;
   padding: 10px;
 }
 
