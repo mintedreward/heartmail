@@ -13,7 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.logoheader}>
-            <Image src="/heartmail-wide.png" alt="HeartMail: Own your social media." width="460" height="80" />
+            <Image src="/heartmail-wide.png" alt="HeartMail: Own your social media." width="345" height="60" />
         </div>
 
         <div className={styles.content}>

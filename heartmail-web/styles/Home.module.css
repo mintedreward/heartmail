@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f8f3e7;
+  background-color: #faf5e8;
   color: #4f4942;
 }
 
@@ -19,6 +19,7 @@
 }
 
 .logoheader {
+  margin-top: 40px;
   max-width: 800px;
 }
 
@@ -31,8 +32,7 @@
 }
 
 .cofounders {
-  max-width: 800px;
-  align-items: center;
+  max-width: 600px;
 }
 
 .cofoundersRow {
@@ -40,7 +40,7 @@
 }
 
 .cofoundersColumn {
-  width: 600px;
+  max-width: 600px;
 }
 
 .contactCard {
@@ -69,7 +69,6 @@
 .contactCardText {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
   padding: 10px;
 }
 
