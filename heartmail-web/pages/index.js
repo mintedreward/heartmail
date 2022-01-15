@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>HeartMail</title>
         <meta name="description" content="Own your social media." />
-        <link rel="icon" href="/heartmail-avatar-dark.png" />
+        <link rel="icon" href="/heartmail-avatar-house.png" />
       </Head>
 
       <main className={styles.main}>
