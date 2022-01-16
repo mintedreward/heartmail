@@ -17,8 +17,7 @@ export default function Home() {
         </div>
 
         <div className={styles.content}>
-          <h1>Software to Own Your Social Media</h1>
-          <p>A new dawn is here. Thanks to Bitcoin, the foundation has been laid and honesty has been restored. The time has come to disrupt the world with a value network that enables the next wave of global commerce. Be the hero of your own story with agency on the Social Bitcoin Web.</p>
+          <h1>Own Your Social Media</h1>
         </div>
 
         <div className={styles.cofounders}>
