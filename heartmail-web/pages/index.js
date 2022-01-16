@@ -32,7 +32,7 @@ export default function Home() {
                   <div className={styles.contactCardText}>
                     <div className={styles.contactCardName}>Ryan X. Charles</div>
                     Cofounder &amp; CEO of HeartMail<br />
-                    ryan@ryanxcharles.com<br />
+                    ryan@heartmail.com<br />
                     ryanxcharles.com
                   </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Home() {
                   <div className={styles.contactCardText}>
                     <div className={styles.contactCardName}>Casey N. Hamilton</div>
                     Cofounder &amp; COO of HeartMail<br />
-                    casey@caseynhamilton.com<br />
+                    casey@heartmail.com<br />
                     caseynhamilton.com
                   </div>
                 </div>
