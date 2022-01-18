@@ -36,49 +36,38 @@ Android. It is based on react-native and react-native-web. It looks like the
 best tool to get going for the front-end, and it is possible that it will
 continue to work forever. At least for the wallet.
 
-Private:
-* [x] Coasian Web
-* [x] OpenSPV Web
-* [x] HeartX Web
-* [ ] HeartMiner Web
-* [ ] CoaseBank Web
-* [ ] Coasetodian Web
-* [ ] CoaseML Web
+SPV and content modules:
+* [x] HeartMail Web
+* [x] HeartMail Lib
+* [x] HeartMail Keyfile
+* [ ] HeartMail Paymail
+* [ ] HeartMail DB
+* [ ] HeartMail Kubernetes
+* [ ] HeartMail Node Client <= Node Server Interface
+* [ ] HeartMail Price Client <= Price Server Interface
+* [ ] HeartMail Crypto Workers
+* [ ] HeartMail Wallet Web API
+* [ ] HeartMail IFrame API
+* [ ] HeartMail Media Workers
+* [ ] HeartMail Web API
+* [ ] HeartMail Components
+* [ ] HeartMail Wallet Web
+* [ ] HeartMail Search Web
+* [ ] HeartMail Browser Web
 
-Public:
-* [x] OpenSPV Lib
-* [x] OpenSPV Keyfile
-* [ ] OpenSPV Paymail
-* [ ] OpenSPV DB
-* [ ] OpenSPV Kubernetes
-* [ ] OpenSPV Node Client <= HeartMiner Interface
-* [ ] OpenSPV Price Client <= HeartX Interface
-* [ ] OpenSPV Crypto Workers
-* [ ] OpenSPV Wallet Web API
-* [ ] OpenSPV IFrame API
-* [ ] OpenSPV Media Workers
-* [ ] OpenSPV Mail Web API
-* [ ] OpenSPV Expo Components
-* [ ] OpenSPV Wallet Expo
-* [ ] OpenSPV Mail Expo
-* [ ] OpenSPV Search Expo
-* [ ] OpenSPV Browser Expo
-* [ ] OpenSPV Trade Expo
-
-Public:
-* [ ] HeartMiner Node Server <= OpenSPV Interface
+Miner modules:
+* [ ] HeartMiner Node Server <= Node Client Interface
 * [ ] HeartMiner Merkle Proofs
 * [ ] HeartMiner Block Headers
 * [ ] HeartMiner Tx Validator
 * [ ] HeartMiner Tx Storage
 * [ ] HeartMiner Filter
 
-Private:
-* [ ] HeartX Price Server <= OpenSPV Interface
-* [ ] HeartX Custodian => Coasetodian
-* [ ] HeartX Account => CoaseBank
-* [ ] HeartX Trade Expo
-* [ ] HeartX Wallet Expo
+Exchange modules:
+* [ ] HeartX Price Server <= Price Client Interface
+* [ ] HeartX Custodian => Custodian
+* [ ] HeartX Account => Bank
+* [ ] HeartX Trade Web
 
 Private:
 * [ ] CoaseBank Savings <= HeartX
