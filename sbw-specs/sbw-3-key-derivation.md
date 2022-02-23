@@ -1,4 +1,4 @@
-SBW3: Key Derivation
+SBW 3: Key Derivation
 ====================
 
 We do not need mnemonics or BIP32/BIP44. Because the user never needs to see

@@ -1,4 +1,4 @@
-SBW5: Two Factor Friend (2FF)
+SBW 5: Two Factor Friend (2FF)
 =============================
 
 We will completely eliminate the use of passwords and mnemonics. Our authentication system will be more user-friendly than any existing system.

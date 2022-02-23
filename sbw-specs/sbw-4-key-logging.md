@@ -1,4 +1,4 @@
-SBW4: Key Logging and Revocation (Fixing PKI)
+SBW 4: Key Logging and Revocation (Fixing PKI)
 =============================================
 
 We can fix PKI by logging paymail name and key registrations on the blockchain.

@@ -1,4 +1,4 @@
-SBW15: Chat
+SBW 15: Chat
 ===========
 
 ryan@heartmail.com should be able to chat with stephen@unisot.io using either

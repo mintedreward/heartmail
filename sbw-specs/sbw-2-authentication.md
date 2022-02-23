@@ -1,4 +1,4 @@
-SBW2: Authentication
+SBW 2: Authentication
 ====================
 
 It is important for stephan@unisot.io to be able to log into heartmail.com and

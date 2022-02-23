@@ -1,4 +1,4 @@
-SBW6: Identity Verification
+SBW 6: Identity Verification
 ===========================
 
 A standardized blue check box. Is this a real person?

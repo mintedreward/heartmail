@@ -1,4 +1,4 @@
-SBW16: Paymail Alias
+SBW 16: Paymail Alias
 ====================
 
 An extension to paymail to allow people to specify alternate paymails with the
