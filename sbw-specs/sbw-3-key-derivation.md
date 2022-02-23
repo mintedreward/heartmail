@@ -1,5 +1,5 @@
 SBW 3: Key Derivation
-====================
+=====================
 
 We do not need mnemonics or BIP32/BIP44. Because the user never needs to see
 their keys with 2FF, we can use normal private keys. And because the recovery

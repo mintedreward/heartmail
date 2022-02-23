@@ -1,18 +1,15 @@
-SBW 7b: Standardize Transaction Templates
-========================================
+SBW 7: Hash Transaction Templates
+==================================
 
-# Protocol Number
-7b
-
-# Name
-Standardize Transaction Templates
+# Status
+Draft
 
 # Authors
 * Connor Murray - connor@britevue.com
 * Dylan Murray - dylan@britevue.com
 
 # Dependencies
-* Does not depend on SBW 7c, but its structure does depend on what comes out of SBW 7c
+* Does not depend on SBW 8, but its structure does depend on what comes out of SBW 8
 
 # Specification
 
@@ -28,7 +25,7 @@ Standardize the format of transaction templates such that new templates can be e
 * The first X bytes of the transaction output contain a script template header, similar to IP Packet Header
 * Included in the header is 20-32 bytes containing a hash of the entire transaction template
 * The hash is used as the template identifier for other services
-* A hash is utilized so that services can utilize the hashing opcodes in Bitcoin Script to enforce transaction templates across inputs and outputs, as defined in SBW 7c
+* A hash is utilized so that services can utilize the hashing opcodes in Bitcoin Script to enforce transaction templates across inputs and outputs, as defined in SBW 8
 * We define "transaction template" as the entire locking script stripped of all data in the script, leaving only opcodes
 
 ## Disclaimer
@@ -68,13 +65,13 @@ Proposed Header Fields:
 		* [checksum] OP_HASH OP_EQUALVERIFY
 
 ### Template Enforcement
-* Outlined in SBW 7c
+* Outlined in SBW 8
 
 ## Discussion Items
 
 * The header should be dropped from the stack through either an EQUALVERIFY function or through OP_DROP
 	* Should checksum be separated from header? Should it always be dropped via EQUALVERIFY
 	* Or, should header fields be separate pushdatas? And OP_CAT is performed in the checksum field, or something like that
-	* We will want access to header fields (such as transaction template identifier outlined in SBW 7c), so there must exist a way for these fields to be accessed prior to dropping from the stack
+	* We will want access to header fields (such as transaction template identifier outlined in SBW 8), so there must exist a way for these fields to be accessed prior to dropping from the stack
 
 

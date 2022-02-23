@@ -1,8 +1,8 @@
 Social Bitcoin Web (SBW) Protocol Specifications
 ================================================
 
-All protocol drafts and final specifications are in this directory in the form
-of a markdown file.
+All protocol draft and final specifications are in this directory in the form of
+a markdown file.
 
 Ordering
 --------
