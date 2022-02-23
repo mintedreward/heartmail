@@ -179,18 +179,19 @@ Carol
 
 ## Protocol Roadmap
 
-Start with authentication.
-
-Then everything else.
+The protocols have been outlined in the sbw-specs directory in the repo. Please
+consult that list of protocol specifications and the README in that directory
+for more information.
 
 ## Managing Software
 
-There will be a git repo at code.heartmail.com.
+We use GitHub to manage the software. The main repo is located at
+github.com/openspv/openspv. All OpenSPV modules are contained in a directory
+that is prefixed with openspv-. For instance, openspv-lib is a library of basic
+Bitcoin functionality.
 
-Every consortium member should have their own git repo.
+We also use GitHub to manage the protocol specifications. The protocol specs are
+contained in the sbw-specs directory.
 
-Git is natively decentralized.
-
-## Conclusion
-
-The SBWC produces and deploys OpenSPV for our mutual gain.
+To change the protocols or software, issue a pull request. You can also create
+issues for issues that need to be discussed.
