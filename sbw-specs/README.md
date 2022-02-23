@@ -15,8 +15,9 @@ In other words, the specs form a directed acyclic graph.
 Specs should always include:
 - Number
 - Name
-- Status (Draft or Published)
+- Status (Draft or Production)
 - Authors
+- Dependencies
 - Full text of the specification
 
 A specification is not final until the OpenSPV implementation of the
