@@ -18,7 +18,9 @@
 
 **OpenSPV** is:
 
-- The reference implementation of protocols for the Social Bitcoin Web (SBW).
+- The reference implementation of protocols for the Social Bitcoin Web (SBW) in
+  multiple programming languages including javascript, go, rust, Swift, and
+  Java.
 
 - A full-stack scalable Bitcoin SPV wallet including the UI, API, and library
   for businesses and consumers that runs on Linux (backend), web, iOS, Android,
@@ -27,11 +29,8 @@
 - Intended to be integrated into proprietary software written by consortium
   members rather than sold as a standalone product.
 
-- Written in javascript and node.js with next.js and React Native for the
-  front-end, Docker for containers, Kubernetes for container management, and
-  Cassandra as the database.
-
-- Everything that a business needs to build a Bitcoin application.
+- Everything that a business needs to build a Bitcoin application in all common
+  programming languages.
 
 - Open to consortium members and closed to outsiders.
 
@@ -47,26 +46,9 @@
 ## License
 
 OpenSPV is open to the SBWC and closed to outsiders. Each commit is re-licensed
-under the OpenBSV license after one year. The license includes both the code and
-the protocol specifications. Please see the LICENSE file for the full text of
-the license.
-
-## Software stack
-
-This software stack is designed to bring the UI to every platform while running
-on scalable cloud infrastructure. When paired with scalable algorithms, this
-architecture scales to billions of users per node.
-
-- Javascript / node.js: Javascript is the only language that runs on every
-  platform and is the only candidate for the reference implementation of every
-  protocol. Furthermore, because all slow components are either already
-  implemented in C++ or can be in the form of a node.js module, there is no
-  advantage in using any other programming language.
-- next.js: A popular framework for creating the web front-end.
-- React Native: A popular framework for creating the mobile front-end.
-- Docker: The standard container tool.
-- Kubernetes: The standard container management tool.
-- Cassandra: The standard distributed database.
+under the OpenBSV license after one year. The license includes both the code
+and the protocol specifications. Please see the LICENSE file for the full text
+of the license.
 
 ## OpenSPV vs. Proprietary Software
 
@@ -111,43 +93,6 @@ All consortium meetings are recorded and provided to all consortium members.
 Like the protocols and software, the records are open to consortium members and
 closed to outsiders.
 
-## Major Subprojects
-
-OpenSPV is a large application consisting of many modules. The modules are
-described below.
-
-SPV and content modules:
-- [ ] OpenSPV Web
-- [x] OpenSPV Lib
-- [x] OpenSPV Keyfile
-- [ ] OpenSPV Paymail
-- [ ] OpenSPV DB
-- [ ] OpenSPV Kubernetes
-- [ ] OpenSPV Node Client <= Node Server Interface
-- [ ] OpenSPV Price Client <= Price Server Interface
-- [ ] OpenSPV Crypto Workers
-- [ ] OpenSPV Media Workers
-- [ ] OpenSPV Web API
-- [ ] OpenSPV Web Components
-- [ ] OpenSPV Wallet Web
-- [ ] OpenSPV Search Web
-- [ ] OpenSPV Browser Web
-- [ ] OpenSPV Mobile Components
-- [ ] OpenSPV Wallet Mobile
-- [ ] OpenSPV Search Mobile
-- [ ] OpenSPV Browser Mobile
-
-Miner modules:
-- [ ] OpenSPV Node Server <= Node Client Interface
-- [ ] OpenSPV Merkle Proofs
-- [ ] OpenSPV Block Headers
-- [ ] OpenSPV Tx Validator
-- [ ] OpenSPV Tx Storage
-- [ ] OpenSPV Filter
-
-Exchange modules:
-- [ ] OpenSPV Price Server <= Price Client Interface
-
 ## OpenSPV MVP
 
 A description of the first fully-working version of OpenSPV.
@@ -186,12 +131,15 @@ for more information.
 ## Managing Software
 
 We use GitHub to manage the software. The main repo is located at
-github.com/openspv/openspv. All OpenSPV modules are contained in a directory
-that is prefixed with openspv-. For instance, openspv-lib is a library of basic
-Bitcoin functionality.
+github.com/openspv/openspv. All code is located in a directory with the primary
+programming language for those subprojects, for instance "js".
 
-We also use GitHub to manage the protocol specifications. The protocol specs are
-contained in the sbw-specs directory.
+Inside each programming language, directory all OpenSPV modules are contained
+in a directory that is prefixed with openspv-. For instance, openspv-lib is a
+library of basic Bitcoin functionality.
+
+We also use GitHub to manage the protocol specifications. The protocol specs
+are contained in the sbw-specs directory.
 
 To change the protocols or software, issue a pull request. You can also create
 issues for issues that need to be discussed.
