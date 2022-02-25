@@ -1,4 +1,4 @@
-SBW 9: Contact Card
+SBW 12: Contact Card
 ==================
 
 Standardizing for paymail a visual contact card for a paymail including avatar,
