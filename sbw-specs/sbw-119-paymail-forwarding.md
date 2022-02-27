@@ -1,4 +1,4 @@
-SBW 19: Paymail Forwarding
+SBW 119: Paymail Forwarding
 ==========================
 
 An extension to paymail to allow people to specify a new primary paymail.

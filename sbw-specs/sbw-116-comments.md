@@ -1,4 +1,4 @@
-SBW 16: Commenting on content
+SBW 116: Commenting on content
 ============================
 
 You should be able to comment on content. e.g., a video should have comments

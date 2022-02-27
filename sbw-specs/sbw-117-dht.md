@@ -1,4 +1,4 @@
-SBW 17: Distributed Hash Table (DHT) with Economics
+SBW 117: Distributed Hash Table (DHT) with Economics
 ==================================================
 
 Rather than simply store content on each webserver, we should produce a new DHT

@@ -42,3 +42,33 @@ consortium members.
 
 Once a protocol specification is final, it cannot be changed except in trivial
 ways.
+
+Early Protocols
+---------------
+
+- Paymail
+- Paymail identity keys
+- Paymail signatures (without revocation)
+- Paymail authentication (without revocation)
+- Two Factor Friend (2FF)
+- Two Factor Friend (2FF) service
+- Paymail key logging and revocation data structures
+- Filter service API
+- Filter service paymail extension
+- Filter: Paymail key logging and revocation
+- Paymail signatures (with revocation)
+- Paymail authentication (with revocation)
+- Paymail invoices and P2P payments
+- Merkle proof data structure
+- Transaction ancestry data structure
+- Merkle proof service
+- SPV payments
+
+...protocol milestone: SPV...
+
+- Media types: Video, images, text, software, ...
+- Media authorship attestation
+- Media basic rights (sell, resell)
+- Paymail media transfer
+
+...protocol milestone: purchase media....

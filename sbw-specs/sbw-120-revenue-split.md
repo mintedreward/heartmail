@@ -1,4 +1,4 @@
-SBW 20: Revenue Splitting
+SBW 120: Revenue Splitting
 ==================================
 
 # Status

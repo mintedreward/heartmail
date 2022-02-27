@@ -1,4 +1,4 @@
-SBW 13: Merkle Proof Delivery
+SBW 113: Merkle Proof Delivery
 ===========================
 
 When a transaction is confirmed, you get to get the Merkle proofs from a Merkle

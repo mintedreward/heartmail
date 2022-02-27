@@ -1,4 +1,4 @@
-SBW 18: Paymail Alias
+SBW 118: Paymail Alias
 ====================
 
 An extension to paymail to allow people to specify alternate paymails with the
