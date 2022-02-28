@@ -1,5 +1,13 @@
-SBW 10: Transaction Ancestry
-============================
+SBW 16: Transaction ancestry data structure
+===========================================
+
+Dependencies
+------------
+
+SBW 15: Merkle proof data structure
+
+Introduction
+------------
 
 When sending a transaction p2p, it is important to send both the input
 transactions and the Merkle proofs of those transactions in order for the

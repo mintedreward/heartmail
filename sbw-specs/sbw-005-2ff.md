@@ -1,6 +1,15 @@
 SBW 5: Two Factor Friend (2FF)
 =============================
 
+Dependencies
+------------
+
+* SBW 1: Paymail
+* SBW 2: Paymail identity keys
+
+Introduction
+------------
+
 We will completely eliminate the use of passwords and mnemonics. Our authentication system will be more user-friendly than any existing system.
 
 The way this works is that the user’s master key will be backed up to a server, e.g. heartmail.com. The key to decrypt this will be shared with one or more friends. The user can log in by retrieving the encrypted key from the server and the decryption key from at least one friend.

@@ -46,29 +46,39 @@ ways.
 Early Protocols
 ---------------
 
-- Paymail
-- Paymail identity keys
-- Paymail signatures (without revocation)
-- Paymail authentication (without revocation)
-- Two Factor Friend (2FF)
-- Two Factor Friend (2FF) service
-- Paymail key logging and revocation data structures
-- Filter service API
-- Filter service paymail extension
-- Filter: Paymail key logging and revocation
-- Paymail signatures (with revocation)
-- Paymail authentication (with revocation)
-- Paymail invoices and P2P payments
-- Merkle proof data structure
-- Transaction ancestry data structure
-- Merkle proof service
-- SPV payments
+### SPV Milestone
 
-...protocol milestone: SPV...
+1. Paymail
+2. Paymail identity keys
+3. Paymail signatures (without revocation)
+4. Paymail authentication (without revocation)
+5. Two Factor Friend (2FF)
+6. Two Factor Friend (2FF) service
+7. Paymail key logging and revocation data structures
+8. Script template labels
+9. Filter service API
+10. Filter service paymail extension
+11. Filter for paymail key logging and revocation
+12. Paymail signatures (with revocation)
+13. Paymail authentication (with revocation)
+14. Paymail invoices and P2P payments
+15. Merkle proof data structure
+16. Transaction ancestry data structure
+17. Merkle proof service
+18. SPV payments
+19. Paid Merkle proof service
+
+### Media milestone
 
 - Media types: Video, images, text, software, ...
 - Media authorship attestation
 - Media basic rights (sell, resell)
 - Paymail media transfer
 
-...protocol milestone: purchase media....
+### DHT milestone
+
+...
+
+### Legal contract milestone
+
+...

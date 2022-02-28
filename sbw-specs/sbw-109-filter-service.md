@@ -1,5 +1,5 @@
-SBW 9: Filtering Service
-========================
+SBW 10: Advanced filter service
+======================
 
 # Status
 Draft
@@ -9,7 +9,8 @@ Draft
 * Dylan Murray <dylan@britevue.com>
 
 # Dependencies
-* SBW 7
+* SBW 9
+* SBW 107
 
 # Specification
 
