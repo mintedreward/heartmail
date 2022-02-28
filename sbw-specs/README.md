@@ -21,10 +21,12 @@ Standard information
 Specs should always include:
 - Number
 - Name
-- Status (Draft or Final)
+- Status (Draft or Deployed)
 - Authors
 - Dependencies
 - Full text of the specification
+- Tests
+- Implementation
 
 Protocol lifecycle
 ------------------
