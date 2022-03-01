@@ -1,18 +1,19 @@
-SBW 1: Paymail
-==============
+# SBW 1: Paymail
 
-Authors
--------
+## Authors
+
 * Andy &lt;[unknown]@nchain.com&gt;
 * Ryan X. Charles &lt;ryan@heartmail.com&gt;
 
-Dependencies
-------------
+## Dependencies
 
-* WWW
+* World Wide Web (WWW)
 
-Introduction
-------------
+## Status
+
+Deployed
+
+## Introduction
 
 The basic idea of paymail is that we extend email addresses like
 user@example.com to also have an HTTPS URL hosted at example.com or a third
