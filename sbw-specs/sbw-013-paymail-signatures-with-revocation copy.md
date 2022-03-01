@@ -4,9 +4,9 @@ SBW 12: Paymail signatures with revocation
 Dependencies
 ------------
 * SBW 2: Paymail identity keys
-* SBW 3: Paymail signatures
-* SBW 7: Paymail key logging
-* SBW 11: Filter for paymail key logging
+* SBW 4: Paymail signatures
+* SBW 8: Paymail key logging
+* SBW 12: Filter for paymail key logging
 
 Introduction
 ------------

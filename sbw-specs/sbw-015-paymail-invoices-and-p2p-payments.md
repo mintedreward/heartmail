@@ -3,6 +3,7 @@ SBW 14: Paymail invoice and P2P payments
 
 Dependencies
 ------------
+
 * SBW 1: Paymail
 
 Introduction

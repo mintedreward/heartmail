@@ -3,7 +3,7 @@ SBW 19: Paid Merkle proof service
 
 Dependencies
 ------------
-* SBW 18: SPV payments
+* SBW 19: SPV payments
 
 Introduction
 ------------

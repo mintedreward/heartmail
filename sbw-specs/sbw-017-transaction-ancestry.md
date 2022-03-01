@@ -4,7 +4,7 @@ SBW 16: Transaction ancestry data structure
 Dependencies
 ------------
 
-SBW 15: Merkle proof data structure
+* SBW 16: Merkle proof data structure
 
 Introduction
 ------------

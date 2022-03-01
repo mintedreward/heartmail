@@ -1,14 +1,12 @@
-SBW 2: Paymail signatures without revocation
-============================================
+# SBW 2: Paymail signatures without revocation
 
-Dependencies
-------------
+## Dependencies
 
 * SBW 1: Paymail
 * SBW 2: Paymail identity keys
+* SBW 3: Paymail verify public key owner
 
-Introduction
-------------
+## Introduction
 
 This spec should be the same as the existing paymail signatures spec. Basically,
 it is a way to construct signatures with the identity key. It is also a way to

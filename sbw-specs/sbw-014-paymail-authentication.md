@@ -3,8 +3,9 @@ SBW 13: Paymail authentication with revocation
 
 Dependencies
 ------------
-* SBW 4: Paymail authentication without revocation
-* SBW 12: Paymail signatures with revocation
+
+* SBW 5: Paymail authentication without revocation
+* SBW 13: Paymail signatures with revocation
 
 Introduction
 ------------

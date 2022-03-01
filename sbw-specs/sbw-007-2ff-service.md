@@ -6,7 +6,7 @@ Dependencies
 
 * SBW 1: Paymail
 * SBW 2: Paymail identity keys
-* SBW 5: 2FF
+* SBW 6: 2FF
 
 Introduction
 ------------

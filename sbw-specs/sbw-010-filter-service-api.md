@@ -4,7 +4,7 @@ SBW 9: Filter service API
 Dependencies
 ------------
 
-* SBW 10: Transaction template labels
+* SBW 9: Script template labels
 
 Introduction
 ------------

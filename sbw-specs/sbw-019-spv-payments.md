@@ -4,9 +4,9 @@ SBW 18: SPV payments
 Dependencies
 ------------
 * SBW 1: Paymail
-* SBW 14: Paymail invoices and P2P payments
-* SBW 16: Transaction ancestry data structure
-* SBW 17: Merkle proof service
+* SBW 15: Paymail invoices and P2P payments
+* SBW 17: Transaction ancestry data structure
+* SBW 18: Merkle proof service
 
 Introduction
 ------------

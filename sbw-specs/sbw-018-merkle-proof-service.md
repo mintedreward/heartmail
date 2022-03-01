@@ -4,7 +4,7 @@ SBW 17: Merkle proof service
 Dependencies
 ------------
 
-* SBW 15: Merkle proof data structures
+* SBW 16: Merkle proof data structures
 
 Introduction
 ------------
