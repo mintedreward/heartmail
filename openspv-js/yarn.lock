@@ -1084,86 +1084,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openspv/openspv-db@workspace:openspv-db":
-  version: 0.0.0-use.local
-  resolution: "@openspv/openspv-db@workspace:openspv-db"
-  dependencies:
-    "@aws-sdk/client-s3": ^3.39.0
-    cassandra-driver: ^4.6.3
-  languageName: unknown
-  linkType: soft
-
-"@openspv/openspv-elliptic@workspace:openspv-elliptic":
-  version: 0.0.0-use.local
-  resolution: "@openspv/openspv-elliptic@workspace:openspv-elliptic"
-  dependencies:
-    bn.js: ^5.1.1
-    brfs: ^2.0.2
-    brorand: ^1.0.1
-    coveralls: ^3.0.8
-    grunt: ^1.0.4
-    grunt-browserify: ^5.0.0
-    grunt-cli: ^1.2.0
-    grunt-contrib-connect: ^2.1.0
-    grunt-contrib-copy: ^1.0.0
-    grunt-contrib-uglify: ^4.0.1
-    grunt-mocha-istanbul: ^5.0.2
-    grunt-saucelabs: ^9.0.1
-    hash.js: ^1.0.0
-    hmac-drbg: ^1.0.0
-    inherits: ^2.0.1
-    istanbul: ^0.4.2
-    jscs: ^3.0.7
-    jshint: ^2.11.1
-    minimalistic-assert: ^1.0.0
-    minimalistic-crypto-utils: ^1.0.0
-    mocha: ^7.1.2
-  languageName: unknown
-  linkType: soft
-
-"@openspv/openspv-keyfile@workspace:openspv-keyfile":
-  version: 0.0.0-use.local
-  resolution: "@openspv/openspv-keyfile@workspace:openspv-keyfile"
-  dependencies:
-    "@openspv/openspv-lib": "workspace:openspv-lib"
-    mocha: ^8.3.1
-    should: ^13.2.3
-    standard: ^16.0.3
-  languageName: unknown
-  linkType: soft
-
-"@openspv/openspv-lib@workspace:openspv-lib":
-  version: 0.0.0-use.local
-  resolution: "@openspv/openspv-lib@workspace:openspv-lib"
-  dependencies:
-    "@openspv/elliptic": 7.0.1
-    aes: 0.1.0
-    bn.js: 5.2.0
-    bs58: 4.0.1
-    hash.js: 1.1.7
-    is-hex: 1.1.3
-    mocha: 8.3.1
-    pbkdf2: 3.1.2
-    randombytes: 2.1.0
-    should: 13.2.3
-    sinon: 9.2.4
-    standard: 16.0.4
-  languageName: unknown
-  linkType: soft
-
-"@openspv/openspv-web@workspace:openspv-web":
-  version: 0.0.0-use.local
-  resolution: "@openspv/openspv-web@workspace:openspv-web"
-  dependencies:
-    eslint: 8.0.0
-    eslint-config-next: 11.1.2
-    next: 11.1.2
-    react: 17.0.2
-    react-dom: 17.0.2
-    sharp: ^0.29.1
-  languageName: unknown
-  linkType: soft
-
 "@eslint/eslintrc@npm:^0.3.0":
   version: 0.3.0
   resolution: "@eslint/eslintrc@npm:0.3.0"
@@ -1413,6 +1333,86 @@ __metadata:
   checksum: 04f527bf640a7fa492a8b985354800f28f66690af84d5f97f17a32c0bcd1593855ee62bb8636868613b5dd2edc3fb611305100072baaef775c82031347e8428d
   languageName: node
   linkType: hard
+
+"@openspv/openspv-db@workspace:openspv-db":
+  version: 0.0.0-use.local
+  resolution: "@openspv/openspv-db@workspace:openspv-db"
+  dependencies:
+    "@aws-sdk/client-s3": ^3.39.0
+    cassandra-driver: ^4.6.3
+  languageName: unknown
+  linkType: soft
+
+"@openspv/openspv-elliptic@workspace:openspv-elliptic":
+  version: 0.0.0-use.local
+  resolution: "@openspv/openspv-elliptic@workspace:openspv-elliptic"
+  dependencies:
+    bn.js: ^5.1.1
+    brfs: ^2.0.2
+    brorand: ^1.0.1
+    coveralls: ^3.0.8
+    grunt: ^1.0.4
+    grunt-browserify: ^5.0.0
+    grunt-cli: ^1.2.0
+    grunt-contrib-connect: ^2.1.0
+    grunt-contrib-copy: ^1.0.0
+    grunt-contrib-uglify: ^4.0.1
+    grunt-mocha-istanbul: ^5.0.2
+    grunt-saucelabs: ^9.0.1
+    hash.js: ^1.0.0
+    hmac-drbg: ^1.0.0
+    inherits: ^2.0.1
+    istanbul: ^0.4.2
+    jscs: ^3.0.7
+    jshint: ^2.11.1
+    minimalistic-assert: ^1.0.0
+    minimalistic-crypto-utils: ^1.0.0
+    mocha: ^7.1.2
+  languageName: unknown
+  linkType: soft
+
+"@openspv/openspv-keyfile@workspace:openspv-keyfile":
+  version: 0.0.0-use.local
+  resolution: "@openspv/openspv-keyfile@workspace:openspv-keyfile"
+  dependencies:
+    "@openspv/openspv-lib": "workspace:openspv-lib"
+    mocha: ^8.3.1
+    should: ^13.2.3
+    standard: ^16.0.3
+  languageName: unknown
+  linkType: soft
+
+"@openspv/openspv-lib@workspace:openspv-lib":
+  version: 0.0.0-use.local
+  resolution: "@openspv/openspv-lib@workspace:openspv-lib"
+  dependencies:
+    "@openspv/elliptic": 7.0.1
+    aes: 0.1.0
+    bn.js: 5.2.0
+    bs58: 4.0.1
+    hash.js: 1.1.7
+    is-hex: 1.1.3
+    mocha: 8.3.1
+    pbkdf2: 3.1.2
+    randombytes: 2.1.0
+    should: 13.2.3
+    sinon: 9.2.4
+    standard: 16.0.4
+  languageName: unknown
+  linkType: soft
+
+"@openspv/openspv-web@workspace:openspv-web":
+  version: 0.0.0-use.local
+  resolution: "@openspv/openspv-web@workspace:openspv-web"
+  dependencies:
+    eslint: 8.0.0
+    eslint-config-next: 11.1.2
+    next: 11.1.2
+    react: 17.0.2
+    react-dom: 17.0.2
+    sharp: ^0.29.1
+  languageName: unknown
+  linkType: soft
 
 "@rushstack/eslint-patch@npm:^1.0.6":
   version: 1.1.0
