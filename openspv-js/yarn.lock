@@ -1084,18 +1084,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coasian/openspv-db@workspace:openspv-db":
+"@openspv/openspv-db@workspace:openspv-db":
   version: 0.0.0-use.local
-  resolution: "@coasian/openspv-db@workspace:openspv-db"
+  resolution: "@openspv/openspv-db@workspace:openspv-db"
   dependencies:
     "@aws-sdk/client-s3": ^3.39.0
     cassandra-driver: ^4.6.3
   languageName: unknown
   linkType: soft
 
-"@coasian/openspv-elliptic@workspace:openspv-elliptic":
+"@openspv/openspv-elliptic@workspace:openspv-elliptic":
   version: 0.0.0-use.local
-  resolution: "@coasian/openspv-elliptic@workspace:openspv-elliptic"
+  resolution: "@openspv/openspv-elliptic@workspace:openspv-elliptic"
   dependencies:
     bn.js: ^5.1.1
     brfs: ^2.0.2
@@ -1121,20 +1121,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/openspv-keyfile@workspace:openspv-keyfile":
+"@openspv/openspv-keyfile@workspace:openspv-keyfile":
   version: 0.0.0-use.local
-  resolution: "@coasian/openspv-keyfile@workspace:openspv-keyfile"
+  resolution: "@openspv/openspv-keyfile@workspace:openspv-keyfile"
   dependencies:
-    "@coasian/openspv-lib": "workspace:openspv-lib"
+    "@openspv/openspv-lib": "workspace:openspv-lib"
     mocha: ^8.3.1
     should: ^13.2.3
     standard: ^16.0.3
   languageName: unknown
   linkType: soft
 
-"@coasian/openspv-lib@workspace:openspv-lib":
+"@openspv/openspv-lib@workspace:openspv-lib":
   version: 0.0.0-use.local
-  resolution: "@coasian/openspv-lib@workspace:openspv-lib"
+  resolution: "@openspv/openspv-lib@workspace:openspv-lib"
   dependencies:
     "@openspv/elliptic": 7.0.1
     aes: 0.1.0
@@ -1151,9 +1151,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@coasian/openspv-web@workspace:openspv-web":
+"@openspv/openspv-web@workspace:openspv-web":
   version: 0.0.0-use.local
-  resolution: "@coasian/openspv-web@workspace:openspv-web"
+  resolution: "@openspv/openspv-web@workspace:openspv-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2

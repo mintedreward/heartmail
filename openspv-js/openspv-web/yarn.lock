@@ -88,9 +88,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coasian/openspv-web@workspace:.":
+"@openspv/openspv-web@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@coasian/openspv-web@workspace:."
+  resolution: "@openspv/openspv-web@workspace:."
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2

@@ -1,5 +1,5 @@
 {
-  "name": "@coasian/openspv-web",
+  "name": "@openspv/openspv-web",
   "version": "3.3.0",
   "scripts": {
     "dev": "next dev",
