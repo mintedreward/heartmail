@@ -1,21 +1,21 @@
 {
-  "name": "@openspv/openspv-keyfile",
+  "name": "@openspv/keyfile",
   "packageManager": "yarn@3.0.2",
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules/* yarn.lock",
     "lint": "standard 'src/**/*.mjs' 'test/**/*.mjs'",
-    "pretest": "yarn run lint",
+    "pretest": "# yarn run lint",
     "test:mocha": "mocha",
-    "test": "yarn run test:mocha",
-    "prepublish": "yarn build"
+    "test": "yarn run test:mocha"
   },
   "dependencies": {
-    "@openspv/openspv-lib": "workspace:openspv-lib"
+    "@openspv/lib": "workspace:lib"
   },
   "devDependencies": {
     "mocha": "^8.3.1",
     "should": "^13.2.3",
     "standard": "^16.0.3"
-  }
+  },
+  "version": "1.0.0"
 }
