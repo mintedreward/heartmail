@@ -10,7 +10,7 @@
     "test": "yarn run test:mocha"
   },
   "dependencies": {
-    "@openspv/lib": "workspace:lib"
+    "@openspv/lib": "workspace:*"
   },
   "devDependencies": {
     "mocha": "^8.3.1",

@@ -19,7 +19,7 @@
 **OpenSPV** is:
 
 - The reference implementation of protocols for the Social Bitcoin Web (SBW) in
-  multiple programming languages including javascript, go, rust, Swift, and
+  javascript and other programming languages including go, rust, Swift, and
   Java.
 
 - A full-stack scalable Bitcoin SPV wallet including the UI, API, and library
@@ -73,13 +73,10 @@ Bitcoin wallet for any Bitcoin application.
 meaningful definition of "decentralized". OpenSPV is decentralized because it
 does not introduce a central point of failure.
 
-This is why we are not using Slack, GitHub, Google Docs, or any other
-centralized tool.
-
-The SBWC eats out own dog food by building our own communication tools that
-satisfy this principle. **We are starting with chat and video** so that not only
-do we not need to introduce a central point of failure, but we identity all
-existence central points of failure and eliminate them with time.
+The SBWC eats our own dog food by building our own communication tools that
+satisfy this principle. **We are starting with chat and video** so that not
+only do we not need to introduce a central point of failure, but we identity
+all existence central points of failure and eliminate them with time.
 
 ## SBWC Management
 
@@ -133,10 +130,6 @@ for more information.
 We use GitHub to manage the software. The main repo is located at
 github.com/openspv/openspv. All code is located in a directory with the primary
 programming language for those subprojects, for instance "js".
-
-Inside each programming language, directory all OpenSPV modules are contained
-in a directory that is prefixed with openspv-. For instance, openspv-lib is a
-library of basic Bitcoin functionality.
 
 We also use GitHub to manage the protocol specifications. The protocol specs
 are contained in the sbw-specs directory.

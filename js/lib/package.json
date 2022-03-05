@@ -1,7 +1,7 @@
 {
   "name": "@openspv/lib",
   "description": "Bitcoin data structures and cryptographic algorithms.",
-  "version": "1.4.0",
+  "version": "8.0.0",
   "author": "HeartMail",
   "homepage": "https://github.com/openspv/openspv",
   "main": "./index.mjs",
@@ -26,7 +26,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "@openspv/elliptic": "7.0.1",
+    "@openspv/elliptic": "workspace:*",
     "aes": "0.1.0",
     "bn.js": "5.2.0",
     "bs58": "4.0.1",

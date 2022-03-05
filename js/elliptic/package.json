@@ -1,6 +1,6 @@
 {
-  "name": "@openspv/openspv-elliptic",
-  "version": "7.0.1",
+  "name": "@openspv/elliptic",
+  "version": "8.0.0",
   "description": "EC cryptography",
   "main": "lib/elliptic.js",
   "files": [
