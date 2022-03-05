@@ -9,6 +9,7 @@
     "test:mocha": "mocha",
     "test": "yarn run test:mocha"
   },
+  "license": "OpenBSV",
   "dependencies": {
     "@openspv/lib": "workspace:*"
   },

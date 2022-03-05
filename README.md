@@ -45,10 +45,12 @@
 
 ## License
 
-OpenSPV is open to the SBWC and closed to outsiders. Each commit is re-licensed
-under the OpenBSV license after one year. The license includes both the code
-and the protocol specifications. Please see the LICENSE file for the full text
-of the license.
+OpenSPV is open to the SBWC and closed to outsiders. You should bundle OpenSPV
+inside your application and distribute your application to your customers.
+
+Do not distribute OpenSPV as an isolated project to your customers. Do not leak
+any other information about the SBWC to the outside. Anyone who violates these
+rules will be removed from the SBWC at the sole discretion of HeartMail Inc.
 
 If you wish to add someone to the consortium, please contact Ryan X. Charles
 &lt;ryan@heartmail.com&gt;.
@@ -57,7 +59,7 @@ If you wish to add someone to the consortium, please contact Ryan X. Charles
 
 It is intended that every business who is a part of the SBWC helps design and
 implement the protocols for use within and outside of the consortium. OpenSPV
-itself is not indended to be directly sold. Instead, each business is intended
+itself is not intended to be directly sold. Instead, each business is intended
 to produce their own proprietary software which is sold or licensed and which
 may include OpenSPV bundled inside.
 
