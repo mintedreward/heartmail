@@ -16,14 +16,6 @@ export default function Home() {
             <Image src="/openspv-header-light.png" alt="OpenSPV" width="400" height="133" />
         </span>
       </main>
-
-      <footer className={styles.footer}>
-        <a href="https://www.coasian.com">
-          <span className={styles.logofooter}>
-            <Image src="/coasian-footer-dark.png" alt="Coasian" width={180} height={50} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
