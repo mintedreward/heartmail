@@ -1,21 +1,109 @@
+Copyright (c) 2022 HeartMail Inc.
+
+OpenSPV is the reference implementation of all of the protocols of the Social
+Bitcoin Web (SBW).
+
+Every commit to OpenSPV is open to consortium members but closed to outsiders.
+
+For every commit to OpenSPV, the commit changes to the OpenBSV license one year
+after the commit was made.
+
+Consortium members are added and removed at the sole discretion of HeartMail
+Inc. Any consortium member who is removed retains the license for the software
+up through the latest commit before they were removed.
+
+The full list of consortium members are:
+
+Annemie <annemie@unisot.io>
+Arjun (Mallikarjun) Karra <mallikarjunkarra@tutanota.com>
+Ben Eenhoorn <ben@devar.xyz>
+Brad Meinert <brad_meinert@yahoo.com>
+Brendan Lee <brendan@elas.digital>
+Brent Bevear <brent@elas.digital>
+Bryan Daugherty <bryan@bsvblockchain.org>
+Caroline <caroline@unisot.io>
+Casey N. Hamilton <casey@heartmail.com>
+Connor Murray <connor@britevue.com>
+Craig Porter <craig@elas.digital>
+Daniel Krawisz <danielkrawisz@protonmail.com>
+Dave Foderick <dfoderick@gmail.com>
+Deggen <deggen@kschw.com>
+Diddy Wheldon <diddy@heartmail.com>
+Dylan Murray <dylan@britevue.com>
+Eamon McDermott <eamon@jackmaninov.ca>
+Emanuele Nusca <emanuelenusca@hotmail.com>
+Freddie Honohan <freddie@elas.digital>
+George Siosi Samuels <george@hona.io>
+Glauce Cerveira <gc@glauce.com>
+Greg Ward <codenlighten1@gmail.com>
+Holger Vogel <hjvogel@gmx.de>
+Jack Pitts <jgpitts@gmail.com>
+Jack Rogers <J.R.Rogers@exeter.ac.uk>
+Joel Dalais <joel@dalais.org>
+Jonathan Aird <jonathan.aird@gmail.com>
+Jose Juan Isaac Taveras Lopez <isaac@tangerinelaboratories.com>
+Kevin Healy <kevin@kevinmhealy.com>
+Kris Arsov <kris@arsov.bg>
+Lacy Counts <lacy@heartmail.com>
+Luke Rohenaz <lrohenaz@tonicpow.com>
+Marcel Gruber <inquiries@luxicaconsultingcorp.com>
+Mark Kordusic <kordusicmark@gmail.com>
+Mark T <MarkT@govirtual.com.au>
+Markus W. Frick <markus@markuswfrick.com>
+Matija Papec <mpapec@yahoo.com>
+Mohammad Jaber <mo@elas.digital>
+Monte Ohrt <monte@ohrt.com>
+Mr Z <mrz1818@pm.me>
+Nithin <nithin@xoken.org>
+Ramiro Secco <grsecco@gmail.com>
+Rohan Sharan <rohan@timechainlabs.io>
+Ruth Heasman <ptpruth@gmail.com>
+Ryan X. Charles <ryan@heartmail.com>
+Shawn <shawn@smartledger.solutions>
+Siggi <siggi@hona.io>
+Simeon H. (S.H.) <sh@onchain.ch>
+Steffen Sølling <steffen.solling@gmail.com>
+Stephan Nilsson <stephan@unisot.io>
+Thor <thor20bsv@gmail.com>
+Tom Hatcher	<computer_tom@yahoo.com>
+Tony DiGanci <tony@dcsmidwest.com>
+Wayne Gray <wayne@wayneg.net>
+Xiaohui Liu	<whulxh@gmail.com>
+Yaanis Graumanis <sqrt.of.1764@gmail.com>
+
+Thus, there are two periods for every commit:
+
+- The closed period.
+- The open period.
+
+During the closed period:
+
+- Consortium members are free to sell or license proprietary software that
+  bundles OpenSPV inside as a dependency.
+- Consortium members are not free to sell or license OpenSPV as an isolated
+  package.
+
+During open period, the license changes to OpenBSV. The text of the OpenBSV
+license follows:
+
 OpenBSV License version 4
 
 Copyright (c) 2022 HeartMail Inc.
  
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
  
 1 - The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
 2 - The Software, and any software that is derived from the Software or parts
 thereof, can only be used on the Bitcoin SV blockchains. The Bitcoin SV
-blockchains are defined, for purposes of this license, as the Bitcoin
-blockchain containing block height #556767 with the hash
+blockchains are defined, for purposes of this license, as the Bitcoin blockchain
+containing block height #556767 with the hash
 "000000000000000001d956714215d96ffc00e0afda4cd0a96c96f8d802b1662b" and that
 contains the longest persistent chain of blocks accepted by this Software and
 which are valid under the rules set forth in the Bitcoin white paper (S.
@@ -33,5 +121,5 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

@@ -41,7 +41,7 @@
     "sinon": "9.2.4",
     "standard": "16.0.4"
   },
-  "license": "OpenBSV",
+  "license": "MIT",
   "standard": {
     "ignore": [
       "src/interp.mjs",
