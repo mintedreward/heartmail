@@ -1,0 +1,39 @@
+{
+  "name": "@openspv/paymail",
+  "description": "Extensions to email for Bitcoin and the web.",
+  "version": "8.0.0",
+  "author": "HeartMail",
+  "homepage": "https://github.com/openspv/openspv",
+  "main": "./index.mjs",
+  "exports": "./index.mjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openspv/openspv.git"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "bitcoin",
+    "bsv",
+    "spv"
+  ],
+  "scripts": {
+    "lint": "standard *.mjs",
+    "pretest": "yarn run lint",
+    "test:mocha": "mocha",
+    "test": "yarn run pretest && yarn run test:mocha"
+  },
+  "packageManager": "yarn@3.0.2",
+  "dependencies": {
+    "body-parser": "1.19.2",
+    "email-validator": "2.0.4",
+    "express": "4.17.3",
+    "pug": "3.0.2"
+  },
+  "devDependencies": {
+    "mocha": "8.3.1",
+    "should": "13.2.3",
+    "standard": "16.0.4"
+  }
+}
