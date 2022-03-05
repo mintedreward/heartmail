@@ -8,9 +8,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "next": "12",
+    "react": "latest",
+    "react-dom": "latest",
     "sharp": "^0.29.1"
   },
   "devDependencies": {
