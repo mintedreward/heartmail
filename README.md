@@ -50,6 +50,9 @@ under the OpenBSV license after one year. The license includes both the code
 and the protocol specifications. Please see the LICENSE file for the full text
 of the license.
 
+If you wish to add someone to the consortium, please contact Ryan X. Charles
+&lt;ryan@heartmail.com&gt;.
+
 ## OpenSPV vs. Proprietary Software
 
 It is intended that every business who is a part of the SBWC helps design and

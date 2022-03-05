@@ -14,3 +14,10 @@ Contributing
   names, camel case, etc., look like the rest of the code?
 - We can add a CONTRIBUTING.md file to outline all code conventions. We can
   start with javascript and add other languages when necessary.
+- Review process for pull requests: For now, all spec changes and code changes
+  are reviewed by @ryanxcharles. We will need to add more spec and code
+  reviewers over time. We will pick people who contribute to be reviewers.
+- Where we must include dependencies, always specify exact versions in
+  package.json.
+- Consider tools such as https://socket.dev/
+- Review Github marketplace for candidate security integrations, code review, and code quality
