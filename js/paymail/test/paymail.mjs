@@ -1,6 +1,6 @@
 /* global describe,it */
 'use strict'
-import { Paymail } from '../src/paymail.mjs'
+import { Paymail } from '../index.mjs'
 import should from 'should'
 
 describe('Paymail', function () {

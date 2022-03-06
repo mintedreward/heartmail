@@ -28,6 +28,7 @@ OpenSPV is a large application consisting of many modules. The modules are
 described below.
 
 SPV and content modules:
+
 - [ ] OpenSPV Web
 - [x] OpenSPV Lib
 - [x] OpenSPV Keyfile
@@ -59,3 +60,17 @@ Miner modules:
 Exchange modules:
 - [ ] OpenSPV Price Server <= Price Client Interface
 
+## Yarn Workspaces
+
+[Yarn Workspaces](https://semaphoreci.com/blog/javascript-monorepos-yarn-workspaces) are used for cross-module dependencies. 
+
+From this directory, you can run the following commands:
+
+    $ yarn workspaces list
+    $ yarn workspace paymail lint
+    $ yarn workspaces foreach lint
+    $ yarn workspaces foreach test
+
+To reference a module from another module:
+
+    import { Paymail } from '@openspv/paymail'

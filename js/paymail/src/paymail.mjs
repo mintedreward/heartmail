@@ -78,4 +78,4 @@ class Paymail {
   }
 }
 
-export { Paymail }
+export default Paymail
