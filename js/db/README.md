@@ -7,6 +7,35 @@ users, keys, and meta information.
 
 A user can be a person or an organization.
 
+## Getting started
+Follow these general instructions to get started.  
+
+0. run `yarn` to install dependencies.
+1. Log into your aws console. There is a ui web interface to set up Keyspaces database and create your database using the commands in `./migration.cql`
+2. Create a aws user and get the login user and password using the `Generate service-specific credentials` below
+3. copy .env.example to .env and configure the following settings... 
+```
+CERTFILE='certs/sf-class2-root.crt'
+AWS_CASSANDRA='cassandra.us-east-1.amazonaws.com'
+AWS_KEYSPACE='openspv'
+AWS_REGION='us-east-1'
+AWS_SERVICEUSER='YOUR_AWS_SERVICE_USER'
+AWS_SERVICEPASSWORD='YOUR_AWS_SERVICE_PASSWORD'
+```
+
+Pay special attention to your service user name and password!  
+
+4. run `yarn start`. It will log a bunch of cassandra details to your console and then it should respond at the end with the invoice record that it wrote to the cassandra database.
+
+## Amazon Keyspaces
+Use these links to connect to amazon keyspaces...  
+
+* https://docs.aws.amazon.com/keyspaces/latest/devguide/programmatic.drivers.html
+
+* https://docs.aws.amazon.com/keyspaces/latest/devguide/using_nodejs_driver.html
+
+* https://docs.aws.amazon.com/keyspaces/latest/devguide/programmatic.credentials.ssc.html
+
 ## Amazon S3
 
 ### Txs
@@ -38,8 +67,6 @@ A user can be a person or an organization.
 * userId: The bitcoin address string of the user's first key.
 * avatar200x200.jpg: The raw binary of the user's avatar in JPG format. Exactly
   200x200 pixels in size.
-
-## Amazon Keyspaces
 
 ### Block Headers
 
