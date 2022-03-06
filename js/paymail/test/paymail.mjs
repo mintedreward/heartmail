@@ -15,6 +15,10 @@ describe('Paymail', function () {
     it('should validate or invalidate', () => {
       new Paymail('user@example.com').isValid().should.equal(true)
       new Paymail('user @example.com').isValid().should.equal(false)
+      new Paymail('').isValid().should.equal(false)
+      new Paymail().isValid().should.equal(false)
+      new Paymail(null).isValid().should.equal(false)
+      new Paymail(undefined).isValid().should.equal(false)
     })
   })
 

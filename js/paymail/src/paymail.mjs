@@ -18,6 +18,9 @@ class Paymail {
   }
 
   static getNormalized(paymail) {
+    if (typeof paymail !== 'string' || paymail.length === 0) {
+      return paymail
+    }
     let normalized = paymail
     normalized = normalized.toLowerCase()
     return normalized
@@ -43,6 +46,9 @@ class Paymail {
   }
 
   static getDomainName (paymail = '') {
+    if (typeof paymail !== 'string' || paymail.length === 0) {
+      return paymail
+    }
     const arr = paymail.split('@')
     return arr[1]
   }
