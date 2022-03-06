@@ -19,6 +19,7 @@
     "spv"
   ],
   "scripts": {
+    "serve": "node ./src/paymail-server.mjs",
     "lint": "standard *.mjs",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",

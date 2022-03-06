@@ -14,6 +14,7 @@ const wellknown = `
 }
 `
 app.get('/.well-known/bsvalias', (req, res) => {
+  res.setHeader('Content-Type', 'application/json')
   res.send(wellknown)
 })
 
