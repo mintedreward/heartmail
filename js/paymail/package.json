@@ -18,18 +18,22 @@
     "bsv",
     "spv"
   ],
+  "license": "OpenBSV",
   "scripts": {
     "serve": "node ./src/paymail-server.mjs",
-    "lint": "standard *.mjs",
+    "lint": "standard **/*.mjs",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",
     "test": "yarn run pretest && yarn run test:mocha"
   },
   "packageManager": "yarn@3.0.2",
   "dependencies": {
+    "@openspv/lib": "workspace:*",
     "body-parser": "1.19.2",
     "email-validator": "2.0.4",
     "express": "4.17.3",
+    "is-valid-domain": "0.1.6",
+    "isomorphic-fetch": "^3.0.0",
     "pug": "3.0.2"
   },
   "devDependencies": {

@@ -50,6 +50,9 @@ should never be support. We should only support peer-to-peer transactions. That
 is to say, from Day 1 of the launch of SBW / OpenSPV, all transactions are sent
 to the recipient and not simply broadcast to the miners.
 
+- DNSSEC is not required if the paymail host is the www subdomain *or any other
+  subdomain* (not just www).
+
 ## Service Discovery
 
 Service discovery is separated into two phases:
@@ -97,7 +100,7 @@ Although the DNS system allows for multiple records with a variety of priorities
 
 See [https://en.wikipedia.org/wiki/SRV_record](https://en.wikipedia.org/wiki/SRV_record) for more information on `SRV` DNS records.
 
-`SRV` records **must** be served with a valid [DNSSEC](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions) signature chain with the exception that if the `SRV` record points to `<domain>.<tld>` or `www.<domain>.<tld>`, then the `SRV` records **should** be served with a valid DNSSEC signature chain.
+`SRV` records **must** be served with a valid [DNSSEC](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions) signature chain with the exception that if the `SRV` record points to `<domain>.<tld>` or `<subdomain>.<domain>.<tld>` for any value of `<subdomain>`, then the `SRV` records **should** be served with a valid DNSSEC signature chain.
 
 ### Client Queries
 
@@ -112,15 +115,15 @@ Note: whilst an exception to the requirement for DNSSEC is made for cases where 
 Clients **must**, therefore, resolve hosts with the following procedure.
 
 1. Query for an `SRV` endpoint at `_bsvalias._tcp.<domain>.<tld>.`.
-1. If an `SRV` record is found and the reponse target points to `<domain>.<tld>` or `www.<domain>.<tld>`, but the response is _not_ served with a valid DNSSEC signature chain, proceed to capability discovery using the target/port combination as specified by the `SRV` record and rely on the SSL certificate for the prevention of man in the middle attacks. Note that in this scenario it is possible to still receive malicious DNS information, however SSL certificates prevent further MITM attacks.
-1. If an `SRV` record is found, but the response is _not_ served with a valid DNSSEC signature chain and the response target does NOT point to `<domain>.<tld>` or `www.<domain>.<tld>`, ignore the `SRV` record completely and continue with an `A` record query as in step 5, relying on the SSL certificate for the prevention of man in the middle attacks. Note that in this scenario it is possible to still receive malicious DNS information, however SSL certificates prevent further MITM attacks. The worst that may happen here is that, for a domain that has delegated BSV Alias services out to a service provider, further lookups fail and the client cannot proceed at this time. However the option of falling back to an `A` record and relying on SSL prevents a possible denial of service vector where a malicious actor has compromised DNS.
+1. If an `SRV` record is found and the reponse target points to `<domain>.<tld>` or `<subdomain>.<domain>.<tld>` for any value of `<subdomain>`, but the response is _not_ served with a valid DNSSEC signature chain, proceed to capability discovery using the target/port combination as specified by the `SRV` record and rely on the SSL certificate for the prevention of man in the middle attacks. Note that in this scenario it is possible to still receive malicious DNS information, however SSL certificates prevent further MITM attacks.
+1. If an `SRV` record is found, but the response is _not_ served with a valid DNSSEC signature chain and the response target does NOT point to `<domain>.<tld>` or `<subdomain>.<domain>.<tld>` for any value of `<subdomain>`, ignore the `SRV` record completely and continue with an `A` record query as in step 5, relying on the SSL certificate for the prevention of man in the middle attacks. Note that in this scenario it is possible to still receive malicious DNS information, however SSL certificates prevent further MITM attacks. The worst that may happen here is that, for a domain that has delegated BSV Alias services out to a service provider, further lookups fail and the client cannot proceed at this time. However the option of falling back to an `A` record and relying on SSL prevents a possible denial of service vector where a malicious actor has compromised DNS.
 1. If an `SRV` record is found, and the response _is_ served with a valid DNSSEC signature chain, proceed to capability discovery using the target/port combination as specified by the `SRV` record.
 1. If no `SRV` record is found, instead query for an `A` record for `<domain>.<tld>.` and proceed to capability discovery, verifying that the SSL certificate presented by the remote host is valid for `<domain>.<tld>.`.
 
 A client **must** fail the request in the following cases:
 * The SSL certificate for the target domain does not verify as valid for that target domain regardless of whether the target domain is discovered via the `SRV` record or via the `A` record.
 * An `SRV` record is not served; AND `<domain>.<tld>` does not host a valid capability discovery service.
-* The `SRV` response target does NOT point `<domain>.<tld>` or `www.<domain>.<tld>`; AND the `SRV` record is not served with a valid DNSSEC signature chain; AND `<domain>.<tld>` does not host a valid capability discovery service.
+* The `SRV` response target does NOT point `<domain>.<tld>` or `<subdomain>.<domain>.<tld>` for any value of `<subdomain>`; AND the `SRV` record is not served with a valid DNSSEC signature chain; AND `<domain>.<tld>` does not host a valid capability discovery service.
 
 ## Capability Discovery
 
