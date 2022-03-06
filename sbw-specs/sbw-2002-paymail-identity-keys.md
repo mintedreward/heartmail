@@ -1,4 +1,4 @@
-# SBW 2: Paymail public key infrastructure (PKI)
+# SBW 2002: Paymail public key infrastructure (PKI)
 
 ## Authors
 
@@ -7,7 +7,7 @@
 
 ## Dependencies
 
-* SBW 1: Paymail
+* SBW 2001: Paymail
 
 ## Introduction
 
@@ -36,7 +36,7 @@ The template values `{alias}` and `{domain.tld}` refer to the components of targ
 
 ### PKI Flow
 
-![Service Discovery](./sbw-002-pki-flow.png)
+![Service Discovery](./sbw-2002-pki-flow.png)
 
 ### Client Request
 

@@ -1,10 +1,10 @@
-SBW 9: Filter service API
+SBW 2010: Filter service API
 =========================
 
 Dependencies
 ------------
 
-* SBW 9: Script template labels
+* SBW 2009: Script template labels
 
 Introduction
 ------------

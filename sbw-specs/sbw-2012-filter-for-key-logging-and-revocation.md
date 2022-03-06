@@ -1,10 +1,10 @@
-SBW 11: Filter for paymail keys
+SBW 2012: Filter for paymail keys
 ===============================
 
 Dependencies
 ------------
 
-* SBW 8: Paymail key logging and revocation data structures
+* SBW 2012: Paymail key logging and revocation data structures
 
 Introduction
 ------------

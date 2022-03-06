@@ -1,4 +1,4 @@
-# SBW 1: Paymail
+# SBW 2001: Paymail
 
 ## Authors
 
@@ -62,7 +62,7 @@ Service discovery is separated into two phases:
 
 ### Service Discovery Process
 
-![Service Discovery](./sbw-001-service-discovery.png)
+![Service Discovery](./sbw-2001-service-discovery.png)
 
 ## Host Discovery
 

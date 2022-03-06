@@ -1,4 +1,4 @@
-SBW 15: Merkle proof data structure
+SBW 2016: Merkle proof data structure
 ===================================
 
 Dependencies

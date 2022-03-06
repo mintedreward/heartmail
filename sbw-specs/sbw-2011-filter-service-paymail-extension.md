@@ -1,10 +1,10 @@
-SBW 10: Filter service paymail extension
+SBW 2011: Filter service paymail extension
 =======================================
 
 Dependencies
 ------------
 
-* SBW 10: Filter service API
+* SBW 2010: Filter service API
 
 Introduction
 ------------

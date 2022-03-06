@@ -1,4 +1,4 @@
-SBW 7: Paymail key logging and revocation data structures
+SBW 2008: Paymail key logging and revocation data structures
 =========================================================
 
 Dependencies

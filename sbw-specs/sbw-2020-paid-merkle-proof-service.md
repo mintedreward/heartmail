@@ -1,9 +1,9 @@
-SBW 19: Paid Merkle proof service
+SBW 2020: Paid Merkle proof service
 =================================
 
 Dependencies
 ------------
-* SBW 19: SPV payments
+* SBW 2019: SPV payments
 
 Introduction
 ------------

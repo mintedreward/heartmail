@@ -1,10 +1,10 @@
-SBW 14: Paymail invoice and P2P payments
+SBW 2015: Paymail invoice and P2P payments
 ========================================
 
 Dependencies
 ------------
 
-* SBW 1: Paymail
+* SBW 2001: Paymail
 
 Introduction
 ------------

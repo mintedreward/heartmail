@@ -1,12 +1,12 @@
-SBW 12: Paymail signatures with revocation
+SBW 2013: Paymail signatures with revocation
 ==========================================
 
 Dependencies
 ------------
-* SBW 2: Paymail identity keys
-* SBW 4: Paymail signatures
-* SBW 8: Paymail key logging
-* SBW 12: Filter for paymail key logging
+* SBW 2002: Paymail identity keys
+* SBW 2004: Paymail signatures
+* SBW 2008: Paymail key logging
+* SBW 2012: Filter for paymail key logging
 
 Introduction
 ------------

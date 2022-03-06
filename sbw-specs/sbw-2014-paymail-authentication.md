@@ -1,11 +1,11 @@
-SBW 13: Paymail authentication with revocation
+SBW 2014: Paymail authentication with revocation
 ==============================================
 
 Dependencies
 ------------
 
-* SBW 5: Paymail authentication without revocation
-* SBW 13: Paymail signatures with revocation
+* SBW 2005: Paymail authentication without revocation
+* SBW 2013: Paymail signatures with revocation
 
 Introduction
 ------------

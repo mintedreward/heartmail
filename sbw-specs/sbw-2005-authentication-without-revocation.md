@@ -1,12 +1,12 @@
-SBW 4: Paymail authentication without revocation
+SBW 2005: Paymail authentication without revocation
 ================================================
 
 Dependencies
 ------------
 
-* SBW 1: Paymail
-* SBW 2: Paymail identity keys
-* SBW 3: Paymail signatures without revocation
+* SBW 2001: Paymail
+* SBW 2002: Paymail identity keys
+* SBW 2004: Paymail signatures without revocation
 
 Introduction
 ------------

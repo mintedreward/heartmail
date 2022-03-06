@@ -1,4 +1,4 @@
-SBW 10: Script template labels
+SBW 2009: Script template labels
 ==============================
 
 Dependencies

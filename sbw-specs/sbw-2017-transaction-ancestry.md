@@ -1,10 +1,10 @@
-SBW 16: Transaction ancestry data structure
+SBW 2017: Transaction ancestry data structure
 ===========================================
 
 Dependencies
 ------------
 
-* SBW 16: Merkle proof data structure
+* SBW 2016: Merkle proof data structure
 
 Introduction
 ------------

@@ -1,10 +1,11 @@
-SBW 17: Merkle proof service
+SBW 2018: Merkle proof service
 ============================
 
 Dependencies
 ------------
 
-* SBW 16: Merkle proof data structures
+* SBW 2016: Merkle proof data structures
+* SBW 2016: Transaction ancestry data structures
 
 Introduction
 ------------

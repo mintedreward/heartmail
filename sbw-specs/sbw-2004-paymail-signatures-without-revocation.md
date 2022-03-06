@@ -1,10 +1,10 @@
-# SBW 2: Paymail signatures without revocation
+# SBW 2004: Paymail signatures without revocation
 
 ## Dependencies
 
-* SBW 1: Paymail
-* SBW 2: Paymail identity keys
-* SBW 3: Paymail verify public key owner
+* SBW 2001: Paymail
+* SBW 2002: Paymail identity keys
+* SBW 2003: Paymail verify public key owner
 
 ## Introduction
 

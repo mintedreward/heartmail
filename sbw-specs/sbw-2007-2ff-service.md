@@ -1,12 +1,12 @@
-SBW 6: Two Factor Friend (2FF) Service
+SBW 2007: Two Factor Friend (2FF) Service
 ======================================
 
 Dependencies
 ------------
 
-* SBW 1: Paymail
-* SBW 2: Paymail identity keys
-* SBW 6: 2FF
+* SBW 2001: Paymail
+* SBW 2002: Paymail identity keys
+* SBW 2006: 2FF
 
 Introduction
 ------------

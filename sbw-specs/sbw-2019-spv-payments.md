@@ -1,12 +1,12 @@
-SBW 18: SPV payments
+SBW 2019: SPV payments
 ====================
 
 Dependencies
 ------------
-* SBW 1: Paymail
-* SBW 15: Paymail invoices and P2P payments
-* SBW 17: Transaction ancestry data structure
-* SBW 18: Merkle proof service
+* SBW 2001: Paymail
+* SBW 2015: Paymail invoices and P2P payments
+* SBW 2017: Transaction ancestry data structure
+* SBW 208: Merkle proof service
 
 Introduction
 ------------
