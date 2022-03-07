@@ -1,6 +1,6 @@
 ---
 brfc: true
-title: Encrypted Keyfile for Authentication
+title: Endpoint for Authentication
 authors:
   - Murray Distributed Technologies
 version: 1
@@ -9,28 +9,27 @@ version: 1
 
 {{yfm}}
 
-Hash: 3a37773637ec
-ID: keyfile
+ID: authentication
 
 This capability allows the retrieval of the encrypted keyfile for a given paymail.
 
 # Motivation
-In order for us to use paymail domains as a native authentication mechanism, users must be able to retrieve the private keys needed to perform signatures inside of applications. This extension will enable a user to retrieve their encrypted keyfile from their paymail domain.  
+In order for us to use paymail domains as a native authentication mechanism, applications must know where to redirect users for authentication given their paymail. The /authentication endpoint returns a URL to redirect the user to an endpoint to login.
 
 ## Capability discovery
 
-The `.well-known/bsvalias` document is updated to include a public keyfile endpoint:
+The `.well-known/bsvalias` document is updated to include a public authentication endpoint:
 
 ```json
 {
   "bsvalias": "1.0",
   "capabilities": {
-    "{{fm:brfc}}": "https://example.bsvalias.tld/api/{alias}@{domain.tld}/keyfile"
+    "{{fm:brfc}}": "https://example.bsvalias.tld/api/{alias}@{domain.tld}/authentication"
   }
 }
 ```
 
-The `capabilities.{{fm:brfc}}` is a template URL to query for the public keyfile information.
+The `capabilities.{{fm:brfc}}` is a template URL to query for the public authentication information.
 
 ## Client Request
 
@@ -50,7 +49,7 @@ Returned when a valid request was made. The response _MUST_ have `application/js
 {
   "bsvalias":"1.0",
   "handle": <alias>@<domain>.<tld>,
-  "keyfile":"..."
+  "authenticationUrl":"..."
 }
 ```
 ### 404 Not Found
