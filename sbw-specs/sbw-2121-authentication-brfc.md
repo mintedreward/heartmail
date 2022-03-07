@@ -5,7 +5,7 @@ authors:
   - Murray Distributed Technologies
 version: 1
 ---
-# Encrypted Keyfile for Authentication
+# Endpoint for Authentication
 
 {{yfm}}
 
