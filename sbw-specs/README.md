@@ -52,23 +52,24 @@ Early Protocols
 
 1. Paymail
 2. Paymail identity keys
-3. Paymail signatures (without revocation)
-4. Paymail authentication (without revocation)
-5. Two Factor Friend (2FF)
-6. Two Factor Friend (2FF) service
-7. Paymail key logging and revocation data structures
-8. Script template labels
-9. Filter service API
-10. Filter service paymail extension
-11. Filter for paymail key logging and revocation
-12. Paymail signatures (with revocation)
-13. Paymail authentication (with revocation)
-14. Paymail invoices and P2P payments
-15. Merkle proof data structure
-16. Transaction ancestry data structure
-17. Merkle proof service
-18. SPV payments
-19. Paid Merkle proof service
+3. Paymail verify public key owner
+4. Paymail signatures (without revocation)
+5. Paymail authentication (without revocation)
+6. Two Factor Friend (2FF)
+7. Two Factor Friend (2FF) service
+8. Paymail key logging and revocation data structures
+9. Script template labels
+10. Filter service API
+11. Filter service paymail extension
+12. Filter for paymail key logging and revocation
+13. Paymail signatures (with revocation)
+14. Paymail authentication (with revocation)
+15. Paymail invoices and P2P payments
+16. Merkle proof data structure
+17. Transaction ancestry data structure
+18. Merkle proof service
+19. SPV payments
+20. Paid Merkle proof service
 
 ### Media milestone
 
