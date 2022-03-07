@@ -105,4 +105,4 @@ A public key is added to the body of the request. The final schema is the follow
 
 #### Flow
 
-![Verify public key flow](./sbw-003-verify-public-key-flow.png)
+![Verify public key flow](./sbw-2003-verify-public-key-flow.png)
