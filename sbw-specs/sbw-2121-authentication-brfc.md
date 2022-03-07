@@ -11,7 +11,7 @@ version: 1
 
 ID: authentication
 
-This capability allows the retrieval of the encrypted keyfile for a given paymail.
+This capability allows the retrieval of an authentication URL for a given paymail.
 
 # Motivation
 In order for us to use paymail domains as a native authentication mechanism, applications must know where to redirect users for authentication given their paymail. The /authentication endpoint returns a URL to redirect the user to an endpoint to login.
