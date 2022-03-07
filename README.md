@@ -4,12 +4,10 @@
 
 **The Social Bitcoin Web (SBW)** is:
 
-- A set of protocols that bring identity and social features to Bitcoin and the
-  web.
+- A set of protocols that bring identity, social features, and digital rights
+  management (DRM) to Bitcoin and the web.
 
-- A network with no central point of failure.
-
-- A decentralized network.
+- A network with no central point of failure. A.k.a. a decentralized network.
 
 **The Social Bitcoin Web Consortium (SBWC)** is:
 
