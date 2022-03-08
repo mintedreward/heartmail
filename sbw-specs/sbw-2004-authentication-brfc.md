@@ -1,13 +1,11 @@
 ---
 brfc: true
-title: Endpoint for Authentication
+title: Paymail authentication (without revocation)
 authors:
   - Murray Distributed Technologies
 version: 1
 ---
-# Endpoint for Authentication
-
-{{yfm}}
+# SBW 2004: Paymail authentication (without revocation)
 
 ID: authentication
 
@@ -24,16 +22,16 @@ The `.well-known/bsvalias` document is updated to include a public authenticatio
 {
   "bsvalias": "1.0",
   "capabilities": {
-    "{{fm:brfc}}": "https://example.bsvalias.tld/api/{alias}@{domain.tld}/authentication"
+    "sbw-2004-paymail-authentication": "https://example.bsvalias.tld/api/{alias}@{domain.tld}/authentication"
   }
 }
 ```
 
-The `capabilities.{{fm:brfc}}` is a template URL to query for the public authentication information.
+The `capabilities.sbw-2004-paymail-authentication` is a template URL to query for the public authentication information.
 
 ## Client Request
 
-The `capabilities.{{fm:brfc}}` path returns a URI template. Senders _MUST_ replace `{alias}`, `{domain.tld}` placeholders with a valid paymail handle.
+The `capabilities.sbw-2004-paymail-authentication` path returns a URI template. Senders _MUST_ replace `{alias}`, `{domain.tld}` placeholders with a valid paymail handle.
 
 The client _MUST_ perform a GET request to the obtained URL.
 
