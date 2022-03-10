@@ -12,7 +12,7 @@ ID: authentication
 This capability allows the retrieval of an authentication URL for a given paymail.
 
 # Motivation
-In order for us to use paymail domains as a native authentication mechanism, applications must know where to redirect users for authentication given their paymail. The /authentication endpoint returns a URL to redirect the user to an endpoint to login. We also return the paymail's public identity key (same that is returned in /pki endpoint).
+In order for us to use paymail domains as a native authentication mechanism, applications must know where to redirect users for authentication given their paymail. The /authentication endpoint returns a URL to redirect the user to an endpoint to login. 
 
 ## Capability discovery
 
@@ -48,7 +48,6 @@ Returned when a valid request was made. The response _MUST_ have `application/js
   "bsvalias":"1.0",
   "handle": <alias>@<domain>.<tld>,
   "authenticationUrl": "..."
-  "pubkey": "..."
 }
 ```
 ### 404 Not Found
