@@ -1,0 +1,26 @@
+
+
+
+.container-linkProfile-root{
+	
+	min-height: 100vh
+	
+}
+
+.container-linkProfile-root .container-linkItem-root{
+   box-shadow: 0px 0px 20px rgba(226, 223, 223, 0.02);
+   border : 1px solid white;
+   border-radius: 12px;
+   cursor: pointer;
+   background-color: rgba(255,255,255,1);
+}
+.container-linkProfile-root .container-linkItem-root .title{
+	font-size: 24px;
+	font-weight: bold;
+	color: rgba(0,0,0,0.75);
+}
+
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1023px) { 
+	
+}

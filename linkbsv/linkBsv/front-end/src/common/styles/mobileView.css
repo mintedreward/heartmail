@@ -1,0 +1,8 @@
+.mobile-view-container{
+
+}
+
+.mobile-view-container .body::-webkit-scrollbar{
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;
+}
