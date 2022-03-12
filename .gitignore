@@ -8,8 +8,9 @@ lerna-debug.log
 package-lock.json
 .DS_Store
 .env
-*.env.prod
-*.env.dev
+.env.prod
+.env.dev
+.env.backup
 *.pem
 
 node_modules.nosync
