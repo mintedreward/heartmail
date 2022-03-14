@@ -28,4 +28,6 @@ You can restore with:
 
 mongorestore
 
+mongorestore --host linkbsv.cluster-cbtzb5eylgfi.us-west-2.docdb.amazonaws.com:27017 --username linkbsv --password [password]
+
 This database can be restored to a new database hosted on AWS.

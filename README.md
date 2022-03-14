@@ -10,7 +10,7 @@ Includes subprojects:
 * LinkBSV
 * Be the Broadcast
 * Brand On-Chain
-* All Things Disurptive
+* All Things Disruptive
 
 # Central Points of Failure
 
