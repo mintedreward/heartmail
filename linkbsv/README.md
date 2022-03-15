@@ -10,6 +10,9 @@ Use the clone-db.sh tool from our server.
 
 ## Basic Server Info
 
+* Let's Encrypt is used for SSL certificates (certbot)
+* nginx for http and https connections
+* nginx conf stored at /etc/nginx/nginx.conf
 * front-end served as static HTML with "pm2 serve" command
 * front-end available on port 3000
 * back-end is served as index.js with "pm2 start" command
