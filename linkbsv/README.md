@@ -4,36 +4,30 @@ Created by Casey Hamilton & Greg Ward. Purchased from Greg Ward in March, 2022.
 
 Ryan X. Charles has root access to the server to facilitate migration.
 
-## Dumping their DB from their server
-
-This DB dump contains private user data. Do not show to the public.
-
-Log into linkbsv.com with:
-
-ssh root@linkbsv.com
-
-Visit this directory:
-
-cd /home/linkbsv.com/backend
-
-Dump data with this command:
-
-mongodump -u linkBsv-backend-server -p [password] mongodb+srv://cluster0-linkbsv.qc87z.mongodb.net/linkBsv
-
-Exit ssh and copy to this directory with:
-
-scp -r root@linkbsv.com:/home/linkbsv.com/backend/dump ./
-
-You can restore with:
-
-mongorestore
-
-mongorestore --host linkbsv.cluster-cbtzb5eylgfi.us-west-2.docdb.amazonaws.com:27017 --username linkbsv --password [password]
-
-This database can be restored to a new database hosted on AWS.
-
 ## Cloning their DB to our DB from our server
 
-mongodump mongodb+srv://cluster0-linkbsv.qc87z.mongodb.net/linkBsv -u linkBsv-backend-server -p [password]
+Use the clone-db.sh tool from our server.
 
-mongorestore --host linkbsv-docdb.cluster-cbtzb5eylgfi.us-west-2.docdb.amazonaws.com:27017 --username linkbsv --password [password]
+## Basic Server Info
+
+* front-end served as static HTML with "pm2 serve" command
+* front-end available on port 3000
+* back-end is served as index.js with "pm2 start" command
+* back-end is an app available on port 5050
+* https://www.linkbsv.com is the front-end
+* https://linkbsv.com is also the front-end
+* https://api.linkbsv.com is the API
+* http://www.linkbsv.com redirects to https://linkbsv.com
+* http://linkbsv.com redirects to https://linkbsv.com
+
+Example pm2 status output:
+
+<code>
+root@ubuntu-s-1vcpu-1gb-nyc3-01:~# pm2 status
+┌─────┬───────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name              │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼───────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1   │ linkBsv Client    │ default     │ 4.5.6   │ fork    │ 59012    │ 10M    │ 0    │ online    │ 0%       │ 42.0mb   │ root     │ disabled │
+│ 0   │ linkBsv Server    │ default     │ 1.0.0   │ fork    │ 3000936  │ 3D     │ 114  │ online    │ 0%       │ 68.3mb   │ root     │ enabled  │
+└─────┴───────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+</code>
