@@ -4,7 +4,7 @@ Created by Casey Hamilton & Greg Ward. Purchased from Greg Ward in March, 2022.
 
 Ryan X. Charles has root access to the server to facilitate migration.
 
-## Cloning the database
+## Dumping their DB from their server
 
 This DB dump contains private user data. Do not show to the public.
 
@@ -31,3 +31,9 @@ mongorestore
 mongorestore --host linkbsv.cluster-cbtzb5eylgfi.us-west-2.docdb.amazonaws.com:27017 --username linkbsv --password [password]
 
 This database can be restored to a new database hosted on AWS.
+
+## Cloning their DB to our DB from our server
+
+mongodump mongodb+srv://cluster0-linkbsv.qc87z.mongodb.net/linkBsv -u linkBsv-backend-server -p [password]
+
+mongorestore --host linkbsv-docdb.cluster-cbtzb5eylgfi.us-west-2.docdb.amazonaws.com:27017 --username linkbsv --password [password]
