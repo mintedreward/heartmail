@@ -88,9 +88,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@coasian/heartmail-web@workspace:.":
+"@bethebroadcast/heartmail-web@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@coasian/heartmail-web@workspace:."
+  resolution: "@bethebroadcast/heartmail-web@workspace:."
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2

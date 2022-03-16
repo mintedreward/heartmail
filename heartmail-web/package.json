@@ -1,6 +1,6 @@
 {
-  "name": "@coasian/heartmail-web",
-  "version": "3.36.0",
+  "name": "@bethebroadcast/heartmail-web",
+  "version": "3.38.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
