@@ -1,7 +1,8 @@
 {
-  "name": "linkbsv",
+  "name": "@coasian/linkbsv-api",
   "version": "1.0.0",
-  "description": "linkBsv backend",
+  "private": true,
+  "description": "LinkBSV backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

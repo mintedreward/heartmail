@@ -1,6 +1,6 @@
 {
-  "name": "link-bsv",
-  "version": "0.1.0",
+  "name": "@coasian/linkbsv-web",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
