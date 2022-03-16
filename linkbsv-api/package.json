@@ -1,10 +1,11 @@
 {
-  "name": "@coasian/linkbsv-api",
-  "version": "1.0.0",
-  "private": true,
+  "name": "@bethebroadcast/linkbsv-api",
+  "version": "2.0.0",
+  "private": false,
   "description": "LinkBSV backend",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "SJ",
