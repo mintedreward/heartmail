@@ -1,6 +1,6 @@
-# HeartMail
+# Be the Broadcast
 
-HeartMail Inc. master repo.
+Be the Broadcast master repo.
 
 Includes subprojects:
 
