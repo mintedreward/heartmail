@@ -1,7 +1,6 @@
 {
   "name": "@bethebroadcast/linkbsv-api",
   "version": "2.0.0",
-  "private": false,
   "description": "LinkBSV backend",
   "main": "index.js",
   "scripts": {

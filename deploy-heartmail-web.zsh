@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# make sure we are in the bethebroadcast source directory
+# make sure we are in the btb source directory
 dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 cd $dir
 
