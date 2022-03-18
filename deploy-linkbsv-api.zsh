@@ -23,8 +23,8 @@ echo Deploying linkbsv-api
 ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
 ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-1 'docker kill $(docker ps -q)'
 ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-1 'docker rm $(docker ps -a -q)'
-ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-1 "docker run --detach -p 80:3000 ryanxcharles/linkbsv-api:${version}"
+ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-1 "docker run --detach -p 80:4000 ryanxcharles/linkbsv-api:${version}"
 ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
 ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-2 'docker kill $(docker ps -q)'
 ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-2 'docker rm $(docker ps -a -q)'
-ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-2 "docker run --detach -p 80:3000 ryanxcharles/linkbsv-api:${version}"
+ssh -i ~/.ssh/bethebroadcast.pem -t linkbsv-api-2 "docker run --detach -p 80:4000 ryanxcharles/linkbsv-api:${version}"
