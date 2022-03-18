@@ -11,7 +11,6 @@ source .env
 version=`git rev-parse --verify HEAD`
 
 cd $dir/linkbsv-api
-yarn version minor
 
 echo Building linkbsv-api
 

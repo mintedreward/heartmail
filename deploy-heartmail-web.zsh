@@ -11,7 +11,6 @@ source .env
 version=`git rev-parse --verify HEAD`
 
 cd $dir/heartmail-web
-yarn version minor
 
 echo Building heartmail-web
 
