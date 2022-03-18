@@ -19,16 +19,6 @@ COPY package.json ./
 RUN yarn install
 RUN rm -f .npmrc
 
-# Rebuild the source code only when needed
-FROM node:16-alpine AS builder
-WORKDIR /app
-ARG NPM_TOKEN
-RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-COPY . .
-COPY --from=deps /app/node_modules ./node_modules
-RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
-RUN rm -f .npmrc
-
 # Production image, copy all the files and run the main app
 FROM node:16-alpine AS runner
 WORKDIR /app
@@ -38,9 +28,8 @@ ENV NODE_ENV production
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S linkbsv-user -u 1001
 
-COPY --from=builder /app/build ./build
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+COPY . .
+COPY --from=deps /app/node_modules ./node_modules
 
 USER linkbsv-user
 

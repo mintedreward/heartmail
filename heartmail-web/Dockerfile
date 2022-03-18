@@ -19,7 +19,7 @@ COPY --from=deps /app/node_modules ./node_modules
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 RUN rm -f .npmrc
 
-# Production image, copy all the files and run next
+# Production image, copy all the files and run the main app
 FROM node:16-alpine AS runner
 WORKDIR /app
 
