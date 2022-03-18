@@ -14,7 +14,6 @@
     "@material/react-icon-button": "^0.15.0",
     "@material/react-material-icon": "^0.15.0",
     "@moneybutton/api-client": "^0.38.5",
-    "bitcoin-computer": "^0.4.7-beta",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

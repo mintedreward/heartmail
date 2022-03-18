@@ -1,7 +1,6 @@
 require('dotenv').config()
 const mongoose = require("mongoose");
 const server = require("./services/server");
-const computerController = require("./controllers/computer_controller");
 const txController = require("./controllers/tx_controller");
 
 
@@ -14,7 +13,6 @@ const runtimeConfig = {
             }else{
                 console.log("Database Server is connected and listening");
                 server.start();
-                computerController.init();
                 txController.init();
                 
             }
