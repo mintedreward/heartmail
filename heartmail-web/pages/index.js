@@ -8,12 +8,12 @@ export default function Home() {
       <Head>
         <title>HeartMail</title>
         <meta name="description" content="Own your social media." />
-        <link rel="icon" href="/heartmail-avatar-house.png" />
+        <link rel="icon" href="/heartmail-avatar-light.png" />
       </Head>
 
       <main className={styles.main}>
         <div className={styles.logoheader}>
-            <Image src="/heartmail-wide.png" alt="HeartMail: Own your social media." width="345" height="60" />
+            <Image src="/heartmail.png" alt="HeartMail: Own your social media." width="254" height="50" />
         </div>
 
         <div className={styles.content}>
