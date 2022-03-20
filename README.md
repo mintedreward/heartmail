@@ -1,14 +1,16 @@
-# Be the Broadcast
+# BeTheBroadcast.com
 
-Be the Broadcast master repo.
+<img src='./btb-3d.png' alt='BeTheBroadcast' width='200'>
+
+BeTheBroadcast (BTB) master repo.
 
 Includes subprojects:
 
+* BeTheBroadcast.com
+* LinkBSV
 * HeartMail
 * HeartX
 * HeartMiner
-* LinkBSV
-* Be the Broadcast
 * Brand On-Chain
 * All Things Disruptive
 
