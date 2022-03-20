@@ -26,6 +26,5 @@ keep functioning.
 * Email (Google)
 * Docker Registry (Docker Hub)
 * NPM Registry (NPM)
-* Expo Build Infrastructure and Credentials
 
 Copyright (c) 2022 HeartMail Inc. All rights reserved.
