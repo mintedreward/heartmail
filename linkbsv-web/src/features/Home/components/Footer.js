@@ -44,7 +44,7 @@ function Footer() {
                 </div>
               </div>
               <div className="footer-end">
-                <h3>&#169;Dappinstitute {new Date().getFullYear()}</h3>
+                <h3>&#169; HeartMail Inc. {new Date().getFullYear()}</h3>
                 <div className="social-links">
                   <a href="#"><img className="social-buttons" src="" alt="" /></a>
                   <a href="#"><img className="social-buttons" src="" alt="" /></a>
