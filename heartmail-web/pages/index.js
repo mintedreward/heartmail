@@ -17,7 +17,7 @@ export default function Home() {
         </div>
 
         <div className={styles.content}>
-          <h1>Asynchronous Video Communication</h1>
+          <h1>Own Your Social Media</h1>
           <p>The MVP will launch in April. Please email your name and personal website to Ryan, Casey and Diddy to get the launch announcement and other updates.</p>
         </div>
 
