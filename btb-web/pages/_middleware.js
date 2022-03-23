@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server'
 export default function redirectWWW (req, ev) {
   const url = new URL(req.url)
   const hostname = url.hostname
+  console.log('middleware', process.env.DOMAIN_PREFIX)
   if (process.env.DOMAIN_PREFIX) {
     console.log('domain prefix')
     if (!hostname.startsWith(process.env.DOMAIN_PREFIX)) {
