@@ -15,7 +15,6 @@ WORKDIR /app
 ARG NPM_TOKEN
 RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 COPY . .
-COPY .env* ./
 COPY --from=deps /app/node_modules ./node_modules
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 RUN rm -f .npmrc
@@ -35,7 +34,6 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
-COPY .env* ./
 
 USER nextjs
 
