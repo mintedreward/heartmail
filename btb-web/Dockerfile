@@ -15,6 +15,7 @@ WORKDIR /app
 ARG NPM_TOKEN
 RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
 COPY . .
+COPY .env* ./
 COPY --from=deps /app/node_modules ./node_modules
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 RUN rm -f .npmrc
