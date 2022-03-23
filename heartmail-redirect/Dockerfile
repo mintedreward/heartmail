@@ -5,7 +5,17 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 ARG NPM_TOKEN
 RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+
+# Note that because of our use of yarn workspaces, we have no yarn.lock file to
+# copy. There is a solution to this which is to use staged builds where we
+# build everything at the top level and then include only things we need in the
+# final build per module. See:
+#
+# https://github.com/yarnpkg/yarn/issues/5428#issuecomment-403722271
+#
+# COPY package.json yarn.lock ./
 COPY package.json ./
+
 RUN yarn install
 RUN rm -f .npmrc
 

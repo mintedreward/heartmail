@@ -6,11 +6,22 @@ BeTheBroadcast (BTB) master repo.
 
 Includes subprojects:
 
-* BeTheBroadcast.com
-* LinkBSV
-* HeartMail
+* BeTheBroadcast.com: YouTube competitor.
+* LinkBSV.com: LinkTree competitor.
+* HeartMail.com: Gmail competitor.
+* OpenSPV.com: Paypal competitor.
 
-# Redirects: www and HTTPS
+## Mottos
+
+**BeTheBroadcast**: Own your social media.
+
+**LinkBSV**: Monetize your links.
+
+**HeartMail**: Heart-to-heart electronic mail.
+
+**OpenSPV**: Heart-to-heart electronic cash.
+
+## Redirects: www and HTTPS
 
 Our redirect policy is:
 
@@ -22,7 +33,7 @@ This works by:
 - AWS instances ([name]-redirect) are used to add www
 - An AWS load balancer rewrites http traffic to https
 
-# Central Points of Failure
+## Central Points of Failure
 
 All central points of failure should be eliminated over time, including
 ourselves. We do not want the failure of one part of the system to create
