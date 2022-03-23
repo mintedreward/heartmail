@@ -9,10 +9,18 @@ Includes subprojects:
 * BeTheBroadcast.com
 * LinkBSV
 * HeartMail
-* HeartX
-* HeartMiner
-* Brand On-Chain
-* All Things Disruptive
+
+# Redirects: www and HTTPS
+
+Our redirect policy is:
+
+- [name].com redirects to www.[name].com
+- http://[name].com redirects to https://[name].com
+
+This works by:
+
+- AWS instances ([name]-redirect) are used to add www
+- An AWS load balancer rewrites http traffic to https
 
 # Central Points of Failure
 
