@@ -5,7 +5,7 @@ dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 cd $dir
 
 # load environment variables for production
-source .env
+source .env.local
 
 # get the latest commit hash as the docker version number
 version=`git rev-parse --verify HEAD`
