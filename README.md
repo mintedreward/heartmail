@@ -6,7 +6,7 @@ BeTheBroadcast (BTB) master repo.
 
 Includes subprojects:
 
-* BeTheBroadcast.com: YouTube competitor.
+* BeTheBroadcast.com: SamCart competitor (second: YouTube).
 * LinkBSV.com: LinkTree competitor.
 * HeartMail.com: Gmail competitor.
 * OpenSPV.com: Paypal competitor.
