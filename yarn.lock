@@ -5107,15 +5107,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bson@npm:^4.6.2":
-  version: 4.6.2
-  resolution: "bson@npm:4.6.2"
-  dependencies:
-    buffer: ^5.6.0
-  checksum: f4072d059ad9a46dd92451da5efb278d98f7b23fe6de0ee8dd1f9f05e005189156509b11deeba655befdf9434cffd283bfc35bcf75d2123c1fdf9b723ce8a98d
-  languageName: node
-  linkType: hard
-
 "bsv@npm:^1.5.4, bsv@npm:^1.5.6":
   version: 1.5.6
   resolution: "bsv@npm:1.5.6"
@@ -5164,7 +5155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer@npm:^5.5.0, buffer@npm:^5.6.0":
+"buffer@npm:^5.5.0":
   version: 5.7.1
   resolution: "buffer@npm:5.7.1"
   dependencies:
@@ -11379,14 +11370,6 @@ fsevents@^1.2.7:
   checksum: 0c37f9f7fa212b38912b7145e1cd16a5f3cd34d782441c3e6ca653485d326f58b3caccda66efce1c5812bde4961bbde3374fae4b0d11bf1226152337f3894aa5
   languageName: node
   linkType: hard
-
-"linkbsv-config@workspace:linkbsv-config":
-  version: 0.0.0-use.local
-  resolution: "linkbsv-config@workspace:linkbsv-config"
-  dependencies:
-    bson: ^4.6.2
-  languageName: unknown
-  linkType: soft
 
 "loader-runner@npm:^2.4.0":
   version: 2.4.0
