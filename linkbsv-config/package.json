@@ -1,0 +1,7 @@
+{
+  "name": "linkbsv-config",
+  "packageManager": "yarn@3.0.2",
+  "dependencies": {
+    "bson": "^4.6.2"
+  }
+}
