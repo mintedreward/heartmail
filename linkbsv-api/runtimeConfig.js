@@ -7,7 +7,7 @@ const txController = require("./controllers/tx_controller");
 
 const runtimeConfig = {
     async init(){
-        mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSW}@${process.env.MONGODB_CLUSTER}/${process.env.MONGODB_DBNAME}?retryWrites=true&w=majority`,{useNewUrlParser:true,useUnifiedTopology: true},async(error,result)=>{
+        mongoose.connect(`mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSW}@${process.env.MONGODB_CLUSTER}/${process.env.MONGODB_DBNAME}?retryWrites=true&w=majority`,{useNewUrlParser:true,useUnifiedTopology: true},async(error,result)=>{
             if(error){
                 console.log(error)
             }else{

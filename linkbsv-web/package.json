@@ -1,6 +1,6 @@
 {
   "name": "@bethebroadcast/linkbsv-web",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "scripts": {
     "start": "serve -p 3000 build",
     "dev": "react-scripts start",
