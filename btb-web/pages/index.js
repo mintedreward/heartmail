@@ -32,8 +32,7 @@ export default function Home() {
                   <div className={styles.contactCardText}>
                     <div className={styles.contactCardName}>Ryan X. Charles</div>
                     Cofounder &amp; CEO<br />
-                    ryan@heartmail.com<br />
-                    ryanxcharles.com
+                    ryan@heartmail.com
                   </div>
                 </div>
               </div>
@@ -47,8 +46,7 @@ export default function Home() {
                   <div className={styles.contactCardText}>
                     <div className={styles.contactCardName}>Casey N. Hamilton</div>
                     Cofounder &amp; COO<br />
-                    casey@heartmail.com<br />
-                    caseynhamilton.com
+                    casey@heartmail.com
                   </div>
                 </div>
               </div>
@@ -62,8 +60,7 @@ export default function Home() {
                   <div className={styles.contactCardText}>
                     <div className={styles.contactCardName}>Diddy Wheldon</div>
                     Project Manager<br />
-                    diddy@heartmail.com<br />
-                    diddywheldon.co.uk
+                    diddy@heartmail.com
                   </div>
                 </div>
               </div>
@@ -77,8 +74,21 @@ export default function Home() {
                   <div className={styles.contactCardText}>
                     <div className={styles.contactCardName}>Lacy J. Counts</div>
                     Branding &amp; Illustrations<br />
-                    lacy@heartmail.com<br />
-                    lacycounts.com
+                    lacy@heartmail.com
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.cofoundersColumn}>
+              <div className={styles.contactCard}>
+                <div className={styles.contactCardRow}>
+                  <div className={styles.contactCardImage}>
+                    <Image className={styles.contactCardImageImage} src="/ruth.jpg" alt="Ruth Heasman" width="100" height="100" />
+                  </div>
+                  <div className={styles.contactCardText}>
+                    <div className={styles.contactCardName}>Ruth Heasman</div>
+                    Branding &amp; Illustrations<br />
+                    ruth@heartmail.com
                   </div>
                 </div>
               </div>
