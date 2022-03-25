@@ -1,0 +1,78 @@
+.container {
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  color: #341d0d;
+}
+
+.main {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoheader {
+  margin-top: 40px;
+  max-width: 400px;
+}
+
+.content {
+  max-width: 400px;
+  padding: 10px;
+}
+
+.content h1 {
+  text-align: center;
+}
+
+.cofounders {
+  max-width: 400px;
+}
+
+.cofoundersRow {
+  width: 100%;
+}
+
+.cofoundersColumn {
+  max-width: 600px;
+}
+
+.contactCard {
+  margin: 10px 0px;
+}
+
+.contactCardRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.contactCardImage {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 100px;
+}
+
+.contactCardImageImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.contactCardText {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.contactCardName {
+  font-size: 1.4em;
+}

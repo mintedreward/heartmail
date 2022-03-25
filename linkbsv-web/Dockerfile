@@ -5,17 +5,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 ARG NPM_TOKEN
 RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-
-# Note that because of our use of yarn workspaces, we have no yarn.lock file to
-# copy. There is a solution to this which is to use staged builds where we
-# build everything at the top level and then include only things we need in the
-# final build per module. See:
-#
-# https://github.com/yarnpkg/yarn/issues/5428#issuecomment-403722271
-#
-# COPY package.json yarn.lock ./
-
-COPY package.json ./
+COPY package.json yarn.lock ./
 RUN yarn install
 RUN rm -f .npmrc
 
@@ -36,15 +26,22 @@ WORKDIR /app
 ENV NODE_ENV production
 
 RUN addgroup -g 1001 -S nodejs
-RUN adduser -S linkbsv-user -u 1001
+RUN adduser -S nextjs -u 1001
 
-COPY --from=builder /app/build ./build
+# You only need to copy next.config.js if you are NOT using the default configuration
+# COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/server.js ./server.js
 
-USER linkbsv-user
+USER nextjs
 
 EXPOSE 3000
+
+# Next.js collects completely anonymous telemetry data about general usage.
+# Learn more here: https://nextjs.org/telemetry
+# Uncomment the following line in case you want to disable telemetry.
+# ENV NEXT_TELEMETRY_DISABLED 1
 
 CMD ["yarn", "start"]
