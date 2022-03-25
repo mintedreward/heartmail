@@ -87,7 +87,7 @@ export default function Home() {
                   </div>
                   <div className={styles.contactCardText}>
                     <div className={styles.contactCardName}>Ruth Heasman</div>
-                    Branding &amp; Illustrations<br />
+                    Branding &amp; UI/UX<br />
                     ruth@heartmail.com
                   </div>
                 </div>
