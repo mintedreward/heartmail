@@ -69,20 +69,6 @@ export default function Home() {
               <div className={styles.contactCard}>
                 <div className={styles.contactCardRow}>
                   <div className={styles.contactCardImage}>
-                    <Image className={styles.contactCardImageImage} src="/lacy.jpg" alt="Lacy J. Counts" width="100" height="100" />
-                  </div>
-                  <div className={styles.contactCardText}>
-                    <div className={styles.contactCardName}>Lacy J. Counts</div>
-                    Branding &amp; Illustrations<br />
-                    lacy@heartmail.com
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.cofoundersColumn}>
-              <div className={styles.contactCard}>
-                <div className={styles.contactCardRow}>
-                  <div className={styles.contactCardImage}>
                     <Image className={styles.contactCardImageImage} src="/ruth.jpg" alt="Ruth Heasman" width="100" height="100" />
                   </div>
                   <div className={styles.contactCardText}>
