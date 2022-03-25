@@ -1,5 +1,5 @@
 {
-  "name": "@bethebroadcast/heartmail-web",
+  "name": "@bethebroadcast/linkbsv-web",
   "version": "3.38.1",
   "scripts": {
     "dev": "next dev",
