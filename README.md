@@ -1,8 +1,8 @@
-# BeTheBroadcast.com
+# HeartMail
 
 <img src='./btb-3d.png' alt='BeTheBroadcast' width='200'>
 
-BeTheBroadcast (BTB) master repo.
+HeartMail master repo.
 
 Includes subprojects:
 
