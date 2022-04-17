@@ -4,22 +4,24 @@
 
 HeartMail master repo.
 
-Includes subprojects:
+## HeartMail product description
 
-* BeTheBroadcast.com: SamCart competitor (second: YouTube).
-* LinkBSV.com: LinkTree competitor.
-* HeartMail.com: Gmail competitor.
-* OpenSPV.com: Paypal competitor.
+- [x] Money Button tipping button
+- [ ] Sign in / log in with email
+- [ ] Front-page: [input box]@heartmail.com
+- [ ] Pre-register Casey's, Ryan's, Diddy's, Ruth's MB paymails
+- [ ] Register Money Button (MB) paymails for free
+- [ ] Email forwarding
+- [ ] Register paymails for $1.00
+- [ ] Transfer paymails for $1.00 (no % fee)
+- [ ] Sell paymails for $1.00 (no % fee)
+- [ ] Paymail market (view paymails for sale)
+- [ ] Auction market (enable ask/bid)
 
-## Mottos
-
-**BeTheBroadcast**: Own your social media.
-
-**LinkBSV**: Monetize your links.
-
-**HeartMail**: Heart-to-heart electronic mail.
-
-**OpenSPV**: Heart-to-heart electronic cash.
+Later:
+- [ ] Bitcoin SPV wallet to replace MB
+- [ ] Full email support
+- [ ] Video mail support
 
 ## Redirects: www and HTTPS
 

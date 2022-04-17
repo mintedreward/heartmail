@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@moneybutton/react-money-button": "^0.38.8",
     "next": "12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
