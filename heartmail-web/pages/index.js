@@ -17,7 +17,7 @@ export default function Home() {
             <Image src="/heartmail.png" alt="HeartMail: Own your social media." width="254" height="50" />
         </div>
         <MoneyButton
-          to='heartmail@moneybutton'
+          to='heartmail@moneybutton.com'
           amount='1'
           currency='USD'
           label='Like'
