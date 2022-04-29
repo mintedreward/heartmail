@@ -46,10 +46,13 @@ The secondary features will be:
 - [ ] Sell paymails for $1.00 (205 fee)
 - [ ] Affiliate system: 20% lifetime revenue to affiliate
 - [ ] Paymail market (view paymails for sale)
-- [ ] Auction market (enable ask/bid)
 
 Later:
+- [ ] Partial fiat currency support through Stripe
 - [ ] Bitcoin SPV wallet to replace MB - "Love Button"
+- [ ] Complete fiat currency support through a third party exchange
+- [ ] Complete fiat currency support through our own exchange
+- [ ] Auction market (enable ask/bid)
 - [ ] Full email support
 - [ ] Video mail support
 - [ ] Video publishing support
