@@ -17,12 +17,14 @@ export default function Home() {
             <Image src="/heartmail.png" alt="HeartMail: Own your social media." width="350" height="60" />
         </div>
         <br/><br/>
-        <MoneyButton
-          to='heartmail@moneybutton.com'
-          amount='1'
-          currency='USD'
-          label='Like'
-        />
+        <div style={{width: 290, height: 60, padding: 5, backgroundColor: '#f6f6f6', borderRadius: 30}}>
+          <MoneyButton
+            to='heartmail@moneybutton.com'
+            amount='1'
+            currency='USD'
+            label='Like'
+          />
+        </div>
       </main>
     </div>
   )
