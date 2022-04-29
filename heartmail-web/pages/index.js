@@ -14,8 +14,9 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.logoheader}>
-            <Image src="/heartmail.png" alt="HeartMail: Own your social media." width="254" height="50" />
+            <Image src="/heartmail.png" alt="HeartMail: Own your social media." width="350" height="60" />
         </div>
+        <br/><br/>
         <MoneyButton
           to='heartmail@moneybutton.com'
           amount='1'
