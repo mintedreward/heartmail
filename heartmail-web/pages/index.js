@@ -44,8 +44,6 @@ function Team () {
       <div className={styles.teamRow}>
         <TeamMember name={'Ryan X. Charles'} email={'ryan@heartmail.com'} title={'Cofounder & CEO'} avatar={'/ryan.jpg'} />
         <TeamMember name={'Casey N. Hamilton'} email={'casey@heartmail.com'} title={'Cofounder & COO'} avatar={'/casey.jpg'} />
-        <TeamMember name={'Diddy Wheldon'} email={'diddy@heartmail.com'} title={'Project Manager'} avatar={'/diddy.jpg'} />
-        <TeamMember name={'Ruth Heasman'} email={'ruth@heartmail.com'} title={'Design & UI/UX'} avatar={'/ruth.jpg'} />
       </div>
     </div>
   )
