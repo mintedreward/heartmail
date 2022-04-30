@@ -3,7 +3,7 @@ import MoneyButton from '@moneybutton/react-money-button'
 export default function MB () {
   return (
     <div style={{width: 300, height: 70}}>
-      <div style={{width: 290, height: 60, padding: 5, margin: 5, backgroundColor: '#66ace2', borderRadius: 30}}>
+      <div style={{width: 290, height: 60, padding: 4, margin: 5, backgroundColor: '#f6f6f6', borderRadius: 30, border: '1px solid #66ACE2'}}>
         <MoneyButton
           to='heartmail@moneybutton.com'
           amount='1'
