@@ -8,7 +8,7 @@ export default function MB () {
           to='heartmail@moneybutton.com'
           amount='1'
           currency='USD'
-          label='Like'
+          label='Tip'
           onPayment={(payment) => {console.log(payment); console.log(payment.amountUsd, payment.id, payment.userId, payment.senderPaymail, payment.user.email, payment.user.emailVerified)}}
         />
       </div>

@@ -47,8 +47,6 @@ export default function Home() {
             <Image src="/heartmail.png" alt="HeartMail: Love your neighbor as you love yourself." width="350" height="60" />
         </div>
         <br /><br />
-        <Team />
-        <br /><br />
         <MB />
       </main>
     </div>
