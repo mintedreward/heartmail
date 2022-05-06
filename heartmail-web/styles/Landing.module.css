@@ -1,24 +1,7 @@
-.container {
-  min-height: 100vh;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: white;
-  color: #341d0d;
-}
-
 .main {
   padding: 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.logoheader {
-  margin-top: 40px;
-  max-width: 400px;
 }

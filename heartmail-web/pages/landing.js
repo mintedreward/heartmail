@@ -2,9 +2,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Landing.module.css'
 import MB from '../components/mb.js'
+import MyAppBar from '../components/app-bar.js'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+// import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const theme = createTheme({
   palette: {
@@ -44,13 +54,13 @@ const theme = createTheme({
       dark: '#6d8c4f',
       contrastText: '#ffffff'
     }
-  },
+  }
 })
 
 export default function Landing() {
   return (
     <ThemeProvider theme={theme}>
-      <div className={styles.container}>
+
         <Head>
           <title>HeartMail</title>
           <meta name="description" content="Get paid per email." />
@@ -59,14 +69,31 @@ export default function Landing() {
         <CssBaseline />
 
         <main className={styles.main}>
-          <div className={styles.logoheader}>
-            <Image src="/heartmail.png" alt="HeartMail: Get paid per email." width="350" height="60" />
-          </div>
-          <Button variant="contained">Hello World</Button>
-          <br /><br />
+          <Box sx={{ width: '100%', flexGrow: 1 }}>
+            <AppBar position="fixed">
+              <Toolbar>
+                <Box sx={{ alignItems: 'center', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <Image src="/heartmail-small.png" alt="HeartMail: Love your neighbor as you love yourself." width="152" height="26" />
+                </Box>
+              </Toolbar>
+            </AppBar>
+          </Box>
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
+          <MB />
           <MB />
         </main>
-      </div>
     </ThemeProvider>
   )
 }
