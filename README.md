@@ -1,8 +1,19 @@
 # HeartMail
 
-<img src='./btb-3d.png' alt='BeTheBroadcast' width='200'>
+<img src='./heartmail-landscape.png' alt='BeTheBroadcast' width='200'>
 
 HeartMail master repo.
+
+## HeartMail MVP 2: Early Access
+
+- [ ] next.js app framework with all pages and components
+- [ ] Cassandra database (Amazon Keyspaces) with user system, affiliate system,
+  invoices, and receipts
+- [ ] API
+- [ ] Web page preview with image and text description for Facebook and other
+  social media applications
+- [ ] Email receipt
+- [ ] Kubernetes infrastructure
 
 ## HeartMail Email MVP description
 
