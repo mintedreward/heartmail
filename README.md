@@ -12,6 +12,8 @@ HeartMail master repo.
 - [ ] API
 - [ ] Web page preview with image and text description for Facebook and other
   social media applications
+- [ ] Terms of Service
+- [ ] Privacy Policy
 - [ ] Email receipt
 - [ ] Kubernetes infrastructure
 
