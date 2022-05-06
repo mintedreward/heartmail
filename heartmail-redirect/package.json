@@ -1,5 +1,5 @@
 {
-  "name": "@bethebroadcast/heartmail-redirect",
+  "name": "@heartmail/heartmail-redirect",
   "packageManager": "yarn@3.0.2",
   "scripts": {
     "start": "node server.js"
