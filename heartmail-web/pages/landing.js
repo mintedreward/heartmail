@@ -9,7 +9,6 @@ export default function Landing() {
       <Head>
         <title>HeartMail</title>
         <meta name="description" content="Get paid per email." />
-        <link rel="icon" href="/heartmail-avatar-light.png" />
       </Head>
 
       <main className={styles.main}>
