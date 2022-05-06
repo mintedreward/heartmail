@@ -4,5 +4,8 @@
   "packageManager": "yarn@3.0.2",
   "workspaces": [
     "./*"
-  ]
+  ],
+  "dependencies": {
+    "@mui/icons-material": "^5.6.2"
+  }
 }
