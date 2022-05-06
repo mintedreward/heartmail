@@ -1,6 +1,6 @@
 # HeartMail
 
-<img src='./heartmail-landscape.png' alt='BeTheBroadcast' width='200'>
+<img src='./heartmail-landscape.png' alt='BeTheBroadcast' width='600'>
 
 HeartMail master repo.
 
