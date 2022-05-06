@@ -1,20 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Landing.module.css'
 import MB from '../components/mb.js'
-import MyAppBar from '../components/app-bar.js'
-import Button from '@mui/material/Button'
+import NavTop from '../components/nav-top.js'
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 
 const theme = createTheme({
   palette: {
@@ -69,15 +58,7 @@ export default function Landing() {
         <CssBaseline />
 
         <main className={styles.main}>
-          <Box sx={{ width: '100%', flexGrow: 1 }}>
-            <AppBar position="fixed">
-              <Toolbar>
-                <Box sx={{ alignItems: 'center', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <Image src="/heartmail-small.png" alt="HeartMail: Love your neighbor as you love yourself." width="152" height="26" />
-                </Box>
-              </Toolbar>
-            </AppBar>
-          </Box>
+          <NavTop />
           <MB />
           <MB />
           <MB />
