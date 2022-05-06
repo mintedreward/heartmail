@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "@moneybutton/react-money-button": "^0.38.8",
-    "next": "12",
+    "next": "12.1.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "sharp": "0.30.3"
+    "sharp": "0.30.4"
   },
   "devDependencies": {
-    "eslint": "8.11.0",
-    "eslint-config-next": "12"
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.6"
   },
   "gitHead": "0fc69f2e1b4219cad3ee027b83b98edc82466245",
   "license": "UNLICENSED",
