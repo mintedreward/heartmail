@@ -83,6 +83,11 @@ export default function Landing() {
               By buying early access, you agree to the Terms of Service.
             </Typography>
             <MB />
+            <Box alignItems="center" mt="50px" mb="50px" sx={{width: '100%', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <Typography variant="p" component="span">
+                Copyright (C) 2022 HeartMail Inc.
+              </Typography>
+            </Box>
           </Box>
         </main>
     </ThemeProvider>
