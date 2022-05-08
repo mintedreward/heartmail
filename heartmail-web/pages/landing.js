@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Link from '../components/Link'
 
 const theme = createTheme({
   palette: {
@@ -73,7 +74,7 @@ export default function Landing() {
               HeartMail is email with a pay wall. Charge advertisers a contact fee to send you an email. Whitelist your friends so they don’t have to pay.
             </Typography>
             <Typography variant="p" component="p" mb="1em">
-              Random heartmails are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can resell heartmails for any amount of money.
+              Random heartmails are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can have as many heartmails as you want and you can resell heartmails for any amount of money.
             </Typography>
             <Typography variant="p" component="p" mb="1em">
               HeartMail launches July 15, 2022. An early access version will launch June 15, 2022.
@@ -86,7 +87,7 @@ export default function Landing() {
             <MB />
             <Box alignItems="center" mt="50px" mb="50px" sx={{width: '100%', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <Typography variant="p" component="span">
-                &copy; 2022 HeartMail Inc. · Privacy · Terms
+                &copy; 2022 <Link href='/about'>HeartMail Inc.</Link> · Privacy · Terms
               </Typography>
             </Box>
           </Box>
