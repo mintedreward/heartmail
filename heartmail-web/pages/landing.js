@@ -5,6 +5,7 @@ import NavTop from '../components/nav-top.js'
 import CssBaseline from '@mui/material/CssBaseline'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 const theme = createTheme({
@@ -64,9 +65,7 @@ export default function Landing() {
             <Typography variant="h2" component="h2" mt={'50px'} mb={'50px'} sx={{textAlign: 'center'}}>
               Get paid
             </Typography>
-            <Typography variant="h2" component="h2" mb={'50px'} sx={{textAlign: 'center'}}>
-              $1.00
-            </Typography>
+            <TextField id="outlined-basic" label="Contact Fee" defaultValue="$1.00" variant="outlined" sx={{width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': {fontSize: 60, textAlign: 'center', fontWeight: 300} }} />
             <Typography variant="h2" component="h2" mb={'50px'} sx={{textAlign: 'center'}}>
               per email
             </Typography>
@@ -74,7 +73,7 @@ export default function Landing() {
               HeartMail is email with a pay wall. Charge advertisers a contact fee to send you an email. Whitelist your friends so they don’t have to pay.
             </Typography>
             <Typography variant="p" component="p" mb="1em">
-              Random heartmails, such as [number]@heartmail.com, are free, and custom heartmails, such as [name]@heartmail.com, cost $1.00. You can resell heartmails for any amount of money.
+              Random heartmails are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can resell heartmails for any amount of money.
             </Typography>
             <Typography variant="p" component="p" mb="1em">
               HeartMail launches July 15, 2022. An early access version will launch June 15, 2022.
