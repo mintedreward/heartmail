@@ -57,7 +57,7 @@ export default function Layout (props) {
       </Head>
       <CssBaseline />
 
-      <div style={{
+      <Box sx={{
         padding: 0,
         flex: 1,
         display: 'flex',
@@ -65,13 +65,25 @@ export default function Layout (props) {
         alignItems: 'center'
       }}>
         <NavTop />
-        <Box sx={{maxWidth: '450px', paddingLeft: '10px', paddingRight: '10px'}}>
+        <Box sx={{
+          maxWidth: '450px',
+          paddingLeft: '10px',
+          paddingRight: '10px'
+        }}>
           {props.children}
-          <Typography variant="p" component="span">
-            &copy; 2022 <Link href='/about'>HeartMail Inc.</Link> · <Link href='/privacy'>Privacy</Link> · <Link href='/terms'>Terms</Link>
-          </Typography>
+          <Box alignItems="center" mt="50px" mb="50px" sx={{
+            width: '100%',
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}>
+            <Typography variant="p">
+              &copy; 2022 <Link href='/about'>HeartMail Inc.</Link> · <Link href='/privacy'>Privacy</Link> · <Link href='/terms'>Terms</Link>
+            </Typography>
+          </Box>
         </Box>
-      </div>
+      </Box>
     </ThemeProvider>
   )
 }
