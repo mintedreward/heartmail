@@ -79,7 +79,7 @@ export default function Layout (props) {
             alignItems: 'center'
           }}>
             <Typography variant="p">
-              &copy; 2022 <Link href='/about'>HeartMail Inc.</Link> · <Link href='/privacy'>Privacy</Link> · <Link href='/terms'>Terms</Link>
+              &copy; 2022 HeartMail Inc.<br /><Link href='/privacy'>Privacy</Link> · <Link href='/terms'>Terms</Link> · <Link href='/about'>About</Link>
             </Typography>
           </Box>
         </Box>
