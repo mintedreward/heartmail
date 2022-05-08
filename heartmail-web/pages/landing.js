@@ -3,6 +3,8 @@ import styles from '../styles/Landing.module.css'
 import MB from '../components/mb.js'
 import NavTop from '../components/nav-top.js'
 import CssBaseline from '@mui/material/CssBaseline'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 const theme = createTheme({
@@ -49,30 +51,24 @@ const theme = createTheme({
 export default function Landing() {
   return (
     <ThemeProvider theme={theme}>
-
         <Head>
           <title>HeartMail</title>
-          <meta name="description" content="Get paid per email." />
+          <meta name="description" content="Get paid for email." />
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         <CssBaseline />
 
         <main className={styles.main}>
           <NavTop />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
-          <MB />
+          <Typography variant="h2" component="h2" mt={'50px'} mb={'50px'}>
+            Get paid
+          </Typography>
+          <Typography variant="h2" component="h2" mb={'50px'}>
+            $1.00
+          </Typography>
+          <Typography variant="h2" component="h2" mb={'50px'}>
+            per email
+          </Typography>
           <MB />
         </main>
     </ThemeProvider>
