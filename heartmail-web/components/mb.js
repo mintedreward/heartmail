@@ -9,7 +9,7 @@ export default function MB () {
             to='heartmail@moneybutton.com'
             amount='10'
             currency='USD'
-            label='Buy Access'
+            label='Buy Early'
             onPayment={(payment) => {console.log(payment); console.log(payment.amountUsd, payment.id, payment.userId, payment.senderPaymail, payment.user.email, payment.user.emailVerified)}}
           />
         </div>
