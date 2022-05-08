@@ -2,6 +2,7 @@ import MB from '../components/MB.js'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
+import P from '../components/P.js'
 
 export default function Landing () {
   return (
@@ -13,20 +14,20 @@ export default function Landing () {
       <Typography variant="h2" component="h2" mb={'50px'} sx={{textAlign: 'center'}}>
         per email
       </Typography>
-      <Typography variant="p" component="p" mb="1em">
+      <P>
         HeartMail is email with a pay wall. Charge advertisers a contact fee to send you an email. Whitelist your friends so they don’t have to pay.
-      </Typography>
-      <Typography variant="p" component="p" mb="1em">
+      </P>
+      <P>
         Random heartmails are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can have as many heartmails as you want and you can resell heartmails for any amount of money.
-      </Typography>
-      <Typography variant="p" component="p" mb="1em">
+      </P>
+      <P>
         HeartMail launches July 15, 2022. An early access version will launch June 15, 2022.
         Join early to get privileged access to your custom heartmails.
         Early access users will be invited in the order they register.
-      </Typography>
-      <Typography variant="p" component="p" mb="1em">
+      </P>
+      <P>
         By buying early access, you agree to the Terms of Service.
-      </Typography>
+      </P>
       <MB />
     </Layout>
   )
