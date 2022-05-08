@@ -77,7 +77,9 @@ export default function Landing() {
               Random heartmails, such as [number]@heartmail.com, are free, and custom heartmails, such as [name]@heartmail.com, cost $1.00. You can resell heartmails for any amount of money.
             </Typography>
             <Typography variant="p" component="p" mb="1em">
-              HeartMail launches July 15, 2022. An early access version will launch June 15, 2022. Early access users will be invited in the order they register. Join early to get privileged access to your custom heartmails.
+              HeartMail launches July 15, 2022. An early access version will launch June 15, 2022.
+              Join early to get privileged access to your custom heartmails.
+              Early access users will be invited in the order they register.
             </Typography>
             <Typography variant="p" component="p" mb="1em">
               By buying early access, you agree to the Terms of Service.
@@ -85,7 +87,7 @@ export default function Landing() {
             <MB />
             <Box alignItems="center" mt="50px" mb="50px" sx={{width: '100%', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <Typography variant="p" component="span">
-                Copyright (C) 2022 HeartMail Inc.
+                &copy; 2022 HeartMail Inc. · Privacy · Terms
               </Typography>
             </Box>
           </Box>
