@@ -3,8 +3,8 @@ import PageTitle from '../components/PageTitle.js'
 
 export default function Landing() {
   return (
-    <Layout title='Welcome'>
-      <PageTitle>Welcome</PageTitle>
+    <Layout title='Receipt 12345'>
+      <PageTitle>Receipt</PageTitle>
     </Layout>
   )
 }
