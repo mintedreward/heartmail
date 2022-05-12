@@ -1,8 +1,54 @@
+import * as React from 'react'
 import MoneyButton from '../components/MoneyButton.js'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
 import Link from '../components/Link.js'
+
+function CurrencyInput () {
+  const [amount, setAmount] = React.useState('$1.00')
+
+  const handleChange = (event) => {
+    const userAmount = event.target.value
+    let amount = userAmount
+    if (amount[0] !== '$') {
+      amount = `$${amount}`
+    }
+    setAmount(amount)
+  }
+
+  const handleBlur = (event) => {
+    const userAmount = event.target.value
+    let amount = userAmount
+    let [dollars, cents] = amount.split('.')
+
+    dollars = dollars.replace(/[^0-9]/gi, '')
+    if (dollars.length === 0) {
+      dollars = '0'
+    }
+
+    cents = cents ? cents.replace(/[^0-9]/gi, '') : ''
+    if (cents.length === 0) {
+      cents = '00'
+    } else if (cents.length === 1) {
+      cents = `${cents}0`
+    } else if (cents.length > 2) {
+      cents = `${cents[0]}${cents[1]}`
+    }
+
+    if (cents !== '00') {
+      amount = `$${dollars}.${cents}`
+    } else {
+      amount = `$${dollars}`
+    }
+
+    setAmount(amount)
+  }
+
+  return (
+    <TextField id='outlined-basic' label='Contact Fee' onChange={handleChange} onBlur={handleBlur} value={amount} variant='outlined' sx={{ width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
+  )
+}
 
 export default function Landing () {
   return (
@@ -10,7 +56,7 @@ export default function Landing () {
       <Typography variant='h2' component='h2' mt='50px' mb='50px' sx={{ textAlign: 'center' }}>
         Get paid
       </Typography>
-      <TextField id='outlined-basic' label='Contact Fee' defaultValue='$1.00' variant='outlined' sx={{ width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
+      <CurrencyInput />
       <Typography variant='h2' component='h2' mb='50px' sx={{ textAlign: 'center' }}>
         per email
       </Typography>
