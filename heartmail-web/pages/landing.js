@@ -4,19 +4,19 @@ import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
 import Link from '../components/Link.js'
-import { prefix, format } from '@heartmail/heartmail-currency'
+import * as currency from '@heartmail/heartmail-currency'
 
 function CurrencyInput () {
   const [amount, setAmount] = React.useState('$1.00')
 
   const handleChange = (event) => {
     const amount = event.target.value
-    setAmount(prefix(amount))
+    setAmount(currency.prefix(amount))
   }
 
   const handleBlur = (event) => {
     const amount = event.target.value
-    setAmount(format(amount))
+    setAmount(currency.format(amount))
   }
 
   return (

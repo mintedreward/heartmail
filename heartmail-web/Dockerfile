@@ -5,7 +5,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 ARG NPM_TOKEN
 RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-COPY package.json yarn.lock ./
+COPY package.json ./
 RUN yarn install
 RUN rm -f .npmrc
 
