@@ -13,39 +13,45 @@ export default function AffiliateCard (props) {
   const handleClick = (event) => {
     setShow(true)
     navigator.clipboard.writeText(affiliateUrl)
-    setTimeout(() => {setShow(false)}, 2000)
+    setTimeout(() => { setShow(false) }, 2000)
   }
 
   return (
-    <Card onClick={handleClick} sx={{
-      padding: '10px',
-      marginBottom: '10px',
-      marginTop: '10px',
-      cursor: 'pointer',
-      '&:hover': {
-        backgroundColor: 'primary.main'
-      },
-      '&:hover *': {
-        color: 'white',
-        borderColor: 'white'
-      },
-      position: 'relative'
-    }}>
-      <Typography variant='body1' sx={{
-        fontSize: '18px',
-        fontWeight: '700',
-        color: 'primary.main',
-        overflow: 'hidden'
-      }}>
+    <Card
+      onClick={handleClick} sx={{
+        padding: '10px',
+        marginBottom: '10px',
+        marginTop: '10px',
+        cursor: 'pointer',
+        '&:hover': {
+          backgroundColor: 'primary.main'
+        },
+        '&:hover *': {
+          color: 'white',
+          borderColor: 'white'
+        },
+        position: 'relative'
+      }}
+    >
+      <Typography
+        variant='body1' sx={{
+          fontSize: '18px',
+          fontWeight: '700',
+          color: 'primary.main',
+          overflow: 'hidden'
+        }}
+      >
         <LinkIcon sx={{ height: '28px', width: '28px', float: 'left', marginRight: '2px' }} />
         Copy affiliate link
       </Typography>
-      <Typography variant='body2' sx={{
-        marginTop: '5px',
-        marginBottom: '10px',
-        color: 'text.secondary',
-        overflow: 'hidden'
-      }}>
+      <Typography
+        variant='body2' sx={{
+          marginTop: '5px',
+          marginBottom: '10px',
+          color: 'text.secondary',
+          overflow: 'hidden'
+        }}
+      >
         Earn 20% revenue of all users you refer.
       </Typography>
       <Box sx={{
@@ -55,8 +61,9 @@ export default function AffiliateCard (props) {
         padding: '10px',
         color: 'text.secondary',
         overflow: 'hidden'
-      }}>
-      heartmail.com/?a={heartmail}
+      }}
+      >
+        heartmail.com/?a={heartmail}
       </Box>
       <Box sx={{
         backgroundColor: 'primary.main',
@@ -71,20 +78,25 @@ export default function AffiliateCard (props) {
         alignItems: 'center',
         flexDirection: 'column',
         paddingTop: '40px'
-      }}>
+      }}
+      >
         <Box>
-          <Typography variant='body1' sx={{
-            fontSize: '18px',
-            fontWeight: '700',
-            color: 'white',
-            overflow: 'hidden'
-          }}>
+          <Typography
+            variant='body1' sx={{
+              fontSize: '18px',
+              fontWeight: '700',
+              color: 'white',
+              overflow: 'hidden'
+            }}
+          >
             <LinkIcon sx={{ height: '28px', width: '28px', float: 'left', marginRight: '2px', marginLeft: '10px' }} />
             Copied link
           </Typography>
-          <Typography variant='body2' sx={{
-            color: 'white'
-          }}>
+          <Typography
+            variant='body2' sx={{
+              color: 'white'
+            }}
+          >
             Invite good people only.
           </Typography>
         </Box>

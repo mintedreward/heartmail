@@ -8,6 +8,7 @@ import * as currency from '@heartmail/heartmail-currency'
 
 function CurrencyInput () {
   const [amount, setAmount] = React.useState('$1.00')
+  const [hasFocus, setHasFocus] = React.useState(false)
 
   const handleChange = (event) => {
     const amount = event.target.value
@@ -17,6 +18,7 @@ function CurrencyInput () {
   const handleBlur = (event) => {
     const amount = event.target.value
     setAmount(currency.format(amount))
+    setHasFocus(false)
   }
 
   const handleKeyPress = (event) => {
@@ -27,10 +29,15 @@ function CurrencyInput () {
     }
   }
 
-  const handleFocus = (event) => event.target.select()
+  const handleMouseUp = (event) => {
+    if (!hasFocus) {
+      event.target.select()
+    }
+    setHasFocus(true)
+  }
 
   return (
-    <TextField id='outlined-basic' label='Contact Fee' onChange={handleChange} onBlur={handleBlur} onClick={handleFocus} onKeyPress={handleKeyPress} value={amount} variant='outlined' sx={{ width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
+    <TextField id='outlined-basic' label='Contact Fee' onChange={handleChange} onBlur={handleBlur} onMouseUp={handleMouseUp} onKeyPress={handleKeyPress} value={amount} variant='outlined' sx={{ width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
   )
 }
 
