@@ -7,8 +7,9 @@ export default function Landing() {
     <Layout title='About'>
       <PageTitle>About</PageTitle>
       <p>
-        HeartMail was founded on January 1, 2022 by Casey N. Hamilton and Ryan X. Charles to solve the social media problem.
-        We are headquartered in the state of Texas, but work remotely all over the world.
+        HeartMail was founded on January 1, 2022 by Casey N. Hamilton and Ryan X. Charles.
+        Our mission is to enable people to own and monetize their content on social media.
+        We work remotely all over the world, but we have our legal headquarters in the state of Texas.
       </p>
       <p>
         HeartMail Inc.<br />
