@@ -5,8 +5,14 @@ import LinkIcon from '@mui/icons-material/Link'
 
 export default function AffiliateCard (props) {
   const heartmail = props.heartmail
+  const affiliateUrl = `https://www.heartmail.com/?a=${heartmail}`
+
+  const handleClick = (event) => {
+    navigator.clipboard.writeText(affiliateUrl)
+  }
+
   return (
-    <Card sx={{
+    <Card onClick={handleClick} sx={{
       padding: '10px',
       marginBottom: '10px',
       marginTop: '10px',
@@ -44,7 +50,7 @@ export default function AffiliateCard (props) {
         color: 'text.secondary',
         overflow: 'hidden'
       }}>
-      heartmail.com/?a=${heartmail}
+      heartmail.com/?a={heartmail}
       </Box>
     </Card>
   )
