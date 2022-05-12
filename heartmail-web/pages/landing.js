@@ -2,6 +2,7 @@ import MB from '../components/MB.js'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
+import Link from '../components/Link.js'
 
 export default function Landing () {
   return (
@@ -25,7 +26,7 @@ export default function Landing () {
         Early access users will be invited in the order they register.
       </p>
       <p>
-        By buying early access, you agree to the Terms of Service.
+        By buying early access, you agree to the <Link href='/terms'>Terms of Service.</Link>
       </p>
       <MB />
     </Layout>

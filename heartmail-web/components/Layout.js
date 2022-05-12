@@ -71,15 +71,18 @@ export default function Layout (props) {
           paddingRight: '10px'
         }}>
           {props.children}
-          <Box alignItems="center" mt="50px" mb="50px" sx={{
+          <Box sx={{
             width: '100%',
+            marginTop: '50px',
+            marginBottom: '50px',
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'
           }}>
-            <Typography variant="p">
-              &copy; 2022 HeartMail Inc.<br /><Link href='/privacy'>Privacy</Link> · <Link href='/terms'>Terms</Link> · <Link href='/about'>About</Link>
+            <Typography variant="p" sx={{textAlign: 'center'}}>
+              &copy; 2022 <Link href='/landing'>HeartMail</Link> Inc.<br />
+              <Link href='/privacy'>Privacy</Link> · <Link href='/terms'>Terms</Link> · <Link href='/about'>About</Link>
             </Typography>
           </Box>
         </Box>
