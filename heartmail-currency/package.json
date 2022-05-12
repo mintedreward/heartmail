@@ -2,10 +2,16 @@
   "name": "@heartmail/heartmail-currency",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
+    "lint": "standard",
     "test": "mocha"
   },
   "author": "",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "mocha": "8.3.1",
+    "should": "13.2.3",
+    "standard": "16.0.3"
+  }
 }
