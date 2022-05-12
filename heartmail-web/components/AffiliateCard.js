@@ -23,7 +23,8 @@ export default function AffiliateCard (props) {
       '&:hover *': {
         color: 'white',
         borderColor: 'white'
-      }
+      },
+      position: 'relative'
     }}>
       <Typography variant='body1' sx={{
         fontSize: '18px',
@@ -51,6 +52,31 @@ export default function AffiliateCard (props) {
         overflow: 'hidden'
       }}>
       heartmail.com/?a={heartmail}
+      </Box>
+      <Box sx={{
+        backgroundColor: 'primary.main',
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: '100%',
+        height: '100%',
+        display: 'none',
+        flex: 1,
+        alignItems: 'center',
+        flexDirection: 'column',
+        paddingTop: '50px'
+      }}>
+        <Box>
+          <Typography variant='body1' sx={{
+            fontSize: '18px',
+            fontWeight: '700',
+            color: 'white',
+            overflow: 'hidden'
+          }}>
+            <LinkIcon sx={{ height: '28px', width: '28px', float: 'left', marginRight: '2px' }} />
+            Copied
+          </Typography>
+        </Box>
       </Box>
     </Card>
   )
