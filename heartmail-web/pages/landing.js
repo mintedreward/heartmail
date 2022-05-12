@@ -19,8 +19,18 @@ function CurrencyInput () {
     setAmount(currency.format(amount))
   }
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      const amount = event.target.value
+      setAmount(currency.format(amount))
+      event.target.blur()
+    }
+  }
+
+  const handleFocus = (event) => event.target.select()
+
   return (
-    <TextField id='outlined-basic' label='Contact Fee' onChange={handleChange} onBlur={handleBlur} value={amount} variant='outlined' sx={{ width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
+    <TextField id='outlined-basic' label='Contact Fee' onChange={handleChange} onBlur={handleBlur} onClick={handleFocus} onKeyPress={handleKeyPress} value={amount} variant='outlined' sx={{ width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
   )
 }
 
