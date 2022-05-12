@@ -10,9 +10,9 @@ export default function ContactCard (props) {
   return (
     <Card sx={{ padding: '10px', marginBottom: '10px', marginTop: '10px' }}>
       <Avatar src={avatar} sx={{ float: 'left', width: 100, height: 100, marginRight: '10px' }} />
-     <b>{name}</b><br />
-     <Link href={`mailto:${heartmail}`}>{heartmail}</Link><br />
-     {bio}
+      <b>{name}</b><br />
+      <Link href={`mailto:${heartmail}`}>{heartmail}</Link><br />
+      {bio}
     </Card>
   )
 }

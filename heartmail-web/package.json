@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "standard"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -17,7 +17,8 @@
     "next": "12.1.6",
     "react": "18",
     "react-dom": "18",
-    "sharp": "0.30.4"
+    "sharp": "0.30.4",
+    "standard": "16.0.4"
   },
   "devDependencies": {
     "eslint": "8.14.0",

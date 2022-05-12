@@ -2,7 +2,7 @@ import Layout from '../components/Layout.js'
 import PageTitle from '../components/PageTitle.js'
 import ContactCard from '../components/ContactCard.js'
 
-export default function Landing() {
+export default function Landing () {
   return (
     <Layout title='About'>
       <PageTitle>About</PageTitle>

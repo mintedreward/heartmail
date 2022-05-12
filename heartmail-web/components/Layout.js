@@ -52,8 +52,8 @@ export default function Layout (props) {
     <ThemeProvider theme={theme}>
       <Head>
         <title>{props.title ? `HeartMail: ${props.title}` : 'HeartMail'}</title>
-        <meta name="description" content="Get paid for email." />
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta name='description' content='Get paid for email.' />
+        <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       <CssBaseline />
 
@@ -63,13 +63,15 @@ export default function Layout (props) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center'
-      }}>
+      }}
+      >
         <NavTop />
         <Box sx={{
           maxWidth: '450px',
           paddingLeft: '10px',
           paddingRight: '10px'
-        }}>
+        }}
+        >
           {props.children}
           <Box sx={{
             width: '100%',
@@ -79,8 +81,9 @@ export default function Layout (props) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'
-          }}>
-            <Typography variant="p" sx={{textAlign: 'center'}}>
+          }}
+          >
+            <Typography variant='p' sx={{ textAlign: 'center' }}>
               &copy; 2022 <Link href='/landing'>HeartMail</Link> Inc.<br />
               <Link href='/about'>About</Link> · <Link href='/terms'>Terms</Link> · <Link href='/privacy'>Privacy</Link>
             </Typography>

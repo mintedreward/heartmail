@@ -7,11 +7,11 @@ import Link from '../components/Link.js'
 export default function NavTop () {
   return (
     <Box sx={{ width: '100%', flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position='fixed'>
         <Toolbar>
           <Box sx={{ alignItems: 'center', flex: 1, display: 'flex', flexDirection: 'column' }}>
             <Link href='/landing'>
-              <Image src="/heartmail-small.png" alt="HeartMail: Get paid for email." width="151.67" height="26" />
+              <Image src='/heartmail-small.png' alt='HeartMail: Get paid for email.' width='151.67' height='26' />
             </Link>
           </Box>
         </Toolbar>
