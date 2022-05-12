@@ -82,7 +82,7 @@ export default function Layout (props) {
           }}>
             <Typography variant="p" sx={{textAlign: 'center'}}>
               &copy; 2022 <Link href='/landing'>HeartMail</Link> Inc.<br />
-              <Link href='/privacy'>Privacy</Link> · <Link href='/terms'>Terms</Link> · <Link href='/about'>About</Link>
+              <Link href='/about'>About</Link> · <Link href='/terms'>Terms</Link> · <Link href='/privacy'>Privacy</Link>
             </Typography>
           </Box>
         </Box>
