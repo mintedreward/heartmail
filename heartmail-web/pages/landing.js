@@ -52,7 +52,7 @@ export default function Landing () {
         per email
       </Typography>
       <p>
-        HeartMail is email with a pay wall. Charge advertisers a contact fee to send you an email. Add your friends so they don’t have to pay.
+        HeartMail is email with a pay wall. Charge advertisers a contact fee to send you an email. Add your friends so they don&#8217;t have to pay.
       </p>
       <p>
         Random heartmails are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can have as many heartmails as you want and you can resell heartmails for any amount of money.

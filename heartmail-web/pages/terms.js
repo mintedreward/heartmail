@@ -11,7 +11,7 @@ export default function Terms () {
       <p>You must not use HeartMail to publish obscene content. If you do, we have the right to delete your account, which may cause your assets to become irrecoverable.</p>
       <p>
         If you give people an affiliate link and they become a paying user then you are an affiliate.
-        Affiliates earn 20% of HeartMail's revenue for that user.
+        Affiliates earn 20% of HeartMail&#8217;s revenue for that user.
         Affiliates must continue to help the users they onboard to use HeartMail or we have the right to terminate the affiliate relationship.
       </p>
       <p>You have the right to delete your account at any time. If you choose to delete your account, you must first transfer your assets to other users, or your assets may become irrecoverable.</p>
