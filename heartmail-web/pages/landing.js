@@ -36,11 +36,7 @@ function CurrencyInput () {
       cents = `${cents[0]}${cents[1]}`
     }
 
-    if (cents !== '00') {
-      amount = `$${dollars}.${cents}`
-    } else {
-      amount = `$${dollars}`
-    }
+    amount = `$${dollars}.${cents}`
 
     setAmount(amount)
   }
