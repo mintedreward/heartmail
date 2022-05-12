@@ -25,7 +25,7 @@ export default function Receipt () {
         You can bookmark this page.
       </p>
       <p>
-        Earn your money back in five referrals with your affiliate link.
+        Earn at least $2.00 per referral with your affiliate link.
       </p>
       <AffiliateCard heartmail='12345@heartmail.com' />
     </Layout>
