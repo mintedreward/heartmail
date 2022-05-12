@@ -2,13 +2,18 @@ import Card from '@mui/material/Card'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import LinkIcon from '@mui/icons-material/Link'
+import * as React from 'react'
 
 export default function AffiliateCard (props) {
+  const [show, setShow] = React.useState(false)
+
   const heartmail = props.heartmail
   const affiliateUrl = `https://www.heartmail.com/?a=${heartmail}`
 
   const handleClick = (event) => {
+    setShow(true)
     navigator.clipboard.writeText(affiliateUrl)
+    setTimeout(() => {setShow(false)}, 1000)
   }
 
   return (
@@ -60,7 +65,8 @@ export default function AffiliateCard (props) {
         top: 0,
         width: '100%',
         height: '100%',
-        display: 'none',
+        opacity: show ? 1 : 0,
+        display: 'flex',
         flex: 1,
         alignItems: 'center',
         flexDirection: 'column',
