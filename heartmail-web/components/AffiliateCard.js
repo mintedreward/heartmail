@@ -13,7 +13,7 @@ export default function AffiliateCard (props) {
   const handleClick = (event) => {
     setShow(true)
     navigator.clipboard.writeText(affiliateUrl)
-    setTimeout(() => {setShow(false)}, 1000)
+    setTimeout(() => {setShow(false)}, 2000)
   }
 
   return (
@@ -70,7 +70,7 @@ export default function AffiliateCard (props) {
         flex: 1,
         alignItems: 'center',
         flexDirection: 'column',
-        paddingTop: '50px'
+        paddingTop: '40px'
       }}>
         <Box>
           <Typography variant='body1' sx={{
@@ -79,8 +79,13 @@ export default function AffiliateCard (props) {
             color: 'white',
             overflow: 'hidden'
           }}>
-            <LinkIcon sx={{ height: '28px', width: '28px', float: 'left', marginRight: '2px' }} />
-            Copied
+            <LinkIcon sx={{ height: '28px', width: '28px', float: 'left', marginRight: '2px', marginLeft: '10px' }} />
+            Copied link
+          </Typography>
+          <Typography variant='body2' sx={{
+            color: 'white'
+          }}>
+            Invite good people only.
           </Typography>
         </Box>
       </Box>
