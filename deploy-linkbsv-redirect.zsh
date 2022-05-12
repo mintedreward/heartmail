@@ -10,7 +10,7 @@ source .env.local
 # get the latest commit hash as the docker version number
 version=`git rev-parse --verify HEAD`
 
-cd $dir/linkbsv-redirect
+cd $dir/heartmail-redirect
 
 echo Building linkbsv-redirect
 
