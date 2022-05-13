@@ -8,7 +8,7 @@ export default function AffiliateCard (props) {
   const [show, setShow] = React.useState(false)
 
   const heartmail = props.heartmail
-  const affiliateUrl = `https://www.heartmail.com/?a=${heartmail}`
+  const affiliateUrl = `${process.env.NEXT_PUBLIC_URL}/?a=${heartmail}`
 
   const handleClick = (event) => {
     setShow(true)
