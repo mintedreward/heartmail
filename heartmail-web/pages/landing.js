@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
 import Link from '../components/Link.js'
-import * as currency from '@heartmail/heartmail-currency'
+import * as currency from 'heartmail-currency'
 
 function CurrencyInput () {
   const [amount, setAmount] = React.useState('$1.00')
