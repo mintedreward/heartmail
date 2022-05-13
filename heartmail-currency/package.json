@@ -1,5 +1,5 @@
 {
-  "name": "@heartmail/heartmail-currency",
+  "name": "heartmail-currency",
   "version": "1.0.0",
   "description": "",
   "main": "index.mjs",

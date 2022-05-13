@@ -1,5 +1,5 @@
 {
-  "name": "@heartmail/heartmail-web",
+  "name": "heartmail-web",
   "version": "3.38.1",
   "scripts": {
     "dev": "next dev",
@@ -10,11 +10,11 @@
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@heartmail/heartmail-currency": "workspace:*",
     "@moneybutton/react-money-button": "^0.38.8",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.4",
     "clsx": "^1.1.1",
+    "heartmail-currency": "workspace:*",
     "next": "12.1.6",
     "react": "18",
     "react-dom": "18",

@@ -310,53 +310,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@heartmail/heartmail-currency@workspace:*, @heartmail/heartmail-currency@workspace:heartmail-currency":
-  version: 0.0.0-use.local
-  resolution: "@heartmail/heartmail-currency@workspace:heartmail-currency"
-  dependencies:
-    mocha: 8.3.1
-    should: 13.2.3
-    standard: 16.0.3
-  languageName: unknown
-  linkType: soft
-
-"@heartmail/heartmail-redirect@workspace:heartmail-redirect":
-  version: 0.0.0-use.local
-  resolution: "@heartmail/heartmail-redirect@workspace:heartmail-redirect"
-  dependencies:
-    express: ^4.17.3
-  languageName: unknown
-  linkType: soft
-
-"@heartmail/heartmail-web@workspace:heartmail-web":
-  version: 0.0.0-use.local
-  resolution: "@heartmail/heartmail-web@workspace:heartmail-web"
-  dependencies:
-    "@emotion/react": ^11.9.0
-    "@emotion/styled": ^11.8.1
-    "@heartmail/heartmail-currency": "workspace:*"
-    "@moneybutton/react-money-button": ^0.38.8
-    "@mui/icons-material": ^5.6.2
-    "@mui/material": ^5.6.4
-    clsx: ^1.1.1
-    eslint: 8.14.0
-    eslint-config-next: 12.1.6
-    next: 12.1.6
-    react: 18
-    react-dom: 18
-    sharp: 0.30.4
-    standard: 16.0.4
-  languageName: unknown
-  linkType: soft
-
-"@heartmail/linkbsv-redirect@workspace:linkbsv-redirect":
-  version: 0.0.0-use.local
-  resolution: "@heartmail/linkbsv-redirect@workspace:linkbsv-redirect"
-  dependencies:
-    express: ^4.17.3
-  languageName: unknown
-  linkType: soft
-
 "@humanwhocodes/config-array@npm:^0.9.2":
   version: 0.9.5
   resolution: "@humanwhocodes/config-array@npm:0.9.5"
@@ -3490,6 +3443,45 @@ fsevents@~2.3.1:
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
   languageName: node
   linkType: hard
+
+"heartmail-currency@workspace:*, heartmail-currency@workspace:heartmail-currency":
+  version: 0.0.0-use.local
+  resolution: "heartmail-currency@workspace:heartmail-currency"
+  dependencies:
+    mocha: 8.3.1
+    should: 13.2.3
+    standard: 16.0.3
+  languageName: unknown
+  linkType: soft
+
+"heartmail-redirect@workspace:heartmail-redirect":
+  version: 0.0.0-use.local
+  resolution: "heartmail-redirect@workspace:heartmail-redirect"
+  dependencies:
+    express: ^4.17.3
+  languageName: unknown
+  linkType: soft
+
+"heartmail-web@workspace:heartmail-web":
+  version: 0.0.0-use.local
+  resolution: "heartmail-web@workspace:heartmail-web"
+  dependencies:
+    "@emotion/react": ^11.9.0
+    "@emotion/styled": ^11.8.1
+    "@moneybutton/react-money-button": ^0.38.8
+    "@mui/icons-material": ^5.6.2
+    "@mui/material": ^5.6.4
+    clsx: ^1.1.1
+    eslint: 8.14.0
+    eslint-config-next: 12.1.6
+    heartmail-currency: "workspace:*"
+    next: 12.1.6
+    react: 18
+    react-dom: 18
+    sharp: 0.30.4
+    standard: 16.0.4
+  languageName: unknown
+  linkType: soft
 
 "heartmail@workspace:.":
   version: 0.0.0-use.local
