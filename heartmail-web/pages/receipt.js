@@ -7,6 +7,7 @@ export default function Receipt () {
   const paymentAmount = '$10.00'
   const accessGrantedDate = 'June 16, 2022'
   const userEmail = 'name@example.com'
+  const heartmail = `1234512345@${process.env.NEXT_PUBLIC_DOMAIN}`
   return (
     <Layout title={`Receipt ${receiptId}`}>
       <PageTitle>Receipt</PageTitle>
@@ -27,7 +28,7 @@ export default function Receipt () {
       <p>
         Earn at least $2.00 per referral with your affiliate link.
       </p>
-      <AffiliateCard heartmail='12345@heartmail.com' />
+      <AffiliateCard heartmail={heartmail} />
     </Layout>
   )
 }

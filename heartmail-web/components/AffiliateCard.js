@@ -9,6 +9,7 @@ export default function AffiliateCard (props) {
 
   const heartmail = props.heartmail
   const affiliateUrl = `${process.env.NEXT_PUBLIC_URL}/?a=${heartmail}`
+  const displayUrl = `${process.env.NEXT_PUBLIC_HOST}/?a=${heartmail}`
 
   const handleClick = (event) => {
     setShow(true)
@@ -63,7 +64,7 @@ export default function AffiliateCard (props) {
         overflow: 'hidden'
       }}
       >
-        heartmail.com/?a={heartmail}
+        {displayUrl}
       </Box>
       <Box sx={{
         backgroundColor: 'primary.main',
