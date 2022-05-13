@@ -89,15 +89,16 @@ export default function AffiliateCard (props) {
               overflow: 'hidden'
             }}
           >
-            <LinkIcon sx={{ height: '28px', width: '28px', float: 'left', marginRight: '2px', marginLeft: '10px' }} />
+            <LinkIcon sx={{ height: '28px', width: '28px', float: 'left', marginRight: '2px' }} />
             Copied link
           </Typography>
           <Typography
             variant='body2' sx={{
-              color: 'white'
+              color: 'white',
+              marginLeft: '5px'
             }}
           >
-            Invite good people only.
+            Invite your friends.
           </Typography>
         </Box>
       </Box>

@@ -1,9 +1,8 @@
 'use strict'
 
 export function prefix (amount = '$1.00') {
-  if (amount[0] !== '$') {
-    amount = `$${amount}`
-  }
+  amount = amount.replace(/\$/g, '')
+  amount = `$${amount}`
   return amount
 }
 
