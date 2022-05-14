@@ -1,0 +1,16 @@
+**/.yarn/install-state.gz
+**/.yarn/cache
+
+*.swp
+node_modules
+npm-debug.log
+lerna-debug.log
+dist
+package-lock.json
+doc
+.DS_Store
+*.env.prod
+.env
+*.pem
+
+node_modules.nosync
