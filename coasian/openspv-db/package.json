@@ -1,0 +1,8 @@
+{
+  "name": "@coasian/openspv-db",
+  "packageManager": "yarn@3.0.2",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.39.0",
+    "cassandra-driver": "^4.6.3"
+  }
+}
