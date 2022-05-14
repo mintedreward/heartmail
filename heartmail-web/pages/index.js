@@ -11,6 +11,8 @@ export async function getServerSideProps(context) {
 
   if (affiliateHeartmail === 'self') {
     affiliatePaymail = 'heartmail@moneybutton.com'
+  } else if (affiliateHeartmail) {
+    // get affiliatePaymail from DB
   }
 
   return {
