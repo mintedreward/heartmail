@@ -12,7 +12,7 @@
 'use strict'
 
 import { Bn } from './bn.mjs'
-import elliptic from '@openspv/elliptic'
+import elliptic from 'elliptic'
 
 const ec = elliptic.curves.secp256k1
 const _point = ec.curve.point()

@@ -8,7 +8,7 @@
   "exports": "./index.mjs",
   "type": "module",
   "scripts": {
-    "lint": "standard *.mjs *.cjs 'src/**/*.mjs' 'bin/**/*.cjs' 'test/**/*.mjs'",
+    "lint": "standard *.mjs *.cjs 'src/**/*.mjs' 'bin/**/*.mjs' 'test/**/*.mjs'",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",
     "test": "yarn run pretest && yarn run test:mocha"
