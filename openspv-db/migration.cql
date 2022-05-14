@@ -18,14 +18,14 @@ create table openspv.users (
   bio text,
   website text,
   email text,
-  emailVerified bool,
+  emailVerified boolean,
   primary key (userId)
 );
 
 create table openspv.emails (
   email text,
   userId text,
-  verificationTime time,
+  verificationTime timestamp,
   verificationToken text,
   primary key (email)
 );
@@ -33,8 +33,8 @@ create table openspv.emails (
 create table openspv.emailVerificationTokens (
   email text,
   verificationToken text,
-  createdTime time,
-  expirationTime time,
+  createdTime timestamp,
+  expirationTime timestamp,
   primary key (email)
 );
 
@@ -49,8 +49,8 @@ create table openspv.identityKeys (
   passwordHmacHmac text,
   address text,
   pubKey text,
-  createdTime time,
-  revokedTime time,
+  createdTime timestamp,
+  revokedTime timestamp,
   primary key (userId)
 );
 
@@ -60,14 +60,14 @@ create table openspv.derivedKeys (
   derivationPrivKey text,
   derivationPubKey text,
   derivedAddress text,
-  createdTime time,
+  createdTime timestamp,
   primary key (userId, identityAddress, derivedAddress)
 );
 
 create table openspv.txInsAndOuts (
   userId text,
   identityAddress text,
-  createdTime time,
+  createdTime timestamp,
   type text,
   scriptTemplateType text,
   scriptTemplateJSON text,
@@ -75,16 +75,16 @@ create table openspv.txInsAndOuts (
   satoshis bigint,
   txIn text,
   txOut text,
-  usedTime time,
-  spentTime time,
+  usedTime timestamp,
+  spentTime timestamp,
   spentTxId text,
   blockId text,
   blockIndex int,
-  conversionTime time,
+  conversionTime timestamp,
   priceUSD float,
   confirmedBalanceSatoshis bigint,
   unconfirmedBalanceSatoshis bigint,
-  primary key (userId, createdTime, address)
+  primary key (userId, createdTime, identityAddress)
 );
 
 create table openspv.invoices (
@@ -92,19 +92,19 @@ create table openspv.invoices (
   userId text,
   receivingPaymail text,
   sendingPaymail text,
-  conversionTime time,
+  conversionTime timestamp,
   amountSatoshis bigint,
   amountUSD float,
   txOuts text,
-  createdTime time,
-  expiredTime time,
-  paidTime time,
+  createdTime timestamp,
+  expiredTime timestamp,
+  paidTime timestamp,
   paidTxIds text,
   primary key (id)
 );
 
 create table openspv.price (
-  conversionTime time,
+  conversionTime timestamp,
   priceUSD float,
   primary key (conversionTime)
 );
