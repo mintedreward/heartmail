@@ -12,7 +12,7 @@ export default function MB () {
             label='Buy Early'
             clientIdentifier='c3a2ca70156b6cdf2ce3e860ba2bef13'
             buttonId='1652432564118'
-            buttonData='{}'
+            buttonData='buy early'
             onPayment={(payment) => { console.log(payment); console.log(payment.amountUsd, payment.id, payment.userId, payment.senderPaymail, payment.user.email, payment.user.emailVerified) }}
           />
         </div>
