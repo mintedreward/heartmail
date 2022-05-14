@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useRouter } from 'next/router'
 import MoneyButtonInfo from '../components/MoneyButtonInfo.js'
-import MoneyButton from '../components/MoneyButton.js'
+import MoneyButton from '../components/MoneyButtonBuyEarly.js'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
