@@ -1,5 +1,5 @@
 import * as React from 'react'
-import MoneyButtonError from '../components/MoneyButtonAffiliate.js'
+import MoneyButtonInfo from '../components/MoneyButtonInfo.js'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
@@ -63,7 +63,7 @@ export default function Landing () {
       <p>
         By buying early access, you agree to the <Link href='/terms'>Terms of Service</Link>.
       </p>
-      <MoneyButtonError />
+      <MoneyButtonInfo label='You need a referral.' />
     </Layout>
   )
 }
