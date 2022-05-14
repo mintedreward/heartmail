@@ -4271,6 +4271,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"db@workspace:db":
+  version: 0.0.0-use.local
+  resolution: "db@workspace:db"
+  dependencies:
+    cassandra-driver: ^4.6.3
+  languageName: unknown
+  linkType: soft
+
 "debug@npm:2.6.9, debug@npm:^2.2.0, debug@npm:^2.3.3, debug@npm:^2.6.9":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
