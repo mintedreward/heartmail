@@ -58,7 +58,7 @@
  */
 'use strict'
 
-import { Struct, Hash, Ach, Address, PrivKey, PubKey } from '@openspv/lib'
+import { Struct, Hash, Ach, Address, PrivKey, PubKey } from 'stamps-lib'
 
 class Keyfile extends Struct {
   constructor () {

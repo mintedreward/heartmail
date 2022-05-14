@@ -1,5 +1,5 @@
 {
-  "name": "@openspv/keyfile",
+  "name": "keyfile",
   "packageManager": "yarn@3.0.2",
   "type": "module",
   "scripts": {
@@ -9,9 +9,9 @@
     "test:mocha": "mocha",
     "test": "yarn run test:mocha"
   },
-  "license": "OpenBSV",
+  "license": "UNLICENSED",
   "dependencies": {
-    "@openspv/lib": "workspace:*"
+    "stamps-lib": "workspace:*"
   },
   "devDependencies": {
     "mocha": "^8.3.1",

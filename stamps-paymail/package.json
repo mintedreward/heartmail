@@ -1,5 +1,5 @@
 {
-  "name": "@openspv/paymail",
+  "name": "paymail",
   "description": "Extensions to email for Bitcoin and the web.",
   "version": "8.0.0",
   "author": "HeartMail",
@@ -18,7 +18,7 @@
     "bsv",
     "spv"
   ],
-  "license": "OpenBSV",
+  "license": "UNLICENSED",
   "scripts": {
     "serve": "node ./src/paymail-server.mjs",
     "lint": "standard **/*.mjs",
@@ -28,13 +28,13 @@
   },
   "packageManager": "yarn@3.0.2",
   "dependencies": {
-    "@openspv/lib": "workspace:*",
     "body-parser": "1.19.2",
     "email-validator": "2.0.4",
     "express": "4.17.3",
     "is-valid-domain": "0.1.6",
     "isomorphic-fetch": "^3.0.0",
-    "pug": "3.0.2"
+    "pug": "3.0.2",
+    "stamps-lib": "workspace:*"
   },
   "devDependencies": {
     "mocha": "8.3.1",

@@ -1,5 +1,5 @@
 {
-  "name": "@openspv/elliptic",
+  "name": "elliptic",
   "version": "8.0.0",
   "description": "EC cryptography",
   "main": "lib/elliptic.js",
