@@ -2,23 +2,6 @@
 
 <img src='./heartmail-landscape.png' alt='HeartMail' width='800'>
 
-## Database
-
-Keys
-id | address | pubkey | privkey | type ("account") | created_date
-
-Accounts
-key_id | access_granted_date | external_email | external_paymail | affiliate_key_id | contact_fee_amount_usd
-
-ExternalEmails
-email | verified_date
-
-ExternalPaymails
-paymail | verified_date
-
-MbInvoices
-key_id | mb_client_identifier | mb_button_id | mb_button_data | mb_amount_usd | mb_to_heartmail_paymail | mb_to_heartmail_amount | mb_to_heartmail_currency | mb_to_affiliate_paymail | mb_to_affiliate_amount | mb_to_affiliate_currency | mb_user_email | mb_user_email_verified | mb_user_paymail | mb_user_id | mb_txid | mb_payment_id | mb_payment
-
 ## Redirects: www and HTTPS
 
 Our redirect policy is:
@@ -47,9 +30,7 @@ keep functioning.
 # Repo Overview
 
 Everything is written in javascript except deployment shell scripts. We use
-yarn workspaces to manage the projects. All private (closed course) projects
-are contained in the <code>private</code> folder and all public (open source)
-projects are contained inside the <code>public</code> folder.
+yarn workspaces to manage the projects.
 
 If we ever need to write something in a language other than javascript, we will
 still use yarn workspaces and npm packages to manage the project. Javascript
@@ -58,10 +39,8 @@ and any other language is a form of optimization.
 
 # Packages
 
-All projects are published to npm (using yarn) and may be open source or not
-depending on the license and whether they are publicly exposed. All projects
-begin life as private and may become public when a license is chosen and
-published publicly.
+All projects begin life as private and may become public when a license is
+chosen and published publicly.
 
 # Deployments
 
@@ -72,11 +51,6 @@ be deployable on AWS, Google Cloud, or Azure. Each app should be decentralized
 across cloud providers.
 
 # Major Subprojects
-
-Expo is a front-end tool to create a front-end that works across Web, iPhone,
-Android. It is based on react-native and react-native-web. It looks like the
-best tool to get going for the front-end, and it is possible that it will
-continue to work forever. At least for the wallet.
 
 SPV and content modules:
 * [x] HeartMail Web
@@ -313,6 +287,6 @@ From this directory, you can run the following commands:
 
 To reference a module from another module:
 
-    import { Paymail } from '@openspv/paymail'
+    import { Paymail } from 'stamps-paymail'
 
 Copyright (c) 2022 HeartMail Inc. All rights reserved.
