@@ -1,6 +1,6 @@
 import Card from '@mui/material/Card'
 import Avatar from '@mui/material/Avatar'
-import Link from '../components/Link.js'
+import Link from '../components/Link'
 
 export default function ContactCard (props) {
   const name = props.name

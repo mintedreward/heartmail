@@ -2,7 +2,7 @@ import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Image from 'next/image'
-import Link from '../components/Link.js'
+import Link from '../components/Link'
 
 export default function NavTop () {
   return (

@@ -1,6 +1,6 @@
-import Layout from '../components/Layout.js'
-import PageTitle from '../components/PageTitle.js'
-import AffiliateCard from '../components/AffiliateCard.js'
+import Layout from '../components/Layout'
+import PageTitle from '../components/PageTitle'
+import AffiliateCard from '../components/AffiliateCard'
 import TextField from '@mui/material/TextField'
 
 export default function AccountKey () {

@@ -1,39 +1,26 @@
-/*
-Affiliate:
-- Retrieve affiliate external paymail
-
-Payment:
-- Accept and verify money button payment for early access
-- Generate a new key & account
-
-View:
-- Retrieve information for a key
-- Retrieve information for an account
-*/
-
 create keyspace if not exists heartmail with replication = {
     'class': 'SingleRegionStrategy',
     'replication_factor' : 3
 };
 
 create table if not exists heartmail.keys (
-    id text,
+    alias text,
     address text,
     pubKey text,
     privKey text,
     type text,
     created_time timestamp,
-    primary key (id)
+    primary key (alias)
 );
 
 create table if not exists heartmail.accounts (
-    keyId text,
+    keyAlias text,
     accessGrantedTime timestamp,
     externalEmail timestamp,
     externalPaymail timestamp,
-    affiliateKeyId text,
+    affiliateKeyAlias text,
     contactFeeAmountUsd float,
-    primary key (keyId)
+    primary key (keyAlias)
 );
 
 create table if not exists heartmail.externalEmails (
@@ -51,7 +38,7 @@ create table if not exists heartmail.externalPaymails (
 );
 
 create table if not exists heartmail.mbPayments (
-    keyId text,
+    keyAlias text,
     mbClientIdentifier text,
     mbButtonId text,
     mbButtonData text,
@@ -69,5 +56,5 @@ create table if not exists heartmail.mbPayments (
     mbTxid text,
     mbPaymentId text,
     mbPayment text,
-    primary key (keyId)
+    primary key (keyAlias)
 );

@@ -5,7 +5,7 @@ import { Bn } from './bn.mjs'
 
 const DEFAULT_LENGTH = 128 // bits
 
-class KeyId extends Struct {
+class KeyAlias extends Struct {
   constructor (buf) {
     super({ buf })
   }
@@ -40,4 +40,4 @@ class KeyId extends Struct {
   }
 }
 
-export { KeyId }
+export { KeyAlias }

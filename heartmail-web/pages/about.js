@@ -1,7 +1,7 @@
-import Layout from '../components/Layout.js'
-import PageTitle from '../components/PageTitle.js'
-import ContactCard from '../components/ContactCard.js'
-import MoneyButtonTip from '../components/MoneyButtonTip.js'
+import Layout from '../components/Layout'
+import PageTitle from '../components/PageTitle'
+import ContactCard from '../components/ContactCard'
+import MoneyButtonTip from '../components/MoneyButtonTip'
 
 export default function About () {
   return (

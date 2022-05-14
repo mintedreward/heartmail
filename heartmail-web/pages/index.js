@@ -1,8 +1,8 @@
-import MoneyButtonBuyEarly from '../components/MoneyButtonBuyEarly.js'
+import MoneyButtonBuyEarly from '../components/MoneyButtonBuyEarly'
 import Typography from '@mui/material/Typography'
-import Layout from '../components/Layout.js'
-import Link from '../components/Link.js'
-import CurrencyInput from '../components/CurrencyInput.js'
+import Layout from '../components/Layout'
+import Link from '../components/Link'
+import CurrencyInput from '../components/CurrencyInput'
 
 export async function getServerSideProps(context) {
   const affiliateHeartmail = context.query.a
