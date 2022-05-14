@@ -20,6 +20,22 @@ describe('KeyId', function () {
       const keyId = new KeyId().fromAddress(address)
       keyId.toString().should.equal('47x4dm45stw4w6vl4difdhztr')
     })
+
+    it('should produce this known value', () => {
+      const privKey = PrivKey.fromBn(new Bn(7))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const address = Address.fromPubKey(pubKey)
+      const keyId = new KeyId().fromAddress(address)
+      keyId.toString().should.equal('5k6vjfsim3xg9zw5vrh5h9x0y')
+    })
+
+    it('should produce this known value', () => {
+      const privKey = PrivKey.fromBn(new Bn(8))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const address = Address.fromPubKey(pubKey)
+      const keyId = new KeyId().fromAddress(address)
+      keyId.toString().should.equal('8wds38dnbr2h3yyay0ievp29j')
+    })
   })
 
   describe('@fromAddress', () => {
