@@ -58,9 +58,7 @@ export default function Landing () {
         Random heartmails are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can have as many heartmails as you want and you can resell heartmails for any amount of money.
       </p>
       <p>
-        HeartMail launches July 15, 2022. An early access version will launch June 15, 2022.
-        Join early to get privileged access to your custom heartmails.
-        Early access users will be invited in the order they register.
+        HeartMail will launch June 15, 2022. Early access users will be invited in the order they register. Join early to get privileged access to your custom heartmails.
       </p>
       <p>
         By buying early access, you agree to the <Link href='/terms'>Terms of Service</Link>.

@@ -53,7 +53,7 @@ export default function AffiliateCard (props) {
           overflow: 'hidden'
         }}
       >
-        Earn 20% revenue of all users you refer.
+        Earn 20% lifetime revenue of all users you refer.
       </Typography>
       <Box sx={{
         border: '1px solid',

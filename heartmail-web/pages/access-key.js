@@ -1,28 +1,21 @@
 import Layout from '../components/Layout.js'
 import PageTitle from '../components/PageTitle.js'
 import AffiliateCard from '../components/AffiliateCard.js'
+import TextField from '@mui/material/TextField'
 
-export default function Receipt () {
+export default function AccessKey () {
   const receiptId = '1234512345'
-  const paymentAmount = '$10.00'
-  const accessGrantedDate = 'June 16, 2022'
+  const accessGrantedDate = 'June 16, 2022 at 6:25 PM CDT'
   const userEmail = 'name@example.com'
   const heartmail = `1234512345@${process.env.NEXT_PUBLIC_DOMAIN}`
   return (
-    <Layout title={`Receipt ${receiptId}`}>
-      <PageTitle>Receipt</PageTitle>
+    <Layout title={`Access Key ${receiptId}`}>
+      <PageTitle>Access Key</PageTitle>
       <p>
-        You have purchased early access to HeartMail for {paymentAmount}.
-        Your access will be granted on {accessGrantedDate}.
+        This page grants access to HeartMail on  {accessGrantedDate} to this email address:
       </p>
+      <TextField id='outlined-basic' label='External Email' disabled value={userEmail} sx={{ width: '100%' }} />
       <p>
-        You will receive an email at this address when your access is granted:
-      </p>
-      <p>
-        {userEmail}
-      </p>
-      <p>
-        This web page is your receipt.
         You can bookmark this page.
       </p>
       <p>
