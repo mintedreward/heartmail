@@ -1,12 +1,12 @@
 import MoneyButton from '@moneybutton/react-money-button'
-import MoneyButtonInfo from '../components/MoneyButtonInfo.js'
+import MoneyButtonReferralNeeded from '../components/MoneyButtonReferralNeeded'
 
 export default function MoneyButtonBuyEarly (props) {
   const affiliatePaymail = props.affiliatePaymail
 
   if (affiliatePaymail === '') {
     return (
-      <MoneyButtonInfo label='You need a referral.' />
+      <MoneyButtonReferralNeeded label='You need a referral.' />
     )
   }
 
