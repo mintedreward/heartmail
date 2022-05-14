@@ -1,7 +1,7 @@
 import SupervisedUserCircle from '@mui/icons-material/SupervisedUserCircle'
 import Box from '@mui/material/Box'
 
-export default function MoneyButtonInfo (props) {
+export default function MoneyButtonReferralNeeded (props) {
   return (
     <div style={{ width: '100%', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div style={{ width: 300, height: 70 }}>
