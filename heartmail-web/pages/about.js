@@ -8,7 +8,7 @@ export default function About () {
       <PageTitle>About</PageTitle>
       <p>
         HeartMail was founded on January 1, 2022.
-        Our mission is to enable people to own and monetize their content.
+        Our mission is to enable people to own and monetize their information.
         We work remotely all over the world, but we have our legal headquarters in Texas.
       </p>
       <p>

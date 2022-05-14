@@ -10,11 +10,11 @@ export default function Terms () {
       <p>You are responsible for paying your taxes, not us.</p>
       <p>
         You must not use HeartMail to publish obscene content.
-        If you do, we have the right to delete your account, which may cause your assets to become irrecoverable.
+        If you do, we have the right to delete your accounts, which may cause your assets to become irrecoverable.
       </p>
       <p>
-        If you give people an affiliate link and they become a paying user then you are an affiliate.
-        Affiliates earn 20% of HeartMail&#8217;s revenue for that user.
+        If you give people an affiliate link and they create a paying account then you are an affiliate.
+        Affiliates earn 20% of HeartMail&#8217;s revenue for that account.
         Affiliates must continue to help the users they onboard to use HeartMail or we have the right to terminate the affiliate relationship.
       </p>
       <p>
