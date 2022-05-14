@@ -1,6 +1,15 @@
 import MoneyButton from '@moneybutton/react-money-button'
+import MoneyButtonInfo from '../components/MoneyButtonInfo.js'
 
-export default function MoneyButtonBuyEarly () {
+export default function MoneyButtonBuyEarly (props) {
+  const affiliatePaymail = props.affiliatePaymail
+
+  if (affiliatePaymail === '') {
+    return (
+      <MoneyButtonInfo label='You need a referral.' />
+    )
+  }
+
   return (
     <div style={{ width: '100%', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div style={{ width: 300, height: 70 }}>
@@ -13,7 +22,7 @@ export default function MoneyButtonBuyEarly () {
                 currency: 'USD'
               },
               {
-                to: 'heartmail@moneybutton.com',
+                to: {affiliatePaymail},
                 amount: '2',
                 currency: 'USD'
               }

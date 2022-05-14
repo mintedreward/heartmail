@@ -1,51 +1,27 @@
-import * as React from 'react'
-import { useRouter } from 'next/router'
-import MoneyButtonInfo from '../components/MoneyButtonInfo.js'
-import MoneyButton from '../components/MoneyButtonBuyEarly.js'
+import MoneyButtonBuyEarly from '../components/MoneyButtonBuyEarly.js'
 import Typography from '@mui/material/Typography'
-import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
 import Link from '../components/Link.js'
-import * as currency from 'heartmail-currency'
+import CurrencyInput from '../components/CurrencyInput.js'
 
-function CurrencyInput () {
-  const [amount, setAmount] = React.useState('$1.00')
-  const [hasFocus, setHasFocus] = React.useState(false)
+export async function getServerSideProps(context) {
+  const affiliateHeartmail = context.query.a
 
-  const handleChange = (event) => {
-    const amount = event.target.value
-    setAmount(currency.prefix(amount))
+  let affiliatePaymail = ''
+
+  if (affiliateHeartmail === 'self') {
+    affiliatePaymail = 'heartmail@moneybutton.com'
   }
 
-  const handleBlur = (event) => {
-    const amount = event.target.value
-    setAmount(currency.format(amount))
-    setHasFocus(false)
-  }
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      const amount = event.target.value
-      setAmount(currency.format(amount))
-      event.target.blur()
+  return {
+    props: {
+      affiliatePaymail
     }
   }
-
-  const handleMouseUp = (event) => {
-    if (!hasFocus) {
-      event.target.select()
-    }
-    setHasFocus(true)
-  }
-
-  return (
-    <TextField id='outlined-basic' label='Contact Fee' onChange={handleChange} onBlur={handleBlur} onMouseUp={handleMouseUp} onKeyPress={handleKeyPress} value={amount} variant='outlined' sx={{ width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
-  )
 }
 
-export default function Home () {
-  const router = useRouter()
-  const affiliateHeartmail = router.query.a
+export default function Home (props) {
+  const affiliatePaymail = props.affiliatePaymail
 
   return (
     <Layout>
@@ -68,9 +44,7 @@ export default function Home () {
       <p>
         By buying early access, you agree to the <Link href='/terms'>Terms of Service</Link>.
       </p>
-      {
-        affiliateHeartmail ? <MoneyButton /> : <MoneyButtonInfo label='You need a referral.' />
-      }
+      <MoneyButtonBuyEarly affiliatePaymail={affiliatePaymail} />
     </Layout>
   )
 }
