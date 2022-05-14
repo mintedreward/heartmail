@@ -10,7 +10,7 @@ Keys
 id | address | pubkey | privkey | type ("account") | created_date
 
 Accounts
-key_id | access_granted_date | external_email | external_paymail | affiliate_key_id
+key_id | access_granted_date | external_email | external_paymail | affiliate_key_id | contact_fee_amount_usd
 
 ExternalEmails
 email | verified_date

@@ -1,5 +1,7 @@
 import * as React from 'react'
+import { useRouter } from 'next/router'
 import MoneyButtonInfo from '../components/MoneyButtonInfo.js'
+import MoneyButton from '../components/MoneyButton.js'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Layout from '../components/Layout.js'
@@ -41,7 +43,10 @@ function CurrencyInput () {
   )
 }
 
-export default function Landing () {
+export default function Home () {
+  const router = useRouter()
+  const affiliateHeartmail = router.query.a
+
   return (
     <Layout>
       <Typography variant='h2' component='h2' mt='50px' mb='50px' sx={{ textAlign: 'center' }}>
@@ -63,7 +68,9 @@ export default function Landing () {
       <p>
         By buying early access, you agree to the <Link href='/terms'>Terms of Service</Link>.
       </p>
-      <MoneyButtonInfo label='You need a referral.' />
+      {
+        affiliateHeartmail ? <MoneyButton /> : <MoneyButtonInfo label='You need a referral.' />
+      }
     </Layout>
   )
 }
