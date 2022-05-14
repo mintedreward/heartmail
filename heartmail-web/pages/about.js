@@ -1,6 +1,7 @@
 import Layout from '../components/Layout.js'
 import PageTitle from '../components/PageTitle.js'
 import ContactCard from '../components/ContactCard.js'
+import MoneyButtonTip from '../components/MoneyButtonTip.js'
 
 export default function About () {
   return (
@@ -20,6 +21,7 @@ export default function About () {
       <ContactCard avatar='/ryan.jpg' name='Ryan X. Charles' heartmail='ryan@heartmail.com' bio='Cofounder & CEO of HeartMail' />
       <ContactCard avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
       <ContactCard avatar='/diddy.jpg' name='Diddy Wheldon' heartmail='diddy@heartmail.com' bio='Project Manager of HeartMail' />
+      <MoneyButtonTip />
     </Layout>
   )
 }
