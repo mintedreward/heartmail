@@ -48,37 +48,44 @@ ways.
 Early Protocols
 ---------------
 
-### SV Milestone
+### Stamps Milestone
 
-SV = Stamps Verification
+* Script
+* Input / Output
+* Transactions
+* SV = Stamps Verification
+* SPV = Simplified Postage Verification
+* Key Alias
 
-1. Email2
-2. Email2 identity keys
-3. Email2 verify public key owner
-4. Email2 signatures (without revocation)
-5. Email2 authentication (without revocation)
-6. Two Factor Friend (2FF)
-7. Two Factor Friend (2FF) service
-8. Email2 key logging and revocation data structures
-9. Script template labels
-10. Filter service API
-11. Filter service Email2 extension
-12. Filter for Email2 key logging and revocation
-13. Email2 signatures (with revocation)
-14. Email2 authentication (with revocation)
-15. Email2 invoices and P2P payments
-16. Merkle proof data structure
-17. Transaction ancestry data structure
-18. Merkle proof service
-19. SPV payments
-20. Paid Merkle proof service
+### Mailbox Milestone
+
+* Email2
+* Email2 identity keys
+* Email2 verify public key owner
+* Email2 signatures (without revocation)
+* Email2 authentication (without revocation)
+* Two Factor Friend (2FF)
+* Two Factor Friend (2FF) service
+* Email2 key logging and revocation data structures
+* Script template labels
+* Filter service API
+* Filter service Email2 extension
+* Filter for Email2 key logging and revocation
+* Email2 signatures (with revocation)
+* Email2 authentication (with revocation)
+* Email2 invoices and P2P payments
+* Merkle proof data structure
+* Transaction ancestry data structure
+* Merkle proof service
+* SPV payments
+* Paid Merkle proof service
 
 ### Media milestone
 
-- Media types: Video, images, text, software, ...
-- Media authorship attestation
-- Media basic rights (sell, resell)
-- Email2 media transfer
+* Media types: Video, images, text, software, ...
+* Media authorship attestation
+* Media basic rights (sell, resell)
+* Email2 media transfer
 
 ### DHT milestone
 
