@@ -58,7 +58,7 @@ SPV and content modules:
 * [x] HeartMail Web
 * [x] HeartMail Lib
 * [x] HeartMail Keyfile
-* [ ] HeartMail Paymail
+* [ ] HeartMail Email2
 * [ ] HeartMail DB
 * [ ] HeartMail Kubernetes
 * [ ] HeartMail Node Client <= Node Server Interface
@@ -151,7 +151,7 @@ Domain names are distributed across:
 
 # IP protection
 
-* Patent: Paymail authentication
+* Patent: Email2 authentication
 * Patent: iframe API
 * Patent: Two Factor Friend
 * Trademark: OpenSPV
@@ -169,14 +169,14 @@ Domain names are distributed across:
 * Coasian: Create and operate subsidiaries. Love.
 * Coasian: Create and license trademarks and brands. Beauty.
 * OpenSPV: Non-SPV transfers cost 3%. SPV transfers are fee.
-* OpenSPV: Paymail sales, trades, & auctions.
+* OpenSPV: Email2 sales, trades, & auctions.
 * OpenSPV: Documentation sales & marketplace.
 * OpenSPV: Bug bounty marketplace.
 * OpenSPV: WaaS for businesses.
 * OpenSPV: Paid video mail hosting, processing, transmission.
 * OpenSPV: Paid ad placement for search results, front page, categories.
 * Two Factor Friend: It's like a dating app, but for infosec. BFF+2FA=2FF.
-* HeartMail: Paymail sales, trades, & auctions.
+* HeartMail: Email2 sales, trades, & auctions.
 * HeartMail: Paid video mail hosting, processing, transmission.
 * HeartMail: Paid ad placement for search results, front page, categories.
 * HeartMail: Mainstream video sales & marketplace.
@@ -248,7 +248,7 @@ SPV and content modules:
 - [ ] OpenSPV Web
 - [x] OpenSPV Lib
 - [x] OpenSPV Keyfile
-- [ ] OpenSPV Paymail
+- [ ] OpenSPV Email2
 - [ ] OpenSPV DB
 - [ ] OpenSPV Kubernetes
 - [ ] OpenSPV Node Client <= Node Server Interface
@@ -283,12 +283,12 @@ Exchange modules:
 From this directory, you can run the following commands:
 
     $ yarn workspaces list
-    $ yarn workspace paymail lint
+    $ yarn workspace email2 lint
     $ yarn workspaces foreach lint
     $ yarn workspaces foreach test
 
 To reference a module from another module:
 
-    import { Paymail } from 'stamps-paymail'
+    import { Email2 } from 'stamps-email2'
 
 Copyright (c) 2022 HeartMail Inc. All rights reserved.

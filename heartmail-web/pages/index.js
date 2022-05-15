@@ -7,23 +7,23 @@ import CurrencyInput from '../components/CurrencyInput'
 export async function getServerSideProps(context) {
   const affiliateHeartmail = context.query.a
 
-  let affiliatePaymail = ''
+  let affiliateEmail2 = ''
 
   if (affiliateHeartmail === 'self') {
-    affiliatePaymail = 'heartmail@moneybutton.com'
+    affiliateEmail2 = 'heartmail@moneybutton.com'
   } else if (affiliateHeartmail) {
-    // get affiliatePaymail from DB
+    // get affiliateEmail2 from DB
   }
 
   return {
     props: {
-      affiliatePaymail
+      affiliateEmail2
     }
   }
 }
 
 export default function Home (props) {
-  const affiliatePaymail = props.affiliatePaymail
+  const affiliateEmail2 = props.affiliateEmail2
 
   return (
     <Layout>
@@ -46,7 +46,7 @@ export default function Home (props) {
       <p>
         By buying early access, you agree to the <Link href='/terms'>Terms of Service</Link>.
       </p>
-      <MoneyButtonBuyEarly affiliatePaymail={affiliatePaymail} />
+      <MoneyButtonBuyEarly affiliateEmail2={affiliateEmail2} />
     </Layout>
   )
 }

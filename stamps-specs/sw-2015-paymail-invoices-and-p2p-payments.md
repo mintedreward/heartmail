@@ -1,15 +1,15 @@
-SW 2015: Paymail invoice and P2P payments
+SW 2015: Email2 invoice and P2P payments
 ========================================
 
 Dependencies
 ------------
 
-* SW 2001: Paymail
+* SW 2001: Email2
 
 Introduction
 ------------
 
-This is the idea of sending a transaction p2p using paymails.
+This is the idea of sending a transaction p2p using email2s.
 
 stephen@unisot.io generates an invoice
 ryan@heartmail.com sees the invoice

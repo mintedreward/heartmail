@@ -41,7 +41,7 @@ class Domain {
     return this
   }
 
-  static async getPaymailHostInfo (domainName) {
+  static async getEmail2HostInfo (domainName) {
     return new Promise((resolve, reject) => {
       // TODO(@ryanxcharles): Cache the DNS query
       dns.resolveSrv(`_bsvalias._tcp.${domainName}`, async (err, result) => {
@@ -74,20 +74,20 @@ class Domain {
     })
   }
 
-  async getPaymailHostInfo () {
-    return this.constructor.getPaymailHostInfo(this.domainName)
+  async getEmail2HostInfo () {
+    return this.constructor.getEmail2HostInfo(this.domainName)
   }
 
-  async getPaymailHostURL () {
-    const { domainName, port, isSecure } = await this.getPaymailHostInfo()
+  async getEmail2HostURL () {
+    const { domainName, port, isSecure } = await this.getEmail2HostInfo()
     if (!isSecure) {
-      throw new Error('Paymail host failed security check')
+      throw new Error('Email2 host failed security check')
     }
     return `${this.protocol}://${domainName}:${port}`
   }
 
   async getWellKnownURL () {
-    return `${await this.getPaymailHostURL()}/.well-known/bsvalias`
+    return `${await this.getEmail2HostURL()}/.well-known/bsvalias`
   }
 
   async getWellKnownFile () {

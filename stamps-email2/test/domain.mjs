@@ -29,11 +29,11 @@ describe('Domain', () => {
     })
   })
 
-  describe('#getPaymailHostInfo', () => {
+  describe('#getEmail2HostInfo', () => {
     // TODO(@ryanxcharles): Remove live network tests by replacing with mockups
     it('should get money button host info accurately', async () => {
       const domain = new Domain('moneybutton.com')
-      const info = await domain.getPaymailHostInfo()
+      const info = await domain.getEmail2HostInfo()
       info.domainName.should.equal('www.moneybutton.com')
       info.port.should.equal(443)
       info.isSecure.should.equal(true)

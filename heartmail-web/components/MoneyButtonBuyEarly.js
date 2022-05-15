@@ -2,9 +2,9 @@ import MoneyButton from '@moneybutton/react-money-button'
 import MoneyButtonReferralNeeded from '../components/MoneyButtonReferralNeeded'
 
 export default function MoneyButtonBuyEarly (props) {
-  const affiliatePaymail = props.affiliatePaymail
+  const affiliateEmail2 = props.affiliateEmail2
 
-  if (affiliatePaymail === '') {
+  if (affiliateEmail2 === '') {
     return (
       <MoneyButtonReferralNeeded label='You need a referral.' />
     )
@@ -22,7 +22,7 @@ export default function MoneyButtonBuyEarly (props) {
                 currency: 'USD'
               },
               {
-                to: {affiliatePaymail},
+                to: {affiliateEmail2},
                 amount: '2',
                 currency: 'USD'
               }
@@ -31,7 +31,7 @@ export default function MoneyButtonBuyEarly (props) {
             clientIdentifier='c3a2ca70156b6cdf2ce3e860ba2bef13'
             buttonId='Buy Early'
             buttonData='Buy Early'
-            onPayment={(payment) => { console.log(payment); console.log(payment.amountUsd, payment.id, payment.userId, payment.senderPaymail, payment.user.email, payment.user.emailVerified) }}
+            onPayment={(payment) => { console.log(payment); console.log(payment.amountUsd, payment.id, payment.userId, payment.senderEmail2, payment.user.email, payment.user.emailVerified) }}
           />
         </div>
       </div>

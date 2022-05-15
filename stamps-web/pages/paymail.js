@@ -1,11 +1,11 @@
-import { Paymail } from 'stamps-paymail'
+import { Email2 } from 'stamps-email2'
 
-export default function PaymailPage() {
-  const paymail = new Paymail('user@example.com')
+export default function Email2Page() {
+  const email2 = new Email2('user@example.com')
 
   return (
     <>
-      {JSON.stringify(paymail)}
+      {JSON.stringify(email2)}
     </>
   )
 }

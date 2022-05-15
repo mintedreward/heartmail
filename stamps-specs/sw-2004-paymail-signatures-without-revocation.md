@@ -1,19 +1,19 @@
-# SW 2004: Paymail signatures without revocation
+# SW 2004: Email2 signatures without revocation
 
 ## Dependencies
 
-* SW 2001: Paymail
-* SW 2002: Paymail identity keys
-* SW 2003: Paymail verify public key owner
+* SW 2001: Email2
+* SW 2002: Email2 identity keys
+* SW 2003: Email2 verify public key owner
 
 ## Introduction
 
-The idea of a paymail signature is as follows:
+The idea of a email2 signature is as follows:
 
-- To each paymail is associated an identity public key.
+- To each email2 is associated an identity public key.
 - The private key corresponding to the public key, plus a message, can produce a signature.
 - The signature can be verified against the public key.
-- The public key can be verified against the paymail.
+- The public key can be verified against the email2.
 
 ### Signature algorithm
 
@@ -31,7 +31,7 @@ Write the message.
 
 The new message is the message we sign using the Stamps digital signature algorithm.
 
-The private key used should be the private key corresponding to the paymail's identity public key.
+The private key used should be the private key corresponding to the email2's identity public key.
 
 When encoded, the signature can be encoded in compact base64 format.
 
@@ -39,9 +39,9 @@ When encoded, the signature can be encoded in compact base64 format.
 
 The signature can be verified in the same way as any signature verification, which is to compare the public key agains the data against the signature.
 
-The difference this time is we need to verify also that the public key corresponds to the paymail.
+The difference this time is we need to verify also that the public key corresponds to the email2.
 
-For this, we use SW 2003 to verify the public key of the owner of the paymail.
+For this, we use SW 2003 to verify the public key of the owner of the email2.
 
 ### Weaknesses
 
@@ -49,9 +49,9 @@ This method to produce and verify signatures has the following weakness:
 
 Suppose an identity key is revoked.
 
-The paymail host can do two things:
+The email2 host can do two things:
 
-Continue to regard the public key as owned by the paymail. In this case, new signatures can be produced that look valid but are not.
+Continue to regard the public key as owned by the email2. In this case, new signatures can be produced that look valid but are not.
 
 Revoke the old public key. In this case, old signatures will be regarded as invalid even though they were previously valid.
 
@@ -68,4 +68,4 @@ The solution to this weakness
 
 ## Implementations
 
-See <code>Bsm.js in <code>js/lib</code> and <code>isValidSig</code> and <code>sign</code> methods in <code>js/paymail</code>.
+See <code>Bsm.js in <code>js/lib</code> and <code>isValidSig</code> and <code>sign</code> methods in <code>js/email2</code>.

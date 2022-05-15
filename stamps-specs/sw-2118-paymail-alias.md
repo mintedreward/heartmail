@@ -1,7 +1,7 @@
-SW 118: Paymail Alias
+SW 118: Email2 Alias
 ====================
 
-An extension to paymail to allow people to specify alternate paymails with the
+An extension to email2 to allow people to specify alternate email2s with the
 same identity.
 
 ryan@heartmail.com

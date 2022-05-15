@@ -83,12 +83,12 @@ Use these links to connect to amazon keyspaces...
 ### Users
 
 |-----------------------------------------------------------------|
-| userId | paymail | name | bio | website | email | emailVerified |
+| userId | email2 | name | bio | website | email | emailVerified |
 |-----------------------------------------------------------------|
 
 * userId: The bitcoin address string of the user's first key. The same as the
   user's first identity key.
-* paymail: The user's primary paymail.
+* email2: The user's primary email2.
 * name: The user's full name.
 * bio: A short text description written by the user.
 * website: A URL to the user's website. Can be null.
@@ -118,14 +118,14 @@ Use these links to connect to amazon keyspaces...
 * expirationTime: The time when the token expires (typically one day or so after
   createdTime)
 
-### Paymails
+### Email2s
 
 |------------------|
-| paymail | userId |
+| email2 | userId |
 |------------------|
 
-* paymail: A normalized paymail including local part and domain name.
-* userId: The user who owns this paymail.
+* email2: A normalized email2 including local part and domain name.
+* userId: The user who owns this email2.
 
 ### Identity Keys
 
@@ -197,13 +197,13 @@ This table is complex because it needs to account for:
 ### Invoices
 
 |----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id | userId | receivingPaymail | sendingPaymail | conversionTime | priceUSD | amountSatoshis | txOuts | createdTime | expiredTime | paidTime | paidTxIds |
+| id | userId | receivingEmail2 | sendingEmail2 | conversionTime | priceUSD | amountSatoshis | txOuts | createdTime | expiredTime | paidTime | paidTxIds |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 * id: A randomly generated id for the invoice.
 * userId: The bitcoin address string of the user's first key.
-* receivingPaymail: The paymail the user is using to receive this payment.
-* sendingPaymail: The paymail of the sender.
+* receivingEmail2: The email2 the user is using to receive this payment.
+* sendingEmail2: The email2 of the sender.
 * conversionTime: The time at which the price quote was created.
 * amountSatoshis: The amount to send denominated in Satoshis.
 * amountUSD: The USD amount of the amountSatoshis.

@@ -16,8 +16,8 @@ const now = new Date()
 const invoice:Invoice = {
   id: uuid(),
   userid: "someuser",
-  receivingpaymail: "someone@sbw.com",
-  sendingpaymail: "from@catn8.net",
+  receivingemail2: "someone@sbw.com",
+  sendingemail2: "from@catn8.net",
   conversiontime: now.toISOString(),
   amountsatoshis: 1000,
   amountusd: null,

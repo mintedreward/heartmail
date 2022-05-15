@@ -13,7 +13,7 @@ create table openspv.blockHeaders (
 
 create table openspv.users (
   userId text,
-  paymail text,
+  email2 text,
   name text,
   bio text,
   website text,
@@ -38,10 +38,10 @@ create table openspv.emailVerificationTokens (
   primary key (email)
 );
 
-create table openspv.paymails (
-  paymail text,
+create table openspv.email2s (
+  email2 text,
   userId text,
-  primary key (paymail)
+  primary key (email2)
 );
 
 create table openspv.identityKeys (
@@ -90,8 +90,8 @@ create table openspv.txInsAndOuts (
 create table openspv.invoices (
   id uuid,
   userId text,
-  receivingPaymail text,
-  sendingPaymail text,
+  receivingEmail2 text,
+  sendingEmail2 text,
   conversionTime timestamp,
   amountSatoshis bigint,
   amountUSD float,

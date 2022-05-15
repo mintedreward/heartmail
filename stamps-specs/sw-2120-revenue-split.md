@@ -44,7 +44,7 @@ The closest prior work known to the author is the work done by the W3C for Web M
 
 * The normal format would be an array of javascript objects.
 Each object in the array consists of:  
-	* A paymail (or address or pubkey). Required.
+	* A email2 (or address or pubkey). Required.
 	* A percentage. Required if using an array.
 	* A role. Optional. Or spec can allow additional attributes that can be ignored.
 
@@ -59,14 +59,14 @@ Each object in the array consists of:
 ]
 ```
 * A simplified example could exclude the array for a single string formatted as an email
-`greatcontent@paymail.com`
-with the assumption that payout is 100% if only a single paymail is presented.
+`greatcontent@email2.com`
+with the assumption that payout is 100% if only a single email2 is presented.
 
 ## Discussion Items
 
 * The format should be machine readable
 * The format should be in a canonical format (remove extraneous spaces)
 * The format should be embeddable in contracts or media manifests
-* The paymail could be an address or potentially a url (needs discussion)
+* The email2 could be an address or potentially a url (needs discussion)
 
 

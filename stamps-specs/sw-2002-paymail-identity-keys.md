@@ -1,4 +1,4 @@
-# SW 2002: Paymail public key infrastructure (PKI)
+# SW 2002: Email2 public key infrastructure (PKI)
 
 ## Authors
 
@@ -7,13 +7,13 @@
 
 ## Dependencies
 
-* SW 2001: Paymail
+* SW 2001: Email2
 
 ## Introduction
 
-A central aspect of paymail is the ability to link a public key for use in cryptographic algorithms to an email address. This enables extensions of email to secure communications.
+A central aspect of email2 is the ability to link a public key for use in cryptographic algorithms to an email address. This enables extensions of email to secure communications.
 
-This spec is copied from the original paymail "PKI" specification with no substantive modifications.
+This spec is copied from the original email2 "PKI" specification with no substantive modifications.
 
 The original spec is located here:
 
@@ -21,7 +21,7 @@ https://www.bsvalias.org/03-public-key-infrastructure.html
 
 ## Public Key Infrastructure
 
-Each paymail handle `<alias>@<domain>.<tld>` _MUST_ be issued a stable ECDSA public key that _SHOULD NOT_ be used as part of any on-chain transaction. Clients must be able to locate the public key from information within the `.well-known/bsvalias` configuration file:
+Each email2 handle `<alias>@<domain>.<tld>` _MUST_ be issued a stable ECDSA public key that _SHOULD NOT_ be used as part of any on-chain transaction. Clients must be able to locate the public key from information within the `.well-known/bsvalias` configuration file:
 
 ```json
 {
@@ -32,7 +32,7 @@ Each paymail handle `<alias>@<domain>.<tld>` _MUST_ be issued a stable ECDSA pub
 }
 ```
 
-The template values `{alias}` and `{domain.tld}` refer to the components of target paymail handle `<alias>@<domain>.<tld>` and must be substituted by the client before issuing a request.
+The template values `{alias}` and `{domain.tld}` refer to the components of target email2 handle `<alias>@<domain>.<tld>` and must be substituted by the client before issuing a request.
 
 ### PKI Flow
 
@@ -50,7 +50,7 @@ Below are the responses that have meaning to this protocol. A server may return 
 
 ### 200 OK
 
-Returned when a valid request for a known paymail handle has been received. The return message _MUST_ have a content type of `application/json`. The response body _MUST_ conform to the following schema:
+Returned when a valid request for a known email2 handle has been received. The return message _MUST_ have a content type of `application/json`. The response body _MUST_ conform to the following schema:
 
 ```json
 {
@@ -73,4 +73,4 @@ No public key rotation has taken place since the previous request, based on cach
 
 #### 404 Not Found
 
-The paymail handle was not found by this service.
+The email2 handle was not found by this service.

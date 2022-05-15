@@ -48,23 +48,25 @@ ways.
 Early Protocols
 ---------------
 
-### SPV Milestone
+### SV Milestone
 
-1. Paymail
-2. Paymail identity keys
-3. Paymail verify public key owner
-4. Paymail signatures (without revocation)
-5. Paymail authentication (without revocation)
+SV = Stamps Verification
+
+1. Email2
+2. Email2 identity keys
+3. Email2 verify public key owner
+4. Email2 signatures (without revocation)
+5. Email2 authentication (without revocation)
 6. Two Factor Friend (2FF)
 7. Two Factor Friend (2FF) service
-8. Paymail key logging and revocation data structures
+8. Email2 key logging and revocation data structures
 9. Script template labels
 10. Filter service API
-11. Filter service paymail extension
-12. Filter for paymail key logging and revocation
-13. Paymail signatures (with revocation)
-14. Paymail authentication (with revocation)
-15. Paymail invoices and P2P payments
+11. Filter service Email2 extension
+12. Filter for Email2 key logging and revocation
+13. Email2 signatures (with revocation)
+14. Email2 authentication (with revocation)
+15. Email2 invoices and P2P payments
 16. Merkle proof data structure
 17. Transaction ancestry data structure
 18. Merkle proof service
@@ -76,7 +78,7 @@ Early Protocols
 - Media types: Video, images, text, software, ...
 - Media authorship attestation
 - Media basic rights (sell, resell)
-- Paymail media transfer
+- Email2 media transfer
 
 ### DHT milestone
 

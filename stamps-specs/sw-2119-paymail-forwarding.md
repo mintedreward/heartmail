@@ -1,18 +1,18 @@
-SW 119: Paymail Forwarding
+SW 119: Email2 Forwarding
 ==========================
 
-An extension to paymail to allow people to specify a new primary paymail.
+An extension to email2 to allow people to specify a new primary email2.
 
-Old primary paymail:
+Old primary email2:
 
 user@example.com
 
-New primary paymail:
+New primary email2:
 
 user@example.net
 
-In this example, user@example.com needs a paymail extension to specify that this
-is no longer the primary paymail, and that all contact cards should be updated
+In this example, user@example.com needs a email2 extension to specify that this
+is no longer the primary email2, and that all contact cards should be updated
 to use user@example.net instead.
 
 The forwarding could last either indefinitely or for a fixed period, similar to

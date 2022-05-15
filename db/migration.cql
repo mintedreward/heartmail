@@ -17,7 +17,7 @@ create table if not exists heartmail.accounts (
     keyAlias text,
     accessGrantedTime timestamp,
     externalEmail timestamp,
-    externalPaymail timestamp,
+    externalEmail2 timestamp,
     affiliateKeyAlias text,
     contactFeeAmountUsd float,
     primary key (keyAlias)
@@ -30,11 +30,11 @@ create table if not exists heartmail.externalEmails (
     primary key (email)
 );
 
-create table if not exists heartmail.externalPaymails (
-    paymail text,
+create table if not exists heartmail.externalEmail2s (
+    email2 text,
     verified boolean,
     verifiedTime timestamp,
-    primary key (paymail)
+    primary key (email2)
 );
 
 create table if not exists heartmail.mbPayments (
@@ -43,15 +43,15 @@ create table if not exists heartmail.mbPayments (
     mbButtonId text,
     mbButtonData text,
     mbAmountUsd float,
-    mbToHeartmailPaymail text,
+    mbToHeartmailEmail2 text,
     mbToHeartmailAmount text,
     mbToHeartmailCurrency text,
-    mbToAffiliatePaymail text,
+    mbToAffiliateEmail2 text,
     mbToAffiliateAmount text,
     mbToAffiliateCurrency text,
     mbUserEmail text,
     mbUserEmailVerified text,
-    mbUserPrimaryPaymail text,
+    mbUserPrimaryEmail2 text,
     mbUserId text,
     mbTxid text,
     mbPaymentId text,

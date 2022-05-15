@@ -3,29 +3,29 @@ import { Domain } from './domain.mjs'
 import fetch from 'isomorphic-fetch'
 import { PubKey, PrivKey, KeyPair, Sig, Address, Bsm } from 'stamps-lib'
 
-class Paymail {
-  constructor (paymail = '', pubKey, privKey, normalized, domainName) {
-    this.paymail = paymail
+class Email2 {
+  constructor (email2 = '', pubKey, privKey, normalized, domainName) {
+    this.email2 = email2
     this.pubKey = pubKey
     this.privKey = privKey
-    this.normalized = normalized || this.constructor.getNormalized(paymail)
-    this.domainName = domainName || this.constructor.getDomainName(paymail)
+    this.normalized = normalized || this.constructor.getNormalized(email2)
+    this.domainName = domainName || this.constructor.getDomainName(email2)
     this.domain = this.constructor.getDomain(this.domainName)
   }
 
-  static isValid (paymail = '') {
-    return emailValidator.validate(paymail)
+  static isValid (email2 = '') {
+    return emailValidator.validate(email2)
   }
 
   isValid () {
-    return this.constructor.isValid(this.paymail)
+    return this.constructor.isValid(this.email2)
   }
 
-  static getNormalized (paymail) {
-    if (typeof paymail !== 'string' || paymail.length === 0) {
-      return paymail
+  static getNormalized (email2) {
+    if (typeof email2 !== 'string' || email2.length === 0) {
+      return email2
     }
-    let normalized = paymail
+    let normalized = email2
     normalized = normalized.toLowerCase()
     const domain = this.getDomain(normalized)
     const userName = normalized.split('@')[0]
@@ -34,43 +34,43 @@ class Paymail {
   }
 
   getNormalized () {
-    return this.constructor.getNormalized(this.paymail)
+    return this.constructor.getNormalized(this.email2)
   }
 
   normalize () {
-    this.paymail = this.getNormalized()
+    this.email2 = this.getNormalized()
     return this
   }
 
-  static getUserName (paymail = '') {
-    const arr = paymail.split('@')
+  static getUserName (email2 = '') {
+    const arr = email2.split('@')
     return arr[0]
   }
 
   // also the "local part"
   getUserName () {
-    return this.constructor.getUserName(this.paymail)
+    return this.constructor.getUserName(this.email2)
   }
 
-  static getDomainName (paymail = '') {
-    if (typeof paymail !== 'string' || paymail.length === 0) {
-      return paymail
+  static getDomainName (email2 = '') {
+    if (typeof email2 !== 'string' || email2.length === 0) {
+      return email2
     }
-    const arr = paymail.split('@')
+    const arr = email2.split('@')
     return arr[1]
   }
 
   getDomainName () {
-    return this.constructor.getDomainName(this.paymail)
+    return this.constructor.getDomainName(this.email2)
   }
 
-  static getDomain (paymail = '') {
-    const domainName = this.getDomainName(paymail)
+  static getDomain (email2 = '') {
+    const domainName = this.getDomainName(email2)
     return new Domain(domainName)
   }
 
   getDomain () {
-    return this.constructor.getDomain(this.paymail)
+    return this.constructor.getDomain(this.email2)
   }
 
   async getPubKey () {
@@ -80,7 +80,7 @@ class Paymail {
     const wellKnown = await this.getDomain().getWellKnownFile()
     let url = wellKnown.capabilities.pki
     if (!url) {
-      throw new Error('Could not retrieve PKI URL for paymail')
+      throw new Error('Could not retrieve PKI URL for email2')
     }
     url = url.replace('{alias}', userName)
     url = url.replace('{domain.tld}', domainName)
@@ -99,7 +99,7 @@ class Paymail {
     const wellKnown = await this.getDomain().getWellKnownFile()
     let url = wellKnown.capabilities.a9f510c16bde
     if (!url) {
-      throw new Error('Could not retrieve PKI URL for paymail')
+      throw new Error('Could not retrieve PKI URL for email2')
     }
     url = url.replace('{alias}', userName)
     url = url.replace('{domain.tld}', domainName)
@@ -147,4 +147,4 @@ class Paymail {
   }
 }
 
-export default Paymail
+export default Email2

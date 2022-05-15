@@ -4806,6 +4806,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"email2@workspace:stamps-email2":
+  version: 0.0.0-use.local
+  resolution: "email2@workspace:stamps-email2"
+  dependencies:
+    body-parser: 1.19.2
+    email-validator: 2.0.4
+    express: 4.17.3
+    is-valid-domain: 0.1.6
+    isomorphic-fetch: ^3.0.0
+    mocha: 8.3.1
+    pug: 3.0.2
+    should: 13.2.3
+    stamps-lib: "workspace:*"
+    standard: 16.0.4
+  languageName: unknown
+  linkType: soft
+
 "emoji-regex@npm:^7.0.1":
   version: 7.0.3
   resolution: "emoji-regex@npm:7.0.3"
@@ -10596,23 +10613,6 @@ fsevents@~2.1.1:
   checksum: 0a33b6764e9c7708678f804b9e1a34b4fd335248e2894e441dcb57b68fa5f0ce6f77a8daba34e7673bc5ec27444580036294b96c79bfaecd23a86534d34a310c
   languageName: node
   linkType: hard
-
-"paymail@workspace:stamps-paymail":
-  version: 0.0.0-use.local
-  resolution: "paymail@workspace:stamps-paymail"
-  dependencies:
-    body-parser: 1.19.2
-    email-validator: 2.0.4
-    express: 4.17.3
-    is-valid-domain: 0.1.6
-    isomorphic-fetch: ^3.0.0
-    mocha: 8.3.1
-    pug: 3.0.2
-    should: 13.2.3
-    stamps-lib: "workspace:*"
-    standard: 16.0.4
-  languageName: unknown
-  linkType: soft
 
 "pbkdf2@npm:3.1.2, pbkdf2@npm:^3.0.3":
   version: 3.1.2

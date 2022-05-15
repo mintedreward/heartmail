@@ -1,4 +1,4 @@
-# SW 2003: Paymail verify public key owner
+# SW 2003: Email2 verify public key owner
 
 ## Authors
 
@@ -8,14 +8,14 @@
 
 ## Dependencies
 
-* SW 2001: Paymail
-* SW 2002: Paymail identity keys
+* SW 2001: Email2
+* SW 2002: Email2 identity keys
 
 ## Introduction
 
-In the original paymail protocol specifications, there was an identity public
+In the original email2 protocol specifications, there was an identity public
 key that you could use to sign stuff. Someone can verify the signature of a
-paymail by checking that the public key used is the one attached to the paymail.
+email2 by checking that the public key used is the one attached to the email2.
 
 But there is a problem with this approach, which is that the public key may
 change.
@@ -24,25 +24,25 @@ If the public key changes, old signatures are no longer valid, even though they
 were valid at the time the signature was created.
 
 This specification allows one to check whether a public key was ever associated
-with a paymail, meaning old signatures continue to be valid.
+with a email2, meaning old signatures continue to be valid.
 
 This is still not the best approach. Ultimately, we want to simply log keys and
 revocations on the blockchain to completely fix PKI. But for for now, we adopt
-this protocol for backwards-compatibility with existing paymail signature
+this protocol for backwards-compatibility with existing email2 signature
 implementations, and we plan to extend these specifications on-chain when we can
 to fully fix all the PKI issues.
 
-The original paymail "verify public key owner" spec can be found here:
+The original email2 "verify public key owner" spec can be found here:
 
 https://www.bsvalias.org/05-verify-public-key-owner.html
 
 ## Verify Public Key Owner
 
-This capability allows clients to verify if a given public key is a valid identity key for a given paymail handle.
+This capability allows clients to verify if a given public key is a valid identity key for a given email2 handle.
 
 ### Motivation
 
-The public key returned by pki flow for a given paymail handle may change over time. This situation may produce troubles to verify data signed using old keys, because even having the keys, the verifier doesn't know if the public key actually belongs to the right user.
+The public key returned by pki flow for a given email2 handle may change over time. This situation may produce troubles to verify data signed using old keys, because even having the keys, the verifier doesn't know if the public key actually belongs to the right user.
 
 ### Capability discovery
 
@@ -61,7 +61,7 @@ The `capabilities.a9f510c16bde` is a template URL to verify the ownership of the
 
 ### Client Request
 
-The `capabilities.a9f510c16bde` path returns a URI template. Senders _MUST_ replace `{alias}`, `{domain.tld}` placeholders with a valid paymail handle. `{pubkey}` placeholder _MUST_ be a valid point on the secp256k1 curve, compressed, and hex-encoded. The client _MUST_ perform a GET request to the obtained URL.
+The `capabilities.a9f510c16bde` path returns a URI template. Senders _MUST_ replace `{alias}`, `{domain.tld}` placeholders with a valid email2 handle. `{pubkey}` placeholder _MUST_ be a valid point on the secp256k1 curve, compressed, and hex-encoded. The client _MUST_ perform a GET request to the obtained URL.
 
 ### Server Response
 
@@ -73,7 +73,7 @@ Returned when a valid request was made. The response _MUST_ have `application/js
 
 ```json
 {
-  "handle":"somepaymailhandle@domain.tld",
+  "handle":"someemail2handle@domain.tld",
   "pubkey":"<consulted pubkey>",
   "match": true,
 }
@@ -83,9 +83,9 @@ Returned when a valid request was made. The response _MUST_ have `application/js
 |---------------|--------------|
 | `handle`   | queried handle |
 | `pubkey` | queried public key |
-| `match` | `true` if pubkey belongs to paymail handle. `false` otherwise. |
+| `match` | `true` if pubkey belongs to email2 handle. `false` otherwise. |
 
-This endpoint returns status 200 everytime the request is valid. If the paymail handle is unknown to the server it returns 200 anyway, but `false` in the match field.
+This endpoint returns status 200 everytime the request is valid. If the email2 handle is unknown to the server it returns 200 anyway, but `false` in the match field.
 
 #### Client Request
 

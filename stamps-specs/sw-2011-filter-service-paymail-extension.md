@@ -1,4 +1,4 @@
-SW 2011: Filter service paymail extension
+SW 2011: Filter service email2 extension
 =======================================
 
 Dependencies
@@ -9,4 +9,4 @@ Dependencies
 Introduction
 ------------
 
-An extension to paymail that specifies the paymail host offers a filter service.
+An extension to email2 that specifies the email2 host offers a filter service.

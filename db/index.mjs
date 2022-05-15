@@ -1,6 +1,6 @@
 /*
 Affiliate:
-- Retrieve affiliate external paymail
+- Retrieve affiliate external email2
 
 Payment:
 - Accept and verify money button payment for early access

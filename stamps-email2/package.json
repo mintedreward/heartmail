@@ -1,6 +1,6 @@
 {
-  "name": "paymail",
-  "description": "Extensions to email for Bitcoin and the web.",
+  "name": "email2",
+  "description": "Email with Stamps",
   "version": "8.0.0",
   "author": "HeartMail",
   "homepage": "https://github.com/openspv/openspv",
@@ -20,7 +20,7 @@
   ],
   "license": "UNLICENSED",
   "scripts": {
-    "serve": "node ./src/paymail-server.mjs",
+    "serve": "node ./src/email2-server.mjs",
     "lint": "standard **/*.mjs",
     "pretest": "yarn run lint",
     "test:mocha": "mocha",

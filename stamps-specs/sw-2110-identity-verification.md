@@ -9,5 +9,5 @@ analogy. We should absolutely standardize the blue check box. But under the hood
 the way this works is that Unisot signs a message they have verified the user's
 identity by scanning government documents. This assures the user is real. The
 user can then have this show up on their profile, essentially saying "verified
-by Unisot". The signatures and keys used to verify the user can be paymail keys
+by Unisot". The signatures and keys used to verify the user can be email2 keys
 and can use the key logging and revocation protocols.

@@ -2,8 +2,8 @@
 export class Invoice {
     id?: string //A randomly generated uuid for the invoice.
     userid?: string //The bitcoin address string of the user's first key.
-    receivingpaymail?: string //The paymail the user is using to receive this payment.
-    sendingpaymail?: string //The paymail of the sender.
+    receivingemail2?: string //The email2 the user is using to receive this payment.
+    sendingemail2?: string //The email2 of the sender.
     conversiontime?: string //The time at which the price quote was created.
     amountsatoshis?: number //The amount to send denominated in Satoshis.
     amountusd?: number|null //The USD amount of the amountSatoshis.
