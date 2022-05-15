@@ -1776,19 +1776,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openspv/web@workspace:stamps-web":
-  version: 0.0.0-use.local
-  resolution: "@openspv/web@workspace:stamps-web"
-  dependencies:
-    eslint: 8.0.0
-    eslint-config-next: 11.1.2
-    next: 12
-    react: 17.0.2
-    react-dom: 17.0.2
-    sharp: 0.29.1
-  languageName: unknown
-  linkType: soft
-
 "@popperjs/core@npm:^2.11.5":
   version: 2.11.5
   resolution: "@popperjs/core@npm:2.11.5"
@@ -12568,6 +12555,19 @@ resolve@^2.0.0-next.3:
     should: 13.2.3
     sinon: 9.2.4
     standard: 16.0.4
+  languageName: unknown
+  linkType: soft
+
+"stamps-web@workspace:stamps-web":
+  version: 0.0.0-use.local
+  resolution: "stamps-web@workspace:stamps-web"
+  dependencies:
+    eslint: 8.0.0
+    eslint-config-next: 11.1.2
+    next: 12
+    react: 17.0.2
+    react-dom: 17.0.2
+    sharp: 0.29.1
   languageName: unknown
   linkType: soft
 

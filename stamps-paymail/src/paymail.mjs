@@ -1,7 +1,7 @@
 import emailValidator from 'email-validator'
 import { Domain } from './domain.mjs'
 import fetch from 'isomorphic-fetch'
-import { PubKey, PrivKey, KeyPair, Sig, Address, Bsm } from '@openspv/lib'
+import { PubKey, PrivKey, KeyPair, Sig, Address, Bsm } from 'stamps-lib'
 
 class Paymail {
   constructor (paymail = '', pubKey, privKey, normalized, domainName) {

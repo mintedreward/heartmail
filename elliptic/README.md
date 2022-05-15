@@ -1,4 +1,4 @@
-# @openspv/elliptic
+# elliptic
 
 Fast elliptic-curve cryptography in a plain javascript implementation.
 

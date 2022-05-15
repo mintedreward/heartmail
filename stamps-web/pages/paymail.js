@@ -1,4 +1,4 @@
-import { Paymail } from '@openspv/paymail'
+import { Paymail } from 'stamps-paymail'
 
 export default function PaymailPage() {
   const paymail = new Paymail('user@example.com')

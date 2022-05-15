@@ -2,7 +2,7 @@
 'use strict'
 import { Paymail } from '../index.mjs'
 import should from 'should'
-import { PubKey, PrivKey, Sig } from '@openspv/lib'
+import { PubKey, PrivKey, Sig } from 'stamps-lib'
 
 describe('Paymail', () => {
   it('should make a new Paymail', () => {
