@@ -23,9 +23,11 @@ keep functioning.
 
 * Domain names (AWS)
 * Cloud (AWS)
-* Email (Google)
+* Database (AWS)
+* Send email (AWS)
+* Receive email (AWS)
+* Full email service (Google)
 * Docker Registry (Docker Hub)
-* NPM Registry (NPM)
 
 # Repo Overview
 
