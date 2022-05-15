@@ -1,7 +1,7 @@
 {
   "name": "email2",
   "description": "Email with Stamps",
-  "version": "8.0.0",
+  "version": "1.0.0",
   "author": "HeartMail",
   "homepage": "https://github.com/openspv/openspv",
   "main": "./index.mjs",

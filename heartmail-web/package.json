@@ -1,6 +1,6 @@
 {
   "name": "heartmail-web",
-  "version": "3.38.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
