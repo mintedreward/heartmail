@@ -38,7 +38,7 @@ export default function Home (props) {
         HeartMail is email with a pay wall. Charge advertisers a contact fee to send you an email. Add your friends so they don&#8217;t have to pay.
       </p>
       <p>
-        Random heartmails are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can have as many heartmails as you want and you can resell heartmails for any amount of money.
+        Random email addresses are free. Custom emails, such as [name]@heartmail.com, cost $1.00. You can have as many emails as you want and you can resell emails for any amount of money.
       </p>
       <p>
         HeartMail will launch June 15, 2022. You will be invited in the order you register. Join early to get privileged access to your custom heartmails.

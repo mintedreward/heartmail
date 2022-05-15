@@ -55,10 +55,10 @@ Early Protocols
 * Transactions
 * SV = Stamps Verification
 * SPV = Simplified Postage Verification
-* Key Alias
 
 ### Mailbox Milestone
 
+* Key Alias
 * Email2
 * Email2 identity keys
 * Email2 verify public key owner
