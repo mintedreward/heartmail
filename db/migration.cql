@@ -24,17 +24,17 @@ create table if not exists heartmail.accounts (
 );
 
 create table if not exists heartmail.externalEmails (
-    email text,
+    address text,
     verified boolean,
     verifiedTime timestamp,
-    primary key (email)
+    primary key (address)
 );
 
-create table if not exists heartmail.externalEmail2s (
-    email2 text,
+create table if not exists heartmail.externalPaymails (
+    address text,
     verified boolean,
     verifiedTime timestamp,
-    primary key (email2)
+    primary key (address)
 );
 
 create table if not exists heartmail.mbPayments (
@@ -43,15 +43,15 @@ create table if not exists heartmail.mbPayments (
     mbButtonId text,
     mbButtonData text,
     mbAmountUsd float,
-    mbToHeartmailEmail2 text,
+    mbToHeartmailAddress text,
     mbToHeartmailAmount text,
     mbToHeartmailCurrency text,
-    mbToAffiliateEmail2 text,
+    mbToAffiliateAddress text,
     mbToAffiliateAmount text,
     mbToAffiliateCurrency text,
     mbUserEmail text,
     mbUserEmailVerified text,
-    mbUserPrimaryEmail2 text,
+    mbUserPrimaryPaymail text,
     mbUserId text,
     mbTxid text,
     mbPaymentId text,
