@@ -3,29 +3,29 @@ import { Domain } from './domain.mjs'
 import fetch from 'isomorphic-fetch'
 import { PubKey, PrivKey, KeyPair, Sig, Address, Bsm } from 'stamp-lib'
 
-class Email2 {
-  constructor (email2 = '', pubKey, privKey, normalized, domainName) {
-    this.email2 = email2
+class EmailAddress {
+  constructor (emailAddressStr = '', pubKey, privKey, normalized, domainName) {
+    this.emailAddressStr = emailAddressStr
     this.pubKey = pubKey
     this.privKey = privKey
-    this.normalized = normalized || this.constructor.getNormalized(email2)
-    this.domainName = domainName || this.constructor.getDomainName(email2)
+    this.normalized = normalized || this.constructor.getNormalized(emailAddressStr)
+    this.domainName = domainName || this.constructor.getDomainName(emailAddressStr)
     this.domain = this.constructor.getDomain(this.domainName)
   }
 
-  static isValid (email2 = '') {
-    return emailValidator.validate(email2)
+  static isValid (emailAddressStr = '') {
+    return emailValidator.validate(emailAddressStr)
   }
 
   isValid () {
-    return this.constructor.isValid(this.email2)
+    return this.constructor.isValid(this.emailAddressStr)
   }
 
-  static getNormalized (email2) {
-    if (typeof email2 !== 'string' || email2.length === 0) {
-      return email2
+  static getNormalized (emailAddressStr) {
+    if (typeof emailAddressStr !== 'string' || emailAddressStr.length === 0) {
+      return emailAddressStr
     }
-    let normalized = email2
+    let normalized = emailAddressStr
     normalized = normalized.toLowerCase()
     const domain = this.getDomain(normalized)
     const userName = normalized.split('@')[0]
@@ -34,43 +34,43 @@ class Email2 {
   }
 
   getNormalized () {
-    return this.constructor.getNormalized(this.email2)
+    return this.constructor.getNormalized(this.emailAddressStr)
   }
 
   normalize () {
-    this.email2 = this.getNormalized()
+    this.emailAddressStr = this.getNormalized()
     return this
   }
 
-  static getUserName (email2 = '') {
-    const arr = email2.split('@')
+  static getUserName (emailAddressStr = '') {
+    const arr = emailAddressStr.split('@')
     return arr[0]
   }
 
   // also the "local part"
   getUserName () {
-    return this.constructor.getUserName(this.email2)
+    return this.constructor.getUserName(this.emailAddressStr)
   }
 
-  static getDomainName (email2 = '') {
-    if (typeof email2 !== 'string' || email2.length === 0) {
-      return email2
+  static getDomainName (emailAddressStr = '') {
+    if (typeof emailAddressStr !== 'string' || emailAddressStr.length === 0) {
+      return emailAddressStr
     }
-    const arr = email2.split('@')
+    const arr = emailAddressStr.split('@')
     return arr[1]
   }
 
   getDomainName () {
-    return this.constructor.getDomainName(this.email2)
+    return this.constructor.getDomainName(this.emailAddressStr)
   }
 
-  static getDomain (email2 = '') {
-    const domainName = this.getDomainName(email2)
+  static getDomain (emailAddressStr = '') {
+    const domainName = this.getDomainName(emailAddressStr)
     return new Domain(domainName)
   }
 
   getDomain () {
-    return this.constructor.getDomain(this.email2)
+    return this.constructor.getDomain(this.emailAddressStr)
   }
 
   async getPubKey () {
@@ -80,7 +80,7 @@ class Email2 {
     const wellKnown = await this.getDomain().getWellKnownFile()
     let url = wellKnown.capabilities.pki
     if (!url) {
-      throw new Error('Could not retrieve PKI URL for email2')
+      throw new Error('Could not retrieve PKI URL for emailAddressStr')
     }
     url = url.replace('{alias}', userName)
     url = url.replace('{domain.tld}', domainName)
@@ -99,7 +99,7 @@ class Email2 {
     const wellKnown = await this.getDomain().getWellKnownFile()
     let url = wellKnown.capabilities.a9f510c16bde
     if (!url) {
-      throw new Error('Could not retrieve PKI URL for email2')
+      throw new Error('Could not retrieve PKI URL for emailAddressStr')
     }
     url = url.replace('{alias}', userName)
     url = url.replace('{domain.tld}', domainName)
@@ -147,4 +147,4 @@ class Email2 {
   }
 }
 
-export default Email2
+export default EmailAddress

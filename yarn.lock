@@ -4813,9 +4813,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"email2@workspace:stamp-email2":
+"email@workspace:email":
   version: 0.0.0-use.local
-  resolution: "email2@workspace:stamp-email2"
+  resolution: "email@workspace:email"
   dependencies:
     body-parser: 1.19.2
     email-validator: 2.0.4
@@ -7306,17 +7306,17 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
-"heartmail-redirect@workspace:heartmail-redirect":
+"heartmail-redirect@workspace:redirect":
   version: 0.0.0-use.local
-  resolution: "heartmail-redirect@workspace:heartmail-redirect"
+  resolution: "heartmail-redirect@workspace:redirect"
   dependencies:
     express: ^4.17.3
   languageName: unknown
   linkType: soft
 
-"heartmail-web@workspace:heartmail-web":
+"heartmail-web@workspace:web":
   version: 0.0.0-use.local
-  resolution: "heartmail-web@workspace:heartmail-web"
+  resolution: "heartmail-web@workspace:web"
   dependencies:
     "@emotion/react": ^11.9.0
     "@emotion/styled": ^11.8.1
