@@ -34,7 +34,7 @@
     "is-valid-domain": "0.1.6",
     "isomorphic-fetch": "^3.0.0",
     "pug": "3.0.2",
-    "stamps-lib": "workspace:*"
+    "stamp-lib": "workspace:*"
   },
   "devDependencies": {
     "mocha": "8.3.1",

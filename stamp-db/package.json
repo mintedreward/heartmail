@@ -1,5 +1,5 @@
 {
-  "name": "stamps-db",
+  "name": "stamp-db",
   "packageManager": "yarn@3.0.2",
   "scripts": {
     "start": "tsc && ts-node ./src/test.e2e.ts"

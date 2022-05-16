@@ -1,7 +1,7 @@
 import emailValidator from 'email-validator'
 import { Domain } from './domain.mjs'
 import fetch from 'isomorphic-fetch'
-import { PubKey, PrivKey, KeyPair, Sig, Address, Bsm } from 'stamps-lib'
+import { PubKey, PrivKey, KeyPair, Sig, Address, Bsm } from 'stamp-lib'
 
 class Email2 {
   constructor (email2 = '', pubKey, privKey, normalized, domainName) {

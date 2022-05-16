@@ -4813,9 +4813,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"email2@workspace:stamps-email2":
+"email2@workspace:stamp-email2":
   version: 0.0.0-use.local
-  resolution: "email2@workspace:stamps-email2"
+  resolution: "email2@workspace:stamp-email2"
   dependencies:
     body-parser: 1.19.2
     email-validator: 2.0.4
@@ -4825,7 +4825,7 @@ __metadata:
     mocha: 8.3.1
     pug: 3.0.2
     should: 13.2.3
-    stamps-lib: "workspace:*"
+    stamp-lib: "workspace:*"
     standard: 16.0.4
   languageName: unknown
   linkType: soft
@@ -8617,7 +8617,7 @@ fsevents@~2.1.1:
   dependencies:
     mocha: ^8.3.1
     should: ^13.2.3
-    stamps-lib: "workspace:*"
+    stamp-lib: "workspace:*"
     standard: ^16.0.3
   languageName: unknown
   linkType: soft
@@ -12495,9 +12495,9 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"stamps-db@workspace:stamps-db":
+"stamp-db@workspace:stamp-db":
   version: 0.0.0-use.local
-  resolution: "stamps-db@workspace:stamps-db"
+  resolution: "stamp-db@workspace:stamp-db"
   dependencies:
     "@aws-sdk/client-s3": ^3.39.0
     "@types/uuid": ^8.3.4
@@ -12509,9 +12509,9 @@ resolve@^2.0.0-next.3:
   languageName: unknown
   linkType: soft
 
-"stamps-lib@workspace:*, stamps-lib@workspace:stamps-lib":
+"stamp-lib@workspace:*, stamp-lib@workspace:stamp-lib":
   version: 0.0.0-use.local
-  resolution: "stamps-lib@workspace:stamps-lib"
+  resolution: "stamp-lib@workspace:stamp-lib"
   dependencies:
     aes: 0.1.0
     bn.js: 5.2.0
@@ -12528,9 +12528,9 @@ resolve@^2.0.0-next.3:
   languageName: unknown
   linkType: soft
 
-"stamps-web@workspace:stamps-web":
+"stamp-web@workspace:stamp-web":
   version: 0.0.0-use.local
-  resolution: "stamps-web@workspace:stamps-web"
+  resolution: "stamp-web@workspace:stamp-web"
   dependencies:
     eslint: 8.0.0
     eslint-config-next: 11.1.2

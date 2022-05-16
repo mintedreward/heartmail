@@ -1,5 +1,5 @@
 import { Keyfile } from '../src/index.mjs'
-import { PrivKey, Bn } from 'stamps-lib'
+import { PrivKey, Bn } from 'stamp-lib'
 import should from 'should'
 
 describe('Keyfile', () => {

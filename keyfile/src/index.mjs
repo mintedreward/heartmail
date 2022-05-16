@@ -58,7 +58,7 @@
  */
 'use strict'
 
-import { Struct, Hash, Ach, Address, PrivKey, PubKey } from 'stamps-lib'
+import { Struct, Hash, Ach, Address, PrivKey, PubKey } from 'stamp-lib'
 
 class Keyfile extends Struct {
   constructor () {

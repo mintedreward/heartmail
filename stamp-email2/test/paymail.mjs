@@ -2,7 +2,7 @@
 'use strict'
 import { Email2 } from '../index.mjs'
 import should from 'should'
-import { PubKey, PrivKey, Sig } from 'stamps-lib'
+import { PubKey, PrivKey, Sig } from 'stamp-lib'
 
 describe('Email2', () => {
   it('should make a new Email2', () => {

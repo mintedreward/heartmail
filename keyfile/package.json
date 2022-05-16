@@ -11,7 +11,7 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "stamps-lib": "workspace:*"
+    "stamp-lib": "workspace:*"
   },
   "devDependencies": {
     "mocha": "^8.3.1",

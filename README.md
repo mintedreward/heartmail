@@ -289,6 +289,6 @@ From this directory, you can run the following commands:
 
 To reference a module from another module:
 
-    import { Email2 } from 'stamps-email2'
+    import { Email2 } from 'stamp-email2'
 
 Copyright (c) 2022 HeartMail Inc. All rights reserved.
