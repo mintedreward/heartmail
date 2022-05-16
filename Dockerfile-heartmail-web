@@ -18,7 +18,7 @@ COPY .yarn ./.yarn
 COPY .yarnrc.yml ./.yarnrc.yml
 RUN yarn install
 
-WORKDIR /app/heartmail-web
+WORKDIR /app/web
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
