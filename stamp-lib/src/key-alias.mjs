@@ -10,15 +10,15 @@ class KeyAlias extends Struct {
     super({ buf })
   }
 
-  fromAddress (address, length = DEFAULT_LENGTH) {
+  fromKeyAddress (address, length = DEFAULT_LENGTH) {
     const buf = address.hashBuf.slice(0, length / 8)
     this.buf = buf
     this.length = length
     return this
   }
 
-  static fromAddress (address, length = DEFAULT_LENGTH) {
-    return new this().fromAddress(address, length)
+  static fromKeyAddress (address, length = DEFAULT_LENGTH) {
+    return new this().fromKeyAddress(address, length)
   }
 
   toBase36 () {

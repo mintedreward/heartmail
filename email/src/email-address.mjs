@@ -1,7 +1,7 @@
 import emailValidator from 'email-validator'
 import { Domain } from './domain.mjs'
 import fetch from 'isomorphic-fetch'
-import { PubKey, PrivKey, KeyPair, Sig, Address, Bsm } from 'stamp-lib'
+import { PubKey, PrivKey, KeyPair, Sig, KeyAddress, Bsm } from 'stamp-lib'
 
 class EmailAddress {
   constructor (emailAddressStr = '', pubKey, privKey, normalized, domainName) {
@@ -125,8 +125,8 @@ class EmailAddress {
       return false
     }
     const sigStr = sig.toCompact().toString('base64')
-    const address = Address.fromPubKey(pubKey)
-    const isValid = Bsm.verify(messageBuf, sigStr, address)
+    const keyAddress = KeyAddress.fromPubKey(pubKey)
+    const isValid = Bsm.verify(messageBuf, sigStr, keyAddress)
     return isValid
   }
 

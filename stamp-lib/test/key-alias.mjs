@@ -1,6 +1,6 @@
 /* global describe,it */
 'use strict'
-import { Address } from '../src/address.mjs'
+import { KeyAddress } from '../src/key-address.mjs'
 import { PrivKey } from '../src/priv-key.mjs'
 import { PubKey } from '../src/pub-key.mjs'
 import { KeyAlias } from '../src/key-alias.mjs'
@@ -12,53 +12,53 @@ describe('KeyAlias', function () {
     should.exist(KeyAlias)
   })
 
-  describe('#fromAddress', () => {
+  describe('#fromKeyAddress', () => {
     it('should produce this known value', () => {
       const privKey = PrivKey.fromBn(new Bn(5))
       const pubKey = PubKey.fromPrivKey(privKey)
-      const address = Address.fromPubKey(pubKey)
-      const keyAlias = new KeyAlias().fromAddress(address)
+      const address = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = new KeyAlias().fromKeyAddress(address)
       keyAlias.toString().should.equal('47x4dm45stw4w6vl4difdhztr')
     })
 
     it('should produce this known value', () => {
       const privKey = PrivKey.fromBn(new Bn(7))
       const pubKey = PubKey.fromPrivKey(privKey)
-      const address = Address.fromPubKey(pubKey)
-      const keyAlias = new KeyAlias().fromAddress(address)
+      const address = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = new KeyAlias().fromKeyAddress(address)
       keyAlias.toString().should.equal('5k6vjfsim3xg9zw5vrh5h9x0y')
     })
 
     it('should produce this known value', () => {
       const privKey = PrivKey.fromBn(new Bn(8))
       const pubKey = PubKey.fromPrivKey(privKey)
-      const address = Address.fromPubKey(pubKey)
-      const keyAlias = new KeyAlias().fromAddress(address)
+      const address = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = new KeyAlias().fromKeyAddress(address)
       keyAlias.toString().should.equal('8wds38dnbr2h3yyay0ievp29j')
     })
   })
 
-  describe('@fromAddress', () => {
+  describe('@fromKeyAddress', () => {
     it('should produce this known value', () => {
       const privKey = PrivKey.fromBn(new Bn(5))
       const pubKey = PubKey.fromPrivKey(privKey)
-      const address = Address.fromPubKey(pubKey)
-      const keyAlias = KeyAlias.fromAddress(address)
+      const address = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(address)
       keyAlias.toString().should.equal('47x4dm45stw4w6vl4difdhztr')
     })
 
     it('should produce this known value', () => {
       const privKey = PrivKey.fromBn(new Bn(6))
       const pubKey = PubKey.fromPrivKey(privKey)
-      const address = Address.fromPubKey(pubKey)
-      const keyAlias = KeyAlias.fromAddress(address)
+      const address = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(address)
       keyAlias.toString().should.equal('7khrkf3z64jcbu80i5rvv629o')
     })
 
     it('should produce this known value', () => {
-      const address = new Address()
+      const address = new KeyAddress()
       address.hashBuf = '00'.repeat(32)
-      const keyAlias = KeyAlias.fromAddress(address)
+      const keyAlias = KeyAlias.fromKeyAddress(address)
       keyAlias.toString().should.equal('0')
     })
   })

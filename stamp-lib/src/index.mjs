@@ -20,7 +20,6 @@ const deps = {
 export { deps }
 
 export * from './ach.mjs'
-export * from './address.mjs'
 export * from './aes.mjs'
 export * from './aescbc.mjs'
 export * from './base-58.mjs'
@@ -40,6 +39,7 @@ export * from './hash-cache.mjs'
 export * from './hash.mjs'
 export * from './interp.mjs'
 export * from './inv.mjs'
+export * from './key-address.mjs'
 export * from './key-alias.mjs'
 export * from './key-pair.mjs'
 export * from './merkle-node.mjs'

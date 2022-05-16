@@ -8,7 +8,7 @@ import { VarInt } from '../src/var-int.mjs'
 import { Br } from '../src/br.mjs'
 import { Bn } from '../src/bn.mjs'
 import { KeyPair } from '../src/key-pair.mjs'
-import { Address } from '../src/address.mjs'
+import { KeyAddress } from '../src/key-address.mjs'
 
 describe('TxIn', function () {
   const txHashBuf = Buffer.alloc(32)
@@ -178,7 +178,7 @@ describe('TxIn', function () {
   describe('#fromPubKeyHashTxOut', function () {
     it('should convert from pubKeyHash out', function () {
       const keyPair = new KeyPair().fromRandom()
-      const address = new Address().fromPubKey(keyPair.pubKey)
+      const address = new KeyAddress().fromPubKey(keyPair.pubKey)
       const txOut = TxOut.fromProperties(
         new Bn(1000),
         new Script().fromPubKeyHash(address.hashBuf)

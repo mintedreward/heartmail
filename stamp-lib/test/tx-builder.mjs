@@ -1,6 +1,6 @@
 /* global describe,it,before */
 'use strict'
-import { Address } from '../src/address.mjs'
+import { KeyAddress } from '../src/key-address.mjs'
 import { Bn } from '../src/bn.mjs'
 import { Interp } from '../src/interp.mjs'
 import { KeyPair } from '../src/key-pair.mjs'
@@ -36,16 +36,16 @@ describe('TxBuilder', function () {
     // make change address
     const privKey = new PrivKey().fromBn(new Bn(1))
     const keyPair = new KeyPair().fromPrivKey(privKey)
-    const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+    const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
     // make addresses to send from
     const privKey1 = new PrivKey().fromBn(new Bn(2))
     const keyPair1 = new KeyPair().fromPrivKey(privKey1)
-    const addr1 = new Address().fromPubKey(keyPair1.pubKey)
+    const addr1 = new KeyAddress().fromPubKey(keyPair1.pubKey)
 
     const privKey2 = new PrivKey().fromBn(new Bn(3))
     const keyPair2 = new KeyPair().fromPrivKey(privKey2)
-    const addr2 = new Address().fromPubKey(keyPair2.pubKey)
+    const addr2 = new KeyAddress().fromPubKey(keyPair2.pubKey)
 
     // make addresses to send to
     const saddr1 = addr1
@@ -76,10 +76,10 @@ describe('TxBuilder', function () {
     const txOutNum2 = 1
 
     txb.setFeePerKbNum(0.0001e8)
-    txb.setChangeAddress(changeaddr)
+    txb.setChangeKeyAddress(changeaddr)
     txb.inputFromPubKeyHash(txHashBuf, txOutNum1, txOut1, keyPair1.pubKey)
     txb.inputFromPubKeyHash(txHashBuf, txOutNum2, txOut2, keyPair2.pubKey)
-    txb.outputToAddress(new Bn(1.5e8), saddr1) // pubKeyHash address
+    txb.outputToKeyAddress(new Bn(1.5e8), saddr1) // pubKeyHash address
     // total sending: 2e8 (plus fee)
     // txb.randomizeInputs()
     // txb.randomizeOutputs()
@@ -204,13 +204,13 @@ describe('TxBuilder', function () {
     })
   })
 
-  describe('#setChangeAddress', function () {
+  describe('#setChangeKeyAddress', function () {
     it('should set the change address', function () {
       const obj = prepareTxBuilder()
       const txb = obj.txb
       const privKey = new PrivKey().fromRandom()
-      const address = new Address().fromPrivKey(privKey)
-      txb.setChangeAddress(address)
+      const address = new KeyAddress().fromPrivKey(privKey)
+      txb.setChangeKeyAddress(address)
       txb.changeScript.toString().should.equal(address.toTxOutScript().toString())
     })
   })
@@ -220,7 +220,7 @@ describe('TxBuilder', function () {
       const obj = prepareTxBuilder()
       const txb = obj.txb
       const privKey = new PrivKey().fromRandom()
-      const address = new Address().fromPrivKey(privKey)
+      const address = new KeyAddress().fromPrivKey(privKey)
       txb.setChangeScript(address.toTxOutScript())
       txb.changeScript.toString().should.equal(address.toTxOutScript().toString())
     })
@@ -262,12 +262,12 @@ describe('TxBuilder', function () {
     })
   })
 
-  describe('#outputToAddress', function () {
+  describe('#outputToKeyAddress', function () {
     it('should add a pubKeyHash address', function () {
       const pubKey = new PubKey().fromPrivKey(new PrivKey().fromRandom())
-      const address = new Address().fromPubKey(pubKey)
+      const address = new KeyAddress().fromPubKey(pubKey)
       const txb = new TxBuilder()
-      txb.outputToAddress(new Bn(0), address)
+      txb.outputToKeyAddress(new Bn(0), address)
       txb.txOuts.length.should.equal(1)
     })
   })
@@ -288,20 +288,20 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(1))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from
       const privKey1 = new PrivKey().fromBn(new Bn(2))
       const keyPair1 = new KeyPair().fromPrivKey(privKey1)
-      const addr1 = new Address().fromPubKey(keyPair1.pubKey)
+      const addr1 = new KeyAddress().fromPubKey(keyPair1.pubKey)
 
       const privKey2 = new PrivKey().fromBn(new Bn(3))
       const keyPair2 = new KeyPair().fromPrivKey(privKey2)
-      const addr2 = new Address().fromPubKey(keyPair2.pubKey)
+      const addr2 = new KeyAddress().fromPubKey(keyPair2.pubKey)
 
       const privKey3 = new PrivKey().fromBn(new Bn(4))
       const keyPair3 = new KeyPair().fromPrivKey(privKey3)
-      const addr3 = new Address().fromPubKey(keyPair3.pubKey)
+      const addr3 = new KeyAddress().fromPubKey(keyPair3.pubKey)
 
       const txOut1 = TxOut.fromProperties(new Bn(1e8), addr1.toTxOutScript())
       const txOut2 = TxOut.fromProperties(new Bn(1e8), addr2.toTxOutScript())
@@ -315,11 +315,11 @@ describe('TxBuilder', function () {
       const txOutNum3 = 2
 
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum1, txOut1, keyPair1.pubKey)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum2, txOut2, keyPair2.pubKey)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum3, txOut3, keyPair3.pubKey)
-      txb.outputToAddress(outAmountBn, addr1)
+      txb.outputToKeyAddress(outAmountBn, addr1)
 
       return txb
     }
@@ -384,7 +384,7 @@ describe('TxBuilder', function () {
   describe('#inputFromScript', function () {
     it('should add an input from a script', function () {
       const keyPair = new KeyPair().fromRandom()
-      const address = new Address().fromPubKey(keyPair.pubKey)
+      const address = new KeyAddress().fromPubKey(keyPair.pubKey)
       const txOut = TxOut.fromProperties(
         new Bn(1000),
         new Script().fromPubKeyHash(address.hashBuf)
@@ -404,7 +404,7 @@ describe('TxBuilder', function () {
 
     it('should add an input from a script and set nSequence', function () {
       const keyPair = new KeyPair().fromRandom()
-      const address = new Address().fromPubKey(keyPair.pubKey)
+      const address = new KeyAddress().fromPubKey(keyPair.pubKey)
       const txOut = TxOut.fromProperties(
         new Bn(1000),
         new Script().fromPubKeyHash(address.hashBuf)
@@ -428,7 +428,7 @@ describe('TxBuilder', function () {
   describe('#inputFromPubKeyHash', function () {
     it('should add an input from a pubKeyHash output', function () {
       const keyPair = new KeyPair().fromRandom()
-      const address = new Address().fromPubKey(keyPair.pubKey)
+      const address = new KeyAddress().fromPubKey(keyPair.pubKey)
       const txOut = TxOut.fromProperties(
         new Bn(1000),
         new Script().fromPubKeyHash(address.hashBuf)
@@ -450,7 +450,7 @@ describe('TxBuilder', function () {
 
     it('should add an input from a pubKeyHash output and set nSequence', function () {
       const keyPair = new KeyPair().fromRandom()
-      const address = new Address().fromPubKey(keyPair.pubKey)
+      const address = new KeyAddress().fromPubKey(keyPair.pubKey)
       const txOut = TxOut.fromProperties(
         new Bn(1000),
         new Script().fromPubKeyHash(address.hashBuf)
@@ -626,16 +626,16 @@ describe('TxBuilder', function () {
         // make change address
         const privKey = new PrivKey().fromBn(new Bn(1))
         const keyPair = new KeyPair().fromPrivKey(privKey)
-        const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+        const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
         // make addresses to send from
         const privKey1 = new PrivKey().fromBn(new Bn(2))
         const keyPair1 = new KeyPair().fromPrivKey(privKey1)
-        const addr1 = new Address().fromPubKey(keyPair1.pubKey)
+        const addr1 = new KeyAddress().fromPubKey(keyPair1.pubKey)
 
         const privKey2 = new PrivKey().fromBn(new Bn(3))
         const keyPair2 = new KeyPair().fromPrivKey(privKey2)
-        const addr2 = new Address().fromPubKey(keyPair2.pubKey)
+        const addr2 = new KeyAddress().fromPubKey(keyPair2.pubKey)
 
         // make addresses to send to
         const saddr1 = addr1
@@ -666,10 +666,10 @@ describe('TxBuilder', function () {
         const txOutNum2 = 1
 
         txb.setFeePerKbNum(0.0001e8)
-        txb.setChangeAddress(changeaddr)
+        txb.setChangeKeyAddress(changeaddr)
         txb.inputFromPubKeyHash(txHashBuf, txOutNum1, txOut1)
         txb.inputFromPubKeyHash(txHashBuf, txOutNum2, txOut2)
-        txb.outputToAddress(new Bn(1.5e8), saddr1) // pubKeyHash address
+        txb.outputToKeyAddress(new Bn(1.5e8), saddr1) // pubKeyHash address
         // total sending: 2e8 (plus fee)
         // txb.randomizeInputs()
         // txb.randomizeOutputs()
@@ -739,52 +739,52 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKey1 = new PrivKey().fromBn(new Bn(1))
       const keyPair1 = new KeyPair().fromPrivKey(privKey1)
-      const addr1 = new Address().fromPubKey(keyPair1.pubKey)
+      const addr1 = new KeyAddress().fromPubKey(keyPair1.pubKey)
 
       const privKey2 = new PrivKey().fromBn(new Bn(2))
       const keyPair2 = new KeyPair().fromPrivKey(privKey2)
-      const addr2 = new Address().fromPubKey(keyPair2.pubKey)
+      const addr2 = new KeyAddress().fromPubKey(keyPair2.pubKey)
 
       const privKey3 = new PrivKey().fromBn(new Bn(3))
       const keyPair3 = new KeyPair().fromPrivKey(privKey3)
-      const addr3 = new Address().fromPubKey(keyPair3.pubKey)
+      const addr3 = new KeyAddress().fromPubKey(keyPair3.pubKey)
 
       const privKey4 = new PrivKey().fromBn(new Bn(4))
       const keyPair4 = new KeyPair().fromPrivKey(privKey4)
-      const addr4 = new Address().fromPubKey(keyPair4.pubKey)
+      const addr4 = new KeyAddress().fromPubKey(keyPair4.pubKey)
 
       const privKey5 = new PrivKey().fromBn(new Bn(5))
       const keyPair5 = new KeyPair().fromPrivKey(privKey5)
-      const addr5 = new Address().fromPubKey(keyPair5.pubKey)
+      const addr5 = new KeyAddress().fromPubKey(keyPair5.pubKey)
 
       const privKey6 = new PrivKey().fromBn(new Bn(6))
       const keyPair6 = new KeyPair().fromPrivKey(privKey6)
-      const addr6 = new Address().fromPubKey(keyPair6.pubKey)
+      const addr6 = new KeyAddress().fromPubKey(keyPair6.pubKey)
 
       const privKey7 = new PrivKey().fromBn(new Bn(7))
       const keyPair7 = new KeyPair().fromPrivKey(privKey7)
-      const addr7 = new Address().fromPubKey(keyPair7.pubKey)
+      const addr7 = new KeyAddress().fromPubKey(keyPair7.pubKey)
 
       const privKey8 = new PrivKey().fromBn(new Bn(8))
       const keyPair8 = new KeyPair().fromPrivKey(privKey8)
-      const addr8 = new Address().fromPubKey(keyPair8.pubKey)
+      const addr8 = new KeyAddress().fromPubKey(keyPair8.pubKey)
 
       const privKey9 = new PrivKey().fromBn(new Bn(9))
       const keyPair9 = new KeyPair().fromPrivKey(privKey9)
-      const addr9 = new Address().fromPubKey(keyPair9.pubKey)
+      const addr9 = new KeyAddress().fromPubKey(keyPair9.pubKey)
 
       const privKey10 = new PrivKey().fromBn(new Bn(10))
       const keyPair10 = new KeyPair().fromPrivKey(privKey10)
-      const addr10 = new Address().fromPubKey(keyPair10.pubKey)
+      const addr10 = new KeyAddress().fromPubKey(keyPair10.pubKey)
 
       const privKey11 = new PrivKey().fromBn(new Bn(11))
       const keyPair11 = new KeyPair().fromPrivKey(privKey11)
-      const addr11 = new Address().fromPubKey(keyPair11.pubKey)
+      const addr11 = new KeyAddress().fromPubKey(keyPair11.pubKey)
 
       // txOuts that we are spending
       const scriptout1 = new Script().fromString('OP_DUP OP_HASH160 20 0x' + addr1.hashBuf.toString('hex') + ' OP_EQUALVERIFY OP_CHECKSIG')
@@ -828,7 +828,7 @@ describe('TxBuilder', function () {
 
       const txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum1, txOut1)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum2, txOut2)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum3, txOut3)
@@ -840,17 +840,17 @@ describe('TxBuilder', function () {
       txb.inputFromPubKeyHash(txHashBuf, txOutNum9, txOut9)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum10, txOut10)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum11, txOut11)
-      txb.outputToAddress(new Bn(0.999e8), addr1)
-      txb.outputToAddress(new Bn(0.999e8), addr2)
-      txb.outputToAddress(new Bn(0.999e8), addr3)
-      txb.outputToAddress(new Bn(0.999e8), addr4)
-      txb.outputToAddress(new Bn(0.999e8), addr5)
-      txb.outputToAddress(new Bn(0.999e8), addr6)
-      txb.outputToAddress(new Bn(0.999e8), addr7)
-      txb.outputToAddress(new Bn(0.999e8), addr8)
-      txb.outputToAddress(new Bn(0.999e8), addr9)
-      txb.outputToAddress(new Bn(0.999e8), addr10)
-      txb.outputToAddress(new Bn(0.999e8), addr11)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr1)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr2)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr3)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr4)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr5)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr6)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr7)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr8)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr9)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr10)
+      txb.outputToKeyAddress(new Bn(0.999e8), addr11)
       // total sending: 10.989e8 (plus fee)
 
       txb.build()
@@ -907,24 +907,24 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKey1 = new PrivKey().fromBn(new Bn(1))
       const keyPair1 = new KeyPair().fromPrivKey(privKey1)
-      const addr1 = new Address().fromPubKey(keyPair1.pubKey)
+      const addr1 = new KeyAddress().fromPubKey(keyPair1.pubKey)
 
       const privKey2 = new PrivKey().fromBn(new Bn(2))
       const keyPair2 = new KeyPair().fromPrivKey(privKey2)
-      const addr2 = new Address().fromPubKey(keyPair2.pubKey)
+      const addr2 = new KeyAddress().fromPubKey(keyPair2.pubKey)
 
       const privKey3 = new PrivKey().fromBn(new Bn(3))
       const keyPair3 = new KeyPair().fromPrivKey(privKey3)
-      const addr3 = new Address().fromPubKey(keyPair3.pubKey)
+      const addr3 = new KeyAddress().fromPubKey(keyPair3.pubKey)
 
       const privKey4 = new PrivKey().fromBn(new Bn(4))
       const keyPair4 = new KeyPair().fromPrivKey(privKey4)
-      const addr4 = new Address().fromPubKey(keyPair4.pubKey)
+      const addr4 = new KeyAddress().fromPubKey(keyPair4.pubKey)
 
       // txOuts that we are spending
       const scriptout1 = new Script().fromString('OP_DUP OP_HASH160 20 0x' + addr1.hashBuf.toString('hex') + ' OP_EQUALVERIFY OP_CHECKSIG')
@@ -947,7 +947,7 @@ describe('TxBuilder', function () {
 
       const txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum1, txOut1)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum2, txOut2)
       txb.inputFromPubKeyHash(txHashBuf, txOutNum3, txOut3)
@@ -955,7 +955,7 @@ describe('TxBuilder', function () {
       // txb.inputFromPubKeyHash(txHashBuf, txOutNum4, txOut4)
 
       // amount is sum of first three, but requires the fourth input to pay the fees
-      txb.outputToAddress(new Bn(3e8), addr1)
+      txb.outputToKeyAddress(new Bn(3e8), addr1)
 
       // first try failure
       let errors = 0
@@ -987,16 +987,16 @@ describe('TxBuilder', function () {
         // make change address
         const privKey = new PrivKey().fromBn(new Bn(1))
         const keyPair = new KeyPair().fromPrivKey(privKey)
-        const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+        const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
         // make addresses to send from
         const privKey1 = new PrivKey().fromBn(new Bn(2))
         const keyPair1 = new KeyPair().fromPrivKey(privKey1)
-        const addr1 = new Address().fromPubKey(keyPair1.pubKey)
+        const addr1 = new KeyAddress().fromPubKey(keyPair1.pubKey)
 
         const privKey2 = new PrivKey().fromBn(new Bn(3))
         const keyPair2 = new KeyPair().fromPrivKey(privKey2)
-        const addr2 = new Address().fromPubKey(keyPair2.pubKey)
+        const addr2 = new KeyAddress().fromPubKey(keyPair2.pubKey)
 
         // make addresses to send to
         const saddr1 = addr1
@@ -1027,10 +1027,10 @@ describe('TxBuilder', function () {
         const txOutNum2 = 1
 
         txb.setFeePerKbNum(0.0001e8)
-        txb.setChangeAddress(changeaddr)
+        txb.setChangeKeyAddress(changeaddr)
         txb.inputFromPubKeyHash(txHashBuf, txOutNum1, txOut1)
         txb.inputFromPubKeyHash(txHashBuf, txOutNum2, txOut2)
-        txb.outputToAddress(new Bn(1.5e8), saddr1) // pubKeyHash address
+        txb.outputToKeyAddress(new Bn(1.5e8), saddr1) // pubKeyHash address
         // total sending: 2e8 (plus fee)
         // txb.randomizeInputs()
         // txb.randomizeOutputs()
@@ -1104,7 +1104,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1113,7 +1113,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(i + 1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1127,7 +1127,7 @@ describe('TxBuilder', function () {
 
       const txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1138,7 +1138,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(0.999e8), addrs[i])
+        txb.outputToKeyAddress(new Bn(0.999e8), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1171,7 +1171,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1180,7 +1180,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(i + 1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1194,7 +1194,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1205,7 +1205,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(0.999e8), addrs[i])
+        txb.outputToKeyAddress(new Bn(0.999e8), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1241,7 +1241,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1250,7 +1250,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(i + 1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1264,7 +1264,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1275,7 +1275,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(0.999e8 * (i + 1)), addrs[i])
+        txb.outputToKeyAddress(new Bn(0.999e8 * (i + 1)), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1311,7 +1311,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1320,7 +1320,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1334,7 +1334,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1345,7 +1345,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(0.999e8), addrs[i])
+        txb.outputToKeyAddress(new Bn(0.999e8), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1371,7 +1371,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1380,7 +1380,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1394,7 +1394,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1405,7 +1405,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(0.999e8), addrs[i])
+        txb.outputToKeyAddress(new Bn(0.999e8), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1432,7 +1432,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1441,7 +1441,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1455,7 +1455,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1466,7 +1466,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(0.999e8), addrs[i])
+        txb.outputToKeyAddress(new Bn(0.999e8), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1493,7 +1493,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1502,7 +1502,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1516,7 +1516,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0001e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1527,7 +1527,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(0.999e8), addrs[i])
+        txb.outputToKeyAddress(new Bn(0.999e8), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1554,7 +1554,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1563,7 +1563,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1578,7 +1578,7 @@ describe('TxBuilder', function () {
       let txb = new TxBuilder()
       txb.setFeePerKbNum(1)
       txb.sendDustChangeToFees(true)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1589,7 +1589,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(590), addrs[i])
+        txb.outputToKeyAddress(new Bn(590), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1615,7 +1615,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1624,7 +1624,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(i + 1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1638,7 +1638,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0000500e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1649,7 +1649,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(1000), addrs[i])
+        txb.outputToKeyAddress(new Bn(1000), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1675,7 +1675,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1684,7 +1684,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(i + 1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1698,7 +1698,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0000010e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1709,7 +1709,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(1000), addrs[i])
+        txb.outputToKeyAddress(new Bn(1000), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1735,7 +1735,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1744,7 +1744,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(i + 1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1758,7 +1758,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0000010e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1769,7 +1769,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(1000), addrs[i])
+        txb.outputToKeyAddress(new Bn(1000), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1795,7 +1795,7 @@ describe('TxBuilder', function () {
       // make change address
       const privKey = new PrivKey().fromBn(new Bn(100))
       const keyPair = new KeyPair().fromPrivKey(privKey)
-      const changeaddr = new Address().fromPubKey(keyPair.pubKey)
+      const changeaddr = new KeyAddress().fromPubKey(keyPair.pubKey)
 
       // make addresses to send from (and to)
       const privKeys = []
@@ -1804,7 +1804,7 @@ describe('TxBuilder', function () {
       for (let i = 0; i < nIns; i++) {
         privKeys.push(new PrivKey().fromBn(new Bn(i + 1)))
         keyPairs.push(new KeyPair().fromPrivKey(privKeys[i]))
-        addrs.push(new Address().fromPubKey(keyPairs[i].pubKey))
+        addrs.push(new KeyAddress().fromPubKey(keyPairs[i].pubKey))
       }
 
       // txOuts that we are spending
@@ -1818,7 +1818,7 @@ describe('TxBuilder', function () {
 
       let txb = new TxBuilder()
       txb.setFeePerKbNum(0.0000500e8)
-      txb.setChangeAddress(changeaddr)
+      txb.setChangeKeyAddress(changeaddr)
 
       // put inputs into tx
       for (let i = 0; i < nIns; i++) {
@@ -1829,7 +1829,7 @@ describe('TxBuilder', function () {
 
       // put outputs into tx
       for (let i = 0; i < nOuts; i++) {
-        txb.outputToAddress(new Bn(1000), addrs[i])
+        txb.outputToKeyAddress(new Bn(1000), addrs[i])
       }
       // total sending: nOuts * 0.999e8
 
@@ -1862,19 +1862,19 @@ describe('TxBuilder', function () {
       const txVerifier = new TxVerifier(txb.tx, txb.uTxOutMap)
 
       // txb.uTxOutMap.map.forEach((txOut, label) => {
-      //   console.log(label, Address.fromTxOutScript(txOut.script).toString(), txOut.valueBn.toNumber())
+      //   console.log(label, KeyAddress.fromTxOutScript(txOut.script).toString(), txOut.valueBn.toNumber())
       // })
 
       // txb.tx.txIns.forEach((txIn, nIn) => {
       //   const verified = txVerifier.verifyNIn(nIn, Interp.SCRIPT_ENABLE_SIGHASH_FORKID)
-      //   console.log(txIn.txHashBuf.toString('hex'), txIn.txOutNum, Address.fromTxInScript(txIn.script).toString(), verified)
+      //   console.log(txIn.txHashBuf.toString('hex'), txIn.txOutNum, KeyAddress.fromTxInScript(txIn.script).toString(), verified)
       // })
 
       txVerifier.verify().should.equal(false) // this was computed with signatures in the wrong place; it should be invalid
 
       const txb2 = new TxBuilder()
       txb2.sendDustChangeToFees(true)
-      txb2.setChangeAddress(Address.fromTxOutScript(txb.changeScript))
+      txb2.setChangeKeyAddress(KeyAddress.fromTxOutScript(txb.changeScript))
       txb2.inputFromPubKeyHash(txb.txIns[0].txHashBuf, txb.txIns[0].txOutNum, txb.uTxOutMap.get(txb.txIns[0].txHashBuf, txb.txIns[0].txOutNum))
       txb2.inputFromPubKeyHash(txb.txIns[1].txHashBuf, txb.txIns[1].txOutNum, txb.uTxOutMap.get(txb.txIns[1].txHashBuf, txb.txIns[1].txOutNum))
       txb2.inputFromPubKeyHash(txb.txIns[2].txHashBuf, txb.txIns[2].txOutNum, txb.uTxOutMap.get(txb.txIns[2].txHashBuf, txb.txIns[2].txOutNum))
@@ -1888,12 +1888,12 @@ describe('TxBuilder', function () {
       const txVerifier2 = new TxVerifier(txb2.tx, txb2.uTxOutMap)
 
       // txb2.uTxOutMap.map.forEach((txOut, label) => {
-      //   console.log(label, Address.fromTxOutScript(txOut.script).toString(), txOut.valueBn.toNumber())
+      //   console.log(label, KeyAddress.fromTxOutScript(txOut.script).toString(), txOut.valueBn.toNumber())
       // })
 
       // txb2.tx.txIns.forEach((txIn, nIn) => {
       //   const verified = txVerifier2.verifyNIn(nIn, Interp.SCRIPT_ENABLE_SIGHASH_FORKID)
-      //   console.log(txIn.txHashBuf.toString('hex'), txIn.txOutNum, Address.fromTxInScript(txIn.script).toString(), verified)
+      //   console.log(txIn.txHashBuf.toString('hex'), txIn.txOutNum, KeyAddress.fromTxInScript(txIn.script).toString(), verified)
       // })
 
       txVerifier2.verify().should.equal(true)

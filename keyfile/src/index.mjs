@@ -58,7 +58,7 @@
  */
 'use strict'
 
-import { Struct, Hash, Ach, Address, PrivKey, PubKey } from 'stamp-lib'
+import { Struct, Hash, Ach, KeyAddress, PrivKey, PubKey } from 'stamp-lib'
 
 class Keyfile extends Struct {
   constructor () {
@@ -107,7 +107,7 @@ class Keyfile extends Struct {
 
   addPrivKey (privKey, password = '', ivBuf) {
     const pubKey = PubKey.fromPrivKey(privKey)
-    const address = Address.fromPubKey(pubKey)
+    const address = KeyAddress.fromPubKey(pubKey)
     const addressStr = address.toString()
     const encryptedPrivKey = Keyfile.encryptPrivKey(privKey, password, ivBuf)
     if (!this.keysByPasswordHmacHmac) {
@@ -137,7 +137,7 @@ class Keyfile extends Struct {
     const addressStrings = Object.keys(this.keysByPasswordHmacHmac[oldpasswordHmacHmac])
     const obj = {}
     for (const addressStr of addressStrings) {
-      const address = Address.fromString(addressStr)
+      const address = KeyAddress.fromString(addressStr)
       const privKey = this.getPrivKey(address, oldPassword)
       this.addPrivKey(privKey, newPassword, ivBuf)
     }

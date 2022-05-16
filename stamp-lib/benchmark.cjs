@@ -1,6 +1,6 @@
 const openspv = require('./dist/spv')
 
-const Address = openspv.Address
+const KeyAddress = openspv.KeyAddress
 const PrivKey = openspv.PrivKey
 const PubKey = openspv.PubKey
 const TxBuilder = openspv.TxBuilder
@@ -14,22 +14,22 @@ const randbn = new Bn().fromHex(randhex)
 const privateKey = PrivKey.fromBn(randbn)
 const publicKey = PubKey.fromPrivKey(privateKey)
 const keyPair = new KeyPair(privateKey, publicKey)
-const fromAddress = Address.fromPrivKey(privateKey)
-const toAddress = fromAddress
-const changeAddress = toAddress
+const fromKeyAddress = KeyAddress.fromPrivKey(privateKey)
+const toKeyAddress = fromKeyAddress
+const changeKeyAddress = toKeyAddress
 
 const n = 10000
 const satoshis = 1e3
 // const total = satoshis * n - satoshis / 2
 let txb = new TxBuilder()
 for (let i = 0; i < n; i++) {
-  const txOut = TxOut.fromProperties(new Bn(satoshis), fromAddress.toTxOutScript())
+  const txOut = TxOut.fromProperties(new Bn(satoshis), fromKeyAddress.toTxOutScript())
   const txHashBuf = Random.getRandomBuffer(32)
   const txOutNum = 0
   txb.inputFromPubKeyHash(txHashBuf, txOutNum, txOut, publicKey)
 }
-txb = txb.outputToAddress(new Bn(satoshis), toAddress)
-txb = txb.setChangeAddress(changeAddress)
+txb = txb.outputToKeyAddress(new Bn(satoshis), toKeyAddress)
+txb = txb.setChangeKeyAddress(changeKeyAddress)
 txb.setFeePerKbNum(500)
 const useAllInputs = true
 

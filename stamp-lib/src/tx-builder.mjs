@@ -4,7 +4,7 @@
  */
 'use strict'
 
-import { Address } from './address.mjs'
+import { KeyAddress } from './key-address.mjs'
 import { Constants as Cst } from './constants.mjs'
 import { Bn } from './bn.mjs'
 import { HashCache } from './hash-cache.mjs'
@@ -101,8 +101,8 @@ class TxBuilder extends Struct {
     return this
   }
 
-  setChangeAddress (changeAddress) {
-    this.changeScript = changeAddress.toTxOutScript()
+  setChangeKeyAddress (changeKeyAddress) {
+    this.changeScript = changeKeyAddress.toTxOutScript()
     return this
   }
 
@@ -204,7 +204,7 @@ class TxBuilder extends Struct {
         .fromPubKeyHashTxOut(txHashBuf, txOutNum, txOut, pubKey)
     )
     this.uTxOutMap.set(txHashBuf, txOutNum, txOut)
-    const addressStr = Address.fromTxOutScript(txOut.script).toString()
+    const addressStr = KeyAddress.fromTxOutScript(txOut.script).toString()
     this.addSigOperation(txHashBuf, txOutNum, 0, 'sig', addressStr, nHashType)
     this.addSigOperation(txHashBuf, txOutNum, 1, 'pubKey', addressStr)
     return this
@@ -214,9 +214,9 @@ class TxBuilder extends Struct {
      * An address to send funds to, along with the amount. The amount should be
      * denominated in satoshis, not bitcoins.
      */
-  outputToAddress (valueBn, addr) {
-    if (!(addr instanceof Address) || !(valueBn instanceof Bn)) {
-      throw new Error('addr must be an Address, and valueBn must be a Bn')
+  outputToKeyAddress (valueBn, addr) {
+    if (!(addr instanceof KeyAddress) || !(valueBn instanceof Bn)) {
+      throw new Error('addr must be an KeyAddress, and valueBn must be a Bn')
     }
     const script = new Script().fromPubKeyHash(addr.hashBuf)
     this.outputToScript(valueBn, script)
@@ -503,7 +503,7 @@ class TxBuilder extends Struct {
     // produce map of addresses to private keys
     const addressStrMap = {}
     for (const keyPair of keyPairs) {
-      const addressStr = Address.fromPubKey(keyPair.pubKey).toString()
+      const addressStr = KeyAddress.fromPubKey(keyPair.pubKey).toString()
       addressStrMap[addressStr] = keyPair
     }
     // loop through all inputs

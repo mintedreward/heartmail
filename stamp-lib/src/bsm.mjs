@@ -11,7 +11,7 @@
  */
 'use strict'
 
-import { Address } from './address.mjs'
+import { KeyAddress } from './key-address.mjs'
 import { Bw } from './bw.mjs'
 import { cmp } from './cmp.mjs'
 import { Ecdsa } from './ecdsa.mjs'
@@ -85,7 +85,7 @@ class Bsm extends Struct {
       return this
     }
 
-    const address = new Address().fromPubKey(
+    const address = new KeyAddress().fromPubKey(
       ecdsa.keyPair.pubKey,
       undefined,
       this.sig.compressed

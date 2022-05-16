@@ -1,11 +1,11 @@
 /**
- * Bitcoin Address
+ * Bitcoin KeyAddress
  * ===============
  *
  * A bitcoin address.
  *
- * Note that an Address and an Addr are two completely different things. An
- * Address is what you send bitcoin to. An Addr is an ip address and port that
+ * Note that an KeyAddress and an Addr are two completely different things. An
+ * KeyAddress is what you send bitcoin to. An Addr is an ip address and port that
  * you connect to over the internet.
  */
 'use strict'
@@ -19,10 +19,10 @@ import { PrivKey } from './priv-key.mjs'
 import { Script } from './script.mjs'
 import { Struct } from './struct.mjs'
 
-class Address extends Struct {
+class KeyAddress extends Struct {
   constructor (versionByteNum, hashBuf, constants = null) {
     super({ versionByteNum, hashBuf })
-    constants = constants || Constants.Default.Address
+    constants = constants || Constants.Default.KeyAddress
     this.Constants = constants
   }
 
@@ -86,7 +86,7 @@ class Address extends Struct {
   static isValid (addrstr) {
     let address
     try {
-      address = new Address().fromString(addrstr)
+      address = new KeyAddress().fromString(addrstr)
     } catch (e) {
       return false
     }
@@ -174,4 +174,4 @@ class Address extends Struct {
   }
 }
 
-export { Address }
+export { KeyAddress }

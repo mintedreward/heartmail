@@ -5,7 +5,7 @@ import { SigOperations } from '../src/sig-operations.mjs'
 import { KeyPair } from '../src/key-pair.mjs'
 import { PrivKey } from '../src/priv-key.mjs'
 import { Sig } from '../src/sig.mjs'
-import { Address } from '../src/address.mjs'
+import { KeyAddress } from '../src/key-address.mjs'
 
 describe('SigOperations', function () {
   const txHashBuf = Buffer.alloc(32)
@@ -15,7 +15,7 @@ describe('SigOperations', function () {
   const privKey = PrivKey.fromString('L3uCzo4TtW3FX5b5L9S5dKDu21ypeRofiiNnVuYnxGs5YRQrUFP2')
   const keyPair = KeyPair.fromPrivKey(privKey)
   const pubKey = keyPair.pubKey
-  const addressStr = Address.fromPubKey(pubKey).toString()
+  const addressStr = KeyAddress.fromPubKey(pubKey).toString()
   const type = 'sig'
 
   it('should make a new sigOperations', function () {
@@ -92,7 +92,7 @@ describe('SigOperations', function () {
       obj.addressStr.should.equal(addressStr)
 
       const nScriptChunk2 = 2
-      const addressStr2 = Address.fromPubKey(KeyPair.fromRandom().pubKey).toString()
+      const addressStr2 = KeyAddress.fromPubKey(KeyPair.fromRandom().pubKey).toString()
       sigOperations.addOne(txHashBuf, txOutNum, nScriptChunk2, type, addressStr2)
       arr = sigOperations.get(txHashBuf, txOutNum)
       obj = arr[1]
@@ -110,7 +110,7 @@ describe('SigOperations', function () {
       obj.addressStr.should.equal(addressStr)
 
       const nScriptChunk2 = 2
-      const addressStr2 = Address.fromPubKey(KeyPair.fromRandom().pubKey).toString()
+      const addressStr2 = KeyAddress.fromPubKey(KeyPair.fromRandom().pubKey).toString()
       sigOperations.addOne(txHashBuf, txOutNum, nScriptChunk2, type, addressStr2)
       arr = sigOperations.get(txHashBuf, txOutNum)
       obj = arr[1]
@@ -131,7 +131,7 @@ describe('SigOperations', function () {
       const txHashBuf2 = '05'.repeat(32)
       const txOutNum2 = 9
       const nScriptChunk2 = 2
-      const addressStr2 = Address.fromPubKey(KeyPair.fromRandom().pubKey).toString()
+      const addressStr2 = KeyAddress.fromPubKey(KeyPair.fromRandom().pubKey).toString()
       sigOperations.setOne(txHashBuf2, txOutNum2, nScriptChunk2, type, addressStr2)
       arr = sigOperations.get(txHashBuf2, txOutNum2)
       obj = arr[0]

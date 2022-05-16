@@ -9,7 +9,7 @@ const Constants = {}
 Constants.Mainnet = {
   MaxSize: 0x02000000, // MAX_SIZE
   Port: 8333,
-  Address: {
+  KeyAddress: {
     pubKeyHash: 0x00,
     payToScriptHash: 0x05
   },

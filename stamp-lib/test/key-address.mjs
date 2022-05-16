@@ -1,12 +1,12 @@
 /* global describe,it */
 'use strict'
-import { Address } from '../src/address.mjs'
+import { KeyAddress } from '../src/key-address.mjs'
 import { PrivKey } from '../src/priv-key.mjs'
 import { PubKey } from '../src/pub-key.mjs'
 import { Script } from '../src/script.mjs'
 import should from 'should'
 
-describe('Address', function () {
+describe('KeyAddress', function () {
   const pubKeyHash = Buffer.from(
     '3c3fa3d4adcaf8f52d5b1843975e122548269937',
     'hex'
@@ -16,34 +16,34 @@ describe('Address', function () {
   const str = '16VZnHwRhwrExfeHFHGjwrgEMq8VcYPs9r'
 
   it('should satisfy these basic API features', function () {
-    let address = new Address()
+    let address = new KeyAddress()
     should.exist(address)
-    address = new Address()
+    address = new KeyAddress()
     should.exist(address)
-    address = new Address(versionByteNum, pubKeyHash)
+    address = new KeyAddress(versionByteNum, pubKeyHash)
     should.exist(address)
-    new Address().constructor.should.equal(new Address().constructor)
+    new KeyAddress().constructor.should.equal(new KeyAddress().constructor)
   })
 
   describe('@isValid', function () {
     it('should validate this valid address string', function () {
-      Address.isValid(str).should.equal(true)
+      KeyAddress.isValid(str).should.equal(true)
     })
 
     it('should invalidate this valid address string', function () {
-      Address.isValid(str.substr(1)).should.equal(false)
+      KeyAddress.isValid(str.substr(1)).should.equal(false)
     })
   })
 
   describe('#fromHex', function () {
     it('should make an address from a hex string', function () {
-      new Address()
+      new KeyAddress()
         .fromHex(buf.toString('hex'))
         .toBuffer()
         .slice(1)
         .toString('hex')
         .should.equal(pubKeyHash.toString('hex'))
-      new Address()
+      new KeyAddress()
         .fromHex(buf.toString('hex'))
         .toString()
         .should.equal(str)
@@ -52,13 +52,13 @@ describe('Address', function () {
 
   describe('#fromBuffer', function () {
     it('should make an address from a buffer', function () {
-      new Address()
+      new KeyAddress()
         .fromBuffer(buf)
         .toBuffer()
         .slice(1)
         .toString('hex')
         .should.equal(pubKeyHash.toString('hex'))
-      new Address()
+      new KeyAddress()
         .fromBuffer(buf)
         .toString()
         .should.equal(str)
@@ -66,36 +66,36 @@ describe('Address', function () {
 
     it('should throw for invalid buffers', function () {
       ;(function () {
-        new Address().fromBuffer(Buffer.concat([buf, Buffer.from([0])]))
+        new KeyAddress().fromBuffer(Buffer.concat([buf, Buffer.from([0])]))
       }.should.throw('address buffers must be exactly 21 bytes'))
       ;(function () {
         const buf2 = Buffer.from(buf)
         buf2[0] = 50
-        new Address().fromBuffer(buf2)
+        new KeyAddress().fromBuffer(buf2)
       }.should.throw('address: invalid versionByteNum byte'))
     })
   })
 
   describe('@fromBuffer', function () {
     it('should make an address from a buffer', function () {
-      Address.fromBuffer(buf)
+      KeyAddress.fromBuffer(buf)
         .toBuffer()
         .slice(1)
         .toString('hex')
         .should.equal(pubKeyHash.toString('hex'))
-      Address.fromBuffer(buf)
+      KeyAddress.fromBuffer(buf)
         .toString()
         .should.equal(str)
     })
 
     it('should throw for invalid buffers', function () {
       ;(function () {
-        Address.fromBuffer(Buffer.concat([buf, Buffer.from([0])]))
+        KeyAddress.fromBuffer(Buffer.concat([buf, Buffer.from([0])]))
       }.should.throw('address buffers must be exactly 21 bytes'))
       ;(function () {
         const buf2 = Buffer.from(buf)
         buf2[0] = 50
-        Address.fromBuffer(buf2)
+        KeyAddress.fromBuffer(buf2)
       }.should.throw('address: invalid versionByteNum byte'))
     })
   })
@@ -104,7 +104,7 @@ describe('Address', function () {
     it('should make an address from a hashBuf', function () {
       const buf = Buffer.alloc(20)
       buf.fill(0)
-      const address = new Address().fromPubKeyHashBuf(buf)
+      const address = new KeyAddress().fromPubKeyHashBuf(buf)
       address.toString().should.equal('1111111111111111111114oLvT2')
     })
   })
@@ -113,7 +113,7 @@ describe('Address', function () {
     it('should make an address from a hashBuf', function () {
       const buf = Buffer.alloc(20)
       buf.fill(0)
-      const address = Address.fromPubKeyHashBuf(buf)
+      const address = KeyAddress.fromPubKeyHashBuf(buf)
       address.toString().should.equal('1111111111111111111114oLvT2')
     })
   })
@@ -127,7 +127,7 @@ describe('Address', function () {
           'hex'
         )
       )
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromPubKey(pubKey)
       address.toString().should.equal('19gH5uhqY6DKrtkU66PsZPUZdzTd11Y7ke')
     })
@@ -140,7 +140,7 @@ describe('Address', function () {
           'hex'
         )
       )
-      const address = new Address()
+      const address = new KeyAddress()
       pubKey.compressed = false
       address.fromPubKey(pubKey, 'mainnet')
       address.toString().should.equal('16JXnhxjJUhxfyx4y6H4sFcxrgt8kQ8ewX')
@@ -156,7 +156,7 @@ describe('Address', function () {
           'hex'
         )
       )
-      const address = Address.fromPubKey(pubKey)
+      const address = KeyAddress.fromPubKey(pubKey)
       address.toString().should.equal('19gH5uhqY6DKrtkU66PsZPUZdzTd11Y7ke')
     })
 
@@ -169,7 +169,7 @@ describe('Address', function () {
         )
       )
       pubKey.compressed = false
-      const address = Address.fromPubKey(pubKey, 'mainnet')
+      const address = KeyAddress.fromPubKey(pubKey, 'mainnet')
       address.toString().should.equal('16JXnhxjJUhxfyx4y6H4sFcxrgt8kQ8ewX')
     })
   })
@@ -178,8 +178,8 @@ describe('Address', function () {
     it('should make this address from a compressed pubKey', function () {
       const privKey = new PrivKey().fromRandom()
       const pubKey = new PubKey().fromPrivKey(privKey)
-      const address = new Address().fromPrivKey(privKey)
-      const address2 = new Address().fromPubKey(pubKey)
+      const address = new KeyAddress().fromPrivKey(privKey)
+      const address2 = new KeyAddress().fromPubKey(pubKey)
       address.toString().should.equal(address2.toString())
     })
   })
@@ -188,61 +188,61 @@ describe('Address', function () {
     it('should make this address from a compressed pubKey using static method', function () {
       const privKey = new PrivKey().fromRandom()
       const pubKey = new PubKey().fromPrivKey(privKey)
-      const address = Address.fromPrivKey(privKey)
-      const address2 = Address.fromPubKey(pubKey)
+      const address = KeyAddress.fromPrivKey(privKey)
+      const address2 = KeyAddress.fromPubKey(pubKey)
       address.toString().should.equal(address2.toString())
     })
   })
 
   describe('#fromRandom', function () {
     it('should make an address from random', function () {
-      const address = new Address().fromRandom()
+      const address = new KeyAddress().fromRandom()
       should.exist(address)
-      ;(address instanceof Address).should.equal(true)
+      ;(address instanceof KeyAddress).should.equal(true)
     })
   })
 
   describe('@fromRandom', function () {
     it('should make an address from random using static method', function () {
-      const address = Address.fromRandom()
+      const address = KeyAddress.fromRandom()
       should.exist(address)
-      ;(address instanceof Address).should.equal(true)
+      ;(address instanceof KeyAddress).should.equal(true)
     })
   })
 
   describe('@fromTxInScript', function () {
     it('should make this address from an input script', function () {
       const script = Script.fromAsmString('3045022100ff812330880f443637e93ae1045985de38a29e26e4e589db84e86d0f17069f9a02203ed91e19a8cfa5e406bed1becc0e292c89346f9102358317e3238cb394a9ab0b 020536acad4d0763f39718143494811f5c0ffd39f5dc3667cfe3b4a7815b331a17')
-      const address = Address.fromTxInScript(script)
+      const address = KeyAddress.fromTxInScript(script)
       address.toString().should.equal('1EyV93Vhz4YLdfb67UaNujrBkd9CC6zvgG')
     })
 
     it('should make this address from a zero length public key', function () {
       const script = Script.fromAsmString('3045022100ff812330880f443637e93ae1045985de38a29e26e4e589db84e86d0f17069f9a02203ed91e19a8cfa5e406bed1becc0e292c89346f9102358317e3238cb394a9ab0b 0')
-      const address = Address.fromTxInScript(script)
+      const address = KeyAddress.fromTxInScript(script)
       address.toString().should.equal('1HqoNfpAJFMy9E36DBSk1ktPQ9o9fn2RxX')
     })
   })
 
   describe('@fromTxOutScript', function () {
     it('should make this address from a script', function () {
-      Address.fromPubKeyHashBuf(Buffer.from('6fa5502ea094d59576898b490d866b32a61b89f6', 'hex')).toString()
+      KeyAddress.fromPubKeyHashBuf(Buffer.from('6fa5502ea094d59576898b490d866b32a61b89f6', 'hex')).toString()
         .should.equal('1BBL3TUavUCRauDreKv2JJ1CPgnyNxVHpA')
     })
 
     it('should make an address from a hashBuf', function () {
       const buf = Buffer.alloc(20)
       buf.fill(0)
-      let address = new Address().fromPubKeyHashBuf(buf)
+      let address = new KeyAddress().fromPubKeyHashBuf(buf)
       const script = address.toTxOutScript()
-      address = Address.fromTxOutScript(script)
+      address = KeyAddress.fromTxOutScript(script)
       address.toString().should.equal('1111111111111111111114oLvT2')
     })
   })
 
   describe('#fromString', function () {
     it('should derive from this known address string mainnet', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString(str)
       address
         .toBuffer()
@@ -254,7 +254,7 @@ describe('Address', function () {
 
   describe('@fromString', function () {
     it('should derive from this known address string mainnet', function () {
-      const address = Address.fromString(str)
+      const address = KeyAddress.fromString(str)
       address
         .toBuffer()
         .slice(1)
@@ -265,13 +265,13 @@ describe('Address', function () {
 
   describe('#isValid', function () {
     it('should describe this valid address as valid', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString('1111111111111111111114oLvT2')
       address.isValid().should.equal(true)
     })
 
     it('should describe this address with unknown versionByteNum as invalid', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString('1111111111111111111114oLvT2')
       address.versionByteNum = 1
       address.isValid().should.equal(false)
@@ -280,7 +280,7 @@ describe('Address', function () {
 
   describe('#toHex', function () {
     it('should output this known hash', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString(str)
       address
         .toHex()
@@ -291,7 +291,7 @@ describe('Address', function () {
 
   describe('#toBuffer', function () {
     it('should output this known hash', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString(str)
       address
         .toBuffer()
@@ -305,7 +305,7 @@ describe('Address', function () {
     it('should convert an address to json', function () {
       const addrbuf = Buffer.alloc(21)
       addrbuf.fill(0)
-      const address = new Address().fromBuffer(addrbuf)
+      const address = new KeyAddress().fromBuffer(addrbuf)
       const json = address.toJSON()
       should.exist(json.hashBuf)
       json.versionByteNum.should.equal(0)
@@ -316,9 +316,9 @@ describe('Address', function () {
     it('should convert a json to an address', function () {
       const addrbuf = Buffer.alloc(21)
       addrbuf.fill(0)
-      const address = new Address().fromBuffer(addrbuf)
+      const address = new KeyAddress().fromBuffer(addrbuf)
       const json = address.toJSON()
-      const address2 = new Address().fromJSON(json)
+      const address2 = new KeyAddress().fromJSON(json)
       should.exist(address2.hashBuf)
       address2.versionByteNum.should.equal(0)
     })
@@ -328,7 +328,7 @@ describe('Address', function () {
     it('should convert this address into known scripts', function () {
       const addrbuf = Buffer.alloc(21)
       addrbuf.fill(0)
-      const addr = new Address().fromBuffer(addrbuf)
+      const addr = new KeyAddress().fromBuffer(addrbuf)
       const script = addr.toTxOutScript()
       script
         .toString()
@@ -340,7 +340,7 @@ describe('Address', function () {
 
   describe('#toString', function () {
     it('should output the same thing that was input', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString(str)
       address.toString().should.equal(str)
     })
@@ -348,13 +348,13 @@ describe('Address', function () {
 
   describe('#validate', function () {
     it('should not throw an error on this valid address', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString(str)
       should.exist(address.validate())
     })
 
     it('should throw an error on this invalid versionByteNum', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString(str)
       address.versionByteNum = 1
       ;(function () {
@@ -363,7 +363,7 @@ describe('Address', function () {
     })
 
     it('should throw an error on this invalid versionByteNum', function () {
-      const address = new Address()
+      const address = new KeyAddress()
       address.fromString(str)
       address.hashBuf = Buffer.concat([address.hashBuf, Buffer.from([0])])
       ;(function () {
