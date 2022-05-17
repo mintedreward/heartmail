@@ -22,30 +22,27 @@ docker push ryanxcharles/heartmail-web:${version}
 
 echo Deploying heartmail-web
 
-# heartmail-web-1
-# log in to docker
-ssh -i ~/.ssh/bethebroadcast.pem -t heartmail-web-1 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-# get rid of existing app
-ssh -i ~/.ssh/bethebroadcast.pem -t heartmail-web-1 'docker kill $(docker ps -q)'
-ssh -i ~/.ssh/bethebroadcast.pem -t heartmail-web-1 'docker rm $(docker ps -a -q)'
-# copy environment variables to the server
-scp .env heartmail-web-1:~/
-scp .env.production heartmail-web-1:~/
-scp .env.local heartmail-web-1:~/
-scp .env.production.local heartmail-web-1:~/
-# download and run container
-ssh -i ~/.ssh/bethebroadcast.pem -t heartmail-web-1 "docker run --env-file .env --env-file .env.production --env-file .env.local --env-file .env.production.local --detach -p 80:3000 ryanxcharles/heartmail-web:${version}"
+deploy () {
+  HOSTNAME=$1
 
-# heartmail-web-2
-# log in to docker
-ssh -i ~/.ssh/bethebroadcast.pem -t heartmail-web-2 "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
-# get rid of existing app
-ssh -i ~/.ssh/bethebroadcast.pem -t heartmail-web-2 'docker kill $(docker ps -q)'
-ssh -i ~/.ssh/bethebroadcast.pem -t heartmail-web-2 'docker rm $(docker ps -a -q)'
-# copy environment variables to the server
-scp .env heartmail-web-2:~/
-scp .env.production heartmail-web-2:~/
-scp .env.local heartmail-web-2:~/
-scp .env.production.local heartmail-web-2:~/
-# download and run container
-ssh -i ~/.ssh/bethebroadcast.pem -t heartmail-web-2 "docker run --env-file .env --env-file .env.production --env-file .env.local --env-file .env.production.local --detach -p 80:3000 ryanxcharles/heartmail-web:${version}"
+  echo Deploying $HOSTNAME
+
+  echo Logging into Docker
+  ssh -t $HOSTNAME "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
+
+  echo Getting rid of existing app
+  ssh -t $HOSTNAME 'docker kill $(docker ps -q)'
+  ssh -t $HOSTNAME 'docker rm $(docker ps -a -q)'
+
+  echo Copying environment variables to server
+  scp .env $HOSTNAME:~/
+  scp .env.production $HOSTNAME:~/
+  scp .env.local $HOSTNAME:~/
+  scp .env.production.local $HOSTNAME:~/
+
+  echo Downloading and running container
+  ssh -t $HOSTNAME "docker run --env-file .env --env-file .env.production --env-file .env.local --env-file .env.production.local --detach -p 80:3000 ryanxcharles/heartmail-web:${version}"
+}
+
+deploy heartmail-web-1
+deploy heartmail-web-2
