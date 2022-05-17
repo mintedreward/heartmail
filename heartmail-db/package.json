@@ -9,6 +9,8 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
-    "cassandra-driver": "^4.6.3"
+    "aws-sigv4-auth-cassandra-plugin": "^1.0.4",
+    "cassandra-driver": "^4.6.3",
+    "heartmail-loadenv": "workspace:*"
   }
 }
