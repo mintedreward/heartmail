@@ -8,35 +8,59 @@ create table if not exists heartmail.keys (
     address text,
     pubKey text,
     privKey text,
-    type text,
-    created_time timestamp,
+    createdAt timestamp,
+    updatedAt timestamp,
     primary key (alias)
 );
 
 create table if not exists heartmail.accounts (
     keyAlias text,
-    accessGrantedTime timestamp,
-    externalEmail timestamp,
-    externalEmail2 timestamp,
+    accessGrantedAt timestamp,
+    signInEmailAddress text,
+    paymentEmailAddress text,
     affiliateKeyAlias text,
     contactFeeAmountUsd float,
+    createdAt timestamp,
+    updatedAt timestamp,
     primary key (keyAlias)
 );
 
-create table if not exists heartmail.externalEmails (
+create table if not exists heartmail.emailAddresses (
     address text,
-    verified boolean,
-    verifiedTime timestamp,
+    isEmail boolean,
+    isPaymail boolean,
+    isInternal boolean,
+    createdAt timestamp,
+    updatedAt timestamp,
     primary key (address)
 );
 
-create table if not exists heartmail.externalPaymails (
-    address text,
-    verified boolean,
-    verifiedTime timestamp,
-    primary key (address)
+create table if not exists heartmail.emailAddressAccounts (
+    emailAddress text,
+    keyAlias text,
+    createdAt timestamp,
+    updatedAt timestamp,
+    primary key (emailAddress)
 );
 
+create table if not exists heartmail.invoices (
+    keyAlias text,
+    amountUsd float,
+    paid boolean,
+    createdAt timestamp,
+    updatedAt timestamp,
+    primary key (keyAlias)
+);
+
+create table if not exists heartmail.payments (
+    keyAlias text,
+    metaData text,
+    createdAt timestamp,
+    updatedAt timestamp,
+    primary key (keyAlias)
+);
+
+/*
 create table if not exists heartmail.mbPayments (
     keyAlias text,
     mbClientIdentifier text,
@@ -56,5 +80,8 @@ create table if not exists heartmail.mbPayments (
     mbTxid text,
     mbPaymentId text,
     mbPayment text,
+    createdAt timestamp,
+    updatedAt timestamp,
     primary key (keyAlias)
 );
+*/
