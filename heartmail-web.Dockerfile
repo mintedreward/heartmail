@@ -25,9 +25,9 @@ WORKDIR /app/heartmail-web
 # Uncomment the following line in case you want to disable telemetry.
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn build
-
 ENV NODE_ENV production
+
+RUN yarn build
 
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001

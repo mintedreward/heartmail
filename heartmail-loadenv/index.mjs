@@ -10,6 +10,7 @@ export default function loadenv () {
   // Note that dotenv does not override env vars by default, so earlier files
   // always have the preferred value.
   if (env === 'production') {
+    console.log('heartmail-loadenv: production')
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env.production.local`) })
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env.local`) })
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env.production`) })
@@ -19,6 +20,7 @@ export default function loadenv () {
     dotenv.config({ path: path.resolve(process.cwd(), `.env.production`) })
     dotenv.config({ path: path.resolve(process.cwd(), `.env`) })
   } else if (env === 'development') {
+    console.log('heartmail-loadenv: development')
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env.development.local`) })
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env.local`) })
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env.development`) })
@@ -28,6 +30,7 @@ export default function loadenv () {
     dotenv.config({ path: path.resolve(process.cwd(), `.env.development`) })
     dotenv.config({ path: path.resolve(process.cwd(), `.env`) })
   } else if (env === 'test') {
+    console.log('heartmail-loadenv: test')
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env.test.local`) })
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env.test`) })
     dotenv.config({ path: path.resolve(process.cwd(), '../', `.env`) })
