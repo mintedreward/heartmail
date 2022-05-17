@@ -7135,6 +7135,14 @@ fsevents@~2.1.1:
   languageName: unknown
   linkType: soft
 
+"heartmail-loadenv@workspace:*, heartmail-loadenv@workspace:heartmail-loadenv":
+  version: 0.0.0-use.local
+  resolution: "heartmail-loadenv@workspace:heartmail-loadenv"
+  bin:
+    heartmail-loadenv: ./bin/heartmail-loadenv.mjs
+  languageName: unknown
+  linkType: soft
+
 "heartmail-redirect@workspace:heartmail-redirect":
   version: 0.0.0-use.local
   resolution: "heartmail-redirect@workspace:heartmail-redirect"
@@ -7190,6 +7198,7 @@ fsevents@~2.1.1:
     eslint: 8.14.0
     eslint-config-next: 12.1.6
     heartmail-currency: "workspace:*"
+    heartmail-loadenv: "workspace:*"
     next: 12.1.6
     react: 18
     react-dom: 18
