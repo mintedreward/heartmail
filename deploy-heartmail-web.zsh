@@ -35,10 +35,7 @@ deploy () {
   ssh -t $HOSTNAME 'docker rm $(docker ps -a -q)'
 
   echo Copying environment variables to server
-  scp .env $HOSTNAME:~/
-  scp .env.production $HOSTNAME:~/
-  scp .env.local $HOSTNAME:~/
-  scp .env.production.local $HOSTNAME:~/
+  scp .env .env.production .env.local .env.production.local $HOSTNAME:~/
 
   echo Downloading and running container
   ssh -t $HOSTNAME "docker run --env-file .env --env-file .env.production --env-file .env.local --env-file .env.production.local --detach -p 80:3000 ryanxcharles/heartmail-web:${version}"
