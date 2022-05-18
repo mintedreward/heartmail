@@ -11,7 +11,7 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "heartmail-stamp-lib": "workspace:*"
+    "heartmail-lib": "workspace:*"
   },
   "devDependencies": {
     "mocha": "^8.3.1",

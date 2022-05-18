@@ -58,7 +58,7 @@
  */
 'use strict'
 
-import { Struct, Hash, Ach, KeyAddress, PrivKey, PubKey } from 'heartmail-stamp-lib'
+import { Struct, Hash, Ach, KeyAddress, PrivKey, PubKey } from 'heartmail-lib'
 
 class Keyfile extends Struct {
   constructor () {

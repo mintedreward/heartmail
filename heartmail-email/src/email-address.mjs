@@ -1,7 +1,7 @@
 import emailValidator from 'email-validator'
 import { Domain } from './domain.mjs'
 import fetch from 'isomorphic-fetch'
-import { PubKey, PrivKey, KeyPair, Sig, KeyAddress, Bsm } from 'heartmail-stamp-lib'
+import { PubKey, PrivKey, KeyPair, Sig, KeyAddress, Bsm } from 'heartmail-lib'
 
 class EmailAddress {
   constructor (emailAddressStr = '', pubKey, privKey, normalized, domainName) {

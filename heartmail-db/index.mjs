@@ -1,4 +1,21 @@
-/*
+import connect from './connect.mjs'
+
+export default class Db {
+  constructor (connection = connect()) {
+    this.connection = connection
+  }
+
+  createKeyspace () {
+    // create keyspace
+  }
+
+  createTables () {
+    // create tables
+  }
+
+  getAffiliatePaymentEmailAddressByAccountKeyAlias
+
+  /*
 Affiliate:
 - Retrieve affiliate external email2
 
@@ -10,3 +27,4 @@ View:
 - Retrieve information for a key
 - Retrieve information for an account
 */
+}

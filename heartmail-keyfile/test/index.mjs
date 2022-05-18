@@ -1,5 +1,5 @@
 import { Keyfile } from '../src/index.mjs'
-import { PrivKey, Bn } from 'heartmail-stamp-lib'
+import { PrivKey, Bn } from 'heartmail-lib'
 import should from 'should'
 
 describe('Keyfile', () => {

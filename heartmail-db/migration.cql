@@ -1,6 +1,5 @@
 create keyspace if not exists heartmail with replication = {
-    'class': 'SingleRegionStrategy',
-    'replication_factor' : 3
+    'class': 'SingleRegionStrategy'
 };
 
 create table if not exists heartmail.keys (
@@ -16,7 +15,7 @@ create table if not exists heartmail.keys (
 create table if not exists heartmail.accounts (
     keyAlias text,
     accessGrantedAt timestamp,
-    signInEmailAddress text,
+    ownerEmailAddress text,
     paymentEmailAddress text,
     affiliateKeyAlias text,
     contactFeeAmountUsd float,
@@ -37,7 +36,7 @@ create table if not exists heartmail.emailAddresses (
 
 create table if not exists heartmail.emailAddressAccounts (
     emailAddress text,
-    keyAlias text,
+    accountKeyAlias text,
     createdAt timestamp,
     updatedAt timestamp,
     primary key (emailAddress)
@@ -46,7 +45,7 @@ create table if not exists heartmail.emailAddressAccounts (
 create table if not exists heartmail.invoices (
     keyAlias text,
     amountUsd float,
-    paid boolean,
+    paymentKeyAlias text,
     createdAt timestamp,
     updatedAt timestamp,
     primary key (keyAlias)
@@ -54,6 +53,7 @@ create table if not exists heartmail.invoices (
 
 create table if not exists heartmail.payments (
     keyAlias text,
+    invoiceKeyAlias text,
     metaData text,
     createdAt timestamp,
     updatedAt timestamp,

@@ -2,7 +2,7 @@
 'use strict'
 import { EmailAddress } from '../index.mjs'
 import should from 'should'
-import { PubKey, PrivKey, Sig } from 'heartmail-stamp-lib'
+import { PubKey, PrivKey, Sig } from 'heartmail-lib'
 
 describe('EmailAddress', () => {
   it('should make a new EmailAddress', () => {

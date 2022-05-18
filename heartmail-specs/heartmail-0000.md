@@ -96,3 +96,8 @@ Early Protocols
 ### Legal contract milestone
 
 ...
+
+### Other Misc Protocols
+
+* Email to phone (phone+14155150210@phone-host.com)
+* Domain key, e.g. heartmail.com signs the transfer of an account

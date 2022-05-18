@@ -1,6 +1,6 @@
 {
-  "name": "heartmail-stamp-lib",
-  "description": "Bitcoin data structures and cryptographic algorithms.",
+  "name": "heartmail-lib",
+  "description": "Stamp data structures and cryptographic algorithms.",
   "version": "1.0.0",
   "author": "HeartMail",
   "homepage": "https://github.com/openspv/openspv",

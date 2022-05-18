@@ -7188,6 +7188,9 @@ fsevents@~2.1.1:
     aws-sigv4-auth-cassandra-plugin: ^1.0.4
     cassandra-driver: ^4.6.3
     heartmail-loadenv: "workspace:*"
+    mocha: 8.3.1
+    should: 13.2.3
+    sinon: 9.2.4
     standard: 16.0.4
   languageName: unknown
   linkType: soft
@@ -7227,7 +7230,7 @@ fsevents@~2.1.1:
     body-parser: 1.19.2
     email-validator: 2.0.4
     express: 4.17.3
-    heartmail-stamp-lib: "workspace:*"
+    heartmail-lib: "workspace:*"
     is-valid-domain: 0.1.6
     isomorphic-fetch: ^3.0.0
     mocha: 8.3.1
@@ -7241,10 +7244,29 @@ fsevents@~2.1.1:
   version: 0.0.0-use.local
   resolution: "heartmail-keyfile@workspace:heartmail-keyfile"
   dependencies:
-    heartmail-stamp-lib: "workspace:*"
+    heartmail-lib: "workspace:*"
     mocha: ^8.3.1
     should: ^13.2.3
     standard: ^16.0.3
+  languageName: unknown
+  linkType: soft
+
+"heartmail-lib@workspace:*, heartmail-lib@workspace:heartmail-lib":
+  version: 0.0.0-use.local
+  resolution: "heartmail-lib@workspace:heartmail-lib"
+  dependencies:
+    aes: 0.1.0
+    bn.js: 5.2.0
+    bs58: 4.0.1
+    hash.js: 1.1.7
+    heartmail-elliptic: "workspace:*"
+    is-hex: 1.1.3
+    mocha: 8.3.1
+    pbkdf2: 3.1.2
+    randombytes: 2.1.0
+    should: 13.2.3
+    sinon: 9.2.4
+    standard: 16.0.4
   languageName: unknown
   linkType: soft
 
@@ -7275,25 +7297,6 @@ fsevents@~2.1.1:
     mocha: ^9.2.1
     ts-node: ^10.6.0
     uuid: ^8.3.2
-  languageName: unknown
-  linkType: soft
-
-"heartmail-stamp-lib@workspace:*, heartmail-stamp-lib@workspace:heartmail-stamp-lib":
-  version: 0.0.0-use.local
-  resolution: "heartmail-stamp-lib@workspace:heartmail-stamp-lib"
-  dependencies:
-    aes: 0.1.0
-    bn.js: 5.2.0
-    bs58: 4.0.1
-    hash.js: 1.1.7
-    heartmail-elliptic: "workspace:*"
-    is-hex: 1.1.3
-    mocha: 8.3.1
-    pbkdf2: 3.1.2
-    randombytes: 2.1.0
-    should: 13.2.3
-    sinon: 9.2.4
-    standard: 16.0.4
   languageName: unknown
   linkType: soft
 

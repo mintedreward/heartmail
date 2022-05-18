@@ -13,7 +13,12 @@
   "dependencies": {
     "aws-sigv4-auth-cassandra-plugin": "^1.0.4",
     "cassandra-driver": "^4.6.3",
-    "heartmail-loadenv": "workspace:*",
+    "heartmail-loadenv": "workspace:*"
+  },
+  "devDependencies": {
+    "mocha": "8.3.1",
+    "should": "13.2.3",
+    "sinon": "9.2.4",
     "standard": "16.0.4"
   }
 }

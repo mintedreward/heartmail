@@ -31,7 +31,7 @@
     "body-parser": "1.19.2",
     "email-validator": "2.0.4",
     "express": "4.17.3",
-    "heartmail-stamp-lib": "workspace:*",
+    "heartmail-lib": "workspace:*",
     "is-valid-domain": "0.1.6",
     "isomorphic-fetch": "^3.0.0",
     "pug": "3.0.2"
