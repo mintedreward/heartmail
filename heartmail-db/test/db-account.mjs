@@ -232,4 +232,15 @@ describe('DbAccount', () => {
       dbAccount.getValidationError().should.equal('contactFeeAmountUsd must be positive')
     })
   })
+
+  describe('#delayAccess', () => {
+    it('should push back access by 30 days', () => {
+      const dbAccount = DbAccount.create()
+      const date = new Date(dbAccount.accessGrantedAt.toJSON())
+      dbAccount.delayAccess()
+      dbAccount.accessGrantedAt.toJSON().should.not.equal(date.toJSON())
+      date.setDate(date.getDate() + 30)
+      dbAccount.accessGrantedAt.toJSON().should.equal(date.toJSON())
+    })
+  })
 })

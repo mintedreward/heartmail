@@ -53,6 +53,11 @@ export default class DbAccount extends DbKey {
     return new this().create(obj)
   }
 
+  delayAccess (days = 30) {
+    this.accessGrantedAt.setDate(this.accessGrantedAt.getDate() + days)
+    return this
+  }
+
   getValidationError () {
     const validationError = super.getValidationError()
     if (validationError) {
