@@ -134,4 +134,17 @@ describe('DbKey', () => {
       dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
     })
   })
+
+  describe('#updateOne', () => {
+    it('should insert one, find one, update one', async () => {
+      const dbKey = DbKey.fromRandom()
+      await dbKey.insert()
+      const dbKey2 = await DbKey.findOneByKeyAlias(dbKey.keyAlias)
+      dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
+      dbKey2.dataBuf = Buffer.from('01', 'hex')
+      await dbKey2.updateOne()
+      const dbKey3 = await DbKey.findOneByKeyAlias(dbKey2.keyAlias)
+      dbKey3.dataBuf.toString('hex').should.equal(dbKey2.dataBuf.toString('hex'))
+    })
+  })
 })

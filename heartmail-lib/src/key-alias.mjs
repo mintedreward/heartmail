@@ -30,7 +30,7 @@ class KeyAlias extends Struct {
     return this
   }
 
-  fromLeftRightBuf (leftBuf, rightBuf) {
+  fromLeftRightBuf (leftBuf = Buffer.from('00'.repeat(8)), rightBuf = Buffer.from('00'.repeat(8))) {
     this.buf = Buffer.concat([leftBuf, rightBuf])
     return this
   }
