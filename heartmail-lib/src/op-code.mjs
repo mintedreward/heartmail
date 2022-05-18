@@ -8,7 +8,6 @@
  * source code. The way you probably want to use this is with
  * new OpCode(str).toNumber() or new OpCode(num).toString()
  */
-'use strict'
 
 import { Struct } from './struct.mjs'
 

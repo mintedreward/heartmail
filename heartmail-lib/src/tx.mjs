@@ -4,7 +4,6 @@
  *
  * A bitcoin transaction.
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import { Br } from './br.mjs'

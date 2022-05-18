@@ -10,7 +10,6 @@
  * new Block().fromBuffer(buf), which will parse the block and prepare its insides
  * for you to inspect.
  */
-'use strict'
 
 import { Br } from './br.mjs'
 import { Bw } from './bw.mjs'

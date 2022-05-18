@@ -9,7 +9,6 @@
  *
  * http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28Cbc.29
  */
-'use strict'
 
 import { cmp } from './cmp.mjs'
 

@@ -4,7 +4,6 @@
  *
  * For use in sighash.
  */
-'use strict'
 
 import { Struct } from './struct.mjs'
 

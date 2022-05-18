@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { BlockHeader } from '../src/block-header.mjs'
 import { Br } from '../src/br.mjs'
 import { MerkleProof } from '../src/merkle-proof.mjs'

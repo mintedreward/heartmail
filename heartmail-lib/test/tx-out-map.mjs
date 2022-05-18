@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import should from 'should'
 import { TxOutMap } from '../src/tx-out-map.mjs'
 import { Tx } from '../src/tx.mjs'

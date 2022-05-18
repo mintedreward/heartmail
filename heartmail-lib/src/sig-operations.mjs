@@ -13,7 +13,6 @@
  * but may not have access to the private key until the entire tx is sent to
  * where the private keys are.
  */
-'use strict'
 
 import { Struct } from './struct.mjs'
 import { Sig } from './sig.mjs'

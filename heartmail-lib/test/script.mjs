@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { Bn } from '../src/bn.mjs'
 import { OpCode } from '../src/op-code.mjs'
 import { PrivKey } from '../src/priv-key.mjs'

@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import should from 'should'
 import { Base58Check } from '../src/base-58-check.mjs'
 import { Base58 } from '../src/base-58.mjs'

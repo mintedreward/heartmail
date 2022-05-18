@@ -2,7 +2,6 @@
  * Constants
  * =========
  */
-'use strict'
 
 const Constants = {}
 

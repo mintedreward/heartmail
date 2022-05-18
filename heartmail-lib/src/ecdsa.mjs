@@ -16,7 +16,6 @@
  * can derive your private key. Deterministic k prevents this without needing
  * an entropy pool.
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import { Br } from './br.mjs'

@@ -6,7 +6,6 @@
  * that does not include authentication. You should only use this if you are
  * authenticating your data somehow else.
  */
-'use strict'
 
 import { Aes } from './aes.mjs'
 import { Cbc } from './cbc.mjs'

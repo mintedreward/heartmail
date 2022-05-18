@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { Bn } from '../src/bn.mjs'
 import should from 'should'
 import { Br } from '../src/br.mjs'

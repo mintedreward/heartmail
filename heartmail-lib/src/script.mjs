@@ -13,7 +13,6 @@
  * and then write it again, you are likely to get back a different string, even
  * if you don't use OP_0, OP_FALSE, OP_1, or OP_TRUE).
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import { Br } from './br.mjs'

@@ -6,7 +6,6 @@
  * or decrypting blocks of data. There is almost never a reason to use this -
  * don't use it unless you need to encrypt or decrypt individual blocks.
  */
-'use strict'
 
 import _Aes from 'aes'
 

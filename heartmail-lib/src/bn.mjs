@@ -23,7 +23,6 @@
  * const buf = Bn().toBuffer() // produces buffer representation
  * const buf = Bn().toBuffer({size: 32}) //produced 32 byte buffer
  */
-'use strict'
 
 import _Bn from 'bn.js'
 

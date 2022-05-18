@@ -9,7 +9,6 @@
  * which deal with a base64 string representing the compressed format of a
  * signature.
  */
-'use strict'
 
 import { KeyAddress } from './key-address.mjs'
 import { Bw } from './bw.mjs'

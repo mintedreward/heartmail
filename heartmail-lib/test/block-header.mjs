@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { BlockHeader } from '../src/block-header.mjs'
 import { Bw } from '../src/bw.mjs'
 import { Br } from '../src/br.mjs'

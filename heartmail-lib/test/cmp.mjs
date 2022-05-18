@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { cmp } from '../src/cmp.mjs'
 import 'should'
 

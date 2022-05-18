@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { Aes } from '../src/aes.mjs'
 import { Cbc } from '../src/cbc.mjs'
 import 'should'

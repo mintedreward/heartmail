@@ -9,7 +9,6 @@
  * you find that you must reverse things. You probably want to use it like:
  * varInt = new Br(buf).readnew VarInt()
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 

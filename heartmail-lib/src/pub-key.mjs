@@ -5,7 +5,6 @@
  * A public key corresponds to a private key. If you have a private key, you
  * can find the corresponding public key with new PubKey().fromPrivKey(privKey).
  */
-'use strict'
 
 import { Point } from './point.mjs'
 import { Bn } from './bn.mjs'

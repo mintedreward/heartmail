@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import 'should'
 import { Hash } from '../src/hash.mjs'
 import { readFile } from 'fs/promises'

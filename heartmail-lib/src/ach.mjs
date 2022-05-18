@@ -8,7 +8,6 @@
  * The encrypted data takes the form:
  * (256 bit hmac)(128 bit iv)(128+ bits Aes+Cbc encrypted message)
  */
-'use strict'
 
 import { Aescbc } from './aescbc.mjs'
 import { Hash } from './hash.mjs'

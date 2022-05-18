@@ -4,7 +4,6 @@
  *
  * A message on the bitcoin p2p network.
  */
-'use strict'
 
 import { Br } from './br.mjs'
 import { Bw } from './bw.mjs'

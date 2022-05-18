@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { KeyAddress } from '../src/key-address.mjs'
 import { Bsm } from '../src/bsm.mjs'
 import { KeyPair } from '../src/key-pair.mjs'

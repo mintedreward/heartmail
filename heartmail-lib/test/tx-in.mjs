@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import should from 'should'
 import { Script } from '../src/script.mjs'
 import { TxIn } from '../src/tx-in.mjs'

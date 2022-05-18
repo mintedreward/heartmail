@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { MerkleNode } from '../src/merkle-node.mjs'
 import should from 'should'
 

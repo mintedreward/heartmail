@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import should from 'should'
 import { Aescbc } from '../src/aescbc.mjs'
 import { readFile } from 'fs/promises'

@@ -5,7 +5,6 @@
  * Base58 check encoding. The usual way to use it is
  * new Base58Check(buf).toString() or new Base58Check(str).toBuffer().
  */
-'use strict'
 
 import { Base58 } from './base-58.mjs'
 import { cmp } from './cmp.mjs'

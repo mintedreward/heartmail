@@ -15,7 +15,6 @@
  * anything else to this random number in order to minimize possible errors in
  * this absolutely critical code.
  */
-'use strict'
 
 import randomBytes from 'randombytes'
 

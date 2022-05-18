@@ -7,7 +7,6 @@
  * can leave out the scriptVi, which is computed automatically if you leave it
  * out.)
  */
-'use strict'
 
 import { Bw } from './bw.mjs'
 import { VarInt } from './var-int.mjs'

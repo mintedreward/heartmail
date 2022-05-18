@@ -17,7 +17,6 @@
  * appended, and the final one is Compact, which is used by Bitcoin Signed
  * Message (Bsm).
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import { Struct } from './struct.mjs'

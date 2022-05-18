@@ -2,7 +2,6 @@
  * Transaction Builder
  * ===================
  */
-'use strict'
 
 import { KeyAddress } from './key-address.mjs'
 import { Constants as Cst } from './constants.mjs'

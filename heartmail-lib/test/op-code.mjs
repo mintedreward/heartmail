@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import should from 'should'
 import { OpCode } from '../src/op-code.mjs'
 

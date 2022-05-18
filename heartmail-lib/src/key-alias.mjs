@@ -1,4 +1,3 @@
-'use strict'
 
 import { Struct } from './struct.mjs'
 import { Bn } from './bn.mjs'

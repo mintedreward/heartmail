@@ -35,7 +35,6 @@
  * The "expect" method also facilitates deserializing a sequence of buffers
  * into an object.
  */
-'use strict'
 
 import { Br } from './br.mjs'
 import { Bw } from './bw.mjs'

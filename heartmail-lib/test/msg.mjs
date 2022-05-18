@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { Br } from '../src/br.mjs'
 import { Bw } from '../src/bw.mjs'
 import { Hash } from '../src/hash.mjs'

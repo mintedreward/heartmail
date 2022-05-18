@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { Ecies } from '../src/ecies.mjs'
 import should from 'should'
 import { KeyPair } from '../src/key-pair.mjs'

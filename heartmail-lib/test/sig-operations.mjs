@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import should from 'should'
 import { SigOperations } from '../src/sig-operations.mjs'
 import { KeyPair } from '../src/key-pair.mjs'

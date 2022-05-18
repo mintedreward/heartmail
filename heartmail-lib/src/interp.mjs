@@ -15,7 +15,6 @@
  * But that is deliberately so to make it similar to bitcoin core, and thus
  * easier to audit.
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import { Bw } from './bw.mjs'

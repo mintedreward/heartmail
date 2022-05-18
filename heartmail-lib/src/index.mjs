@@ -1,4 +1,3 @@
-'use strict'
 
 import aes from 'aes'
 import bnjs from 'bn.js'

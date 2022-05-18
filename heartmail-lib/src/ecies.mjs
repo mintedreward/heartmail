@@ -2,7 +2,6 @@
  * Ecies
  * =====
  */
-'use strict'
 
 import { Aescbc } from './aescbc.mjs'
 import { cmp } from './cmp.mjs'

@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import should from 'should'
 import { Struct } from '../src/struct.mjs'
 import sinon from 'sinon'

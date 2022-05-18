@@ -8,7 +8,6 @@
  * TxOutMap is necessary when signing a transction to get the script and value
  * of that output which is plugged into the sighash algorithm.
  */
-'use strict'
 
 import { Struct } from './struct.mjs'
 import { TxOut } from './tx-out.mjs'

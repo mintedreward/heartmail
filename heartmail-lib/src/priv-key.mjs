@@ -5,7 +5,6 @@
  * A private key is used for signing transactions (or messages). The primary
  * way to use this is new PrivKey().fromRandom(), or new PrivKey().fromBuffer(buf).
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import { Point } from './point.mjs'

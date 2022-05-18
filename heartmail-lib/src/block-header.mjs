@@ -5,7 +5,6 @@
  * Every block contains a blockHeader. This is probably not something you will
  * personally use, but it's here if you need it.
  */
-'use strict'
 
 import { Bw } from './bw.mjs'
 import { Struct } from './struct.mjs'

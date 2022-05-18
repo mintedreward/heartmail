@@ -4,7 +4,6 @@
  *
  * Inventory - used in p2p messages.
  */
-'use strict'
 
 import { Bw } from './bw.mjs'
 import { Struct } from './struct.mjs'

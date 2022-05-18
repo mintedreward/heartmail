@@ -9,7 +9,6 @@
  * of his point and big number classes, we have to wrap all the methods such as
  * getX() to return the Yours Bitcoin point and big number types.
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import elliptic from 'heartmail-elliptic'

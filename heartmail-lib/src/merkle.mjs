@@ -5,7 +5,6 @@
  * A node in a Merkle tree (possibly the root node, in which case it is the
  * Merkle root). A node either contains a buffer or links to two other nodes.
  */
-'use strict'
 
 import { Hash } from './hash.mjs'
 import { Struct } from './struct.mjs'

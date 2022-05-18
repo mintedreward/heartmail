@@ -6,7 +6,6 @@
  * new TxOut(valueBn, script) (i.e., just as with TxIn, you can leave out the
  * scriptVi, since it can be computed automatically.
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import { Bw } from './bw.mjs'

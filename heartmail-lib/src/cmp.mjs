@@ -15,7 +15,6 @@
  *
  * https://groups.google.com/forum/#!topic/keyczar-discuss/VXHsoJSLKhM
  */
-'use strict'
 const cmp = (buf1, buf2) => {
   if (!Buffer.isBuffer(buf1) || !Buffer.isBuffer(buf2)) {
     throw new Error('buf1 and buf2 must be buffers')

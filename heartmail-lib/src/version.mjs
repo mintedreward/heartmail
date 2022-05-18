@@ -5,7 +5,6 @@
  * This data structure is used to specify details about what version of the
  * p2p network is supported by this or other nodes.
  */
-'use strict'
 
 import { Bw } from './bw.mjs'
 import { Constants as Cst } from './constants.mjs'

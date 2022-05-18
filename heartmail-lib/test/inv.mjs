@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { Inv } from '../src/inv.mjs'
 import { Hash } from '../src/hash.mjs'
 import { Bw } from '../src/bw.mjs'

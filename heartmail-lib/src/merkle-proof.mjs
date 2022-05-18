@@ -12,7 +12,6 @@
  *
  * https://github.com/bitcoin-sv-specs/merkle-proof-standard-example/
  */
-'use strict'
 
 // import { BlockHeader } from './block-header.mjs'
 import { Tx } from './tx.mjs'

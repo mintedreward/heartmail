@@ -2,7 +2,6 @@
  * Transaction Verifier
  * ====================
  */
-'use strict'
 
 import { Bn } from './bn.mjs'
 import { Block } from './block.mjs'

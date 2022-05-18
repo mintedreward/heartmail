@@ -5,7 +5,6 @@
  * Some hash functions are used through out bitcoin. We expose them here as a
  * convenience.
  */
-'use strict'
 
 import hashjs from 'hash.js'
 

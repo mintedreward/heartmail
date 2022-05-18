@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { KeyAddress } from '../src/key-address.mjs'
 import { PrivKey } from '../src/priv-key.mjs'
 import { PubKey } from '../src/pub-key.mjs'

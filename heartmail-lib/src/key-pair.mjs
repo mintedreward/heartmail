@@ -8,7 +8,6 @@
  * const privKey = keyPair.privKey
  * const pubKey = keyPair.pubKey
  */
-'use strict'
 
 import { PrivKey as DefaultPrivKey } from './priv-key.mjs'
 import { PubKey } from './pub-key.mjs'

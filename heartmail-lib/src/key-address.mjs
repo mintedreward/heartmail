@@ -8,7 +8,6 @@
  * KeyAddress is what you send bitcoin to. An Addr is an ip address and port that
  * you connect to over the internet.
  */
-'use strict'
 
 import { Base58Check } from './base-58-check.mjs'
 import { Constants } from './constants.mjs'

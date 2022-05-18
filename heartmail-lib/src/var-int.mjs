@@ -7,7 +7,6 @@
  * in a compact format that can take up as little as 1 byte or as much as 9
  * bytes.
  */
-'use strict'
 
 import { Br } from './br.mjs'
 import { Bw } from './bw.mjs'

@@ -6,7 +6,6 @@
  * VarInts and other basic number types. The way to use it is: buf =
  * new Bw().write(buf1).write(buf2).toBuffer()
  */
-'use strict'
 
 class Bw {
   constructor (bufs) {

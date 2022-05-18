@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { Ach } from '../src/ach.mjs'
 import should from 'should'
 

@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { HashCache } from '../src/hash-cache.mjs'
 import should from 'should'
 

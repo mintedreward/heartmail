@@ -1,5 +1,4 @@
 /* global describe,it */
-'use strict'
 import { Bn } from '../src/bn.mjs'
 import { Ecdsa } from '../src/ecdsa.mjs'
 import { Hash } from '../src/hash.mjs'
