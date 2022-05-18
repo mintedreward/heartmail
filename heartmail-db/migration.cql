@@ -9,7 +9,7 @@ create table if not exists heartmail.keys (
     pubKey text,
     privKey text,
     type text,
-    data text,
+    data blob,
     createdAt timestamp,
     updatedAt timestamp,
     primary key (aliasLeft, aliasRight)

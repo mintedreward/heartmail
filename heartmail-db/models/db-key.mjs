@@ -4,12 +4,14 @@ import { KeyAlias, KeyAddress, PubKey, PrivKey, Struct } from 'heartmail-lib'
 // const connection = connect()
 
 export default class DbKey extends Struct {
-  constructor (keyAlias, keyAddress, pubKey, privKey, createdAt, updatedAt) {
+  constructor (keyAlias, keyAddress, pubKey, privKey, typeStr, dataBuf, createdAt, updatedAt) {
     super({
       keyAlias,
       keyAddress,
       pubKey,
       privKey,
+      typeStr,
+      dataBuf,
       createdAt,
       updatedAt
     })
