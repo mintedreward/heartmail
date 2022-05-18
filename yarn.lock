@@ -7188,6 +7188,7 @@ fsevents@~2.1.1:
     aws-sigv4-auth-cassandra-plugin: ^1.0.4
     cassandra-driver: ^4.6.3
     heartmail-loadenv: "workspace:*"
+    standard: 16.0.4
   languageName: unknown
   linkType: soft
 

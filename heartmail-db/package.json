@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "standard": "standard",
+    "lint": "standard"
   },
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
     "aws-sigv4-auth-cassandra-plugin": "^1.0.4",
     "cassandra-driver": "^4.6.3",
-    "heartmail-loadenv": "workspace:*"
+    "heartmail-loadenv": "workspace:*",
+    "standard": "16.0.4"
   }
 }

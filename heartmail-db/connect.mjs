@@ -1,5 +1,4 @@
 import * as cassandra from 'cassandra-driver'
-import * as fs from 'fs'
 import * as sigV4 from 'aws-sigv4-auth-cassandra-plugin'
 import getCrt from './resources/sf-class2-root.crt.mjs'
 import loadenv from 'heartmail-loadenv'
@@ -31,35 +30,35 @@ const auth = new sigV4.default.SigV4AuthProvider({
   region: region,
   accessKeyId: accessKey,
   secretAccessKey: secretKey
-});
+})
 
 const host = 'cassandra.' + region + '.amazonaws.com'
 const sslOptions = {
-    ca: [
-      crt
-    ],
-    host: host,
-    rejectUnauthorized: true
-};
+  ca: [
+    crt
+  ],
+  host: host,
+  rejectUnauthorized: true
+}
 
 const client = new cassandra.Client({
-    contactPoints: [host],
-    localDataCenter: region,
-    authProvider: auth,
-    sslOptions: sslOptions,
-    protocolOptions: { port: 9142 }
-});
+  contactPoints: [host],
+  localDataCenter: region,
+  authProvider: auth,
+  sslOptions: sslOptions,
+  protocolOptions: { port: 9142 }
+})
 
-const query = 'SELECT * FROM system_schema.keyspaces';
+const query = 'SELECT * FROM system_schema.keyspaces'
 
 client.execute(query).then(
-    result => {
-      console.log('Row from Keyspaces %s', result.rows[3])
-      process.exit()
-    }
+  result => {
+    console.log('Row from Keyspaces %s', result.rows[3])
+    process.exit()
+  }
 ).catch(
-    e => {
-      console.log(`${e}`)
-      process.exit()
-    }
-);
+  e => {
+    console.log(`${e}`)
+    process.exit()
+  }
+)
