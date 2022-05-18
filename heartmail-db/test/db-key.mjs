@@ -90,14 +90,21 @@ describe('DbKey', () => {
       const dbKey = DbKey.fromRandom()
       dbKey.typeStr = 5
       dbKey.isValid().should.equal(false)
-      dbKey.getValidationError().should.equal('typeStr must be a string')
+      dbKey.getValidationError().should.equal('typeStr must be a string or undefined')
     })
 
     it('should know this is not a valid DbKey', () => {
       const dbKey = DbKey.fromRandom()
       dbKey.dataBuf = 5
       dbKey.isValid().should.equal(false)
-      dbKey.getValidationError().should.equal('dataBuf must be a Buffer')
+      dbKey.getValidationError().should.equal('dataBuf must be a Buffer or undefined')
+    })
+
+    it('should know this is not a valid DbKey', () => {
+      const dbKey = DbKey.fromRandom()
+      dbKey.dataBuf = Buffer.from('00'.repeat(1e6 + 1), 'hex')
+      dbKey.isValid().should.equal(false)
+      dbKey.getValidationError().should.equal('dataBuf must not be greater than 1 million bytes')
     })
   })
 })

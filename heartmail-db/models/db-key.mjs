@@ -81,12 +81,15 @@ export default class DbKey extends Struct {
     }
     if (this.typeStr !== undefined) {
       if (typeof this.typeStr !== 'string') {
-        return 'typeStr must be a string'
+        return 'typeStr must be a string or undefined'
       }
     }
     if (this.dataBuf !== undefined) {
       if (!Buffer.isBuffer(this.dataBuf)) {
-        return 'dataBuf must be a Buffer'
+        return 'dataBuf must be a Buffer or undefined'
+      }
+      if (this.dataBuf.length > 1e6) {
+        return 'dataBuf must not be greater than 1 million bytes'
       }
     }
     return ''
