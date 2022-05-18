@@ -38,4 +38,18 @@ export default class DbKey extends Struct {
   static fromRandom () {
     return new this().fromRandom()
   }
+
+  fromJSON (json) {
+    this.fromObject({
+      keyAlias: KeyAlias.fromJSON(json.keyAlias),
+      keyAddress: KeyAddress.fromJSON(json.keyAddress),
+      pubKey: json.pubKey ? PubKey.fromJSON(json.pubKey) : undefined,
+      privKey: json.privKey ? PrivKey.fromJSON(json.privKey) : undefined,
+      typeStr: json.typeStr,
+      dataBuf: json.dataBuf ? Buffer.fromString(json.dataBuf, 'hex') : undefined,
+      createdAt: new Date(json.createdAt),
+      updatedAt: new Date(json.updatedAt)
+    })
+    return this
+  }
 }

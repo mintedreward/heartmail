@@ -1,6 +1,6 @@
 /* global describe,it */
 import DbKey from '../models/db-key.mjs'
-import { KeyAddress, PubKey, KeyAlias } from 'heartmail-lib'
+import { KeyAddress, PubKey, KeyAlias, PrivKey } from 'heartmail-lib'
 import should from 'should'
 
 describe('DbKey', () => {
@@ -42,6 +42,20 @@ describe('DbKey', () => {
       ;(typeof json.privKey).should.equal('string')
       ;(typeof json.createdAt).should.equal('string')
       ;(typeof json.updatedAt).should.equal('string')
+    })
+  })
+
+  describe('@fromJSON', () => {
+    it('should convert to/from json', () => {
+      const dbKey = DbKey.fromRandom()
+      const json = dbKey.toJSON()
+      const dbKey2 = DbKey.fromJSON(json)
+      ;(dbKey2.keyAlias instanceof KeyAlias).should.equal(true)
+      ;(dbKey2.keyAddress instanceof KeyAddress).should.equal(true)
+      ;(dbKey2.pubKey instanceof PubKey).should.equal(true)
+      ;(dbKey2.privKey instanceof PrivKey).should.equal(true)
+      ;(dbKey2.createdAt instanceof Date).should.equal(true)
+      ;(dbKey2.updatedAt instanceof Date).should.equal(true)
     })
   })
 })
