@@ -131,4 +131,22 @@ describe('KeyAlias', function () {
       keyAlias.buf.toString('hex').should.equal('7fda9cf020c16cacf529c87d8de89bfc')
     })
   })
+
+  describe('#toJSON', () => {
+    it('should produce this known value', () => {
+      const string = '7khrkf3z64jcbu80i5rvv629o'
+      const keyAlias = KeyAlias.fromString(string)
+      keyAlias.toJSON().should.equal('"7khrkf3z64jcbu80i5rvv629o"')
+    })
+  })
+
+  describe('@fromJSON', () => {
+    it('should produce this known value', () => {
+      const string = '7khrkf3z64jcbu80i5rvv629o'
+      const keyAlias = KeyAlias.fromString(string)
+      keyAlias.toJSON().should.equal('"7khrkf3z64jcbu80i5rvv629o"')
+      const keyAlias2 = KeyAlias.fromJSON(keyAlias.toJSON())
+      keyAlias2.toString().should.equal(string)
+    })
+  })
 })

@@ -84,6 +84,14 @@ class KeyAlias extends Struct {
   fromString (str) {
     return this.fromBase36(str, LENGTH)
   }
+
+  toJSON () {
+    return JSON.stringify(this.toString())
+  }
+
+  fromJSON (json) {
+    return this.fromString(JSON.parse(json))
+  }
 }
 
 export { KeyAlias }
