@@ -137,7 +137,7 @@ export default class DbKey extends Struct {
   }
 
   async findOne () {
-    const obj = this.toCassandraObject() // eslint-disable-line
+    const obj = this.toCassandraObject()
 
     const query = `select * from ${keyspace}.keys where key_alias_left = ? and key_alias_right = ?`
     const values = [obj.key_alias_left, obj.key_alias_right]
@@ -163,7 +163,7 @@ export default class DbKey extends Struct {
   }
 
   async updateOne () {
-    const obj = this.toCassandraObject() // eslint-disable-line
+    const obj = this.toCassandraObject()
 
     const query = `update keys set ${keyspace}.key_address = ?, pub_key = ?, priv_key = ?, type_str = ?, data_buf = ?, created_at = ?, updated_at = ? where key_alias_left = ? and key_alias_right = ?`
     const values = [obj.key_address, obj.pub_key, obj.priv_key, obj.type_str, obj.data_buf, obj.created_at, obj.updated_at, obj.key_alias_left, obj.key_alias_right]
