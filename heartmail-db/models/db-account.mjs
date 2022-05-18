@@ -1,4 +1,5 @@
 import { KeyAlias } from 'heartmail-lib'
+import emailValidator from 'email-validator'
 import DbKey from './db-key.mjs'
 
 export default class DbAccount extends DbKey {
@@ -35,20 +36,44 @@ export default class DbAccount extends DbKey {
     return this
   }
 
-  create (accessGrantedAt, ownerEmailAddress, paymentEmailAddress, affiliateKeyAlias, contactFeeAmountUsd) {
+  create (obj) {
     this.fromRandom()
-    this.fromObject({
-      accessGrantedAt,
-      ownerEmailAddress,
-      paymentEmailAddress,
-      affiliateKeyAlias,
-      contactFeeAmountUsd
-    })
+    this.fromObject(obj)
+    this.accessGrantedAt = this.accessGrantedAt ? this.accessGrantedAt : new Date()
+    this.contactFeeAmountUsd = this.contactFeeAmountUsd === undefined ? 1.00 : this.contactFeeAmountUsd
     this.createDataBuf()
     return this
   }
 
-  static create (accessGrantedAt, ownerEmailAddress, paymentEmailAddress, affiliateKeyAlias, contactFeeAmountUsd) {
-    return new this().create(accessGrantedAt, ownerEmailAddress, paymentEmailAddress, affiliateKeyAlias, contactFeeAmountUsd)
+  static create (obj) {
+    return new this().create(obj)
+  }
+
+  getValidationError () {
+    const validationError = super.getValidationError()
+    if (validationError) {
+      return validationError
+    }
+    if (!(this.accessGrantedAt instanceof Date)) {
+      return 'accessGrantedAt must be a Date'
+    }
+    if (!emailValidator.validate(this.ownerEmailAddress)) {
+      return 'ownerEmailAddress must be an email address'
+    }
+    if (!emailValidator.validate(this.paymentEmailAddress)) {
+      return 'paymentEmailAddress must be an email address'
+    }
+    if (this.affiliateKeyAlias) {
+      if (!(this.affiliateKeyAlias instanceof KeyAlias)) {
+        return 'affiliateKeyAlias must be a KeyAlias or undefined'
+      }
+    }
+    if (typeof this.contactFeeAmountUsd !== 'number') {
+      return 'contactFeeAmountUsd must be a number'
+    }
+    if (this.contactFeeAmountUsd < 0) {
+      return 'contactFeeAmountUsd must be positive'
+    }
+    return ''
   }
 }

@@ -15,6 +15,7 @@
   "dependencies": {
     "aws-sigv4-auth-cassandra-plugin": "^1.0.4",
     "cassandra-driver": "^4.6.3",
+    "email-validator": "^2.0.4",
     "heartmail-loadenv": "workspace:*"
   },
   "devDependencies": {

@@ -94,4 +94,142 @@ describe('DbAccount', () => {
       dbAccount2.contactFeeAmountUsd.should.equal(dbAccount.contactFeeAmountUsd)
     })
   })
+
+  describe('@create', () => {
+    it('should create and know this is a valid DbAccount', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const keyAddress = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
+      const dbAccount = DbAccount.create({
+        accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: keyAlias,
+        contactFeeAmountUsd: 1.00
+      })
+      dbAccount.isValid().should.equal(true)
+    })
+  })
+
+  describe('#isValid', () => {
+    it('should know this is a valid DbAccount', () => {
+      const dbAccount = DbAccount.fromRandom()
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const keyAddress = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
+      dbAccount.fromObject({
+        accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: keyAlias,
+        contactFeeAmountUsd: 1.00
+      })
+      dbAccount.createDataBuf()
+      dbAccount.isValid().should.equal(true)
+    })
+
+    it('should know this is not a valid DbAccount', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const keyAddress = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
+      const dbAccount = DbAccount.create({
+        accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: keyAlias,
+        contactFeeAmountUsd: 1.00
+      })
+      dbAccount.accessGrantedAt = 5
+      dbAccount.isValid().should.equal(false)
+      dbAccount.getValidationError().should.equal('accessGrantedAt must be a Date')
+    })
+
+    it('should know this is not a valid DbAccount', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const keyAddress = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
+      const dbAccount = DbAccount.create({
+        accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: keyAlias,
+        contactFeeAmountUsd: 1.00
+      })
+      dbAccount.ownerEmailAddress = 5
+      dbAccount.isValid().should.equal(false)
+      dbAccount.getValidationError().should.equal('ownerEmailAddress must be an email address')
+    })
+
+    it('should know this is not a valid DbAccount', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const keyAddress = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
+      const dbAccount = DbAccount.create({
+        accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: keyAlias,
+        contactFeeAmountUsd: 1.00
+      })
+      dbAccount.paymentEmailAddress = 5
+      dbAccount.isValid().should.equal(false)
+      dbAccount.getValidationError().should.equal('paymentEmailAddress must be an email address')
+    })
+
+    it('should know this is not a valid DbAccount', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const keyAddress = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
+      const dbAccount = DbAccount.create({
+        accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: keyAlias,
+        contactFeeAmountUsd: 1.00
+      })
+      dbAccount.affiliateKeyAlias = 5
+      dbAccount.isValid().should.equal(false)
+      dbAccount.getValidationError().should.equal('affiliateKeyAlias must be a KeyAlias or undefined')
+    })
+
+    it('should know this is not a valid DbAccount', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const keyAddress = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
+      const dbAccount = DbAccount.create({
+        accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: keyAlias,
+        contactFeeAmountUsd: 1.00
+      })
+      dbAccount.contactFeeAmountUsd = '1.00'
+      dbAccount.isValid().should.equal(false)
+      dbAccount.getValidationError().should.equal('contactFeeAmountUsd must be a number')
+    })
+
+    it('should know this is not a valid DbAccount', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const keyAddress = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
+      const dbAccount = DbAccount.create({
+        accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: keyAlias,
+        contactFeeAmountUsd: 1.00
+      })
+      dbAccount.contactFeeAmountUsd = -1.00
+      dbAccount.isValid().should.equal(false)
+      dbAccount.getValidationError().should.equal('contactFeeAmountUsd must be positive')
+    })
+  })
 })
