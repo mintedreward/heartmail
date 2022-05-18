@@ -1,10 +1,10 @@
 // import connect from '../connect.mjs'
-import Struct from 'heartmail-lib'
+import { KeyAlias, KeyAddress, PubKey, PrivKey, Struct } from 'heartmail-lib'
 
 // const connection = connect()
 
 export default class ModelKey extends Struct {
-  constructor(keyAlias, keyAddress, pubKey, privKey, createdAt, updatedAt) {
+  constructor (keyAlias, keyAddress, pubKey, privKey, createdAt, updatedAt) {
     super({
       keyAlias,
       keyAddress,

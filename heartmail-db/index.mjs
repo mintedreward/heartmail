@@ -13,8 +13,6 @@ export default class Db {
     // create tables
   }
 
-  getAffiliatePaymentEmailAddressByAccountKeyAlias
-
   /*
 Affiliate:
 - Retrieve affiliate external email2
