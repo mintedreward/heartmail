@@ -34,4 +34,21 @@ export default class DbAccount extends DbKey {
     this.fromObject(dataObj)
     return this
   }
+
+  create (accessGrantedAt, ownerEmailAddress, paymentEmailAddress, affiliateKeyAlias, contactFeeAmountUsd) {
+    this.fromRandom()
+    this.fromObject({
+      accessGrantedAt,
+      ownerEmailAddress,
+      paymentEmailAddress,
+      affiliateKeyAlias,
+      contactFeeAmountUsd
+    })
+    this.createDataBuf()
+    return this
+  }
+
+  static create (accessGrantedAt, ownerEmailAddress, paymentEmailAddress, affiliateKeyAlias, contactFeeAmountUsd) {
+    return new this().create(accessGrantedAt, ownerEmailAddress, paymentEmailAddress, affiliateKeyAlias, contactFeeAmountUsd)
+  }
 }

@@ -58,4 +58,46 @@ describe('DbKey', () => {
       ;(dbKey2.updatedAt instanceof Date).should.equal(true)
     })
   })
+
+  describe('#isValid', () => {
+    it('should know this is a valid DbKey', () => {
+      const dbKey = DbKey.fromRandom()
+      dbKey.isValid().should.equal(true)
+    })
+
+    it('should know this is not a valid DbKey', () => {
+      const dbKey = DbKey.fromRandom()
+      dbKey.keyAddress = KeyAddress.fromRandom()
+      dbKey.isValid().should.equal(false)
+      dbKey.getValidationError().should.equal('keyAlias does not match keyAddress')
+    })
+
+    it('should know this is not a valid DbKey', () => {
+      const dbKey = DbKey.fromRandom()
+      dbKey.pubKey = PubKey.fromPrivKey(PrivKey.fromRandom())
+      dbKey.isValid().should.equal(false)
+      dbKey.getValidationError().should.equal('keyAddress does not match pubKey')
+    })
+
+    it('should know this is not a valid DbKey', () => {
+      const dbKey = DbKey.fromRandom()
+      dbKey.privKey = PrivKey.fromRandom()
+      dbKey.isValid().should.equal(false)
+      dbKey.getValidationError().should.equal('pubKey does not match privKey')
+    })
+
+    it('should know this is not a valid DbKey', () => {
+      const dbKey = DbKey.fromRandom()
+      dbKey.typeStr = 5
+      dbKey.isValid().should.equal(false)
+      dbKey.getValidationError().should.equal('typeStr must be a string')
+    })
+
+    it('should know this is not a valid DbKey', () => {
+      const dbKey = DbKey.fromRandom()
+      dbKey.dataBuf = 5
+      dbKey.isValid().should.equal(false)
+      dbKey.getValidationError().should.equal('dataBuf must be a Buffer')
+    })
+  })
 })

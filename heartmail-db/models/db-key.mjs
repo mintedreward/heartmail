@@ -52,4 +52,43 @@ export default class DbKey extends Struct {
     })
     return this
   }
+
+  isValid () {
+    return !this.getValidationError()
+  }
+
+  getValidationError () {
+    if (!this.keyAlias) {
+      return 'missing keyAlias'
+    }
+    if (this.keyAddress !== undefined) {
+      const keyAlias = KeyAlias.fromKeyAddress(this.keyAddress)
+      if (keyAlias.toString() !== this.keyAlias.toString()) {
+        return 'keyAlias does not match keyAddress'
+      }
+    }
+    if (this.pubKey !== undefined) {
+      const keyAddress = KeyAddress.fromPubKey(this.pubKey)
+      if (keyAddress.toString() !== this.keyAddress.toString()) {
+        return 'keyAddress does not match pubKey'
+      }
+    }
+    if (this.privKey !== undefined) {
+      const pubKey = PubKey.fromPrivKey(this.privKey)
+      if (pubKey.toString() !== this.pubKey.toString()) {
+        return 'pubKey does not match privKey'
+      }
+    }
+    if (this.typeStr !== undefined) {
+      if (typeof this.typeStr !== 'string') {
+        return 'typeStr must be a string'
+      }
+    }
+    if (this.dataBuf !== undefined) {
+      if (!Buffer.isBuffer(this.dataBuf)) {
+        return 'dataBuf must be a Buffer'
+      }
+    }
+    return ''
+  }
 }
