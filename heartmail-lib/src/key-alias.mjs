@@ -2,6 +2,7 @@
 
 import { Struct } from './struct.mjs'
 import { Bn } from './bn.mjs'
+import { KeyAddress } from './key-address.mjs'
 
 const LENGTH = 128 // bits
 
@@ -91,6 +92,14 @@ class KeyAlias extends Struct {
 
   fromJSON (json) {
     return this.fromString(JSON.parse(json))
+  }
+
+  fromRandom () {
+    return this.fromKeyAddress(KeyAddress.fromRandom())
+  }
+
+  static fromRandom () {
+    return new this().fromRandom()
   }
 }
 
