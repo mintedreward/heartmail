@@ -112,7 +112,25 @@ describe('DbKey', () => {
     it('should insert one and find one', async () => {
       const dbKey = DbKey.fromRandom()
       await dbKey.insert()
-      const dbKey2 = await DbKey.findOne(dbKey.keyAlias)
+      const dbKey2 = await DbKey.findOneByKeyAlias(dbKey.keyAlias)
+      dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
+    })
+  })
+
+  describe('@findOneByKeyAlias', () => {
+    it('should insert one and find one', async () => {
+      const dbKey = DbKey.fromRandom()
+      await dbKey.insert()
+      const dbKey2 = await DbKey.findOneByKeyAlias(dbKey.keyAlias)
+      dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
+    })
+  })
+
+  describe('@findOneByKeyAliasLeft', () => {
+    it('should insert one and find one', async () => {
+      const dbKey = DbKey.fromRandom()
+      await dbKey.insert()
+      const dbKey2 = await DbKey.findOneByKeyAliasLeft(dbKey.keyAlias)
       dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
     })
   })

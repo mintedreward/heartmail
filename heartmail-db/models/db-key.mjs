@@ -136,7 +136,7 @@ export default class DbKey extends Struct {
     return result
   }
 
-  async findOne () {
+  async findOneByKeyAlias () {
     const obj = this.toCassandraObject()
 
     const query = `select * from ${keyspace}.keys where key_alias_left = ? and key_alias_right = ?`
@@ -153,8 +153,34 @@ export default class DbKey extends Struct {
     return this
   }
 
-  static async findOne (keyAlias) {
-    const dbKey = await new this(keyAlias).findOne()
+  static async findOneByKeyAlias (keyAlias) {
+    const dbKey = await new this(keyAlias).findOneByKeyAlias()
+    if (dbKey.keyAlias) {
+      return dbKey
+    } else {
+      return undefined
+    }
+  }
+
+  async findOneByKeyAliasLeft () {
+    const obj = this.toCassandraObject()
+
+    const query = `select * from ${keyspace}.keys where key_alias_left = ?`
+    const values = [obj.key_alias_left]
+
+    const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    const row = result.first()
+
+    if (row) {
+      this.fromCassandraObject(row)
+    }
+
+    return this
+  }
+
+  static async findOneByKeyAliasLeft (keyAlias) {
+    const dbKey = await new this(keyAlias).findOneByKeyAliasLeft()
     if (dbKey.keyAlias) {
       return dbKey
     } else {
