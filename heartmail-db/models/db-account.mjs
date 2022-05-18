@@ -57,13 +57,17 @@ export default class DbAccount extends DbKey {
     if (!(this.accessGrantedAt instanceof Date)) {
       return 'accessGrantedAt must be a Date'
     }
-    if (!emailValidator.validate(this.ownerEmailAddress)) {
-      return 'ownerEmailAddress must be an email address'
+    if (this.ownerEmailAddress !== undefined) {
+      if (!emailValidator.validate(this.ownerEmailAddress)) {
+        return 'ownerEmailAddress must be an email address or undefined'
+      }
     }
-    if (!emailValidator.validate(this.paymentEmailAddress)) {
-      return 'paymentEmailAddress must be an email address'
+    if (this.paymentEmailAddress !== undefined) {
+      if (!emailValidator.validate(this.paymentEmailAddress)) {
+        return 'paymentEmailAddress must be an email address or undefined'
+      }
     }
-    if (this.affiliateKeyAlias) {
+    if (this.affiliateKeyAlias !== undefined) {
       if (!(this.affiliateKeyAlias instanceof KeyAlias)) {
         return 'affiliateKeyAlias must be a KeyAlias or undefined'
       }

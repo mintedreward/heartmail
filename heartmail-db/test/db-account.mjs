@@ -161,7 +161,7 @@ describe('DbAccount', () => {
       })
       dbAccount.ownerEmailAddress = 5
       dbAccount.isValid().should.equal(false)
-      dbAccount.getValidationError().should.equal('ownerEmailAddress must be an email address')
+      dbAccount.getValidationError().should.equal('ownerEmailAddress must be an email address or undefined')
     })
 
     it('should know this is not a valid DbAccount', () => {
@@ -178,7 +178,7 @@ describe('DbAccount', () => {
       })
       dbAccount.paymentEmailAddress = 5
       dbAccount.isValid().should.equal(false)
-      dbAccount.getValidationError().should.equal('paymentEmailAddress must be an email address')
+      dbAccount.getValidationError().should.equal('paymentEmailAddress must be an email address or undefined')
     })
 
     it('should know this is not a valid DbAccount', () => {
