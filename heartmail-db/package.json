@@ -2,8 +2,9 @@
   "name": "heartmail-db",
   "version": "1.0.0",
   "description": "",
-  "main": "index.mjs",
+  "main": "connect.mjs",
   "scripts": {
+    "migrate": "node migrate.mjs",
     "standard": "standard",
     "lint": "yarn run standard",
     "pretest": "yarn run lint",
