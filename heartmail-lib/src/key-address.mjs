@@ -137,24 +137,12 @@ class KeyAddress extends Struct {
   }
 
   toJSON () {
-    const json = {}
-    if (this.hashBuf) {
-      json.hashBuf = this.hashBuf.toString('hex')
-    }
-    if (typeof this.versionByteNum !== 'undefined') {
-      json.versionByteNum = this.versionByteNum
-    }
-    return json
+    return JSON.stringify(this.toString())
   }
 
   fromJSON (json) {
-    if (json.hashBuf) {
-      this.hashBuf = Buffer.from(json.hashBuf, 'hex')
-    }
-    if (typeof json.versionByteNum !== 'undefined') {
-      this.versionByteNum = json.versionByteNum
-    }
-    return this
+    const str = JSON.parse(json)
+    return this.fromString(str)
   }
 
   toString () {

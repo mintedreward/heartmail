@@ -37,7 +37,7 @@ describe('DbKey', () => {
       should.exist(json.createdAt)
       should.exist(json.updatedAt)
       ;(typeof json.keyAlias).should.equal('string')
-      ;(typeof json.keyAddress).should.equal('object')
+      ;(typeof json.keyAddress).should.equal('string')
       ;(typeof json.pubKey).should.equal('string')
       ;(typeof json.privKey).should.equal('string')
       ;(typeof json.createdAt).should.equal('string')

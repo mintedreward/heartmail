@@ -307,8 +307,7 @@ describe('KeyAddress', function () {
       addrbuf.fill(0)
       const address = new KeyAddress().fromBuffer(addrbuf)
       const json = address.toJSON()
-      should.exist(json.hashBuf)
-      json.versionByteNum.should.equal(0)
+      json.should.equal('"1111111111111111111114oLvT2"')
     })
   })
 
