@@ -7,7 +7,7 @@
     "standard": "standard",
     "lint": "yarn run standard",
     "pretest": "yarn run lint",
-    "test:mocha": "mocha",
+    "test:mocha": "NODE_ENV=test mocha",
     "test": "yarn run pretest && yarn run test:mocha"
   },
   "author": "",

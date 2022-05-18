@@ -1,7 +1,10 @@
-// import connect from '../connect.mjs'
-import { KeyAlias, KeyAddress, PubKey, PrivKey, Struct } from 'heartmail-lib'
+import { getClient } from '../connect.mjs'
+import { KeyAlias, KeyAddress, PubKey, PrivKey, Struct, Bn } from 'heartmail-lib'
+import cassandra from 'cassandra-driver'
 
-// const connection = connect()
+const Long = cassandra.types.Long
+const keyspace = process.env.HEARTMAIL_DB_KEYSPACE
+const client = getClient()
 
 export default class DbKey extends Struct {
   constructor (keyAlias, keyAddress, pubKey, privKey, typeStr, dataBuf, createdAt, updatedAt) {
@@ -93,5 +96,80 @@ export default class DbKey extends Struct {
       }
     }
     return ''
+  }
+
+  fromCassandraObject (obj) {
+    return this.fromObject({
+      keyAliasLeft: KeyAlias.fromLeftRightBn(new Bn(obj.key_alias_left.toString(), 10), new Bn(obj.key_alias_right.toString(), 10)),
+      keyAddress: obj.key_address ? KeyAddress.fromString(obj.key_address) : undefined,
+      pubKey: obj.pub_key ? PubKey.fromString(obj.pub_key) : undefined,
+      privKey: obj.priv_key ? PrivKey.fromString(obj.priv_key) : undefined,
+      typeStr: obj.type_str,
+      dataBuf: obj.data_buf,
+      created_at: obj.created_at,
+      updatedAt: obj.updated_at
+    })
+  }
+
+  toCassandraObject () {
+    return {
+      key_alias_left: Long.fromString(this.keyAlias.getLeftBn().toString()),
+      key_alias_right: Long.fromString(this.keyAlias.getRightBn().toString()),
+      key_address: this.keyAddress ? this.keyAddress.toString() : undefined,
+      pub_key: this.pubKey ? this.pubKey.toString() : undefined,
+      priv_key: this.privKey ? this.privKey.toString() : undefined,
+      type_str: this.typeStr,
+      data_buf: this.dataBuf,
+      created_at: this.createdAt,
+      updated_at: this.updatedAt
+    }
+  }
+
+  async insert () {
+    const obj = this.toCassandraObject()
+
+    const query = `insert into ${keyspace}.keys (key_alias_left, key_alias_right, key_address, pub_key, priv_key, type_str, data_buf, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    const values = [obj.key_alias_left, obj.key_alias_right, obj.key_address, obj.pub_key, obj.priv_key, obj.type_str, obj.data_buf, obj.created_at, obj.updated_at]
+
+    const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    return result
+  }
+
+  async findOne () {
+    const obj = this.toCassandraObject() // eslint-disable-line
+
+    const query = `select * from ${keyspace}.keys where key_alias_left = ? and key_alias_right = ?`
+    const values = [obj.key_alias_left, obj.key_alias_right]
+
+    const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    const row = result.first()
+
+    if (row) {
+      this.fromCassandraObject(row)
+    }
+
+    return this
+  }
+
+  static async findOne (keyAlias) {
+    const dbKey = await new this(keyAlias).findOne()
+    if (dbKey.keyAlias) {
+      return dbKey
+    } else {
+      return undefined
+    }
+  }
+
+  async updateOne () {
+    const obj = this.toCassandraObject() // eslint-disable-line
+
+    const query = `update keys set ${keyspace}.key_address = ?, pub_key = ?, priv_key = ?, type_str = ?, data_buf = ?, created_at = ?, updated_at = ? where key_alias_left = ? and key_alias_right = ?`
+    const values = [obj.key_address, obj.pub_key, obj.priv_key, obj.type_str, obj.data_buf, obj.created_at, obj.updated_at, obj.key_alias_left, obj.key_alias_right]
+
+    const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    return result
   }
 }

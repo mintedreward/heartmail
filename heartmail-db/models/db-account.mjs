@@ -10,6 +10,8 @@ export default class DbAccount extends DbKey {
 
   createDataBuf () {
     const dataObj = {
+      mbPaymentId: this.mbPaymentId,
+      mbTxid: this.mbTxid,
       accessGrantedAt: this.accessGrantedAt,
       ownerEmailAddress: this.ownerEmailAddress,
       paymentEmailAddress: this.paymentEmailAddress,
@@ -26,6 +28,8 @@ export default class DbAccount extends DbKey {
     const dataStr = this.dataBuf.toString()
     const dataJSON = JSON.parse(dataStr)
     const dataObj = {
+      mbPaymentId: dataJSON.mbPaymentId,
+      mbTxid: dataJSON.mbTxid,
       accessGrantedAt: new Date(dataJSON.accessGrantedAt),
       ownerEmailAddress: dataJSON.ownerEmailAddress,
       paymentEmailAddress: dataJSON.paymentEmailAddress,

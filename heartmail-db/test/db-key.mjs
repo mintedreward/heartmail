@@ -107,4 +107,13 @@ describe('DbKey', () => {
       dbKey.getValidationError().should.equal('dataBuf must not be greater than 1 million bytes')
     })
   })
+
+  describe('#insert', () => {
+    it('should insert one and find one', async () => {
+      const dbKey = DbKey.fromRandom()
+      await dbKey.insert()
+      const dbKey2 = await DbKey.findOne(dbKey.keyAlias)
+      dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
+    })
+  })
 })

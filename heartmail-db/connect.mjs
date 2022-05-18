@@ -49,16 +49,12 @@ const client = new cassandra.Client({
   protocolOptions: { port: 9142 }
 })
 
-const query = 'SELECT * FROM system_schema.keyspaces'
+export async function useKeyspace () {
+  console.log(`Using keyspace ${process.env.HEARTMAIL_DB_KEYSPACE}`)
+  const query = `use ${process.env.HEARTMAIL_DB_KEYSPACE}`
+  await client.execute(query)
+}
 
-client.execute(query).then(
-  result => {
-    console.log('Row from Keyspaces %s', result.rows[3])
-    process.exit()
-  }
-).catch(
-  e => {
-    console.log(`${e}`)
-    process.exit()
-  }
-)
+export function getClient () {
+  return client
+}
