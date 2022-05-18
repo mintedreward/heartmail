@@ -57,9 +57,64 @@ describe('KeyAlias', function () {
 
     it('should produce this known value', () => {
       const address = new KeyAddress()
-      address.hashBuf = '00'.repeat(32)
+      address.hashBuf = Buffer.from('00'.repeat(160 / 8), 'hex')
       const keyAlias = KeyAlias.fromKeyAddress(address)
       keyAlias.toString().should.equal('0')
+    })
+
+    it('should produce this known value', () => {
+      const address = new KeyAddress()
+      address.hashBuf = Buffer.from('01'.repeat(160 / 8), 'hex')
+      const keyAlias = KeyAlias.fromKeyAddress(address)
+      keyAlias.toString().should.equal('250za67mbtgh1tvq6ktn8q2p')
+    })
+
+    it('should produce this known value', () => {
+      const address = new KeyAddress()
+      address.hashBuf = Buffer.from('02'.repeat(160 / 8), 'hex')
+      const keyAlias = KeyAlias.fromKeyAddress(address)
+      keyAlias.toString().should.equal('4a1ykcf8nmwy3nrgd5nahg5e')
+    })
+  })
+
+  describe('getLeftString', () => {
+    it('should produce this known value', () => {
+      const address = new KeyAddress()
+      address.hashBuf = Buffer.from('01'.repeat(160 / 8), 'hex')
+      const keyAlias = KeyAlias.fromKeyAddress(address)
+      keyAlias.getLeftString().should.equal('jsag8mbvldt')
+    })
+
+    it('should produce this known value', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const address = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(address)
+      keyAlias.getLeftString().should.equal('130ucufm37f3v')
+    })
+  })
+
+  describe('getRightString', () => {
+    it('should produce this known value', () => {
+      const address = new KeyAddress()
+      address.hashBuf = Buffer.from('01'.repeat(160 / 8), 'hex')
+      const keyAlias = KeyAlias.fromKeyAddress(address)
+      keyAlias.getRightString().should.equal('jsag8mbvldt')
+    })
+
+    it('should produce the same as left for this particular value', () => {
+      const address = new KeyAddress()
+      address.hashBuf = Buffer.from('01'.repeat(160 / 8), 'hex')
+      const keyAlias = KeyAlias.fromKeyAddress(address)
+      keyAlias.getRightString().should.equal(keyAlias.getLeftString())
+    })
+
+    it('should produce this known value', () => {
+      const privKey = PrivKey.fromBn(new Bn(5))
+      const pubKey = PubKey.fromPrivKey(privKey)
+      const address = KeyAddress.fromPubKey(pubKey)
+      const keyAlias = KeyAlias.fromKeyAddress(address)
+      keyAlias.getRightString().should.equal('8hg7z5h0mhzz')
     })
   })
 

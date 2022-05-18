@@ -3,40 +3,86 @@
 import { Struct } from './struct.mjs'
 import { Bn } from './bn.mjs'
 
-const DEFAULT_LENGTH = 128 // bits
+const LENGTH = 128 // bits
 
 class KeyAlias extends Struct {
   constructor (buf) {
     super({ buf })
   }
 
-  fromKeyAddress (address, length = DEFAULT_LENGTH) {
-    const buf = address.hashBuf.slice(0, length / 8)
+  fromKeyAddress (address) {
+    const buf = address.hashBuf.slice(0, LENGTH / 8)
     this.buf = buf
-    this.length = length
     return this
   }
 
-  static fromKeyAddress (address, length = DEFAULT_LENGTH) {
-    return new this().fromKeyAddress(address, length)
+  static fromKeyAddress (address) {
+    return new this().fromKeyAddress(address, LENGTH)
   }
 
   toBase36 () {
     return new Bn(this.buf.toString('hex'), 16).toString(36)
   }
 
-  fromBase36 (str, length = DEFAULT_LENGTH) {
+  fromBase36 (str) {
     const bn = new Bn(str, 36)
-    this.buf = bn.toBuffer({ size: length / 8 })
+    this.buf = bn.toBuffer({ size: LENGTH / 8 })
     return this
   }
 
-  toString (length = DEFAULT_LENGTH) {
-    return this.toBase36(length)
+  fromLeftRightBuf (leftBuf, rightBuf) {
+    this.buf = Buffer.concat([leftBuf, rightBuf])
+    return this
   }
 
-  fromString (str, length = DEFAULT_LENGTH) {
-    return this.fromBase36(str, length)
+  fromLeftRightBn (leftBn = new Bn(0), rightBn = new Bn(0)) {
+    const leftBuf = leftBn.toBuffer({ size: 8, endian: 'big' })
+    const rightBuf = rightBn.toBuffer({ size: 8, endian: 'big' })
+    return this.fromLeftRightBuf(leftBuf, rightBuf)
+  }
+
+  static fromLeftRightBn (leftBn, rightBn) {
+    return new this().fromLeftRightBn(leftBn, rightBn)
+  }
+
+  getLeftBuf () {
+    return this.buf.slice(0, 8)
+  }
+
+  getRightBuf () {
+    return this.buf.slice(8, 16)
+  }
+
+  getLeftBn () {
+    return new Bn(this.getLeftBuf().toString('hex'), 16)
+  }
+
+  getRightBn () {
+    return new Bn(this.getRightBuf().toString('hex'), 16)
+  }
+
+  getLeftBase36 () {
+    return this.getLeftBn().toString(36)
+  }
+
+  getRightBase36 () {
+    return this.getRightBn().toString(36)
+  }
+
+  getLeftString () {
+    return this.getLeftBase36()
+  }
+
+  getRightString () {
+    return this.getRightBase36()
+  }
+
+  toString () {
+    return this.toBase36(LENGTH)
+  }
+
+  fromString (str) {
+    return this.fromBase36(str, LENGTH)
   }
 }
 
