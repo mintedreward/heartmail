@@ -3,11 +3,11 @@ import Typography from '@mui/material/Typography'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
 import CurrencyInput from '../components/CurrencyInput'
-import getAffiliate from '../util/index.mjs'
+import { util } from 'heartmail-db'
 
 export async function getServerSideProps (context) {
   const affiliateEmail = context.query.a
-  const affiliate = await getAffiliate(affiliateEmail)
+  const affiliate = await util.getAffiliate(affiliateEmail)
   return {
     props: {
       affiliate

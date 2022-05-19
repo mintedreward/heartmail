@@ -8,14 +8,14 @@ export async function getAffiliate (affiliateEmail = '') {
     if (dbAccount) {
       return {
         hasAffiliate: true,
-        affiliateLongId: dbAccount.keyAlias.toLongId(),
-        affiliatePaymail: dbAccount.externalPaymail
+        longId: dbAccount.keyAlias.toLongId(),
+        externalPaymail: dbAccount.externalPaymail
       }
     }
   }
   return {
     hasAffiliate: false,
-    affiliateLongId: '',
-    affiliatePaymail: ''
+    longId: '',
+    externalPaymail: ''
   }
 }
