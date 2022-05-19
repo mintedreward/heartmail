@@ -18,8 +18,8 @@ describe('utilities', () => {
       const affiliateEmail = `${dbAccount.keyAlias.toShortId()}@heartmail.com`
       const affiliate = await util.getAffiliate(affiliateEmail)
       affiliate.hasAffiliate.should.equal(true)
-      affiliate.affiliateLongId.should.equal(dbAccount.keyAlias.toLongId())
-      affiliate.affiliatePaymail.should.equal(dbAccount.externalPaymail)
+      affiliate.longId.should.equal(dbAccount.keyAlias.toLongId())
+      affiliate.externalPaymail.should.equal(dbAccount.externalPaymail)
     })
   })
 })
