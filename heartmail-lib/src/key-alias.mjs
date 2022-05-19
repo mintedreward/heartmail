@@ -86,6 +86,33 @@ class KeyAlias extends Struct {
     return this.getRightBase36()
   }
 
+  toShortId () {
+    return this.getLeftBase36()
+  }
+
+  toLongId () {
+    return this.toBase36()
+  }
+
+  fromShortId (shortId = '') {
+    const leftBn = new Bn(shortId, 36)
+    const rightBn = new Bn(0)
+    this.fromLeftRightBn(leftBn, rightBn)
+    return this
+  }
+
+  static fromShortId (shortId) {
+    return new this().fromShortId(shortId)
+  }
+
+  fromLongId (longId = '') {
+    return this.fromBase36(longId)
+  }
+
+  static fromLongId (longId) {
+    return new this().fromLongId(longId)
+  }
+
   toString () {
     return this.toBase36(LENGTH)
   }

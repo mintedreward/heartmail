@@ -148,4 +148,28 @@ describe('KeyAlias', function () {
       keyAlias2.toString().should.equal(string)
     })
   })
+
+  describe('@fromShortId', () => {
+    it('should convert to/from', () => {
+      const keyAlias = KeyAlias.fromRandom()
+      const shortId = keyAlias.getLeftBase36()
+      const keyAlias2 = KeyAlias.fromShortId(shortId)
+      keyAlias2.getLeftBase36().should.equal(keyAlias.getLeftBase36())
+      keyAlias2.getRightBase36().should.not.equal(keyAlias.getRightBase36())
+      keyAlias2.toShortId().should.equal(keyAlias.toShortId())
+      keyAlias2.toLongId().should.not.equal(keyAlias.toLongId())
+    })
+  })
+
+  describe('@fromShortId', () => {
+    it('should convert to/from', () => {
+      const keyAlias = KeyAlias.fromRandom()
+      const longId = keyAlias.toBase36()
+      const keyAlias2 = KeyAlias.fromLongId(longId)
+      keyAlias2.getLeftBase36().should.equal(keyAlias.getLeftBase36())
+      keyAlias2.getRightBase36().should.equal(keyAlias.getRightBase36())
+      keyAlias2.toShortId().should.equal(keyAlias.toShortId())
+      keyAlias2.toLongId().should.equal(keyAlias.toLongId())
+    })
+  })
 })
