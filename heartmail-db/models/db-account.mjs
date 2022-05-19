@@ -11,10 +11,10 @@ export default class DbAccount extends DbKey {
   createDataBuf () {
     const dataObj = {
       accessGrantedAt: this.accessGrantedAt,
-      mbEmail: this.mbEmail,
-      mbPaymail: this.mbPaymail,
       affiliateKeyAlias: this.affiliateKeyAlias,
       contactFeeAmountUsd: this.contactFeeAmountUsd,
+      mbEmail: this.mbEmail,
+      mbPaymail: this.mbPaymail,
       mbPaymentId: this.mbPaymentId,
       mbTxId: this.mbTxId
     }
@@ -29,10 +29,10 @@ export default class DbAccount extends DbKey {
     const dataJSON = JSON.parse(dataStr)
     const dataObj = {
       accessGrantedAt: dataJSON.accessGrantedAt ? new Date(dataJSON.accessGrantedAt) : undefined,
-      mbEmail: dataJSON.mbEmail,
-      mbPaymail: dataJSON.mbPaymail,
       affiliateKeyAlias: dataJSON.affiliateKeyAlias ? KeyAlias.fromJSON(dataJSON.affiliateKeyAlias) : undefined,
       contactFeeAmountUsd: dataJSON.contactFeeAmountUsd,
+      mbEmail: dataJSON.mbEmail,
+      mbPaymail: dataJSON.mbPaymail,
       mbPaymentId: dataJSON.mbPaymentId,
       mbTxId: dataJSON.mbTxId
     }
@@ -66,16 +66,6 @@ export default class DbAccount extends DbKey {
     if (!(this.accessGrantedAt instanceof Date)) {
       return 'accessGrantedAt must be a Date'
     }
-    if (this.mbEmail !== undefined) {
-      if (!emailValidator.validate(this.mbEmail)) {
-        return 'mbEmail must be an email address or undefined'
-      }
-    }
-    if (this.mbPaymail !== undefined) {
-      if (!emailValidator.validate(this.mbPaymail)) {
-        return 'mbPaymail must be an email address or undefined'
-      }
-    }
     if (this.affiliateKeyAlias !== undefined) {
       if (!(this.affiliateKeyAlias instanceof KeyAlias)) {
         return 'affiliateKeyAlias must be a KeyAlias or undefined'
@@ -86,6 +76,16 @@ export default class DbAccount extends DbKey {
     }
     if (this.contactFeeAmountUsd < 0) {
       return 'contactFeeAmountUsd must be positive'
+    }
+    if (this.mbEmail !== undefined) {
+      if (!emailValidator.validate(this.mbEmail)) {
+        return 'mbEmail must be an email address or undefined'
+      }
+    }
+    if (this.mbPaymail !== undefined) {
+      if (!emailValidator.validate(this.mbPaymail)) {
+        return 'mbPaymail must be an email address or undefined'
+      }
     }
     return ''
   }

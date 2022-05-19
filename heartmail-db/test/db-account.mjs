@@ -30,10 +30,10 @@ describe('DbAccount', () => {
       const dbAccount = DbAccount.fromRandom()
       dbAccount.fromObject({
         accessGrantedAt: date,
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: KeyAlias.fromRandom(),
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       const json = dbAccount.toJSON()
       json.accessGrantedAt.should.equal(date.toJSON())
@@ -53,14 +53,14 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       dbAccount.fromObject({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.createDataBuf()
       should.exist(dbAccount.dataBuf)
-      dbAccount.dataBuf.toString('hex').should.equal('7b226163636573734772616e7465644174223a22323032322d30352d31385431353a34303a33342e3031355a222c226d62456d61696c223a226e616d65406578616d706c652e636f6d222c226d625061796d61696c223a226e616d65406578616d706c652e636f6d222c22616666696c696174654b6579416c696173223a225c2234377834646d3435737477347736766c3464696664687a74725c22222c22636f6e74616374466565416d6f756e74557364223a317d')
+      dbAccount.dataBuf.toString('hex').should.equal('7b226163636573734772616e7465644174223a22323032322d30352d31385431353a34303a33342e3031355a222c22616666696c696174654b6579416c696173223a225c2234377834646d3435737477347736766c3464696664687a74725c22222c22636f6e74616374466565416d6f756e74557364223a312c226d62456d61696c223a226e616d65406578616d706c652e636f6d222c226d625061796d61696c223a226e616d65406578616d706c652e636f6d227d')
     })
   })
 
@@ -73,10 +73,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       dbAccount.fromObject({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.createDataBuf()
       should.exist(dbAccount.dataBuf)
@@ -103,10 +103,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       const dbAccount = DbAccount.create({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.isValid().should.equal(true)
     })
@@ -121,10 +121,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       dbAccount.fromObject({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.createDataBuf()
       dbAccount.isValid().should.equal(true)
@@ -137,10 +137,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       const dbAccount = DbAccount.create({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.accessGrantedAt = 5
       dbAccount.isValid().should.equal(false)
@@ -154,10 +154,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       const dbAccount = DbAccount.create({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.mbEmail = 5
       dbAccount.isValid().should.equal(false)
@@ -171,10 +171,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       const dbAccount = DbAccount.create({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.mbPaymail = 5
       dbAccount.isValid().should.equal(false)
@@ -188,10 +188,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       const dbAccount = DbAccount.create({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.affiliateKeyAlias = 5
       dbAccount.isValid().should.equal(false)
@@ -205,10 +205,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       const dbAccount = DbAccount.create({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.contactFeeAmountUsd = '1.00'
       dbAccount.isValid().should.equal(false)
@@ -222,10 +222,10 @@ describe('DbAccount', () => {
       const keyAlias = KeyAlias.fromKeyAddress(keyAddress)
       const dbAccount = DbAccount.create({
         accessGrantedAt: new Date('2022-05-18T15:40:34.015Z'),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: keyAlias,
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       dbAccount.contactFeeAmountUsd = -1.00
       dbAccount.isValid().should.equal(false)
@@ -249,10 +249,10 @@ describe('DbAccount', () => {
       this.timeout(5000)
       const dbAccount = DbAccount.create({
         accessGrantedAt: new Date(),
-        mbEmail: 'name@example.com',
-        mbPaymail: 'name@example.com',
         affiliateKeyAlias: KeyAlias.fromRandom(),
-        contactFeeAmountUsd: 1.00
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com'
       })
       await dbAccount.insert()
       const dbAccount2 = await DbAccount.findOne(dbAccount.keyAlias.toLongId())
