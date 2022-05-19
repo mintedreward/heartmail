@@ -37,8 +37,6 @@ export default function AccessPage (props) {
   const userEmail = props.account.mbEmail
   const heartmail = `${props.account.longId}@${process.env.NEXT_PUBLIC_DOMAIN}`
 
-  console.log(props.account)
-
   return (
     <Layout title={`Early Access ${receiptId}`}>
       <PageTitle>Early Access</PageTitle>
