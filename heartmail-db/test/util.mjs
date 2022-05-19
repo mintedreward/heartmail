@@ -12,14 +12,14 @@ describe('utilities', () => {
   describe('getAffiliate', () => {
     it('should get an affiliate that exists', async function () {
       const dbAccount = DbAccount.create().fromObject({
-        externalPaymail: 'name@example.com'
+        mbPaymail: 'name@example.com'
       })
       await dbAccount.insert()
       const affiliateEmail = `${dbAccount.keyAlias.toShortId()}@heartmail.com`
       const affiliate = await util.getAffiliate(affiliateEmail)
       affiliate.hasAffiliate.should.equal(true)
       affiliate.longId.should.equal(dbAccount.keyAlias.toLongId())
-      affiliate.externalPaymail.should.equal(dbAccount.externalPaymail)
+      affiliate.mbPaymail.should.equal(dbAccount.mbPaymail)
     })
   })
 })

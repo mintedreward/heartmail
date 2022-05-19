@@ -11,8 +11,8 @@ export default class DbAccount extends DbKey {
   createDataBuf () {
     const dataObj = {
       accessGrantedAt: this.accessGrantedAt,
-      externalEmail: this.externalEmail,
-      externalPaymail: this.externalPaymail,
+      mbEmail: this.mbEmail,
+      mbPaymail: this.mbPaymail,
       affiliateKeyAlias: this.affiliateKeyAlias,
       contactFeeAmountUsd: this.contactFeeAmountUsd,
       mbPaymentId: this.mbPaymentId,
@@ -29,8 +29,8 @@ export default class DbAccount extends DbKey {
     const dataJSON = JSON.parse(dataStr)
     const dataObj = {
       accessGrantedAt: dataJSON.accessGrantedAt ? new Date(dataJSON.accessGrantedAt) : undefined,
-      externalEmail: dataJSON.externalEmail,
-      externalPaymail: dataJSON.externalPaymail,
+      mbEmail: dataJSON.mbEmail,
+      mbPaymail: dataJSON.mbPaymail,
       affiliateKeyAlias: dataJSON.affiliateKeyAlias ? KeyAlias.fromJSON(dataJSON.affiliateKeyAlias) : undefined,
       contactFeeAmountUsd: dataJSON.contactFeeAmountUsd,
       mbPaymentId: dataJSON.mbPaymentId,
@@ -66,14 +66,14 @@ export default class DbAccount extends DbKey {
     if (!(this.accessGrantedAt instanceof Date)) {
       return 'accessGrantedAt must be a Date'
     }
-    if (this.externalEmail !== undefined) {
-      if (!emailValidator.validate(this.externalEmail)) {
-        return 'externalEmail must be an email address or undefined'
+    if (this.mbEmail !== undefined) {
+      if (!emailValidator.validate(this.mbEmail)) {
+        return 'mbEmail must be an email address or undefined'
       }
     }
-    if (this.externalPaymail !== undefined) {
-      if (!emailValidator.validate(this.externalPaymail)) {
-        return 'externalPaymail must be an email address or undefined'
+    if (this.mbPaymail !== undefined) {
+      if (!emailValidator.validate(this.mbPaymail)) {
+        return 'mbPaymail must be an email address or undefined'
       }
     }
     if (this.affiliateKeyAlias !== undefined) {

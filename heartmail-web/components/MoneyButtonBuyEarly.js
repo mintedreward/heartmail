@@ -14,7 +14,7 @@ export default function MoneyButtonBuyEarly (props) {
         currency: 'USD'
       },
       {
-        to: affiliate.externalPaymail,
+        to: affiliate.mbPaymail,
         amount: '2',
         currency: 'USD'
       }

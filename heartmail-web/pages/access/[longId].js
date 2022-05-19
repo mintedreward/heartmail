@@ -33,7 +33,7 @@ export default function AccessPage (props) {
 
   const receiptId = props.account.longId
   const accessGrantedAt = props.account.accessGrantedAt.toString()
-  const userEmail = props.account.externalEmail
+  const userEmail = props.account.mbEmail
   const heartmail = `${props.account.longId}@${process.env.NEXT_PUBLIC_DOMAIN}`
   return (
     <Layout title={`Early Access ${receiptId}`}>

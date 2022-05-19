@@ -13,8 +13,8 @@ export async function createAccountWithPayment (contactFeeAmountUsd, affiliate, 
     const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
     assert(isNewAndValid)
     const dbAccount = DbAccount.create().delayAccess().fromObject({
-      externalEmail: payment.user.email.toLowerCase(),
-      externalPaymail: payment.senderPaymail.toLowerCase(),
+      mbEmail: payment.user.email,
+      mbPaymail: payment.senderPaymail,
       affiliateKeyAlias: KeyAlias.fromLongId(affiliate.longId),
       contactFeeAmountUsd: Math.round(contactFeeAmountUsd * 100, 2) / 100,
       mbPaymentId: payment.id,
@@ -33,8 +33,8 @@ export async function getAccount (longId) {
     return {
       longId: dbAccount.keyAlias.toLongId(),
       accessGrantedAt: dbAccount.accessGrantedAt.toJSON(),
-      externalEmail: dbAccount.externalEmail,
-      externalPaymail: dbAccount.externalPaymail,
+      mbEmail: dbAccount.mbEmail,
+      mbPaymail: dbAccount.mbPaymail,
       affiliateLongId: dbAccount.affiliateKeyAlias.toLongId(),
       contactFeeAmountUsd: dbAccount.contactFeeAmountUsd,
       mbPaymentId: dbAccount.mbPaymentId,
@@ -55,7 +55,7 @@ export async function getAffiliate (affiliateEmail = '') {
         return {
           hasAffiliate: true,
           longId: dbAccount.keyAlias.toLongId(),
-          externalPaymail: dbAccount.externalPaymail
+          mbPaymail: dbAccount.mbPaymail
         }
       }
     }
