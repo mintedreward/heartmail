@@ -16,7 +16,7 @@ export default class DbAccount extends DbKey {
       mbEmail: this.mbEmail,
       mbPaymail: this.mbPaymail,
       mbPaymentId: this.mbPaymentId,
-      mbTxId: this.mbTxId
+      mbTxid: this.mbTxid
     }
     const dataStr = JSON.stringify(dataObj)
     const dataBuf = Buffer.from(dataStr)
@@ -34,7 +34,7 @@ export default class DbAccount extends DbKey {
       mbEmail: dataJSON.mbEmail,
       mbPaymail: dataJSON.mbPaymail,
       mbPaymentId: dataJSON.mbPaymentId,
-      mbTxId: dataJSON.mbTxId
+      mbTxid: dataJSON.mbTxid
     }
     this.fromObject(dataObj)
     return this
