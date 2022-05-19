@@ -7,8 +7,7 @@
     "start": "heartmail-loadenv && next start",
     "standard": "standard",
     "lint": "standard && next lint",
-    "mocha": "NODE_ENV=test mocha",
-    "test": "yarn run mocha"
+    "test": "yarn run lint"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",

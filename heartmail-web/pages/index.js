@@ -6,7 +6,8 @@ import CurrencyInput from '../components/CurrencyInput'
 import getAffiliate from '../util/index.mjs'
 
 export async function getServerSideProps (context) {
-  const affiliate = await getAffiliate(context)
+  const affiliateEmail = context.query.a
+  const affiliate = await getAffiliate(affiliateEmail)
   return {
     props: {
       affiliate
@@ -15,6 +16,10 @@ export async function getServerSideProps (context) {
 }
 
 export default function HomePage (props) {
+  const handlePayment = () => {
+    // handle payment
+  }
+
   return (
     <Layout>
       <Typography variant='h2' component='h2' mt='50px' mb='50px' sx={{ textAlign: 'center' }}>
@@ -36,7 +41,7 @@ export default function HomePage (props) {
       <p>
         By buying early access, you agree to the <Link href='/terms'>Terms of Service</Link>.
       </p>
-      <MoneyButtonBuyEarly hasAffiliate={props.hasAffiliate} affiliateLongId={props.affiliateLongId} affiliatePaymail={props.affiliatePaymail} />
+      <MoneyButtonBuyEarly affiliate={props.affiliate} onPayment={handlePayment} />
     </Layout>
   )
 }
