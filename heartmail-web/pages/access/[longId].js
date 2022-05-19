@@ -33,15 +33,17 @@ export default function AccessPage (props) {
   }
 
   const receiptId = props.account.longId
-  const accessGrantedAt = hdate.relativeTime(props.account.accessGrantedAt)
+  const accessGrantedAt = new Date(props.account.accessGrantedAt).toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric"})
   const userEmail = props.account.mbEmail
   const heartmail = `${props.account.longId}@${process.env.NEXT_PUBLIC_DOMAIN}`
-  const affiliateHeartmail = props.account.affiliateLongId ? `${props.account.affiliateLongId}@${process.env.NEXT_PUBLIC_DOMAIN}` : ''
+
+  console.log(props.account)
+
   return (
     <Layout title={`Early Access ${receiptId}`}>
       <PageTitle>Early Access</PageTitle>
       <p>
-        This page grants access to HeartMail in {accessGrantedAt} to this email address:
+        This page grants access to HeartMail on {accessGrantedAt} to this email address:
       </p>
       <TextField id='outlined-basic' label='Email' disabled value={userEmail} sx={{ width: '100%' }} />
       <p>
@@ -51,7 +53,7 @@ export default function AccessPage (props) {
         Earn at least $2.00 per referral with your affiliate link:
       </p>
       <AffiliateCard heartmail={heartmail} />
-      {affiliateHeartmail ? (<p>Your affiliate is {affiliateHeartmail}</p>) : (<p />)}
+
     </Layout>
   )
 }

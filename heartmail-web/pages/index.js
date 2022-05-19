@@ -54,7 +54,7 @@ export default function HomePage (props) {
         payment: state.payment
       })
     })
-    const longId = await res.text()
+    const longId = await res.json()
     router.push(`/access/${longId}`)
   }
 

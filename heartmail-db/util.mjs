@@ -23,7 +23,6 @@ export async function createAccountWithPayment (contactFeeAmountUsd, affiliate, 
     await dbAccount.insert()
     return dbAccount.keyAlias.toLongId()
   } catch (err) {
-    console.log(err)
     return null
   }
 }
@@ -42,7 +41,6 @@ export async function getAccount (longId) {
       mbTxid: dbAccount.mbTxid
     }
   } catch (err) {
-    console.log(err)
     return null
   }
 }
