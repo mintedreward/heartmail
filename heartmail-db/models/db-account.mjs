@@ -8,15 +8,19 @@ export default class DbAccount extends DbKey {
     this.typeStr = 'account'
   }
 
+  static getPaymailFromShortId (shortId) {
+    // wait
+  }
+
   createDataBuf () {
     const dataObj = {
-      mbPaymentId: this.mbPaymentId,
-      mbTxid: this.mbTxid,
       accessGrantedAt: this.accessGrantedAt,
       ownerEmailAddress: this.ownerEmailAddress,
       paymentEmailAddress: this.paymentEmailAddress,
       affiliateKeyAlias: this.affiliateKeyAlias,
-      contactFeeAmountUsd: this.contactFeeAmountUsd
+      contactFeeAmountUsd: this.contactFeeAmountUsd,
+      mbPaymentId: this.mbPaymentId,
+      mbTxId: this.mbTxId
     }
     const dataStr = JSON.stringify(dataObj)
     const dataBuf = Buffer.from(dataStr)
@@ -28,13 +32,13 @@ export default class DbAccount extends DbKey {
     const dataStr = this.dataBuf.toString()
     const dataJSON = JSON.parse(dataStr)
     const dataObj = {
-      mbPaymentId: dataJSON.mbPaymentId,
-      mbTxid: dataJSON.mbTxid,
       accessGrantedAt: new Date(dataJSON.accessGrantedAt),
       ownerEmailAddress: dataJSON.ownerEmailAddress,
       paymentEmailAddress: dataJSON.paymentEmailAddress,
       affiliateKeyAlias: KeyAlias.fromJSON(dataJSON.affiliateKeyAlias),
-      contactFeeAmountUsd: dataJSON.contactFeeAmountUsd
+      contactFeeAmountUsd: dataJSON.contactFeeAmountUsd,
+      mbPaymentId: dataJSON.mbPaymentId,
+      mbTxId: dataJSON.mbTxId
     }
     this.fromObject(dataObj)
     return this

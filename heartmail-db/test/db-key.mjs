@@ -131,25 +131,25 @@ describe('DbKey', () => {
     it('should insert one and find one', async () => {
       const dbKey = DbKey.fromRandom()
       await dbKey.insert()
-      const dbKey2 = await DbKey.findOneByKeyAlias(dbKey.keyAlias)
+      const dbKey2 = await DbKey.findOne(dbKey.keyAlias.toLongId())
       dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
     })
   })
 
-  describe('@findOneByKeyAlias', () => {
+  describe('@findOne', () => {
     it('should insert one and find one', async () => {
       const dbKey = DbKey.fromRandom()
       await dbKey.insert()
-      const dbKey2 = await DbKey.findOneByKeyAlias(dbKey.keyAlias)
+      const dbKey2 = await DbKey.findOne(dbKey.keyAlias.toLongId())
       dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
     })
   })
 
-  describe('@findOneByKeyAliasLeft', () => {
+  describe('@findOneByShortId', () => {
     it('should insert one and find one', async () => {
       const dbKey = DbKey.fromRandom()
       await dbKey.insert()
-      const dbKey2 = await DbKey.findOneByKeyAliasLeft(dbKey.keyAlias)
+      const dbKey2 = await DbKey.findOneByShortId(dbKey.keyAlias.toShortId())
       dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
     })
   })
@@ -158,11 +158,11 @@ describe('DbKey', () => {
     it('should insert one, find one, update one', async () => {
       const dbKey = DbKey.fromRandom()
       await dbKey.insert()
-      const dbKey2 = await DbKey.findOneByKeyAlias(dbKey.keyAlias)
+      const dbKey2 = await DbKey.findOne(dbKey.keyAlias.toLongId())
       dbKey2.privKey.toString().should.equal(dbKey.privKey.toString())
       dbKey2.dataBuf = Buffer.from('01', 'hex')
       await dbKey2.updateOne()
-      const dbKey3 = await DbKey.findOneByKeyAlias(dbKey2.keyAlias)
+      const dbKey3 = await DbKey.findOne(dbKey2.keyAlias.toLongId())
       dbKey3.dataBuf.toString('hex').should.equal(dbKey2.dataBuf.toString('hex'))
     })
   })

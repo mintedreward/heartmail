@@ -136,7 +136,7 @@ export default class DbKey extends Struct {
     return result
   }
 
-  async findOneByKeyAlias () {
+  async findOne () {
     const obj = this.toCassandraObject()
 
     const query = `select * from ${keyspace}.keys where key_alias_left = ? and key_alias_right = ?`
@@ -153,8 +153,9 @@ export default class DbKey extends Struct {
     return this
   }
 
-  static async findOneByKeyAlias (keyAlias) {
-    const dbKey = await new this(keyAlias).findOneByKeyAlias()
+  static async findOne (longId) {
+    const keyAlias = KeyAlias.fromLongId(longId)
+    const dbKey = await new this(keyAlias).findOne()
     if (dbKey.keyAlias) {
       return dbKey
     } else {
@@ -162,7 +163,7 @@ export default class DbKey extends Struct {
     }
   }
 
-  async findOneByKeyAliasLeft () {
+  async findOneByShortId () {
     const obj = this.toCassandraObject()
 
     const query = `select * from ${keyspace}.keys where key_alias_left = ?`
@@ -179,8 +180,9 @@ export default class DbKey extends Struct {
     return this
   }
 
-  static async findOneByKeyAliasLeft (keyAlias) {
-    const dbKey = await new this(keyAlias).findOneByKeyAliasLeft()
+  static async findOneByShortId (shortId) {
+    const keyAlias = KeyAlias.fromShortId(shortId)
+    const dbKey = await new this(keyAlias).findOneByShortId()
     if (dbKey.keyAlias) {
       return dbKey
     } else {
