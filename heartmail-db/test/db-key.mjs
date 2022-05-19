@@ -1,7 +1,10 @@
 /* global describe,it */
 import DbKey from '../models/db-key.mjs'
 import { KeyAddress, PubKey, KeyAlias, PrivKey } from 'heartmail-lib'
+import cassandra from 'cassandra-driver'
 import should from 'should'
+
+const Long = cassandra.types.Long
 
 describe('DbKey', () => {
   it('should exist', () => {
@@ -56,6 +59,22 @@ describe('DbKey', () => {
       ;(dbKey2.privKey instanceof PrivKey).should.equal(true)
       ;(dbKey2.createdAt instanceof Date).should.equal(true)
       ;(dbKey2.updatedAt instanceof Date).should.equal(true)
+    })
+  })
+
+  describe('#toCassandraObject', () => {
+    it('should get back the same object', () => {
+      const leftBuf = Long.toBuffer(Long.fromString('-5066076753700986410'))
+      leftBuf.toString('hex').should.equal('b9b1ae08a2c9e1d6')
+      const rightBuf = Buffer.from('00'.repeat(8), 'hex')
+      const dbKey = DbKey.fromObject({
+        keyAlias: KeyAlias.fromLeftRightBuf(leftBuf, rightBuf),
+        createdAt: new Date(),
+        updatedAt: new Date()
+      })
+      const cassandraObject = dbKey.toCassandraObject()
+      const dbKey2 = new DbKey().fromCassandraObject(cassandraObject)
+      dbKey2.keyAlias.toString().should.equal(dbKey.keyAlias.toString())
     })
   })
 

@@ -10,6 +10,11 @@ class KeyAlias extends Struct {
     super({ buf })
   }
 
+  fromBuffer (buf) {
+    this.buf = buf
+    return this
+  }
+
   fromKeyAddress (address) {
     const buf = address.hashBuf.slice(0, LENGTH / 8)
     this.buf = buf
@@ -33,6 +38,10 @@ class KeyAlias extends Struct {
   fromLeftRightBuf (leftBuf = Buffer.from('00'.repeat(8)), rightBuf = Buffer.from('00'.repeat(8))) {
     this.buf = Buffer.concat([leftBuf, rightBuf])
     return this
+  }
+
+  static fromLeftRightBuf (leftBuf, rightBuf) {
+    return new this().fromLeftRightBuf(leftBuf, rightBuf)
   }
 
   fromLeftRightBn (leftBn = new Bn(0), rightBn = new Bn(0)) {

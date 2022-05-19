@@ -1,5 +1,5 @@
 import { getClient } from '../connect.mjs'
-import { KeyAlias, KeyAddress, PubKey, PrivKey, Struct, Bn } from 'heartmail-lib'
+import { KeyAlias, KeyAddress, PubKey, PrivKey, Struct } from 'heartmail-lib'
 import cassandra from 'cassandra-driver'
 
 const Long = cassandra.types.Long
@@ -100,7 +100,7 @@ export default class DbKey extends Struct {
 
   fromCassandraObject (obj) {
     return this.fromObject({
-      keyAliasLeft: KeyAlias.fromLeftRightBn(new Bn(obj.key_alias_left.toString(), 10), new Bn(obj.key_alias_right.toString(), 10)),
+      keyAlias: KeyAlias.fromLeftRightBuf(Long.toBuffer(obj.key_alias_left), Long.toBuffer(obj.key_alias_right)),
       keyAddress: obj.key_address ? KeyAddress.fromString(obj.key_address) : undefined,
       pubKey: obj.pub_key ? PubKey.fromString(obj.pub_key) : undefined,
       privKey: obj.priv_key ? PrivKey.fromString(obj.priv_key) : undefined,
@@ -113,8 +113,8 @@ export default class DbKey extends Struct {
 
   toCassandraObject () {
     return {
-      key_alias_left: Long.fromString(this.keyAlias.getLeftBn().toString()),
-      key_alias_right: Long.fromString(this.keyAlias.getRightBn().toString()),
+      key_alias_left: Long.fromBuffer(this.keyAlias.getLeftBuf()),
+      key_alias_right: Long.fromBuffer(this.keyAlias.getRightBuf()),
       key_address: this.keyAddress ? this.keyAddress.toString() : undefined,
       pub_key: this.pubKey ? this.pubKey.toString() : undefined,
       priv_key: this.privKey ? this.privKey.toString() : undefined,
