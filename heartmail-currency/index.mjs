@@ -26,3 +26,9 @@ export function format (amount = '$1.00') {
   amount = `$${dollars}.${cents}`
   return amount
 }
+
+export function getNumber (amount) {
+  amount = format(amount)
+  amount = amount.replace('$', '')
+  return Number(amount)
+}

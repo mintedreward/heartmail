@@ -29,4 +29,11 @@ describe('currency', () => {
       currency.format('').should.equal('$0.00')
     })
   })
+
+  describe('@getNumber', () => {
+    it('should format these known values', () => {
+      currency.getNumber('$1.00').should.equal(1)
+      currency.getNumber('$1.234').should.equal(1.23)
+    })
+  })
 })
