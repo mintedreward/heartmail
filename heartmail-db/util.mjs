@@ -10,11 +10,10 @@ export async function paymentIsNewAndValid (affiliate, payment) {
 
 export async function createAccountWithPayment (contactFeeAmountUsd, affiliate, payment) {
   try {
-    console.log(contactFeeAmountUsd, affiliate, payment.txid)
     const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
     assert(isNewAndValid)
     const dbAccount = DbAccount.create().delayAccess().fromObject({
-      affiliateKeyAlias: affiliate ? KeyAlias.fromLongId(affiliate.longId) : undefined,
+      affiliateKeyAlias: affiliate ? KeyAlias.fromLongId(affiliate.longId) : null,
       contactFeeAmountUsd: Math.round(contactFeeAmountUsd * 100, 2) / 100,
       mbEmail: payment.user.email,
       mbPaymail: payment.senderPaymail,
@@ -25,7 +24,7 @@ export async function createAccountWithPayment (contactFeeAmountUsd, affiliate, 
     return dbAccount.keyAlias.toLongId()
   } catch (err) {
     console.log(err)
-    return undefined
+    return null
   }
 }
 
@@ -35,7 +34,7 @@ export async function getAccount (longId) {
     return {
       longId: dbAccount.keyAlias.toLongId(),
       accessGrantedAt: dbAccount.accessGrantedAt.toJSON(),
-      affiliateLongId: dbAccount.affiliateKeyAlias.toLongId(),
+      affiliateLongId: dbAccount.affiliateKeyAlias ? dbAccount.affiliateKeyAlias.toLongId() : null,
       contactFeeAmountUsd: dbAccount.contactFeeAmountUsd,
       mbEmail: dbAccount.mbEmail,
       mbPaymail: dbAccount.mbPaymail,
@@ -43,7 +42,8 @@ export async function getAccount (longId) {
       mbTxid: dbAccount.mbTxid
     }
   } catch (err) {
-    return undefined
+    console.log(err)
+    return null
   }
 }
 
@@ -62,6 +62,6 @@ export async function getAffiliate (affiliateEmail = '') {
       }
     }
   } catch (err) {
-    return undefined
+    return null
   }
 }

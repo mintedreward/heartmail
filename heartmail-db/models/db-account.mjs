@@ -11,7 +11,7 @@ export default class DbAccount extends DbKey {
   createDataBuf () {
     const dataObj = {
       accessGrantedAt: this.accessGrantedAt,
-      affiliateKeyAlias: this.affiliateKeyAlias,
+      affiliateKeyAlias: this.affiliateKeyAlias ? this.affiliateKeyAlias.toLongId() : null,
       contactFeeAmountUsd: this.contactFeeAmountUsd,
       mbEmail: this.mbEmail,
       mbPaymail: this.mbPaymail,
@@ -29,7 +29,7 @@ export default class DbAccount extends DbKey {
     const dataJSON = JSON.parse(dataStr)
     const dataObj = {
       accessGrantedAt: dataJSON.accessGrantedAt ? new Date(dataJSON.accessGrantedAt) : undefined,
-      affiliateKeyAlias: dataJSON.affiliateKeyAlias ? KeyAlias.fromJSON(dataJSON.affiliateKeyAlias) : undefined,
+      affiliateKeyAlias: dataJSON.affiliateKeyAlias ? KeyAlias.fromLongId(dataJSON.affiliateKeyAlias) : null,
       contactFeeAmountUsd: dataJSON.contactFeeAmountUsd,
       mbEmail: dataJSON.mbEmail,
       mbPaymail: dataJSON.mbPaymail,

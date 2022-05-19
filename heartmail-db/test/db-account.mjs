@@ -60,7 +60,7 @@ describe('DbAccount', () => {
       })
       dbAccount.createDataBuf()
       should.exist(dbAccount.dataBuf)
-      dbAccount.dataBuf.toString().should.equal('{"accessGrantedAt":"2022-05-18T15:40:34.015Z","affiliateKeyAlias":"\\"47x4dm45stw4w6vl4difdhztr\\"","contactFeeAmountUsd":1,"mbEmail":"name@example.com","mbPaymail":"name@example.com"}')
+      dbAccount.dataBuf.toString().should.equal('{"accessGrantedAt":"2022-05-18T15:40:34.015Z","affiliateKeyAlias":"47x4dm45stw4w6vl4difdhztr","contactFeeAmountUsd":1,"mbEmail":"name@example.com","mbPaymail":"name@example.com"}')
     })
 
     it('should make a dataBuf with empty affiliate', () => {
@@ -74,7 +74,7 @@ describe('DbAccount', () => {
       })
       dbAccount.createDataBuf()
       should.exist(dbAccount.dataBuf)
-      dbAccount.dataBuf.toString().should.equal('{"accessGrantedAt":"2022-05-18T15:40:34.015Z","contactFeeAmountUsd":1,"mbEmail":"name@example.com","mbPaymail":"name@example.com"}')
+      dbAccount.dataBuf.toString().should.equal('{"accessGrantedAt":"2022-05-18T15:40:34.015Z","affiliateKeyAlias":null,"contactFeeAmountUsd":1,"mbEmail":"name@example.com","mbPaymail":"name@example.com"}')
     })
   })
 
