@@ -14,6 +14,7 @@ export default async function handler (req, res) {
 
     res.status(200).json(longId)
   } catch (err) {
+    console.log(err)
     res.status(400).json('Error')
   }
 }

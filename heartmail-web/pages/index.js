@@ -4,6 +4,8 @@ import Layout from '../components/Layout'
 import Link from '../components/Link'
 import CurrencyInput from '../components/CurrencyInput'
 import { util } from 'heartmail-db'
+import fetch from 'isomorphic-fetch'
+import { useRouter } from 'next/router'
 
 export async function getServerSideProps (context) {
   const affiliateEmail = context.query.a
@@ -24,18 +26,36 @@ export async function getServerSideProps (context) {
 }
 
 export default function HomePage (props) {
+  const router = useRouter()
+
   const state = {}
   state.affiliate = props.affiliate
-  state.contactAmountUsd = 1.00
+  state.contactFeeAmountUsd = 1.00
 
-  const handlePayment = (payment) => {
+  async function handlePayment (payment) {
     state.payment = payment
-    console.log(state)
+    const accessId = await getAccess(state)
   }
 
-  const handleChange = (contactAmountUsd) => {
-    state.contactAmountUsd = contactAmountUsd
-    console.log(state)
+  const handleChange = (contactFeeAmountUsd) => {
+    state.contactFeeAmountUsd = contactFeeAmountUsd
+  }
+
+  async function getAccess (state) {
+    const res = await fetch('/api/buy-early', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        affiliate: state.affiliate,
+        contactFeeAmountUsd: state.contactFeeAmountUsd,
+        payment: state.payment
+      })
+    })
+    const longId = await res.text()
+    router.push(`/access/${longId}`)
   }
 
   return (
