@@ -11,8 +11,8 @@ export default class DbAccount extends DbKey {
   createDataBuf () {
     const dataObj = {
       accessGrantedAt: this.accessGrantedAt,
-      ownerEmailAddress: this.ownerEmailAddress,
-      paymentEmailAddress: this.paymentEmailAddress,
+      externalEmail: this.externalEmail,
+      externalPaymail: this.externalPaymail,
       affiliateKeyAlias: this.affiliateKeyAlias,
       contactFeeAmountUsd: this.contactFeeAmountUsd,
       mbPaymentId: this.mbPaymentId,
@@ -28,10 +28,10 @@ export default class DbAccount extends DbKey {
     const dataStr = this.dataBuf.toString()
     const dataJSON = JSON.parse(dataStr)
     const dataObj = {
-      accessGrantedAt: new Date(dataJSON.accessGrantedAt),
-      ownerEmailAddress: dataJSON.ownerEmailAddress,
-      paymentEmailAddress: dataJSON.paymentEmailAddress,
-      affiliateKeyAlias: KeyAlias.fromJSON(dataJSON.affiliateKeyAlias),
+      accessGrantedAt: dataJSON.accessGrantedAt ? new Date(dataJSON.accessGrantedAt) : undefined,
+      externalEmail: dataJSON.externalEmail,
+      externalPaymail: dataJSON.externalPaymail,
+      affiliateKeyAlias: dataJSON.affiliateKeyAlias ? KeyAlias.fromJSON(dataJSON.affiliateKeyAlias) : undefined,
       contactFeeAmountUsd: dataJSON.contactFeeAmountUsd,
       mbPaymentId: dataJSON.mbPaymentId,
       mbTxId: dataJSON.mbTxId
@@ -66,14 +66,14 @@ export default class DbAccount extends DbKey {
     if (!(this.accessGrantedAt instanceof Date)) {
       return 'accessGrantedAt must be a Date'
     }
-    if (this.ownerEmailAddress !== undefined) {
-      if (!emailValidator.validate(this.ownerEmailAddress)) {
-        return 'ownerEmailAddress must be an email address or undefined'
+    if (this.externalEmail !== undefined) {
+      if (!emailValidator.validate(this.externalEmail)) {
+        return 'externalEmail must be an email address or undefined'
       }
     }
-    if (this.paymentEmailAddress !== undefined) {
-      if (!emailValidator.validate(this.paymentEmailAddress)) {
-        return 'paymentEmailAddress must be an email address or undefined'
+    if (this.externalPaymail !== undefined) {
+      if (!emailValidator.validate(this.externalPaymail)) {
+        return 'externalPaymail must be an email address or undefined'
       }
     }
     if (this.affiliateKeyAlias !== undefined) {

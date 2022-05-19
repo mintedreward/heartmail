@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
 
-export default function Privacy () {
+export default function PrivacyPage () {
   return (
     <Layout title='Privacy Policy'>
       <PageTitle>Privacy Policy</PageTitle>

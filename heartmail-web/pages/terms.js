@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
 
-export default function Terms () {
+export default function TermsPage () {
   return (
     <Layout title='Terms of Service'>
       <PageTitle>Terms of Service</PageTitle>

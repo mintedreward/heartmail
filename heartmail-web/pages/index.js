@@ -3,28 +3,18 @@ import Typography from '@mui/material/Typography'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
 import CurrencyInput from '../components/CurrencyInput'
+import getAffiliate from '../util/index.mjs'
 
 export async function getServerSideProps (context) {
-  const affiliateHeartmail = context.query.a
-
-  let affiliateEmail2 = ''
-
-  if (affiliateHeartmail === 'self') {
-    affiliateEmail2 = 'heartmail@moneybutton.com'
-  } else if (affiliateHeartmail) {
-    // get affiliateEmail2 from DB
-  }
-
+  const affiliate = await getAffiliate(context)
   return {
     props: {
-      affiliateEmail2
+      affiliate
     }
   }
 }
 
-export default function Home (props) {
-  const affiliateEmail2 = props.affiliateEmail2
-
+export default function HomePage (props) {
   return (
     <Layout>
       <Typography variant='h2' component='h2' mt='50px' mb='50px' sx={{ textAlign: 'center' }}>
@@ -46,7 +36,7 @@ export default function Home (props) {
       <p>
         By buying early access, you agree to the <Link href='/terms'>Terms of Service</Link>.
       </p>
-      <MoneyButtonBuyEarly affiliateEmail2={affiliateEmail2} />
+      <MoneyButtonBuyEarly hasAffiliate={props.hasAffiliate} affiliateLongId={props.affiliateLongId} affiliatePaymail={props.affiliatePaymail} />
     </Layout>
   )
 }

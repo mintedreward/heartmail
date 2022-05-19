@@ -3,7 +3,7 @@ import PageTitle from '../components/PageTitle'
 import ContactCard from '../components/ContactCard'
 import MoneyButtonTip from '../components/MoneyButtonTip'
 
-export default function About () {
+export default function AboutPage () {
   return (
     <Layout title='About'>
       <PageTitle>About</PageTitle>

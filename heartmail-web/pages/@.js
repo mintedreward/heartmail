@@ -3,7 +3,7 @@ import PageTitle from '../components/PageTitle'
 import AffiliateCard from '../components/AffiliateCard'
 import TextField from '@mui/material/TextField'
 
-export default function AccountKey () {
+export default function AccountPage () {
   const receiptId = '1234512345'
   const accessGrantedDate = 'June 16, 2022 at 6:25 PM CDT'
   const userEmail = 'name@example.com'

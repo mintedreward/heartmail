@@ -158,9 +158,8 @@ export default class DbKey extends Struct {
 
     if (row) {
       this.fromCassandraObject(row)
+      this.parseDataBuf()
     }
-
-    this.parseDataBuf()
 
     return this
   }
@@ -187,9 +186,8 @@ export default class DbKey extends Struct {
 
     if (row) {
       this.fromCassandraObject(row)
+      this.parseDataBuf()
     }
-
-    this.parseDataBuf()
 
     return this
   }

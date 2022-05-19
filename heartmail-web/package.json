@@ -6,7 +6,9 @@
     "build": "heartmail-loadenv && next build",
     "start": "heartmail-loadenv && next start",
     "standard": "standard",
-    "lint": "standard && next lint"
+    "lint": "standard && next lint",
+    "mocha": "NODE_ENV=test mocha",
+    "test": "yarn run mocha"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -22,12 +24,12 @@
     "next": "12.1.6",
     "react": "18",
     "react-dom": "18",
-    "sharp": "0.30.4",
-    "standard": "16.0.4"
+    "sharp": "0.30.4"
   },
   "devDependencies": {
     "eslint": "8.14.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "standard": "16.0.4"
   },
   "gitHead": "0fc69f2e1b4219cad3ee027b83b98edc82466245",
   "license": "UNLICENSED",
