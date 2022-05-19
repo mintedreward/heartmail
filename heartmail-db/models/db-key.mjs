@@ -56,6 +56,14 @@ export default class DbKey extends Struct {
     return this
   }
 
+  parseDataBuf () {
+    return this
+  }
+
+  createDataBuf () {
+    return this
+  }
+
   isValid () {
     return !this.getValidationError()
   }
@@ -126,6 +134,8 @@ export default class DbKey extends Struct {
   }
 
   async insert () {
+    this.createDataBuf()
+
     const obj = this.toCassandraObject()
 
     const query = `insert into ${keyspace}.keys (key_alias_left, key_alias_right, key_address, pub_key, priv_key, type_str, data_buf, created_at, updated_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`
@@ -149,6 +159,8 @@ export default class DbKey extends Struct {
     if (row) {
       this.fromCassandraObject(row)
     }
+
+    this.parseDataBuf()
 
     return this
   }
@@ -177,6 +189,8 @@ export default class DbKey extends Struct {
       this.fromCassandraObject(row)
     }
 
+    this.parseDataBuf()
+
     return this
   }
 
@@ -191,6 +205,8 @@ export default class DbKey extends Struct {
   }
 
   async updateOne () {
+    this.createDataBuf()
+
     const obj = this.toCassandraObject()
 
     const query = `update ${keyspace}.keys set key_address = ?, pub_key = ?, priv_key = ?, type_str = ?, data_buf = ?, created_at = ?, updated_at = ? where key_alias_left = ? and key_alias_right = ?`

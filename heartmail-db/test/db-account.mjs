@@ -243,4 +243,24 @@ describe('DbAccount', () => {
       dbAccount.accessGrantedAt.toJSON().should.equal(date.toJSON())
     })
   })
+
+  describe('@findOne', () => {
+    it('should find this one and parse data buf', async function () {
+      this.timeout(5000)
+      const dbAccount = DbAccount.create({
+        accessGrantedAt: new Date(),
+        ownerEmailAddress: 'name@example.com',
+        paymentEmailAddress: 'name@example.com',
+        affiliateKeyAlias: KeyAlias.fromRandom(),
+        contactFeeAmountUsd: 1.00
+      })
+      await dbAccount.insert()
+      const dbAccount2 = await DbAccount.findOne(dbAccount.keyAlias.toLongId())
+      dbAccount2.accessGrantedAt.toJSON().should.equal(dbAccount.accessGrantedAt.toJSON())
+      dbAccount2.ownerEmailAddress.should.equal(dbAccount.ownerEmailAddress)
+      dbAccount2.paymentEmailAddress.should.equal(dbAccount.paymentEmailAddress)
+      dbAccount2.affiliateKeyAlias.toString().should.equal(dbAccount.affiliateKeyAlias.toString())
+      dbAccount2.contactFeeAmountUsd.should.equal(dbAccount.contactFeeAmountUsd)
+    })
+  })
 })

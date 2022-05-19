@@ -8,10 +8,6 @@ export default class DbAccount extends DbKey {
     this.typeStr = 'account'
   }
 
-  static getPaymailFromShortId (shortId) {
-    // wait
-  }
-
   createDataBuf () {
     const dataObj = {
       accessGrantedAt: this.accessGrantedAt,
