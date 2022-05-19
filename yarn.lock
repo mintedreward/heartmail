@@ -7181,7 +7181,7 @@ fsevents@~2.1.1:
   languageName: unknown
   linkType: soft
 
-"heartmail-db@workspace:heartmail-db":
+"heartmail-db@workspace:*, heartmail-db@workspace:heartmail-db":
   version: 0.0.0-use.local
   resolution: "heartmail-db@workspace:heartmail-db"
   dependencies:
@@ -7315,6 +7315,7 @@ fsevents@~2.1.1:
     eslint: 8.14.0
     eslint-config-next: 12.1.6
     heartmail-currency: "workspace:*"
+    heartmail-db: "workspace:*"
     heartmail-loadenv: "workspace:*"
     next: 12.1.6
     react: 18
