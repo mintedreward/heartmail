@@ -2,19 +2,28 @@ import * as React from 'react'
 import * as currency from 'heartmail-currency'
 import TextField from '@mui/material/TextField'
 
-export default function CurrencyInput () {
+export default function CurrencyInput (props) {
+  const onChange = props.onChange || function () {}
+
+  function propagateChange (amount = '$1.00') {
+    amount = currency.getNumber(amount)
+    onChange(amount)
+  }
+
   const [amount, setAmount] = React.useState('$1.00')
   const [hasFocus, setHasFocus] = React.useState(false)
 
   const handleChange = (event) => {
     const amount = event.target.value
     setAmount(currency.prefix(amount))
+    propagateChange(amount)
   }
 
   const handleBlur = (event) => {
     const amount = event.target.value
     setAmount(currency.format(amount))
     setHasFocus(false)
+    propagateChange(amount)
   }
 
   const handleKeyPress = (event) => {
@@ -22,6 +31,7 @@ export default function CurrencyInput () {
       const amount = event.target.value
       setAmount(currency.format(amount))
       event.target.blur()
+      propagateChange(amount)
     }
   }
 
@@ -30,6 +40,7 @@ export default function CurrencyInput () {
       event.target.select()
     }
     setHasFocus(true)
+    propagateChange(amount)
   }
 
   return (
