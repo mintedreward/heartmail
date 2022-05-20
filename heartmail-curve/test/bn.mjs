@@ -170,5 +170,12 @@ describe('Bn', () => {
       new Bn(Math.pow(2, 3 * 8) - 1).toBuffer(opts).toString('hex').should.equal('ffffff')
       new Bn(Math.pow(2, 3 * 8)).toBuffer(opts).toString('hex').should.equal('00000001')
     })
+
+    it('should produce a fixed size byte buffer', () => {
+      new Bn(5).toBuffer({ size: 2 }).toString('hex').should.equal('0005')
+      new Bn(5).toBuffer({ size: 2, endian: 'little' }).toString('hex').should.equal('0500')
+      new Bn(50000000).toBuffer({ size: 32, endian: 'little' }).toString('hex').should.equal('80f0fa0200000000000000000000000000000000000000000000000000000000')
+      new Bn(50000000).toBuffer({ size: 32, endian: 'big' }).toString('hex').should.equal('0000000000000000000000000000000000000000000000000000000002faf080')
+    })
   })
 })

@@ -75,6 +75,7 @@ export default class Bn extends Struct {
   }
 
   toBuffer (opts = { size: undefined, endian: 'big' }) {
+    opts.endian = opts.endian ? opts.endian : 'big'
     const arr = []
     const base = 256n
     let i = 0
@@ -84,6 +85,16 @@ export default class Bn extends Struct {
       bi = bi / base
       i++
     }
-    return Buffer.from(opts.endian === 'big' ? arr.reverse() : arr)
+    let buf = Buffer.from(arr)
+    if (opts.size && opts.size > buf.length) {
+      const newBuf = Buffer.alloc(opts.size)
+      newBuf.fill(buf)
+      newBuf.fill(0, buf.length, opts.size)
+      buf = newBuf
+    }
+    if (opts.endian === 'big') {
+      buf = buf.reverse()
+    }
+    return buf
   }
 }
