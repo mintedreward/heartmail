@@ -190,9 +190,8 @@ export default class Bn extends Struct {
 
     let bn = this.bn
     let neg = false
-
-    if (bn < 0) {
-      if (this.encoding === 'non-negative') {
+    if (bn < 0n) {
+      if (opts.encoding === 'non-negative') {
         throw new Error('cannot encode negative number as non-negative')
       } else {
         bn = -1n * bn
@@ -263,5 +262,111 @@ export default class Bn extends Struct {
       buf = buf.reverse()
     }
     return buf
+  }
+
+  fromFastBuffer (...args) {
+    return this.fromBuffer(...args)
+  }
+
+  static fromFastBuffer (...args) {
+    return this.fromBuffer(...args)
+  }
+
+  toFastBuffer (...args) {
+    return this.toBuffer(...args)
+  }
+
+  fromSm (buf, opts = { endian: 'big' }) {
+    opts = {
+      endian: opts.endian || 'big',
+      encoding: 'sign-magnitude'
+    }
+    return this.fromBuffer(buf, opts)
+  }
+
+  toSm (opts = { size: undefined, endian: 'big' }) {
+    opts = {
+      endian: opts.endian || 'big',
+      size: opts.size,
+      encoding: 'sign-magnitude'
+    }
+
+    return this.toBuffer(opts)
+  }
+
+  /**
+   * Produce a Bn from the "bits" value in a blockheader. Analagous to Bitcoin
+   * Core's uint256 SetCompact method. bits is assumed to be UInt32.
+   */
+  fromBits (bits, opts = { strict: false }) {
+  // To performed bitwise operations in javascript, we need to convert to a
+  // signed 32 bit value.
+  let buf = Buffer.alloc(4)
+  buf.writeUInt32BE(bits, 0)
+  bits = buf.readInt32BE(0)
+  if (opts.strict && bits & 0x00800000) {
+    throw new Error('negative bit set')
+  }
+  const nsize = bits >> 24
+  const nword = bits & 0x007fffff
+  buf = Buffer.alloc(4)
+  buf.writeInt32BE(nword)
+  if (nsize <= 3) {
+    buf = buf.slice(1, nsize + 1)
+  } else {
+    const fill = Buffer.alloc(nsize - 3)
+    fill.fill(0)
+    buf = Buffer.concat([buf, fill])
+  }
+  this.fromBuffer(buf)
+  if (bits & 0x00800000) {
+    this.bn = 0n - this.bn
+  }
+  return this
+  }
+
+  lt (val) {
+    return this.bn < (new this.constructor(val)).bn
+  }
+
+  neg () {
+    const bn = -1n * this.bn
+    return new this.constructor(bn)
+  }
+
+  /**
+   * Convert Bn to the "bits" value in a blockheader. Analagous to Bitcoin
+   * Core's uint256 GetCompact method. bits is a UInt32.
+   */
+  toBits () {
+    let buf
+    if (this.lt(0)) {
+      buf = this.neg().toBuffer()
+    } else {
+      buf = this.toBuffer()
+    }
+    let nsize = buf.length
+    let nword
+    if (nsize > 3) {
+      nword = Buffer.concat([Buffer.from([0]), buf.slice(0, 3)]).readUInt32BE(0)
+    } else if (nsize <= 3) {
+      const blank = Buffer.alloc(3 - nsize + 1)
+      blank.fill(0)
+      nword = Buffer.concat([blank, buf.slice(0, nsize)]).readUInt32BE(0)
+    }
+    if (nword & 0x00800000) {
+      // The most significant bit denotes sign. Do not want unless number is
+      // actually negative.
+      nword >>= 8
+      nsize++
+    }
+    if (this.lt(0)) {
+      nword |= 0x00800000
+    }
+    const bits = (nsize << 24) | nword
+    // convert bits to UInt32 before returning
+    buf = Buffer.alloc(4)
+    buf.writeInt32BE(bits, 0)
+    return buf.readUInt32BE(0)
   }
 }
