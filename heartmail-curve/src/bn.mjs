@@ -13,8 +13,6 @@ export default class Bn extends Struct {
 
   static alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
 
-  static maxBase = this.alphabet.length
-
   static getAlphabetMap () {
     const arr = this.alphabet.split('')
     const alphabetMap = {}
@@ -87,8 +85,9 @@ export default class Bn extends Struct {
   }
 
   fromBase (str, base = 10, alphabetMap = this.constructor.alphabetMap) {
-    if (!(base >= 2 && base <= this.constructor.maxBase)) {
-      throw new Error(`base must be from 2 to ${this.constructor.maxBase}`)
+    const maxBase = Object.keys(alphabetMap).length
+    if (!(base >= 2 && base <= maxBase)) {
+      throw new Error(`base must be from 2 to ${maxBase}`)
     }
     base = BigInt(base)
     let n = 0n
@@ -109,8 +108,23 @@ export default class Bn extends Struct {
     return new this().fromBase(str, base)
   }
 
-  toBase (base = 10, alphabetMap = this.constructor.alphabetMap) {
-    return this.n.toString(base)
+  toBase (base = 10, alphabet = this.constructor.alphabet) {
+    const maxBase = alphabet.length
+    if (!(base >= 2 && base <= maxBase)) {
+      throw new Error(`base must be from 2 to ${maxBase}`)
+    }
+    let n = this.n
+    let charArr = []
+    base = BigInt(base)
+    while (n) {
+      const pos = n % base
+      const char = alphabet[Number(pos)]
+      charArr.push(char)
+      n = n / base
+    }
+    charArr.reverse()
+    const str = charArr.join('')
+    return str
   }
 
   fromString (str, base = 10) {
