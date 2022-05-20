@@ -12,52 +12,77 @@ const digitMap = (() => {
 
 export default class Bn extends Struct {
   constructor (bn, base) {
-    super({ bn: BigInt(bn) })
+    super({ bn })
     if (base) {
-      this.bn = this.fromString(bn, base)
+      this.fromString(bn, base)
     }
-    if (typeof this.bn !== 'bigint') {
+    if (this.bn !== undefined && typeof this.bn !== 'bigint') {
       this.bn = BigInt(this.bn)
     }
   }
 
-  fromBigInt 
+  fromBigInt (bn = BigInt(0)) {
+    this.bn = bn
+    return this
+  }
 
   static fromBigInt (bn = BigInt(0)) {
-    return this(bn)
+    return new this().fromBigInt(bn)
+  }
+
+  fromNumber (num = 0) {
+    this.bn = BigInt(num)
+    return this
   }
 
   static fromNumber (num = 0) {
-    return new this(BigInt(num))
+    return new this().fromNumber(num)
+  }
+
+  toNumber () {
+    return Number(this.bn)
+  }
+
+  fromHex (str) {
+    this.bn = BigInt(`0x${str}`)
+    return this
   }
 
   static fromHex (str) {
-    return new this(BigInt(`0x${str}`))
+    return new this().fromHex(str)
+  }
+
+  toHex (opts) {
+    return this.toBuffer(opts).toString('hex')
+  }
+
+  fromOct (str) {
+    this.bn = BigInt(`0o${str}`)
+    return this
   }
 
   static fromOct (str) {
-    return new this(BigInt(`0o${str}`))
+    return new this().fromOct(str)
+  }
+
+  toOct () {
+    return this.toString(8)
+  }
+
+  fromBin (str) {
+    this.bn = BigInt(`0b${str}`)
+    return this
   }
 
   static fromBin (str) {
-    return new this(BigInt(`0b${str}`))
+    return new this().fromBin(str)
   }
 
-  static fromString (str, base = 10) {
-    if (base === 10) {
-      return new this(str)
-    } else if (base === 2) {
-      return this.fromBin(str)
-    } else if (base === 8) {
-      return this.fromOct(str)
-    } else if (base === 16) {
-      return this.fromHex(str)
-    } else {
-      return this.fromBase(str, base)
-    }
+  toBin () {
+    return this.toString(2)
   }
 
-  static fromBase (str, base = 10) {
+  fromBase (str, base = 10) {
     if (!(base >= 2 && base <= 36)) {
       throw new Error('base must be from 2 to 36')
     }
@@ -72,11 +97,90 @@ export default class Bn extends Struct {
       bn = bn + num * exp
       exp = exp * base
     }
-    return new this(bn)
+    this.bn = bn
+    return this
+  }
+
+  static fromBase (str, base = 10) {
+    return new this().fromBase(str, base)
+  }
+
+  toBase (base = 10) {
+    return this.bn.toString(base)
+  }
+
+  fromString (str, base = 10) {
+    if (base === 10) {
+      this.bn = BigInt(str)
+      return this
+    } else if (base === 2) {
+      return this.fromBin(str)
+    } else if (base === 8) {
+      return this.fromOct(str)
+    } else if (base === 16) {
+      return this.fromHex(str)
+    } else {
+      return this.fromBase(str, base)
+    }
+  }
+
+  static fromString (str, base = 10) {
+    return new this().fromString(str, base)
   }
 
   toString (base = 10) {
     return this.bn.toString(base)
+  }
+
+  fromJSON (json) {
+    return this.fromString(json)
+  }
+
+  static fromJSON (json) {
+    return new this().fromJSON(json)
+  }
+
+  toJSON () {
+    return this.toString()
+  }
+
+  fromBuffer (buf, opts = { endian: 'big', encoding: 'non-negative' }) {
+    opts.endian = opts.endian ? opts.endian : 'big'
+    opts.encoding = opts.encoding ? opts.encoding : 'non-negative'
+    buf = opts.endian === 'big' ? buf : buf.reverse()
+
+    if (opts.encoding === 'non-negative') {
+      return this.fromString(buf.toString('hex'), 16)
+    } else if (opts.encoding === 'sign-magnitude') {
+      let neg = 1n
+      if (buf[0] & 0x80) {
+        buf = Buffer.from(buf)
+        buf[0] = buf[0] & 0x7f
+        neg = -1n
+      }
+      let bn = this.constructor.fromString(buf.toString('hex'), 16)
+      bn = new Bn(neg * bn.bn)
+      this.bn = bn
+      return this
+    } else if (opts.encoding === 'twos-complement') {
+      // 2^N = A + A'
+      // A = 2^N - A'
+      const bn = this.constructor.fromString(buf.toString('hex'), 16)
+      const largestPositive = BigInt('0x7f' + 'ff'.repeat(buf.length - 1))
+      if (bn.bn > largestPositive) {
+        const twoPowN = BigInt('0x1' + '00'.repeat(buf.length))
+        bn.bn = twoPowN - bn.bn
+        bn.bn = -1n * bn.bn
+      }
+      this.bn = bn
+      return this
+    } else {
+      throw new Error('invalid encoding')
+    }
+  }
+
+  static fromBuffer (buf, opts) {
+    return new this().fromBuffer(buf, opts)
   }
 
   toBuffer (opts = { size: undefined, endian: 'big', encoding: 'non-negative' }) {
@@ -159,42 +263,5 @@ export default class Bn extends Struct {
       buf = buf.reverse()
     }
     return buf
-  }
-
-  toHex (opts) {
-    return this.toBuffer(opts).toString('hex')
-  }
-
-  static fromBuffer (buf, opts = { endian: 'big', encoding: 'non-negative' }) {
-    opts.endian = opts.endian ? opts.endian : 'big'
-    opts.encoding = opts.encoding ? opts.encoding : 'non-negative'
-    buf = opts.endian === 'big' ? buf : buf.reverse()
-
-    if (opts.encoding === 'non-negative') {
-      return this.fromString(buf.toString('hex'), 16)
-    } else if (opts.encoding === 'sign-magnitude') {
-      let neg = 1n
-      if (buf[0] & 0x80) {
-        buf = Buffer.from(buf)
-        buf[0] = buf[0] & 0x7f
-        neg = -1n
-      }
-      let bn = this.fromString(buf.toString('hex'), 16)
-      bn = new Bn(neg * bn.bn)
-      return bn
-    } else if (opts.encoding === 'twos-complement') {
-      // 2^N = A + A'
-      // A = 2^N - A'
-      const bn = this.fromString(buf.toString('hex'), 16)
-      const largestPositive = BigInt('0x7f' + 'ff'.repeat(buf.length - 1))
-      if (bn.bn > largestPositive) {
-        const twoPowN = BigInt('0x1' + '00'.repeat(buf.length))
-        bn.bn = twoPowN - bn.bn
-        bn.bn = -1n * bn.bn
-      }
-      return bn
-    } else {
-      throw new Error('invalid encoding')
-    }
   }
 }
