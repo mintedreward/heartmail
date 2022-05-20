@@ -6204,6 +6204,17 @@ fsevents@~2.3.2:
   languageName: unknown
   linkType: soft
 
+"heartmail-curve@workspace:heartmail-curve":
+  version: 0.0.0-use.local
+  resolution: "heartmail-curve@workspace:heartmail-curve"
+  dependencies:
+    heartmail-lib: "workspace:*"
+    mocha: 10.0.0
+    should: 13.2.3
+    standard: ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "heartmail-db@workspace:*, heartmail-db@workspace:heartmail-db":
   version: 0.0.0-use.local
   resolution: "heartmail-db@workspace:heartmail-db"
@@ -8161,7 +8172,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"mocha@npm:10":
+"mocha@npm:10, mocha@npm:10.0.0":
   version: 10.0.0
   resolution: "mocha@npm:10.0.0"
   dependencies:
@@ -10567,7 +10578,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"standard@npm:17":
+"standard@npm:17, standard@npm:^17.0.0":
   version: 17.0.0
   resolution: "standard@npm:17.0.0"
   dependencies:
