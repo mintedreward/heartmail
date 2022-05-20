@@ -448,12 +448,14 @@ export default class Bn extends Struct {
     return new this.constructor(this.n / bn.n)
   }
 
-  ushln () {
-    throw new Error('not implemented yet')
+  ushln (bn) {
+    bn = new this.constructor(bn)
+    return new this.constructor(this.n << bn.n)
   }
 
   ushrn () {
-    throw new Error('not implemented yet')
+    bn = new this.constructor(bn)
+    return new this.constructor(this.n >> bn.n)
   }
 
   cmp (bn) {
