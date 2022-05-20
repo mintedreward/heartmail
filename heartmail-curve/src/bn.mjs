@@ -11,18 +11,20 @@ const digitMap = (() => {
 })()
 
 export default class Bn extends Struct {
-  constructor (bi, base) {
-    super({ bi: BigInt(bi) })
+  constructor (bn, base) {
+    super({ bn: BigInt(bn) })
     if (base) {
-      this.bi = this.fromString(bi, base)
+      this.bn = this.fromString(bn, base)
     }
-    if (typeof this.bi !== 'bigint') {
-      this.bi = BigInt(this.bi)
+    if (typeof this.bn !== 'bigint') {
+      this.bn = BigInt(this.bn)
     }
   }
 
-  static fromBigInt (bi = BigInt(0)) {
-    return this(bi)
+  fromBigInt 
+
+  static fromBigInt (bn = BigInt(0)) {
+    return this(bn)
   }
 
   static fromNumber (num = 0) {
@@ -60,21 +62,21 @@ export default class Bn extends Struct {
       throw new Error('base must be from 2 to 36')
     }
     base = BigInt(base)
-    let bi = 0n
+    let bn = 0n
     let exp = 1n
     const length = str.length
     for (let i = 0; i < length; i++) {
       const pos = length - 1 - i
       const digit = str[pos]
       const num = digitMap[digit]
-      bi = bi + num * exp
+      bn = bn + num * exp
       exp = exp * base
     }
-    return new this(bi)
+    return new this(bn)
   }
 
   toString (base = 10) {
-    return this.bi.toString(base)
+    return this.bn.toString(base)
   }
 
   toBuffer (opts = { size: undefined, endian: 'big', encoding: 'non-negative' }) {
@@ -82,21 +84,21 @@ export default class Bn extends Struct {
     opts.encoding = opts.encoding ? opts.encoding : 'non-negative'
     opts.size = opts.size ? Number.parseInt(opts.size) : undefined
 
-    let bi = this.bi
+    let bn = this.bn
     let neg = false
 
-    if (bi < 0) {
+    if (bn < 0) {
       if (this.encoding === 'non-negative') {
         throw new Error('cannot encode negative number as non-negative')
       } else {
-        bi = -1n * bi
+        bn = -1n * bn
         neg = true
         if (opts.encoding === 'twos-complement') {
           if (opts.size) {
             // 2^N = A + A'
             // A' = 2^N - A
             const twoPowN = BigInt('0x1' + '00'.repeat(opts.size))
-            bi = twoPowN - bi
+            bn = twoPowN - bn
           } else {
             throw new Error('twos-complement encoding requires a fixed size')
           }
@@ -105,7 +107,7 @@ export default class Bn extends Struct {
     } else if (opts.encoding === 'twos-complement') {
       if (opts.size) {
         const largestPositive = BigInt('0x7f' + 'ff'.repeat(opts.size - 1))
-        if (bi > largestPositive) {
+        if (bn > largestPositive) {
           throw new Error('number does not fit in requested size')
         }
       } else {
@@ -116,9 +118,9 @@ export default class Bn extends Struct {
     const arr = []
     const base = 256n
     let i = 0
-    while (bi > 0) {
-      arr[i] = Number(bi % base)
-      bi = bi / base
+    while (bn > 0) {
+      arr[i] = Number(bn % base)
+      bn = bn / base
       i++
     }
 
@@ -178,17 +180,17 @@ export default class Bn extends Struct {
         neg = -1n
       }
       let bn = this.fromString(buf.toString('hex'), 16)
-      bn = new Bn(neg * bn.bi)
+      bn = new Bn(neg * bn.bn)
       return bn
     } else if (opts.encoding === 'twos-complement') {
       // 2^N = A + A'
       // A = 2^N - A'
       const bn = this.fromString(buf.toString('hex'), 16)
       const largestPositive = BigInt('0x7f' + 'ff'.repeat(buf.length - 1))
-      if (bn.bi > largestPositive) {
+      if (bn.bn > largestPositive) {
         const twoPowN = BigInt('0x1' + '00'.repeat(buf.length))
-        bn.bi = twoPowN - bn.bi
-        bn.bi = -1n * bn.bi
+        bn.bn = twoPowN - bn.bn
+        bn.bn = -1n * bn.bn
       }
       return bn
     } else {
