@@ -13,16 +13,16 @@ export default class Bn extends Struct {
 
   static alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
 
-  static getAlphabetMap () {
+  static maxBase = this.alphabet.length
+
+  static alphabetMap = (() => {
     const arr = this.alphabet.split('')
     const alphabetMap = {}
     arr.forEach((digit, index) => {
       alphabetMap[digit] = BigInt(index)
     })
     return alphabetMap
-  }
-
-  static alphabetMap = this.getAlphabetMap()
+  })()
 
   fromBigInt (n = BigInt(0)) {
     this.n = n
@@ -84,10 +84,9 @@ export default class Bn extends Struct {
     return this.toString(2)
   }
 
-  fromBase (str, base = 10, alphabetMap = this.constructor.alphabetMap) {
-    const maxBase = Object.keys(alphabetMap).length
-    if (!(base >= 2 && base <= maxBase)) {
-      throw new Error(`base must be from 2 to ${maxBase}`)
+  fromBase (str, base = 10) {
+    if (!(base >= 2 && base <= this.constructor.maxBase)) {
+      throw new Error(`base must be from 2 to ${this.constructor.maxBase}`)
     }
     base = BigInt(base)
     let n = 0n
@@ -96,7 +95,7 @@ export default class Bn extends Struct {
     for (let i = 0; i < length; i++) {
       const pos = length - 1 - i
       const digit = str[pos]
-      const num = alphabetMap[digit]
+      const num = this.constructor.alphabetMap[digit]
       n = n + num * exp
       exp = exp * base
     }
@@ -108,23 +107,8 @@ export default class Bn extends Struct {
     return new this().fromBase(str, base)
   }
 
-  toBase (base = 10, alphabet = this.constructor.alphabet) {
-    const maxBase = alphabet.length
-    if (!(base >= 2 && base <= maxBase)) {
-      throw new Error(`base must be from 2 to ${maxBase}`)
-    }
-    let n = this.n
-    let charArr = []
-    base = BigInt(base)
-    while (n) {
-      const pos = n % base
-      const char = alphabet[Number(pos)]
-      charArr.push(char)
-      n = n / base
-    }
-    charArr.reverse()
-    const str = charArr.join('')
-    return str
+  toBase (base = 10) {
+    return this.n.toString(base)
   }
 
   fromString (str, base = 10) {

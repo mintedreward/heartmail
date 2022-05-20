@@ -211,13 +211,6 @@ describe('Bn', () => {
     })
   })
 
-  describe('#toBase', () => {
-    it('should convert these known values', () => {
-      Bn.fromBase('hello', 36).toBase(36).should.equal('hello')
-      Bn.fromBase('hello', 36).toBase(16).should.equal('1be15dc')
-    })
-  })
-
   describe('@fromString', function () {
     it('should be the same as default methods in these cases', () => {
       const bi = 2340993834343434n
