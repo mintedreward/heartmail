@@ -6338,7 +6338,6 @@ fsevents@~2.3.2:
     eslint-config-next: 12.1.6
     heartmail-currency: "workspace:*"
     heartmail-db: "workspace:*"
-    isomorphic-fetch: ^3.0.0
     next: 12.1.6
     react: 18
     react-dom: 18

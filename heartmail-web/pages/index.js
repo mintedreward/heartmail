@@ -4,7 +4,6 @@ import Layout from '../components/Layout'
 import Link from '../components/Link'
 import CurrencyInput from '../components/CurrencyInput'
 import { util } from 'heartmail-db'
-import fetch from 'isomorphic-fetch'
 import { useRouter } from 'next/router'
 
 export async function getServerSideProps (context) {
