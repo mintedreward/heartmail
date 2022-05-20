@@ -1,15 +1,5 @@
 import { Struct } from 'heartmail-lib'
 
-const digitStr = '0123456789abcdefghijklmnopqrstuvwxyz'
-const digitArr = digitStr.split('')
-const digitMap = (() => {
-  const digitMap = {}
-  digitArr.forEach((digit, index) => {
-    digitMap[digit] = BigInt(index)
-  })
-  return digitMap
-})()
-
 export default class Bn extends Struct {
   constructor (n = BigInt(0), base) {
     super({ n })
@@ -20,6 +10,19 @@ export default class Bn extends Struct {
       this.n = BigInt(this.n)
     }
   }
+
+  static alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
+
+  static maxBase = this.alphabet.length
+
+  static alphabetMap = (() => {
+    const arr = this.alphabet.split('')
+    const alphabetMap = {}
+    arr.forEach((digit, index) => {
+      alphabetMap[digit] = BigInt(index)
+    })
+    return alphabetMap
+  })()
 
   fromBigInt (n = BigInt(0)) {
     this.n = n
@@ -82,8 +85,8 @@ export default class Bn extends Struct {
   }
 
   fromBase (str, base = 10) {
-    if (!(base >= 2 && base <= 36)) {
-      throw new Error('base must be from 2 to 36')
+    if (!(base >= 2 && base <= this.constructor.maxBase)) {
+      throw new Error(`base must be from 2 to ${this.constructor.maxBase}`)
     }
     base = BigInt(base)
     let n = 0n
@@ -92,7 +95,7 @@ export default class Bn extends Struct {
     for (let i = 0; i < length; i++) {
       const pos = length - 1 - i
       const digit = str[pos]
-      const num = digitMap[digit]
+      const num = this.constructor.alphabetMap[digit]
       n = n + num * exp
       exp = exp * base
     }

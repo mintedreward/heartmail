@@ -6211,7 +6211,7 @@ fsevents@~2.3.2:
     heartmail-lib: "workspace:*"
     mocha: 10.0.0
     should: 13.2.3
-    standard: ^17.0.0
+    standard: 17.0.0
   languageName: unknown
   linkType: soft
 
@@ -10578,7 +10578,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"standard@npm:17, standard@npm:^17.0.0":
+"standard@npm:17, standard@npm:17.0.0":
   version: 17.0.0
   resolution: "standard@npm:17.0.0"
   dependencies:
