@@ -74,27 +74,88 @@ export default class Bn extends Struct {
     return this.bi.toString(base)
   }
 
-  toBuffer (opts = { size: undefined, endian: 'big' }) {
+  toBuffer (opts = { size: undefined, endian: 'big', encoding: 'non-negative' }) {
     opts.endian = opts.endian ? opts.endian : 'big'
+    opts.encoding = opts.encoding ? opts.encoding : 'non-negative'
+    opts.size = opts.size ? Number.parseInt(opts.size) : undefined
+
+    let bi = this.bi
+    let neg = false
+
+    if (bi < 0) {
+      if (this.encoding === 'non-negative') {
+        throw new Error('cannot encode negative number as non-negative')
+      } else {
+        bi = -1n * bi
+        neg = true
+        if (opts.encoding === 'twos-complement') {
+          if (opts.size) {
+            // 2^N = A + A'
+            // A' = 2^N - A
+            const n = opts.size * 8 // number of bits
+            const twoPowN = BigInt('0x1' + '00'.repeat(opts.size))
+            bi = twoPowN - bi
+          } else {
+            throw new Error('twos-complement encoding requires a fixed size')
+          }
+        }
+      }
+    }
+
     const arr = []
     const base = 256n
     let i = 0
-    let bi = this.bi
     while (bi > 0) {
       arr[i] = Number(bi % base)
       bi = bi / base
       i++
     }
-    let buf = Buffer.from(arr)
-    if (opts.size && opts.size > buf.length) {
-      const newBuf = Buffer.alloc(opts.size)
-      newBuf.fill(buf)
-      newBuf.fill(0, buf.length, opts.size)
-      buf = newBuf
+
+    if (neg && opts.encoding === 'sign-magnitude' && opts.size === undefined) {
+      if (opts.encoding === 'sign-magnitude') {
+        if (arr[arr.length - 1] & 0x80) {
+          arr.push(0x80)
+        } else {
+          arr[arr.length - 1] = arr[arr.length - 1] | 0x80
+        }
+      } else if (opts.encoding === 'twos-complement') {
+        arr.forEach((val, index, arr) => {
+          arr[index]
+        })
+      }
+
     }
+
+    let buf = Buffer.from(arr)
+
+    if (opts.size) {
+      if (opts.size > buf.length) {
+        const newBuf = Buffer.alloc(opts.size)
+        if (buf.length > 0) {
+          newBuf.fill(buf)
+        }
+        newBuf.fill(0, buf.length, opts.size)
+        buf = newBuf
+      } else if (opts.size < buf.length) {
+        throw new Error('number does not fit in requested size')
+      }
+    }
+
+    if (neg && opts.encoding === 'sign-magnitude' && opts.size) {
+      if (buf[buf.length - 1] & 0x80) {
+        throw new Error('number does not fit in requested size')
+      } else {
+        buf[buf.length - 1] = buf[buf.length - 1] | 0x80
+      }
+    }
+
     if (opts.endian === 'big') {
       buf = buf.reverse()
     }
     return buf
+  }
+
+  toHex (opts) {
+    return this.toBuffer(opts).toString('hex')
   }
 }

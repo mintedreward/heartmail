@@ -177,5 +177,28 @@ describe('Bn', () => {
       new Bn(50000000).toBuffer({ size: 32, endian: 'little' }).toString('hex').should.equal('80f0fa0200000000000000000000000000000000000000000000000000000000')
       new Bn(50000000).toBuffer({ size: 32, endian: 'big' }).toString('hex').should.equal('0000000000000000000000000000000000000000000000000000000002faf080')
     })
+
+    it('should produce a sign-magnitude buffer', () => {
+      const opts = { encoding: 'sign-magnitude' }
+      new Bn(5).toBuffer(opts).toString('hex').should.equal('05')
+      new Bn(-5).toBuffer(opts).toString('hex').should.equal('85')
+      new Bn(0x80).toBuffer(opts).toString('hex').should.equal('80')
+      new Bn(-0x80).toBuffer(opts).toString('hex').should.equal('8080')
+
+      opts.size = 3
+      new Bn(-0x80).toBuffer(opts).toString('hex').should.equal('800080')
+    })
+
+    it('should produce a twos-complement buffer', () => {
+      const opts = { encoding: 'twos-complement', size: 1 }
+      new Bn(5).toBuffer(opts).toString('hex').should.equal('05')
+      new Bn(-1).toBuffer(opts).toString('hex').should.equal('ff')
+      new Bn(-2).toBuffer(opts).toString('hex').should.equal('fe')
+      new Bn(0).toBuffer(opts).toString('hex').should.equal('00')
+
+      opts.size = 3
+      new Bn(-1).toBuffer(opts).toString('hex').should.equal('ffffff')
+      new Bn(-2).toBuffer(opts).toString('hex').should.equal('fffffe')
+    })
   })
 })
