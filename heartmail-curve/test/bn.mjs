@@ -302,7 +302,7 @@ describe('Bn', () => {
         .should.equal('ff00')
     })
 
-    it('should create a 4 byte buffer even if you ask for a 1 byte', function () {
+    it('should create a 4 byte buffer if you ask for a 4 byte', function () {
       const bn = new Bn('ffffff00', 16)
       bn
         .toBuffer({ size: 4 })
