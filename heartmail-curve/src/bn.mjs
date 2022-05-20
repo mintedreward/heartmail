@@ -11,8 +11,11 @@ const digitMap = (() => {
 })()
 
 export default class Bn extends Struct {
-  constructor (bi) {
-    super({ bi })
+  constructor (bi, base) {
+    super({ bi: BigInt(bi) })
+    if (base) {
+      this.bi = this.fromString(bi, base)
+    }
   }
 
   static fromBigInt (bi = BigInt(0)) {
@@ -50,6 +53,9 @@ export default class Bn extends Struct {
   }
 
   static fromBase (str, base = 10) {
+    if (!(base >= 2 && base <= 36)) {
+      throw new Error('base must be from 2 to 36')
+    }
     base = BigInt(base)
     let bi = 0n
     let exp = 1n
@@ -66,5 +72,18 @@ export default class Bn extends Struct {
 
   toString (base = 10) {
     return this.bi.toString(base)
+  }
+
+  toBuffer (opts = { size: undefined, endian: 'big' }) {
+    const arr = []
+    const base = 256n
+    let i = 0
+    let bi = this.bi
+    while (bi > 0) {
+      arr[i] = Number(bi % base)
+      bi = bi / base
+      i++
+    }
+    return Buffer.from(opts.endian === 'big' ? arr.reverse() : arr)
   }
 }
