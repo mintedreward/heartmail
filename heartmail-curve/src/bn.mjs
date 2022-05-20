@@ -11,7 +11,7 @@ const digitMap = (() => {
 })()
 
 export default class Bn extends Struct {
-  constructor (n, base) {
+  constructor (n = BigInt(0), base) {
     super({ n })
     if (base) {
       this.fromString(n, base)
@@ -44,7 +44,7 @@ export default class Bn extends Struct {
   }
 
   fromHex (str) {
-    this.n = BigInt(`0x${str}`)
+    this.n = str ? BigInt(`0x${str}`) : 0n
     return this
   }
 
@@ -57,7 +57,7 @@ export default class Bn extends Struct {
   }
 
   fromOct (str) {
-    this.n = BigInt(`0o${str}`)
+    this.n = str ? BigInt(`0o${str}`) : 0n
     return this
   }
 
@@ -70,7 +70,7 @@ export default class Bn extends Struct {
   }
 
   fromBin (str) {
-    this.n = BigInt(`0b${str}`)
+    this.n = str? BigInt(`0b${str}`) : 0n
     return this
   }
 
@@ -367,8 +367,50 @@ export default class Bn extends Struct {
     return buf.readUInt32BE(0)
   }
 
-  lt (val) {
-    return this.n < new this.constructor(val).n
+  // This is analogous to the constructor for CScriptNum in bitcoind. Many ops
+  // in bitcoind's script interpreter use CScriptNum, which is not really a
+  // proper bignum. Instead, an error is thrown if trying to input a number
+  // bigger than 4 bytes. We copy that behavior here. There is one exception -
+  // in CHECKLOCKTIMEVERIFY, the numbers are allowed to be up to 5 bytes long.
+  // We allow for setting that variable here for use in CHECKLOCKTIMEVERIFY.
+  fromScriptNumBuffer (
+    buf,
+    fRequireMinimal,
+    nMaxNumSize
+  ) {
+    if (nMaxNumSize === undefined) {
+      nMaxNumSize = 4
+    }
+    if (buf.length > nMaxNumSize) {
+      throw new Error('script number overflow')
+    }
+    if (fRequireMinimal && buf.length > 0) {
+      // Check that the number is encoded with the minimum possible
+      // number of bytes.
+      //
+      // If the most-significant-byte - excluding the sign bit - is zero
+      // then we're not minimal. Note how this test also rejects the
+      // negative-zero encoding, 0x80.
+      if ((buf[buf.length - 1] & 0x7f) === 0) {
+        // One exception: if there's more than one byte and the most
+        // significant bit of the second-most-significant-byte is set
+        // it would conflict with the sign bit. An example of this case
+        // is +-255, which encode to 0xff00 and 0xff80 respectively.
+        // (big-endian).
+        if (buf.length <= 1 || (buf[buf.length - 2] & 0x80) === 0) {
+          throw new Error('non-minimally encoded script number')
+        }
+      }
+    }
+    return this.fromSm(buf, { endian: 'little' })
+  }
+
+  // The corollary to the above, with the notable exception that we do not throw
+  // an error if the output is larger than four bytes. (Which can happen if
+  // performing a numerical operation that results in an overflow to more than 4
+  // bytes).
+  toScriptNumBuffer () {
+    return this.toSm({ endian: 'little' })
   }
 
   neg () {
@@ -376,10 +418,81 @@ export default class Bn extends Struct {
     return new this.constructor(n)
   }
 
-  cmp (val) {
-    const n = new this.constructor(val).n
-    if (this.n === n) {
+  add (bn) {
+    bn = new this.constructor(bn)
+    return new this.constructor(this.n + bn.n)
+  }
+
+  sub (bn) {
+    bn = new this.constructor(bn)
+    return new this.constructor(this.n - bn.n)
+  }
+
+  mul (bn) {
+    bn = new this.constructor(bn)
+    return new this.constructor(this.n * bn.n)
+  }
+
+  mod (bn) {
+    bn = new this.constructor(bn)
+    return new this.constructor(this.n % bn.n)
+  }
+
+  invm (bn) {
+    bn = new this.constructor(bn)
+    throw new Error('not implemented yet')
+  }
+
+  div (bn) {
+    bn = new this.constructor(bn)
+    return new this.constructor(this.n / bn.n)
+  }
+
+  ushln () {
+    throw new Error('not implemented yet')
+  }
+
+  ushrn () {
+    throw new Error('not implemented yet')
+  }
+
+  cmp (bn) {
+    bn = new this.constructor(bn)
+    if (this.n === bn.n) {
       return 0
+    } else if (this.n < bn.n) {
+      return -1
+    } else {
+      return 1
     }
+  }
+
+  eq (bn) {
+    bn = new this.constructor(bn)
+    return this.n === bn.n
+  }
+
+  neq (bn) {
+    bn = new this.constructor(bn)
+    return this.n !== bn.n
+  }
+
+  gt (bn) {
+    bn = new this.constructor(bn)
+    return this.n > bn.n
+  }
+
+  geq (bn) {
+    bn = new this.constructor(bn)
+    return this.n >= bn.n
+  }
+
+  lt (bn) {
+    bn = new this.constructor(bn)
+    return this.n < bn.n
+  }
+
+  leq (bn) {
+    return this.n <= bn.n
   }
 }

@@ -401,4 +401,77 @@ describe('Bn', () => {
         .should.equal(0)
     })
   })
+
+  describe('#toScriptNumBuffer', function () {
+    it('should output a little endian Sm number', function () {
+      const bn = new Bn(-23434234)
+      bn
+        .toScriptNumBuffer()
+        .toString('hex')
+        .should.equal(bn.toSm({ endian: 'little' }).toString('hex'))
+    })
+  })
+
+  describe('#fromScriptNumBuffer', function () {
+    it('should parse this normal number', function () {
+      new Bn()
+        .fromScriptNumBuffer(Buffer.from('01', 'hex'))
+        .toNumber()
+        .should.equal(1)
+      new Bn()
+        .fromScriptNumBuffer(Buffer.from('0080', 'hex'))
+        .toNumber()
+        .should.equal(0)
+      new Bn()
+        .fromScriptNumBuffer(Buffer.from('0180', 'hex'))
+        .toNumber()
+        .should.equal(-1)
+    })
+
+    it('should throw an error for a number over 4 bytes', function () {
+      ;(function () {
+        new Bn()
+          .fromScriptNumBuffer(Buffer.from('8100000000', 'hex'))
+          .toNumber()
+          .should.equal(-1)
+      }.should.throw('script number overflow'))
+    })
+
+    it('should throw an error for number that is not a minimal size representation', function () {
+      // invalid
+      ;(function () {
+        new Bn().fromScriptNumBuffer(Buffer.from('80000000', 'hex'), true)
+      }.should.throw('non-minimally encoded script number'))
+      ;(function () {
+        new Bn().fromScriptNumBuffer(Buffer.from('800000', 'hex'), true)
+      }.should.throw('non-minimally encoded script number'))
+      ;(function () {
+        new Bn().fromScriptNumBuffer(Buffer.from('00', 'hex'), true)
+      }.should.throw('non-minimally encoded script number'))
+
+      // valid
+      new Bn()
+        .fromScriptNumBuffer(Buffer.from('8000', 'hex'), true)
+        .toString()
+        .should.equal('128')
+      new Bn()
+        .fromScriptNumBuffer(Buffer.from('0081', 'hex'), true)
+        .toString()
+        .should.equal('-256')
+      new Bn()
+        .fromScriptNumBuffer(Buffer.from('', 'hex'), true)
+        .toString()
+        .should.equal('0')
+      new Bn()
+        .fromScriptNumBuffer(Buffer.from('01', 'hex'), true)
+        .toString()
+        .should.equal('1')
+
+      // invalid, but flag not set
+      new Bn()
+        .fromScriptNumBuffer(Buffer.from('00000000', 'hex'))
+        .toString()
+        .should.equal('0')
+    })
+  })
 })
