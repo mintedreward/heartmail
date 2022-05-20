@@ -422,9 +422,20 @@ export default class Bn extends Struct {
     return new this.constructor(n)
   }
 
+  ineg () {
+    this.n *= -1n
+    return this
+  }
+
   add (bn) {
     bn = new this.constructor(bn)
     return new this.constructor(this.n + bn.n)
+  }
+
+  iadd (bn) {
+    bn = new this.constructor(bn)
+    this.n += bn.n
+    return this
   }
 
   sub (bn) {
@@ -432,18 +443,41 @@ export default class Bn extends Struct {
     return new this.constructor(this.n - bn.n)
   }
 
+  isub (bn) {
+    bn = new this.constructor(bn)
+    this.n -= bn.n
+    return this
+  }
+
   mul (bn) {
     bn = new this.constructor(bn)
     return new this.constructor(this.n * bn.n)
+  }
+
+  imul (bn) {
+    bn = new this.constructor(bn)
+    this.n *= bn.n
+    return this
   }
 
   sqr () {
     return new this.constructor(this.n * this.n)
   }
 
+  isqr () {
+    this.n *= this.n
+    return this
+  }
+
   mod (bn) {
     bn = new this.constructor(bn)
     return new this.constructor(this.n % bn.n)
+  }
+
+  imod (bn) {
+    bn = new this.constructor(bn)
+    this.n %= bn.n
+    return this
   }
 
   invm (bn) {
@@ -456,14 +490,32 @@ export default class Bn extends Struct {
     return new this.constructor(this.n / bn.n)
   }
 
+  idiv (bn) {
+    bn = new this.constructor(bn)
+    this.n /= bn.n
+    return this
+  }
+
   shln (bn) {
     bn = new this.constructor(bn)
     return new this.constructor(this.n << bn.n)
   }
 
+  ishln (bn) {
+    bn = new this.constructor(bn)
+    this.n <<= bn.n
+    return this
+  }
+
   shrn (bn) {
     bn = new this.constructor(bn)
     return new this.constructor(this.n >> bn.n)
+  }
+
+  ishrn (bn) {
+    bn = new this.constructor(bn)
+    this.n >>= bn.n
+    return this
   }
 
   cmp (bn) {

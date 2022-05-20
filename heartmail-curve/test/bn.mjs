@@ -711,12 +711,29 @@ describe('Bn', () => {
     })
   })
 
+  describe('#ineg', function () {
+    it('should produce a negative', function () {
+      const bn = new Bn(1).ineg()
+      ;(bn instanceof Bn).should.equal(true)
+      bn.toString().should.equal('-1')
+    })
+  })
+
   describe('#add', function () {
     it('should add two small numbers together', function () {
       const bn1 = new Bn(50)
       const bn2 = new Bn(75)
       const bn3 = bn1.add(bn2)
       bn3.toString().should.equal('125')
+    })
+  })
+
+  describe('#iadd', function () {
+    it('should add two small numbers together', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(75)
+      bn1.iadd(bn2)
+      bn1.toString().should.equal('125')
     })
   })
 
@@ -729,12 +746,46 @@ describe('Bn', () => {
     })
   })
 
+  describe('#isub', function () {
+    it('should subtract a small number', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(25)
+      bn1.isub(bn2)
+      bn1.toString().should.equal('25')
+    })
+  })
+
   describe('#mul', function () {
     it('should mul a small number', function () {
       const bn1 = new Bn(50)
       const bn2 = new Bn(25)
       const bn3 = bn1.mul(bn2)
       bn3.toString().should.equal('1250')
+    })
+  })
+
+  describe('#imul', function () {
+    it('should mul a small number', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(25)
+      bn1.imul(bn2)
+      bn1.toString().should.equal('1250')
+    })
+  })
+
+  describe('#sqr', function () {
+    it('should mul a small number', function () {
+      const bn1 = new Bn(5)
+      const bn2 = bn1.sqr()
+      bn2.toString().should.equal('25')
+    })
+  })
+
+  describe('#isqr', function () {
+    it('should mul a small number', function () {
+      const bn1 = new Bn(5)
+      bn1.isqr()
+      bn1.toString().should.equal('25')
     })
   })
 
@@ -768,6 +819,15 @@ describe('Bn', () => {
     })
   })
 
+  describe('#imod', function () {
+    it('should mod a small number', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(47)
+      bn1.imod(bn2)
+      bn1.toString().should.equal('3')
+    })
+  })
+
   describe.skip('#invm', function () {
     it('should invm a small number', function () {
       const bn1 = new Bn(50)
@@ -797,6 +857,51 @@ describe('Bn', () => {
       const bn2 = new Bn(47)
       const bn3 = bn1.div(bn2)
       bn3.toString().should.equal('1')
+    })
+  })
+
+  describe('#idiv', function () {
+    it('should div a small number', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(25)
+      bn1.idiv(bn2)
+      bn1.toString().should.equal('2')
+    })
+  })
+
+  describe('#shln', function () {
+    it('should div a small number', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(2)
+      const bn3 = bn1.shln(bn2)
+      bn3.toString().should.equal('200')
+    })
+  })
+
+  describe('#ishln', function () {
+    it('should div a small number', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(2)
+      bn1.ishln(bn2)
+      bn1.toString().should.equal('200')
+    })
+  })
+
+  describe('#shrn', function () {
+    it('should div a small number', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(2)
+      const bn3 = bn1.shrn(bn2)
+      bn3.toString().should.equal('12')
+    })
+  })
+
+  describe('#ishrn', function () {
+    it('should div a small number', function () {
+      const bn1 = new Bn(50)
+      const bn2 = new Bn(2)
+      bn1.ishrn(bn2)
+      bn1.toString().should.equal('12')
     })
   })
 
