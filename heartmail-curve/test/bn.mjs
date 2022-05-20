@@ -768,7 +768,7 @@ describe('Bn', () => {
     })
   })
 
-  describe.skip('#umod', function () {
+  describe('#umod', function () {
     it('should mod a small number', function () {
       const bn1 = new Bn(50)
       const bn2 = new Bn(25)
