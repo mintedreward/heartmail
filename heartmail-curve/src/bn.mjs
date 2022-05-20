@@ -43,12 +43,11 @@ export default class Bn extends Struct {
     return Number(this.n)
   }
 
-  fromHex (str) {
-    this.n = str ? BigInt(`0x${str}`) : 0n
-    return this
+  fromHex (str, opts) {
+    return this.fromBuffer(Buffer.from(str, 'hex'), opts)
   }
 
-  static fromHex (str) {
+  static fromHex (str, opts) {
     return new this().fromHex(str)
   }
 
@@ -150,7 +149,7 @@ export default class Bn extends Struct {
     buf = opts.endian === 'big' ? buf : buf.reverse()
 
     if (opts.encoding === 'non-negative') {
-      return this.fromString(buf.toString('hex'), 16)
+      return this.fromBase(buf.toString('hex'), 16)
     } else if (opts.encoding === 'sign-magnitude') {
       let neg = 1n
       if (buf[0] & 0x80) {
@@ -158,14 +157,14 @@ export default class Bn extends Struct {
         buf[0] = buf[0] & 0x7f
         neg = -1n
       }
-      let bn = this.constructor.fromString(buf.toString('hex'), 16)
+      let bn = this.constructor.fromBase(buf.toString('hex'), 16)
       bn = new Bn(neg * bn.n)
       this.n = bn.n
       return this
     } else if (opts.encoding === 'twos-complement') {
       // 2^N = A + A'
       // A = 2^N - A'
-      const bn = this.constructor.fromString(buf.toString('hex'), 16)
+      const bn = this.constructor.fromBase(buf.toString('hex'), 16)
       const largestPositive = BigInt('0x7f' + 'ff'.repeat(buf.length - 1))
       if (bn.n > largestPositive) {
         const twoPowN = BigInt('0x1' + '00'.repeat(buf.length))
@@ -413,6 +412,11 @@ export default class Bn extends Struct {
     return this.toSm({ endian: 'little' })
   }
 
+  copy (bn2) {
+    bn2.n = this.n
+    return this
+  }
+
   neg () {
     const n = -1n * this.n
     return new this.constructor(n)
@@ -431,6 +435,10 @@ export default class Bn extends Struct {
   mul (bn) {
     bn = new this.constructor(bn)
     return new this.constructor(this.n * bn.n)
+  }
+
+  sqr () {
+    return new this.constructor(this.n * this.n)
   }
 
   mod (bn) {
@@ -495,6 +503,7 @@ export default class Bn extends Struct {
   }
 
   leq (bn) {
+    bn = new this.constructor(bn)
     return this.n <= bn.n
   }
 }
