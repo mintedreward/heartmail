@@ -768,22 +768,6 @@ describe('Bn', () => {
     })
   })
 
-  describe('#umod', function () {
-    it('should mod a small number', function () {
-      const bn1 = new Bn(50)
-      const bn2 = new Bn(25)
-      const bn3 = bn1.umod(bn2)
-      bn3.toString().should.equal('0')
-    })
-
-    it('should mod a small number', function () {
-      const bn1 = new Bn(50)
-      const bn2 = new Bn(47)
-      const bn3 = bn1.umod(bn2)
-      bn3.toString().should.equal('3')
-    })
-  })
-
   describe.skip('#invm', function () {
     it('should invm a small number', function () {
       const bn1 = new Bn(50)

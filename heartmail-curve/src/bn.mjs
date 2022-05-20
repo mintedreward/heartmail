@@ -446,11 +446,6 @@ export default class Bn extends Struct {
     return new this.constructor(this.n % bn.n)
   }
 
-  umod (bn) {
-    bn = new this.constructor(bn)
-    return new this.constructor(this.n % bn.n)
-  }
-
   invm (bn) {
     bn = new this.constructor(bn)
     throw new Error('not implemented yet')
@@ -461,12 +456,12 @@ export default class Bn extends Struct {
     return new this.constructor(this.n / bn.n)
   }
 
-  ushln (bn) {
+  shln (bn) {
     bn = new this.constructor(bn)
     return new this.constructor(this.n << bn.n)
   }
 
-  ushrn () {
+  shrn (bn) {
     bn = new this.constructor(bn)
     return new this.constructor(this.n >> bn.n)
   }
