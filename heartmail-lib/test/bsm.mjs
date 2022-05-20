@@ -18,7 +18,7 @@ describe('Bsm', function () {
   describe('#fromObject', function () {
     it('should set the messageBuf', function () {
       const messageBuf = Buffer.from('message')
-      should.exist(new Bsm().fromObject({ messageBuf: messageBuf }).messageBuf)
+      should.exist(new Bsm().fromObject({ messageBuf }).messageBuf)
     })
   })
 

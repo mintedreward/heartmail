@@ -17,11 +17,11 @@ describe('TxIn', function () {
   const scriptVi = VarInt.fromNumber(script.toBuffer().length)
   const nSequence = 0
   const txIn = new TxIn().fromObject({
-    txHashBuf: txHashBuf,
-    txOutNum: txOutNum,
-    scriptVi: scriptVi,
-    script: script,
-    nSequence: nSequence
+    txHashBuf,
+    txOutNum,
+    scriptVi,
+    script,
+    nSequence
   })
 
   it('should make a new txIn', function () {
@@ -43,11 +43,11 @@ describe('TxIn', function () {
   describe('#fromObject', function () {
     it('should set these vars', function () {
       const txIn = new TxIn().fromObject({
-        txHashBuf: txHashBuf,
-        txOutNum: txOutNum,
-        scriptVi: scriptVi,
-        script: script,
-        nSequence: nSequence
+        txHashBuf,
+        txOutNum,
+        scriptVi,
+        script,
+        nSequence
       })
       should.exist(txIn.txHashBuf)
       should.exist(txIn.txOutNum)

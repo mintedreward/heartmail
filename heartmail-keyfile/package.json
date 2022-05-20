@@ -14,9 +14,9 @@
     "heartmail-lib": "workspace:*"
   },
   "devDependencies": {
-    "mocha": "^8.3.1",
+    "mocha": "10",
     "should": "^13.2.3",
-    "standard": "^16.0.3"
+    "standard": "17"
   },
   "version": "1.0.0"
 }

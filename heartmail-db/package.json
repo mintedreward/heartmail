@@ -20,9 +20,9 @@
     "heartmail-loadenv": "workspace:*"
   },
   "devDependencies": {
-    "mocha": "8.3.1",
+    "mocha": "10",
     "should": "13.2.3",
-    "sinon": "9.2.4",
-    "standard": "16.0.4"
+    "sinon": "14",
+    "standard": "17"
   }
 }

@@ -39,7 +39,7 @@ class PrivKey extends Struct {
     } while (!condition)
 
     this.fromObject({
-      bn: bn,
+      bn,
       compressed: true
     })
     return this

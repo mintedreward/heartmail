@@ -49,8 +49,8 @@ class Script extends Struct {
         len = opCodeNum
         this.chunks.push({
           buf: br.read(len),
-          len: len,
-          opCodeNum: opCodeNum
+          len,
+          opCodeNum
         })
       } else if (opCodeNum === OpCode.OP_PUSHDATA1) {
         try {
@@ -60,9 +60,9 @@ class Script extends Struct {
           br.read()
         }
         this.chunks.push({
-          buf: buf,
-          len: len,
-          opCodeNum: opCodeNum
+          buf,
+          len,
+          opCodeNum
         })
       } else if (opCodeNum === OpCode.OP_PUSHDATA2) {
         try {
@@ -72,9 +72,9 @@ class Script extends Struct {
           br.read()
         }
         this.chunks.push({
-          buf: buf,
-          len: len,
-          opCodeNum: opCodeNum
+          buf,
+          len,
+          opCodeNum
         })
       } else if (opCodeNum === OpCode.OP_PUSHDATA4) {
         try {
@@ -84,13 +84,13 @@ class Script extends Struct {
           br.read()
         }
         this.chunks.push({
-          buf: buf,
-          len: len,
-          opCodeNum: opCodeNum
+          buf,
+          len,
+          opCodeNum
         })
       } else {
         this.chunks.push({
-          opCodeNum: opCodeNum
+          opCodeNum
         })
       }
     }
@@ -149,7 +149,7 @@ class Script extends Struct {
           this.chunks.push({
             buf: Buffer.from(tokens[i + 1].slice(2), 'hex'),
             len: opCodeNum,
-            opCodeNum: opCodeNum
+            opCodeNum
           })
           i = i + 2
         } else if (opCodeNum === 0) {
@@ -171,12 +171,12 @@ class Script extends Struct {
         this.chunks.push({
           buf: Buffer.from(tokens[i + 2].slice(2), 'hex'),
           len: parseInt(tokens[i + 1], 10),
-          opCodeNum: opCodeNum
+          opCodeNum
         })
         i = i + 3
       } else {
         this.chunks.push({
-          opCodeNum: opCodeNum
+          opCodeNum
         })
         i = i + 1
       }
@@ -302,13 +302,13 @@ class Script extends Struct {
       if (token === '0') {
         opCodeNum = 0
         this.chunks.push({
-          opCodeNum: opCodeNum
+          opCodeNum
         })
         i = i + 1
       } else if (token === '-1') {
         opCodeNum = OpCode.OP_1NEGATE
         this.chunks.push({
-          opCodeNum: opCodeNum
+          opCodeNum
         })
         i = i + 1
       } else if (opCode === undefined) {
@@ -328,14 +328,14 @@ class Script extends Struct {
           opCodeNum = OpCode.OP_PUSHDATA4
         }
         this.chunks.push({
-          buf: buf,
+          buf,
           len: buf.length,
-          opCodeNum: opCodeNum
+          opCodeNum
         })
         i = i + 1
       } else {
         this.chunks.push({
-          opCodeNum: opCodeNum
+          opCodeNum
         })
         i = i + 1
       }
@@ -771,9 +771,9 @@ class Script extends Struct {
       throw new Error("You can't push that much data")
     }
     this.chunks.push({
-      buf: buf,
-      len: len,
-      opCodeNum: opCodeNum
+      buf,
+      len,
+      opCodeNum
     })
     return this
   }

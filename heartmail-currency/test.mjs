@@ -1,4 +1,4 @@
-'use strict'
+/* global describe,it */
 import * as currency from './index.mjs'
 import should from 'should'
 

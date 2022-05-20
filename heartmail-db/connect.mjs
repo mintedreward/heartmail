@@ -27,7 +27,7 @@ if (!secretKey) {
 }
 
 const auth = new sigV4.default.SigV4AuthProvider({
-  region: region,
+  region,
   accessKeyId: accessKey,
   secretAccessKey: secretKey
 })
@@ -37,7 +37,7 @@ const sslOptions = {
   ca: [
     crt
   ],
-  host: host,
+  host,
   rejectUnauthorized: true
 }
 
@@ -45,7 +45,7 @@ const client = new cassandra.Client({
   contactPoints: [host],
   localDataCenter: region,
   authProvider: auth,
-  sslOptions: sslOptions,
+  sslOptions,
   protocolOptions: { port: 9142 }
 })
 

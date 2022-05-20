@@ -1,3 +1,4 @@
+/* global describe,it */
 import { Keyfile } from '../src/index.mjs'
 import { PrivKey, Bn } from 'heartmail-lib'
 import should from 'should'
@@ -40,7 +41,7 @@ describe('Keyfile', () => {
       privKey2.toString().should.equal(privKey.toString())
     })
   })
-  
+
   describe('@decryptPrivKey', () => {
     it('should get this value', () => {
       const ivBuf = Buffer.from('06'.repeat(16), 'hex')
@@ -76,7 +77,7 @@ describe('Keyfile', () => {
       const ivBuf = Buffer.from('07'.repeat(16), 'hex')
       const password = 'p4ssw0rd'
       const keyfile = new Keyfile()
-      const address = keyfile.addPrivKey(privKey, password, ivBuf)
+      keyfile.addPrivKey(privKey, password, ivBuf)
       const jsonStr = JSON.stringify(keyfile.toJSON())
       jsonStr.should.equal('{"keysByPasswordHmacHmac":{"bf6a1c062394557f4b79211f969a0d178d0debfc6d336cbe919232a3d26f6c1e":{"186bbzwCAj6CcJqpB6og1Amifg2DGupMqn":"89cc76e96e9c2bd1d876a6dcd46b5dcd83cdeb8751218a25f792fcd0c3d4125807070707070707070707070707070707d93e79bad8700c64b6f184771e4cb4b30ea872638e454e41cab20c3e50bc4d283ee48300eb1bdeaf84bb63c83fe54745"}}}')
     })

@@ -96,9 +96,9 @@ class Ecdsa extends Struct {
      */
   static calcrecovery (sig, pubKey, hashBuf) {
     const ecdsa = new Ecdsa().fromObject({
-      sig: sig,
-      keyPair: new KeyPair().fromObject({ pubKey: pubKey }),
-      hashBuf: hashBuf
+      sig,
+      keyPair: new KeyPair().fromObject({ pubKey }),
+      hashBuf
     })
     return ecdsa.calcrecovery().sig
   }
@@ -246,8 +246,8 @@ class Ecdsa extends Struct {
 
   static sig2PubKey (sig, hashBuf) {
     const ecdsa = new Ecdsa().fromObject({
-      sig: sig,
-      hashBuf: hashBuf
+      sig,
+      hashBuf
     })
     return ecdsa.sig2PubKey()
   }
@@ -361,8 +361,8 @@ class Ecdsa extends Struct {
       s = Point.getN().sub(s)
     }
     this.sig = Sig.fromObject({
-      r: r,
-      s: s,
+      r,
+      s,
       compressed: this.keyPair.pubKey.compressed
     })
     return this
@@ -402,9 +402,9 @@ class Ecdsa extends Struct {
   static sign (hashBuf, keyPair, endian) {
     return new Ecdsa()
       .fromObject({
-        hashBuf: hashBuf,
-        endian: endian,
-        keyPair: keyPair
+        hashBuf,
+        endian,
+        keyPair
       })
       .sign().sig
   }
@@ -412,10 +412,10 @@ class Ecdsa extends Struct {
   static verify (hashBuf, sig, pubKey, endian, enforceLowS = true) {
     return new Ecdsa()
       .fromObject({
-        hashBuf: hashBuf,
-        endian: endian,
-        sig: sig,
-        keyPair: new KeyPair().fromObject({ pubKey: pubKey })
+        hashBuf,
+        endian,
+        sig,
+        keyPair: new KeyPair().fromObject({ pubKey })
       })
       .verify(enforceLowS).verified
   }

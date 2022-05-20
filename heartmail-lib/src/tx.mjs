@@ -42,9 +42,9 @@ class Tx extends Struct {
     this.fromObject({
       versionBytesNum: json.versionBytesNum,
       txInsVi: new VarInt().fromJSON(json.txInsVi),
-      txIns: txIns,
+      txIns,
       txOutsVi: new VarInt().fromJSON(json.txOutsVi),
-      txOuts: txOuts,
+      txOuts,
       nLockTime: json.nLockTime
     })
     return this
@@ -62,9 +62,9 @@ class Tx extends Struct {
     return {
       versionBytesNum: this.versionBytesNum,
       txInsVi: this.txInsVi.toJSON(),
-      txIns: txIns,
+      txIns,
       txOutsVi: this.txOutsVi.toJSON(),
-      txOuts: txOuts,
+      txOuts,
       nLockTime: this.nLockTime
     }
   }
@@ -262,7 +262,7 @@ class Tx extends Struct {
   sign (keyPair, nHashType = Sig.SIGHASH_ALL | Sig.SIGHASH_FORKID, nIn, subScript, valueBn, flags = Tx.SCRIPT_ENABLE_SIGHASH_FORKID, hashCache = {}) {
     const hashBuf = this.sighash(nHashType, nIn, subScript, valueBn, flags, hashCache)
     const sig = Ecdsa.sign(hashBuf, keyPair, 'little').fromObject({
-      nHashType: nHashType
+      nHashType
     })
     return sig
   }

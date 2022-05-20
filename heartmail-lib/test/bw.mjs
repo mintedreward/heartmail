@@ -15,7 +15,7 @@ describe('Bw', function () {
       const buf1 = Buffer.from([0])
       const buf2 = Buffer.from([1])
       const bufs = [buf1, buf2]
-      const bw = new Bw().fromObject({ bufs: bufs })
+      const bw = new Bw().fromObject({ bufs })
       bw
         .toBuffer()
         .toString('hex')

@@ -19,14 +19,14 @@ describe('TxOutMap', function () {
 
   it('should make a new txOutMap', function () {
     let txOutMap = new TxOutMap()
-    txOutMap = new TxOutMap({ map: map })
+    txOutMap = new TxOutMap({ map })
     should.exist(txOutMap)
     should.exist(txOutMap.map)
   })
 
   describe('#fromObject', function () {
     it('should set a map', function () {
-      const txOutMap = new TxOutMap().fromObject({ map: map })
+      const txOutMap = new TxOutMap().fromObject({ map })
       txOutMap.map
         .get(label)
         .toHex()
@@ -81,7 +81,7 @@ describe('TxOutMap', function () {
 
   describe('#get', function () {
     it('should get a txOut', function () {
-      const txOutMap = new TxOutMap().fromObject({ map: map })
+      const txOutMap = new TxOutMap().fromObject({ map })
       txOutMap
         .get(txHashBuf, 0)
         .toHex()

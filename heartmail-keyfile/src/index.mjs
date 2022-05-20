@@ -21,22 +21,22 @@
  * It is absolutely not intended that this file be used to store all keys held
  * by the user. If the user has other keys, they should be encrypted using keys
  * from this file or from keys derived from keys in this file.
- * 
- * The keyfile is extensible. 
+ *
+ * The keyfile is extensible.
  *
  * The user never sees the keys. It is assumed that every user has at least one
  * reliable 2FF (Two Factor Friend) which can be used to recover the keys.
- * 
+ *
  * We do not use bcrypt. It is important that the password is strong. If you
  * want a stronger password for your users, then use bcrypt on their password
  * and use that as the password for the keyfile.
- * 
+ *
  * If the user has had their password compromised, then the keys in this file
  * can no longer be trusted. What they should do in that case is to change their
  * password first and then generate a new identity to be added to this file.
  * They should then migrate all old keys to the new keys. e.g., if they have
  * money stored in derivative keys, they should move all that to new keys.
- * 
+ *
  * File structure:
  *
  * {
@@ -135,7 +135,6 @@ class Keyfile extends Struct {
       throw new Error('no keys with that password')
     }
     const addressStrings = Object.keys(this.keysByPasswordHmacHmac[oldpasswordHmacHmac])
-    const obj = {}
     for (const addressStr of addressStrings) {
       const address = KeyAddress.fromString(addressStr)
       const privKey = this.getPrivKey(address, oldPassword)

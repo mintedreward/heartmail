@@ -31,17 +31,17 @@
     "brfs": "^2.0.2",
     "coveralls": "^3.0.8",
     "grunt": "^1.0.4",
-    "grunt-browserify": "^5.0.0",
+    "grunt-browserify": "6",
     "grunt-cli": "^1.2.0",
-    "grunt-contrib-connect": "^2.1.0",
+    "grunt-contrib-connect": "3",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-uglify": "5.2.1",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-saucelabs": "^9.0.1",
     "istanbul": "^0.4.2",
     "jscs": "^3.0.7",
     "jshint": "^2.11.1",
-    "mocha": "^7.1.2"
+    "mocha": "10"
   },
   "dependencies": {
     "bn.js": "^5.1.1",

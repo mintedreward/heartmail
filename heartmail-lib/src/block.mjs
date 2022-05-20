@@ -33,7 +33,7 @@ class Block extends Struct {
     this.fromObject({
       blockHeader: new BlockHeader().fromJSON(json.blockHeader),
       txsVi: new VarInt().fromJSON(json.txsVi),
-      txs: txs
+      txs
     })
     return this
   }
@@ -46,7 +46,7 @@ class Block extends Struct {
     return {
       blockHeader: this.blockHeader.toJSON(),
       txsVi: this.txsVi.toJSON(),
-      txs: txs
+      txs
     }
   }
 

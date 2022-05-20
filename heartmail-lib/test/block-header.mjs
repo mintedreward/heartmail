@@ -15,12 +15,12 @@ describe('BlockHeader', function () {
   const bits = 3
   const nonce = 4
   bh.fromObject({
-    versionBytesNum: versionBytesNum,
-    prevBlockHashBuf: prevBlockHashBuf,
-    merkleRootBuf: merkleRootBuf,
-    time: time,
-    bits: bits,
-    nonce: nonce
+    versionBytesNum,
+    prevBlockHashBuf,
+    merkleRootBuf,
+    time,
+    bits,
+    nonce
   })
   const bhhex =
     '0100000005050505050505050505050505050505050505050505050505050505050505050909090909090909090909090909090909090909090909090909090909090909020000000300000004000000'
@@ -36,12 +36,12 @@ describe('BlockHeader', function () {
   describe('#fromObject', function () {
     it('should set all the variables', function () {
       bh.fromObject({
-        versionBytesNum: versionBytesNum,
-        prevBlockHashBuf: prevBlockHashBuf,
-        merkleRootBuf: merkleRootBuf,
-        time: time,
-        bits: bits,
-        nonce: nonce
+        versionBytesNum,
+        prevBlockHashBuf,
+        merkleRootBuf,
+        time,
+        bits,
+        nonce
       })
       should.exist(bh.versionBytesNum)
       should.exist(bh.prevBlockHashBuf)
@@ -55,12 +55,12 @@ describe('BlockHeader', function () {
   describe('#fromJSON', function () {
     it('should set all the variables', function () {
       const bh = new BlockHeader().fromJSON({
-        versionBytesNum: versionBytesNum,
+        versionBytesNum,
         prevBlockHashBuf: prevBlockHashBuf.toString('hex'),
         merkleRootBuf: merkleRootBuf.toString('hex'),
-        time: time,
-        bits: bits,
-        nonce: nonce
+        time,
+        bits,
+        nonce
       })
       should.exist(bh.versionBytesNum)
       should.exist(bh.prevBlockHashBuf)

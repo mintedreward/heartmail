@@ -11,9 +11,9 @@ describe('TxOut', function () {
   const script = new Script().fromString('OP_CHECKMULTISIG')
   const scriptVi = VarInt.fromNumber(script.toBuffer().length)
   const txOut = new TxOut().fromObject({
-    valueBn: valueBn,
-    scriptVi: scriptVi,
-    script: script
+    valueBn,
+    scriptVi,
+    script
   })
 
   it('should make a new txOut', function () {
@@ -25,9 +25,9 @@ describe('TxOut', function () {
   describe('#fromObject', function () {
     it('should set this object', function () {
       const txOut = new TxOut().fromObject({
-        valueBn: valueBn,
-        scriptVi: scriptVi,
-        script: script
+        valueBn,
+        scriptVi,
+        script
       })
       should.exist(txOut.valueBn)
       should.exist(txOut.scriptVi)

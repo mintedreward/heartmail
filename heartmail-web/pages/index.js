@@ -34,7 +34,8 @@ export default function HomePage (props) {
 
   async function handlePayment (payment) {
     state.payment = payment
-    const accessId = await getAccess(state)
+    // const accessId = await getAccess(state)
+    await getAccess(state)
   }
 
   const handleChange = (contactFeeAmountUsd) => {
@@ -45,7 +46,7 @@ export default function HomePage (props) {
     const res = await fetch('/api/buy-early', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({

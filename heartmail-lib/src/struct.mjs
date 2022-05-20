@@ -118,8 +118,8 @@ class Struct {
     const remainderbuf = buf.slice(buf.length - overlen, buf.length)
     buf = buf.slice(0, buf.length - overlen)
     return {
-      buf: buf,
-      remainderbuf: remainderbuf
+      buf,
+      remainderbuf
     }
   }
 

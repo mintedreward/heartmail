@@ -48,7 +48,7 @@ class Domain {
         try {
           if (err && (err.code === 'ENODATA' || err.code === 'ENOTFOUND')) {
             return resolve({
-              domainName: domainName,
+              domainName,
               port: 443,
               isSecure: true
             })

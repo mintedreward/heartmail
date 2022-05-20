@@ -33,7 +33,7 @@ describe('VarInt', function () {
   describe('#fromObject', function () {
     it('should set a buffer', function () {
       const buf = Buffer.from('00', 'hex')
-      const varInt = new VarInt().fromObject({ buf: buf })
+      const varInt = new VarInt().fromObject({ buf })
       varInt.buf.toString('hex').should.equal('00')
       varInt.fromObject({})
       varInt.buf.toString('hex').should.equal('00')

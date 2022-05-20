@@ -3,7 +3,6 @@ import PageTitle from '../../components/PageTitle'
 import AffiliateCard from '../../components/AffiliateCard'
 import TextField from '@mui/material/TextField'
 import { util } from 'heartmail-db'
-import * as hdate from 'human-date'
 
 export async function getServerSideProps (context) {
   const longId = context.query.longId
@@ -33,7 +32,7 @@ export default function AccessPage (props) {
   }
 
   const receiptId = props.account.longId
-  const accessGrantedAt = new Date(props.account.accessGrantedAt).toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric"})
+  const accessGrantedAt = new Date(props.account.accessGrantedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
   const userEmail = props.account.mbEmail
   const heartmail = `${props.account.longId}@${process.env.NEXT_PUBLIC_DOMAIN}`
 
