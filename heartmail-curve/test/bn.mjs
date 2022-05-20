@@ -182,7 +182,7 @@ describe('Bn', () => {
       const opts = { encoding: 'sign-magnitude' }
       new Bn(5).toBuffer(opts).toString('hex').should.equal('05')
       new Bn(-5).toBuffer(opts).toString('hex').should.equal('85')
-      new Bn(0x80).toBuffer(opts).toString('hex').should.equal('80')
+      new Bn(0x80).toBuffer(opts).toString('hex').should.equal('0080')
       new Bn(-0x80).toBuffer(opts).toString('hex').should.equal('8080')
 
       opts.size = 3
@@ -205,7 +205,7 @@ describe('Bn', () => {
       } catch (err) {
         m = err.message
       }
-      m.should.equal('number does not fit in requested size')
+      m.should.equal('cannot produce buffer of desired size because number is too big')
 
       m = ''
       try {
@@ -213,7 +213,7 @@ describe('Bn', () => {
       } catch (err) {
         m = err.message
       }
-      m.should.equal('number does not fit in requested size')
+      m.should.equal('cannot produce buffer of desired size because number is too big')
 
       m = ''
       try {
@@ -221,7 +221,7 @@ describe('Bn', () => {
       } catch (err) {
         m = err.message
       }
-      m.should.equal('number does not fit in requested size')
+      m.should.equal('cannot produce buffer of desired size because number is too big')
 
       opts.size = 3
       new Bn(-1).toBuffer(opts).toString('hex').should.equal('ffffff')
@@ -313,6 +313,92 @@ describe('Bn', () => {
         .fromNumber(-1)
         .toBits()
         .should.equal(0x01800001)
+    })
+  })
+
+  describe('#toSm', function () {
+    it('should convert to Sm', function () {
+      let buf
+      buf = new Bn().toSm()
+      buf.toString('hex').should.equal('')
+      buf = new Bn(5).toSm()
+      buf.toString('hex').should.equal('05')
+      buf = new Bn(-5).toSm()
+      buf.toString('hex').should.equal('85')
+      buf = new Bn(128).toSm()
+      buf.toString('hex').should.equal('0080')
+      buf = new Bn(-128).toSm()
+      buf.toString('hex').should.equal('8080')
+      buf = new Bn(127).toSm()
+      buf.toString('hex').should.equal('7f')
+      buf = new Bn(-127).toSm()
+      buf.toString('hex').should.equal('ff')
+      buf = new Bn(128).toSm({ endian: 'little' })
+      buf.toString('hex').should.equal('8000')
+      buf = new Bn(-128).toSm({ endian: 'little' })
+      buf.toString('hex').should.equal('8080')
+      buf = new Bn(-128).toSm({ endian: 'little', size: 2 })
+      buf.toString('hex').should.equal('8080')
+      buf = new Bn(-42).toSm({ endian: 'little', size: 1 })
+      buf.toString('hex').should.equal('aa')
+      buf = new Bn(0).toSm({ endian: 'little', size: 1 })
+      buf.toString('hex').should.equal('00')
+      buf = new Bn(-128).toSm({ endian: 'little', size: 3 })
+      buf.toString('hex').should.equal('800080')
+      buf = new Bn(-128).toSm({ endian: 'little', size: 4 })
+      buf.toString('hex').should.equal('80000080')
+      buf = new Bn(-128).toSm({ endian: 'big', size: 4 })
+      buf.toString('hex').should.equal('80000080')
+      ;(() => {
+        buf = new Bn(5000).toSm({ endian: 'big', size: 1 })
+        buf.toString('hex')
+      }).should.throw('cannot produce buffer of desired size because number is too big')
+    })
+  })
+
+  describe('#fromSm', function () {
+    it('should convert from Sm', function () {
+      let buf
+      buf = Buffer.from([0])
+      new Bn()
+        .fromSm(buf)
+        .cmp(0)
+        .should.equal(0)
+      buf = Buffer.from('05', 'hex')
+      new Bn()
+        .fromSm(buf)
+        .cmp(5)
+        .should.equal(0)
+      buf = Buffer.from('85', 'hex')
+      new Bn()
+        .fromSm(buf)
+        .cmp(-5)
+        .should.equal(0)
+      buf = Buffer.from('0080', 'hex')
+      new Bn()
+        .fromSm(buf)
+        .cmp(128)
+        .should.equal(0)
+      buf = Buffer.from('8080', 'hex')
+      new Bn()
+        .fromSm(buf)
+        .cmp(-128)
+        .should.equal(0)
+      buf = Buffer.from('8000', 'hex')
+      new Bn()
+        .fromSm(buf, { endian: 'little' })
+        .cmp(128)
+        .should.equal(0)
+      buf = Buffer.from('8080', 'hex')
+      new Bn()
+        .fromSm(buf, { endian: 'little' })
+        .cmp(-128)
+        .should.equal(0)
+      buf = Buffer.from('0080', 'hex') // negative zero
+      new Bn()
+        .fromSm(buf, { endian: 'little' })
+        .cmp(0)
+        .should.equal(0)
     })
   })
 })

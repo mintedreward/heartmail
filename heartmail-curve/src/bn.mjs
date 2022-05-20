@@ -160,7 +160,7 @@ export default class Bn extends Struct {
       }
       let bn = this.constructor.fromString(buf.toString('hex'), 16)
       bn = new Bn(neg * bn.bn)
-      this.bn = bn
+      this.bn = bn.bn
       return this
     } else if (opts.encoding === 'twos-complement') {
       // 2^N = A + A'
@@ -172,7 +172,7 @@ export default class Bn extends Struct {
         bn.bn = twoPowN - bn.bn
         bn.bn = -1n * bn.bn
       }
-      this.bn = bn
+      this.bn = bn.bn
       return this
     } else {
       throw new Error('invalid encoding')
@@ -211,7 +211,7 @@ export default class Bn extends Struct {
       if (opts.size) {
         const largestPositive = BigInt('0x7f' + 'ff'.repeat(opts.size - 1))
         if (bn > largestPositive) {
-          throw new Error('number does not fit in requested size')
+          throw new Error('cannot produce buffer of desired size because number is too big')
         }
       } else {
         throw new Error('twos-complement encoding requires a fixed size')
@@ -227,11 +227,17 @@ export default class Bn extends Struct {
       i++
     }
 
-    if (neg && opts.encoding === 'sign-magnitude' && opts.size === undefined) {
+    if (opts.encoding === 'sign-magnitude' && opts.size === undefined) {
       if (arr[arr.length - 1] & 0x80) {
-        arr.push(0x80)
+        if (neg) {
+          arr.push(0x80)
+        } else {
+          arr.push(0x00)
+        }
       } else {
-        arr[arr.length - 1] = arr[arr.length - 1] | 0x80
+        if (neg) {
+          arr[arr.length - 1] = arr[arr.length - 1] | 0x80
+        }
       }
     }
 
@@ -246,13 +252,13 @@ export default class Bn extends Struct {
         newBuf.fill(0, buf.length, opts.size)
         buf = newBuf
       } else if (opts.size < buf.length) {
-        throw new Error('number does not fit in requested size')
+        throw new Error('cannot produce buffer of desired size because number is too big')
       }
     }
 
     if (neg && opts.encoding === 'sign-magnitude' && opts.size) {
       if (buf[buf.length - 1] & 0x80) {
-        throw new Error('number does not fit in requested size')
+        throw new Error('cannot produce buffer of desired size because number is too big')
       } else {
         buf[buf.length - 1] = buf[buf.length - 1] | 0x80
       }
@@ -325,15 +331,6 @@ export default class Bn extends Struct {
   return this
   }
 
-  lt (val) {
-    return this.bn < (new this.constructor(val)).bn
-  }
-
-  neg () {
-    const bn = -1n * this.bn
-    return new this.constructor(bn)
-  }
-
   /**
    * Convert Bn to the "bits" value in a blockheader. Analagous to Bitcoin
    * Core's uint256 GetCompact method. bits is a UInt32.
@@ -368,5 +365,21 @@ export default class Bn extends Struct {
     buf = Buffer.alloc(4)
     buf.writeInt32BE(bits, 0)
     return buf.readUInt32BE(0)
+  }
+
+  lt (val) {
+    return this.bn < new this.constructor(val).bn
+  }
+
+  neg () {
+    const bn = -1n * this.bn
+    return new this.constructor(bn)
+  }
+
+  cmp (val) {
+    const bn = new this.constructor(val).bn
+    if (this.bn === bn) {
+      return 0
+    }
   }
 }
