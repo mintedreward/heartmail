@@ -195,10 +195,51 @@ describe('Bn', () => {
       new Bn(-1).toBuffer(opts).toString('hex').should.equal('ff')
       new Bn(-2).toBuffer(opts).toString('hex').should.equal('fe')
       new Bn(0).toBuffer(opts).toString('hex').should.equal('00')
+      new Bn(-128).toBuffer(opts).toString('hex').should.equal('80')
+      new Bn(127).toBuffer(opts).toString('hex').should.equal('7f')
+
+      let m
+      m = ''
+      try {
+        new Bn(256).toBuffer(opts).toString('hex').should.equal('')
+      } catch (err) {
+        m = err.message
+      }
+      m.should.equal('number does not fit in requested size')
+
+      m = ''
+      try {
+        new Bn(128).toBuffer(opts).toString('hex').should.equal('')
+      } catch (err) {
+        m = err.message
+      }
+      m.should.equal('number does not fit in requested size')
+
+      m = ''
+      try {
+        new Bn(10000).toBuffer(opts).toString('hex').should.equal('')
+      } catch (err) {
+        m = err.message
+      }
+      m.should.equal('number does not fit in requested size')
 
       opts.size = 3
       new Bn(-1).toBuffer(opts).toString('hex').should.equal('ffffff')
       new Bn(-2).toBuffer(opts).toString('hex').should.equal('fffffe')
+    })
+  })
+
+  describe('@fromBuffer', () => {
+    it('should convert these known values', () => {
+      Bn.fromBuffer(Buffer.from('ff', 'hex')).toString().should.equal('255')
+      Bn.fromBuffer(Buffer.from('ff', 'hex'), { encoding: 'sign-magnitude'}).toString().should.equal('-127')
+      Bn.fromBuffer(Buffer.from('ff', 'hex'), { encoding: 'twos-complement'}).toString().should.equal('-1')
+
+      Bn.fromBuffer(Buffer.from('ff00', 'hex'), { endian: 'little' }).toString().should.equal('255')
+      Bn.fromBuffer(Buffer.from('ff00', 'hex'), { endian: 'little', encoding: 'sign-magnitude'}).toString().should.equal('255')
+      Bn.fromBuffer(Buffer.from('ff00', 'hex'), { endian: 'little', encoding: 'twos-complement'}).toString().should.equal('255')
+      Bn.fromBuffer(Buffer.from('ffff', 'hex'), { endian: 'little', encoding: 'twos-complement'}).toString().should.equal('-1')
+      Bn.fromBuffer(Buffer.from('ffff', 'hex'), { endian: 'little', encoding: 'sign-magnitude'}).toString().should.equal('-32767')
     })
   })
 })

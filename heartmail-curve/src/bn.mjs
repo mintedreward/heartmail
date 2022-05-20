@@ -16,6 +16,9 @@ export default class Bn extends Struct {
     if (base) {
       this.bi = this.fromString(bi, base)
     }
+    if (typeof this.bi !== 'bigint') {
+      this.bi = BigInt(this.bi)
+    }
   }
 
   static fromBigInt (bi = BigInt(0)) {
@@ -92,13 +95,21 @@ export default class Bn extends Struct {
           if (opts.size) {
             // 2^N = A + A'
             // A' = 2^N - A
-            const n = opts.size * 8 // number of bits
             const twoPowN = BigInt('0x1' + '00'.repeat(opts.size))
             bi = twoPowN - bi
           } else {
             throw new Error('twos-complement encoding requires a fixed size')
           }
         }
+      }
+    } else if (opts.encoding === 'twos-complement') {
+      if (opts.size) {
+        const largestPositive = BigInt('0x7f' + 'ff'.repeat(opts.size - 1))
+        if (bi > largestPositive) {
+          throw new Error('number does not fit in requested size')
+        }
+      } else {
+        throw new Error('twos-complement encoding requires a fixed size')
       }
     }
 
@@ -112,18 +123,11 @@ export default class Bn extends Struct {
     }
 
     if (neg && opts.encoding === 'sign-magnitude' && opts.size === undefined) {
-      if (opts.encoding === 'sign-magnitude') {
-        if (arr[arr.length - 1] & 0x80) {
-          arr.push(0x80)
-        } else {
-          arr[arr.length - 1] = arr[arr.length - 1] | 0x80
-        }
-      } else if (opts.encoding === 'twos-complement') {
-        arr.forEach((val, index, arr) => {
-          arr[index]
-        })
+      if (arr[arr.length - 1] & 0x80) {
+        arr.push(0x80)
+      } else {
+        arr[arr.length - 1] = arr[arr.length - 1] | 0x80
       }
-
     }
 
     let buf = Buffer.from(arr)
@@ -157,5 +161,38 @@ export default class Bn extends Struct {
 
   toHex (opts) {
     return this.toBuffer(opts).toString('hex')
+  }
+
+  static fromBuffer (buf, opts = { endian: 'big', encoding: 'non-negative' }) {
+    opts.endian = opts.endian ? opts.endian : 'big'
+    opts.encoding = opts.encoding ? opts.encoding : 'non-negative'
+    buf = opts.endian === 'big' ? buf : buf.reverse()
+
+    if (opts.encoding === 'non-negative') {
+      return this.fromString(buf.toString('hex'), 16)
+    } else if (opts.encoding === 'sign-magnitude') {
+      let neg = 1n
+      if (buf[0] & 0x80) {
+        buf = Buffer.from(buf)
+        buf[0] = buf[0] & 0x7f
+        neg = -1n
+      }
+      let bn = this.fromString(buf.toString('hex'), 16)
+      bn = new Bn(neg * bn.bi)
+      return bn
+    } else if (opts.encoding === 'twos-complement') {
+      // 2^N = A + A'
+      // A = 2^N - A'
+      const bn = this.fromString(buf.toString('hex'), 16)
+      const largestPositive = BigInt('0x7f' + 'ff'.repeat(buf.length - 1))
+      if (bn.bi > largestPositive) {
+        const twoPowN = BigInt('0x1' + '00'.repeat(buf.length))
+        bn.bi = twoPowN - bn.bi
+        bn.bi = -1n * bn.bi
+      }
+      return bn
+    } else {
+      throw new Error('invalid encoding')
+    }
   }
 }
