@@ -11,27 +11,27 @@ const digitMap = (() => {
 })()
 
 export default class Bn extends Struct {
-  constructor (bn, base) {
-    super({ bn })
+  constructor (n, base) {
+    super({ n })
     if (base) {
-      this.fromString(bn, base)
+      this.fromString(n, base)
     }
-    if (this.bn !== undefined && typeof this.bn !== 'bigint') {
-      this.bn = BigInt(this.bn)
+    if (this.n !== undefined && typeof this.n !== 'bigint') {
+      this.n = BigInt(this.n)
     }
   }
 
-  fromBigInt (bn = BigInt(0)) {
-    this.bn = bn
+  fromBigInt (n = BigInt(0)) {
+    this.n = n
     return this
   }
 
-  static fromBigInt (bn = BigInt(0)) {
-    return new this().fromBigInt(bn)
+  static fromBigInt (n = BigInt(0)) {
+    return new this().fromBigInt(n)
   }
 
   fromNumber (num = 0) {
-    this.bn = BigInt(num)
+    this.n = BigInt(num)
     return this
   }
 
@@ -40,11 +40,11 @@ export default class Bn extends Struct {
   }
 
   toNumber () {
-    return Number(this.bn)
+    return Number(this.n)
   }
 
   fromHex (str) {
-    this.bn = BigInt(`0x${str}`)
+    this.n = BigInt(`0x${str}`)
     return this
   }
 
@@ -57,7 +57,7 @@ export default class Bn extends Struct {
   }
 
   fromOct (str) {
-    this.bn = BigInt(`0o${str}`)
+    this.n = BigInt(`0o${str}`)
     return this
   }
 
@@ -70,7 +70,7 @@ export default class Bn extends Struct {
   }
 
   fromBin (str) {
-    this.bn = BigInt(`0b${str}`)
+    this.n = BigInt(`0b${str}`)
     return this
   }
 
@@ -87,17 +87,17 @@ export default class Bn extends Struct {
       throw new Error('base must be from 2 to 36')
     }
     base = BigInt(base)
-    let bn = 0n
+    let n = 0n
     let exp = 1n
     const length = str.length
     for (let i = 0; i < length; i++) {
       const pos = length - 1 - i
       const digit = str[pos]
       const num = digitMap[digit]
-      bn = bn + num * exp
+      n = n + num * exp
       exp = exp * base
     }
-    this.bn = bn
+    this.n = n
     return this
   }
 
@@ -106,12 +106,12 @@ export default class Bn extends Struct {
   }
 
   toBase (base = 10) {
-    return this.bn.toString(base)
+    return this.n.toString(base)
   }
 
   fromString (str, base = 10) {
     if (base === 10) {
-      this.bn = BigInt(str)
+      this.n = BigInt(str)
       return this
     } else if (base === 2) {
       return this.fromBin(str)
@@ -129,7 +129,7 @@ export default class Bn extends Struct {
   }
 
   toString (base = 10) {
-    return this.bn.toString(base)
+    return this.n.toString(base)
   }
 
   fromJSON (json) {
@@ -159,20 +159,20 @@ export default class Bn extends Struct {
         neg = -1n
       }
       let bn = this.constructor.fromString(buf.toString('hex'), 16)
-      bn = new Bn(neg * bn.bn)
-      this.bn = bn.bn
+      bn = new Bn(neg * bn.n)
+      this.n = bn.n
       return this
     } else if (opts.encoding === 'twos-complement') {
       // 2^N = A + A'
       // A = 2^N - A'
       const bn = this.constructor.fromString(buf.toString('hex'), 16)
       const largestPositive = BigInt('0x7f' + 'ff'.repeat(buf.length - 1))
-      if (bn.bn > largestPositive) {
+      if (bn.n > largestPositive) {
         const twoPowN = BigInt('0x1' + '00'.repeat(buf.length))
-        bn.bn = twoPowN - bn.bn
-        bn.bn = -1n * bn.bn
+        bn.n = twoPowN - bn.n
+        bn.n = -1n * bn.n
       }
-      this.bn = bn.bn
+      this.n = bn.n
       return this
     } else {
       throw new Error('invalid encoding')
@@ -188,20 +188,20 @@ export default class Bn extends Struct {
     opts.encoding = opts.encoding ? opts.encoding : 'non-negative'
     opts.size = opts.size ? Number.parseInt(opts.size) : undefined
 
-    let bn = this.bn
+    let n = this.n
     let neg = false
-    if (bn < 0n) {
+    if (n < 0n) {
       if (opts.encoding === 'non-negative') {
         throw new Error('cannot encode negative number as non-negative')
       } else {
-        bn = -1n * bn
+        n = -1n * n
         neg = true
         if (opts.encoding === 'twos-complement') {
           if (opts.size) {
             // 2^N = A + A'
             // A' = 2^N - A
             const twoPowN = BigInt('0x1' + '00'.repeat(opts.size))
-            bn = twoPowN - bn
+            n = twoPowN - n
           } else {
             throw new Error('twos-complement encoding requires a fixed size')
           }
@@ -210,7 +210,7 @@ export default class Bn extends Struct {
     } else if (opts.encoding === 'twos-complement') {
       if (opts.size) {
         const largestPositive = BigInt('0x7f' + 'ff'.repeat(opts.size - 1))
-        if (bn > largestPositive) {
+        if (n > largestPositive) {
           throw new Error('cannot produce buffer of desired size because number is too big')
         }
       } else {
@@ -221,9 +221,9 @@ export default class Bn extends Struct {
     const arr = []
     const base = 256n
     let i = 0
-    while (bn > 0) {
-      arr[i] = Number(bn % base)
-      bn = bn / base
+    while (n > 0) {
+      arr[i] = Number(n % base)
+      n = n / base
       i++
     }
 
@@ -326,7 +326,7 @@ export default class Bn extends Struct {
   }
   this.fromBuffer(buf)
   if (bits & 0x00800000) {
-    this.bn = 0n - this.bn
+    this.n = 0n - this.n
   }
   return this
   }
@@ -368,17 +368,17 @@ export default class Bn extends Struct {
   }
 
   lt (val) {
-    return this.bn < new this.constructor(val).bn
+    return this.n < new this.constructor(val).n
   }
 
   neg () {
-    const bn = -1n * this.bn
-    return new this.constructor(bn)
+    const n = -1n * this.n
+    return new this.constructor(n)
   }
 
   cmp (val) {
-    const bn = new this.constructor(val).bn
-    if (this.bn === bn) {
+    const n = new this.constructor(val).n
+    if (this.n === n) {
       return 0
     }
   }
