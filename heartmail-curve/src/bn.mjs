@@ -72,7 +72,7 @@ export default class Bn extends Struct {
   }
 
   fromBin (str) {
-    this.n = str? BigInt(`0b${str}`) : 0n
+    this.n = str ? BigInt(`0b${str}`) : 0n
     return this
   }
 
@@ -309,28 +309,28 @@ export default class Bn extends Struct {
   fromBits (bits, opts = { strict: false }) {
   // To performed bitwise operations in javascript, we need to convert to a
   // signed 32 bit value.
-  let buf = Buffer.alloc(4)
-  buf.writeUInt32BE(bits, 0)
-  bits = buf.readInt32BE(0)
-  if (opts.strict && bits & 0x00800000) {
-    throw new Error('negative bit set')
-  }
-  const nsize = bits >> 24
-  const nword = bits & 0x007fffff
-  buf = Buffer.alloc(4)
-  buf.writeInt32BE(nword)
-  if (nsize <= 3) {
-    buf = buf.slice(1, nsize + 1)
-  } else {
-    const fill = Buffer.alloc(nsize - 3)
-    fill.fill(0)
-    buf = Buffer.concat([buf, fill])
-  }
-  this.fromBuffer(buf)
-  if (bits & 0x00800000) {
-    this.n = 0n - this.n
-  }
-  return this
+    let buf = Buffer.alloc(4)
+    buf.writeUInt32BE(bits, 0)
+    bits = buf.readInt32BE(0)
+    if (opts.strict && bits & 0x00800000) {
+      throw new Error('negative bit set')
+    }
+    const nsize = bits >> 24
+    const nword = bits & 0x007fffff
+    buf = Buffer.alloc(4)
+    buf.writeInt32BE(nword)
+    if (nsize <= 3) {
+      buf = buf.slice(1, nsize + 1)
+    } else {
+      const fill = Buffer.alloc(nsize - 3)
+      fill.fill(0)
+      buf = Buffer.concat([buf, fill])
+    }
+    this.fromBuffer(buf)
+    if (bits & 0x00800000) {
+      this.n = 0n - this.n
+    }
+    return this
   }
 
   /**
@@ -415,6 +415,102 @@ export default class Bn extends Struct {
     return this.toSm({ endian: 'little' })
   }
 
+  clone () {
+    return new this.constructor(BigInt(this.n))
+  }
+
+  isZero () {
+    return this.n === 0n
+  }
+
+  isOdd () {
+    return this.n & 1n
+  }
+
+  isEven () {
+    return !this.isOdd()
+  }
+
+  egcd (p) {
+    // https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
+    if (p.n <= 0n) {
+      throw new Error('p must be positive')
+    }
+
+    const x = this.clone()
+    if (x.n < 0) {
+      x.imod(p)
+    }
+    const y = p.clone()
+
+    // A * x + B * y = x
+    const A = new this.constructor(1)
+    const B = new this.constructor(0)
+
+    // C * x + D * y = y
+    const C = new this.constructor(0)
+    const D = new this.constructor(1)
+
+    let g = 0
+
+    while (x.isEven() && y.isEven()) {
+      x.ishrn(1)
+      y.ishrn(1)
+      ++g
+    }
+
+    const yp = y.clone()
+    const xp = x.clone()
+
+    while (!x.isZero()) {
+      let i, im
+      for (i = 0n, im = 1n; (x.n & im) === 0n; ++i, im <<= 1n);
+      if (i > 0n) {
+        x.ishrn(i)
+        while (i-- > 0n) {
+          if (A.isOdd() || B.isOdd()) {
+            A.iadd(yp)
+            B.isub(xp)
+          }
+
+          A.ishrn(1n)
+          B.ishrn(1n)
+        }
+      }
+
+      let j, jm
+      for (j = 0n, jm = 1n; (y.n & jm) === 0n; ++j, jm <<= 1n);
+      if (j > 0n) {
+        y.ishrn(j)
+        while (j-- > 0n) {
+          if (C.isOdd() || D.isOdd()) {
+            C.iadd(yp)
+            D.isub(xp)
+          }
+
+          C.ishrn(1)
+          D.ishrn(1)
+        }
+      }
+
+      if (x.cmp(y) >= 0) {
+        x.isub(y)
+        A.isub(C)
+        B.isub(D)
+      } else {
+        y.isub(x)
+        C.isub(A)
+        D.isub(B)
+      }
+    }
+
+    return {
+      a: C,
+      b: D,
+      gcd: y.ishln(g)
+    }
+  }
+
   copy (bn2) {
     bn2.n = this.n
     return this
@@ -474,18 +570,25 @@ export default class Bn extends Struct {
 
   mod (bn) {
     bn = new this.constructor(bn)
-    return new this.constructor(this.n % bn.n)
+    const r = new this.constructor(this.n % bn.n)
+    if (r.n < 0) {
+      r.n = bn.n + r.n
+    }
+    return r
   }
 
   imod (bn) {
     bn = new this.constructor(bn)
     this.n %= bn.n
+    if (this.n < 0) {
+      this.n += bn.n
+    }
     return this
   }
 
-  invm (bn) {
-    bn = new this.constructor(bn)
-    throw new Error('not implemented yet')
+  invm (primeBn) {
+    const bn = new this.constructor(primeBn)
+    return this.egcd(bn).a.mod(bn)
   }
 
   div (bn) {

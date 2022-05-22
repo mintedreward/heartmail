@@ -56,7 +56,7 @@ describe('Bn', () => {
       .redSqr()
       .fromRed()
 
-    assert.strict.equal(actual.toString(16), expected.toString(16))
+    actual.toString(16).should.equal(expected.toString(16))
   })
 
   it('should correctly square these numbers related to a bug in OpenSSL - CVE-2014-3570', function () {
@@ -390,14 +390,14 @@ describe('Bn', () => {
   describe('@fromBuffer', () => {
     it('should convert these known values', () => {
       Bn.fromBuffer(Buffer.from('ff', 'hex')).toString().should.equal('255')
-      Bn.fromBuffer(Buffer.from('ff', 'hex'), { encoding: 'sign-magnitude'}).toString().should.equal('-127')
-      Bn.fromBuffer(Buffer.from('ff', 'hex'), { encoding: 'twos-complement'}).toString().should.equal('-1')
+      Bn.fromBuffer(Buffer.from('ff', 'hex'), { encoding: 'sign-magnitude' }).toString().should.equal('-127')
+      Bn.fromBuffer(Buffer.from('ff', 'hex'), { encoding: 'twos-complement' }).toString().should.equal('-1')
 
       Bn.fromBuffer(Buffer.from('ff00', 'hex'), { endian: 'little' }).toString().should.equal('255')
-      Bn.fromBuffer(Buffer.from('ff00', 'hex'), { endian: 'little', encoding: 'sign-magnitude'}).toString().should.equal('255')
-      Bn.fromBuffer(Buffer.from('ff00', 'hex'), { endian: 'little', encoding: 'twos-complement'}).toString().should.equal('255')
-      Bn.fromBuffer(Buffer.from('ffff', 'hex'), { endian: 'little', encoding: 'twos-complement'}).toString().should.equal('-1')
-      Bn.fromBuffer(Buffer.from('ffff', 'hex'), { endian: 'little', encoding: 'sign-magnitude'}).toString().should.equal('-32767')
+      Bn.fromBuffer(Buffer.from('ff00', 'hex'), { endian: 'little', encoding: 'sign-magnitude' }).toString().should.equal('255')
+      Bn.fromBuffer(Buffer.from('ff00', 'hex'), { endian: 'little', encoding: 'twos-complement' }).toString().should.equal('255')
+      Bn.fromBuffer(Buffer.from('ffff', 'hex'), { endian: 'little', encoding: 'twos-complement' }).toString().should.equal('-1')
+      Bn.fromBuffer(Buffer.from('ffff', 'hex'), { endian: 'little', encoding: 'sign-magnitude' }).toString().should.equal('-32767')
     })
 
     it('should work with big endian', function () {
@@ -815,7 +815,7 @@ describe('Bn', () => {
       const bn1 = new Bn(-50)
       const bn2 = new Bn(47)
       const bn3 = bn1.mod(bn2)
-      bn3.toString().should.equal('-3')
+      bn3.toString().should.equal('44')
     })
   })
 
@@ -970,4 +970,40 @@ describe('Bn', () => {
     })
   })
 
+  describe('#egcd', function () {
+    it('should return EGCD', function () {
+      new Bn(3).egcd(new Bn(2)).gcd.toString(10).should.equal('1')
+      new Bn(18).egcd(new Bn(12)).gcd.toString(10).should.equal('6')
+      new Bn(-18).egcd(new Bn(12)).gcd.toString(10).should.equal('6')
+      new Bn(0).egcd(new Bn(12)).gcd.toString(10).should.equal('12')
+    })
+  })
+
+  describe('#invm', function () {
+    it('should invert relatively-prime numbers', function () {
+      const p = new Bn(257)
+      let a = new Bn(3)
+      let b = a.invm(p)
+      a.mul(b).mod(p).toString(16).should.equal('1')
+
+      // Even base
+      const phi = new Bn('872d9b030ba368706b68932cf07a0e0c', 16)
+      const e = new Bn(65537)
+      const d = e.invm(phi)
+      e.mul(d).mod(phi).toString(16).should.equal('1')
+
+      // Even base (take #2)
+      a = new Bn('5')
+      b = new Bn('6')
+      const r = a.invm(b)
+      r.mul(a).mod(b).toString(16).should.equal('1')
+
+      const p192 = new Bn(
+        'fffffffffffffffffffffffffffffffeffffffffffffffff',
+        16)
+      a = new Bn('deadbeef', 16)
+      b = a.invm(p192)
+      a.mul(b).mod(p192).toString(16).should.equal('1')
+    })
+  })
 })
