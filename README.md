@@ -29,7 +29,7 @@ keep functioning.
 * Full email service (Google)
 * Docker Registry (Docker Hub)
 
-# Repo Overview
+## Repo Overview
 
 Everything is written in javascript except deployment shell scripts. We use
 yarn workspaces to manage the projects.
@@ -39,12 +39,12 @@ still use yarn workspaces and npm packages to manage the project. Javascript
 and related tools wrap all projects. Javascript is always the first language
 and any other language is a form of optimization.
 
-# Packages
+## Packages
 
 All projects begin life as private and may become public when a license is
 chosen and published publicly.
 
-# Deployments
+## Deployments
 
 All containers are published to Docker Hub. At this time, we use the AWS
 interface and shell scripts to manage deployments. However, it is planned to
@@ -52,7 +52,7 @@ switch from shell scripts to Kubernetes. The goal is for the infrastructure to
 be deployable on AWS, Google Cloud, or Azure. Each app should be decentralized
 across cloud providers.
 
-# Major Subprojects
+## Major Subprojects
 
 SPV and content modules:
 * [x] HeartMail Web
@@ -104,8 +104,6 @@ Private:
 Private:
 * [ ] HeartBayes (AI / ML)
 
-# OpenSPV
-
 ## OpenSPV MVP
 
 Key Properties
@@ -139,7 +137,7 @@ Invites
 * env vars
 * API tokens
 
-# Domain names
+## Domain names
 
 Domain names are distributed across:
 
@@ -149,7 +147,7 @@ Domain names are distributed across:
 * Godaddy
 * NameBright
 
-# IP protection
+## IP protection
 
 * Patent: Email2 authentication
 * Patent: iframe API
@@ -162,7 +160,7 @@ Domain names are distributed across:
 * Trademark: Two Factor Friend
 * Trademark: Coasian
 
-# Businesses
+## Businesses
 
 * Ryan X. Charles: License content created by RXC.
 * Coasian: Create and license patents. Truth.
@@ -207,19 +205,11 @@ Domain names are distributed across:
 * Theory of Bitcoin: Educational material on Bitcoin.
 * The Dream that Lasted Forever: Movies and video games.
 
-# Principles
+## Principles
 
 * All protocols are open-source and open-protocol.
-* Every app is a browser.
 * If someone dies, everything should keep working.
 * Everything should feel right.
-
-OpenSPV JS
-==========
-
-A full-stack scalable Bitcoin SPV wallet including the UI, API, and library for
-businesses and consumers that runs on Linux (backend), web, iOS, Android, macOS
-and Windows with support for billions of users.
 
 ## Software stack
 
@@ -237,44 +227,6 @@ architecture scales to billions of users per node.
 - Docker: The standard container tool.
 - Kubernetes: The standard container management tool.
 - Cassandra: The standard distributed database.
-
-## Major Subprojects
-
-OpenSPV is a large application consisting of many modules. The modules are
-described below.
-
-SPV and content modules:
-
-- [ ] OpenSPV Web
-- [x] OpenSPV Lib
-- [x] OpenSPV Keyfile
-- [ ] OpenSPV Email2
-- [ ] OpenSPV DB
-- [ ] OpenSPV Kubernetes
-- [ ] OpenSPV Node Client <= Node Server Interface
-- [ ] OpenSPV Price Client <= Price Server Interface
-- [ ] OpenSPV Crypto Workers
-- [ ] OpenSPV Media Workers
-- [ ] OpenSPV Web API
-- [ ] OpenSPV Web Components
-- [ ] OpenSPV Wallet Web
-- [ ] OpenSPV Search Web
-- [ ] OpenSPV Browser Web
-- [ ] OpenSPV Mobile Components
-- [ ] OpenSPV Wallet Mobile
-- [ ] OpenSPV Search Mobile
-- [ ] OpenSPV Browser Mobile
-
-Miner modules:
-- [ ] OpenSPV Node Server <= Node Client Interface
-- [ ] OpenSPV Merkle Proofs
-- [ ] OpenSPV Block Headers
-- [ ] OpenSPV Tx Validator
-- [ ] OpenSPV Tx Storage
-- [ ] OpenSPV Filter
-
-Exchange modules:
-- [ ] OpenSPV Price Server <= Price Client Interface
 
 ## Yarn Workspaces
 
