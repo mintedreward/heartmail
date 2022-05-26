@@ -11,7 +11,7 @@ export default function NavTop () {
         <Toolbar>
           <Box sx={{ alignItems: 'center', flex: 1, display: 'flex', flexDirection: 'column' }}>
             <Link href='/'>
-              <Image src='/heartmail-small.png' alt='HeartMail: Get paid for email.' width='151.67' height='26' />
+              <Image src='/heartmail-small.png' alt='HeartMail: Get paid for email.' width='205' height='35.14' />
             </Link>
           </Box>
         </Toolbar>
