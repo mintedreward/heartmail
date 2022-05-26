@@ -53,8 +53,8 @@ export default class DbAccount extends DbKey {
     return new this().create(obj)
   }
 
-  delayAccess (days = 30) {
-    this.accessGrantedAt.setDate(this.accessGrantedAt.getDate() + days)
+  delayAccess () {
+    this.accessGrantedAt = new Date('2022-07-01T10:00:00.000Z') // July 1, 2022 at 5:00am CDT
     return this
   }
 

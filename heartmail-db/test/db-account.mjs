@@ -248,13 +248,13 @@ describe('DbAccount', () => {
   })
 
   describe('#delayAccess', () => {
-    it('should push back access by 30 days', () => {
+    it('should delay access until July 1', () => {
       const dbAccount = DbAccount.create()
       const date = new Date(dbAccount.accessGrantedAt.toJSON())
       dbAccount.delayAccess()
       dbAccount.accessGrantedAt.toJSON().should.not.equal(date.toJSON())
-      date.setDate(date.getDate() + 30)
-      dbAccount.accessGrantedAt.toJSON().should.equal(date.toJSON())
+      const accessDate = new Date('2022-07-01T10:00:00.000Z')
+      dbAccount.accessGrantedAt.toJSON().should.equal(accessDate.toJSON())
     })
   })
 

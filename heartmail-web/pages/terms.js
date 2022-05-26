@@ -5,6 +5,13 @@ export default function TermsPage () {
   return (
     <Layout title='Terms of Service'>
       <PageTitle>Terms of Service</PageTitle>
+      {/**
+       * - Truth Social Terms of Service
+       * - FAQ
+       * - Do not let users pretend to be HeartMail employees, or we can take your name away
+       * - Subscription renewal every 1 year, i.e. the cost is $10.00 per year
+       * - If your account expires, HeartMail can take the assets away
+       */}
       <p>You are a user of HeartMail. We are HeartMail Inc.</p>
       <p>You are the custodian of your money, not us.</p>
       <p>You are responsible for paying your taxes, not us.</p>
