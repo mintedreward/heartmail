@@ -7,7 +7,7 @@ export default function MB () {
         <div style={{ width: 280, height: 50, padding: 0, margin: 10, backgroundColor: '#f6f6f6', borderRadius: 25 }}>
           <MoneyButton
             to='heartmail@moneybutton.com'
-            amount='1'
+            amount='100'
             currency='USD'
             label='Tip'
             buttonData='MoneyButtonTip'
