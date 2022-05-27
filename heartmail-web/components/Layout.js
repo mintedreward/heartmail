@@ -55,11 +55,13 @@ export default function Layout (props) {
         <title>{title}</title>
         <meta name='description' content='Get paid for email.' />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content="Get paid $1.00 or more per email" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/heartmail-og-preview.png" />
-        <meta property="og:locale" content="en_US" />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content='HeartMail is email with a pay wall. Charge advertisers a contact fee to send you an email. Add your friends so they don&#8217;t have to pay.' />
+        <meta property='og:type' content='website' />
+        <meta property='og:image' content='/heartmail-og-preview.png' />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
+        <meta property='og:locale' content='en_US' />
       </Head>
       <CssBaseline />
 
