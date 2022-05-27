@@ -97,7 +97,7 @@ export default function Layout (props) {
             }}
             >
               <Typography variant='body2' sx={{ textAlign: 'center' }}>
-                &copy; 2022 <Link href='/'>HeartMail</Link> Inc.<br />
+                &copy; {new Date().getFullYear()} HeartMail Inc.<br />
                 <Link href='/about'>About</Link> · <Link href='/terms'>Terms</Link> · <Link href='/privacy'>Privacy</Link>
               </Typography>
             </Box>
