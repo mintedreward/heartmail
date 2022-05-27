@@ -66,35 +66,41 @@ export default function Layout (props) {
       <CssBaseline />
 
       <Box sx={{
-        padding: 0,
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }}
-      >
-        <NavTop />
+        backgroundColor: 'background.default',
+        height: '100vh',
+        width: '100%'
+      }}>
         <Box sx={{
-          maxWidth: '450px',
-          paddingLeft: '10px',
-          paddingRight: '10px'
+          padding: 0,
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
         }}
         >
-          {props.children}
+          <NavTop />
           <Box sx={{
-            width: '100%',
-            marginTop: '50px',
-            marginBottom: '50px',
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
+            maxWidth: '450px',
+            paddingLeft: '10px',
+            paddingRight: '10px'
           }}
           >
-            <Typography variant='body2' sx={{ textAlign: 'center' }}>
-              &copy; 2022 <Link href='/'>HeartMail</Link> Inc.<br />
-              <Link href='/about'>About</Link> · <Link href='/terms'>Terms</Link> · <Link href='/privacy'>Privacy</Link>
-            </Typography>
+            {props.children}
+            <Box sx={{
+              width: '100%',
+              marginTop: '50px',
+              marginBottom: '50px',
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}
+            >
+              <Typography variant='body2' sx={{ textAlign: 'center' }}>
+                &copy; 2022 <Link href='/'>HeartMail</Link> Inc.<br />
+                <Link href='/about'>About</Link> · <Link href='/terms'>Terms</Link> · <Link href='/privacy'>Privacy</Link>
+              </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>
