@@ -12,20 +12,41 @@ RUN yarn install
 FROM node:16-alpine AS runner
 
 WORKDIR /app
-COPY . .
+
 COPY --from=deps /app/node_modules ./node_modules
+
+COPY package.json ./package.json
+COPY yarn.lock ./yarn.lock
 COPY .yarn ./.yarn
 COPY .yarnrc.yml ./.yarnrc.yml
+
+# these are explicitly copied separately to make sure they are each a layer
+COPY heartmail-currency ./heartmail-currency
+COPY heartmail-curve ./heartmail-curve
+COPY heartmail-db ./heartmail-db
+COPY heartmail-elliptic ./heartmail-elliptic
+COPY heartmail-email ./heartmail-email
+COPY heartmail-keyfile ./heartmail-keyfile
+COPY heartmail-lib ./heartmail-lib
+COPY heartmail-loadenv ./heartmail-loadenv
+COPY heartmail-node ./heartmail-node
+COPY heartmail-redirect ./heartmail-redirect
+COPY heartmail-specs ./heartmail-specs
+COPY heartmail-stamp-db ./heartmail-stamp-db
+COPY heartmail-web ./heartmail-web
+COPY heartmail-workers ./heartmail-workers
+
 RUN yarn install
 
 WORKDIR /app/heartmail-web
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry.
 ENV NEXT_TELEMETRY_DISABLED 1
 
-ENV NODE_ENV production
+ARG NODE_ENV
+ARG HEARTMAIL_DB_KEYSPACE
+ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_REGION
+ARG AWS_ACCESS_KEY_ID
 
 RUN yarn build
 
