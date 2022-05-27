@@ -67,7 +67,7 @@ export default function Layout (props) {
 
       <Box sx={{
         backgroundColor: 'background.default',
-        height: '100vh',
+        minHeight: '100vh',
         width: '100%'
       }}>
         <Box sx={{
