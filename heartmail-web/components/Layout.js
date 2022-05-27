@@ -48,12 +48,18 @@ const theme = createTheme({
 })
 
 export default function Layout (props) {
+  const title = props.title ? `HeartMail: ${props.title}` : 'HeartMail'
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>{props.title ? `HeartMail: ${props.title}` : 'HeartMail'}</title>
+        <title>{title}</title>
         <meta name='description' content='Get paid for email.' />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content="Get paid $1.00 or more per email" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/heartmail-og-preview.png" />
+        <meta property="og:locale" content="en_US" />
       </Head>
       <CssBaseline />
 
