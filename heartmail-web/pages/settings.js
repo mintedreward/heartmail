@@ -5,7 +5,7 @@ import SelfTabs from '../components/SelfTabs'
 
 export default function SettingsPage () {
   return (
-    <Layout title='Settings' account={{}}>
+    <Layout title='Settings' account={null}>
       <PageTitle>Settings</PageTitle>
       <ContactCard avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
       <SelfTabs value={2} />

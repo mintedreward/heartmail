@@ -5,7 +5,7 @@ import SelfTabs from '../components/SelfTabs'
 
 export default function AddressesPage () {
   return (
-    <Layout title='Addresses' account={{}}>
+    <Layout title='Addresses' account={null}>
       <PageTitle>Addresses</PageTitle>
       <ContactCard avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
       <SelfTabs value={1} />

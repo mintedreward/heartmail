@@ -23,7 +23,7 @@ export default function ContactCardSelector (props) {
       </Box>
       <Divider sx={{ clear: 'both' }} />
       <FormGroup>
-        <FormControlLabel control={<Switch sx={{ marginLeft: '10px' }} />} label="Signed in" />
+        <FormControlLabel control={<Switch sx={{ marginLeft: '10px' }} />} label='Signed in as' />
       </FormGroup>
     </Card>
   )

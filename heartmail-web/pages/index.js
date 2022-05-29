@@ -59,7 +59,7 @@ export default function HomePage (props) {
   }
 
   return (
-    <Layout>
+    <Layout account={null}>
       <Typography variant='h2' component='h2' mt='50px' mb='50px' sx={{ textAlign: 'center' }}>
         Get paid
       </Typography>

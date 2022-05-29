@@ -7,7 +7,7 @@ import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
 
 export default function AccountsPage () {
   return (
-    <Layout title='Accounts' account={{}}>
+    <Layout title='Accounts' account={null}>
       <PageTitle>Accounts</PageTitle>
       <ContactCard avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
       <SelfTabs value={0} />

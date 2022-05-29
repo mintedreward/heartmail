@@ -25,7 +25,7 @@ export default function NavTop (props) {
                   <Link href='/sign-in'>
                     <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />
                   </Link>
-                )
+                  )
                 : ('')}
             </Box>
           </Box>
