@@ -40,7 +40,7 @@ export default function AddressesPage () {
         You can register any [alias]@moneybutton.com you own for free for a limited time.
       </p>
       <TextField id='outlined-basic' label='New Address' defaultValue='[alias]@heartmail.com' variant='outlined' sx={{ width: '100%' }} />
-      <Box mt='10px' sx={{ textAlign: 'right' }}>
+      <Box mt='10px' mb='20px' sx={{ textAlign: 'right' }}>
         <Button variant='contained'>Register</Button>
       </Box>
       <AddressCard address='casey@heartmail.com' />
