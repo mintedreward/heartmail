@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
+import MoneyButtonSignIn from '../components/MoneyButtonSignIn'
 
 export function getServerSideProps (context) {
   const beta = context.query.beta === 'true'
@@ -17,7 +18,7 @@ export default function SignInPage (props) {
       <PageTitle>Sign in</PageTitle>
       {beta
         ? (
-          <p>Sign in is enabled.</p>
+          <MoneyButtonSignIn />
           )
         : (
           <p>Sign in is not enabled yet.</p>
