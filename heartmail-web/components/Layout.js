@@ -78,7 +78,7 @@ export default function Layout (props) {
         >
           <NavTop featureFlagMilestone3={featureFlagMilestone3} />
           <Box sx={{
-            maxWidth: '450px',
+            maxWidth: '500px',
             paddingLeft: '10px',
             paddingRight: '10px',
             margin: '0 auto'
