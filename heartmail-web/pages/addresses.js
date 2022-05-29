@@ -5,6 +5,30 @@ import SelfTabs from '../components/SelfTabs'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import Divider from '@mui/material/Divider'
+import Switch from '@mui/material/Switch'
+import FormGroup from '@mui/material/FormGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+
+function AddressCard (props) {
+  const address = props.address || 'name@example.com'
+  return (
+    <Card sx={{ marginBottom: '10px', marginTop: '10px' }}>
+      <Box sx={{ padding: '10px' }}>
+        {address}
+      </Box>
+      <Divider sx={{ clear: 'both' }} />
+      <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
+        <Box sx={{ marginLeft: 'auto' }}>
+          <FormGroup>
+            <FormControlLabel control={<Switch />} label='Primary' sx={{ color: 'text.secondary' }} />
+          </FormGroup>
+        </Box>
+      </Box>
+    </Card>
+  )
+}
 
 export default function AddressesPage () {
   return (
@@ -19,6 +43,10 @@ export default function AddressesPage () {
       <Box mt='10px' sx={{ textAlign: 'right' }}>
         <Button variant='contained'>Register</Button>
       </Box>
+      <AddressCard address='casey@heartmail.com' />
+      <AddressCard address='casey2@heartmail.com' />
+      <AddressCard address='casey3@heartmail.com' />
+      <AddressCard address='casey4@heartmail.com' />
     </Layout>
   )
 }

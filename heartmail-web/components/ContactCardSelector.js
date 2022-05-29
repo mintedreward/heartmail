@@ -22,9 +22,13 @@ export default function ContactCardSelector (props) {
         <Typography variant='body1' component='span' sx={{ color: 'text.secondary' }}>{bio}</Typography>
       </Box>
       <Divider sx={{ clear: 'both' }} />
-      <FormGroup>
-        <FormControlLabel control={<Switch sx={{ marginLeft: '10px' }} />} label='Signed in as' />
-      </FormGroup>
+      <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
+        <Box sx={{ marginLeft: 'auto' }}>
+          <FormGroup>
+            <FormControlLabel control={<Switch />} label='Signed in' sx={{ color: 'text.secondary' }} />
+          </FormGroup>
+        </Box>
+      </Box>
     </Card>
   )
 }
