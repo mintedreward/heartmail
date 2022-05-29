@@ -73,25 +73,22 @@ export default function Layout (props) {
       }}
       >
         <Box sx={{
-          padding: 0,
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
+          padding: 0
         }}
         >
           <NavTop featureFlagMilestone3={featureFlagMilestone3} />
           <Box sx={{
             maxWidth: '450px',
             paddingLeft: '10px',
-            paddingRight: '10px'
+            paddingRight: '10px',
+            margin: '0 auto'
           }}
           >
             {props.children}
             <Box sx={{
               width: '100%',
-              marginTop: '50px',
-              marginBottom: '50px',
+              paddingTop: '50px',
+              paddingBottom: '50px',
               flex: 1,
               display: 'flex',
               flexDirection: 'column',
