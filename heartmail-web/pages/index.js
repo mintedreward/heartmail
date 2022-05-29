@@ -60,11 +60,11 @@ export default function HomePage (props) {
 
   return (
     <Layout account={null}>
-      <Typography variant='h2' component='h2' mt='50px' mb='50px' sx={{ textAlign: 'center' }}>
+      <Typography variant='h2' component='h2' mt='48px' mb='48px' sx={{ textAlign: 'center' }}>
         Get paid
       </Typography>
       <CurrencyInput onChange={handleChange} />
-      <Typography variant='h2' component='h2' mb='50px' sx={{ textAlign: 'center' }}>
+      <Typography variant='h2' component='h2' mb='48px' sx={{ textAlign: 'center' }}>
         per email
       </Typography>
       <p>

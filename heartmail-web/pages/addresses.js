@@ -14,15 +14,15 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 function AddressCard (props) {
   const address = props.address || 'name@example.com'
   return (
-    <Card sx={{ marginBottom: '10px', marginTop: '10px' }}>
-      <Box sx={{ padding: '10px' }}>
+    <Card sx={{ marginBottom: '8px', marginTop: '8px' }}>
+      <Box sx={{ padding: '8px' }}>
         {address}
       </Box>
       <Divider sx={{ clear: 'both' }} />
       <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
         <Box sx={{ marginLeft: 'auto' }}>
           <FormGroup>
-            <FormControlLabel control={<Switch />} label='Primary' sx={{ color: 'text.secondary' }} />
+            <FormControlLabel control={<Switch />} label='Primary' />
           </FormGroup>
         </Box>
       </Box>
@@ -40,7 +40,7 @@ export default function AddressesPage () {
         You can register any [alias]@moneybutton.com you own for free for a limited time.
       </p>
       <TextField id='outlined-basic' label='New Address' defaultValue='[alias]@heartmail.com' variant='outlined' sx={{ width: '100%' }} />
-      <Box mt='10px' mb='20px' sx={{ textAlign: 'right' }}>
+      <Box mt='8px' mb='16px' sx={{ textAlign: 'right' }}>
         <Button variant='contained'>Register</Button>
       </Box>
       <AddressCard address='casey@heartmail.com' />

@@ -44,6 +44,6 @@ export default function CurrencyInput (props) {
   }
 
   return (
-    <TextField id='outlined-basic' label='Contact Fee' onChange={handleChange} onBlur={handleBlur} onMouseUp={handleMouseUp} onKeyPress={handleKeyPress} value={amount} variant='outlined' sx={{ width: '100%', marginBottom: '50px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
+    <TextField id='outlined-basic' label='Contact Fee' onChange={handleChange} onBlur={handleBlur} onMouseUp={handleMouseUp} onKeyPress={handleKeyPress} value={amount} variant='outlined' sx={{ width: '100%', marginBottom: '48px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: 300 } }} />
   )
 }
