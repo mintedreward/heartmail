@@ -3,6 +3,7 @@ import PageTitle from '../../components/PageTitle'
 import AffiliateCard from '../../components/AffiliateCard'
 import TextField from '@mui/material/TextField'
 import { util } from 'heartmail-db'
+import NotFoundPage from '../404'
 
 export async function getServerSideProps (context) {
   const longId = context.query.longId
@@ -25,9 +26,7 @@ export async function getServerSideProps (context) {
 export default function AccessPage (props) {
   if (!props.account) {
     return (
-      <Layout title='Not found'>
-        <PageTitle>Not found</PageTitle>
-      </Layout>
+      <NotFoundPage />
     )
   }
 
