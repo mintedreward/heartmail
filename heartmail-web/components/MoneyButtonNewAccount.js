@@ -6,7 +6,7 @@ export default function MoneyButtonNewAccount (props) {
   const affiliate = props.affiliate
   let outputs = []
 
-  if (affiliate.hasAffiliate) {
+  if (affiliate && affiliate.hasAffiliate) {
     outputs = [
       {
         to: 'heartmail@moneybutton.com',
