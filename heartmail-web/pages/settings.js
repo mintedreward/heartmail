@@ -3,12 +3,12 @@ import PageTitle from '../components/PageTitle'
 import ContactCard from '../components/ContactCard'
 import SelfTabs from '../components/SelfTabs'
 
-export default function AccountsPage () {
+export default function SettingsPage () {
   return (
-    <Layout title='Accounts'>
-      <PageTitle>Accounts</PageTitle>
+    <Layout title='Settings'>
+      <PageTitle>Settings</PageTitle>
       <ContactCard avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
-      <SelfTabs value={0} />
+      <SelfTabs value={2} />
     </Layout>
   )
 }
