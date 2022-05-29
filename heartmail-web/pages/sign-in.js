@@ -3,20 +3,20 @@ import PageTitle from '../components/PageTitle'
 import MoneyButtonSignIn from '../components/MoneyButtonSignIn'
 
 export function getServerSideProps (context) {
-  const beta = context.query.beta === 'true'
+  const featureFlagMilestone3 = context.query.featureFlagMilestone3 === 'true'
   return {
     props: {
-      beta
+      featureFlagMilestone3
     }
   }
 }
 
 export default function SignInPage (props) {
-  const beta = props.beta
+  const featureFlagMilestone3 = props.featureFlagMilestone3
   return (
-    <Layout title='Sign in' beta={beta}>
+    <Layout title='Sign in' featureFlagMilestone3={featureFlagMilestone3}>
       <PageTitle>Sign in</PageTitle>
-      {beta
+      {featureFlagMilestone3
         ? (
           <MoneyButtonSignIn />
           )

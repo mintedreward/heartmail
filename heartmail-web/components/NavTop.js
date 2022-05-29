@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from '../components/Link'
 
 export default function NavTop (props) {
-  const beta = props.beta
+  const featureFlagMilestone3 = props.featureFlagMilestone3
   return (
     <Box>
       <AppBar position='fixed'>
@@ -20,7 +20,7 @@ export default function NavTop (props) {
               </Link>
             </Box>
             <Box sx={{ marginTop: '5px', width: '40px', height: '40px' }}>
-              {beta
+              {featureFlagMilestone3
                 ? (
                   <Link href='/sign-in'>
                     <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />

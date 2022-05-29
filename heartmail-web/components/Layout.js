@@ -49,7 +49,7 @@ const theme = createTheme({
 
 export default function Layout (props) {
   const title = props.title ? `HeartMail: ${props.title}` : 'HeartMail'
-  const beta = props.beta
+  const featureFlagMilestone3 = props.featureFlagMilestone3
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -80,7 +80,7 @@ export default function Layout (props) {
           alignItems: 'center'
         }}
         >
-          <NavTop beta={beta} />
+          <NavTop featureFlagMilestone3={featureFlagMilestone3} />
           <Box sx={{
             maxWidth: '450px',
             paddingLeft: '10px',
