@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "aes": "0.1.0",
-    "bn.js": "5.2.0",
+    "bn.js": "5.2.1",
     "bs58": "5",
     "hash.js": "1.1.7",
     "heartmail-elliptic": "workspace:*",
