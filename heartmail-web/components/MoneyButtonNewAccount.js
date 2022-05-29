@@ -1,7 +1,7 @@
 import MoneyButton from '@moneybutton/react-money-button'
 // import MoneyButtonReferralNeeded from '../components/MoneyButtonReferralNeeded'
 
-export default function MoneyButtonBuyEarly (props) {
+export default function MoneyButtonNewAccount (props) {
   const onPayment = props.onPayment || function () {}
   const affiliate = props.affiliate
   let outputs = []
@@ -39,10 +39,10 @@ export default function MoneyButtonBuyEarly (props) {
         <div style={{ width: 280, height: 50, padding: 0, margin: 10, backgroundColor: '#f6f6f6', borderRadius: 25 }}>
           <MoneyButton
             outputs={outputs}
-            label='Buy Early'
+            label='New Account'
             clientIdentifier='c3a2ca70156b6cdf2ce3e860ba2bef13'
-            buttonId='Buy Early'
-            buttonData='Buy Early'
+            buttonId='New Account'
+            buttonData='New Account'
             onPayment={handlePayment}
           />
         </div>

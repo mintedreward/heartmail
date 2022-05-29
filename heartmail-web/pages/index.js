@@ -1,4 +1,4 @@
-import MoneyButtonBuyEarly from '../components/MoneyButtonBuyEarly'
+import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
 import Typography from '@mui/material/Typography'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
@@ -74,12 +74,12 @@ export default function HomePage (props) {
         Random HeartMail addresses are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can have as many heartmails as you want and you can resell heartmails for any amount of money.
       </p>
       <p>
-        HeartMail will launch June 20, 2022. You will be invited in the order you register. Join early to get privileged access to your custom heartmails.
+        HeartMail launches to the public on July 1, 2022. Join now to register your Money Button paymails for free before general sales begin.
       </p>
       <p>
-        By buying early access, you agree to the <Link href='/terms'>Terms of Service</Link>.
+        By buying an account, you agree to the <Link href='/terms'>Terms of Service</Link>.
       </p>
-      <MoneyButtonBuyEarly affiliate={props.affiliate} onPayment={handlePayment} />
+      <MoneyButtonNewAccount affiliate={props.affiliate} onPayment={handlePayment} />
     </Layout>
   )
 }
