@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from '../components/Link'
 
 export default function NavTop (props) {
-  const featureFlagMilestone3 = props.featureFlagMilestone3
   return (
     <Box>
       <AppBar position='fixed'>
@@ -20,13 +19,9 @@ export default function NavTop (props) {
               </Link>
             </Box>
             <Box sx={{ marginTop: '5px', width: '40px', height: '40px' }}>
-              {featureFlagMilestone3
-                ? (
-                  <Link href='/sign-in'>
-                    <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />
-                  </Link>
-                  )
-                : ('')}
+              <Link href='/sign-in'>
+                <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />
+              </Link>
             </Box>
           </Box>
         </Toolbar>
