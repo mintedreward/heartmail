@@ -4,7 +4,8 @@ import Toolbar from '@mui/material/Toolbar'
 import Image from 'next/image'
 import Link from '../components/Link'
 
-export default function NavTop () {
+export default function NavTop (props) {
+  const beta = props.beta
   return (
     <Box>
       <AppBar position='fixed'>
@@ -18,10 +19,14 @@ export default function NavTop () {
                 <Image src='/heartmail-small.png' alt='HeartMail: Get paid for email.' width='205' height='35.14' />
               </Link>
             </Box>
-            <Box sx={{ marginTop: '5px' }}>
-              <Link href='/sign-in'>
-                <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />
-              </Link>
+            <Box sx={{ marginTop: '5px', width: '40px', height: '40px' }}>
+              {beta
+                ? (
+                  <Link href='/sign-in'>
+                    <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />
+                  </Link>
+                  )
+                : ('')}
             </Box>
           </Box>
         </Toolbar>

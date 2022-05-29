@@ -49,6 +49,7 @@ const theme = createTheme({
 
 export default function Layout (props) {
   const title = props.title ? `HeartMail: ${props.title}` : 'HeartMail'
+  const beta = props.beta
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -79,7 +80,7 @@ export default function Layout (props) {
           alignItems: 'center'
         }}
         >
-          <NavTop />
+          <NavTop beta={beta} />
           <Box sx={{
             maxWidth: '450px',
             paddingLeft: '10px',

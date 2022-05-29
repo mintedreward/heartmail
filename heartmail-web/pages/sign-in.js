@@ -13,7 +13,7 @@ export function getServerSideProps (context) {
 export default function SignInPage (props) {
   const beta = props.beta
   return (
-    <Layout title='Sign in'>
+    <Layout title='Sign in' beta={beta}>
       <PageTitle>Sign in</PageTitle>
       {beta
         ? (
