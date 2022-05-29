@@ -77,7 +77,7 @@ export default function HomePage (props) {
         HeartMail launches to the public on July 1, 2022. Join now to register your Money Button paymails for free before general sales begin.
       </p>
       <p>
-        By buying an account, you agree to the <Link href='/terms'>Terms of Service</Link>.
+        By buying an account, you agree to the <Link href='/terms'>Terms of Service</Link> and <Link href='/privacy'>Privacy Policy</Link>.
       </p>
       <MoneyButtonNewAccount affiliate={props.affiliate} onPayment={handlePayment} />
     </Layout>

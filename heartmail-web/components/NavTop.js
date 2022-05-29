@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from '../components/Link'
 
 export default function NavTop (props) {
+  const showAccount = props.account !== undefined
   return (
     <Box>
       <AppBar position='fixed'>
@@ -19,9 +20,13 @@ export default function NavTop (props) {
               </Link>
             </Box>
             <Box sx={{ marginTop: '5px', width: '40px', height: '40px' }}>
-              <Link href='/sign-in'>
-                <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />
-              </Link>
+              {showAccount
+                ? (
+                  <Link href='/sign-in'>
+                    <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />
+                  </Link>
+                )
+                : ('')}
             </Box>
           </Box>
         </Toolbar>

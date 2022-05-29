@@ -49,6 +49,8 @@ const theme = createTheme({
 
 export default function Layout (props) {
   const title = props.title ? `HeartMail: ${props.title}` : 'HeartMail'
+  const account = props.account
+
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -75,7 +77,7 @@ export default function Layout (props) {
           padding: 0
         }}
         >
-          <NavTop />
+          <NavTop account={account} />
           <Box sx={{
             maxWidth: '500px',
             paddingLeft: '10px',
