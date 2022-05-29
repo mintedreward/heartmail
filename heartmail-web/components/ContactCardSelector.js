@@ -14,7 +14,7 @@ export default function ContactCardSelector (props) {
   const avatar = props.avatar
   const bio = props.bio
   return (
-    <Card sx={{ marginBottom: '8px', marginTop: '8px' }}>
+    <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
       <Box sx={{ padding: '8px' }}>
         <Avatar src={avatar} sx={{ float: 'left', width: 100, height: 100, marginRight: '8px', marginBottom: '8px' }} />
         <b>{name}</b><br />

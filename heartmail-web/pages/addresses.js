@@ -14,7 +14,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 function AddressCard (props) {
   const address = props.address || 'name@example.com'
   return (
-    <Card sx={{ marginBottom: '8px', marginTop: '8px' }}>
+    <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
       <Box sx={{ padding: '8px' }}>
         {address}
       </Box>
