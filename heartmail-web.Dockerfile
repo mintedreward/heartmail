@@ -20,6 +20,11 @@ COPY yarn.lock ./yarn.lock
 COPY .yarn ./.yarn
 COPY .yarnrc.yml ./.yarnrc.yml
 
+# copy env vars that do not contain secrets. but do not copy .env.local or
+# .env.production.local. those env vars needs to be passed in via ARGs.
+COPY .env ./.env
+COPY .env.production ./.env.production
+
 # these are explicitly copied separately to make sure they are each a layer
 COPY heartmail-currency ./heartmail-currency
 COPY heartmail-curve ./heartmail-curve
@@ -43,10 +48,7 @@ WORKDIR /app/heartmail-web
 ENV NEXT_TELEMETRY_DISABLED 1
 
 ARG NODE_ENV
-ARG HEARTMAIL_DB_KEYSPACE
 ARG AWS_SECRET_ACCESS_KEY
-ARG AWS_REGION
-ARG AWS_ACCESS_KEY_ID
 
 RUN yarn build
 
