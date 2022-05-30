@@ -1,9 +1,9 @@
 import DbKey from './models/db-key.mjs'
-import DbAccount from './models/db-account.mjs'
+import DbAccessKey from './models/db-access-key.mjs'
 import * as util from './util.mjs'
 
 export {
-  DbAccount,
+  DbAccessKey,
   DbKey,
   util
 }

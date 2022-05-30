@@ -1,4 +1,4 @@
-import DbAccount from './models/db-account.mjs'
+import DbAccessKey from './models/db-access-key.mjs'
 import { KeyAlias } from 'heartmail-lib'
 import assert from 'node:assert'
 
@@ -8,11 +8,11 @@ export async function paymentIsNewAndValid (affiliate, payment) {
   return true
 }
 
-export async function createAccountWithPayment (contactFeeAmountUsd, affiliate, payment) {
+export async function createAccessKeyWithPayment (contactFeeAmountUsd, affiliate, payment) {
   try {
     const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
     assert(isNewAndValid)
-    const dbAccount = DbAccount.create().delayAccess().fromObject({
+    const dbAccessKey = DbAccessKey.create().delayAccess().fromObject({
       affiliateKeyAlias: affiliate ? KeyAlias.fromLongId(affiliate.longId) : null,
       contactFeeAmountUsd: Math.round(contactFeeAmountUsd * 100, 2) / 100,
       mbEmail: payment.user.email,
@@ -20,25 +20,25 @@ export async function createAccountWithPayment (contactFeeAmountUsd, affiliate, 
       mbPaymentId: payment.id,
       mbTxid: payment.txid
     })
-    await dbAccount.insert()
-    return dbAccount.keyAlias.toLongId()
+    await dbAccessKey.insert()
+    return dbAccessKey.keyAlias.toLongId()
   } catch (err) {
     return null
   }
 }
 
-export async function getAccount (longId) {
+export async function getAccessKey (longId) {
   try {
-    const dbAccount = await DbAccount.findOneByShortId(longId)
+    const dbAccessKey = await DbAccessKey.findOneByShortId(longId)
     return {
-      longId: dbAccount.keyAlias.toLongId(),
-      accessGrantedAt: dbAccount.accessGrantedAt.toJSON(),
-      affiliateLongId: dbAccount.affiliateKeyAlias ? dbAccount.affiliateKeyAlias.toLongId() : null,
-      contactFeeAmountUsd: dbAccount.contactFeeAmountUsd,
-      mbEmail: dbAccount.mbEmail,
-      mbPaymail: dbAccount.mbPaymail,
-      mbPaymentId: dbAccount.mbPaymentId,
-      mbTxid: dbAccount.mbTxid
+      longId: dbAccessKey.keyAlias.toLongId(),
+      accessGrantedAt: dbAccessKey.accessGrantedAt.toJSON(),
+      affiliateLongId: dbAccessKey.affiliateKeyAlias ? dbAccessKey.affiliateKeyAlias.toLongId() : null,
+      contactFeeAmountUsd: dbAccessKey.contactFeeAmountUsd,
+      mbEmail: dbAccessKey.mbEmail,
+      mbPaymail: dbAccessKey.mbPaymail,
+      mbPaymentId: dbAccessKey.mbPaymentId,
+      mbTxid: dbAccessKey.mbTxid
     }
   } catch (err) {
     return null
@@ -50,12 +50,12 @@ export async function getAffiliate (affiliateEmail = '') {
     if (affiliateEmail) {
       affiliateEmail = `${affiliateEmail}`
       const longId = affiliateEmail.split('@')[0]
-      const dbAccount = await DbAccount.findOneByShortId(longId)
-      if (dbAccount) {
+      const dbAccessKey = await DbAccessKey.findOneByShortId(longId)
+      if (dbAccessKey) {
         return {
           hasAffiliate: true,
-          longId: dbAccount.keyAlias.toLongId(),
-          mbPaymail: dbAccount.mbPaymail
+          longId: dbAccessKey.keyAlias.toLongId(),
+          mbPaymail: dbAccessKey.mbPaymail
         }
       }
     }

@@ -1,5 +1,5 @@
 /* global describe,it */
-import { util, DbAccount } from '../index.mjs'
+import { util, DbAccessKey } from '../index.mjs'
 import should from 'should'
 
 const getAffiliate = util.getAffiliate
@@ -11,15 +11,15 @@ describe('utilities', () => {
 
   describe('getAffiliate', () => {
     it('should get an affiliate that exists', async function () {
-      const dbAccount = DbAccount.create().fromObject({
+      const dbAccessKey = DbAccessKey.create().fromObject({
         mbPaymail: 'name@example.com'
       })
-      await dbAccount.insert()
-      const affiliateEmail = `${dbAccount.keyAlias.toShortId()}@heartmail.com`
+      await dbAccessKey.insert()
+      const affiliateEmail = `${dbAccessKey.keyAlias.toShortId()}@heartmail.com`
       const affiliate = await util.getAffiliate(affiliateEmail)
       affiliate.hasAffiliate.should.equal(true)
-      affiliate.longId.should.equal(dbAccount.keyAlias.toLongId())
-      affiliate.mbPaymail.should.equal(dbAccount.mbPaymail)
+      affiliate.longId.should.equal(dbAccessKey.keyAlias.toLongId())
+      affiliate.mbPaymail.should.equal(dbAccessKey.mbPaymail)
     })
   })
 })

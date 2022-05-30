@@ -2,7 +2,7 @@ import { KeyAlias } from 'heartmail-lib'
 import emailValidator from 'email-validator'
 import DbKey from './db-key.mjs'
 
-export default class DbAccount extends DbKey {
+export default class DbAccessKey extends DbKey {
   constructor (...args) {
     super(...args)
     this.typeStr = 'account'

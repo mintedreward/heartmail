@@ -8,7 +8,7 @@ import NotFoundPage from '../404'
 export async function getServerSideProps (context) {
   const longId = context.query.longId
   const res = context.res
-  const account = await util.getAccount(longId)
+  const account = await util.getAccessKey(longId)
   if (account) {
     return {
       props: {

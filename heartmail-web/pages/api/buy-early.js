@@ -7,7 +7,7 @@ export default async function handler (req, res) {
 
     const { contactFeeAmountUsd, affiliate, payment } = req.body
 
-    const longId = await util.createAccountWithPayment(contactFeeAmountUsd, affiliate, payment)
+    const longId = await util.createAccessKeyWithPayment(contactFeeAmountUsd, affiliate, payment)
 
     assert(longId)
     assert(typeof longId === 'string')
