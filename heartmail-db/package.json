@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.mjs",
   "scripts": {
-    "migrate": "node migrate.mjs",
+    "create-tables": "node create-tables.mjs",
     "standard": "standard",
     "lint": "yarn run standard",
     "pretest": "yarn run lint",
