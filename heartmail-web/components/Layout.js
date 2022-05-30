@@ -65,6 +65,7 @@ export default function Layout (props) {
         <meta property='og:image:height' content='630' />
         <meta property='og:locale' content='en_US' />
       </Head>
+
       <CssBaseline />
 
       <Box sx={{
