@@ -12,10 +12,6 @@ Constants.Mainnet = {
     pubKeyHash: 0x00,
     payToScriptHash: 0x05
   },
-  Bip32: {
-    pubKey: 0x0488b21e,
-    privKey: 0x0488ade4
-  },
   Block: {
     maxNBits: 0x1d00ffff,
     magicNum: 0xe3e1f3e8

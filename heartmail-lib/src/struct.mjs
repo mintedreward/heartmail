@@ -165,12 +165,7 @@ class Struct {
      * Sometimes the toBuffer method has cryptography and blocks the main thread,
      * and we need a non-blocking way to serialize an object. That is what
      * toFastBuffer is. Of course it defaults to just using toBuffer if an object
-     * hasn't implemented it. If your regular toBuffer method blocks, like with
-     * Bip32, then you should implement this method to be non-blocking. This
-     * method is used to send objects to the workers. i.e., for converting a
-     * Bip32 object to a string, we need to encode it as a buffer in a
-     * non-blocking manner with toFastBuffer, send it to a worker, then the
-     * worker converts it to a string, which is a blocking operation.
+     * hasn't implemented it.
      *
      * It is very common to want to convert a blank object to a zero length
      * buffer, so we can transport a blank object to a worker. So that behavior
