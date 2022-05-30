@@ -80,8 +80,8 @@ export default function Layout (props) {
           <NavTop account={account} />
           <Box sx={{
             maxWidth: '500px',
-            paddingLeft: '8px',
-            paddingRight: '8px',
+            paddingLeft: '16px',
+            paddingRight: '16px',
             margin: '0 auto'
           }}
           >
