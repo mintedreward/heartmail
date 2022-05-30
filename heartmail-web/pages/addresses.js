@@ -15,7 +15,7 @@ function AddressCard (props) {
   const address = props.address || 'name@example.com'
   return (
     <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
-      <Box sx={{ padding: '8px' }}>
+      <Box sx={{ padding: '16px' }}>
         {address}
       </Box>
       <Divider sx={{ clear: 'both' }} />

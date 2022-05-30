@@ -20,7 +20,7 @@ export default function AffiliateCard (props) {
   return (
     <Card
       onClick={handleClick} sx={{
-        padding: '8px',
+        padding: '16px',
         marginBottom: '8px',
         marginTop: '8px',
         cursor: 'pointer',
@@ -59,7 +59,7 @@ export default function AffiliateCard (props) {
         border: '1px solid',
         borderColor: 'divider',
         borderRadius: '4px',
-        padding: '8px',
+        padding: '16px',
         color: 'text.secondary',
         overflow: 'hidden',
         textOverflow: 'ellipses'
@@ -79,7 +79,7 @@ export default function AffiliateCard (props) {
         flex: 1,
         alignItems: 'center',
         flexDirection: 'column',
-        paddingTop: '40px'
+        paddingTop: '48px'
       }}
       >
         <Box>

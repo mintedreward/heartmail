@@ -15,13 +15,14 @@ export default function SettingsPage () {
       <PageTitle>Settings</PageTitle>
       <ContactCard avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
       <SelfTabs value={2} />
-      <Card variant='outlined' sx={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px', marginTop: '8px', marginBottom: '8px', borderColor: 'action.disabled' }}>
-        <Avatar src='/casey.jpg' sx={{ width: 100, height: 100 }} />
+      <Card variant='outlined' sx={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', marginTop: '8px', marginBottom: '8px', borderColor: 'action.disabled' }}>
+        <Avatar src='/casey.jpg' sx={{ width: 96, height: 96 }} />
       </Card>
       <TextField id='name' label='Name' defaultValue='Casey N. Hamilton' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
       <TextField id='bio' label='Bio' defaultValue='Cofounder & COO of HeartMail' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
-      <TextField id='contactFee' label='Contact Fee' defaultValue='$1.00' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
-      <TextField id='emailAddress' disabled label='Email Address' defaultValue='casey@bethebroadcast.com' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
+      <TextField id='contactFeeAmountUsd' label='Contact Fee' defaultValue='$1.00' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
+      <TextField id='mbEmail' disabled label='Money Button Email' defaultValue='casey@bethebroadcast.com' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
+      <TextField id='mbPaymail' disabled label='Money Button Paymail' defaultValue='bethebroadcast@moneybutton.com' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
       <AffiliateCard heartmail='casey@heartmail.com' />
       <Box sx={{ textAlign: 'right', marginTop: '16px', marginBottom: '16px' }}>
         <Button disabled variant='text' ml='16px'>Delete account</Button>

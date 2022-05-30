@@ -15,8 +15,8 @@ export default function ContactCardSelector (props) {
   const bio = props.bio
   return (
     <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
-      <Box sx={{ padding: '8px' }}>
-        <Avatar src={avatar} sx={{ float: 'left', width: 100, height: 100, marginRight: '8px', marginBottom: '8px' }} />
+      <Box sx={{ padding: '16px' }}>
+        <Avatar src={avatar} sx={{ float: 'left', width: 96, height: 96, marginRight: '16px', marginBottom: '16px' }} />
         <b>{name}</b><br />
         <Link href={`mailto:${heartmail}`}>{heartmail}</Link><br />
         <Typography variant='body1' component='span' sx={{ color: 'text.secondary' }}>{bio}</Typography>
