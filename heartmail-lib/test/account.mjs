@@ -19,6 +19,14 @@ describe('Account', function () {
     })
   })
 
+  describe('#delayAccess', () => {
+    it('should be valid', () => {
+      const account = Account.fromRandom()
+      account.delayAccess()
+      account.accessGrantedAt.toJSON().should.equal('2022-07-01T10:00:00.000Z')
+    })
+  })
+
   describe('#toPublic', () => {
     it('should delete private key', () => {
       const account = Account.fromRandom()

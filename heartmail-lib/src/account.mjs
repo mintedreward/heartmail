@@ -109,6 +109,10 @@ class Account extends Struct {
   toPublic () {
     this.privKey = null
   }
+
+  delayAccess (accessGrantedAt = new Date('2022-07-01T10:00:00.000Z')) {
+    this.accessGrantedAt = accessGrantedAt
+  }
 }
 
 export { Account }
