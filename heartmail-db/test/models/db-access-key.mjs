@@ -1,5 +1,5 @@
 /* global describe,it */
-import DbAccessKey from '../models/db-access-key.mjs'
+import DbAccessKey from '../../models/db-access-key.mjs'
 import { KeyAddress, PubKey, PrivKey, KeyAlias, Bn } from 'heartmail-lib'
 import should from 'should'
 

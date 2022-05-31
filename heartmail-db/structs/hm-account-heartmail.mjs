@@ -1,29 +1,29 @@
 /**
- * HmHeartmail
- * ==================
+ * HmAccountHeartmail
+ * =========================
  */
 
-import { Struct } from './struct.mjs'
+import { Struct } from 'heartmail-lib'
 
-class HmHeartmail extends Struct {
-  constructor (heartmail, createdAt = new Date(), updatedAt = new Date(), accountId) {
-    super({ heartmail, createdAt, updatedAt, accountId })
+class HmAccountHeartmail extends Struct {
+  constructor (accountId, heartmail, createdAt = new Date(), updatedAt = new Date()) {
+    super({ accountId, heartmail, createdAt, updatedAt })
   }
 
   toJSON () {
     const json = {}
+    json.accountId = this.accountId
     json.heartmail = this.heartmail
     json.createdAt = this.createdAt.toJSON()
     json.updatedAt = this.updatedAt.toJSON()
-    json.accountId = this.accountId
     return json
   }
 
   fromJSON (json = {}) {
+    this.accountId = json.accountId
     this.heartmail = json.heartmail
     this.createdAt = json.createdAt ? new Date(json.createdAt) : null
     this.updatedAt = json.updatedAt ? new Date(json.updatedAt) : null
-    this.accountId = json.accountId
     return this
   }
 
@@ -32,4 +32,4 @@ class HmHeartmail extends Struct {
   }
 }
 
-export { HmHeartmail }
+export { HmAccountHeartmail }

@@ -1,6 +1,6 @@
 /* global describe,it */
-import { HmHeartmail } from '../src/hm-heartmail.mjs'
-import { KeyAlias } from '../src/key-alias.mjs'
+import { HmHeartmail } from '../../structs/hm-heartmail.mjs'
+import { KeyAlias } from 'heartmail-lib'
 import should from 'should'
 
 describe('HmHeartmail', function () {

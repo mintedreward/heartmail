@@ -3,7 +3,7 @@
  * ===============
  */
 
-import { Struct } from './struct.mjs'
+import { Struct } from 'heartmail-lib'
 
 class HmAccountAvatar extends Struct {
   constructor (accountId, size, avatarBuf, createdAt = new Date(), updatedAt = new Date()) {

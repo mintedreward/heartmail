@@ -1,6 +1,6 @@
 /* global describe,it */
-import { HmAccount } from '../src/hm-account.mjs'
-import { HmMbPaymailAccount } from '../src/hm-mb-paymail-account.mjs'
+import { HmAccount } from '../../structs/hm-account.mjs'
+import { HmMbPaymailAccount } from '../../structs/hm-mb-paymail-account.mjs'
 import should from 'should'
 
 describe('HmMbPaymailAccount', function () {

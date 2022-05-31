@@ -1,5 +1,5 @@
 /* global describe,it */
-import DbKey from '../models/db-key.mjs'
+import DbKey from '../../models/db-key.mjs'
 import { KeyAddress, PubKey, KeyAlias, PrivKey } from 'heartmail-lib'
 import cassandra from 'cassandra-driver'
 import should from 'should'

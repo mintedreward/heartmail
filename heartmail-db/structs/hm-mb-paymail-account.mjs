@@ -2,7 +2,7 @@
  * HmMbPaymailAccount
  * ==================
  */
-import { Struct } from './struct.mjs'
+import { Struct } from 'heartmail-lib'
 
 class HmMbPaymailAccount extends Struct {
   constructor (mbPaymail, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), accountId, accountName, accountPrimaryHeartmail, accountBio) {

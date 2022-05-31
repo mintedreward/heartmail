@@ -3,9 +3,7 @@
  * =========
  */
 
-import { PrivKey } from './priv-key.mjs'
-import { KeyAlias } from './key-alias.mjs'
-import { Struct } from './struct.mjs'
+import { PrivKey, KeyAlias, Struct } from 'heartmail-lib'
 
 class HmAccount extends Struct {
   constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, primaryHeartmail, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
