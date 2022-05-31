@@ -1,6 +1,7 @@
 /* global describe,it */
 import { Account } from '../src/account.mjs'
 import { PrivKey } from '../src/priv-key.mjs'
+import { KeyAlias } from '../src/key-alias.mjs'
 import should from 'should'
 
 describe('Account', function () {
@@ -13,6 +14,8 @@ describe('Account', function () {
       const account = Account.fromRandom()
       account.isValid().should.equal(true)
       ;(account.privKey instanceof PrivKey).should.equal(true)
+      const keyAlias = KeyAlias.fromPrivKey(account.privKey)
+      keyAlias.toString().should.equal(account.id)
     })
   })
 
