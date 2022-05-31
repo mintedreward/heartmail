@@ -1,9 +1,9 @@
 {
   "name": "heartmail-lib",
-  "description": "Stamp data structures and cryptographic algorithms.",
+  "description": "Data structures and cryptographic algorithms.",
   "version": "1.0.0",
   "author": "HeartMail",
-  "homepage": "https://github.com/openspv/openspv",
+  "homepage": "https://github.com/heartmail/heartmail",
   "main": "./index.mjs",
   "exports": "./index.mjs",
   "type": "module",
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/openspv/openspv.git"
+    "url": "https://github.com/heartmail/heartmail.git"
   },
   "engines": {
     "node": ">=16.0.0"

@@ -49,8 +49,6 @@ const queries = [
   account_name text,
   account_primary_heartmail_address text,
   account_bio text,
-  account_contact_fee_amount_usd double,
-  account_affiliate_id text,
 
   primary key (mb_paymail, signed_in_at)
 ) with clustering order by (signed_in_at desc)`,
