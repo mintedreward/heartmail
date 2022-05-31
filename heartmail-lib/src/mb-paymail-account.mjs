@@ -5,7 +5,7 @@
 import { Struct } from './struct.mjs'
 
 class MbPaymailAccount extends Struct {
-  constructor (mbPaymail, createdAt, updatedAt, signedInAt, accountId, accountName, accountPrimaryHeartmailAddress, accountBio) {
+  constructor (mbPaymail, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), accountId, accountName, accountPrimaryHeartmailAddress, accountBio) {
     super({ mbPaymail, createdAt, updatedAt, signedInAt, accountId, accountName, accountPrimaryHeartmailAddress, accountBio })
   }
 

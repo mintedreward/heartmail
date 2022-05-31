@@ -8,7 +8,7 @@ import { KeyAlias } from './key-alias.mjs'
 import { Struct } from './struct.mjs'
 
 class Account extends Struct {
-  constructor (id, privKey, createdAt, updatedAt, signedInAt, name, primaryHeartmailAddress, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
+  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, primaryHeartmailAddress, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
     super({ id, privKey, createdAt, updatedAt, signedInAt, name, primaryHeartmailAddress, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
   }
 
