@@ -25,6 +25,14 @@ class KeyAlias extends Struct {
     return new this().fromKeyAddress(address, LENGTH)
   }
 
+  fromPrivKey (privKey) {
+    return this.fromKeyAddress(KeyAddress.fromPrivKey(privKey))
+  }
+
+  static fromPrivKey (privKey) {
+    return new this().fromPrivKey(privKey)
+  }
+
   toBase36 () {
     return new Bn(this.buf.toString('hex'), 16).toString(36)
   }
