@@ -1,10 +1,10 @@
 /**
- * HmMbPaymailAccount
+ * MbPaymailAccount
  * ==================
  */
 import { Struct } from 'heartmail-lib'
 
-class HmMbPaymailAccount extends Struct {
+class MbPaymailAccount extends Struct {
   constructor (mbPaymail, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), accountId, accountName, accountPrimaryHeartmail, accountBio) {
     super({ mbPaymail, createdAt, updatedAt, signedInAt, accountId, accountName, accountPrimaryHeartmail, accountBio })
   }
@@ -38,7 +38,7 @@ class HmMbPaymailAccount extends Struct {
     return new this().fromJSON(json)
   }
 
-  fromHmAccount (account) {
+  fromAccount (account) {
     this.mbPaymail = account.mbPaymail
     this.createdAt = account.createdAt
     this.updatedAt = account.updatedAt
@@ -50,9 +50,9 @@ class HmMbPaymailAccount extends Struct {
     return this
   }
 
-  static fromHmAccount (account) {
-    return new this().fromHmAccount(account)
+  static fromAccount (account) {
+    return new this().fromAccount(account)
   }
 }
 
-export { HmMbPaymailAccount }
+export { MbPaymailAccount }

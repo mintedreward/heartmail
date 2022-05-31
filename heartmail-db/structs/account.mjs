@@ -1,11 +1,11 @@
 /**
- * HmAccount
+ * Account
  * =========
  */
 
 import { PrivKey, KeyAlias, Struct } from 'heartmail-lib'
 
-class HmAccount extends Struct {
+class Account extends Struct {
   constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, primaryHeartmail, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
     super({ id, privKey, createdAt, updatedAt, signedInAt, name, primaryHeartmail, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
   }
@@ -123,4 +123,4 @@ class HmAccount extends Struct {
   }
 }
 
-export { HmAccount }
+export { Account }

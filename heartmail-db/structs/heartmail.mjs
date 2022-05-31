@@ -1,11 +1,11 @@
 /**
- * HmHeartmail
+ * Heartmail
  * ==================
  */
 
 import { Struct } from 'heartmail-lib'
 
-class HmHeartmail extends Struct {
+class Heartmail extends Struct {
   constructor (heartmail, createdAt = new Date(), updatedAt = new Date(), accountId) {
     super({ heartmail, createdAt, updatedAt, accountId })
   }
@@ -32,4 +32,4 @@ class HmHeartmail extends Struct {
   }
 }
 
-export { HmHeartmail }
+export { Heartmail }
