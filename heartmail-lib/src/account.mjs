@@ -103,7 +103,11 @@ class Account extends Struct {
   }
 
   isValid () {
-    return this.constructor.isNameValid(this.name) && this.constructor.isBioValid(this.bio) && this.constructor.isContactFeeValid(this.contactFeeAmountUsd)
+    return (
+      this.constructor.isNameValid(this.name) &&
+      this.constructor.isBioValid(this.bio) &&
+      this.constructor.isContactFeeValid(this.contactFeeAmountUsd)
+    )
   }
 
   toPublic () {
