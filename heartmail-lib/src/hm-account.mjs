@@ -8,8 +8,8 @@ import { KeyAlias } from './key-alias.mjs'
 import { Struct } from './struct.mjs'
 
 class HmAccount extends Struct {
-  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, primaryHeartmailAddress, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
-    super({ id, privKey, createdAt, updatedAt, signedInAt, name, primaryHeartmailAddress, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
+  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, primaryHeartmail, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
+    super({ id, privKey, createdAt, updatedAt, signedInAt, name, primaryHeartmail, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
   }
 
   toJSON () {
@@ -20,7 +20,7 @@ class HmAccount extends Struct {
     json.updatedAt = this.updatedAt.toJSON()
     json.signedInAt = this.signedInAt.toJSON()
     json.name = this.name
-    json.primaryHeartmailAddress = this.primaryHeartmailAddress
+    json.primaryHeartmail = this.primaryHeartmail
     json.bio = this.bio
     json.contactFeeAmountUsd = this.contactFeeAmountUsd
     json.affiliateId = this.affiliateId
@@ -42,7 +42,7 @@ class HmAccount extends Struct {
     this.updatedAt = new Date(json.updatedAt)
     this.signedInAt = new Date(json.signedInAt)
     this.name = json.name
-    this.primaryHeartmailAddress = json.primaryHeartmailAddress
+    this.primaryHeartmail = json.primaryHeartmail
     this.bio = json.bio
     this.contactFeeAmountUsd = json.contactFeeAmountUsd
     this.affiliateId = json.affiliateId
@@ -68,7 +68,7 @@ class HmAccount extends Struct {
     this.updatedAt = new Date()
     this.signedInAt = new Date()
     this.name = 'Anonymous'
-    this.primaryHeartmailAddress = null
+    this.primaryHeartmail = null
     this.bio = 'I love HeartMail'
     this.contactFeeAmountUsd = 1.00
     this.affiliateId = null

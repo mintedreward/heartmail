@@ -11,11 +11,11 @@ describe('HmMbPaymailAccount', function () {
   describe('@fromHmAccount', () => {
     it('should get from account', () => {
       const account = HmAccount.fromRandom()
-      account.primaryHeartmailAddress = '12345@heartmail.com'
+      account.primaryHeartmail = '12345@heartmail.com'
       const hmMbPaymailAccount = HmMbPaymailAccount.fromHmAccount(account)
       hmMbPaymailAccount.accountId.should.equal(account.id)
       hmMbPaymailAccount.accountName.should.equal(account.name)
-      hmMbPaymailAccount.accountPrimaryHeartmailAddress.should.equal(account.primaryHeartmailAddress)
+      hmMbPaymailAccount.accountPrimaryHeartmail.should.equal(account.primaryHeartmail)
       hmMbPaymailAccount.accountBio.should.equal(account.bio)
     })
   })
@@ -23,7 +23,7 @@ describe('HmMbPaymailAccount', function () {
   describe('#toJSON', () => {
     it('should round trip to/from JSON', () => {
       const account = HmAccount.fromRandom()
-      account.primaryHeartmailAddress = '12345@heartmail.com'
+      account.primaryHeartmail = '12345@heartmail.com'
       account.mbPaymail = '12345@moneybutton.com'
       const hmMbPaymailAccount = HmMbPaymailAccount.fromHmAccount(account)
       const json = hmMbPaymailAccount.toJSON()
@@ -35,7 +35,7 @@ describe('HmMbPaymailAccount', function () {
       hmMbPaymailAccount.accountId.should.equal(hmMbPaymailAccount2.accountId)
       hmMbPaymailAccount.accountName.should.equal(hmMbPaymailAccount2.accountName)
       hmMbPaymailAccount.accountBio.should.equal(hmMbPaymailAccount2.accountBio)
-      hmMbPaymailAccount.accountPrimaryHeartmailAddress.should.equal(hmMbPaymailAccount2.accountPrimaryHeartmailAddress)
+      hmMbPaymailAccount.accountPrimaryHeartmail.should.equal(hmMbPaymailAccount2.accountPrimaryHeartmail)
     })
   })
 })

@@ -24,7 +24,7 @@ const queries = [
   signed_in_at timestamp,
 
   name text,
-  primary_heartmail_address text,
+  primary_heartmail text,
   bio text,
   contact_fee_amount_usd double,
   affiliate_id text,
@@ -49,25 +49,25 @@ const queries = [
 
   account_id text,
   account_name text,
-  account_primary_heartmail_address text,
+  account_primary_heartmail text,
   account_bio text,
 
   primary key (mb_paymail, signed_in_at)
 ) with clustering order by (signed_in_at desc)`,
-`create table if not exists ${keyspace}.heartmail_addresses (
-  heartmail_address text,
+`create table if not exists ${keyspace}.heartmails (
+  heartmail text,
 
   account_id text,
 
   created_at timestamp,
   updated_at timestamp,
 
-  primary key (heartmail_address)
+  primary key (heartmail)
 )`,
-`create table if not exists ${keyspace}.account_heartmail_addresses (
+`create table if not exists ${keyspace}.account_heartmails (
   account_id text,
 
-  heartmail_address text,
+  heartmail text,
 
   created_at timestamp,
   updated_at timestamp,

@@ -13,15 +13,15 @@
  * - download the avatar at 120px for the MB user
  * - confirm total size of avatars is under 900KB
  * - if MB paymail is [alias]@moneybutton.com:
- *   - create new heartmail_address [alias]@heartmail.com
- *   - set primary_heartmail_address to the new address
+ *   - create new heartmail [alias]@heartmail.com
+ *   - set primary_heartmail to the new address
  * - else:
- *   - set primary_heartmail_address to the account id
+ *   - set primary_heartmail to the account id
  *
  * - insert account
  * - insert mb_paymail_account
- * - if custom heartmail_address:
- *   - insert heartmail_address
- *   - insert account_heartmail_address
+ * - if custom heartmail:
+ *   - insert heartmail
+ *   - insert account_heartmail
  * - insert account_avatar
  */
