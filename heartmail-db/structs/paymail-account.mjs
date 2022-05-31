@@ -1,10 +1,10 @@
 /**
- * MbPaymailAccount
+ * PaymailAccount
  * ==================
  */
 import { Struct } from 'heartmail-lib'
 
-class MbPaymailAccount extends Struct {
+class PaymailAccount extends Struct {
   constructor (mbPaymail, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), accountId, accountName, accountPrimaryHeartmail, accountBio) {
     super({ mbPaymail, createdAt, updatedAt, signedInAt, accountId, accountName, accountPrimaryHeartmail, accountBio })
   }
@@ -55,4 +55,4 @@ class MbPaymailAccount extends Struct {
   }
 }
 
-export { MbPaymailAccount }
+export { PaymailAccount }

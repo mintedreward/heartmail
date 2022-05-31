@@ -6,8 +6,8 @@
 import { PrivKey, KeyAlias, Struct } from 'heartmail-lib'
 
 class Account extends Struct {
-  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, primaryHeartmail, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
-    super({ id, privKey, createdAt, updatedAt, signedInAt, name, primaryHeartmail, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
+  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, heartmail, bio, contactFeeUsd, affiliateId, email, paymail, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
+    super({ id, privKey, createdAt, updatedAt, signedInAt, name, heartmail, bio, contactFeeUsd, affiliateId, email, paymail, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
   }
 
   toJSON () {
@@ -23,6 +23,7 @@ class Account extends Struct {
     json.contactFeeAmountUsd = this.contactFeeAmountUsd
     json.affiliateId = this.affiliateId
     json.externalEmail = this.externalEmail
+    json.externalPaymail = this.externalPaymail
     json.accessGrantedAt = this.accessGrantedAt.toJSON()
     json.mbPaymentId = this.mbPaymentId
     json.mbTxid = this.mbTxid
@@ -40,11 +41,12 @@ class Account extends Struct {
     this.updatedAt = new Date(json.updatedAt)
     this.signedInAt = new Date(json.signedInAt)
     this.name = json.name
-    this.primaryHeartmail = json.primaryHeartmail
+    this.heartmail = json.heartmail
     this.bio = json.bio
     this.contactFeeAmountUsd = json.contactFeeAmountUsd
     this.affiliateId = json.affiliateId
-    this.externalEmail = json.externalEmail
+    this.email = json.email
+    this.paymail = json.paymail
     this.accessGrantedAt = new Date(json.accessGrantedAt)
     this.mbPaymentId = json.mbPaymentId
     this.mbTxid = json.mbTxid
@@ -66,11 +68,12 @@ class Account extends Struct {
     this.updatedAt = new Date()
     this.signedInAt = new Date()
     this.name = 'Anonymous'
-    this.primaryHeartmail = null
+    this.heartmail = null
     this.bio = 'I love HeartMail'
     this.contactFeeAmountUsd = 1.00
     this.affiliateId = null
-    this.externalEmail = null
+    this.email = null
+    this.paymail = null
     this.accessGrantedAt = new Date()
     this.mbPaymentId = null
     this.mbTxid = null

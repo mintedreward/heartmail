@@ -24,11 +24,12 @@ const queries = [
   signed_in_at timestamp,
 
   name text,
-  primary_heartmail text,
+  heartmail text,
   bio text,
-  contact_fee_amount_usd double,
+  contact_fee_usd double,
   affiliate_id text,
-  external_email text,
+  email text,
+  paymail text,
 
   access_granted_at timestamp,
   mb_payment_id text,
@@ -40,8 +41,8 @@ const queries = [
 
   primary key (id)
 )`,
-`create table if not exists ${keyspace}.mb_paymail_accounts (
-  mb_paymail text,
+`create table if not exists ${keyspace}.paymail_accounts (
+  paymail text,
 
   created_at timestamp,
   updated_at timestamp,
@@ -49,7 +50,7 @@ const queries = [
 
   account_id text,
   account_name text,
-  account_primary_heartmail text,
+  account_heartmail text,
   account_bio text,
 
   primary key (mb_paymail, signed_in_at)
