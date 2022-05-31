@@ -28,6 +28,7 @@ const queries = [
   bio text,
   contact_fee_amount_usd double,
   affiliate_id text,
+  external_email text,
 
   access_granted_at timestamp,
   mb_payment_id text,
@@ -35,6 +36,7 @@ const queries = [
   mb_email text,
   mb_paymail text,
   mb_identity_key text,
+  mb_user_id text,
 
   primary key (id)
 )`,

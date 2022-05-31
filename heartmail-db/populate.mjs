@@ -7,6 +7,7 @@
  *
  * - query the identity key for the MB user
  * - query the name / avatar for the MB user
+ * - query the userId fro the MB user
  * - download the avatar at 864px for the MB user
  * - download the avatar at 288px for the MB user
  * - download the avatar at 120px for the MB user
