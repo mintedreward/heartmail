@@ -1,13 +1,13 @@
 /**
- * Account
- * =======
+ * HmAccount
+ * =========
  */
 
 import { PrivKey } from './priv-key.mjs'
 import { KeyAlias } from './key-alias.mjs'
 import { Struct } from './struct.mjs'
 
-class Account extends Struct {
+class HmAccount extends Struct {
   constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, primaryHeartmailAddress, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
     super({ id, privKey, createdAt, updatedAt, signedInAt, name, primaryHeartmailAddress, bio, contactFeeAmountUsd, affiliateId, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
   }
@@ -119,4 +119,4 @@ class Account extends Struct {
   }
 }
 
-export { Account }
+export { HmAccount }

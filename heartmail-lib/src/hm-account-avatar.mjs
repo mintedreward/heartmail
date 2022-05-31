@@ -1,11 +1,11 @@
 /**
- * AccountAvatar
- * =============
+ * HmAccountAvatar
+ * ===============
  */
 
 import { Struct } from './struct.mjs'
 
-class AccountAvatar extends Struct {
+class HmAccountAvatar extends Struct {
   constructor (accountId, size, avatarBuf, createdAt = new Date(), updatedAt = new Date()) {
     super({ accountId, size, avatarBuf, createdAt, updatedAt })
   }
@@ -34,4 +34,4 @@ class AccountAvatar extends Struct {
   }
 }
 
-export { AccountAvatar }
+export { HmAccountAvatar }

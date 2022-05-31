@@ -1,10 +1,10 @@
 /**
- * MbPaymailAccount
- * ================
+ * HmMbPaymailAccount
+ * ==================
  */
 import { Struct } from './struct.mjs'
 
-class MbPaymailAccount extends Struct {
+class HmMbPaymailAccount extends Struct {
   constructor (mbPaymail, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), accountId, accountName, accountPrimaryHeartmailAddress, accountBio) {
     super({ mbPaymail, createdAt, updatedAt, signedInAt, accountId, accountName, accountPrimaryHeartmailAddress, accountBio })
   }
@@ -38,7 +38,7 @@ class MbPaymailAccount extends Struct {
     return new this().fromJSON(json)
   }
 
-  fromAccount (account) {
+  fromHmAccount (account) {
     this.mbPaymail = account.mbPaymail
     this.createdAt = account.createdAt
     this.updatedAt = account.updatedAt
@@ -50,9 +50,9 @@ class MbPaymailAccount extends Struct {
     return this
   }
 
-  static fromAccount (account) {
-    return new this().fromAccount(account)
+  static fromHmAccount (account) {
+    return new this().fromHmAccount(account)
   }
 }
 
-export { MbPaymailAccount }
+export { HmMbPaymailAccount }

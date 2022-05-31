@@ -1,29 +1,29 @@
 /**
- * AccountHeartmailAddress
- * =======================
+ * HmHeartmailAddress
+ * ==================
  */
 
 import { Struct } from './struct.mjs'
 
-class AccountHeartmailAddress extends Struct {
-  constructor (accountId, heartmailAddress, createdAt = new Date(), updatedAt = new Date()) {
-    super({ accountId, heartmailAddress, createdAt, updatedAt })
+class HmHeartmailAddress extends Struct {
+  constructor (heartmailAddress, createdAt = new Date(), updatedAt = new Date(), accountId) {
+    super({ heartmailAddress, createdAt, updatedAt, accountId })
   }
 
   toJSON () {
     const json = {}
-    json.accountId = this.accountId
     json.heartmailAddress = this.heartmailAddress
     json.createdAt = this.createdAt.toJSON()
     json.updatedAt = this.updatedAt.toJSON()
+    json.accountId = this.accountId
     return json
   }
 
   fromJSON (json = {}) {
-    this.accountId = json.accountId
     this.heartmailAddress = json.heartmailAddress
     this.createdAt = json.createdAt ? new Date(json.createdAt) : null
     this.updatedAt = json.updatedAt ? new Date(json.updatedAt) : null
+    this.accountId = json.accountId
     return this
   }
 
@@ -32,4 +32,4 @@ class AccountHeartmailAddress extends Struct {
   }
 }
 
-export { AccountHeartmailAddress }
+export { HmHeartmailAddress }
