@@ -55,10 +55,10 @@ const queries = [
 `create table if not exists ${keyspace}.heartmail_addresses (
   heartmail_address text,
 
+  account_id text,
+
   created_at timestamp,
   updated_at timestamp,
-
-  account_id text,
 
   primary key (heartmail_address)
 )`,
@@ -75,7 +75,7 @@ const queries = [
 `create table if not exists ${keyspace}.account_avatars (
   account_id text,
   size int,
-  avatar blob,
+  avatar_buf blob,
 
   created_at timestamp,
   updated_at timestamp,
