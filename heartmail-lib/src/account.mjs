@@ -105,6 +105,10 @@ class Account extends Struct {
   isValid () {
     return this.constructor.isNameValid(this.name) && this.constructor.isBioValid(this.bio) && this.constructor.isContactFeeValid(this.contactFeeAmountUsd)
   }
+
+  toPublic () {
+    this.privKey = null
+  }
 }
 
 export { Account }
