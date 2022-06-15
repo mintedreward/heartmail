@@ -33,6 +33,8 @@ const queries = [
   mb_paymail text,
   mb_identity_key text,
   mb_user_id text,
+  mb_name text,
+  mb_avatar_url text,
 
   primary key (id)
 )`/*,

@@ -6,6 +6,7 @@ import Link from '../components/Link'
 
 export default function NavTop (props) {
   // const showAccount = props.account !== undefined
+  const showAccount = false
   return (
     <Box>
       <AppBar position='fixed'>
@@ -19,7 +20,6 @@ export default function NavTop (props) {
                 <Image src='/heartmail-small.png' alt='HeartMail: Get paid for email.' width='205' height='35.14' />
               </Link>
             </Box>
-            {/*
             <Box sx={{ marginTop: '5px', width: '40px', height: '40px' }}>
               {showAccount
                 ? (
@@ -29,7 +29,6 @@ export default function NavTop (props) {
                   )
                 : ('')}
             </Box>
-            */}
           </Box>
         </Toolbar>
       </AppBar>

@@ -38,8 +38,8 @@ export default function AccessPage (props) {
   const heartmail = `${props.account.longId}@${process.env.NEXT_PUBLIC_DOMAIN}`
 
   return (
-    <Layout title={`Early Access ${receiptId}`}>
-      <PageTitle>Early Access</PageTitle>
+    <Layout title={`Access Key: ${receiptId}`}>
+      <PageTitle>Access Key</PageTitle>
       <p>
         This page grants access to HeartMail on {accessGrantedAt} to this email address:
       </p>

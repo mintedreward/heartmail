@@ -1,6 +1,6 @@
 /**
  * Account
- * =========
+ * =======
  */
 
 import { PrivKey, KeyAlias, Struct } from 'heartmail-lib'

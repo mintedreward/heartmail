@@ -248,12 +248,13 @@ describe('DbAccessKey', () => {
   })
 
   describe('#delayAccess', () => {
-    it('should delay access until July 1', () => {
+    it('should delay access by 30 days', () => {
       const dbAccessKey = DbAccessKey.create()
       const date = new Date(dbAccessKey.accessGrantedAt.toJSON())
       dbAccessKey.delayAccess()
       dbAccessKey.accessGrantedAt.toJSON().should.not.equal(date.toJSON())
-      const accessDate = new Date('2022-07-01T10:00:00.000Z')
+      const accessDate = new Date(date.toJSON())
+      accessDate.setDate(accessDate.getDate() + 30)
       dbAccessKey.accessGrantedAt.toJSON().should.equal(accessDate.toJSON())
     })
   })
