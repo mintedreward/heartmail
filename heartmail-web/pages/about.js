@@ -8,8 +8,7 @@ export default function AboutPage () {
     <Layout title='About' account={null}>
       <PageTitle>About</PageTitle>
       <p>
-        HeartMail was founded on January 1, 2022.
-        Our mission is to enable people to own and monetize their data.
+        HeartMail was founded on January 1, 2022 with the thesis that it should be possible to earn a living on the internet without being censored.
       </p>
       <p>
         HeartMail Inc.<br />

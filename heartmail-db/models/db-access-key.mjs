@@ -1,3 +1,7 @@
+/*
+* TODO: This file should be deleted after we migrate to use the mb_accounts
+* table.
+*/
 import { KeyAlias } from 'heartmail-lib'
 import emailValidator from 'email-validator'
 import DbKey from './db-key.mjs'

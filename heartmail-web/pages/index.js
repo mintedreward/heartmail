@@ -74,10 +74,10 @@ export default function HomePage (props) {
         Random HeartMail addresses are free. Custom heartmails, such as [name]@heartmail.com, cost $1.00. You can have as many heartmails as you want and you can resell heartmails for any amount of money.
       </p>
       <p>
-        HeartMail launches to the public on July 1, 2022. Join now to register your Money Button paymails for free before general sales begin.
+        HeartMail is under development. Join now to register your Money Button paymails for free before general sales begin.
       </p>
       <p>
-        By buying an account, you agree to the <Link href='/terms'>Terms of Service</Link> and <Link href='/privacy'>Privacy Policy</Link>.
+        By buying an account, you agree to the <Link href='/terms'>Terms of Service</Link> and the <Link href='/privacy'>Privacy Policy</Link>.
       </p>
       <MoneyButtonNewAccount affiliate={props.affiliate} onPayment={handlePayment} />
     </Layout>

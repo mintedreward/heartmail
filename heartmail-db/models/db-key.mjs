@@ -1,3 +1,7 @@
+/*
+* TODO: This file should be deleted after we migrate to use the mb_accounts
+* table.
+*/
 import { getClient } from '../connect.mjs'
 import { KeyAlias, KeyAddress, PubKey, PrivKey, Struct } from 'heartmail-lib'
 import cassandra from 'cassandra-driver'

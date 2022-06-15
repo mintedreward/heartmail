@@ -15,6 +15,27 @@ const queries = [
   updated_at timestamp,
   primary key (key_alias_left, key_alias_right)
 )`,
+`create table if not exists ${keyspace}.mb_accounts (
+  id text,
+  priv_key text,
+
+  created_at timestamp,
+  updated_at timestamp,
+
+  contact_fee_usd double,
+  affiliate_id text,
+  access_granted_at timestamp,
+
+  mb_payment text,
+  mb_payment_id text,
+  mb_txid text,
+  mb_email text,
+  mb_paymail text,
+  mb_identity_key text,
+  mb_user_id text,
+
+  primary key (id)
+)`/*,
 `create table if not exists ${keyspace}.accounts (
   id text,
   priv_key text,
@@ -32,12 +53,6 @@ const queries = [
   paymail text,
 
   access_granted_at timestamp,
-  mb_payment_id text,
-  mb_txid text,
-  mb_email text,
-  mb_paymail text,
-  mb_identity_key text,
-  mb_user_id text,
 
   primary key (id)
 )`,
@@ -84,7 +99,7 @@ const queries = [
   updated_at timestamp,
 
   primary key (account_id, size)
-)`
+)` */
 ]
 
 ;(async function () {
