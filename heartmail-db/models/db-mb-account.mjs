@@ -65,7 +65,7 @@ export default class DbMbAccount extends Struct {
   async findOne () {
     const obj = this.toCassandraObject()
 
-    const query = `select * from ${keyspace}.keys where id = ?`
+    const query = `select * from ${keyspace}.mb_accounts where id = ?`
     const values = [obj.id]
 
     const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
@@ -80,13 +80,13 @@ export default class DbMbAccount extends Struct {
   }
 
   static async findOne (id) {
-    return new this(id).findOne()
+    return new this(new MbAccount(id)).findOne()
   }
 
   async insert () {
     const obj = this.toCassandraObject()
 
-    const query = `insert into ${keyspace}.keys (id, priv_key, created_at, updated_at, contact_fee_usd, affiliate_id, access_granted_at, mb_payment, mb_payment_id, mb_txid, mb_email, mb_paymail, mb_identity_key, mb_user_id, mb_name, mb_avatar_url) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    const query = `insert into ${keyspace}.mb_accounts (id, priv_key, created_at, updated_at, contact_fee_usd, affiliate_id, access_granted_at, mb_payment, mb_payment_id, mb_txid, mb_email, mb_paymail, mb_identity_key, mb_user_id, mb_name, mb_avatar_url) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.contact_fee_usd, obj.affiliate_id, obj.access_granted_at, obj.mb_payment, obj.mb_payment_id, obj.mb_txid, obj.mb_email, obj.mb_paymail, obj.mb_identity_key, obj.mb_user_id, obj.mb_name, obj.mb_avatar_url]
 
     const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })

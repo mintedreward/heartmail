@@ -81,4 +81,40 @@ describe('DbMbAccount', () => {
       ;(obj.mb_avatar_url === null).should.equal(true)
     })
   })
+
+  describe('@findOne', () => {
+    it('should insert and find one back again', async () => {
+      const dbMbAccount = DbMbAccount.fromRandom()
+      dbMbAccount.mbAccount.fromObject({
+        accessGrantedAt: new Date(),
+        affiliateId: KeyAlias.fromRandom().toString(),
+        contactFeeUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com',
+        mbPaymentId: '1',
+        mbTxid: '00'.repeat(32),
+        mbPayment: '{}',
+        mbIdentityKey: 'key',
+        mbUserId: '6',
+        mbName: 'name',
+        mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+      })
+      await dbMbAccount.insert()
+      const dbMbAccount2 = await DbMbAccount.findOne(dbMbAccount.mbAccount.id)
+      const mbAccount2 = dbMbAccount2.mbAccount
+      const mbAccount = dbMbAccount.mbAccount
+      mbAccount2.id.should.equal(mbAccount.id)
+      mbAccount2.accessGrantedAt.toJSON().should.equal(mbAccount.accessGrantedAt.toJSON())
+      mbAccount2.affiliateId.should.equal(mbAccount.affiliateId)
+      mbAccount2.contactFeeUsd.should.equal(mbAccount.contactFeeUsd)
+      mbAccount2.mbEmail.should.equal(mbAccount.mbEmail)
+      mbAccount2.mbPaymail.should.equal(mbAccount.mbPaymail)
+      mbAccount2.mbTxid.should.equal(mbAccount.mbTxid)
+      mbAccount2.mbPayment.should.equal(mbAccount.mbPayment)
+      mbAccount2.mbIdentityKey.should.equal(mbAccount.mbIdentityKey)
+      mbAccount2.mbUserId.should.equal(mbAccount.mbUserId)
+      mbAccount2.mbName.should.equal(mbAccount.mbName)
+      mbAccount2.mbAvatarUrl.should.equal(mbAccount.mbAvatarUrl)
+    })
+  })
 })
