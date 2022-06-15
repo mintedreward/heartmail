@@ -48,10 +48,10 @@ export default class DbKey extends Struct {
 
   fromJSON (json) {
     this.fromObject({
-      keyAlias: KeyAlias.fromJSON(json.keyAlias),
-      keyAddress: KeyAddress.fromJSON(json.keyAddress),
-      pubKey: json.pubKey ? PubKey.fromJSON(json.pubKey) : undefined,
-      privKey: json.privKey ? PrivKey.fromJSON(json.privKey) : undefined,
+      keyAlias: KeyAlias.fromString(json.keyAlias),
+      keyAddress: KeyAddress.fromString(json.keyAddress),
+      pubKey: json.pubKey ? PubKey.fromString(json.pubKey) : undefined,
+      privKey: json.privKey ? PrivKey.fromString(json.privKey) : undefined,
       typeStr: json.typeStr,
       dataBuf: json.dataBuf ? Buffer.fromString(json.dataBuf, 'hex') : undefined,
       createdAt: new Date(json.createdAt),
@@ -67,7 +67,7 @@ export default class DbKey extends Struct {
     json.pubKey = this.pubKey.toString()
     json.privKey = this.privKey.toString()
     json.typeStr = this.typeStr
-    json.dataBuf = this.dataBuf.toString('hex')
+    json.dataBuf = this.dataBuf ? this.dataBuf.toString('hex') : undefined
     json.createdAt = this.createdAt ? this.createdAt.toJSON() : undefined
     json.updatedAt = this.updatedAt ? this.updatedAt.toJSON() : undefined
     return json

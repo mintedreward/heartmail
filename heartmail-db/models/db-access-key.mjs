@@ -12,6 +12,16 @@ export default class DbAccessKey extends DbKey {
     this.typeStr = 'account'
   }
 
+  toJSON () {
+    const json = super.toJSON()
+    json.accessGrantedAt = this.accessGrantedAt.toJSON()
+    json.affiliateKeyAlias = this.affiliateKeyAlias.toJSON()
+    json.mbEmail = this.mbEmail
+    json.mbPaymail = this.mbPaymail
+    json.contactFeeAmountUsd = this.contactFeeAmountUsd
+    return json
+  }
+
   createDataBuf () {
     const dataObj = {
       accessGrantedAt: this.accessGrantedAt,

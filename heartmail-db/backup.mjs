@@ -1,5 +1,5 @@
 import { getClient, useKeyspace } from './connect.mjs'
-import { DbAccessKey } from './index.mjs';
+import { DbAccessKey } from './index.mjs'
 const client = getClient()
 
 ;(async function () {
