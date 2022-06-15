@@ -60,6 +60,19 @@ export default class DbKey extends Struct {
     return this
   }
 
+  toJSON () {
+    const json = {}
+    json.keyAlias = this.keyAlias.toString()
+    json.keyAddress = this.keyAddress.toString()
+    json.pubKey = this.pubKey.toString()
+    json.privKey = this.privKey.toString()
+    json.typeStr = this.typeStr
+    json.dataBuf = this.dataBuf.toString('hex')
+    json.createdAt = this.createdAt ? this.createdAt.toJSON() : undefined
+    json.updatedAt = this.updatedAt ? this.updatedAt.toJSON() : undefined
+    return json
+  }
+
   parseDataBuf () {
     return this
   }
@@ -118,7 +131,7 @@ export default class DbKey extends Struct {
       privKey: obj.priv_key ? PrivKey.fromString(obj.priv_key) : undefined,
       typeStr: obj.type_str,
       dataBuf: obj.data_buf,
-      created_at: obj.created_at,
+      createdAt: obj.created_at,
       updatedAt: obj.updated_at
     })
   }
@@ -176,6 +189,18 @@ export default class DbKey extends Struct {
     } else {
       return undefined
     }
+  }
+
+  static async findAll () {
+    const query = `select * from ${keyspace}.keys`
+    const res = await client.execute(query, [], { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+    const dbKeys = []
+    for (let i = 0; i < res.rows.length; i++) {
+      const row = res.rows[i]
+      const dbKey = new this().fromCassandraObject(row)
+      dbKeys.push(dbKey)
+    }
+    return dbKeys
   }
 
   async findOneByShortId () {
