@@ -14,8 +14,8 @@ describe('DbMbAccount', () => {
   describe('@fromRandom', () => {
     it('should make a new DbMbAccount', () => {
       const dbMbAccount = DbMbAccount.fromRandom()
-      should.exist(dbMbAccount.id)
-      should.exist(dbMbAccount.privKey)
+      should.exist(dbMbAccount.mbAccount.id)
+      should.exist(dbMbAccount.mbAccount.privKey)
     })
   })
 })

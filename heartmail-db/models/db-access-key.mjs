@@ -5,6 +5,7 @@
 import { KeyAlias } from 'heartmail-lib'
 import emailValidator from 'email-validator'
 import DbKey from './db-key.mjs'
+import { MbAccount } from '../structs/mb-account.mjs'
 
 export default class DbAccessKey extends DbKey {
   constructor (...args) {
@@ -12,13 +13,36 @@ export default class DbAccessKey extends DbKey {
     this.typeStr = 'account'
   }
 
+  toMbAccount () {
+    return new MbAccount().fromObject({
+      id: this.keyAlias.toString(),
+      privKey: this.privKey,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt,
+      contactFeeUsd: this.contactFeeAmountUsd,
+      affiliateId: this.affiliateKeyAlias?.toString() || null,
+      accessGrantedAt: this.accessGrantedAt,
+      mbPayment: null,
+      mbPaymentId: this.mbPaymentId,
+      mbTxid: this.mbTxid,
+      mbEmail: this.mbEmail,
+      mbPaymail: this.mbPaymail,
+      mbIdentityKey: null,
+      mbUserId: null,
+      mbName: null,
+      mbAvatarUrl: null
+    })
+  }
+
   toJSON () {
     const json = super.toJSON()
     json.accessGrantedAt = this.accessGrantedAt.toJSON()
     json.affiliateKeyAlias = this.affiliateKeyAlias.toJSON()
+    json.contactFeeAmountUsd = this.contactFeeAmountUsd
     json.mbEmail = this.mbEmail
     json.mbPaymail = this.mbPaymail
-    json.contactFeeAmountUsd = this.contactFeeAmountUsd
+    json.mbPaymentId = this.mbPaymentId
+    json.mbTxid = this.mbTxid
     return json
   }
 

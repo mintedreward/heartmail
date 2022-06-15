@@ -1,11 +1,34 @@
 /* global describe,it */
 import DbAccessKey from '../../models/db-access-key.mjs'
+import { MbAccount } from '../../structs/mb-account.mjs'
 import { KeyAddress, PubKey, PrivKey, KeyAlias, Bn } from 'heartmail-lib'
 import should from 'should'
 
 describe('DbAccessKey', () => {
   it('should exist', () => {
     should.exist(DbAccessKey)
+  })
+
+  describe('#toMbAccount', () => {
+    it('should create an MbAccount', () => {
+      const date = new Date()
+      const dbAccessKey = DbAccessKey.fromRandom()
+      dbAccessKey.fromObject({
+        accessGrantedAt: date,
+        affiliateKeyAlias: KeyAlias.fromRandom(),
+        contactFeeAmountUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com',
+        mbPaymentId: '1',
+        mbTxid: '00'.repeat(32)
+      })
+      const mbAccount = dbAccessKey.toMbAccount()
+      ;(mbAccount instanceof MbAccount).should.equal(true)
+      mbAccount.id.should.equal(dbAccessKey.keyAlias.toString())
+      mbAccount.privKey.toString().should.equal(dbAccessKey.privKey.toString())
+      mbAccount.accessGrantedAt.toJSON().should.equal(dbAccessKey.accessGrantedAt.toJSON())
+      mbAccount.affiliateId.should.equal(dbAccessKey.affiliateKeyAlias.toString())
+    })
   })
 
   describe('@fromRandom', () => {
