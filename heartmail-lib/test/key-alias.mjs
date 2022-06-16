@@ -76,47 +76,6 @@ describe('KeyAlias', function () {
     })
   })
 
-  describe('getLeftString', () => {
-    it('should produce this known value', () => {
-      const address = new KeyAddress()
-      address.hashBuf = Buffer.from('01'.repeat(160 / 8), 'hex')
-      const keyAlias = KeyAlias.fromKeyAddress(address)
-      keyAlias.getLeftString().should.equal('jsag8mbvldt')
-    })
-
-    it('should produce this known value', () => {
-      const privKey = PrivKey.fromBn(new Bn(5))
-      const pubKey = PubKey.fromPrivKey(privKey)
-      const address = KeyAddress.fromPubKey(pubKey)
-      const keyAlias = KeyAlias.fromKeyAddress(address)
-      keyAlias.getLeftString().should.equal('130ucufm37f3v')
-    })
-  })
-
-  describe('getRightString', () => {
-    it('should produce this known value', () => {
-      const address = new KeyAddress()
-      address.hashBuf = Buffer.from('01'.repeat(160 / 8), 'hex')
-      const keyAlias = KeyAlias.fromKeyAddress(address)
-      keyAlias.getRightString().should.equal('jsag8mbvldt')
-    })
-
-    it('should produce the same as left for this particular value', () => {
-      const address = new KeyAddress()
-      address.hashBuf = Buffer.from('01'.repeat(160 / 8), 'hex')
-      const keyAlias = KeyAlias.fromKeyAddress(address)
-      keyAlias.getRightString().should.equal(keyAlias.getLeftString())
-    })
-
-    it('should produce this known value', () => {
-      const privKey = PrivKey.fromBn(new Bn(5))
-      const pubKey = PubKey.fromPrivKey(privKey)
-      const address = KeyAddress.fromPubKey(pubKey)
-      const keyAlias = KeyAlias.fromKeyAddress(address)
-      keyAlias.getRightString().should.equal('8hg7z5h0mhzz')
-    })
-  })
-
   describe('@fromString', () => {
     it('should produce this known value', () => {
       const string = '0'
@@ -146,30 +105,6 @@ describe('KeyAlias', function () {
       keyAlias.toJSON().should.equal('"7khrkf3z64jcbu80i5rvv629o"')
       const keyAlias2 = KeyAlias.fromJSON(keyAlias.toJSON())
       keyAlias2.toString().should.equal(string)
-    })
-  })
-
-  describe('@fromShortId', () => {
-    it('should convert to/from', () => {
-      const keyAlias = KeyAlias.fromRandom()
-      const shortId = keyAlias.getLeftBase36()
-      const keyAlias2 = KeyAlias.fromShortId(shortId)
-      keyAlias2.getLeftBase36().should.equal(keyAlias.getLeftBase36())
-      keyAlias2.getRightBase36().should.not.equal(keyAlias.getRightBase36())
-      keyAlias2.toShortId().should.equal(keyAlias.toShortId())
-      keyAlias2.toLongId().should.not.equal(keyAlias.toLongId())
-    })
-  })
-
-  describe('@fromShortId', () => {
-    it('should convert to/from', () => {
-      const keyAlias = KeyAlias.fromRandom()
-      const longId = keyAlias.toBase36()
-      const keyAlias2 = KeyAlias.fromLongId(longId)
-      keyAlias2.getLeftBase36().should.equal(keyAlias.getLeftBase36())
-      keyAlias2.getRightBase36().should.equal(keyAlias.getRightBase36())
-      keyAlias2.toShortId().should.equal(keyAlias.toShortId())
-      keyAlias2.toLongId().should.equal(keyAlias.toLongId())
     })
   })
 })

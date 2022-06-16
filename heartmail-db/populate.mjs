@@ -1,9 +1,9 @@
 /**
  * print current date: new Date().toJSON()
  *
- * select all AccessKeys
+ * select all MbAccounts
  *
- * for each AccessKey:
+ * for each MbAccount:
  *
  * - query the identity key for the MB user
  * - query the name / avatar for the MB user
