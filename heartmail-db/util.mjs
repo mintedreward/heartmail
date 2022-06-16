@@ -54,7 +54,11 @@ export async function getMbAccount (id) {
   try {
     const dbMbAccount = await DbMbAccount.findOne(id)
     const mbAccount = dbMbAccount.mbAccount
-    return mbAccount.toPublic()
+    if (mbAccount) {
+      return mbAccount.toPublic()
+    } else {
+      return null
+    }
   } catch (err) {
     return null
   }

@@ -198,6 +198,7 @@ export default class DbKey extends Struct {
     for (let i = 0; i < res.rows.length; i++) {
       const row = res.rows[i]
       const dbKey = new this().fromCassandraObject(row)
+      dbKey.parseDataBuf()
       dbKeys.push(dbKey)
     }
     return dbKeys

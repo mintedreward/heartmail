@@ -9,6 +9,7 @@ export async function getServerSideProps (context) {
   const id = context.query.id
   const res = context.res
   const mbAccount = await util.getMbAccount(id)
+
   if (mbAccount) {
     return {
       props: {

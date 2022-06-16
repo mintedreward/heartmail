@@ -92,9 +92,7 @@ export default class DbAccessKey extends DbKey {
   }
 
   delayAccess () {
-    const date = new Date()
-    date.setDate(date.getDate() + 30)
-    this.accessGrantedAt = date
+    this.accessGrantedAt.setDate(this.accessGrantedAt.getDate() + 30)
     return this
   }
 

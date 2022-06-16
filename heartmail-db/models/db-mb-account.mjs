@@ -84,6 +84,8 @@ export default class DbMbAccount extends Struct {
 
     if (row) {
       this.fromCassandraObject(row)
+    } else {
+      this.mbAccount = null
     }
 
     return this
