@@ -1,6 +1,5 @@
-import DbAccessKey from './models/db-access-key.mjs'
-import { KeyAlias } from 'heartmail-lib'
 import assert from 'node:assert'
+import DbMbAccount from './models/db-mb-account.mjs'
 
 export async function paymentIsNewAndValid (affiliate, payment) {
   // add payment to DB and ensure uniqueness
@@ -8,27 +7,9 @@ export async function paymentIsNewAndValid (affiliate, payment) {
   return true
 }
 
-export async function createAccessKeyWithPayment (contactFeeAmountUsd, affiliate, payment) {
-  try {
-    const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
-    assert(isNewAndValid)
-    const dbAccessKey = DbAccessKey.create().delayAccess().fromObject({
-      affiliateKeyAlias: affiliate ? KeyAlias.fromLongId(affiliate.longId) : null,
-      contactFeeAmountUsd: Math.round(contactFeeAmountUsd * 100, 2) / 100,
-      mbEmail: payment.user.email,
-      mbPaymail: payment.senderPaymail,
-      mbPaymentId: payment.id,
-      mbTxid: payment.txid
-    })
-    await dbAccessKey.insert()
-    return dbAccessKey.keyAlias.toLongId()
-  } catch (err) {
-    return null
-  }
-}
-
-export async function createAccountWithPayment (contactFeeAmountUsd, affiliate, payment) {
+export async function createMbAccountWithPayment (contactFeeUsd, affiliate, payment) {
 /*
+ * TODO:
  * - query the identity key for the MB user
  * - query the name / avatar for the MB user
  * - download the avatar at 288px for the MB user
@@ -47,40 +28,54 @@ export async function createAccountWithPayment (contactFeeAmountUsd, affiliate, 
  *   - insert account_heartmail
  * - insert account_avatar
  */
+  try {
+    const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
+    assert(isNewAndValid)
+    const dbMbAccount = DbMbAccount.create()
+    dbMbAccount.mbAccount.delayAccess().fromObject({
+      affiliateId: affiliate?.id || null,
+      contactFeeUsd: Math.round(contactFeeUsd * 100, 2) / 100,
+      mbEmail: payment.user?.email || null,
+      mbPaymail: payment.senderPaymail,
+      mbPaymentId: payment.id,
+      mbTxid: payment.txid,
+      mbUserId: payment.userId,
+      mbPayment: JSON.stringify(payment)
+    })
+    await dbMbAccount.insert()
+    return dbMbAccount.mbAccount.id
+  } catch (err) {
+    console.log(err)
+    return null
+  }
 }
 
-export async function getAccessKey (longId) {
+export async function getMbAccount (id) {
   try {
-    const dbAccessKey = await DbAccessKey.findOneByShortId(longId)
-    return {
-      longId: dbAccessKey.keyAlias.toLongId(),
-      accessGrantedAt: dbAccessKey.accessGrantedAt.toJSON(),
-      affiliateLongId: dbAccessKey.affiliateKeyAlias ? dbAccessKey.affiliateKeyAlias.toLongId() : null,
-      contactFeeAmountUsd: dbAccessKey.contactFeeAmountUsd,
-      mbEmail: dbAccessKey.mbEmail,
-      mbPaymail: dbAccessKey.mbPaymail,
-      mbPaymentId: dbAccessKey.mbPaymentId,
-      mbTxid: dbAccessKey.mbTxid
-    }
+    const dbMbAccount = await DbMbAccount.findOne(id)
+    const mbAccount = dbMbAccount.mbAccount
+    return mbAccount.toPublic()
   } catch (err) {
     return null
   }
 }
 
-export async function getAffiliate (affiliateEmail = '') {
+export async function getAffiliate (affiliateHeartmail = '') {
   try {
-    if (affiliateEmail) {
-      affiliateEmail = `${affiliateEmail}`
-      const longId = affiliateEmail.split('@')[0]
-      const dbAccessKey = await DbAccessKey.findOneByShortId(longId)
-      if (dbAccessKey) {
+    if (affiliateHeartmail) {
+      affiliateHeartmail = `${affiliateHeartmail}`
+      const id = affiliateHeartmail.split('@')[0]
+      const dbMbAccount = await DbMbAccount.findOne(id)
+      const mbAccount = dbMbAccount.mbAccount
+      if (mbAccount) {
         return {
           hasAffiliate: true,
-          longId: dbAccessKey.keyAlias.toLongId(),
-          mbPaymail: dbAccessKey.mbPaymail
+          id: mbAccount.id,
+          mbPaymail: mbAccount.mbPaymail
         }
       }
     }
+    return null
   } catch (err) {
     return null
   }

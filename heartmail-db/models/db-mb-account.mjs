@@ -20,6 +20,18 @@ export default class DbMbAccount extends Struct {
     return new this().fromRandom()
   }
 
+  create (obj) {
+    this.fromRandom()
+    this.mbAccount.fromObject(obj)
+    this.mbAccount.accessGrantedAt = this.mbAccount.accessGrantedAt ? this.mbAccount.accessGrantedAt : new Date()
+    this.mbAccount.contactFeeAmountUsd = this.mbAccount.contactFeeAmountUsd === undefined ? 1.00 : this.contactFeeAmountUsd
+    return this
+  }
+
+  static create (obj) {
+    return new this().create(obj)
+  }
+
   fromCassandraObject (obj) {
     this.mbAccount = MbAccount.fromObject({
       id: obj.id,
@@ -63,10 +75,8 @@ export default class DbMbAccount extends Struct {
   }
 
   async findOne () {
-    const obj = this.toCassandraObject()
-
     const query = `select * from ${keyspace}.mb_accounts where id = ?`
-    const values = [obj.id]
+    const values = [this.mbAccount.id]
 
     const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 

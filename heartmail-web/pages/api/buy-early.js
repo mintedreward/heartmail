@@ -1,18 +1,18 @@
 import { util } from 'heartmail-db'
-import { assert } from 'heartmail-elliptic/lib/elliptic/utils'
+import assert from 'node:assert'
 
 export default async function handler (req, res) {
   try {
     assert(req.method === 'POST')
 
-    const { contactFeeAmountUsd, affiliate, payment } = req.body
+    const { contactFeeUsd, affiliate, payment } = req.body
 
-    const longId = await util.createAccessKeyWithPayment(contactFeeAmountUsd, affiliate, payment)
+    const id = await util.createMbAccountWithPayment(contactFeeUsd, affiliate, payment)
 
-    assert(longId)
-    assert(typeof longId === 'string')
+    assert(id)
+    assert(typeof id === 'string')
 
-    res.status(200).json(longId)
+    res.status(200).json(id)
   } catch (err) {
     console.log(err)
     res.status(400).json('Error')

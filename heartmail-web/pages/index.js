@@ -9,17 +9,9 @@ import { useRouter } from 'next/router'
 export async function getServerSideProps (context) {
   const affiliateEmail = context.query.a
   const affiliate = await util.getAffiliate(affiliateEmail)
-  if (affiliate) {
-    return {
-      props: {
-        affiliate
-      }
-    }
-  } else {
-    return {
-      props: {
-        affiliate: false
-      }
+  return {
+    props: {
+      affiliate
     }
   }
 }
@@ -29,16 +21,15 @@ export default function HomePage (props) {
 
   const state = {}
   state.affiliate = props.affiliate
-  state.contactFeeAmountUsd = 1.00
+  state.contactFeeUsd = 1.00
 
   async function handlePayment (payment) {
     state.payment = payment
-    // const accessId = await getAccess(state)
     await getAccess(state)
   }
 
-  const handleChange = (contactFeeAmountUsd) => {
-    state.contactFeeAmountUsd = contactFeeAmountUsd
+  const handleChange = (contactFeeUsd) => {
+    state.contactFeeUsd = contactFeeUsd
   }
 
   async function getAccess (state) {
@@ -50,12 +41,12 @@ export default function HomePage (props) {
       },
       body: JSON.stringify({
         affiliate: state.affiliate,
-        contactFeeAmountUsd: state.contactFeeAmountUsd,
+        contactFeeUsd: state.contactFeeUsd,
         payment: state.payment
       })
     })
-    const longId = await res.json()
-    router.push(`/access/${longId}`)
+    const id = await res.json()
+    router.push(`/access/${id}`)
   }
 
   return (

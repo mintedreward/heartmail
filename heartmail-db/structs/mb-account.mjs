@@ -85,10 +85,12 @@ class MbAccount extends Struct {
 
   toPublic () {
     this.privKey = null
+    return this
   }
 
   delayAccess () {
     this.accessGrantedAt.setDate(this.accessGrantedAt.getDate() + 30)
+    return this
   }
 }
 

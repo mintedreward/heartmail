@@ -6,36 +6,36 @@ import { util } from 'heartmail-db'
 import NotFoundPage from '../404'
 
 export async function getServerSideProps (context) {
-  const longId = context.query.longId
+  const id = context.query.id
   const res = context.res
-  const account = await util.getAccessKey(longId)
-  if (account) {
+  const mbAccount = await util.getMbAccount(id)
+  if (mbAccount) {
     return {
       props: {
-        account
+        mbAccount: mbAccount.toJSON()
       }
     }
   } else {
     res.statusCode = 404
     return {
       props: {
-        account: false
+        mbAccount: null
       }
     }
   }
 }
 
 export default function AccessPage (props) {
-  if (!props.account) {
+  if (!props.mbAccount) {
     return (
       <NotFoundPage />
     )
   }
 
-  const receiptId = props.account.longId
-  const accessGrantedAt = new Date(props.account.accessGrantedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
-  const userEmail = props.account.mbEmail
-  const heartmail = `${props.account.longId}@${process.env.NEXT_PUBLIC_DOMAIN}`
+  const receiptId = props.mbAccount.id
+  const accessGrantedAt = new Date(props.mbAccount.accessGrantedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
+  const userEmail = props.mbAccount.mbEmail
+  const heartmail = `${props.mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`
 
   return (
     <Layout title={`Access Key: ${receiptId}`}>
