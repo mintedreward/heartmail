@@ -104,6 +104,7 @@ describe('DbMbAccount', () => {
       const mbAccount2 = dbMbAccount2.mbAccount
       const mbAccount = dbMbAccount.mbAccount
       mbAccount2.id.should.equal(mbAccount.id)
+      mbAccount2.privKey.toString().should.equal(mbAccount.privKey.toString())
       mbAccount2.accessGrantedAt.toJSON().should.equal(mbAccount.accessGrantedAt.toJSON())
       mbAccount2.affiliateId.should.equal(mbAccount.affiliateId)
       mbAccount2.contactFeeUsd.should.equal(mbAccount.contactFeeUsd)

@@ -35,7 +35,7 @@ export default class DbMbAccount extends Struct {
   fromCassandraObject (obj) {
     this.mbAccount = MbAccount.fromObject({
       id: obj.id,
-      privKey: obj.privKey ? PrivKey.fromString(obj.priv_key) : null,
+      privKey: obj.priv_key ? PrivKey.fromString(obj.priv_key) : null,
       createdAt: obj.created_at,
       updatedAt: obj.updated_at,
       contactFeeUsd: obj.contact_fee_usd,
@@ -51,6 +51,7 @@ export default class DbMbAccount extends Struct {
       mbName: obj.mb_name,
       mbAvatarUrl: obj.mb_avatar_url
     })
+    return this
   }
 
   toCassandraObject () {
@@ -74,13 +75,29 @@ export default class DbMbAccount extends Struct {
     }
   }
 
+  static async findAll () {
+    const query = `select * from ${keyspace}.mb_accounts`
+    const values = []
+
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    const dbMbAccounts = []
+
+    for (const row of res) {
+      const dbMbAccount = new this().fromCassandraObject(row)
+      dbMbAccounts.push(dbMbAccount)
+    }
+
+    return dbMbAccounts
+  }
+
   async findOne () {
     const query = `select * from ${keyspace}.mb_accounts where id = ?`
     const values = [this.mbAccount.id]
 
-    const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
-    const row = result.first()
+    const row = res.first()
 
     if (row) {
       this.fromCassandraObject(row)
@@ -101,8 +118,8 @@ export default class DbMbAccount extends Struct {
     const query = `insert into ${keyspace}.mb_accounts (id, priv_key, created_at, updated_at, contact_fee_usd, affiliate_id, access_granted_at, mb_payment, mb_payment_id, mb_txid, mb_email, mb_paymail, mb_identity_key, mb_user_id, mb_name, mb_avatar_url) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.contact_fee_usd, obj.affiliate_id, obj.access_granted_at, obj.mb_payment, obj.mb_payment_id, obj.mb_txid, obj.mb_email, obj.mb_paymail, obj.mb_identity_key, obj.mb_user_id, obj.mb_name, obj.mb_avatar_url]
 
-    const result = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
-    return result
+    return res
   }
 }
