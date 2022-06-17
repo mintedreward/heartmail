@@ -1,16 +1,25 @@
 import assert from 'node:assert'
+import { MbPayment } from './structs/mb-payment.mjs'
 import DbMbAccount from './models/db-mb-account.mjs'
+import DbMbPayment from './models/db-mb-payment.mjs'
 
-async function paymentIsNew (payment) {
-  // this can be used both for purchasing accounts and for logging in
-  //
-  // retrieve payment from DB
-  // if payment already exists:
-  //   - return false
-  // if payment does not exist
-  //   - add it to the DB
-  //   - return true
-  return true
+export async function paymentIsNew (payment) {
+  try {
+    const mbPaymentId = payment.id
+    const mbPaymentStr = JSON.stringify(payment)
+    const dbMbPayment = await DbMbPayment.findOne(mbPaymentId)
+    if (dbMbPayment.mbPayment) {
+      return false
+    }
+    dbMbPayment.mbPayment = MbPayment.fromRandom().fromObject({
+      mbPaymentId,
+      mbPaymentStr
+    })
+    await dbMbPayment.insert()
+    return true
+  } catch (err) {
+    return false
+  }
 }
 
 export async function paymentIsNewAndValid (affiliate, payment) {

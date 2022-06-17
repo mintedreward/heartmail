@@ -1,5 +1,6 @@
 /* global describe,it */
 import { util, DbMbAccount } from '../index.mjs'
+import { Bn, Random } from 'heartmail-lib'
 import should from 'should'
 
 const getAffiliate = util.getAffiliate
@@ -9,14 +10,35 @@ describe('utilities', () => {
     should.exist(getAffiliate)
   })
 
+  describe('paymentIsNew', () => {
+    it('should be true for new and false for not new', async () => {
+      const mbPaymentId = Bn.fromBuffer(Random.getRandomBuffer(6)).toString()
+      const mbPayment = {
+        id: mbPaymentId,
+        user: {
+          email: 'name@example.com'
+        },
+        senderPaymail: 'name@example.com',
+        txid: '00'.repeat(32),
+        userId: '1'
+      }
+
+      let isNew = await util.paymentIsNew(mbPayment)
+      isNew.should.equal(true)
+      isNew = await util.paymentIsNew(mbPayment)
+      isNew.should.equal(false)
+    })
+  })
+
   describe('createMbAccountWithPayment', () => {
     it('should create a new account and then an affiliate account', async () => {
       let affiliateId
       {
         const contactFeeUsd = 5.00
         const affiliate = null
-        const payment = {
-          id: '1',
+        const mbPaymentId = Bn.fromBuffer(Random.getRandomBuffer(6)).toString()
+        const mbPayment = {
+          id: mbPaymentId,
           user: {
             email: 'name@example.com'
           },
@@ -24,7 +46,7 @@ describe('utilities', () => {
           txid: '00'.repeat(32),
           userId: '1'
         }
-        const mbAccountId = await util.createMbAccountWithPayment(contactFeeUsd, affiliate, payment)
+        const mbAccountId = await util.createMbAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
         mbAccountId.length.should.greaterThan(10)
         affiliateId = mbAccountId
       }
@@ -34,8 +56,9 @@ describe('utilities', () => {
           id: affiliateId
         }
         const contactFeeUsd = 10.00
-        const payment = {
-          id: '2',
+        const mbPaymentId = Bn.fromBuffer(Random.getRandomBuffer(6)).toString()
+        const mbPayment = {
+          id: mbPaymentId,
           user: {
             email: 'name2@example.com'
           },
@@ -43,7 +66,7 @@ describe('utilities', () => {
           txid: '01'.repeat(32),
           userId: '2'
         }
-        const mbAccountId = await util.createMbAccountWithPayment(contactFeeUsd, affiliate, payment)
+        const mbAccountId = await util.createMbAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
         mbAccountId.length.should.greaterThan(10)
         mbAccountId.should.not.equal(affiliateId)
         const mbAccount = await util.getMbAccount(mbAccountId)
@@ -52,8 +75,8 @@ describe('utilities', () => {
         mbAccount.mbPaymail.should.equal('name2@example.com')
         mbAccount.mbTxid.should.equal('01'.repeat(32))
         mbAccount.mbUserId.should.equal('2')
-        mbAccount.mbPaymentId.should.equal('2')
-        mbAccount.mbPayment.should.equal(JSON.stringify(payment))
+        mbAccount.mbPaymentId.should.equal(mbPaymentId)
+        mbAccount.mbPayment.should.equal(JSON.stringify(mbPayment))
       }
     })
   })
