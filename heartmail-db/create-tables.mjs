@@ -28,7 +28,7 @@ const queries = [
 )`,
 `create table if not exists ${keyspace}.mb_payments (
   mb_payment_id text,
-  mb_payment text,
+  mb_payment_str text,
 
   created_at timestamp,
   updated_at timestamp,
