@@ -34,7 +34,7 @@ const queries = [
   updated_at timestamp,
 
   primary key (mb_payment_id)
-)`,
+)`/*,
 `create table if not exists ${keyspace}.mb_user_id_accounts (
   mb_user_id text,
 
@@ -68,7 +68,7 @@ const queries = [
   access_granted_at timestamp,
 
   primary key (id)
-)`/*,
+)`,
 `create table if not exists ${keyspace}.heartmails (
   heartmail text,
 

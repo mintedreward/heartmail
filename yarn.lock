@@ -6482,6 +6482,7 @@ fsevents@~2.3.2:
     cassandra-driver: ^4.6.3
     email-validator: ^2.0.4
     heartmail-loadenv: "workspace:*"
+    isomorphic-fetch: ^3.0.0
     mocha: 10
     should: 13.2.3
     sinon: 14

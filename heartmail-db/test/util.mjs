@@ -76,7 +76,6 @@ describe('utilities', () => {
         mbAccount.mbTxid.should.equal('01'.repeat(32))
         mbAccount.mbUserId.should.equal('2')
         mbAccount.mbPaymentId.should.equal(mbPaymentId)
-        mbAccount.mbPayment.should.equal(JSON.stringify(mbPayment))
       }
     })
   })

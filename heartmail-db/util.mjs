@@ -2,6 +2,22 @@ import assert from 'node:assert'
 import { MbPayment } from './structs/mb-payment.mjs'
 import DbMbAccount from './models/db-mb-account.mjs'
 import DbMbPayment from './models/db-mb-payment.mjs'
+import fetch from 'isomorphic-fetch'
+
+export async function fetchMbUserNameAvatar (paymail) {
+  try {
+    const url = `https://www.moneybutton.com/api/v1/bsvalias/public-profile/${paymail}`
+    const res = await fetch(url)
+    const json = await res.json()
+    const { name, avatar } = json
+    return { name, avatar }
+  } catch (err) {
+    return {
+      name: null,
+      avatar: null
+    }
+  }
+}
 
 export async function paymentIsNew (payment) {
   try {
@@ -56,16 +72,19 @@ export async function createMbAccountWithPayment (contactFeeUsd, affiliate, paym
   try {
     const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
     assert(isNewAndValid)
+    const mbPaymail = payment.senderPaymail
     const dbMbAccount = DbMbAccount.create()
     dbMbAccount.mbAccount.delayAccess().fromObject({
       affiliateId: affiliate?.id || null,
       contactFeeUsd: Math.round(contactFeeUsd * 100, 2) / 100,
       mbEmail: payment.user?.email || null,
-      mbPaymail: payment.senderPaymail,
+      mbPaymail,
       mbPaymentId: payment.id,
       mbTxid: payment.txid,
       mbUserId: payment.userId,
-      mbPayment: JSON.stringify(payment)
+      mbPayment: null,
+      mbName: payment.user?.name || null,
+      mbAvatarUrl: `https://www.gravatar.com/avatar/${payment.user?.gravatarKey || ''}?d=identicon`
     })
     await dbMbAccount.insert()
     return dbMbAccount.mbAccount.id
