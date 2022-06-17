@@ -56,9 +56,9 @@ describe('Account', function () {
       account.isValid().should.equal(false)
       account.bio = 'a'.repeat(40)
       account.isValid().should.equal(true)
-      account.contactFeeAmountUsd = -1.00
+      account.contactFeeUsd = -1.00
       account.isValid().should.equal(false)
-      account.contactFeeAmountUsd = 1.00
+      account.contactFeeUsd = 1.00
       account.isValid().should.equal(true)
     })
   })

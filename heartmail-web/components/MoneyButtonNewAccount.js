@@ -39,7 +39,7 @@ export default function MoneyButtonNewAccount (props) {
           <MoneyButton
             outputs={outputs}
             label='New Account'
-            clientIdentifier='c3a2ca70156b6cdf2ce3e860ba2bef13'
+            clientIdentifier={process.env.NEXT_PUBLIC_MB_CLIENT_IDENTIFIER}
             buttonId='New Account'
             buttonData='New Account'
             onPayment={handlePayment}

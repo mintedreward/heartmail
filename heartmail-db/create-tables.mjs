@@ -34,15 +34,20 @@ const queries = [
   updated_at timestamp,
 
   primary key (mb_payment_id)
-)`/*,
+)`,
 `create table if not exists ${keyspace}.mb_user_id_accounts (
   mb_user_id text,
-  account_id,
 
   created_at timestamp,
   updated_at timestamp,
+  signed_in_at timestamp,
 
-  primary key (mb_user_id)
+  account_id text,
+  account_name text,
+  account_heartmail text,
+  account_bio text,
+
+  primary key (mb_user_id, account_id)
 )`,
 `create table if not exists ${keyspace}.accounts (
   id text,
@@ -63,21 +68,7 @@ const queries = [
   access_granted_at timestamp,
 
   primary key (id)
-)`,
-`create table if not exists ${keyspace}.paymail_accounts (
-  paymail text,
-
-  created_at timestamp,
-  updated_at timestamp,
-  signed_in_at timestamp,
-
-  account_id text,
-  account_name text,
-  account_heartmail text,
-  account_bio text,
-
-  primary key (mb_paymail, signed_in_at)
-) with clustering order by (signed_in_at desc)`,
+)`/*,
 `create table if not exists ${keyspace}.heartmails (
   heartmail text,
 

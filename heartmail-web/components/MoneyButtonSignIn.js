@@ -12,7 +12,7 @@ export default function MB () {
         <div style={{ width: 280, height: 50, padding: 0, margin: 0, backgroundColor: '#f6f6f6', borderRadius: 25 }}>
           <MoneyButton
             label='Sign in'
-            clientIdentifier='c3a2ca70156b6cdf2ce3e860ba2bef13'
+            clientIdentifier={process.env.NEXT_PUBLIC_MB_CLIENT_IDENTIFIER}
             buttonId='Sign in'
             buttonData='Sign in'
             cryptoOperations={[

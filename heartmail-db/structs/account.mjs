@@ -18,19 +18,13 @@ class Account extends Struct {
     json.updatedAt = this.updatedAt.toJSON()
     json.signedInAt = this.signedInAt.toJSON()
     json.name = this.name
-    json.primaryHeartmail = this.primaryHeartmail
+    json.heartmail = this.heartmail
     json.bio = this.bio
-    json.contactFeeAmountUsd = this.contactFeeAmountUsd
+    json.contactFeeUsd = this.contactFeeUsd
     json.affiliateId = this.affiliateId
-    json.externalEmail = this.externalEmail
-    json.externalPaymail = this.externalPaymail
+    json.email = this.email
+    json.paymail = this.paymail
     json.accessGrantedAt = this.accessGrantedAt.toJSON()
-    json.mbPaymentId = this.mbPaymentId
-    json.mbTxid = this.mbTxid
-    json.mbEmail = this.mbEmail
-    json.mbPaymail = this.mbPaymail
-    json.mbIdentityKey = this.mbIdentityKey
-    json.mbUserId = this.mbUserId
     return json
   }
 
@@ -43,17 +37,11 @@ class Account extends Struct {
     this.name = json.name
     this.heartmail = json.heartmail
     this.bio = json.bio
-    this.contactFeeAmountUsd = json.contactFeeAmountUsd
+    this.contactFeeUsd = json.contactFeeUsd
     this.affiliateId = json.affiliateId
     this.email = json.email
     this.paymail = json.paymail
     this.accessGrantedAt = new Date(json.accessGrantedAt)
-    this.mbPaymentId = json.mbPaymentId
-    this.mbTxid = json.mbTxid
-    this.mbEmail = json.mbEmail
-    this.mbPaymail = json.mbPaymail
-    this.mbIdentityKey = json.mbIdentityKey
-    this.mbUserId = json.mbUserId
     return this
   }
 
@@ -70,17 +58,11 @@ class Account extends Struct {
     this.name = 'Anonymous'
     this.heartmail = null
     this.bio = 'I love HeartMail'
-    this.contactFeeAmountUsd = 1.00
+    this.contactFeeUsd = 1.00
     this.affiliateId = null
     this.email = null
     this.paymail = null
     this.accessGrantedAt = new Date()
-    this.mbPaymentId = null
-    this.mbTxid = null
-    this.mbEmail = null
-    this.mbPaymail = null
-    this.mbIdentityKey = null
-    this.mbUserId = null
     return this
   }
 
@@ -102,8 +84,8 @@ class Account extends Struct {
     return true
   }
 
-  static isContactFeeValid (contactFeeAmountUsd = 1.00) {
-    if (contactFeeAmountUsd < 0) {
+  static isContactFeeValid (contactFeeUsd = 1.00) {
+    if (contactFeeUsd < 0) {
       return false
     }
     return true
@@ -113,7 +95,7 @@ class Account extends Struct {
     return (
       this.constructor.isNameValid(this.name) &&
       this.constructor.isBioValid(this.bio) &&
-      this.constructor.isContactFeeValid(this.contactFeeAmountUsd)
+      this.constructor.isContactFeeValid(this.contactFeeUsd)
     )
   }
 
