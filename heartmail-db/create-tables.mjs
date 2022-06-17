@@ -25,7 +25,25 @@ const queries = [
   mb_avatar_url text,
 
   primary key (id)
+)`,
+`create table if not exists ${keyspace}.mb_payments (
+  mb_payment_id text,
+  mb_payment text,
+
+  created_at timestamp,
+  updated_at timestamp,
+
+  primary key (mb_payment_id)
 )`/*,
+`create table if not exists ${keyspace}.mb_user_id_accounts (
+  mb_user_id text,
+  account_id,
+
+  created_at timestamp,
+  updated_at timestamp,
+
+  primary key (mb_user_id)
+)`,
 `create table if not exists ${keyspace}.accounts (
   id text,
   priv_key text,

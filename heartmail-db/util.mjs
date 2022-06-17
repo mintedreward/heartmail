@@ -1,10 +1,26 @@
 import assert from 'node:assert'
 import DbMbAccount from './models/db-mb-account.mjs'
 
-export async function paymentIsNewAndValid (affiliate, payment) {
-  // add payment to DB and ensure uniqueness
-  // add more validation later
+async function paymentIsNew (payment) {
+  // this can be used both for purchasing accounts and for logging in
+  //
+  // retrieve payment from DB
+  // if payment already exists:
+  //   - return false
+  // if payment does not exist
+  //   - add it to the DB
+  //   - return true
   return true
+}
+
+export async function paymentIsNewAndValid (affiliate, payment) {
+  // retrieve same payment from DB - does it exist?
+  // if payment already exists, mark as invalid and return false
+  // else, save the payment to the DB
+  // is payment for the correct amount? return true
+  // else, return false
+  // (payment goes in DB no matter what)
+  return paymentIsNew(payment)
 }
 
 export async function createMbAccountWithPayment (contactFeeUsd, affiliate, payment) {

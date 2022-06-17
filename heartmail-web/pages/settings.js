@@ -21,8 +21,9 @@ export default function SettingsPage () {
       <TextField id='name' label='Name' defaultValue='Casey N. Hamilton' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
       <TextField id='bio' label='Bio' defaultValue='Cofounder & COO of HeartMail' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
       <TextField id='contactFeeAmountUsd' label='Contact Fee' defaultValue='$1.00' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
-      <TextField id='mbEmail' disabled label='Money Button Email' defaultValue='casey@bethebroadcast.com' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
-      <TextField id='mbPaymail' disabled label='Money Button Paymail' defaultValue='bethebroadcast@moneybutton.com' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
+      <TextField id='mbEmail' disabled label='External Email' defaultValue='casey@bethebroadcast.com' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
+      <TextField id='mbPaymail' disabled label='External Paymail' defaultValue='bethebroadcast@moneybutton.com' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
+      <TextField id='mbUserId' disabled label='Money Button User ID' defaultValue='12345' variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
       <AffiliateCard heartmail='casey@heartmail.com' />
       <Box sx={{ textAlign: 'right', marginTop: '16px', marginBottom: '16px' }}>
         <Button disabled variant='text' ml='16px'>Delete account</Button>
