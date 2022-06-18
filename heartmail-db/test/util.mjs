@@ -30,7 +30,7 @@ describe('utilities', () => {
     })
   })
 
-  describe('createMbAccountWithPayment', () => {
+  describe('createAccountWithPayment', () => {
     it('should create a new account and then an affiliate account', async () => {
       let affiliateId
       {
@@ -46,7 +46,7 @@ describe('utilities', () => {
           txid: '00'.repeat(32),
           userId: '1'
         }
-        const mbAccountId = await util.createMbAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
+        const mbAccountId = await util.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
         mbAccountId.length.should.greaterThan(10)
         affiliateId = mbAccountId
       }
@@ -66,7 +66,7 @@ describe('utilities', () => {
           txid: '01'.repeat(32),
           userId: '2'
         }
-        const mbAccountId = await util.createMbAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
+        const mbAccountId = await util.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
         mbAccountId.length.should.greaterThan(10)
         mbAccountId.should.not.equal(affiliateId)
         const mbAccount = await util.getMbAccount(mbAccountId)

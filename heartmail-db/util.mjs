@@ -48,11 +48,10 @@ export async function paymentIsNewAndValid (affiliate, payment) {
   return paymentIsNew(payment)
 }
 
-export async function createMbAccountWithPayment (contactFeeUsd, affiliate, payment) {
+export async function createAccountWithPayment (contactFeeUsd, affiliate, payment) {
 /*
- * TODO:
+ * TODO (full flow):
  * - query the identity key for the MB user
- * - query the name / avatar for the MB user
  * - download the avatar at 288px for the MB user
  * - download the avatar at 120px for the MB user
  * - confirm total size of avatars is under 900KB
@@ -63,33 +62,34 @@ export async function createMbAccountWithPayment (contactFeeUsd, affiliate, paym
  *   - set primary_heartmail to the account id
  *
  * - insert account
- * - insert mb_paymail_account
+ * - insert mb_account
  * - if custom heartmail:
  *   - insert heartmail
  *   - insert account_heartmail
  * - insert account_avatar
+ *
+ * TODO (partial flow):
+ * - [x] check payment is new
+ * - [ ] verify payment
+ * - [x] create mb_account
+ * - [ ] create account
+ * - [ ] create auth_address_account
  */
   try {
     const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
     assert(isNewAndValid)
-    const mbPaymail = payment.senderPaymail
-    const dbMbAccount = DbMbAccount.create()
-    dbMbAccount.mbAccount.delayAccess().fromObject({
-      affiliateId: affiliate?.id || null,
-      contactFeeUsd: Math.round(contactFeeUsd * 100, 2) / 100,
-      mbEmail: payment.user?.email || null,
-      mbPaymail,
-      mbPaymentId: payment.id,
-      mbTxid: payment.txid,
-      mbUserId: payment.userId,
-      mbPayment: null,
-      mbName: payment.user?.name || null,
-      mbAvatarUrl: `https://www.gravatar.com/avatar/${payment.user?.gravatarKey || ''}?d=identicon`
-    })
+
+    const dbMbAccount = DbMbAccount.fromPurchase(contactFeeUsd, affiliate, payment)
+    // const dbAccount = DbAccount.fromMbAccount(dbMbAccount.mbAccount)
+    // const dbAuthAddressAccount = DbAuthAddressAccount.fromMbAccount(dbMbAccount.mbAccount)
+
     await dbMbAccount.insert()
+    // await dbAccount.insert()
+    // await dbAuthAddressAccount.insert()
+
     return dbMbAccount.mbAccount.id
   } catch (err) {
-    console.log(err)
+    // console.log(err)
     return null
   }
 }

@@ -7,7 +7,7 @@ export default async function handler (req, res) {
 
     const { contactFeeUsd, affiliate, payment } = req.body
 
-    const id = await util.createMbAccountWithPayment(contactFeeUsd, affiliate, payment)
+    const id = await util.createAccountWithPayment(contactFeeUsd, affiliate, payment)
 
     assert(id)
     assert(typeof id === 'string')

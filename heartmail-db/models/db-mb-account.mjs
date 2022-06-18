@@ -32,6 +32,28 @@ export default class DbMbAccount extends Struct {
     return new this().create(obj)
   }
 
+  fromPurchase (contactFeeUsd, affiliate, payment) {
+    // payment is a Money Button payment object
+    this.create()
+    this.mbAccount.delayAccess().fromObject({
+      affiliateId: affiliate?.id || null,
+      contactFeeUsd: Math.round(contactFeeUsd * 100, 2) / 100,
+      mbEmail: payment.user?.email || null,
+      mbPaymail: payment.senderPaymail,
+      mbPaymentId: payment.id,
+      mbTxid: payment.txid,
+      mbUserId: payment.userId,
+      mbPayment: null, // we no longer store the payment in this table
+      mbName: payment.user?.name || null,
+      mbAvatarUrl: `https://www.gravatar.com/avatar/${payment.user?.gravatarKey || ''}?d=identicon`
+    })
+    return this
+  }
+
+  static fromPurchase (contactFeeUsd, affiliate, payment) {
+    return new this().fromPurchase(contactFeeUsd, affiliate, payment)
+  }
+
   fromCassandraObject (obj) {
     this.mbAccount = MbAccount.fromObject({
       id: obj.id,
