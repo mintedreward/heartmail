@@ -9,7 +9,12 @@ const client = getClient()
   for (const dbMbAccount of dbMbAccounts) {
     const mbPaymail = dbMbAccount.mbAccount.mbPaymail
     const { name, avatar } = await util.fetchMbUserNameAvatar(mbPaymail)
-    console.log(mbPaymail, name, avatar)
+    const mbAccount = dbMbAccount.mbAccount
+    mbAccount.mbName = name
+    mbAccount.mbAvatarUrl = avatar
+    mbAccount.mbPayment = null
+    console.log(mbAccount.id)
+    await dbMbAccount.insert()
   }
   await client.shutdown()
 })()
