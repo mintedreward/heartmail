@@ -14,6 +14,7 @@ const queries = [
   affiliate_id text,
   access_granted_at timestamp,
 
+  mb_payment text,
   mb_payment_id text,
   mb_txid text,
   mb_email text,

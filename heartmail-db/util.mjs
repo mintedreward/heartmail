@@ -82,6 +82,7 @@ export async function createMbAccountWithPayment (contactFeeUsd, affiliate, paym
       mbPaymentId: payment.id,
       mbTxid: payment.txid,
       mbUserId: payment.userId,
+      mbPayment: null,
       mbName: payment.user?.name || null,
       mbAvatarUrl: `https://www.gravatar.com/avatar/${payment.user?.gravatarKey || ''}?d=identicon`
     })

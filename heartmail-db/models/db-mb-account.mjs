@@ -41,6 +41,7 @@ export default class DbMbAccount extends Struct {
       contactFeeUsd: obj.contact_fee_usd,
       affiliateId: obj.affiliate_id,
       accessGrantedAt: obj.access_granted_at,
+      mbPayment: obj.mb_payment,
       mbPaymentId: obj.mb_payment_id,
       mbTxid: obj.mb_txid,
       mbEmail: obj.mb_email,
@@ -62,6 +63,7 @@ export default class DbMbAccount extends Struct {
       contact_fee_usd: this.mbAccount.contactFeeUsd,
       affiliate_id: this.mbAccount.affiliateId,
       access_granted_at: this.mbAccount.accessGrantedAt,
+      mb_payment: this.mbAccount.mbPayment,
       mb_payment_id: this.mbAccount.mbPaymentId,
       mb_txid: this.mbAccount.mbTxid,
       mb_email: this.mbAccount.mbEmail,
@@ -113,8 +115,8 @@ export default class DbMbAccount extends Struct {
   async insert () {
     const obj = this.toCassandraObject()
 
-    const query = `insert into ${keyspace}.mb_accounts (id, priv_key, created_at, updated_at, contact_fee_usd, affiliate_id, access_granted_at, mb_payment_id, mb_txid, mb_email, mb_paymail, mb_identity_key, mb_user_id, mb_name, mb_avatar_url) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-    const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.contact_fee_usd, obj.affiliate_id, obj.access_granted_at, obj.mb_payment_id, obj.mb_txid, obj.mb_email, obj.mb_paymail, obj.mb_identity_key, obj.mb_user_id, obj.mb_name, obj.mb_avatar_url]
+    const query = `insert into ${keyspace}.mb_accounts (id, priv_key, created_at, updated_at, contact_fee_usd, affiliate_id, access_granted_at, mb_payment, mb_payment_id, mb_txid, mb_email, mb_paymail, mb_identity_key, mb_user_id, mb_name, mb_avatar_url) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.contact_fee_usd, obj.affiliate_id, obj.access_granted_at, obj.mb_payment, obj.mb_payment_id, obj.mb_txid, obj.mb_email, obj.mb_paymail, obj.mb_identity_key, obj.mb_user_id, obj.mb_name, obj.mb_avatar_url]
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
