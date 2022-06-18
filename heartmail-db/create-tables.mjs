@@ -54,9 +54,9 @@ const queries = [
   access_granted_at timestamp,
 
   primary key (id)
-)`/*,
-`create table if not exists ${keyspace}.mb_user_id_accounts (
-  mb_user_id text,
+)`,
+`create table if not exists ${keyspace}.address_accounts (
+  address text,
 
   created_at timestamp,
   updated_at timestamp,
@@ -67,8 +67,8 @@ const queries = [
   account_heartmail text,
   account_bio text,
 
-  primary key (mb_user_id, account_id)
-)`,
+  primary key (address, account_id)
+)`/*,
 `create table if not exists ${keyspace}.heartmails (
   heartmail text,
 
