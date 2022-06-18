@@ -6,8 +6,8 @@
 import { PrivKey, KeyAlias, Struct } from 'heartmail-lib'
 
 class Account extends Struct {
-  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name = 'Anonymous', heartmail, bio = 'I love HeartMail', contactFeeUsd, affiliateId, email, paymail, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
-    super({ id, privKey, createdAt, updatedAt, signedInAt, name, heartmail, bio, contactFeeUsd, affiliateId, email, paymail, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
+  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), authAddress, name = 'Anonymous', heartmail, bio = 'I love HeartMail', contactFeeUsd, affiliateId, email, paymail, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
+    super({ id, privKey, createdAt, updatedAt, signedInAt, authAddress, name, heartmail, bio, contactFeeUsd, affiliateId, email, paymail, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
   }
 
   toJSON () {
@@ -17,6 +17,7 @@ class Account extends Struct {
     json.createdAt = this.createdAt.toJSON()
     json.updatedAt = this.updatedAt.toJSON()
     json.signedInAt = this.signedInAt.toJSON()
+    json.authAddress = this.authAddress
     json.name = this.name
     json.heartmail = this.heartmail
     json.bio = this.bio
@@ -34,6 +35,7 @@ class Account extends Struct {
     this.createdAt = new Date(json.createdAt)
     this.updatedAt = new Date(json.updatedAt)
     this.signedInAt = new Date(json.signedInAt)
+    this.authAddress = json.authAddress
     this.name = json.name
     this.heartmail = json.heartmail
     this.bio = json.bio
@@ -55,6 +57,7 @@ class Account extends Struct {
     this.createdAt = new Date()
     this.updatedAt = new Date()
     this.signedInAt = new Date()
+    this.authAddress = null
     this.name = 'Anonymous'
     this.heartmail = null
     this.bio = 'I love HeartMail'

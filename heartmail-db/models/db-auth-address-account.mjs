@@ -1,18 +1,18 @@
 import { getClient } from '../connect.mjs'
-import { PrivKey, Struct } from 'heartmail-lib'
-import { Account } from '../structs/account.mjs'
+import { Struct } from 'heartmail-lib'
+import { AuthAddressAccount } from '../structs/auth-address-account.mjs'
 import cassandra from 'cassandra-driver'
 
 const keyspace = process.env.HEARTMAIL_DB_KEYSPACE
 const client = getClient()
 
-export default class DbMbAccount extends Struct {
-  constructor (account) {
-    super({ account })
+export default class DbAuthAddressAccount extends Struct {
+  constructor (authAddressAccount) {
+    super({ authAddressAccount })
   }
 
   fromRandom () {
-    this.account = Account.fromRandom()
+    this.authAddressAccount = AuthAddressAccount.fromRandom()
     return this
   }
 
@@ -20,38 +20,18 @@ export default class DbMbAccount extends Struct {
     return new this().fromRandom()
   }
 
-  create (obj) {
-    this.fromRandom()
-    this.account.fromObject(obj)
-    this.account.accessGrantedAt = this.account.accessGrantedAt ? this.account.accessGrantedAt : new Date()
-    this.account.contactFeeAmountUsd = this.account.contactFeeAmountUsd === undefined ? 1.00 : this.contactFeeAmountUsd
-    return this
-  }
-
-  static create (obj) {
-    return new this().create(obj)
-  }
-
   fromCassandraObject (obj) {
-    this.account = Account.fromObject({
-      id: obj.id,
-      privKey: obj.priv_key ? PrivKey.fromString(obj.priv_key) : null,
+    this.account = AuthAddressAccount.fromObject({
+      address: obj.address,
 
       createdAt: obj.created_at,
       updatedAt: obj.updated_at,
       signedInAt: obj.signed_in_at,
 
-      authAddress: obj.auth_address,
-
-      name: obj.name,
-      heartmail: obj.heartmail,
-      bio: obj.bio,
-      contactFeeUsd: obj.contact_fee_usd,
-      affiliateId: obj.affiliate_id,
-      email: obj.email,
-      paymail: obj.paymail,
-
-      accessGrantedAt: obj.access_granted_at
+      accountId: obj.account_id,
+      accountName: obj.account_name,
+      accountHeartmail: obj.account_heartmail,
+      accountBio: obj.account_bio
     })
     return this
   }
@@ -64,8 +44,6 @@ export default class DbMbAccount extends Struct {
       created_at: this.account.createdAt,
       updated_at: this.account.updatedAt,
       signed_in_at: this.account.signedInAt,
-
-      auth_address: this.account.authAddress,
 
       name: this.account.name,
       heartmail: this.account.heartmail,
@@ -113,14 +91,14 @@ export default class DbMbAccount extends Struct {
   }
 
   static async findOne (id) {
-    return new this(new Account(id)).findOne()
+    return new this(new AuthAddressAccount(id)).findOne()
   }
 
   async insert () {
     const obj = this.toCassandraObject()
 
-    const query = `insert into ${keyspace}.accounts (id, priv_key, created_at, updated_at, signed_in_at, auth_address, name, heartmail, bio, contact_fee_usd, affiliate_id, email, paymail, access_granted_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-    const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.signed_in_at, obj.auth_address, obj.name, obj.heartmail, obj.bio, obj.contact_fee_usd, obj.affiliate_id, obj.email, obj.paymail, obj.access_granted_at]
+    const query = `insert into ${keyspace}.accounts (id, priv_key, created_at, updated_at, signed_in_at, name, heartmail, bio, contact_fee_usd, affiliate_id, email, paymail, access_granted_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.signed_in_at, obj.name, obj.heartmail, obj.bio, obj.contact_fee_usd, obj.affiliate_id, obj.email, obj.paymail, obj.access_granted_at]
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
