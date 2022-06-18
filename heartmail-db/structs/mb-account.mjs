@@ -6,8 +6,8 @@
 import { PrivKey, KeyAlias, Struct } from 'heartmail-lib'
 
 class MbAccount extends Struct {
-  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), contactFeeUsd, affiliateId, accessGrantedAt = new Date(), mbPayment, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey, mbUserId, mbName, mbAvatarUrl) {
-    super({ id, privKey, createdAt, updatedAt, contactFeeUsd, affiliateId, accessGrantedAt, mbPayment, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey, mbUserId, mbName, mbAvatarUrl })
+  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), contactFeeUsd, affiliateId, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey, mbUserId, mbName, mbAvatarUrl) {
+    super({ id, privKey, createdAt, updatedAt, contactFeeUsd, affiliateId, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey, mbUserId, mbName, mbAvatarUrl })
   }
 
   toJSON () {
@@ -19,7 +19,6 @@ class MbAccount extends Struct {
     json.contactFeeUsd = this.contactFeeUsd
     json.affiliateId = this.affiliateId
     json.accessGrantedAt = this.accessGrantedAt.toJSON()
-    json.mbPayment = this.mbPayment
     json.mbPaymentId = this.mbPaymentId
     json.mbTxid = this.mbTxid
     json.mbEmail = this.mbEmail
@@ -39,7 +38,6 @@ class MbAccount extends Struct {
     this.contactFeeUsd = json.contactFeeUsd
     this.affiliateId = json.affiliateId
     this.accessGrantedAt = new Date(json.accessGrantedAt)
-    this.mbPayment = json.mbPayment
     this.mbPaymentId = json.mbPaymentId
     this.mbTxid = json.mbTxid
     this.mbEmail = json.mbEmail
@@ -63,7 +61,6 @@ class MbAccount extends Struct {
     this.contactFeeUsd = null
     this.affiliateId = null
     this.accessGrantedAt = new Date()
-    this.mbPayment = null
     this.mbPaymentId = null
     this.mbTxid = null
     this.mbEmail = null

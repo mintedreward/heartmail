@@ -30,7 +30,6 @@ describe('DbMbAccount', () => {
         mbPaymail: 'name@example.com',
         mbPaymentId: '1',
         mbTxid: '00'.repeat(32),
-        mbPayment: '{}',
         mbIdentityKey: 'key',
         mbUserId: '6',
         mbName: 'name',
@@ -43,7 +42,6 @@ describe('DbMbAccount', () => {
       obj.mb_email.should.equal('name@example.com')
       obj.mb_paymail.should.equal('name@example.com')
       obj.mb_payment_id.should.equal('1')
-      obj.mb_payment.should.equal('{}')
       obj.mb_identity_key.should.equal('key')
       obj.mb_user_id.should.equal('6')
       obj.mb_name.should.equal('name')
@@ -74,7 +72,6 @@ describe('DbMbAccount', () => {
       obj.mb_paymail.should.equal('name@example.com')
       obj.mb_payment_id.should.equal('1')
 
-      ;(obj.mb_payment === null).should.equal(true)
       ;(obj.mb_identity_key === null).should.equal(true)
       ;(obj.mb_user_id === null).should.equal(true)
       ;(obj.mb_name === null).should.equal(true)
@@ -93,7 +90,6 @@ describe('DbMbAccount', () => {
         mbPaymail: 'name@example.com',
         mbPaymentId: '1',
         mbTxid: '00'.repeat(32),
-        mbPayment: '{}',
         mbIdentityKey: 'key',
         mbUserId: '6',
         mbName: 'name',
@@ -111,7 +107,6 @@ describe('DbMbAccount', () => {
       mbAccount2.mbEmail.should.equal(mbAccount.mbEmail)
       mbAccount2.mbPaymail.should.equal(mbAccount.mbPaymail)
       mbAccount2.mbTxid.should.equal(mbAccount.mbTxid)
-      mbAccount2.mbPayment.should.equal(mbAccount.mbPayment)
       mbAccount2.mbIdentityKey.should.equal(mbAccount.mbIdentityKey)
       mbAccount2.mbUserId.should.equal(mbAccount.mbUserId)
       mbAccount2.mbName.should.equal(mbAccount.mbName)
