@@ -13,6 +13,14 @@ class AuthAddressAccount extends Struct {
     super({ authAddress, createdAt, updatedAt, signedInAt, accountId, accountName, accountHeartmail, accountBio })
   }
 
+  fromRandom () {
+    return this
+  }
+
+  static fromRandom () {
+    return new this().fromRandom()
+  }
+
   toJSON () {
     const json = {}
     json.authAddress = this.authAddress

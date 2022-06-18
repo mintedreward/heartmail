@@ -21,8 +21,8 @@ export default class DbAuthAddressAccount extends Struct {
   }
 
   fromCassandraObject (obj) {
-    this.account = AuthAddressAccount.fromObject({
-      address: obj.address,
+    this.authAddressAccount = AuthAddressAccount.fromObject({
+      authAddress: obj.auth_address,
 
       createdAt: obj.created_at,
       updatedAt: obj.updated_at,
@@ -38,44 +38,38 @@ export default class DbAuthAddressAccount extends Struct {
 
   toCassandraObject () {
     return {
-      id: this.account.id,
-      priv_key: this.account.privKey?.toString() || null,
+      auth_address: this.authAddressAccount.authAddress,
 
-      created_at: this.account.createdAt,
-      updated_at: this.account.updatedAt,
-      signed_in_at: this.account.signedInAt,
+      created_at: this.authAddressAccount.createdAt,
+      updated_at: this.authAddressAccount.updatedAt,
+      signed_in_at: this.authAddressAccount.signedInAt,
 
-      name: this.account.name,
-      heartmail: this.account.heartmail,
-      bio: this.account.bio,
-      contact_fee_usd: this.account.contactFeeUsd,
-      affiliate_id: this.account.affiliateId,
-      email: this.account.email,
-      paymail: this.account.paymail,
-
-      access_granted_at: this.account.accessGrantedAt
+      account_id: this.authAddressAccount.accountId,
+      account_name: this.authAddressAccount.accountName,
+      account_heartmail: this.authAddressAccount.accountHeartmail,
+      account_bio: this.authAddressAccount.accountBio
     }
   }
 
   static async findAll () {
-    const query = `select * from ${keyspace}.accounts`
+    const query = `select * from ${keyspace}.auth_address_accounts`
     const values = []
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
-    const dbAccounts = []
+    const dbAuthAddressAccounts = []
 
     for (const row of res) {
-      const dbAccount = new this().fromCassandraObject(row)
-      dbAccounts.push(dbAccount)
+      const dbAuthAddressAccount = new this().fromCassandraObject(row)
+      dbAuthAddressAccounts.push(dbAuthAddressAccount)
     }
 
-    return dbAccounts
+    return dbAuthAddressAccounts
   }
 
   async findOne () {
-    const query = `select * from ${keyspace}.accounts where id = ?`
-    const values = [this.account.id]
+    const query = `select * from ${keyspace}.auth_address_accounts where auth_address = ?`
+    const values = [this.authAddressAccount.authAddress]
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
@@ -90,15 +84,15 @@ export default class DbAuthAddressAccount extends Struct {
     return this
   }
 
-  static async findOne (id) {
-    return new this(new AuthAddressAccount(id)).findOne()
+  static async findOne (authAddress) {
+    return new this(new AuthAddressAccount(authAddress)).findOne()
   }
 
   async insert () {
     const obj = this.toCassandraObject()
 
-    const query = `insert into ${keyspace}.accounts (id, priv_key, created_at, updated_at, signed_in_at, name, heartmail, bio, contact_fee_usd, affiliate_id, email, paymail, access_granted_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-    const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.signed_in_at, obj.name, obj.heartmail, obj.bio, obj.contact_fee_usd, obj.affiliate_id, obj.email, obj.paymail, obj.access_granted_at]
+    const query = `insert into ${keyspace}.auth_address_accounts (auth_address, created_at, updated_at, signed_in_at, account_id, account_name, account_heartmail, account_bio) values (?, ?, ?, ?, ?, ?, ?, ?)`
+    const values = [obj.auth_address, obj.created_at, obj.updated_at, obj.signed_in_at, obj.account_id, obj.account_name, obj.account_heartmail, obj.account_bio]
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
