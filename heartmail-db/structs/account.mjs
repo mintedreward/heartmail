@@ -6,7 +6,7 @@
 import { PrivKey, KeyAlias, Struct } from 'heartmail-lib'
 
 class Account extends Struct {
-  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name, heartmail, bio, contactFeeUsd, affiliateId, email, paymail, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
+  constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), name = 'Anonymous', heartmail, bio = 'I love HeartMail', contactFeeUsd, affiliateId, email, paymail, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
     super({ id, privKey, createdAt, updatedAt, signedInAt, name, heartmail, bio, contactFeeUsd, affiliateId, email, paymail, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
   }
 
@@ -101,10 +101,6 @@ class Account extends Struct {
 
   toPublic () {
     this.privKey = null
-  }
-
-  delayAccess (accessGrantedAt = new Date('2022-07-01T10:00:00.000Z')) {
-    this.accessGrantedAt = accessGrantedAt
   }
 }
 
