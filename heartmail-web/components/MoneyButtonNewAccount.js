@@ -28,6 +28,8 @@ export default function MoneyButtonNewAccount (props) {
     ]
   }
 
+  console.log(outputs)
+
   const handlePayment = (payment) => {
     onPayment(payment)
   }
