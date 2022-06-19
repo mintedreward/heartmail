@@ -33,29 +33,7 @@ export default class DbMbAccount extends Struct {
   }
 
   fromMbAccount (mbAccount) {
-    this.account = Account.fromObject({
-      id: mbAccount.id,
-      privKey: mbAccount.privKey,
-
-      createdAt: mbAccount.createdAt,
-      updatedAt: mbAccount.updatedAt,
-      signedInAt: mbAccount.createdAt,
-
-      name: mbAccount.mbName,
-      heartmail: `${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`,
-      bio: '',
-      contactFeeUsd: mbAccount.contactFeeUsd,
-      affiliateId: mbAccount.affiliateId,
-
-      // sometimes the MB email is absent. in this case we can substitute their
-      // MB paymail instead. Of course, this does not really work, because the
-      // user cannot receive emails here. However, it will enable us to replace
-      // this in the database when that user is found out.
-      email: mbAccount.mbEmail || `${mbAccount.mbUserId}@moneybutton.com`,
-      paymail: mbAccount.mbPaymail,
-
-      accessGrantedAt: mbAccount.accessGrantedAt
-    })
+    this.account = Account.fromMbAccount(mbAccount)
     return this
   }
 
