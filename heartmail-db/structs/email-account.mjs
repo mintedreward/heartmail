@@ -1,10 +1,6 @@
 /**
- * AddressAccount
- * ==============
- *
- * Address can be an email, paymail, or heartmail. (Whereby "heartmail" we mean
- * email+paymail and can be hosted by a third party service.) It is always of
- * the form [name]@[domain]. We always use the lowercase normalized form.
+ * EmailAccount
+ * ============
  */
 import { Struct } from 'heartmail-lib'
 
@@ -51,7 +47,7 @@ export default class EmailAccount extends Struct {
   }
 
   fromMbAccount (mbAccount) {
-    this.email = `${mbAccount.mbUserId}@moneybutton.com`
+    this.email = mbAccount.mbEmail || `${mbAccount.mbUserId}@moneybutton.com`
     this.createdAt = mbAccount.createdAt
     this.updatedAt = mbAccount.updatedAt
     this.signedInAt = mbAccount.createdAt

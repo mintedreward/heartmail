@@ -1,6 +1,6 @@
 /* global describe,it */
 import MbAccount from '../../structs/mb-account.mjs'
-import EmailAccount from '../../structs/auth-address-account.mjs'
+import EmailAccount from '../../structs/email-account.mjs'
 import should from 'should'
 
 describe('EmailAccount', function () {
@@ -14,6 +14,20 @@ describe('EmailAccount', function () {
       mbAccount.mbUserId = '12345'
       mbAccount.mbName = 'Name'
       const emailAccount = EmailAccount.fromMbAccount(mbAccount)
+      emailAccount.email.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
+      emailAccount.accountId.should.equal(mbAccount.id)
+      emailAccount.accountName.should.equal(mbAccount.mbName)
+      emailAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
+      emailAccount.accountBio.should.equal('')
+    })
+
+    it('should get from mbAccount', () => {
+      const mbAccount = MbAccount.fromRandom()
+      mbAccount.mbEmail = 'name@example.com'
+      mbAccount.mbUserId = '12345'
+      mbAccount.mbName = 'Name'
+      const emailAccount = EmailAccount.fromMbAccount(mbAccount)
+      emailAccount.email.should.equal(mbAccount.mbEmail)
       emailAccount.accountId.should.equal(mbAccount.id)
       emailAccount.accountName.should.equal(mbAccount.mbName)
       emailAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)

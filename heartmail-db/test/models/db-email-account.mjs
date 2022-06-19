@@ -37,7 +37,7 @@ describe('DbEmailAccount', () => {
       const emailAccount = dbEmailAccount.emailAccount
       emailAccount.createdAt.toJSON().should.equal(mbAccount.createdAt.toJSON())
       emailAccount.updatedAt.toJSON().should.equal(mbAccount.updatedAt.toJSON())
-      emailAccount.email.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
+      emailAccount.email.should.equal(mbAccount.mbEmail)
       emailAccount.accountId.should.equal(mbAccount.id)
       emailAccount.accountName.should.equal(mbAccount.mbName)
       emailAccount.accountBio.should.equal('')
