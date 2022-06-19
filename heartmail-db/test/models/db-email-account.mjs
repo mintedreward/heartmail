@@ -1,5 +1,5 @@
 /* global describe,it */
-import DbEmailAccount from '../../models/db-auth-address-account.mjs'
+import DbEmailAccount from '../../models/db-email-account.mjs'
 import MbAccount from '../../structs/mb-account.mjs'
 import should from 'should'
 
