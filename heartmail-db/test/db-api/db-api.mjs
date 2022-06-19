@@ -1,5 +1,5 @@
 /* global describe,it */
-import * as dbApi from '../../api/index.mjs'
+import * as dbApi from '../../db-api/db-api.mjs'
 import DbMbAccount from '../../models/db-mb-account.mjs'
 import { Bn, Random } from 'heartmail-lib'
 import should from 'should'
