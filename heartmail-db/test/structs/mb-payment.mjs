@@ -1,5 +1,5 @@
 /* global describe,it */
-import { MbPayment } from '../../structs/mb-payment.mjs'
+import MbPayment from '../../structs/mb-payment.mjs'
 import should from 'should'
 
 describe('MbPayment', function () {

@@ -5,7 +5,7 @@
 
 import { Struct } from 'heartmail-lib'
 
-class Heartmail extends Struct {
+export default class Heartmail extends Struct {
   constructor (heartmail, createdAt = new Date(), updatedAt = new Date(), accountId) {
     super({ heartmail, createdAt, updatedAt, accountId })
   }
@@ -31,5 +31,3 @@ class Heartmail extends Struct {
     return new this().fromJSON(json)
   }
 }
-
-export { Heartmail }

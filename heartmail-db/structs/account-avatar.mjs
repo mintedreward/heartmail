@@ -5,7 +5,7 @@
 
 import { Struct } from 'heartmail-lib'
 
-class AccountAvatar extends Struct {
+export default class AccountAvatar extends Struct {
   constructor (accountId, size, avatarBuf, createdAt = new Date(), updatedAt = new Date()) {
     super({ accountId, size, avatarBuf, createdAt, updatedAt })
   }
@@ -33,5 +33,3 @@ class AccountAvatar extends Struct {
     return new this().fromJSON(json)
   }
 }
-
-export { AccountAvatar }

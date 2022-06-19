@@ -1,7 +1,7 @@
 import { getClient, useKeyspace } from './connect.mjs'
 import DbMbAccount from './models/db-mb-account.mjs'
 import DbMbPayment from './models/db-mb-payment.mjs'
-import { MbPayment } from './structs/mb-payment.mjs'
+import MbPayment from './structs/mb-payment.mjs'
 const client = getClient()
 
 ;(async function () {

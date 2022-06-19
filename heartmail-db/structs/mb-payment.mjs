@@ -5,7 +5,7 @@
 
 import { Struct } from 'heartmail-lib'
 
-class MbPayment extends Struct {
+export default class MbPayment extends Struct {
   constructor (mbPaymentId, mbPaymentStr, createdAt = new Date(), updatedAt = new Date()) {
     super({ mbPaymentId, mbPaymentStr, createdAt, updatedAt })
   }
@@ -39,5 +39,3 @@ class MbPayment extends Struct {
     return new this().fromRandom()
   }
 }
-
-export { MbPayment }

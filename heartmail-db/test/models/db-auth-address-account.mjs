@@ -1,6 +1,6 @@
 /* global describe,it */
 import DbAuthAddressAccount from '../../models/db-auth-address-account.mjs'
-import { MbAccount } from '../../structs/mb-account.mjs'
+import MbAccount from '../../structs/mb-account.mjs'
 import should from 'should'
 
 describe('DbAuthAddressAccount', () => {

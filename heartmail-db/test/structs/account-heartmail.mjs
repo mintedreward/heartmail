@@ -1,5 +1,5 @@
 /* global describe,it */
-import { AccountHeartMail } from '../../structs/account-heartmail.mjs'
+import AccountHeartMail from '../../structs/account-heartmail.mjs'
 import { KeyAlias } from 'heartmail-lib'
 import should from 'should'
 

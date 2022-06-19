@@ -5,7 +5,7 @@
 
 import { PrivKey, KeyAlias, Struct } from 'heartmail-lib'
 
-class Account extends Struct {
+export default class Account extends Struct {
   constructor (id, privKey, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), authAddress, name = 'Anonymous', heartmail, bio = '', contactFeeUsd, affiliateId, email, paymail, accessGrantedAt = new Date(), mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey) {
     super({ id, privKey, createdAt, updatedAt, signedInAt, authAddress, name, heartmail, bio, contactFeeUsd, affiliateId, email, paymail, accessGrantedAt, mbPaymentId, mbTxid, mbEmail, mbPaymail, mbIdentityKey })
   }
@@ -106,5 +106,3 @@ class Account extends Struct {
     this.privKey = null
   }
 }
-
-export { Account }

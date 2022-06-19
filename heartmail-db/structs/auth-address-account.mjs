@@ -8,7 +8,7 @@
  */
 import { Struct } from 'heartmail-lib'
 
-class AuthAddressAccount extends Struct {
+export default class AuthAddressAccount extends Struct {
   constructor (authAddress, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), accountId, accountName, accountHeartmail, accountBio) {
     super({ authAddress, createdAt, updatedAt, signedInAt, accountId, accountName, accountHeartmail, accountBio })
   }
@@ -66,5 +66,3 @@ class AuthAddressAccount extends Struct {
     return new this().fromMbAccount(mbAccount)
   }
 }
-
-export { AuthAddressAccount }

@@ -1,6 +1,6 @@
 import { getClient } from '../connect.mjs'
 import { Struct } from 'heartmail-lib'
-import { MbPayment } from '../structs/mb-payment.mjs'
+import MbPayment from '../structs/mb-payment.mjs'
 import cassandra from 'cassandra-driver'
 
 const keyspace = process.env.HEARTMAIL_DB_KEYSPACE

@@ -1,5 +1,5 @@
 import assert from 'node:assert'
-import { MbPayment } from './structs/mb-payment.mjs'
+import MbPayment from './structs/mb-payment.mjs'
 import DbMbAccount from './models/db-mb-account.mjs'
 import DbAccount from './models/db-account.mjs'
 import DbMbPayment from './models/db-mb-payment.mjs'

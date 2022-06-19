@@ -1,6 +1,6 @@
 /* global describe,it */
-import { MbAccount } from '../../structs/mb-account.mjs'
-import { AuthAddressAccount } from '../../structs/auth-address-account.mjs'
+import MbAccount from '../../structs/mb-account.mjs'
+import AuthAddressAccount from '../../structs/auth-address-account.mjs'
 import should from 'should'
 
 describe('AuthAddressAccount', function () {

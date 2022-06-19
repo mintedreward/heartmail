@@ -1,6 +1,6 @@
 import { getClient } from '../connect.mjs'
 import { Struct } from 'heartmail-lib'
-import { AuthAddressAccount } from '../structs/auth-address-account.mjs'
+import AuthAddressAccount from '../structs/auth-address-account.mjs'
 import cassandra from 'cassandra-driver'
 
 const keyspace = process.env.HEARTMAIL_DB_KEYSPACE
