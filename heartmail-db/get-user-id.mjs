@@ -2,11 +2,11 @@ import { getClient, useKeyspace } from './connect.mjs'
 import { MoneyButtonClient } from '@moneybutton/api-client'
 import { DbMbAccount } from './index.mjs'
 
-const MB_CLIENT_IDENTIFIER = process.env.MB_CLIENT_IDENTIFIER
+const NEXT_PUBLIC_MB_CLIENT_IDENTIFIER = process.env.NEXT_PUBLIC_MB_CLIENT_IDENTIFIER
 const MB_OAUTH_CLIENT_SECRET = process.env.MB_OAUTH_CLIENT_SECRET
 
 const client = getClient()
-const mbClient = new MoneyButtonClient(MB_CLIENT_IDENTIFIER, MB_OAUTH_CLIENT_SECRET)
+const mbClient = new MoneyButtonClient(NEXT_PUBLIC_MB_CLIENT_IDENTIFIER, MB_OAUTH_CLIENT_SECRET)
 
 ;(async function () {
   await useKeyspace()
