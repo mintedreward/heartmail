@@ -28,7 +28,8 @@ export default function MoneyButtonNewAccount (props) {
     ]
   }
 
-  console.log(outputs)
+  console.log('client identifier', process.env.NEXT_PUBLIC_MB_CLIENT_IDENTIFIER)
+  console.log('paymail', process.env.NEXT_PUBLIC_HEARTMAIL_PAYMAIL)
 
   const handlePayment = (payment) => {
     onPayment(payment)
