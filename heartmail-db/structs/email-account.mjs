@@ -47,7 +47,7 @@ export default class EmailAccount extends Struct {
   }
 
   fromMbAccount (mbAccount) {
-    this.email = mbAccount.mbEmail || `${mbAccount.mbUserId}@moneybutton.com`
+    this.email = `${mbAccount.mbUserId}@moneybutton.com`
     this.createdAt = mbAccount.createdAt
     this.updatedAt = mbAccount.updatedAt
     this.signedInAt = mbAccount.createdAt

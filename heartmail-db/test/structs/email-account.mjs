@@ -27,7 +27,7 @@ describe('EmailAccount', function () {
       mbAccount.mbUserId = '12345'
       mbAccount.mbName = 'Name'
       const emailAccount = EmailAccount.fromMbAccount(mbAccount)
-      emailAccount.email.should.equal(mbAccount.mbEmail)
+      emailAccount.email.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
       emailAccount.accountId.should.equal(mbAccount.id)
       emailAccount.accountName.should.equal(mbAccount.mbName)
       emailAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
