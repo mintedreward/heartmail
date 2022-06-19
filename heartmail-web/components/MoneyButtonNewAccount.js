@@ -8,7 +8,7 @@ export default function MoneyButtonNewAccount (props) {
   if (affiliate && affiliate.hasAffiliate) {
     outputs = [
       {
-        to: 'heartmail@moneybutton.com',
+        to: process.env.NEXT_PUBLIC_HEARTMAIL_PAYMAIL,
         amount: '8',
         currency: 'USD'
       },
@@ -21,7 +21,7 @@ export default function MoneyButtonNewAccount (props) {
   } else {
     outputs = [
       {
-        to: 'heartmail@moneybutton.com',
+        to: process.env.NEXT_PUBLIC_HEARTMAIL_PAYMAIL,
         amount: '10',
         currency: 'USD'
       }
