@@ -20,6 +20,15 @@ export default class DbAuthAddressAccount extends Struct {
     return new this().fromRandom()
   }
 
+  fromMbAccount (mbAccount) {
+    this.authAddressAccount = AuthAddressAccount.fromMbAccount(mbAccount)
+    return this
+  }
+
+  static fromMbAccount (mbAccount) {
+    return new this().fromMbAccount(mbAccount)
+  }
+
   fromCassandraObject (obj) {
     this.authAddressAccount = AuthAddressAccount.fromObject({
       authAddress: obj.auth_address,

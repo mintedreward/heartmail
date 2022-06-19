@@ -32,6 +32,34 @@ export default class DbMbAccount extends Struct {
     return new this().create(obj)
   }
 
+  fromMbAccount (mbAccount) {
+    this.account = Account.fromObject({
+      id: mbAccount.id,
+      privKey: mbAccount.privKey,
+
+      createdAt: mbAccount.createdAt,
+      updatedAt: mbAccount.updatedAt,
+      signedInAt: mbAccount.createdAt,
+
+      authAddress: `${mbAccount.mbUserId}@moneybutton.com`,
+
+      name: mbAccount.mbName,
+      heartmail: `${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`,
+      bio: '',
+      contactFeeUsd: mbAccount.contactFeeUsd,
+      affiliateId: mbAccount.affiliateId,
+      email: mbAccount.mbEmail,
+      paymail: mbAccount.mbPaymail,
+
+      accessGrantedAt: mbAccount.accessGrantedAt
+    })
+    return this
+  }
+
+  static fromMbAccount (mbAccount) {
+    return new this().fromMbAccount(mbAccount)
+  }
+
   fromCassandraObject (obj) {
     this.account = Account.fromObject({
       id: obj.id,

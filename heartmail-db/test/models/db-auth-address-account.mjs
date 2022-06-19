@@ -1,5 +1,6 @@
 /* global describe,it */
 import DbAuthAddressAccount from '../../models/db-auth-address-account.mjs'
+import { MbAccount } from '../../structs/mb-account.mjs'
 import should from 'should'
 
 describe('DbAuthAddressAccount', () => {
@@ -16,6 +17,34 @@ describe('DbAuthAddressAccount', () => {
     })
   })
 
+  describe('@fromMbAccount', () => {
+    it('should make a DbAuthAddressAccount from an MbAccount', () => {
+      const mbAccount = MbAccount.fromRandom().fromObject({
+        accessGrantedAt: new Date(),
+        affiliateId: '12345',
+        contactFeeUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'name@example.com',
+        mbPaymentId: '1',
+        mbTxid: '00'.repeat(32),
+        mbIdentityKey: 'key',
+        mbUserId: '6',
+        mbName: 'name',
+        mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+      })
+
+      const dbAuthAddressAccount = DbAuthAddressAccount.fromMbAccount(mbAccount)
+      const authAddressAccount = dbAuthAddressAccount.authAddressAccount
+      authAddressAccount.createdAt.toJSON().should.equal(mbAccount.createdAt.toJSON())
+      authAddressAccount.updatedAt.toJSON().should.equal(mbAccount.updatedAt.toJSON())
+      authAddressAccount.authAddress.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
+      authAddressAccount.accountId.should.equal(mbAccount.id)
+      authAddressAccount.accountName.should.equal(mbAccount.mbName)
+      authAddressAccount.accountBio.should.equal('')
+      authAddressAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
+    })
+  })
+
   describe('#toCassandraObject', () => {
     it('should convert to a cassandra object', () => {
       const dbAuthAddressAccount = DbAuthAddressAccount.fromRandom()
@@ -24,7 +53,7 @@ describe('DbAuthAddressAccount', () => {
         accountId: '12345',
         accountName: 'Name',
         accountHeartmail: '12345@heartmail.com',
-        accountBio: 'I love HeartMail'
+        accountBio: ''
       })
       const obj = dbAuthAddressAccount.toCassandraObject()
       obj.created_at.toJSON().should.equal(dbAuthAddressAccount.authAddressAccount.createdAt.toJSON())
@@ -46,7 +75,7 @@ describe('DbAuthAddressAccount', () => {
         accountId: '12345',
         accountName: 'Name',
         accountHeartmail: '12345@heartmail.com',
-        accountBio: 'I love HeartMail'
+        accountBio: ''
       })
       await dbAuthAddressAccount.insert()
       const dbAuthAddressAccount2 = await DbAuthAddressAccount.findOne(dbAuthAddressAccount.authAddressAccount.authAddress)
