@@ -16,7 +16,7 @@ version=`git rev-parse --verify HEAD`
 
 echo Building heartmail-web
 
-docker build -f heartmail-web.Dockerfile -t heartmail-web --build-arg NODE_ENV=$NODE_ENV --build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY --platform linux/amd64 .
+docker build -f heartmail-web.Dockerfile -t heartmail-web --build-arg NODE_ENV=$NODE_ENV --build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY --build-arg NEXT_PUBLIC_MB_CLIENT_IDENTIFIER=$NEXT_PUBLIC_MB_CLIENT_IDENTIFIER --build-arg NEXT_PUBLIC_HEARTMAIL_PAYMAIL=$NEXT_PUBLIC_HEARTMAIL_PAYMAIL --platform linux/amd64 .
 docker tag heartmail-web ryanxcharles/heartmail-web:${version}
 docker push ryanxcharles/heartmail-web:${version}
 
