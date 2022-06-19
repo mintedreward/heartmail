@@ -1,4 +1,4 @@
-import { util } from 'heartmail-db'
+import { dbApi } from 'heartmail-db'
 import assert from 'node:assert'
 
 export default async function handler (req, res) {
@@ -7,7 +7,7 @@ export default async function handler (req, res) {
 
     const { contactFeeUsd, affiliate, payment } = req.body
 
-    const id = await util.createAccountWithPayment(contactFeeUsd, affiliate, payment)
+    const id = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, payment)
 
     assert(id)
     assert(typeof id === 'string')

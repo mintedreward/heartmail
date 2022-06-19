@@ -1,11 +1,12 @@
 /* global describe,it */
-import { util, DbMbAccount } from '../index.mjs'
+import * as dbApi from '../../api/index.mjs'
+import DbMbAccount from '../../models/db-mb-account.mjs'
 import { Bn, Random } from 'heartmail-lib'
 import should from 'should'
 
-const getAffiliate = util.getAffiliate
+const getAffiliate = dbApi.getAffiliate
 
-describe('utilities', () => {
+describe('dbApi', () => {
   it('should exist', () => {
     should.exist(getAffiliate)
   })
@@ -23,9 +24,9 @@ describe('utilities', () => {
         userId: '1'
       }
 
-      let isNew = await util.paymentIsNew(mbPayment)
+      let isNew = await dbApi.paymentIsNew(mbPayment)
       isNew.should.equal(true)
-      isNew = await util.paymentIsNew(mbPayment)
+      isNew = await dbApi.paymentIsNew(mbPayment)
       isNew.should.equal(false)
     })
   })
@@ -46,7 +47,7 @@ describe('utilities', () => {
           txid: '00'.repeat(32),
           userId: '1'
         }
-        const mbAccountId = await util.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
+        const mbAccountId = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
         mbAccountId.length.should.greaterThan(10)
         affiliateId = mbAccountId
       }
@@ -66,10 +67,10 @@ describe('utilities', () => {
           txid: '01'.repeat(32),
           userId: '2'
         }
-        const mbAccountId = await util.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
+        const mbAccountId = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
         mbAccountId.length.should.greaterThan(10)
         mbAccountId.should.not.equal(affiliateId)
-        const mbAccount = await util.getMbAccount(mbAccountId)
+        const mbAccount = await dbApi.getMbAccount(mbAccountId)
         mbAccount.id.should.equal(mbAccountId)
         mbAccount.mbEmail.should.equal('name2@example.com')
         mbAccount.mbPaymail.should.equal('name2@example.com')
@@ -88,7 +89,7 @@ describe('utilities', () => {
       })
       await dbMbAccount.insert()
       const affiliateHeartmail = `${dbMbAccount.mbAccount.id}@heartmail.com`
-      const affiliate = await util.getAffiliate(affiliateHeartmail)
+      const affiliate = await dbApi.getAffiliate(affiliateHeartmail)
       affiliate.hasAffiliate.should.equal(true)
       affiliate.id.should.equal(dbMbAccount.mbAccount.id)
       affiliate.mbPaymail.should.equal(dbMbAccount.mbAccount.mbPaymail)

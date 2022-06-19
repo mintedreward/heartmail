@@ -1,7 +1,5 @@
-import DbMbAccount from './models/db-mb-account.mjs'
-import * as util from './util.mjs'
+import * as dbApi from './api/index.mjs'
 
 export {
-  DbMbAccount,
-  util
+  dbApi
 }

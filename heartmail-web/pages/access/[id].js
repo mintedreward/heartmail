@@ -2,13 +2,13 @@ import Layout from '../../components/Layout'
 import PageTitle from '../../components/PageTitle'
 import AffiliateCard from '../../components/AffiliateCard'
 import TextField from '@mui/material/TextField'
-import { util } from 'heartmail-db'
+import { dbApi } from 'heartmail-db'
 import NotFoundPage from '../404'
 
 export async function getServerSideProps (context) {
   const id = context.query.id
   const res = context.res
-  const mbAccount = await util.getMbAccount(id)
+  const mbAccount = await dbApi.getMbAccount(id)
 
   if (mbAccount) {
     return {
