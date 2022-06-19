@@ -40,7 +40,6 @@ describe('DbAccount', () => {
       account.createdAt.toJSON().should.equal(mbAccount.createdAt.toJSON())
       account.updatedAt.toJSON().should.equal(mbAccount.updatedAt.toJSON())
       account.signedInAt.toJSON().should.equal(mbAccount.createdAt.toJSON())
-      account.authAddress.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
       account.name.should.equal(mbAccount.mbName)
       account.heartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
       account.bio.should.equal('')
@@ -57,7 +56,6 @@ describe('DbAccount', () => {
       const date = new Date()
       const dbAccount = DbAccount.fromRandom()
       dbAccount.account.fromObject({
-        authAddress: '12345@moneybutton.com',
         name: 'Name',
         heartmail: '12345@heartmail.com',
         bio: '',
@@ -68,7 +66,6 @@ describe('DbAccount', () => {
         accessGrantedAt: date
       })
       const obj = dbAccount.toCassandraObject()
-      obj.auth_address.should.equal('12345@moneybutton.com')
       obj.name.should.equal('Name')
       obj.heartmail.should.equal('12345@heartmail.com')
       obj.bio.should.equal('')
@@ -98,7 +95,6 @@ describe('DbAccount', () => {
       const date = new Date()
       const dbAccount = DbAccount.fromRandom()
       dbAccount.account.fromObject({
-        authAddress: '12345@moneybutton.com',
         name: 'Name',
         heartmail: '12345@heartmail.com',
         bio: '',
@@ -112,7 +108,6 @@ describe('DbAccount', () => {
       const dbAccount2 = await DbAccount.findOne(dbAccount.account.id)
       const account2 = dbAccount2.account
       const account = dbAccount.account
-      account2.authAddress.should.equal(account.authAddress)
       account2.id.should.equal(account.id)
       account2.privKey.toString().should.equal(account.privKey.toString())
       account2.name.should.equal(account.name)

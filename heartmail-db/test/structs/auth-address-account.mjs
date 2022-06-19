@@ -1,11 +1,11 @@
 /* global describe,it */
 import MbAccount from '../../structs/mb-account.mjs'
-import AuthAddressAccount from '../../structs/auth-address-account.mjs'
+import EmailAccount from '../../structs/auth-address-account.mjs'
 import should from 'should'
 
-describe('AuthAddressAccount', function () {
+describe('EmailAccount', function () {
   it('should exist', function () {
-    should.exist(AuthAddressAccount)
+    should.exist(EmailAccount)
   })
 
   describe('@fromMbAccount', () => {
@@ -13,11 +13,11 @@ describe('AuthAddressAccount', function () {
       const mbAccount = MbAccount.fromRandom()
       mbAccount.mbUserId = '12345'
       mbAccount.mbName = 'Name'
-      const authAddressAccount = AuthAddressAccount.fromMbAccount(mbAccount)
-      authAddressAccount.accountId.should.equal(mbAccount.id)
-      authAddressAccount.accountName.should.equal(mbAccount.mbName)
-      authAddressAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
-      authAddressAccount.accountBio.should.equal('')
+      const emailAccount = EmailAccount.fromMbAccount(mbAccount)
+      emailAccount.accountId.should.equal(mbAccount.id)
+      emailAccount.accountName.should.equal(mbAccount.mbName)
+      emailAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
+      emailAccount.accountBio.should.equal('')
     })
   })
 
@@ -26,17 +26,17 @@ describe('AuthAddressAccount', function () {
       const mbAccount = MbAccount.fromRandom()
       mbAccount.mbUserId = '12345'
       mbAccount.mbName = 'Name'
-      const authAddressAccount = AuthAddressAccount.fromMbAccount(mbAccount)
-      const json = authAddressAccount.toJSON()
-      const authAddressAccount2 = AuthAddressAccount.fromJSON(json)
-      authAddressAccount.authAddress.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
-      authAddressAccount.createdAt.toJSON().should.equal(authAddressAccount2.createdAt.toJSON())
-      authAddressAccount.updatedAt.toJSON().should.equal(authAddressAccount2.updatedAt.toJSON())
-      authAddressAccount.signedInAt.toJSON().should.equal(authAddressAccount2.signedInAt.toJSON())
-      authAddressAccount.accountId.should.equal(authAddressAccount2.accountId)
-      authAddressAccount.accountName.should.equal(authAddressAccount2.accountName)
-      authAddressAccount.accountBio.should.equal('')
-      authAddressAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
+      const emailAccount = EmailAccount.fromMbAccount(mbAccount)
+      const json = emailAccount.toJSON()
+      const emailAccount2 = EmailAccount.fromJSON(json)
+      emailAccount.email.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
+      emailAccount.createdAt.toJSON().should.equal(emailAccount2.createdAt.toJSON())
+      emailAccount.updatedAt.toJSON().should.equal(emailAccount2.updatedAt.toJSON())
+      emailAccount.signedInAt.toJSON().should.equal(emailAccount2.signedInAt.toJSON())
+      emailAccount.accountId.should.equal(emailAccount2.accountId)
+      emailAccount.accountName.should.equal(emailAccount2.accountName)
+      emailAccount.accountBio.should.equal('')
+      emailAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
     })
   })
 })

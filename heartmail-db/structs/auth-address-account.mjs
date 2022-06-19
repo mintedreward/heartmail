@@ -8,9 +8,9 @@
  */
 import { Struct } from 'heartmail-lib'
 
-export default class AuthAddressAccount extends Struct {
-  constructor (authAddress, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), accountId, accountName, accountHeartmail, accountBio) {
-    super({ authAddress, createdAt, updatedAt, signedInAt, accountId, accountName, accountHeartmail, accountBio })
+export default class EmailAccount extends Struct {
+  constructor (email, createdAt = new Date(), updatedAt = new Date(), signedInAt = new Date(), accountId, accountName, accountHeartmail, accountBio) {
+    super({ email, createdAt, updatedAt, signedInAt, accountId, accountName, accountHeartmail, accountBio })
   }
 
   fromRandom () {
@@ -23,7 +23,7 @@ export default class AuthAddressAccount extends Struct {
 
   toJSON () {
     const json = {}
-    json.authAddress = this.authAddress
+    json.email = this.email
     json.createdAt = this.createdAt.toJSON()
     json.updatedAt = this.updatedAt.toJSON()
     json.signedInAt = this.signedInAt.toJSON()
@@ -35,7 +35,7 @@ export default class AuthAddressAccount extends Struct {
   }
 
   fromJSON (json = {}) {
-    this.authAddress = json.authAddress
+    this.email = json.email
     this.createdAt = json.createdAt ? new Date(json.createdAt) : null
     this.updatedAt = json.updatedAt ? new Date(json.updatedAt) : null
     this.signedInAt = json.signedInAt ? new Date(json.signedInAt) : null
@@ -51,7 +51,7 @@ export default class AuthAddressAccount extends Struct {
   }
 
   fromMbAccount (mbAccount) {
-    this.authAddress = `${mbAccount.mbUserId}@moneybutton.com`
+    this.email = `${mbAccount.mbUserId}@moneybutton.com`
     this.createdAt = mbAccount.createdAt
     this.updatedAt = mbAccount.updatedAt
     this.signedInAt = mbAccount.createdAt

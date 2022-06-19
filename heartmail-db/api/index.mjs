@@ -3,7 +3,7 @@ import MbPayment from '../structs/mb-payment.mjs'
 import DbMbAccount from '../models/db-mb-account.mjs'
 import DbAccount from '../models/db-account.mjs'
 import DbMbPayment from '../models/db-mb-payment.mjs'
-import DbAuthAddressAccount from '../models/db-auth-address-account.mjs'
+import DbEmailAccount from '../models/db-auth-address-account.mjs'
 import fetch from 'isomorphic-fetch'
 
 export async function fetchMbUserNameAvatar (paymail) {
@@ -75,7 +75,7 @@ export async function createAccountWithPayment (contactFeeUsd, affiliate, paymen
  * - [ ] verify payment
  * - [x] create mb_account
  * - [x] create account
- * - [x] create auth_address_account
+ * - [x] create email_account
  */
   try {
     const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
@@ -83,13 +83,13 @@ export async function createAccountWithPayment (contactFeeUsd, affiliate, paymen
 
     const dbMbAccount = DbMbAccount.fromPurchase(contactFeeUsd, affiliate, payment)
     const dbAccount = DbAccount.fromMbAccount(dbMbAccount.mbAccount)
-    const dbAuthAddressAccount = DbAuthAddressAccount.fromMbAccount(dbMbAccount.mbAccount)
+    const dbEmailAccount = DbEmailAccount.fromMbAccount(dbMbAccount.mbAccount)
 
     await dbMbAccount.insert()
     await dbAccount.insert()
-    await dbAuthAddressAccount.insert()
+    await dbEmailAccount.insert()
 
-    return dbAccount.account.id
+    return dbMbAccount.mbAccount.id
   } catch (err) {
     // console.log(err)
     return null

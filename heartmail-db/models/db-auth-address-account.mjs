@@ -1,18 +1,18 @@
 import { getClient } from '../connect.mjs'
 import { Struct } from 'heartmail-lib'
-import AuthAddressAccount from '../structs/auth-address-account.mjs'
+import EmailAccount from '../structs/auth-address-account.mjs'
 import cassandra from 'cassandra-driver'
 
 const keyspace = process.env.HEARTMAIL_DB_KEYSPACE
 const client = getClient()
 
-export default class DbAuthAddressAccount extends Struct {
-  constructor (authAddressAccount) {
-    super({ authAddressAccount })
+export default class DbEmailAccount extends Struct {
+  constructor (emailAccount) {
+    super({ emailAccount })
   }
 
   fromRandom () {
-    this.authAddressAccount = AuthAddressAccount.fromRandom()
+    this.emailAccount = EmailAccount.fromRandom()
     return this
   }
 
@@ -21,7 +21,7 @@ export default class DbAuthAddressAccount extends Struct {
   }
 
   fromMbAccount (mbAccount) {
-    this.authAddressAccount = AuthAddressAccount.fromMbAccount(mbAccount)
+    this.emailAccount = EmailAccount.fromMbAccount(mbAccount)
     return this
   }
 
@@ -30,8 +30,8 @@ export default class DbAuthAddressAccount extends Struct {
   }
 
   fromCassandraObject (obj) {
-    this.authAddressAccount = AuthAddressAccount.fromObject({
-      authAddress: obj.auth_address,
+    this.emailAccount = EmailAccount.fromObject({
+      email: obj.email,
 
       createdAt: obj.created_at,
       updatedAt: obj.updated_at,
@@ -47,38 +47,38 @@ export default class DbAuthAddressAccount extends Struct {
 
   toCassandraObject () {
     return {
-      auth_address: this.authAddressAccount.authAddress,
+      email: this.emailAccount.email,
 
-      created_at: this.authAddressAccount.createdAt,
-      updated_at: this.authAddressAccount.updatedAt,
-      signed_in_at: this.authAddressAccount.signedInAt,
+      created_at: this.emailAccount.createdAt,
+      updated_at: this.emailAccount.updatedAt,
+      signed_in_at: this.emailAccount.signedInAt,
 
-      account_id: this.authAddressAccount.accountId,
-      account_name: this.authAddressAccount.accountName,
-      account_heartmail: this.authAddressAccount.accountHeartmail,
-      account_bio: this.authAddressAccount.accountBio
+      account_id: this.emailAccount.accountId,
+      account_name: this.emailAccount.accountName,
+      account_heartmail: this.emailAccount.accountHeartmail,
+      account_bio: this.emailAccount.accountBio
     }
   }
 
   static async findAll () {
-    const query = `select * from ${keyspace}.auth_address_accounts`
+    const query = `select * from ${keyspace}.email_accounts`
     const values = []
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
-    const dbAuthAddressAccounts = []
+    const dbEmailAccounts = []
 
     for (const row of res) {
-      const dbAuthAddressAccount = new this().fromCassandraObject(row)
-      dbAuthAddressAccounts.push(dbAuthAddressAccount)
+      const dbEmailAccount = new this().fromCassandraObject(row)
+      dbEmailAccounts.push(dbEmailAccount)
     }
 
-    return dbAuthAddressAccounts
+    return dbEmailAccounts
   }
 
   async findOne () {
-    const query = `select * from ${keyspace}.auth_address_accounts where auth_address = ?`
-    const values = [this.authAddressAccount.authAddress]
+    const query = `select * from ${keyspace}.email_accounts where email = ?`
+    const values = [this.emailAccount.email]
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
@@ -93,15 +93,15 @@ export default class DbAuthAddressAccount extends Struct {
     return this
   }
 
-  static async findOne (authAddress) {
-    return new this(new AuthAddressAccount(authAddress)).findOne()
+  static async findOne (email) {
+    return new this(new EmailAccount(email)).findOne()
   }
 
   async insert () {
     const obj = this.toCassandraObject()
 
-    const query = `insert into ${keyspace}.auth_address_accounts (auth_address, created_at, updated_at, signed_in_at, account_id, account_name, account_heartmail, account_bio) values (?, ?, ?, ?, ?, ?, ?, ?)`
-    const values = [obj.auth_address, obj.created_at, obj.updated_at, obj.signed_in_at, obj.account_id, obj.account_name, obj.account_heartmail, obj.account_bio]
+    const query = `insert into ${keyspace}.email_accounts (email, created_at, updated_at, signed_in_at, account_id, account_name, account_heartmail, account_bio) values (?, ?, ?, ?, ?, ?, ?, ?)`
+    const values = [obj.email, obj.created_at, obj.updated_at, obj.signed_in_at, obj.account_id, obj.account_name, obj.account_heartmail, obj.account_bio]
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 

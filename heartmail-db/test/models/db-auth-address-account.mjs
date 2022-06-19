@@ -1,24 +1,24 @@
 /* global describe,it */
-import DbAuthAddressAccount from '../../models/db-auth-address-account.mjs'
+import DbEmailAccount from '../../models/db-auth-address-account.mjs'
 import MbAccount from '../../structs/mb-account.mjs'
 import should from 'should'
 
-describe('DbAuthAddressAccount', () => {
+describe('DbEmailAccount', () => {
   it('should exist', () => {
-    should.exist(DbAuthAddressAccount)
+    should.exist(DbEmailAccount)
   })
 
   describe('@fromRandom', () => {
-    it('should make a new DbAuthAddressAccount', () => {
-      const dbAuthAddressAccount = DbAuthAddressAccount.fromRandom()
-      should.exist(dbAuthAddressAccount.authAddressAccount.createdAt)
-      should.exist(dbAuthAddressAccount.authAddressAccount.updatedAt)
-      should.exist(dbAuthAddressAccount.authAddressAccount.signedInAt)
+    it('should make a new DbEmailAccount', () => {
+      const dbEmailAccount = DbEmailAccount.fromRandom()
+      should.exist(dbEmailAccount.emailAccount.createdAt)
+      should.exist(dbEmailAccount.emailAccount.updatedAt)
+      should.exist(dbEmailAccount.emailAccount.signedInAt)
     })
   })
 
   describe('@fromMbAccount', () => {
-    it('should make a DbAuthAddressAccount from an MbAccount', () => {
+    it('should make a DbEmailAccount from an MbAccount', () => {
       const mbAccount = MbAccount.fromRandom().fromObject({
         accessGrantedAt: new Date(),
         affiliateId: '12345',
@@ -33,62 +33,62 @@ describe('DbAuthAddressAccount', () => {
         mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
       })
 
-      const dbAuthAddressAccount = DbAuthAddressAccount.fromMbAccount(mbAccount)
-      const authAddressAccount = dbAuthAddressAccount.authAddressAccount
-      authAddressAccount.createdAt.toJSON().should.equal(mbAccount.createdAt.toJSON())
-      authAddressAccount.updatedAt.toJSON().should.equal(mbAccount.updatedAt.toJSON())
-      authAddressAccount.authAddress.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
-      authAddressAccount.accountId.should.equal(mbAccount.id)
-      authAddressAccount.accountName.should.equal(mbAccount.mbName)
-      authAddressAccount.accountBio.should.equal('')
-      authAddressAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
+      const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+      const emailAccount = dbEmailAccount.emailAccount
+      emailAccount.createdAt.toJSON().should.equal(mbAccount.createdAt.toJSON())
+      emailAccount.updatedAt.toJSON().should.equal(mbAccount.updatedAt.toJSON())
+      emailAccount.email.should.equal(`${mbAccount.mbUserId}@moneybutton.com`)
+      emailAccount.accountId.should.equal(mbAccount.id)
+      emailAccount.accountName.should.equal(mbAccount.mbName)
+      emailAccount.accountBio.should.equal('')
+      emailAccount.accountHeartmail.should.equal(`${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
     })
   })
 
   describe('#toCassandraObject', () => {
     it('should convert to a cassandra object', () => {
-      const dbAuthAddressAccount = DbAuthAddressAccount.fromRandom()
-      dbAuthAddressAccount.authAddressAccount.fromObject({
-        authAddress: '12345@moneybutton.com',
+      const dbEmailAccount = DbEmailAccount.fromRandom()
+      dbEmailAccount.emailAccount.fromObject({
+        email: '12345@moneybutton.com',
         accountId: '12345',
         accountName: 'Name',
         accountHeartmail: '12345@heartmail.com',
         accountBio: ''
       })
-      const obj = dbAuthAddressAccount.toCassandraObject()
-      obj.created_at.toJSON().should.equal(dbAuthAddressAccount.authAddressAccount.createdAt.toJSON())
-      obj.updated_at.toJSON().should.equal(dbAuthAddressAccount.authAddressAccount.updatedAt.toJSON())
-      obj.signed_in_at.toJSON().should.equal(dbAuthAddressAccount.authAddressAccount.signedInAt.toJSON())
-      obj.auth_address.should.equal(dbAuthAddressAccount.authAddressAccount.authAddress)
-      obj.account_id.should.equal(dbAuthAddressAccount.authAddressAccount.accountId)
-      obj.account_name.should.equal(dbAuthAddressAccount.authAddressAccount.accountName)
-      obj.account_heartmail.should.equal(dbAuthAddressAccount.authAddressAccount.accountHeartmail)
-      obj.account_bio.should.equal(dbAuthAddressAccount.authAddressAccount.accountBio)
+      const obj = dbEmailAccount.toCassandraObject()
+      obj.created_at.toJSON().should.equal(dbEmailAccount.emailAccount.createdAt.toJSON())
+      obj.updated_at.toJSON().should.equal(dbEmailAccount.emailAccount.updatedAt.toJSON())
+      obj.signed_in_at.toJSON().should.equal(dbEmailAccount.emailAccount.signedInAt.toJSON())
+      obj.email.should.equal(dbEmailAccount.emailAccount.email)
+      obj.account_id.should.equal(dbEmailAccount.emailAccount.accountId)
+      obj.account_name.should.equal(dbEmailAccount.emailAccount.accountName)
+      obj.account_heartmail.should.equal(dbEmailAccount.emailAccount.accountHeartmail)
+      obj.account_bio.should.equal(dbEmailAccount.emailAccount.accountBio)
     })
   })
 
   describe('@findOne', () => {
     it('should insert and find one back again', async () => {
-      const dbAuthAddressAccount = DbAuthAddressAccount.fromRandom()
-      dbAuthAddressAccount.authAddressAccount.fromObject({
-        authAddress: '12345@moneybutton.com',
+      const dbEmailAccount = DbEmailAccount.fromRandom()
+      dbEmailAccount.emailAccount.fromObject({
+        email: '12345@moneybutton.com',
         accountId: '12345',
         accountName: 'Name',
         accountHeartmail: '12345@heartmail.com',
         accountBio: ''
       })
-      await dbAuthAddressAccount.insert()
-      const dbAuthAddressAccount2 = await DbAuthAddressAccount.findOne(dbAuthAddressAccount.authAddressAccount.authAddress)
-      const authAddressAccount2 = dbAuthAddressAccount2.authAddressAccount
-      const authAddressAccount = dbAuthAddressAccount.authAddressAccount
-      authAddressAccount2.authAddress.should.equal(authAddressAccount.authAddress)
-      authAddressAccount2.createdAt.toJSON().should.equal(authAddressAccount.createdAt.toJSON())
-      authAddressAccount2.updatedAt.toJSON().should.equal(authAddressAccount.updatedAt.toJSON())
-      authAddressAccount2.signedInAt.toJSON().should.equal(authAddressAccount.signedInAt.toJSON())
-      authAddressAccount2.accountId.should.equal(authAddressAccount.accountId)
-      authAddressAccount2.accountName.should.equal(authAddressAccount.accountName)
-      authAddressAccount2.accountHeartmail.should.equal(authAddressAccount.accountHeartmail)
-      authAddressAccount2.accountBio.should.equal(authAddressAccount.accountBio)
+      await dbEmailAccount.insert()
+      const dbEmailAccount2 = await DbEmailAccount.findOne(dbEmailAccount.emailAccount.email)
+      const emailAccount2 = dbEmailAccount2.emailAccount
+      const emailAccount = dbEmailAccount.emailAccount
+      emailAccount2.email.should.equal(emailAccount.email)
+      emailAccount2.createdAt.toJSON().should.equal(emailAccount.createdAt.toJSON())
+      emailAccount2.updatedAt.toJSON().should.equal(emailAccount.updatedAt.toJSON())
+      emailAccount2.signedInAt.toJSON().should.equal(emailAccount.signedInAt.toJSON())
+      emailAccount2.accountId.should.equal(emailAccount.accountId)
+      emailAccount2.accountName.should.equal(emailAccount.accountName)
+      emailAccount2.accountHeartmail.should.equal(emailAccount.accountHeartmail)
+      emailAccount2.accountBio.should.equal(emailAccount.accountBio)
     })
   })
 })

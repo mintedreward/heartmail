@@ -41,14 +41,17 @@ export default class DbMbAccount extends Struct {
       updatedAt: mbAccount.updatedAt,
       signedInAt: mbAccount.createdAt,
 
-      authAddress: `${mbAccount.mbUserId}@moneybutton.com`,
-
       name: mbAccount.mbName,
       heartmail: `${mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`,
       bio: '',
       contactFeeUsd: mbAccount.contactFeeUsd,
       affiliateId: mbAccount.affiliateId,
-      email: mbAccount.mbEmail,
+
+      // sometimes the MB email is absent. in this case we can substitute their
+      // MB paymail instead. Of course, this does not really work, because the
+      // user cannot receive emails here. However, it will enable us to replace
+      // this in the database when that user is found out.
+      email: mbAccount.mbEmail || `${mbAccount.mbUserId}@moneybutton.com`,
       paymail: mbAccount.mbPaymail,
 
       accessGrantedAt: mbAccount.accessGrantedAt
@@ -68,8 +71,6 @@ export default class DbMbAccount extends Struct {
       createdAt: obj.created_at,
       updatedAt: obj.updated_at,
       signedInAt: obj.signed_in_at,
-
-      authAddress: obj.auth_address,
 
       name: obj.name,
       heartmail: obj.heartmail,
@@ -92,8 +93,6 @@ export default class DbMbAccount extends Struct {
       created_at: this.account.createdAt,
       updated_at: this.account.updatedAt,
       signed_in_at: this.account.signedInAt,
-
-      auth_address: this.account.authAddress,
 
       name: this.account.name,
       heartmail: this.account.heartmail,
@@ -147,8 +146,8 @@ export default class DbMbAccount extends Struct {
   async insert () {
     const obj = this.toCassandraObject()
 
-    const query = `insert into ${keyspace}.accounts (id, priv_key, created_at, updated_at, signed_in_at, auth_address, name, heartmail, bio, contact_fee_usd, affiliate_id, email, paymail, access_granted_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-    const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.signed_in_at, obj.auth_address, obj.name, obj.heartmail, obj.bio, obj.contact_fee_usd, obj.affiliate_id, obj.email, obj.paymail, obj.access_granted_at]
+    const query = `insert into ${keyspace}.accounts (id, priv_key, created_at, updated_at, signed_in_at, name, heartmail, bio, contact_fee_usd, affiliate_id, email, paymail, access_granted_at) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    const values = [obj.id, obj.priv_key, obj.created_at, obj.updated_at, obj.signed_in_at, obj.name, obj.heartmail, obj.bio, obj.contact_fee_usd, obj.affiliate_id, obj.email, obj.paymail, obj.access_granted_at]
 
     const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
 
