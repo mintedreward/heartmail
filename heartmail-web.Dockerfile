@@ -26,20 +26,22 @@ COPY .env ./.env
 COPY .env.production ./.env.production
 
 # these are explicitly copied separately to make sure they are each a layer
-COPY heartmail-currency ./heartmail-currency
+
 COPY heartmail-curve ./heartmail-curve
-COPY heartmail-db ./heartmail-db
-COPY heartmail-elliptic ./heartmail-elliptic
-COPY heartmail-email ./heartmail-email
+COPY heartmail-paymail ./heartmail-paymail
 COPY heartmail-keyfile ./heartmail-keyfile
-COPY heartmail-lib ./heartmail-lib
-COPY heartmail-loadenv ./heartmail-loadenv
 COPY heartmail-node ./heartmail-node
 COPY heartmail-redirect ./heartmail-redirect
 COPY heartmail-specs ./heartmail-specs
 COPY heartmail-stamp-db ./heartmail-stamp-db
-COPY heartmail-web ./heartmail-web
 COPY heartmail-workers ./heartmail-workers
+
+COPY heartmail-loadenv ./heartmail-loadenv
+COPY heartmail-elliptic ./heartmail-elliptic
+COPY heartmail-lib ./heartmail-lib
+COPY heartmail-currency ./heartmail-currency
+COPY heartmail-db ./heartmail-db
+COPY heartmail-web ./heartmail-web
 
 RUN yarn install
 

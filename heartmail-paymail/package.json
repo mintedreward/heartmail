@@ -1,23 +1,13 @@
 {
-  "name": "heartmail-email",
-  "description": "Email with Stamps",
+  "name": "heartmail-paymail",
+  "description": "Paymail",
   "version": "1.0.0",
   "author": "HeartMail",
-  "homepage": "https://github.com/openspv/openspv",
   "main": "./index.mjs",
   "exports": "./index.mjs",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/openspv/openspv.git"
-  },
   "engines": {
     "node": ">=16.0.0"
   },
-  "keywords": [
-    "bitcoin",
-    "bsv",
-    "spv"
-  ],
   "license": "UNLICENSED",
   "scripts": {
     "serve": "node ./src/email2-server.mjs",

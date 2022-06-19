@@ -6518,23 +6518,6 @@ fsevents@~2.3.2:
   languageName: unknown
   linkType: soft
 
-"heartmail-email@workspace:heartmail-email":
-  version: 0.0.0-use.local
-  resolution: "heartmail-email@workspace:heartmail-email"
-  dependencies:
-    body-parser: 1.20.0
-    email-validator: 2.0.4
-    express: 4.18.1
-    heartmail-lib: "workspace:*"
-    is-valid-domain: 0.1.6
-    isomorphic-fetch: ^3.0.0
-    mocha: 10
-    pug: 3.0.2
-    should: 13.2.3
-    standard: 17
-  languageName: unknown
-  linkType: soft
-
 "heartmail-keyfile@workspace:heartmail-keyfile":
   version: 0.0.0-use.local
   resolution: "heartmail-keyfile@workspace:heartmail-keyfile"
@@ -6570,6 +6553,23 @@ fsevents@~2.3.2:
   resolution: "heartmail-loadenv@workspace:heartmail-loadenv"
   bin:
     heartmail-loadenv: ./bin/heartmail-loadenv.mjs
+  languageName: unknown
+  linkType: soft
+
+"heartmail-paymail@workspace:heartmail-paymail":
+  version: 0.0.0-use.local
+  resolution: "heartmail-paymail@workspace:heartmail-paymail"
+  dependencies:
+    body-parser: 1.20.0
+    email-validator: 2.0.4
+    express: 4.18.1
+    heartmail-lib: "workspace:*"
+    is-valid-domain: 0.1.6
+    isomorphic-fetch: ^3.0.0
+    mocha: 10
+    pug: 3.0.2
+    should: 13.2.3
+    standard: 17
   languageName: unknown
   linkType: soft
 
