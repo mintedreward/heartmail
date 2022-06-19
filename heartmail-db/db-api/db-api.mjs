@@ -1,9 +1,9 @@
 import assert from 'node:assert'
 import MbPayment from '../structs/mb-payment.mjs'
 import DbMbAccount from '../models/db-mb-account.mjs'
-// import DbAccount from '../models/db-account.mjs'
+import DbAccount from '../models/db-account.mjs'
 import DbMbPayment from '../models/db-mb-payment.mjs'
-// import DbEmailAccount from '../models/db-email-account.mjs'
+import DbEmailAccount from '../models/db-email-account.mjs'
 import fetch from 'isomorphic-fetch'
 
 export async function fetchMbUserNameAvatar (paymail) {
@@ -74,22 +74,22 @@ export async function createAccountWithPayment (contactFeeUsd, affiliate, paymen
  * - [x] check payment is new
  * - [ ] verify payment
  * - [x] create mb_account
- * - [ ] create account
- * - [ ] create email_account
+ * - [x] create account
+ * - [x] create email_account
  */
   try {
     const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
     assert(isNewAndValid)
 
     const dbMbAccount = DbMbAccount.fromPurchase(contactFeeUsd, affiliate, payment)
-    // const dbAccount = DbAccount.fromMbAccount(dbMbAccount.mbAccount)
-    // const dbEmailAccount = DbEmailAccount.fromMbAccount(dbMbAccount.mbAccount)
+    const dbAccount = DbAccount.fromMbAccount(dbMbAccount.mbAccount)
+    const dbEmailAccount = DbEmailAccount.fromMbAccount(dbMbAccount.mbAccount)
 
     await dbMbAccount.insert()
-    // await dbAccount.insert()
-    // await dbEmailAccount.insert()
+    await dbAccount.insert()
+    await dbEmailAccount.insert()
 
-    return dbMbAccount.mbAccount.id
+    return dbAccount.account.id
   } catch (err) {
     // console.log(err)
     return null
