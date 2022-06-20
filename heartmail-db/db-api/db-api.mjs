@@ -71,7 +71,6 @@ dbApi.paymentIsServerSide = async function (payment) {
   }
 }
 
-// TODO: Test
 dbApi.paymentIsFromOurDomain = async function (payment) {
   return payment.referrerUrl.startsWith(process.env.NEXT_PUBLIC_URL)
 }

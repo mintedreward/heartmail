@@ -169,6 +169,21 @@ describe('dbApi', () => {
     })
   })
 
+  describe('#paymentIsFromOurDomain', () => {
+    it('should know this payment is from "our" domain', async () => {
+      const payment = JSON.parse(clientPaymentStr)
+      const isFromOurDomain = await dbApi.paymentIsFromOurDomain(payment)
+      isFromOurDomain.should.equal(true)
+    })
+
+    it('should know this payment is not from "our" domain', async () => {
+      const payment = JSON.parse(clientPaymentStr)
+      payment.referrerUrl = 'https://www.alternatewebsite.com'
+      const isFromOurDomain = await dbApi.paymentIsFromOurDomain(payment)
+      isFromOurDomain.should.equal(false)
+    })
+  })
+
   describe('#createAccountWithPayment', () => {
     it('should create a new account and then an affiliate account', async () => {
       let affiliateId
