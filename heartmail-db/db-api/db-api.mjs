@@ -148,12 +148,11 @@ dbApi.signInAsEmail = async function (email = '') {
 
     return { account, emailAccounts }
   } catch (err) {
-    console.log(err)
+    // console.log(err)
     return null
   }
 }
 
-// TODO: Test
 dbApi.signInWithPayment = async function (payment) {
   try {
     const isNew = await this.paymentIsNew(payment)
@@ -175,7 +174,7 @@ dbApi.signInWithPayment = async function (payment) {
       emailAccounts
     }
   } catch (err) {
-    console.log(err)
+    // console.log(err)
     return null
   }
 }

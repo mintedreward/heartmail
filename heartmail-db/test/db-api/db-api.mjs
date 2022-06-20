@@ -296,6 +296,78 @@ describe('dbApi', () => {
     })
   })
 
+  describe('#signInWithPayment', () => {
+    it('should return email, account, emailAccounts', async () => {
+      const mbUserId = Random.getRandomBuffer(8).toString('hex')
+      const oldSignInDate = new Date()
+      oldSignInDate.setDate(new Date().getDate() - 15)
+      {
+        const dbMbAccount = DbMbAccount.fromRandom()
+        dbMbAccount.mbAccount.fromObject({
+          accessGrantedAt: new Date(),
+          affiliateId: '12345',
+          contactFeeUsd: 1.00,
+          mbEmail: 'name@example.com',
+          mbPaymail: 'name@example.com',
+          mbPaymentId: '1',
+          mbTxid: '00'.repeat(32),
+          mbIdentityKey: null,
+          mbUserId,
+          mbName: 'name',
+          mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+        })
+        const mbAccount = dbMbAccount.mbAccount
+        const dbAccount = DbAccount.fromMbAccount(mbAccount)
+        const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+        dbAccount.account.createdAt = oldSignInDate
+        dbEmailAccount.emailAccount.createdAt = oldSignInDate
+        await dbAccount.insert()
+        await dbEmailAccount.insert()
+      }
+      {
+        const dbMbAccount = DbMbAccount.fromRandom()
+        dbMbAccount.mbAccount.fromObject({
+          accessGrantedAt: new Date(),
+          affiliateId: '12345',
+          contactFeeUsd: 1.00,
+          mbEmail: 'name@example.com',
+          mbPaymail: 'name@example.com',
+          mbPaymentId: '1',
+          mbTxid: '00'.repeat(32),
+          mbIdentityKey: null,
+          mbUserId,
+          mbName: 'name',
+          mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+        })
+        const mbAccount = dbMbAccount.mbAccount
+        const dbAccount = DbAccount.fromMbAccount(mbAccount)
+        const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+        dbAccount.account.createdAt = oldSignInDate
+        dbEmailAccount.emailAccount.createdAt = oldSignInDate
+        await dbAccount.insert()
+        await dbEmailAccount.insert()
+      }
+
+      const dbApiMock = {
+        signInWithPayment: dbApi.signInWithPayment,
+        signInAsEmail: dbApi.signInAsEmail,
+        paymentIsNew: () => true,
+        paymentIsSameOnServer: () => true,
+        paymentIsFromOurDomain: () => true
+      }
+
+      const payment = JSON.parse(clientPaymentStr)
+      payment.userId = mbUserId
+      const { email, account, emailAccounts } = await dbApiMock.signInWithPayment(payment)
+      email.should.equal(`${mbUserId}@moneybutton.com`)
+      should.exist(account)
+      account.signedInAt.toJSON().should.not.equal(oldSignInDate.toJSON())
+      emailAccounts.length.should.equal(2)
+      emailAccounts[0].signedInAt.toJSON().should.not.equal(oldSignInDate.toJSON())
+      emailAccounts[1].signedInAt.toJSON().should.not.equal(oldSignInDate.toJSON())
+    })
+  })
+
   describe('#getAffiliate', () => {
     it('should get an affiliate that exists', async function () {
       const dbMbAccount = DbMbAccount.create()
