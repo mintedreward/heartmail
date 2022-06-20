@@ -7,10 +7,12 @@ export default function MB () {
         <div style={{ width: 280, height: 50, padding: 0, margin: 0, backgroundColor: '#f6f6f6', borderRadius: 25 }}>
           <MoneyButton
             to={process.env.NEXT_PUBLIC_HEARTMAIL_PAYMAIL}
-            amount='100'
+            clientIdentifier={process.env.NEXT_PUBLIC_MB_CLIENT_IDENTIFIER}
+            amount='1'
             currency='USD'
             label='Tip'
             buttonData='MoneyButtonTip'
+            onPayment={(payment) => console.log(payment)}
           />
         </div>
       </div>

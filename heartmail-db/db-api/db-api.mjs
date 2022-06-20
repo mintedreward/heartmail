@@ -12,7 +12,8 @@ const dbApi = {}
 dbApi.mbClient = new MoneyButtonClient(
   process.env.NEXT_PUBLIC_MB_CLIENT_IDENTIFIER,
   process.env.MB_OAUTH_CLIENT_SECRET
-).logInAsApp()
+)
+dbApi.mbClient.logInAsApp()
 // TODO: The previous method is async. Should it go in an async method
 // somewhere, or is it safe to be synchronous at the top level?
 
@@ -50,7 +51,6 @@ dbApi.paymentIsNew = async function (payment) {
   }
 }
 
-// TODO: Test
 dbApi.paymentIsServerSide = async function (payment) {
   try {
     const clientPayment = payment
@@ -58,10 +58,15 @@ dbApi.paymentIsServerSide = async function (payment) {
     assert(clientPayment.id = serverPayment.id)
     assert(clientPayment.userId = serverPayment.userId)
     assert(clientPayment.referrerUrl = serverPayment.referrerUrl)
-    assert(JSON.stringify(clientPayment.paymentOutputs) === JSON.stringify(serverPayment.paymentOutputs))
+    assert(clientPayment.paymentOutputs.length === serverPayment.paymentOutputs.length)
+    for (let i = 0; i < clientPayment.paymentOutputs.length; i++) {
+      assert(clientPayment.paymentOutputs[i].to === serverPayment.paymentOutputs[i].to)
+      assert(clientPayment.paymentOutputs[i].amount === serverPayment.paymentOutputs[i].amount)
+      assert(clientPayment.paymentOutputs[i].currency === serverPayment.paymentOutputs[i].currency)
+    }
     return true
   } catch (err) {
-    console.log(err)
+    // console.log(err)
     return false
   }
 }
