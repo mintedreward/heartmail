@@ -7,14 +7,16 @@ import DbEmailAccount from '../models/db-email-account.mjs'
 import { MoneyButtonClient } from '@moneybutton/api-client'
 import fetch from 'isomorphic-fetch'
 
-const mbClient = new MoneyButtonClient(
+const dbApi = {}
+
+dbApi.mbClient = new MoneyButtonClient(
   process.env.NEXT_PUBLIC_MB_CLIENT_IDENTIFIER,
   process.env.MB_OAUTH_CLIENT_SECRET
 ).logInAsApp()
 // TODO: The previous method is async. Should it go in an async method
 // somewhere, or is it safe to be synchronous at the top level?
 
-export async function fetchMbUserNameAvatar (paymail) {
+dbApi.fetchMbUserNameAvatar = async function (paymail) {
   try {
     const url = `https://www.moneybutton.com/api/v1/bsvalias/public-profile/${paymail}`
     const res = await fetch(url)
@@ -29,7 +31,7 @@ export async function fetchMbUserNameAvatar (paymail) {
   }
 }
 
-export async function paymentIsNew (payment) {
+dbApi.paymentIsNew = async function (payment) {
   try {
     const mbPaymentId = payment.id
     const mbPaymentStr = JSON.stringify(payment)
@@ -48,10 +50,11 @@ export async function paymentIsNew (payment) {
   }
 }
 
-export async function paymentIsServerSide (payment) {
+// TODO: Test
+dbApi.paymentIsServerSide = async function (payment) {
   try {
     const clientPayment = payment
-    const serverPayment = await mbClient.getPaymentById(payment.id)
+    const serverPayment = await this.mbClient.getPaymentById(payment.id)
     assert(clientPayment.id = serverPayment.id)
     assert(clientPayment.userId = serverPayment.userId)
     assert(clientPayment.referrerUrl = serverPayment.referrerUrl)
@@ -63,21 +66,22 @@ export async function paymentIsServerSide (payment) {
   }
 }
 
-export async function paymentIsFromOurDomain (payment) {
+// TODO: Test
+dbApi.paymentIsFromOurDomain = async function (payment) {
   return payment.referrerUrl.startsWith(process.env.NEXT_PUBLIC_URL)
 }
 
-export async function paymentIsNewAndValid (affiliate, payment) {
+dbApi.paymentIsNewAndValid = async function (affiliate, payment) {
   // retrieve same payment from DB - does it exist?
   // if payment already exists, mark as invalid and return false
   // else, save the payment to the DB
   // is payment for the correct amount? return true
   // else, return false
   // (payment goes in DB no matter what)
-  return paymentIsNew(payment)
+  return this.paymentIsNew(payment)
 }
 
-export async function createAccountWithPayment (contactFeeUsd, affiliate, payment) {
+dbApi.createAccountWithPayment = async function (contactFeeUsd, affiliate, payment) {
 /*
  * TODO (full flow):
  * - query the identity key for the MB user
@@ -105,7 +109,7 @@ export async function createAccountWithPayment (contactFeeUsd, affiliate, paymen
  * - [x] create email_account
  */
   try {
-    const isNewAndValid = await paymentIsNewAndValid(affiliate, payment)
+    const isNewAndValid = await this.paymentIsNewAndValid(affiliate, payment)
     assert(isNewAndValid)
 
     const dbMbAccount = DbMbAccount.fromPurchase(contactFeeUsd, affiliate, payment)
@@ -123,7 +127,8 @@ export async function createAccountWithPayment (contactFeeUsd, affiliate, paymen
   }
 }
 
-export async function signInAsEmail (email = '') {
+// TODO: Test
+dbApi.signInAsEmail = async function (email = '') {
   try {
     const dbEmailAccounts = await DbEmailAccount.findEmailAccounts(email)
     const dbEmailAccount = dbEmailAccounts[0]
@@ -144,20 +149,21 @@ export async function signInAsEmail (email = '') {
   }
 }
 
-export async function signInWithPayment (payment) {
+// TODO: Test
+dbApi.signInWithPayment = async function (payment) {
   try {
-    const isNew = await paymentIsNew(payment)
+    const isNew = await this.paymentIsNew(payment)
     assert(isNew)
 
-    const isServerSide = await paymentIsServerSide(payment)
+    const isServerSide = await this.paymentIsServerSide(payment)
     assert(isServerSide)
 
-    const isFromOurDomain = await paymentIsFromOurDomain(payment)
+    const isFromOurDomain = await this.paymentIsFromOurDomain(payment)
     assert(isFromOurDomain)
 
     const mbUserId = payment.userId
     const email = `${mbUserId}@moneybutton.com`
-    const { account, emailAccounts } = await signInAsEmail(email)
+    const { account, emailAccounts } = await this.signInAsEmail(email)
 
     return {
       email,
@@ -170,7 +176,7 @@ export async function signInWithPayment (payment) {
   }
 }
 
-export async function getMbAccount (id) {
+dbApi.getMbAccount = async function (id) {
   try {
     const dbMbAccount = await DbMbAccount.findOne(id)
     const mbAccount = dbMbAccount.mbAccount
@@ -185,7 +191,7 @@ export async function getMbAccount (id) {
   }
 }
 
-export async function getAffiliate (affiliateHeartmail = '') {
+dbApi.getAffiliate = async function (affiliateHeartmail = '') {
   try {
     if (affiliateHeartmail) {
       affiliateHeartmail = `${affiliateHeartmail}`
@@ -205,3 +211,5 @@ export async function getAffiliate (affiliateHeartmail = '') {
     return null
   }
 }
+
+export default dbApi

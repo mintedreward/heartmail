@@ -1,6 +1,6 @@
 import { getClient, useKeyspace } from './connect.mjs'
 import DbMbAccount from './models/db-mb-account.mjs'
-import * as dbApi from './db-api/db-api.mjs'
+import dbApi from './db-api/db-api.mjs'
 const client = getClient()
 
 ;(async function () {

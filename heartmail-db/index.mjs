@@ -1,4 +1,4 @@
-import * as dbApi from './db-api/db-api.mjs'
+import dbApi from './db-api/db-api.mjs'
 
 export {
   dbApi
