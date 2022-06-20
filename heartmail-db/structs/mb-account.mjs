@@ -84,8 +84,9 @@ export default class MbAccount extends Struct {
   }
 
   toPublic () {
-    this.privKey = null
-    return this
+    const mbAccount = this.clone()
+    mbAccount.privKey = null
+    return mbAccount
   }
 
   delayAccess () {

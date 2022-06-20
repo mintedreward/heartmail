@@ -1,6 +1,8 @@
 /* global describe,it */
 import dbApi from '../../db-api/db-api.mjs'
 import DbMbAccount from '../../models/db-mb-account.mjs'
+import DbAccount from '../../models/db-account.mjs'
+import DbEmailAccount from '../../models/db-email-account.mjs'
 import { Bn, Random } from 'heartmail-lib'
 import should from 'should'
 
@@ -152,20 +154,20 @@ describe('dbApi', () => {
     })
   })
 
-  describe('#paymentIsServerSide', () => {
+  describe('#paymentIsSameOnServer', () => {
     it('should know this payment is the same server-side', async function () {
       this.timeout(5000)
       const payment = JSON.parse(clientPaymentStr)
-      const isServerSide = await dbApi.paymentIsServerSide(payment)
-      isServerSide.should.equal(true)
+      const isSameOnServer = await dbApi.paymentIsSameOnServer(payment)
+      isSameOnServer.should.equal(true)
     })
 
     it('should know this payment is not the same server-side', async function () {
       this.timeout(5000)
       const payment = JSON.parse(clientPaymentStr)
       payment.paymentOutputs[0].amount = '1000'
-      const isServerSide = await dbApi.paymentIsServerSide(payment)
-      isServerSide.should.equal(false)
+      const isSameOnServer = await dbApi.paymentIsSameOnServer(payment)
+      isSameOnServer.should.equal(false)
     })
   })
 
@@ -231,6 +233,66 @@ describe('dbApi', () => {
         mbAccount.mbUserId.should.equal('2')
         mbAccount.mbPaymentId.should.equal(mbPaymentId)
       }
+    })
+  })
+
+  describe('#signInAsEmail', () => {
+    it('should return account, emailAccounts for this email', async () => {
+      const mbUserId = Random.getRandomBuffer(8).toString('hex')
+      const oldSignInDate = new Date()
+      oldSignInDate.setDate(new Date().getDate() - 15)
+      {
+        const dbMbAccount = DbMbAccount.fromRandom()
+        dbMbAccount.mbAccount.fromObject({
+          accessGrantedAt: new Date(),
+          affiliateId: '12345',
+          contactFeeUsd: 1.00,
+          mbEmail: 'name@example.com',
+          mbPaymail: 'name@example.com',
+          mbPaymentId: '1',
+          mbTxid: '00'.repeat(32),
+          mbIdentityKey: null,
+          mbUserId,
+          mbName: 'name',
+          mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+        })
+        const mbAccount = dbMbAccount.mbAccount
+        const dbAccount = DbAccount.fromMbAccount(mbAccount)
+        const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+        dbAccount.account.createdAt = oldSignInDate
+        dbEmailAccount.emailAccount.createdAt = oldSignInDate
+        await dbAccount.insert()
+        await dbEmailAccount.insert()
+      }
+      {
+        const dbMbAccount = DbMbAccount.fromRandom()
+        dbMbAccount.mbAccount.fromObject({
+          accessGrantedAt: new Date(),
+          affiliateId: '12345',
+          contactFeeUsd: 1.00,
+          mbEmail: 'name@example.com',
+          mbPaymail: 'name@example.com',
+          mbPaymentId: '1',
+          mbTxid: '00'.repeat(32),
+          mbIdentityKey: null,
+          mbUserId,
+          mbName: 'name',
+          mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+        })
+        const mbAccount = dbMbAccount.mbAccount
+        const dbAccount = DbAccount.fromMbAccount(mbAccount)
+        const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+        dbAccount.account.createdAt = oldSignInDate
+        dbEmailAccount.emailAccount.createdAt = oldSignInDate
+        await dbAccount.insert()
+        await dbEmailAccount.insert()
+      }
+      const { account, emailAccounts } = await dbApi.signInAsEmail(`${mbUserId}@moneybutton.com`)
+      should.exist(account)
+      account.signedInAt.toJSON().should.not.equal(oldSignInDate.toJSON())
+      emailAccounts.length.should.equal(2)
+      emailAccounts[0].signedInAt.toJSON().should.not.equal(oldSignInDate.toJSON())
+      emailAccounts[1].signedInAt.toJSON().should.not.equal(oldSignInDate.toJSON())
     })
   })
 

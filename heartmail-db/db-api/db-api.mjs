@@ -51,7 +51,7 @@ dbApi.paymentIsNew = async function (payment) {
   }
 }
 
-dbApi.paymentIsServerSide = async function (payment) {
+dbApi.paymentIsSameOnServer = async function (payment) {
   try {
     const clientPayment = payment
     const serverPayment = await this.mbClient.getPaymentById(payment.id)
@@ -131,10 +131,10 @@ dbApi.createAccountWithPayment = async function (contactFeeUsd, affiliate, payme
   }
 }
 
-// TODO: Test
 dbApi.signInAsEmail = async function (email = '') {
   try {
     const dbEmailAccounts = await DbEmailAccount.findEmailAccounts(email)
+    assert(dbEmailAccounts.length)
     const dbEmailAccount = dbEmailAccounts[0]
     const dbAccount = await DbAccount.findOne(dbEmailAccount.emailAccount.accountId)
     const signedInAt = new Date()
@@ -159,8 +159,8 @@ dbApi.signInWithPayment = async function (payment) {
     const isNew = await this.paymentIsNew(payment)
     assert(isNew)
 
-    const isServerSide = await this.paymentIsServerSide(payment)
-    assert(isServerSide)
+    const isSameOnServer = await this.paymentIsSameOnServer(payment)
+    assert(isSameOnServer)
 
     const isFromOurDomain = await this.paymentIsFromOurDomain(payment)
     assert(isFromOurDomain)

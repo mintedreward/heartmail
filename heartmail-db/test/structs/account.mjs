@@ -20,10 +20,10 @@ describe('Account', function () {
 
   describe('#toPublic', () => {
     it('should delete private key', () => {
-      const account = Account.fromRandom()
+      let account = Account.fromRandom()
       account.isValid().should.equal(true)
       ;(account.privKey instanceof PrivKey).should.equal(true)
-      account.toPublic()
+      account = account.toPublic()
       ;(account.privKey === null).should.equal(true)
     })
   })

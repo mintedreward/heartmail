@@ -30,10 +30,10 @@ describe('MbAccount', function () {
 
   describe('#toPublic', () => {
     it('should delete private key', () => {
-      const account = MbAccount.fromRandom()
+      let account = MbAccount.fromRandom()
       account.isValid().should.equal(true)
       ;(account.privKey instanceof PrivKey).should.equal(true)
-      account.toPublic()
+      account = account.toPublic()
       ;(account.privKey === null).should.equal(true)
     })
   })

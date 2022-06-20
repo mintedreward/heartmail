@@ -131,7 +131,8 @@ export default class Account extends Struct {
   }
 
   toPublic () {
-    this.privKey = null
-    return this
+    const mbAccount = this.clone()
+    mbAccount.privKey = null
+    return mbAccount
   }
 }
