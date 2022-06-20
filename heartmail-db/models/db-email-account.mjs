@@ -60,6 +60,24 @@ export default class DbEmailAccount extends Struct {
     }
   }
 
+  static async findEmailAccounts (email = '') {
+    const query = `select * from ${keyspace}.email_accounts where email = ?`
+    const values = [email]
+
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    let dbEmailAccounts = []
+
+    for (const row of res) {
+      const dbEmailAccount = new this().fromCassandraObject(row)
+      dbEmailAccounts.push(dbEmailAccount)
+    }
+
+    dbEmailAccounts = dbEmailAccounts.sort((a, b) => b.emailAccount.signedInAt.getTime() - a.emailAccount.signedInAt.getTime())
+
+    return dbEmailAccounts
+  }
+
   static async findAll () {
     const query = `select * from ${keyspace}.email_accounts`
     const values = []

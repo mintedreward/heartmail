@@ -67,6 +67,39 @@ describe('DbEmailAccount', () => {
     })
   })
 
+  describe('#findEmailAccounts', () => {
+    it('should get and sort email accounts', async () => {
+      const email = 'abcdefg1234567@moneybutton.com'
+      {
+        const dbEmailAccount = DbEmailAccount.fromRandom()
+        dbEmailAccount.emailAccount.fromObject({
+          email,
+          accountId: '123456',
+          accountName: 'Name',
+          accountHeartmail: '123456@heartmail.com',
+          accountBio: '',
+          signedInAt: new Date()
+        })
+        await dbEmailAccount.insert()
+      }
+      {
+        const dbEmailAccount = DbEmailAccount.fromRandom()
+        dbEmailAccount.emailAccount.fromObject({
+          email,
+          accountId: '123450',
+          accountName: 'Name',
+          accountHeartmail: '123450@heartmail.com',
+          accountBio: '',
+          signedInAt: new Date().setDate(new Date().getDate() + 1)
+        })
+        await dbEmailAccount.insert()
+      }
+      const dbEmailAccounts = await DbEmailAccount.findEmailAccounts(email)
+      dbEmailAccounts.length.should.equal(2)
+      dbEmailAccounts[0].emailAccount.signedInAt.getTime().should.be.greaterThan(dbEmailAccounts[1].emailAccount.signedInAt.getTime())
+    })
+  })
+
   describe('@findOne', () => {
     it('should insert and find one back again', async () => {
       const dbEmailAccount = DbEmailAccount.fromRandom()

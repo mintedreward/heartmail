@@ -4,7 +4,15 @@ import DbMbAccount from '../models/db-mb-account.mjs'
 import DbAccount from '../models/db-account.mjs'
 import DbMbPayment from '../models/db-mb-payment.mjs'
 import DbEmailAccount from '../models/db-email-account.mjs'
+import { MoneyButtonClient } from '@moneybutton/api-client'
 import fetch from 'isomorphic-fetch'
+
+const mbClient = new MoneyButtonClient(
+  process.env.NEXT_PUBLIC_MB_CLIENT_IDENTIFIER,
+  process.env.MB_OAUTH_CLIENT_SECRET
+).logInAsApp()
+// TODO: The previous method is async. Should it go in an async method
+// somewhere, or is it safe to be synchronous at the top level?
 
 export async function fetchMbUserNameAvatar (paymail) {
   try {
@@ -38,6 +46,25 @@ export async function paymentIsNew (payment) {
   } catch (err) {
     return false
   }
+}
+
+export async function paymentIsServerSide (payment) {
+  try {
+    const clientPayment = payment
+    const serverPayment = await mbClient.getPaymentById(payment.id)
+    assert(clientPayment.id = serverPayment.id)
+    assert(clientPayment.userId = serverPayment.userId)
+    assert(clientPayment.referrerUrl = serverPayment.referrerUrl)
+    assert(JSON.stringify(clientPayment.paymentOutputs) === JSON.stringify(serverPayment.paymentOutputs))
+    return true
+  } catch (err) {
+    console.log(err)
+    return false
+  }
+}
+
+export async function paymentIsFromOurDomain (payment) {
+  return payment.referrerUrl.startsWith(process.env.NEXT_PUBLIC_URL)
 }
 
 export async function paymentIsNewAndValid (affiliate, payment) {
@@ -96,6 +123,53 @@ export async function createAccountWithPayment (contactFeeUsd, affiliate, paymen
   }
 }
 
+export async function signInAsEmail (email = '') {
+  try {
+    const dbEmailAccounts = await DbEmailAccount.findEmailAccounts(email)
+    const dbEmailAccount = dbEmailAccounts[0]
+    const dbAccount = await DbAccount.findOne(dbEmailAccount.emailAccount.accountId)
+    const signedInAt = new Date()
+    dbEmailAccount.emailAccount.signedInAt = signedInAt
+    dbAccount.account.signedInAt = signedInAt
+    await dbEmailAccount.insert()
+    await dbAccount.insert()
+
+    const account = dbAccount.account.clone().toPublic()
+    const emailAccounts = dbEmailAccounts.map(dbEmailAccount => dbEmailAccount.emailAccount)
+
+    return { account, emailAccounts }
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+
+export async function signInWithPayment (payment) {
+  try {
+    const isNew = await paymentIsNew(payment)
+    assert(isNew)
+
+    const isServerSide = await paymentIsServerSide(payment)
+    assert(isServerSide)
+
+    const isFromOurDomain = await paymentIsFromOurDomain(payment)
+    assert(isFromOurDomain)
+
+    const mbUserId = payment.userId
+    const email = `${mbUserId}@moneybutton.com`
+    const { account, emailAccounts } = await signInAsEmail(email)
+
+    return {
+      email,
+      account,
+      emailAccounts
+    }
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+
 export async function getMbAccount (id) {
   try {
     const dbMbAccount = await DbMbAccount.findOne(id)
@@ -106,6 +180,7 @@ export async function getMbAccount (id) {
       return null
     }
   } catch (err) {
+    // console.log(err)
     return null
   }
 }

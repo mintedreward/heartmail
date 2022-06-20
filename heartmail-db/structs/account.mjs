@@ -132,5 +132,6 @@ export default class Account extends Struct {
 
   toPublic () {
     this.privKey = null
+    return this
   }
 }
