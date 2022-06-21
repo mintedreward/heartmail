@@ -8,15 +8,13 @@ async function handler (req, res) {
 
     const { payment } = req.body
 
-    const { email, account, emailAccounts } = await dbApi.signInWithPayment(payment)
+    const { email, account } = await dbApi.signInWithPayment(payment)
 
     assert(email)
     assert(account)
-    assert(emailAccounts)
 
     req.session.email = email
-    req.session.account = account
-    req.session.emailAccounts = emailAccounts
+    req.session.accountId = account.id
 
     await req.session.save()
 

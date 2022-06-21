@@ -131,12 +131,18 @@ dbApi.createAccountWithPayment = async function (contactFeeUsd, affiliate, payme
   }
 }
 
+dbApi.getDbAccountsFromEmail = async function (email = '') {
+  const dbEmailAccounts = await DbEmailAccount.findEmailAccounts(email)
+  assert(dbEmailAccounts.length)
+  const dbEmailAccount = dbEmailAccounts[0]
+  const dbAccount = await DbAccount.findOne(dbEmailAccount.emailAccount.accountId)
+  return { dbEmailAccounts, dbAccount }
+}
+
 dbApi.signInAsEmail = async function (email = '') {
   try {
-    const dbEmailAccounts = await DbEmailAccount.findEmailAccounts(email)
-    assert(dbEmailAccounts.length)
+    const { dbEmailAccounts, dbAccount } = await dbApi.getDbAccountsFromEmail(email)
     const dbEmailAccount = dbEmailAccounts[0]
-    const dbAccount = await DbAccount.findOne(dbEmailAccount.emailAccount.accountId)
     const signedInAt = new Date()
     dbEmailAccount.emailAccount.signedInAt = signedInAt
     dbAccount.account.signedInAt = signedInAt

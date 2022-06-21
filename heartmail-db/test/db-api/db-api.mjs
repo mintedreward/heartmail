@@ -236,6 +236,68 @@ describe('dbApi', () => {
     })
   })
 
+  describe('#getDbAccountsFromEmail', () => {
+    it('should return dbAccount, dbEmailAcounts for this email', async () => {
+      const mbUserId = Random.getRandomBuffer(8).toString('hex')
+      const oldSignInDate = new Date()
+      oldSignInDate.setDate(new Date().getDate() - 15)
+      {
+        const dbMbAccount = DbMbAccount.fromRandom()
+        dbMbAccount.mbAccount.fromObject({
+          accessGrantedAt: new Date(),
+          affiliateId: '12345',
+          contactFeeUsd: 1.00,
+          mbEmail: 'name@example.com',
+          mbPaymail: 'name@example.com',
+          mbPaymentId: '1',
+          mbTxid: '00'.repeat(32),
+          mbIdentityKey: null,
+          mbUserId,
+          mbName: 'name',
+          mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+        })
+        const mbAccount = dbMbAccount.mbAccount
+        const dbAccount = DbAccount.fromMbAccount(mbAccount)
+        const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+        dbAccount.account.signedInAt = oldSignInDate
+        dbEmailAccount.emailAccount.signedInAt = oldSignInDate
+        await dbAccount.insert()
+        await dbEmailAccount.insert()
+      }
+      {
+        const dbMbAccount = DbMbAccount.fromRandom()
+        dbMbAccount.mbAccount.fromObject({
+          accessGrantedAt: new Date(),
+          affiliateId: '12345',
+          contactFeeUsd: 1.00,
+          mbEmail: 'name@example.com',
+          mbPaymail: 'name@example.com',
+          mbPaymentId: '1',
+          mbTxid: '00'.repeat(32),
+          mbIdentityKey: null,
+          mbUserId,
+          mbName: 'name',
+          mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+        })
+        const mbAccount = dbMbAccount.mbAccount
+        const dbAccount = DbAccount.fromMbAccount(mbAccount)
+        const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+        dbAccount.account.signedInAt = oldSignInDate
+        dbEmailAccount.emailAccount.signedInAt = oldSignInDate
+        await dbAccount.insert()
+        await dbEmailAccount.insert()
+      }
+      const { dbAccount, dbEmailAccounts } = await dbApi.getDbAccountsFromEmail(`${mbUserId}@moneybutton.com`)
+      const account = dbAccount.account
+      const emailAccounts = dbEmailAccounts.map(dbEmailAccount => dbEmailAccount.emailAccount)
+      should.exist(account)
+      account.signedInAt.toJSON().should.equal(oldSignInDate.toJSON())
+      emailAccounts.length.should.equal(2)
+      emailAccounts[0].signedInAt.toJSON().should.equal(oldSignInDate.toJSON())
+      emailAccounts[1].signedInAt.toJSON().should.equal(oldSignInDate.toJSON())
+    })
+  })
+
   describe('#signInAsEmail', () => {
     it('should return account, emailAccounts for this email', async () => {
       const mbUserId = Random.getRandomBuffer(8).toString('hex')
