@@ -3,11 +3,9 @@ import PageTitle from '../../components/PageTitle'
 import AffiliateCard from '../../components/AffiliateCard'
 import TextField from '@mui/material/TextField'
 import { dbApi } from 'heartmail-db'
-import NotFoundPage from '../404'
 
 export async function getServerSideProps (context) {
   const id = context.query.id
-  const res = context.res
   const mbAccount = await dbApi.getMbAccount(id)
 
   if (mbAccount) {
@@ -17,22 +15,13 @@ export async function getServerSideProps (context) {
       }
     }
   } else {
-    res.statusCode = 404
     return {
-      props: {
-        mbAccount: null
-      }
+      notFound: true
     }
   }
 }
 
 export default function AccessPage (props) {
-  if (!props.mbAccount) {
-    return (
-      <NotFoundPage />
-    )
-  }
-
   const receiptId = props.mbAccount.id
   const accessGrantedAt = new Date(props.mbAccount.accessGrantedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
   const userEmail = props.mbAccount.mbEmail

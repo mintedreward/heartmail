@@ -1,4 +1,3 @@
-import { dbApi } from 'heartmail-db'
 import assert from 'node:assert'
 import { withSessionApiRoute } from '../../lib/session.js'
 

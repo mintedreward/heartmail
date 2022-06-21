@@ -15,7 +15,7 @@ export default function SignOut () {
     })
     const val = await res.json()
     if (val) {
-      router.push(`/`)
+      router.push('/')
     }
   }
 
