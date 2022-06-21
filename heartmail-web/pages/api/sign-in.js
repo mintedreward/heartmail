@@ -1,17 +1,6 @@
 import { dbApi } from 'heartmail-db'
-import { withIronSessionApiRoute } from 'iron-session/next'
 import assert from 'node:assert'
-
-function withSessionApiRoute (handler) {
-  return withIronSessionApiRoute(handler, {
-    cookieName: 'heartmail_authentication',
-    password: process.env.IRON_SESSION_PASSWORD,
-    ttl: 0,
-    cookieOptions: {
-      secure: process.env.NODE_ENV === 'production'
-    }
-  })
-}
+import { withSessionApiRoute } from '../../lib/session.js'
 
 async function handler (req, res) {
   try {

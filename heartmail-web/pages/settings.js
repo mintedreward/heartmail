@@ -8,6 +8,7 @@ import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import Avatar from '@mui/material/Avatar'
+import SignOut from '../components/SignOut'
 
 export default function SettingsPage () {
   return (
@@ -28,7 +29,7 @@ export default function SettingsPage () {
       <Box sx={{ textAlign: 'right', marginTop: '16px', marginBottom: '16px' }}>
         <Button disabled variant='text' ml='16px'>Delete account</Button>
         <Box sx={{ display: 'inline-block', width: '8px' }} />
-        <Button variant='contained'>Sign out</Button>
+        <SignOut />
       </Box>
     </Layout>
   )
