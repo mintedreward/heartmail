@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography'
 
 export default function PageTitle (props) {
   return (
-    <Typography variant='h2' component='h1' mt='48px' mb='48px' sx={{ textAlign: 'center' }}>
+    <Typography variant='h2' component='h1' mt='48px' mb='48px' sx={{ textAlign: 'center', fontWeight: '400' }}>
       {props.children}
     </Typography>
   )
