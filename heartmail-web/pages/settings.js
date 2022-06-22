@@ -40,10 +40,10 @@ export default function SettingsPage (props) {
   return (
     <Layout title='Settings' account={null}>
       <PageTitle>Settings</PageTitle>
-      <ContactCard avatar='/casey.jpg' name={account.name} heartmail={account.heartmail} bio={account.bio} />
+      <ContactCard avatar='/anonymous-avatar-288.jpg' name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={2} />
       <Card variant='outlined' sx={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', marginTop: '8px', marginBottom: '8px', borderColor: 'action.disabled' }}>
-        <Avatar src='/casey.jpg' sx={{ width: 96, height: 96 }} />
+        <Avatar src='/anonymous-avatar-288.jpg' sx={{ width: 96, height: 96 }} />
       </Card>
       <TextField id='name' label='Name' defaultValue={account.name} variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
       <TextField id='bio' label='Bio' defaultValue={account.bio} variant='outlined' sx={{ width: '100%', marginTop: '8px', marginBottom: '8px' }} />
