@@ -11,19 +11,25 @@ import Switch from '@mui/material/Switch'
 import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import { withSessionSsr } from '../lib/session'
+import dbApi from 'heartmail-db/db-api/db-api'
 
 export const getServerSideProps = withSessionSsr(
-  function getServerSideProps ({ req }) {
+  async function getServerSideProps ({ req }) {
+    const accountId = req.session?.accountId
     const email = req.session?.email
 
-    if (!email) {
+    if (!accountId || !email) {
       return {
         notFound: true
       }
     }
 
+    const account = await dbApi.getAccount(accountId)
+    const accountJSON = account.toJSON()
+
     return {
       props: {
+        account: accountJSON,
         email
       }
     }
@@ -49,11 +55,12 @@ function AddressCard (props) {
   )
 }
 
-export default function AddressesPage () {
+export default function AddressesPage (props) {
+  const { account } = props
   return (
     <Layout title='Addresses' account={null}>
       <PageTitle>Addresses</PageTitle>
-      <ContactCard avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
+      <ContactCard name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={1} />
       <p>
         You can register any [alias]@moneybutton.com you own for free for a limited time.
