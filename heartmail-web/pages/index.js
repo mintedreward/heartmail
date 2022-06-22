@@ -51,11 +51,11 @@ export default function HomePage (props) {
 
   return (
     <Layout showAccount={false}>
-      <Typography variant='h2' component='h2' mt='48px' mb='48px' sx={{ textAlign: 'center', fontWeight: '400' }}>
+      <Typography variant='h2' component='h2' mt='48px' mb='48px' sx={{ textAlign: 'center', fontWeight: '300' }}>
         Get paid
       </Typography>
       <CurrencyInput onChange={handleChange} />
-      <Typography variant='h2' component='h2' mb='48px' sx={{ textAlign: 'center', fontWeight: '400' }}>
+      <Typography variant='h2' component='h2' mb='48px' sx={{ textAlign: 'center', fontWeight: '300' }}>
         per email
       </Typography>
       <p>
