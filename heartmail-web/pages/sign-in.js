@@ -18,7 +18,7 @@ export default function SignInPage () {
     const status = await res.status
     // console.log(status)
     if (status === 200) {
-      router.push('/settings')
+      router.push('/accounts')
     }
   }
 
