@@ -3,7 +3,7 @@ import PageTitle from '../components/PageTitle'
 
 export default function PrivacyPage () {
   return (
-    <Layout title='Privacy Policy' account={null}>
+    <Layout title='Privacy Policy' showAccount={false}>
       <PageTitle>Privacy Policy</PageTitle>
       <p>
         We do not sell your data to third parties without your permission.

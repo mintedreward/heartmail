@@ -31,7 +31,7 @@ export default function ContactCardSelector (props) {
       <Box sx={{ padding: '16px' }}>
         <Avatar src={avatar} sx={{ float: 'left', width: 96, height: 96, marginRight: '16px', marginBottom: '16px' }} />
         <b>{name}</b><br />
-        <span style={{ maxWidth: 'calc(100% - 96px - 16px)', display: 'inline-block', whiteSpace: 'no-wrap', overflow: 'hidden', textOverflow: 'ellipsis' }}><Link href={`mailto:${heartmail}`}>{heartmail}</Link></span>
+        <span style={{ maxWidth: 'calc(100% - 96px - 16px)', display: 'inline-block', whiteSpace: 'no-wrap', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: '-6px' }}><Link href={`mailto:${heartmail}`}>{heartmail}</Link></span><br />
         <Typography variant='body1' component='span' sx={{ color: 'text.secondary' }}>{bio}</Typography>
       </Box>
       <Divider sx={{ clear: 'both' }} />

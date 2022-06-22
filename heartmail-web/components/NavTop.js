@@ -5,8 +5,7 @@ import Image from 'next/image'
 import Link from '../components/Link'
 
 export default function NavTop (props) {
-  // const showAccount = props.account !== undefined
-  const showAccount = false
+  const showAccount = !(props.showAccount === false)
   return (
     <Box>
       <AppBar position='fixed'>
