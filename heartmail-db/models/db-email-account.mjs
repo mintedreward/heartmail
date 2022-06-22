@@ -105,7 +105,7 @@ export default class DbEmailAccount extends Struct {
     if (row) {
       this.fromCassandraObject(row)
     } else {
-      this.account = null
+      this.emailAccount = null
     }
 
     return this
@@ -113,6 +113,30 @@ export default class DbEmailAccount extends Struct {
 
   static async findOne (email) {
     return new this(new EmailAccount(email)).findOne()
+  }
+
+  async findOneWithAccountId () {
+    const query = `select * from ${keyspace}.email_accounts where email = ? and account_id = ?`
+    const values = [this.emailAccount.email, this.emailAccount.accountId]
+
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    const row = res.first()
+
+    if (row) {
+      this.fromCassandraObject(row)
+    } else {
+      this.emailAccount = null
+    }
+
+    return this
+  }
+
+  static async findOneWithAccountId (email, accountId) {
+    return new this(new EmailAccount().fromObject({
+      email,
+      accountId
+    })).findOneWithAccountId()
   }
 
   async insert () {

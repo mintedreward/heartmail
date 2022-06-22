@@ -7,13 +7,25 @@ import Divider from '@mui/material/Divider'
 import Switch from '@mui/material/Switch'
 import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
+import * as React from 'react'
 
 export default function ContactCardSelector (props) {
+  const [signedIn, setSignedIn] = React.useState(props.signedIn)
+
   const name = props.name
   const heartmail = props.heartmail
   const avatar = props.avatar
   const bio = props.bio
-  const signedIn = props.signedIn
+  const onSignIn = props.onSignIn
+  const id = props.id
+
+  const handleChange = function () {
+    setSignedIn(true)
+    if (onSignIn) {
+      onSignIn(id)
+    }
+  }
+
   return (
     <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
       <Box sx={{ padding: '16px' }}>
@@ -26,7 +38,7 @@ export default function ContactCardSelector (props) {
       <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
         <Box sx={{ marginLeft: 'auto' }}>
           <FormGroup>
-            <FormControlLabel control={<Switch checked={signedIn} />} label='Signed in' />
+            <FormControlLabel control={<Switch checked={signedIn} onChange={handleChange} />} label='Signed in' />
           </FormGroup>
         </Box>
       </Box>

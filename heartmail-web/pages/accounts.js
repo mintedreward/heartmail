@@ -6,6 +6,7 @@ import SelfTabs from '../components/SelfTabs'
 import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
 import { withSessionSsr } from '../lib/session'
 import dbApi from 'heartmail-db/db-api/db-api'
+import { useRouter } from 'next/router'
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps ({ req }) {
@@ -32,13 +33,28 @@ export const getServerSideProps = withSessionSsr(
 )
 
 export default function AccountsPage (props) {
+  const router = useRouter()
   const { account, emailAccounts } = props
+
+  const handleSignIn = async (id) => {
+    await fetch('/api/switch-account', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ accountId: id })
+    })
+    router.reload(window.location.pathname)
+  }
+
   const contactCardSelectors = emailAccounts.map(emailAccount => {
     const signedIn = emailAccount.accountId === account.id
     return (
-      <ContactCardSelector signedIn={signedIn} key={emailAccount.accountId} avatar='/anonymous-avatar-288.jpg' name={emailAccount.accountName} heartmail={emailAccount.accountHeartmail} bio={emailAccount.accountBio} />
+      <ContactCardSelector signedIn={signedIn} onSignIn={handleSignIn} key={emailAccount.accountId} avatar='/anonymous-avatar-288.jpg' name={emailAccount.accountName} heartmail={emailAccount.accountHeartmail} bio={emailAccount.accountBio} id={emailAccount.accountId} />
     )
   })
+
   return (
     <Layout title='Accounts' account={null}>
       <PageTitle>Accounts</PageTitle>

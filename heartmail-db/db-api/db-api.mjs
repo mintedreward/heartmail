@@ -201,6 +201,30 @@ dbApi.signInWithPayment = async function (payment) {
   }
 }
 
+dbApi.switchAccount = async function (email, accountId) {
+  try {
+    const dbEmailAccount = await DbEmailAccount.findOneWithAccountId(email, accountId)
+    assert(dbEmailAccount.emailAccount)
+
+    const dbAccount = await DbAccount.findOne(dbEmailAccount.emailAccount.accountId)
+    assert(dbAccount.account)
+
+    const signedInAt = new Date()
+    dbEmailAccount.emailAccount.signedInAt = signedInAt
+    dbAccount.account.signedInAt = signedInAt
+    await dbEmailAccount.insert()
+    await dbAccount.insert()
+
+    return {
+      emailAccount: dbEmailAccount.emailAccount,
+      account: dbAccount.account
+    }
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
+
 dbApi.getAccount = async function (id) {
   try {
     const dbAccount = await DbAccount.findOne(id)

@@ -490,6 +490,70 @@ describe('dbApi', () => {
     })
   })
 
+  describe('#switchAccount', () => {
+    it('should update signedInDate for emailAccount, account', async () => {
+      const mbUserId = Random.getRandomBuffer(8).toString('hex')
+      const oldSignInDate = new Date()
+      oldSignInDate.setDate(new Date().getDate() - 15)
+      let accountId
+      let emailAccount2
+      {
+        const dbMbAccount = DbMbAccount.fromRandom()
+        accountId = dbMbAccount.mbAccount.id
+        dbMbAccount.mbAccount.fromObject({
+          accessGrantedAt: new Date(),
+          affiliateId: '12345',
+          contactFeeUsd: 1.00,
+          mbEmail: 'name@example.com',
+          mbPaymail: 'name@example.com',
+          mbPaymentId: '1',
+          mbTxid: '00'.repeat(32),
+          mbIdentityKey: null,
+          mbUserId,
+          mbName: 'name',
+          mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+        })
+        const mbAccount = dbMbAccount.mbAccount
+        const dbAccount = DbAccount.fromMbAccount(mbAccount)
+        const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+        dbAccount.account.signedInAt = oldSignInDate
+        dbEmailAccount.emailAccount.signedInAt = oldSignInDate
+        await dbAccount.insert()
+        await dbEmailAccount.insert()
+      }
+      {
+        const dbMbAccount = DbMbAccount.fromRandom()
+        dbMbAccount.mbAccount.fromObject({
+          accessGrantedAt: new Date(),
+          affiliateId: '12345',
+          contactFeeUsd: 1.00,
+          mbEmail: 'name@example.com',
+          mbPaymail: 'name@example.com',
+          mbPaymentId: '1',
+          mbTxid: '00'.repeat(32),
+          mbIdentityKey: null,
+          mbUserId,
+          mbName: 'name',
+          mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+        })
+        const mbAccount = dbMbAccount.mbAccount
+        const dbAccount = DbAccount.fromMbAccount(mbAccount)
+        const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+        dbAccount.account.signedInAt = oldSignInDate
+        dbEmailAccount.emailAccount.signedInAt = oldSignInDate
+        await dbAccount.insert()
+        await dbEmailAccount.insert()
+        emailAccount2 = dbEmailAccount.emailAccount
+      }
+      const { account, emailAccount } = await dbApi.switchAccount(`${mbUserId}@moneybutton.com`, accountId)
+      should.exist(account)
+      should.exist(emailAccount)
+      account.signedInAt.toJSON().should.not.equal(oldSignInDate.toJSON())
+      emailAccount.signedInAt.toJSON().should.not.equal(oldSignInDate.toJSON())
+      emailAccount2.signedInAt.toJSON().should.equal(oldSignInDate.toJSON())
+    })
+  })
+
   describe('#getAccount', () => {
     it('should get an account', async () => {
       const dbAccount = DbAccount.fromRandom()
