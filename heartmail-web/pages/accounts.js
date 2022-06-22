@@ -18,28 +18,31 @@ export const getServerSideProps = withSessionSsr(
       }
     }
 
-    const account = await dbApi.getAccount(accountId)
+    const { account, emailAccounts } = await dbApi.getAccountsFromEmail(email)
     const accountJSON = account.toJSON()
+    const emailAccountsJSON = emailAccounts.map(emailAccount => emailAccount.toJSON())
 
     return {
       props: {
         account: accountJSON,
-        email
+        emailAccounts: emailAccountsJSON
       }
     }
   }
 )
 
 export default function AccountsPage (props) {
-  const { account } = props
+  const { account, emailAccounts } = props
+  const contactCardSelectors = emailAccounts.map(emailAccount => (
+    <ContactCardSelector key={emailAccount.accountId} avatar='/anonymous-avatar-288.jpg' name={emailAccount.accountName} heartmail={emailAccount.accountHeartmail} bio={emailAccount.accountBio} />
+  ))
   return (
     <Layout title='Accounts' account={null}>
       <PageTitle>Accounts</PageTitle>
       <ContactCard name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={0} />
       <MoneyButtonNewAccount />
-      <ContactCardSelector avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
-      <ContactCardSelector avatar='/casey.jpg' name='Casey N. Hamilton' heartmail='casey@heartmail.com' bio='Cofounder & COO of HeartMail' />
+      {contactCardSelectors}
     </Layout>
   )
 }

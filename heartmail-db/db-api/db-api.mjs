@@ -140,6 +140,21 @@ dbApi.getDbAccountsFromEmail = async function (email = '') {
   return { dbEmailAccounts, dbAccount }
 }
 
+dbApi.getAccountsFromEmail = async function (email = '') {
+  try {
+    const { dbEmailAccounts, dbAccount } = await this.getDbAccountsFromEmail(email)
+    const emailAccounts = dbEmailAccounts.map(dbEmailAccount => dbEmailAccount.emailAccount)
+    const account = dbAccount.account
+    return {
+      account,
+      emailAccounts
+    }
+  } catch (err) {
+    // console.log(err)
+    return null
+  }
+}
+
 dbApi.signInAsEmail = async function (email = '') {
   try {
     const { dbEmailAccounts, dbAccount } = await dbApi.getDbAccountsFromEmail(email)
