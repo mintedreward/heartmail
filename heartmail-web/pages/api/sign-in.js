@@ -20,7 +20,7 @@ async function handler (req, res) {
 
     res.status(200).json(email)
   } catch (err) {
-    res.status(400).json({ err: err.message })
+    res.status(400).json('Error')
   }
 }
 

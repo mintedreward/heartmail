@@ -15,9 +15,9 @@ export default function SignInPage () {
       },
       body: JSON.stringify({ payment })
     })
-    const email = await res.json()
-    console.log(email)
-    if (email) {
+    const status = await res.status
+    // console.log(status)
+    if (status === 200) {
       router.push('/settings')
     }
   }
