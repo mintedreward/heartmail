@@ -13,6 +13,7 @@ export default function ContactCardSelector (props) {
   const heartmail = props.heartmail
   const avatar = props.avatar
   const bio = props.bio
+  const signedIn = props.signedIn
   return (
     <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
       <Box sx={{ padding: '16px' }}>
@@ -25,7 +26,7 @@ export default function ContactCardSelector (props) {
       <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
         <Box sx={{ marginLeft: 'auto' }}>
           <FormGroup>
-            <FormControlLabel control={<Switch />} label='Signed in' />
+            <FormControlLabel control={<Switch checked={signedIn} />} label='Signed in' />
           </FormGroup>
         </Box>
       </Box>

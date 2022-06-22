@@ -33,9 +33,12 @@ export const getServerSideProps = withSessionSsr(
 
 export default function AccountsPage (props) {
   const { account, emailAccounts } = props
-  const contactCardSelectors = emailAccounts.map(emailAccount => (
-    <ContactCardSelector key={emailAccount.accountId} avatar='/anonymous-avatar-288.jpg' name={emailAccount.accountName} heartmail={emailAccount.accountHeartmail} bio={emailAccount.accountBio} />
-  ))
+  const contactCardSelectors = emailAccounts.map(emailAccount => {
+    const signedIn = emailAccount.accountId === account.id
+    return (
+      <ContactCardSelector signedIn={signedIn} key={emailAccount.accountId} avatar='/anonymous-avatar-288.jpg' name={emailAccount.accountName} heartmail={emailAccount.accountHeartmail} bio={emailAccount.accountBio} />
+    )
+  })
   return (
     <Layout title='Accounts' account={null}>
       <PageTitle>Accounts</PageTitle>
