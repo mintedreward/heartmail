@@ -9,6 +9,25 @@ import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import Avatar from '@mui/material/Avatar'
 import SignOut from '../components/SignOut'
+import { withSessionSsr } from '../lib/session'
+
+export const getServerSideProps = withSessionSsr(
+  function getServerSideProps ({ req }) {
+    const email = req.session?.email
+
+    if (!email) {
+      return {
+        notFound: true
+      }
+    }
+
+    return {
+      props: {
+        email
+      }
+    }
+  }
+)
 
 export default function SettingsPage () {
   return (

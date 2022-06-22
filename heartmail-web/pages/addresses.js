@@ -10,6 +10,25 @@ import Divider from '@mui/material/Divider'
 import Switch from '@mui/material/Switch'
 import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
+import { withSessionSsr } from '../lib/session'
+
+export const getServerSideProps = withSessionSsr(
+  function getServerSideProps ({ req }) {
+    const email = req.session?.email
+
+    if (!email) {
+      return {
+        notFound: true
+      }
+    }
+
+    return {
+      props: {
+        email
+      }
+    }
+  }
+)
 
 function AddressCard (props) {
   const address = props.address || 'name@example.com'

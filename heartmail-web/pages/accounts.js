@@ -4,6 +4,25 @@ import ContactCard from '../components/ContactCard'
 import ContactCardSelector from '../components/ContactCardSelector'
 import SelfTabs from '../components/SelfTabs'
 import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
+import { withSessionSsr } from '../lib/session'
+
+export const getServerSideProps = withSessionSsr(
+  function getServerSideProps ({ req }) {
+    const email = req.session?.email
+
+    if (!email) {
+      return {
+        notFound: true
+      }
+    }
+
+    return {
+      props: {
+        email
+      }
+    }
+  }
+)
 
 export default function AccountsPage () {
   return (
