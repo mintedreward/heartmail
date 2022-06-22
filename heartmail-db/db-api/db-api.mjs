@@ -14,8 +14,9 @@ dbApi.mbClient = new MoneyButtonClient(
   process.env.MB_OAUTH_CLIENT_SECRET
 )
 dbApi.mbClient.logInAsApp()
-// TODO: The previous method is async. Should it go in an async method
-// somewhere, or is it safe to be synchronous at the top level?
+// TODO: The previous method is async. It needs to go inside an async method and
+// needs to have some option to re-try should it fail, because this is necessary
+// for signing in MB users.
 
 dbApi.fetchMbUserNameAvatar = async function (paymail) {
   try {
@@ -178,6 +179,21 @@ dbApi.signInWithPayment = async function (payment) {
       email,
       account,
       emailAccounts
+    }
+  } catch (err) {
+    // console.log(err)
+    return null
+  }
+}
+
+dbApi.getAccount = async function (id) {
+  try {
+    const dbAccount = await DbAccount.findOne(id)
+    const account = dbAccount.account
+    if (account) {
+      return account.toPublic()
+    } else {
+      return null
     }
   } catch (err) {
     // console.log(err)

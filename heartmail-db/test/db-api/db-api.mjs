@@ -430,6 +430,30 @@ describe('dbApi', () => {
     })
   })
 
+  describe('#getAccount', () => {
+    it('should get an account', async () => {
+      const dbAccount = DbAccount.fromRandom()
+      await dbAccount.insert()
+      const account = await dbApi.getAccount(dbAccount.account.id)
+      should.exist(account.id)
+      account.id.should.equal(dbAccount.account.id)
+      ;(account.privKey === null).should.equal(true)
+      ;(dbAccount.account.privKey === null).should.equal(false)
+    })
+  })
+
+  describe('#getMbAccount', () => {
+    it('should get an account', async () => {
+      const dbMbAccount = DbMbAccount.fromRandom()
+      await dbMbAccount.insert()
+      const mbAccount = await dbApi.getMbAccount(dbMbAccount.mbAccount.id)
+      should.exist(mbAccount.id)
+      mbAccount.id.should.equal(dbMbAccount.mbAccount.id)
+      ;(mbAccount.privKey === null).should.equal(true)
+      ;(dbMbAccount.mbAccount.privKey === null).should.equal(false)
+    })
+  })
+
   describe('#getAffiliate', () => {
     it('should get an affiliate that exists', async function () {
       const dbMbAccount = DbMbAccount.create()
