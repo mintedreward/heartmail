@@ -34,3 +34,16 @@ encoding/decoding logic.
 
 A model should never depend on other models. If you are reading/writing multiple
 models simultaneously, then that code belongs in the dbApi, not in a model.
+
+A model is always responsible for maintaining its own data integrity. For
+instance, a model must prevent invalid fields from being inserted into the
+database. A model is never responsible for any model other than itself.
+
+Database API
+------------
+
+The database API (dbApi) is an abstraction over all the models to maintain data
+consistency between models. Models cannot maintain consistency between themseles
+and another model, therefore that responsibility lies in the dbApi. For
+instance, if you delete a row, make sure you also delete all other references to
+the row with that ID. This responsibility lies inside the dbApi.

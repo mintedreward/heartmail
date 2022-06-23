@@ -54,4 +54,38 @@ describe('Account', function () {
       account.isValid().should.equal(true)
     })
   })
+
+  describe('#isValidUpdate', () => {
+    it('should know these are valid updates or not', () => {
+      const account = Account.fromRandom()
+      account.isValidUpdate().should.equal(true)
+      account.name = 'a'.repeat(41)
+      account.isValidUpdate().should.equal(false)
+      account.name = 'a'.repeat(40)
+      account.isValidUpdate().should.equal(true)
+      account.bio = 'a'.repeat(41)
+      account.isValidUpdate().should.equal(false)
+      account.bio = 'a'.repeat(40)
+      account.isValidUpdate().should.equal(true)
+      account.contactFeeUsd = -1.00
+      account.isValidUpdate().should.equal(false)
+      account.contactFeeUsd = 1.00
+      account.isValidUpdate().should.equal(true)
+
+      account.name = 'aaaaa'
+      account.bio = null
+      account.contactFeeUsd = null
+      account.isValidUpdate().should.equal(true)
+
+      account.name = null
+      account.bio = null
+      account.contactFeeUsd = 3.00
+      account.isValidUpdate().should.equal(true)
+
+      account.name = null
+      account.bio = ''
+      account.contactFeeUsd = null
+      account.isValidUpdate().should.equal(true)
+    })
+  })
 })

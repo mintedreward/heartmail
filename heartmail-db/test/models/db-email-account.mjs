@@ -1,6 +1,8 @@
 /* global describe,it */
 import DbEmailAccount from '../../models/db-email-account.mjs'
+import EmailAccount from '../../structs/email-account.mjs'
 import MbAccount from '../../structs/mb-account.mjs'
+import { Random } from 'heartmail-lib'
 import should from 'should'
 
 describe('DbEmailAccount', () => {
@@ -122,6 +124,38 @@ describe('DbEmailAccount', () => {
       emailAccount2.accountName.should.equal(emailAccount.accountName)
       emailAccount2.accountHeartmail.should.equal(emailAccount.accountHeartmail)
       emailAccount2.accountBio.should.equal(emailAccount.accountBio)
+    })
+  })
+
+  describe('@update', () => {
+    it('should insert, update, find one back again', async () => {
+      const accountId = Random.getRandomBuffer(8).toString('hex')
+      const mbUserId = Random.getRandomBuffer(8).toString('hex')
+      const dbEmailAccount = DbEmailAccount.fromRandom()
+      dbEmailAccount.emailAccount.fromObject({
+        email: `${mbUserId}@moneybutton.com`,
+        accountId,
+        accountName: 'Name',
+        accountHeartmail: '12345@heartmail.com',
+        bio: '',
+        contactFeeUsd: 1.00
+      })
+      await dbEmailAccount.insert()
+      const emailAccount1 = dbEmailAccount.emailAccount
+      const emailAccount2 = EmailAccount.fromJSON({
+        email: dbEmailAccount.emailAccount.email,
+        accountId: dbEmailAccount.emailAccount.accountId,
+        accountBio: 'I love HeartMail'
+      })
+      await DbEmailAccount.update(emailAccount2)
+      const dbEmailAccount3 = await DbEmailAccount.findOneWithAccountId(dbEmailAccount.emailAccount.email, dbEmailAccount.emailAccount.accountId)
+      const emailAccount3 = dbEmailAccount3.emailAccount
+      emailAccount3.accountBio.should.equal('I love HeartMail')
+      emailAccount3.accountBio.should.not.equal(emailAccount1.accountBio)
+      emailAccount3.accountBio.should.equal(emailAccount2.accountBio)
+      emailAccount3.accountName.should.equal(emailAccount1.accountName)
+      emailAccount3.accountHeartmail.should.equal(emailAccount1.accountHeartmail)
+      emailAccount3.accountId.should.equal(emailAccount1.accountId)
     })
   })
 })

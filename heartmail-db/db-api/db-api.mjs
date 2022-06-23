@@ -6,6 +6,7 @@ import DbMbPayment from '../models/db-mb-payment.mjs'
 import DbEmailAccount from '../models/db-email-account.mjs'
 import { MoneyButtonClient } from '@moneybutton/api-client'
 import fetch from 'isomorphic-fetch'
+import { EmailAccount } from '../index.mjs'
 
 const dbApi = {}
 
@@ -220,7 +221,28 @@ dbApi.switchAccount = async function (email, accountId) {
       account: dbAccount.account
     }
   } catch (err) {
-    console.log(err)
+    // console.log(err)
+    return null
+  }
+}
+
+dbApi.updateAccountProfileSettings = async function (email, account) {
+  try {
+    const dbAccount = await DbAccount.update(account)
+    const emailAccount = EmailAccount.fromObject({
+      email,
+      createdAt: null,
+      updatedAt: null,
+      signedInAt: null,
+      accountId: account.id,
+      accountName: account.name,
+      accountHeartmail: account.heartmail,
+      accountBio: account.bio
+    })
+    await DbEmailAccount.update(emailAccount)
+    return dbAccount.account
+  } catch (err) {
+    // console.log(err)
     return null
   }
 }

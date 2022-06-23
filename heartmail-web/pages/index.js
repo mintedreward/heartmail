@@ -54,7 +54,7 @@ export default function HomePage (props) {
       <Typography variant='h2' component='h2' mt='48px' mb='48px' sx={{ textAlign: 'center', fontWeight: '300' }}>
         Get paid
       </Typography>
-      <CurrencyInput onChange={handleChange} />
+      <CurrencyInput onChange={handleChange} sx={{ width: '100%', marginBottom: '48px', '& .MuiOutlinedInput-input': { fontSize: 60, textAlign: 'center', fontWeight: '300' } }} />
       <Typography variant='h2' component='h2' mb='48px' sx={{ textAlign: 'center', fontWeight: '300' }}>
         per email
       </Typography>

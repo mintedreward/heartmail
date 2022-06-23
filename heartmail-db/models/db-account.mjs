@@ -131,4 +131,29 @@ export default class DbMbAccount extends Struct {
 
     return res
   }
+
+  async update () {
+    // update all non-nullish values
+
+    if (!this.account.isValidUpdate()) {
+      throw new Error('Invalid update')
+    }
+
+    const obj = this.toCassandraObject()
+    const id = obj.id
+    delete obj.id
+    const keys = Object.keys(obj).filter(key => obj[key] != null)
+    const values = keys.map(key => obj[key])
+    values.push(id)
+
+    const query = `update ${keyspace}.accounts set ${keys.join(' = ?, ') + ' = ?'} where id = ?`
+
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    return res
+  }
+
+  static async update (account) {
+    return new this(account).update()
+  }
 }

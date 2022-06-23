@@ -149,4 +149,26 @@ export default class DbEmailAccount extends Struct {
 
     return res
   }
+
+  async update () {
+    // update all non-nullish values
+
+    const obj = this.toCassandraObject()
+    const email = obj.email
+    delete obj.email
+    delete obj.account_id
+    const keys = Object.keys(obj).filter(key => obj[key] != null)
+    const values = keys.map(key => obj[key])
+    values.push(email, this.emailAccount.accountId)
+
+    const query = `update ${keyspace}.email_accounts set ${keys.join(' = ?, ') + ' = ?'} where email = ? and account_id = ?`
+
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    return res
+  }
+
+  static async update (account) {
+    return new this(account).update()
+  }
 }

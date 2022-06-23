@@ -2,6 +2,7 @@
 import DbAccount from '../../models/db-account.mjs'
 import DbMbAccount from '../../models/db-mb-account.mjs'
 import should from 'should'
+import Account from '../../structs/account.mjs'
 
 describe('DbAccount', () => {
   it('should exist', () => {
@@ -117,6 +118,46 @@ describe('DbAccount', () => {
       account2.email.should.equal(account.email)
       account2.paymail.should.equal(account.paymail)
       account2.accessGrantedAt.toJSON().should.equal(account.accessGrantedAt.toJSON())
+    })
+  })
+
+  describe('@update', () => {
+    it('should insert, update, find one back again', async () => {
+      const date = new Date()
+      const dbAccount = DbAccount.fromRandom()
+      dbAccount.account.fromObject({
+        name: 'Name',
+        heartmail: '12345@heartmail.com',
+        bio: '',
+        contactFeeUsd: 1.00,
+        affiliateId: '1234',
+        email: 'name@example.com',
+        paymail: 'name@example.com',
+        accessGrantedAt: date
+      })
+      await dbAccount.insert()
+      const account1 = dbAccount.account
+      const account2 = Account.fromJSON({
+        id: dbAccount.account.id,
+        bio: 'I love HeartMail'
+      })
+      await DbAccount.update(account2)
+      const dbAccount3 = await DbAccount.findOne(account1.id)
+      const account3 = dbAccount3.account
+      account3.bio.should.equal('I love HeartMail')
+      account3.bio.should.not.equal(account1.bio)
+      account3.bio.should.equal(account2.bio)
+      account3.privKey.toString().should.equal(account1.privKey.toString())
+      account3.name.should.equal(account1.name)
+      account3.heartmail.should.equal(account1.heartmail)
+      account3.contactFeeUsd.should.equal(account1.contactFeeUsd)
+      account3.affiliateId.should.equal(account1.affiliateId)
+      account3.email.should.equal(account1.email)
+      account3.paymail.should.equal(account1.paymail)
+      account3.accessGrantedAt.toJSON().should.equal(account1.accessGrantedAt.toJSON())
+      account3.updatedAt.toJSON().should.equal(account1.updatedAt.toJSON())
+      account3.createdAt.toJSON().should.equal(account1.createdAt.toJSON())
+      account3.signedInAt.toJSON().should.equal(account1.signedInAt.toJSON())
     })
   })
 })
