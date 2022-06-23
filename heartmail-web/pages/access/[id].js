@@ -28,7 +28,7 @@ export default function AccessPage (props) {
   const heartmail = `${props.mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`
 
   return (
-    <Layout title={`Access Key: ${receiptId}`}>
+    <Layout title={`Access Key: ${receiptId}`} showAccount={false}>
       <PageTitle>Access Key</PageTitle>
       <p>
         This page grants access to HeartMail on {accessGrantedAt} to this email address:
