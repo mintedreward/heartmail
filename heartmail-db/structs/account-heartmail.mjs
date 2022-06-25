@@ -30,4 +30,16 @@ export default class AccountHeartmail extends Struct {
   static fromJSON (json = {}) {
     return new this().fromJSON(json)
   }
+
+  fromAccount (account) {
+    this.accountId = account.id
+    this.heartmail = account.heartmail
+    this.createdAt = account.createdAt
+    this.updatedAt = account.updatedAt
+    return this
+  }
+
+  static fromAccount (account) {
+    return new this().fromAccount(account)
+  }
 }
