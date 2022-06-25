@@ -21,7 +21,10 @@ export const getServerSideProps = withSessionSsr(
 
     if (!accountId || !email) {
       return {
-        notFound: true
+        redirect: {
+          permanent: false,
+          destination: '/sign-in'
+        }
       }
     }
 
