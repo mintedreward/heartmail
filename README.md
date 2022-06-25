@@ -4,6 +4,14 @@
 
 ## Milestone 3: Money Button Paymails
 
+Accounts:
+- [x] Create account on front-page signs in the account
+- [x] Create account on accounts page signs in the account
+- [x] Redirect access key page to to sign in page if not signed in
+- [x] NavBar avatar: goes to settings page (if signed in) or sign in page (if not signed in)
+- [x] NavBar avatar also works on home, about, terms, privacy
+- [x] Deploy to production
+
 Heartmails:
 - [x] Heartmail structs
 - [ ] Heartmail database models
@@ -20,14 +28,6 @@ Heartmails:
 - [ ] Automatically switch primary heartmail if it is the first custom one
 - [ ] Automatically insert MB heartmails (primary paymail, mbUserId paymail) at new account
 - [ ] Fill MB heartmails (primary paymail, mbUserId) for existing accounts
-- [ ] Deploy to production
-
-Accounts:
-- [x] Create account on front-page signs in the account
-- [x] Create account on accounts page signs in the account
-- [x] Redirect access key page to to sign in page if not signed in
-- [x] NavBar avatar: goes to settings page (if signed in) or sign in page (if not signed in)
-- [x] NavBar avatar also works on home, about, terms, privacy
 - [ ] Deploy to production
 
 Avatars:
