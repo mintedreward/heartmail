@@ -2,14 +2,14 @@ import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
 import ContactCard from '../components/ContactCard'
 import SelfTabs from '../components/SelfTabs'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
-import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import Divider from '@mui/material/Divider'
-import Switch from '@mui/material/Switch'
-import FormGroup from '@mui/material/FormGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
+// import TextField from '@mui/material/TextField'
+// import Button from '@mui/material/Button'
+// import Box from '@mui/material/Box'
+// import Card from '@mui/material/Card'
+// import Divider from '@mui/material/Divider'
+// import Switch from '@mui/material/Switch'
+// import FormGroup from '@mui/material/FormGroup'
+// import FormControlLabel from '@mui/material/FormControlLabel'
 import { withSessionSsr } from '../lib/session'
 import dbApi from 'heartmail-db/db-api/db-api'
 
@@ -36,24 +36,24 @@ export const getServerSideProps = withSessionSsr(
   }
 )
 
-function AddressCard (props) {
-  const address = props.address || 'name@example.com'
-  return (
-    <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
-      <Box sx={{ padding: '16px' }}>
-        {address}
-      </Box>
-      <Divider sx={{ clear: 'both' }} />
-      <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
-        <Box sx={{ marginLeft: 'auto' }}>
-          <FormGroup>
-            <FormControlLabel control={<Switch />} label='Primary' />
-          </FormGroup>
-        </Box>
-      </Box>
-    </Card>
-  )
-}
+// function AddressCard (props) {
+//   const address = props.address || 'name@example.com'
+//   return (
+//     <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
+//       <Box sx={{ padding: '16px' }}>
+//         {address}
+//       </Box>
+//       <Divider sx={{ clear: 'both' }} />
+//       <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
+//         <Box sx={{ marginLeft: 'auto' }}>
+//           <FormGroup>
+//             <FormControlLabel control={<Switch />} label='Primary' />
+//           </FormGroup>
+//         </Box>
+//       </Box>
+//     </Card>
+//   )
+// }
 
 export default function AddressesPage (props) {
   const { account } = props
@@ -62,6 +62,8 @@ export default function AddressesPage (props) {
       <PageTitle>Addresses</PageTitle>
       <ContactCard name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={1} />
+      <p>Coming soon.</p>
+      {/*
       <p>
         You can register any [alias]@moneybutton.com you own for free for a limited time.
       </p>
@@ -73,6 +75,7 @@ export default function AddressesPage (props) {
       <AddressCard address='casey2@heartmail.com' />
       <AddressCard address='casey3@heartmail.com' />
       <AddressCard address='casey4@heartmail.com' />
+      */}
     </Layout>
   )
 }
