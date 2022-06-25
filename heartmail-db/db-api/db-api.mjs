@@ -4,6 +4,8 @@ import DbMbAccount from '../models/db-mb-account.mjs'
 import DbAccount from '../models/db-account.mjs'
 import DbMbPayment from '../models/db-mb-payment.mjs'
 import DbEmailAccount from '../models/db-email-account.mjs'
+import DbHeartmailAccount from '../models/db-heartmail-account.mjs'
+import DbAccountHeartmail from '../models/db-account-heartmail.mjs'
 import { MoneyButtonClient } from '@moneybutton/api-client'
 import fetch from 'isomorphic-fetch'
 import { EmailAccount } from '../index.mjs'
@@ -121,10 +123,14 @@ dbApi.createAccountWithPayment = async function (contactFeeUsd, affiliate, payme
     const dbMbAccount = DbMbAccount.fromPurchase(contactFeeUsd, affiliate, payment)
     const dbAccount = DbAccount.fromMbAccount(dbMbAccount.mbAccount)
     const dbEmailAccount = DbEmailAccount.fromMbAccount(dbMbAccount.mbAccount)
+    const dbAccountHeartmail = DbAccountHeartmail.fromAccount(dbAccount.account)
+    const dbHeartmailAccount = DbHeartmailAccount.fromAccount(dbAccount.account)
 
     await dbMbAccount.insert()
     await dbAccount.insert()
     await dbEmailAccount.insert()
+    await dbAccountHeartmail.insert()
+    await dbHeartmailAccount.insert()
 
     return {
       accountId: dbAccount.account.id,

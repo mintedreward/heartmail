@@ -14,8 +14,8 @@ Accounts:
 
 Heartmails:
 - [x] Heartmail structs
-- [ ] Heartmail database models
-- [ ] Creating new account should write heartmails to DB ([accountId]@heartmail.com)
+- [x] Heartmail database models
+- [x] Creating new account should write heartmails to DB ([accountId]@heartmail.com)
 - [ ] Fill existing account heartmails to DB
 - [ ] View existing heartmails
 - [ ] Register new heartmails with MB

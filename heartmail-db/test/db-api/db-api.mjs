@@ -3,6 +3,8 @@ import dbApi from '../../db-api/db-api.mjs'
 import DbMbAccount from '../../models/db-mb-account.mjs'
 import DbAccount from '../../models/db-account.mjs'
 import DbEmailAccount from '../../models/db-email-account.mjs'
+import DbAccountHeartmail from '../../models/db-account-heartmail.mjs'
+import DbHeartmailAccount from '../../models/db-heartmail-account.mjs'
 import Account from '../../structs/account.mjs'
 import { Bn, Random } from 'heartmail-lib'
 import should from 'should'
@@ -188,7 +190,9 @@ describe('dbApi', () => {
   })
 
   describe('#createAccountWithPayment', () => {
-    it('should create a new account and then an affiliate account', async () => {
+    it('should create a new account and then an affiliate account', async function () {
+      this.timeout(5000)
+
       let affiliateId
       {
         const contactFeeUsd = 5.00
@@ -206,6 +210,19 @@ describe('dbApi', () => {
         const { accountId } = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
         accountId.length.should.greaterThan(10)
         affiliateId = accountId
+
+        const heartmail = `${accountId}@${process.env.NEXT_PUBLIC_DOMAIN}`
+
+        const dbAccountHeartmails = await DbAccountHeartmail.findMany(accountId)
+        const accountHeartmails = dbAccountHeartmails.map(dbAccountHeartmail => dbAccountHeartmail.accountHeartmail)
+        accountHeartmails.length.should.equal(1)
+        accountHeartmails[0].heartmail.should.equal(heartmail)
+        accountHeartmails[0].accountId.should.equal(accountId)
+
+        const dbHeartmailAccount = await DbHeartmailAccount.findOne(heartmail)
+        const heartmailAccount = dbHeartmailAccount.heartmailAccount
+        heartmailAccount.heartmail.should.equal(heartmail)
+        heartmailAccount.accountId.should.equal(accountId)
       }
 
       {
