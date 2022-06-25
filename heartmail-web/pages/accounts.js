@@ -36,6 +36,32 @@ export default function AccountsPage (props) {
   const router = useRouter()
   const { account, emailAccounts } = props
 
+  const handleNewAccount = async (payment) => {
+    const affiliate = {
+      hasAffiliate: true,
+      id: account.id,
+      mbPaymail: account.externalPaymail
+    }
+    const contactFeeUsd = 1.00
+    const res = await fetch('/api/buy-account', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        affiliate,
+        contactFeeUsd,
+        payment
+      })
+    })
+    const status = await res.status
+    // console.log(status)
+    if (status === 200) {
+      router.reload(window.location.pathname)
+    }
+  }
+
   const handleSignIn = async (id) => {
     await fetch('/api/switch-account', {
       method: 'POST',
@@ -60,7 +86,7 @@ export default function AccountsPage (props) {
       <PageTitle>Accounts</PageTitle>
       <ContactCard name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={0} />
-      <MoneyButtonNewAccount />
+      <MoneyButtonNewAccount onPayment={handleNewAccount} />
       {contactCardSelectors}
     </Layout>
   )

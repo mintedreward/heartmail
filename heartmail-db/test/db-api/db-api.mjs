@@ -203,9 +203,9 @@ describe('dbApi', () => {
           txid: '00'.repeat(32),
           userId: '1'
         }
-        const mbAccountId = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
-        mbAccountId.length.should.greaterThan(10)
-        affiliateId = mbAccountId
+        const { accountId } = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
+        accountId.length.should.greaterThan(10)
+        affiliateId = accountId
       }
 
       {
@@ -223,7 +223,8 @@ describe('dbApi', () => {
           txid: '01'.repeat(32),
           userId: '2'
         }
-        const mbAccountId = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
+        const { accountId } = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, mbPayment)
+        const mbAccountId = accountId
         mbAccountId.length.should.greaterThan(10)
         mbAccountId.should.not.equal(affiliateId)
         const mbAccount = await dbApi.getMbAccount(mbAccountId)

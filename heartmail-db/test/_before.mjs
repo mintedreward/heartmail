@@ -4,7 +4,8 @@ import { useKeyspace, getClient } from '../connect.mjs'
 const keyspace = process.env.HEARTMAIL_DB_KEYSPACE
 const client = getClient()
 
-before(async () => {
+before(async function () {
+  this.timeout(5000)
   if (keyspace !== 'heartmail_test') {
     process.exit('Must use keyspace heartmail_test to run the tests.')
   }

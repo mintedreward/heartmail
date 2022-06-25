@@ -5,7 +5,7 @@ import MoneyButtonTip from '../components/MoneyButtonTip'
 
 export default function AboutPage () {
   return (
-    <Layout title='About' showAccount={false}>
+    <Layout title='About'>
       <PageTitle>About</PageTitle>
       <p>
         HeartMail was founded on January 1, 2022.

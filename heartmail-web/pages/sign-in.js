@@ -23,7 +23,7 @@ export default function SignInPage () {
   }
 
   return (
-    <Layout title='Sign In' showAccount={false}>
+    <Layout title='Sign In'>
       <PageTitle>Sign In</PageTitle>
       <MoneyButtonSignIn onPayment={signIn} />
     </Layout>

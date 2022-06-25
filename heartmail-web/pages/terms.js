@@ -3,7 +3,7 @@ import PageTitle from '../components/PageTitle'
 
 export default function TermsPage () {
   return (
-    <Layout title='Terms of Service' showAccount={false}>
+    <Layout title='Terms of Service'>
       <PageTitle>Terms of Service</PageTitle>
       {/**
        * - Truth Social Terms of Service

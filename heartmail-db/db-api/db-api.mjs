@@ -126,7 +126,10 @@ dbApi.createAccountWithPayment = async function (contactFeeUsd, affiliate, payme
     await dbAccount.insert()
     await dbEmailAccount.insert()
 
-    return dbAccount.account.id
+    return {
+      accountId: dbAccount.account.id,
+      email: dbEmailAccount.emailAccount.email
+    }
   } catch (err) {
     // console.log(err)
     return null

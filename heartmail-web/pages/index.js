@@ -25,15 +25,15 @@ export default function HomePage (props) {
 
   async function handlePayment (payment) {
     state.payment = payment
-    await getAccess(state)
+    await buyAccount(state)
   }
 
   const handleChange = (contactFeeUsd) => {
     state.contactFeeUsd = contactFeeUsd
   }
 
-  async function getAccess (state) {
-    const res = await fetch('/api/buy-early', {
+  async function buyAccount (state) {
+    const res = await fetch('/api/buy-account', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -45,12 +45,15 @@ export default function HomePage (props) {
         payment: state.payment
       })
     })
-    const id = await res.json()
-    router.push(`/access/${id}`)
+    const status = await res.status
+    // console.log(status)
+    if (status === 200) {
+      router.push('/accounts')
+    }
   }
 
   return (
-    <Layout showAccount={false}>
+    <Layout>
       <Typography variant='h2' component='h2' mt='48px' mb='48px' sx={{ textAlign: 'center', fontWeight: '300' }}>
         Get paid
       </Typography>
