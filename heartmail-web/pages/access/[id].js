@@ -3,6 +3,7 @@ import PageTitle from '../../components/PageTitle'
 import AffiliateCard from '../../components/AffiliateCard'
 import TextField from '@mui/material/TextField'
 import { dbApi } from 'heartmail-db'
+import Link from '../../components/Link'
 
 export async function getServerSideProps (context) {
   const id = context.query.id
@@ -21,6 +22,9 @@ export async function getServerSideProps (context) {
   }
 }
 
+// TODO: This page should be completely deleted some time after the launch of
+// Milestone 3. If this page has not been deleted by August 1, 2022, then it
+// should be deleted at that time.
 export default function AccessPage (props) {
   const receiptId = props.mbAccount.id
   const accessGrantedAt = new Date(props.mbAccount.accessGrantedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })
@@ -37,6 +41,7 @@ export default function AccessPage (props) {
       <p>
         You can bookmark this page.
       </p>
+      <p><Link href='/sign-in'>Sign in here.</Link></p>
       <p>
         Earn at least $2.00 per referral with your affiliate link:
       </p>
