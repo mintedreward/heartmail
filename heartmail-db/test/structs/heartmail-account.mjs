@@ -1,20 +1,20 @@
 /* global describe,it */
-import Heartmail from '../../structs/heartmail.mjs'
+import HeartmailAccount from '../../structs/heartmail-account.mjs'
 import { KeyAlias } from 'heartmail-lib'
 import should from 'should'
 
-describe('Heartmail', function () {
+describe('HeartmailAccount', function () {
   it('should exist', function () {
-    should.exist(Heartmail)
+    should.exist(HeartmailAccount)
   })
 
   describe('#toJSON', () => {
     it('should round trip to/from JSON', () => {
-      const heartmail = new Heartmail()
+      const heartmail = new HeartmailAccount()
       heartmail.heartmail = 'name@heartmail.com'
       heartmail.accountId = KeyAlias.fromRandom().toString()
       const json = heartmail.toJSON()
-      const heartmail2 = Heartmail.fromJSON(json)
+      const heartmail2 = HeartmailAccount.fromJSON(json)
       heartmail.heartmail.should.equal(heartmail2.heartmail)
       heartmail.accountId.should.equal(heartmail2.accountId)
       heartmail.createdAt.toJSON().should.equal(heartmail2.createdAt.toJSON())

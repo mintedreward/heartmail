@@ -2,6 +2,34 @@
 
 <img src='./heartmail-landscape.png' alt='HeartMail' width='800'>
 
+## Milestone 3: Money Button Paymails
+
+Heartmails:
+- [ ] Heartmail database models
+- [ ] Creating new account should write heartmails to DB ([accountId]@heartmail.com)
+- [ ] Fill existing account heartmails to DB
+- [ ] View existing heartmails
+- [ ] Register new heartmails with MB
+  - [ ] Confirm heartmail is not already registered
+  - [ ] Get pubKey for mbUserId
+  - [ ] Get pubKey for paymail
+  - [ ] If pubKeys are the same, grant the heartmail
+- [ ] Switch primary heartmail
+- [ ] Automatically switch primary heartmail if it is the first custom one
+- [ ] Automatically insert MB heartmails (primary paymail, mbUserId paymail)
+- [ ] Account avatar in NavBar: Signed in / signed out
+
+Accounts:
+- [ ] Create account on front-page signs in the account
+- [ ] Create account on accounts page signs in the account
+- [ ] Redirect access key page to to sign in page if not signed in
+- [ ] NavBar avatar: goes to settings page (if signed in) or sign in page (if not signed in)
+
+Avatars:
+- [ ] Display custom avatar
+- [ ] Fill existing MB avatars to DB
+- [ ] Enable avatar upload
+
 ## Redirects: www and HTTPS
 
 Our redirect policy is:

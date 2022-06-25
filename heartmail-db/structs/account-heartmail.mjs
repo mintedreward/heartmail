@@ -1,6 +1,6 @@
 /**
  * AccountHeartmail
- * =========================
+ * ================
  */
 
 import { Struct } from 'heartmail-lib'

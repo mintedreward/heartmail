@@ -68,10 +68,9 @@ const queries = [
   account_bio text,
 
   primary key (email, account_id)
-)`/*,
-`create table if not exists ${keyspace}.heartmails (
+)`,
+`create table if not exists ${keyspace}.heartmail_accounts (
   heartmail text,
-
   account_id text,
 
   created_at timestamp,
@@ -81,14 +80,13 @@ const queries = [
 )`,
 `create table if not exists ${keyspace}.account_heartmails (
   account_id text,
-
   heartmail text,
 
   created_at timestamp,
   updated_at timestamp,
 
-  primary key (account_id, updated_at)
-) with clustering order by (updated_at desc)`,
+  primary key (account_id, heartmail)
+) with clustering order by (updated_at desc)`/*,
 `create table if not exists ${keyspace}.account_avatars (
   account_id text,
   size int,

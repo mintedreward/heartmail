@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Image from 'next/image'
 import Link from '../components/Link'
+import Avatar from '@mui/material/Avatar'
 
 export default function NavTop (props) {
   const showAccount = !(props.showAccount === false)
@@ -23,7 +24,7 @@ export default function NavTop (props) {
               {showAccount
                 ? (
                   <Link href='/sign-in'>
-                    <Image src='/avatar-blank-small.png' alt='Self' width='40' height='40' />
+                    <Avatar src='/anonymous-avatar-120.jpg' alt='Self' width='40' height='40' />
                   </Link>
                   )
                 : ('')}
