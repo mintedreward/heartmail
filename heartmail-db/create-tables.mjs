@@ -86,7 +86,7 @@ const queries = [
   updated_at timestamp,
 
   primary key (account_id, heartmail)
-) with clustering order by (updated_at desc)`/*,
+)`/*,
 `create table if not exists ${keyspace}.account_avatars (
   account_id text,
   size int,
