@@ -82,7 +82,7 @@ export default function AccountsPage (props) {
   })
 
   return (
-    <Layout title='Accounts' account={null}>
+    <Layout title='Accounts' account={account}>
       <PageTitle>Accounts</PageTitle>
       <ContactCard name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={0} />

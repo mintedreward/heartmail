@@ -58,7 +58,7 @@ export const getServerSideProps = withSessionSsr(
 export default function AddressesPage (props) {
   const { account } = props
   return (
-    <Layout title='Addresses' account={null}>
+    <Layout title='Addresses' account={account}>
       <PageTitle>Addresses</PageTitle>
       <ContactCard name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={1} />

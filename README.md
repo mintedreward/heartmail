@@ -20,10 +20,11 @@ Heartmails:
 - [ ] Account avatar in NavBar: Signed in / signed out
 
 Accounts:
-- [ ] Create account on front-page signs in the account
-- [ ] Create account on accounts page signs in the account
-- [ ] Redirect access key page to to sign in page if not signed in
-- [ ] NavBar avatar: goes to settings page (if signed in) or sign in page (if not signed in)
+- [x] Create account on front-page signs in the account
+- [x] Create account on accounts page signs in the account
+- [x] Redirect access key page to to sign in page if not signed in
+- [x] NavBar avatar: goes to settings page (if signed in) or sign in page (if not signed in)
+- [ ] NavBar avatar also works on home, about, terms, privacy
 
 Avatars:
 - [ ] Display custom avatar

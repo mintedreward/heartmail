@@ -109,7 +109,7 @@ export default function SettingsPage (props) {
   }
 
   return (
-    <Layout title='Settings' account={null}>
+    <Layout title='Settings' account={account}>
       <PageTitle>Settings</PageTitle>
       <ContactCard name={name} heartmail={account.heartmail} bio={bio} />
       <SelfTabs value={2} />

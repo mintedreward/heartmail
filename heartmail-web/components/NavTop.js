@@ -7,6 +7,7 @@ import Avatar from '@mui/material/Avatar'
 
 export default function NavTop (props) {
   const showAccount = !(props.showAccount === false)
+  const account = props.account
   return (
     <Box>
       <AppBar position='fixed'>
@@ -23,7 +24,7 @@ export default function NavTop (props) {
             <Box sx={{ marginTop: '5px', width: '40px', height: '40px' }}>
               {showAccount
                 ? (
-                  <Link href='/sign-in'>
+                  <Link href={account ? '/accounts' : '/sign-in'}>
                     <Avatar src='/anonymous-avatar-120.jpg' alt='Self' width='40' height='40' />
                   </Link>
                   )
