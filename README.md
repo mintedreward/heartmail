@@ -31,7 +31,7 @@ Heartmails:
 - [x] Migrate production (create tables)
 - [x] Fill existing account heartmails to DB
 - [x] Turn on PITR for new production tables
-- [ ] UI to view account heartmails
+- [x] UI to view account heartmails
 - [ ] Register new heartmails with MB
   - [ ] Confirm heartmail is not already registered
   - [ ] Get pubKey for mbUserId
@@ -55,7 +55,8 @@ Avatars:
 
 - [ ] Spinners for new account
 - [ ] Spinner for sign in
-- [ ] implement .toFrontEnd() for database structs
+- [ ] implement .toFrontEnd() for database structs and put in front-end
+- [ ] encrypt private keys in the database
 
 ## Redirects: www and HTTPS
 

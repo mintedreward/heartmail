@@ -28,12 +28,16 @@ export const getServerSideProps = withSessionSsr(
     }
 
     const account = await dbApi.getAccount(accountId)
+    const accountHeartmails = await dbApi.getAccountHeartmails(accountId)
+
     const accountJSON = account.toJSON()
+    const accountHeartmailsJSON = accountHeartmails.map(accountHeartmail => accountHeartmail.toJSON())
 
     return {
       props: {
         account: accountJSON,
-        email
+        email,
+        accountHeartmails: accountHeartmailsJSON
       }
     }
   }
@@ -59,7 +63,12 @@ function AddressCard (props) {
 }
 
 export default function AddressesPage (props) {
-  const { account } = props
+  const { account, accountHeartmails } = props
+
+  const addressCards = accountHeartmails.map(accountHeartmail => {
+    return (<AddressCard key={accountHeartmail.heartmail} address={accountHeartmail.heartmail} />)
+  })
+
   return (
     <Layout title='Addresses' account={account}>
       <PageTitle>Addresses</PageTitle>
@@ -72,10 +81,7 @@ export default function AddressesPage (props) {
       <Box mt='8px' mb='16px' sx={{ textAlign: 'right' }}>
         <Button variant='contained'>Register</Button>
       </Box>
-      <AddressCard address='casey@heartmail.com' />
-      <AddressCard address='casey2@heartmail.com' />
-      <AddressCard address='casey3@heartmail.com' />
-      <AddressCard address='casey4@heartmail.com' />
+      {addressCards}
     </Layout>
   )
 }

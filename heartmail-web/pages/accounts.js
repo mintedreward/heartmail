@@ -80,7 +80,7 @@ export default function AccountsPage (props) {
   const contactCardSelectors = emailAccounts.map(emailAccount => {
     const signedIn = emailAccount.accountId === account.id
     return (
-      <ContactCardSelector signedIn={signedIn} onSignIn={handleSignIn} key={emailAccount.accountId} avatar='/anonymous-avatar-288.jpg' name={emailAccount.accountName} heartmail={emailAccount.accountHeartmail} bio={emailAccount.accountBio} id={emailAccount.accountId} />
+      <ContactCardSelector key={emailAccount.accountId} signedIn={signedIn} onSignIn={handleSignIn} avatar='/anonymous-avatar-288.jpg' name={emailAccount.accountName} heartmail={emailAccount.accountHeartmail} bio={emailAccount.accountBio} id={emailAccount.accountId} />
     )
   })
 
