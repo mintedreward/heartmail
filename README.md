@@ -32,12 +32,14 @@ Heartmails:
 - [x] Fill existing account heartmails to DB
 - [x] Turn on PITR for new production tables
 - [x] UI to view account heartmails
-- [ ] Register new heartmails with MB
-  - [ ] Confirm heartmail is not already registered
-  - [ ] Get pubKey for mbUserId
-  - [ ] Get pubKey for paymail
-  - [ ] If pubKeys are the same, grant the heartmail
-- [ ] Switch primary heartmail
+- [x] Register new heartmails with MB
+  - [x] Confirm heartmail is not already registered
+  - [x] Get pubKey for mbUserId
+  - [x] Get pubKey for paymail
+  - [x] If pubKeys are the same, grant the heartmail
+- [ ] Enable switching primary heartmail
+- [ ] Give better error message for unavailable heartmail
+- [ ] Update page without refresh when new heartmail is registered
 - [ ] Fix affiliate system to use custom heartmails
 - [ ] Fill from HeartMail emails: ryan, casey, diddy, ruth, lacy, markus, heartmail
 - [ ] Automatically switch primary heartmail if it is the first custom one

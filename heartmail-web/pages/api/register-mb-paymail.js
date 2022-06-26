@@ -6,19 +6,16 @@ async function handler (req, res) {
   try {
     assert(req.method === 'POST')
 
-    const { contactFeeUsd, affiliate, payment } = req.body
-
-    const { accountId, email } = await dbApi.createAccountWithPayment(contactFeeUsd, affiliate, payment)
-
+    let { heartmail } = req.body
+    const accountId = req.session.accountId
     assert(accountId)
-    assert(typeof accountId === 'string')
+    assert(heartmail)
 
-    req.session.email = email
-    req.session.accountId = accountId
+    heartmail = await dbApi.registerMbHeartmail(accountId, heartmail)
 
-    await req.session.save()
+    assert(heartmail)
 
-    res.status(200).json(accountId)
+    res.status(200).json(heartmail)
   } catch (err) {
     // console.log(err)
     res.status(400).json('Error')

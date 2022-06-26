@@ -318,7 +318,8 @@ dbApi.registerMbHeartmail = async function (accountId, heartmail) {
       }
     }
 
-    // fetch public keys and confirm they are the same
+    // fetch public keys and confirm they are the same, meaning the user
+    // actually owns this paymail
     const dbMbAccount = await DbMbAccount.findOne(accountId)
     const mbUserId = dbMbAccount.mbAccount.mbUserId
     const mbPaymail1 = `${mbUserId}@moneybutton.com`
@@ -339,7 +340,7 @@ dbApi.registerMbHeartmail = async function (accountId, heartmail) {
 
     return heartmail
   } catch (err) {
-    console.log(err)
+    // console.log(err)
     return null
   }
 }

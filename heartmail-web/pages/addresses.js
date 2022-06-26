@@ -10,6 +10,8 @@ import Divider from '@mui/material/Divider'
 import Switch from '@mui/material/Switch'
 import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
+import { useRouter } from 'next/router'
+import * as React from 'react'
 import { withSessionSsr } from '../lib/session'
 import { dbApi } from 'heartmail-db'
 
@@ -62,8 +64,81 @@ function AddressCard (props) {
   )
 }
 
+function HeartmailInput (props) {
+  const defaultValue = `alias@${process.env.NEXT_PUBLIC_DOMAIN}`
+
+  function propagateChange (heartmail = defaultValue) {
+    props.onChange?.(heartmail)
+  }
+
+  const [heartmail, setHeartmail] = React.useState(defaultValue)
+  const [hasFocus, setHasFocus] = React.useState(false)
+
+  const normalizeHeartmail = (heartmail = '') => {
+    let name = heartmail.split('@')[0]
+    name = name.toLowerCase()
+    name = name.replace(/[^A-Za-z0-9]/g, '')
+    heartmail = `${name}@${process.env.NEXT_PUBLIC_DOMAIN}`
+    return heartmail
+  }
+
+  const handleChange = (event) => {
+    const heartmail = event.target.value
+    setHeartmail(heartmail)
+  }
+
+  const handleBlur = (event) => {
+    const heartmail = normalizeHeartmail(event.target.value)
+    setHeartmail(heartmail)
+    setHasFocus(false)
+    propagateChange(heartmail)
+  }
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      const heartmail = normalizeHeartmail(event.target.value)
+      setHeartmail(heartmail)
+      event.target.blur()
+    }
+  }
+
+  const handleMouseUp = (event) => {
+    if (!hasFocus) {
+      event.target.select()
+    }
+    setHasFocus(true)
+  }
+
+  return (
+    <TextField onChange={handleChange} onBlur={handleBlur} onMouseUp={handleMouseUp} onKeyPress={handleKeyPress} id='outlined-basic' label='New Address' value={heartmail} variant='outlined' sx={{ width: '100%' }} />
+  )
+}
+
 export default function AddressesPage (props) {
+  const router = useRouter()
+  const [heartmail, setHeartmail] = React.useState(`alias@${process.env.NEXT_PUBLIC_DOMAIN}`)
   const { account, accountHeartmails } = props
+
+  const handleHeartmail = (heartmail) => {
+    setHeartmail(heartmail)
+  }
+
+  const handleRegister = async () => {
+    const res = await fetch('/api/register-mb-paymail', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        heartmail
+      })
+    })
+    const status = await res.status
+    if (status === 200) {
+      router.reload(window.location.pathname)
+    }
+  }
 
   const addressCards = accountHeartmails.map(accountHeartmail => {
     return (<AddressCard key={accountHeartmail.heartmail} address={accountHeartmail.heartmail} />)
@@ -75,11 +150,11 @@ export default function AddressesPage (props) {
       <ContactCard name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={1} />
       <p>
-        You can register any [alias]@moneybutton.com you own for free for a limited time.
+        If you own alias@moneybutton.com you can register alias@{`${process.env.NEXT_PUBLIC_DOMAIN}`} for free for a limited time.
       </p>
-      <TextField id='outlined-basic' label='New Address' defaultValue='[alias]@heartmail.com' variant='outlined' sx={{ width: '100%' }} />
+      <HeartmailInput onChange={handleHeartmail} />
       <Box mt='8px' mb='16px' sx={{ textAlign: 'right' }}>
-        <Button variant='contained'>Register</Button>
+        <Button variant='contained' onClick={handleRegister}>Register</Button>
       </Box>
       {addressCards}
     </Layout>
