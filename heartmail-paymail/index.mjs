@@ -1,3 +1,3 @@
-import EmailAddress from './src/email-address.mjs'
+import PaymailAddress from './src/paymail-address.mjs'
 
-export { EmailAddress }
+export { PaymailAddress }

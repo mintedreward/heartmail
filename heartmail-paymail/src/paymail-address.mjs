@@ -3,29 +3,29 @@ import { Domain } from './domain.mjs'
 import fetch from 'isomorphic-fetch'
 import { PubKey, PrivKey, KeyPair, Sig, KeyAddress, Bsm } from 'heartmail-lib'
 
-class EmailAddress {
-  constructor (emailAddressStr = '', pubKey, privKey, normalized, domainName) {
-    this.emailAddressStr = emailAddressStr
+class PaymailAddress {
+  constructor (paymailAddressStr = '', pubKey, privKey, normalized, domainName) {
+    this.paymailAddressStr = paymailAddressStr
     this.pubKey = pubKey
     this.privKey = privKey
-    this.normalized = normalized || this.constructor.getNormalized(emailAddressStr)
-    this.domainName = domainName || this.constructor.getDomainName(emailAddressStr)
+    this.normalized = normalized || this.constructor.getNormalized(paymailAddressStr)
+    this.domainName = domainName || this.constructor.getDomainName(paymailAddressStr)
     this.domain = this.constructor.getDomain(this.domainName)
   }
 
-  static isValid (emailAddressStr = '') {
-    return emailValidator.validate(emailAddressStr)
+  static isValid (paymailAddressStr = '') {
+    return emailValidator.validate(paymailAddressStr)
   }
 
   isValid () {
-    return this.constructor.isValid(this.emailAddressStr)
+    return this.constructor.isValid(this.paymailAddressStr)
   }
 
-  static getNormalized (emailAddressStr) {
-    if (typeof emailAddressStr !== 'string' || emailAddressStr.length === 0) {
-      return emailAddressStr
+  static getNormalized (paymailAddressStr) {
+    if (typeof paymailAddressStr !== 'string' || paymailAddressStr.length === 0) {
+      return paymailAddressStr
     }
-    let normalized = emailAddressStr
+    let normalized = paymailAddressStr
     normalized = normalized.toLowerCase()
     const domain = this.getDomain(normalized)
     const userName = normalized.split('@')[0]
@@ -34,43 +34,43 @@ class EmailAddress {
   }
 
   getNormalized () {
-    return this.constructor.getNormalized(this.emailAddressStr)
+    return this.constructor.getNormalized(this.paymailAddressStr)
   }
 
   normalize () {
-    this.emailAddressStr = this.getNormalized()
+    this.paymailAddressStr = this.getNormalized()
     return this
   }
 
-  static getUserName (emailAddressStr = '') {
-    const arr = emailAddressStr.split('@')
+  static getUserName (paymailAddressStr = '') {
+    const arr = paymailAddressStr.split('@')
     return arr[0]
   }
 
   // also the "local part"
   getUserName () {
-    return this.constructor.getUserName(this.emailAddressStr)
+    return this.constructor.getUserName(this.paymailAddressStr)
   }
 
-  static getDomainName (emailAddressStr = '') {
-    if (typeof emailAddressStr !== 'string' || emailAddressStr.length === 0) {
-      return emailAddressStr
+  static getDomainName (paymailAddressStr = '') {
+    if (typeof paymailAddressStr !== 'string' || paymailAddressStr.length === 0) {
+      return paymailAddressStr
     }
-    const arr = emailAddressStr.split('@')
+    const arr = paymailAddressStr.split('@')
     return arr[1]
   }
 
   getDomainName () {
-    return this.constructor.getDomainName(this.emailAddressStr)
+    return this.constructor.getDomainName(this.paymailAddressStr)
   }
 
-  static getDomain (emailAddressStr = '') {
-    const domainName = this.getDomainName(emailAddressStr)
+  static getDomain (paymailAddressStr = '') {
+    const domainName = this.getDomainName(paymailAddressStr)
     return new Domain(domainName)
   }
 
   getDomain () {
-    return this.constructor.getDomain(this.emailAddressStr)
+    return this.constructor.getDomain(this.paymailAddressStr)
   }
 
   async getPubKey () {
@@ -80,7 +80,7 @@ class EmailAddress {
     const wellKnown = await this.getDomain().getWellKnownFile()
     let url = wellKnown.capabilities.pki
     if (!url) {
-      throw new Error('Could not retrieve PKI URL for emailAddressStr')
+      throw new Error('Could not retrieve PKI URL for paymailAddressStr')
     }
     url = url.replace('{alias}', userName)
     url = url.replace('{domain.tld}', domainName)
@@ -99,7 +99,7 @@ class EmailAddress {
     const wellKnown = await this.getDomain().getWellKnownFile()
     let url = wellKnown.capabilities.a9f510c16bde
     if (!url) {
-      throw new Error('Could not retrieve PKI URL for emailAddressStr')
+      throw new Error('Could not retrieve PKI URL for paymailAddressStr')
     }
     url = url.replace('{alias}', userName)
     url = url.replace('{domain.tld}', domainName)
@@ -147,4 +147,4 @@ class EmailAddress {
   }
 }
 
-export default EmailAddress
+export default PaymailAddress
