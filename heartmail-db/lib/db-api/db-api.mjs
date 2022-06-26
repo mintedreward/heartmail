@@ -282,6 +282,37 @@ dbApi.getAccount = async function (id) {
   }
 }
 
+dbApi.retrieveMbPublicKey = async function (mbPaymail = '') {
+  try {
+    // https://www.moneybutton.com/api/v1/bsvalias/id/ryan@moneybutton.com
+    let name = mbPaymail.split('@')[0]
+    name = name.toLowerCase()
+    name = name.replace(/[^A-Za-z0-9]/g, '')
+    mbPaymail = `${name}@moneybutton.com`
+    const res = await fetch(`https://www.moneybutton.com/api/v1/bsvalias/id/${mbPaymail}`)
+    const json = await res.json()
+    const pubkey = json.pubkey
+    assert(pubkey)
+    return pubkey
+  } catch (err) {
+    // console.log(err)
+    return null
+  }
+}
+
+dbApi.registerMbHeartmail = async function (accountId, heartmail) {
+  // check to see if heartmail has not been registered
+  // retrieve mbUserId
+  // retrieve mb public key for [mbUserId]@moneybutton.com
+  // retrieve mb public key for [name]@moneybutton.com
+  // if public keys match
+  //   - then create the new heartmail
+  // if existing primary heartmail is the same as account id
+  //   - then adopt this as primary heartmail
+  // return new heartmail
+  // or return error
+}
+
 dbApi.getMbAccount = async function (id) {
   try {
     const dbMbAccount = await DbMbAccount.findOne(id)

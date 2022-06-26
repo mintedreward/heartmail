@@ -649,8 +649,8 @@ describe('dbApi', () => {
       await dbAccountHeartmail2.insert()
       const accountHeartmails = await dbApi.getAccountHeartmails(id)
       accountHeartmails.length.should.equal(2)
-      ;(accountHeartmails[0].heartmail === heartmail1 ||accountHeartmails[0].heartmail === heartmail2).should.equal(true)
-      ;(accountHeartmails[1].heartmail === heartmail1 ||accountHeartmails[1].heartmail === heartmail2).should.equal(true)
+      ;(accountHeartmails[0].heartmail === heartmail1 || accountHeartmails[0].heartmail === heartmail2).should.equal(true)
+      ;(accountHeartmails[1].heartmail === heartmail1 || accountHeartmails[1].heartmail === heartmail2).should.equal(true)
     })
   })
 
@@ -663,6 +663,19 @@ describe('dbApi', () => {
       account.id.should.equal(dbAccount.account.id)
       ;(account.privKey === null).should.equal(true)
       ;(dbAccount.account.privKey === null).should.equal(false)
+    })
+  })
+
+  describe('#retrieveMbPublicKey', () => {
+    it('should get this known pubkey', async () => {
+      const mbPaymail1 = 'ryan@moneybutton.com'
+      const mbPaymail2 = '6@moneybutton.com'
+      const pubkey1 = await dbApi.retrieveMbPublicKey(mbPaymail1)
+      const pubkey2 = await dbApi.retrieveMbPublicKey(mbPaymail2)
+      should.exist(pubkey1)
+      should.exist(pubkey2)
+      pubkey1.should.equal(pubkey2)
+      pubkey1.should.equal('0380a5d1b99a2b3adab57d2adf4a21aac246652aebd1a4da4668351074172b7ae2')
     })
   })
 

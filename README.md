@@ -37,9 +37,9 @@ Heartmails:
   - [ ] Get pubKey for mbUserId
   - [ ] Get pubKey for paymail
   - [ ] If pubKeys are the same, grant the heartmail
-- [ ] Fill from HeartMail emails: ryan, casey, diddy, ruth, lacy, markus, heartmail
-- [ ] Fix affiliate system to use custom heartmails
 - [ ] Switch primary heartmail
+- [ ] Fix affiliate system to use custom heartmails
+- [ ] Fill from HeartMail emails: ryan, casey, diddy, ruth, lacy, markus, heartmail
 - [ ] Automatically switch primary heartmail if it is the first custom one
 - [ ] Automatically insert MB heartmails (primary paymail, mbUserId paymail) at new account
 - [ ] Fill MB heartmails (primary paymail, mbUserId) for existing accounts
@@ -55,8 +55,9 @@ Avatars:
 
 - [ ] Spinners for new account
 - [ ] Spinner for sign in
-- [ ] implement .toFrontEnd() for database structs and put in front-end
-- [ ] encrypt private keys in the database
+- [ ] Implement .toFrontEnd() for database structs and put in front-end
+- [ ] Encrypt private keys in the database
+- [ ] Handle sign-in failures for non-accounts
 
 ## Redirects: www and HTTPS
 
