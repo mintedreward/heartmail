@@ -779,7 +779,11 @@ describe('dbApi', () => {
         mbPaymail: 'name@example.com'
       })
       await dbMbAccount.insert()
-      const affiliateHeartmail = `${dbMbAccount.mbAccount.id}@heartmail.com`
+      const dbAccount = DbAccount.fromMbAccount(dbMbAccount.mbAccount)
+      await dbAccount.insert()
+      const dbHeartmailAccount = DbHeartmailAccount.fromAccount(dbAccount.account)
+      await dbHeartmailAccount.insert()
+      const affiliateHeartmail = `${dbMbAccount.mbAccount.id}@${process.env.NEXT_PUBLIC_DOMAIN}`
       const affiliate = await dbApi.getAffiliate(affiliateHeartmail)
       affiliate.hasAffiliate.should.equal(true)
       affiliate.id.should.equal(dbMbAccount.mbAccount.id)

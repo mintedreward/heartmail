@@ -397,15 +397,16 @@ dbApi.getAffiliate = async function (affiliateHeartmail = '') {
   try {
     if (affiliateHeartmail) {
       affiliateHeartmail = `${affiliateHeartmail}`
-      const id = affiliateHeartmail.split('@')[0]
-      const dbMbAccount = await DbMbAccount.findOne(id)
-      const mbAccount = dbMbAccount.mbAccount
-      if (mbAccount) {
-        return {
-          hasAffiliate: true,
-          id: mbAccount.id,
-          mbPaymail: mbAccount.mbPaymail
-        }
+      const dbHeartmailAccount = await DbHeartmailAccount.findOne(affiliateHeartmail)
+      assert(dbHeartmailAccount)
+      const accountId = dbHeartmailAccount.heartmailAccount.accountId
+      const dbAccount = await DbAccount.findOne(accountId)
+      assert(dbAccount)
+      const mbPaymail = dbAccount.account.paymail
+      return {
+        hasAffiliate: true,
+        id: accountId,
+        mbPaymail
       }
     }
     return null

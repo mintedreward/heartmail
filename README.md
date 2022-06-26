@@ -38,7 +38,7 @@ Heartmails:
   - [x] Get pubKey for paymail
   - [x] If pubKeys are the same, grant the heartmail
 - [x] Enable switching primary heartmail
-- [ ] Fix affiliate system to use custom heartmails
+- [x] Fix affiliate system to use custom heartmails
 - [ ] Give better error message for unavailable heartmail
 - [ ] Update page without refresh when new heartmail is registered
 - [ ] Update page without refresh when primary heartmail is changed
