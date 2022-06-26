@@ -6,7 +6,8 @@
 
 - [x] Milestone 1: Tipping Button
 - [x] Milestone 2: Early Access
-- [ ] Milestone 3: Money Button Paymails
+- [x] Milestone 3: Money Button Paymails
+- [ ] Milestone 4: ???
 
 ### Milestone 3: Money Button Paymails
 
@@ -39,6 +40,11 @@ Heartmails:
   - [x] If pubKeys are the same, grant the heartmail
 - [x] Enable switching primary heartmail
 - [x] Fix affiliate system to use custom heartmails
+- [x] Deploy to production
+
+### Milestone 4 Wishlist
+
+Improve custom heartmails:
 - [ ] Give better error message for unavailable heartmail
 - [ ] Update page without refresh when new heartmail is registered
 - [ ] Update page without refresh when primary heartmail is changed
@@ -46,7 +52,6 @@ Heartmails:
 - [ ] Automatically switch primary heartmail if it is the first custom one
 - [ ] Automatically insert MB heartmails (primary paymail, mbUserId paymail) at new account
 - [ ] Fill MB heartmails (primary paymail, mbUserId) for existing accounts
-- [ ] Deploy to production
 
 Avatars:
 - [ ] Display custom avatar
@@ -54,7 +59,7 @@ Avatars:
 - [ ] Enable avatar upload
 - [ ] Deploy to production
 
-### Milestone 4 Wishlist
+Wishlist:
 
 - [ ] Spinners for new account
 - [ ] Spinner for sign in
