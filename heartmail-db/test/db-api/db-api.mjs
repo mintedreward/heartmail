@@ -8,6 +8,7 @@ import DbHeartmailAccount from '../../lib/models/db-heartmail-account.mjs'
 import Account from '../../lib/structs/account.mjs'
 import { Bn, Random } from 'heartmail-lib'
 import should from 'should'
+import AccountHeartmail from '../../lib/structs/account-heartmail.mjs'
 
 const clientPaymentStr = `
 {
@@ -632,6 +633,24 @@ describe('dbApi', () => {
       emailAccount2.accountName.should.equal(emailAccount1.accountName)
       emailAccount2.accountHeartmail.should.equal(emailAccount2.accountHeartmail)
       emailAccount2.accountId.should.equal(emailAccount2.accountId)
+    })
+  })
+
+  describe('#getAccountHeartmails', () => {
+    it('should get these accountHeartmails', async () => {
+      const id = Random.getRandomBuffer(8).toString('hex')
+      const heartmail1 = `${Random.getRandomBuffer(8).toString('hex')}@heartmail.com`
+      const heartmail2 = `${Random.getRandomBuffer(8).toString('hex')}@heartmail.com`
+      const accountHeartmail1 = new AccountHeartmail(id, heartmail1)
+      const accountHeartmail2 = new AccountHeartmail(id, heartmail2)
+      const dbAccountHeartmail1 = new DbAccountHeartmail(accountHeartmail1)
+      const dbAccountHeartmail2 = new DbAccountHeartmail(accountHeartmail2)
+      await dbAccountHeartmail1.insert()
+      await dbAccountHeartmail2.insert()
+      const accountHeartmails = await dbApi.getAccountHeartmails(id)
+      accountHeartmails.length.should.equal(2)
+      ;(accountHeartmails[0].heartmail === heartmail1 ||accountHeartmails[0].heartmail === heartmail2).should.equal(true)
+      ;(accountHeartmails[1].heartmail === heartmail1 ||accountHeartmails[1].heartmail === heartmail2).should.equal(true)
     })
   })
 

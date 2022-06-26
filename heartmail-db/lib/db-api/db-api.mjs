@@ -256,6 +256,17 @@ dbApi.updateAccountProfileSettings = async function (email, account) {
   }
 }
 
+dbApi.getAccountHeartmails = async function (accountId) {
+  try {
+    const dbAccountHeartmails = await DbAccountHeartmail.findMany(accountId)
+    const accountHeartmails = dbAccountHeartmails.map(dbAccountHeartmail => dbAccountHeartmail.accountHeartmail)
+    return accountHeartmails
+  } catch (err) {
+    // console.log(err)
+    return null
+  }
+}
+
 dbApi.getAccount = async function (id) {
   try {
     const dbAccount = await DbAccount.findOne(id)
