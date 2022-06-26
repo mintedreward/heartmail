@@ -47,6 +47,13 @@ export const getServerSideProps = withSessionSsr(
 
 function AddressCard (props) {
   const address = props.address || 'name@example.com'
+  const [primary, setPrimary] = React.useState(props.defaultChecked)
+
+  const handleChange = () => {
+    setPrimary(true)
+    props.onSetPrimary?.(address)
+  }
+
   return (
     <Card sx={{ marginBottom: '16px', marginTop: '16px' }}>
       <Box sx={{ padding: '16px' }}>
@@ -56,7 +63,7 @@ function AddressCard (props) {
       <Box sx={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
         <Box sx={{ marginLeft: 'auto' }}>
           <FormGroup>
-            <FormControlLabel control={<Switch />} label='Primary' />
+            <FormControlLabel control={<Switch checked={primary} onChange={handleChange} />} label='Primary' />
           </FormGroup>
         </Box>
       </Box>
@@ -119,7 +126,7 @@ export default function AddressesPage (props) {
   const [heartmail, setHeartmail] = React.useState(`alias@${process.env.NEXT_PUBLIC_DOMAIN}`)
   const { account, accountHeartmails } = props
 
-  const handleHeartmail = (heartmail) => {
+  const handleInputHeartmail = (heartmail) => {
     setHeartmail(heartmail)
   }
 
@@ -134,14 +141,31 @@ export default function AddressesPage (props) {
         heartmail
       })
     })
-    const status = await res.status
+    const status = res.status
+    if (status === 200) {
+      router.reload(window.location.pathname)
+    }
+  }
+
+  const handleSetPrimary = async (heartmail) => {
+    const res = await fetch('/api/set-primary-heartmail', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        heartmail
+      })
+    })
+    const status = res.status
     if (status === 200) {
       router.reload(window.location.pathname)
     }
   }
 
   const addressCards = accountHeartmails.map(accountHeartmail => {
-    return (<AddressCard key={accountHeartmail.heartmail} address={accountHeartmail.heartmail} />)
+    return (<AddressCard key={accountHeartmail.heartmail} address={accountHeartmail.heartmail} onSetPrimary={handleSetPrimary} defaultChecked={accountHeartmail.heartmail === account.heartmail} />)
   })
 
   return (
@@ -152,7 +176,7 @@ export default function AddressesPage (props) {
       <p>
         If you own alias@moneybutton.com you can register alias@{`${process.env.NEXT_PUBLIC_DOMAIN}`} for free for a limited time.
       </p>
-      <HeartmailInput onChange={handleHeartmail} />
+      <HeartmailInput onChange={handleInputHeartmail} />
       <Box mt='8px' mb='16px' sx={{ textAlign: 'right' }}>
         <Button variant='contained' onClick={handleRegister}>Register</Button>
       </Box>

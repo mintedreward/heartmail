@@ -60,6 +60,8 @@ Avatars:
 - [ ] Implement .toFrontEnd() for database structs and put in front-end
 - [ ] Encrypt private keys in the database
 - [ ] Handle sign-in failures for non-accounts
+- [ ] Put API fetch methods into front-end client folder
+- [ ] Add test infrastructure for the front-end
 
 ## Redirects: www and HTTPS
 

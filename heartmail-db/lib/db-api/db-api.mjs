@@ -345,6 +345,39 @@ dbApi.registerMbHeartmail = async function (accountId, heartmail) {
   }
 }
 
+dbApi.setPrimaryHeartmail = async function (email, accountId, heartmail) {
+  // confirm that the heartmail exists
+  // confirm that the heartmail is owned by this account
+  // set the primary heartmail for the account
+  // set the primary heartmail on the corresponding email_account
+  try {
+    const accountHeartmail = await DbAccountHeartmail.findOne(accountId, heartmail)
+    assert(accountHeartmail.accountHeartmail)
+
+    const dbAccount = await DbAccount.findOne(accountId)
+    const dbEmailAccount = await DbEmailAccount.findOneWithAccountId(email, accountId)
+    dbAccount.account.heartmail = heartmail
+    dbEmailAccount.emailAccount.accountHeartmail = heartmail
+    await dbAccount.insert()
+    await dbEmailAccount.insert()
+
+    // await DbAccount.update({
+    //   id: accountId,
+    //   heartmail
+    // })
+    // await DbEmailAccount.update({
+    //   email,
+    //   accountId,
+    //   accountHeartmail: heartmail
+    // })
+
+    return heartmail
+  } catch (err) {
+    // console.log(err)
+    return null
+  }
+}
+
 dbApi.getMbAccount = async function (id) {
   try {
     const dbMbAccount = await DbMbAccount.findOne(id)

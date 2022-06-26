@@ -714,6 +714,52 @@ describe('dbApi', () => {
     })
   })
 
+  describe('#setPrimaryHeartmail', () => {
+    it('should set this primary heartmail', async function () {
+      this.timeout(5000)
+      const heartmail = `ryan@${process.env.NEXT_PUBLIC_DOMAIN}`
+      const mbAccount = MbAccount.fromRandom().fromObject({
+        accessGrantedAt: new Date(),
+        affiliateId: '12345',
+        contactFeeUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'ryan@moneybutton.com',
+        mbPaymentId: '1',
+        mbTxid: '00'.repeat(32),
+        mbIdentityKey: null,
+        mbUserId: '6',
+        mbName: 'name',
+        mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+      })
+      const account = Account.fromMbAccount(mbAccount)
+      account.heartmail.should.equal(`${account.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
+      account.heartmail.should.not.equal(heartmail)
+      const dbMbAccount = new DbMbAccount(mbAccount)
+      const dbAccount = new DbAccount(account)
+      const dbEmailAccount = DbEmailAccount.fromMbAccount(mbAccount)
+      dbEmailAccount.emailAccount.accountHeartmail.should.equal(`${account.id}@${process.env.NEXT_PUBLIC_DOMAIN}`)
+      dbEmailAccount.emailAccount.accountHeartmail.should.not.equal(heartmail)
+      await dbMbAccount.insert()
+      await dbAccount.insert()
+      await dbEmailAccount.insert()
+      await DbHeartmailAccount.delete(heartmail)
+
+      const accountId = account.id
+      const heartmail2 = await dbApi.registerMbHeartmail(accountId, heartmail)
+      const dbHeartmailAccount = await DbHeartmailAccount.findOne(heartmail)
+      const dbAccountHeartmail = await DbAccountHeartmail.findOne(accountId, heartmail)
+      heartmail2.should.equal(heartmail)
+      should.exist(dbHeartmailAccount.heartmailAccount)
+      should.exist(dbAccountHeartmail.accountHeartmail)
+
+      await dbApi.setPrimaryHeartmail('6@moneybutton.com', accountId, heartmail)
+      await dbAccount.findOne()
+      await dbEmailAccount.findOneWithAccountId()
+      dbAccount.account.heartmail.should.equal(heartmail)
+      dbEmailAccount.emailAccount.accountHeartmail.should.equal(heartmail)
+    })
+  })
+
   describe('#getMbAccount', () => {
     it('should get an account', async () => {
       const dbMbAccount = DbMbAccount.fromRandom()
