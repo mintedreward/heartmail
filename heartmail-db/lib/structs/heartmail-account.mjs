@@ -6,8 +6,8 @@
 import { Struct } from 'heartmail-lib'
 
 export default class HeartmailAccount extends Struct {
-  constructor (heartmail, createdAt = new Date(), updatedAt = new Date(), accountId) {
-    super({ heartmail, createdAt, updatedAt, accountId })
+  constructor (heartmail, accountId, createdAt = new Date(), updatedAt = new Date()) {
+    super({ heartmail, accountId, createdAt, updatedAt })
   }
 
   toJSON () {

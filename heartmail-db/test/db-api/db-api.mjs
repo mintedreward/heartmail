@@ -6,6 +6,7 @@ import DbEmailAccount from '../../lib/models/db-email-account.mjs'
 import DbAccountHeartmail from '../../lib/models/db-account-heartmail.mjs'
 import DbHeartmailAccount from '../../lib/models/db-heartmail-account.mjs'
 import Account from '../../lib/structs/account.mjs'
+import MbAccount from '../../lib/structs/mb-account.mjs'
 import { Bn, Random } from 'heartmail-lib'
 import should from 'should'
 import AccountHeartmail from '../../lib/structs/account-heartmail.mjs'
@@ -666,16 +667,50 @@ describe('dbApi', () => {
     })
   })
 
-  describe('#retrieveMbPublicKey', () => {
+  describe('#fetchMbPublicKey', () => {
     it('should get this known pubkey', async () => {
       const mbPaymail1 = 'ryan@moneybutton.com'
       const mbPaymail2 = '6@moneybutton.com'
-      const pubkey1 = await dbApi.retrieveMbPublicKey(mbPaymail1)
-      const pubkey2 = await dbApi.retrieveMbPublicKey(mbPaymail2)
+      const pubkey1 = await dbApi.fetchMbPublicKey(mbPaymail1)
+      const pubkey2 = await dbApi.fetchMbPublicKey(mbPaymail2)
       should.exist(pubkey1)
       should.exist(pubkey2)
       pubkey1.should.equal(pubkey2)
       pubkey1.should.equal('0380a5d1b99a2b3adab57d2adf4a21aac246652aebd1a4da4668351074172b7ae2')
+    })
+  })
+
+  describe('#registerMbHeartmail', () => {
+    it('should register this known heartmail', async function () {
+      this.timeout(5000)
+      const heartmail = `ryan@${process.env.NEXT_PUBLIC_DOMAIN}`
+      const mbAccount = MbAccount.fromRandom().fromObject({
+        accessGrantedAt: new Date(),
+        affiliateId: '12345',
+        contactFeeUsd: 1.00,
+        mbEmail: 'name@example.com',
+        mbPaymail: 'ryan@moneybutton.com',
+        mbPaymentId: '1',
+        mbTxid: '00'.repeat(32),
+        mbIdentityKey: null,
+        mbUserId: '6',
+        mbName: 'name',
+        mbAvatarUrl: 'https://www.ryanxcharles.com/me.jpg'
+      })
+      const account = Account.fromMbAccount(mbAccount)
+      const dbMbAccount = new DbMbAccount(mbAccount)
+      const dbAccount = new DbAccount(account)
+      await dbMbAccount.insert()
+      await dbAccount.insert()
+      await DbHeartmailAccount.delete(heartmail)
+
+      const accountId = account.id
+      const heartmail2 = await dbApi.registerMbHeartmail(accountId, heartmail)
+      const dbHeartmailAccount = await DbHeartmailAccount.findOne(heartmail)
+      const dbAccountHeartmail = await DbAccountHeartmail.findOne(accountId, heartmail)
+      heartmail2.should.equal(heartmail)
+      should.exist(dbHeartmailAccount.heartmailAccount)
+      should.exist(dbAccountHeartmail.accountHeartmail)
     })
   })
 

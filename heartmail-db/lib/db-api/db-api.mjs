@@ -1,4 +1,6 @@
 import assert from 'node:assert'
+import AccountHeartmail from '../structs/account-heartmail.mjs'
+import HeartmailAccount from '../structs/heartmail-account.mjs'
 import MbPayment from '../structs/mb-payment.mjs'
 import DbMbAccount from '../models/db-mb-account.mjs'
 import DbAccount from '../models/db-account.mjs'
@@ -282,7 +284,7 @@ dbApi.getAccount = async function (id) {
   }
 }
 
-dbApi.retrieveMbPublicKey = async function (mbPaymail = '') {
+dbApi.fetchMbPublicKey = async function (mbPaymail = '') {
   try {
     // https://www.moneybutton.com/api/v1/bsvalias/id/ryan@moneybutton.com
     let name = mbPaymail.split('@')[0]
@@ -301,16 +303,45 @@ dbApi.retrieveMbPublicKey = async function (mbPaymail = '') {
 }
 
 dbApi.registerMbHeartmail = async function (accountId, heartmail) {
-  // check to see if heartmail has not been registered
-  // retrieve mbUserId
-  // retrieve mb public key for [mbUserId]@moneybutton.com
-  // retrieve mb public key for [name]@moneybutton.com
-  // if public keys match
-  //   - then create the new heartmail
-  // if existing primary heartmail is the same as account id
-  //   - then adopt this as primary heartmail
-  // return new heartmail
-  // or return error
+  try {
+    // normalize heartmail
+    let name = heartmail.split('@')[0]
+    name = name.toLowerCase()
+    name = name.replace(/[^A-Za-z0-9]/g, '')
+    heartmail = `${name}@${process.env.NEXT_PUBLIC_DOMAIN}`
+
+    // make sure heartmail is not already registered
+    {
+      const heartmailAccount = await DbHeartmailAccount.findOne(heartmail)
+      if (heartmailAccount == null) {
+        return null
+      }
+    }
+
+    // fetch public keys and confirm they are the same
+    const dbMbAccount = await DbMbAccount.findOne(accountId)
+    const mbUserId = dbMbAccount.mbAccount.mbUserId
+    const mbPaymail1 = `${mbUserId}@moneybutton.com`
+    const mbPaymail2 = `${name}@moneybutton.com`
+    const pubkey1 = await this.fetchMbPublicKey(mbPaymail1)
+    const pubkey2 = await this.fetchMbPublicKey(mbPaymail2)
+    assert(pubkey1 && pubkey2)
+    assert(pubkey1 === pubkey2)
+    assert(typeof pubkey1 === 'string')
+
+    // create new heartmail
+    const accountHeartmail = new AccountHeartmail(accountId, heartmail)
+    const heartmailAccount = new HeartmailAccount(heartmail, accountId)
+    const dbAccountHeartmail = new DbAccountHeartmail(accountHeartmail)
+    const dbHeartmailAccount = new DbHeartmailAccount(heartmailAccount)
+    await dbAccountHeartmail.insert()
+    await dbHeartmailAccount.insert()
+
+    return heartmail
+  } catch (err) {
+    console.log(err)
+    return null
+  }
 }
 
 dbApi.getMbAccount = async function (id) {

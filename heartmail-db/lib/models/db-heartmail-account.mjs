@@ -75,4 +75,19 @@ export default class DbHeartmailAccount extends Struct {
 
     return res
   }
+
+  async delete () {
+    const obj = this.toCassandraObject()
+
+    const query = `delete from ${keyspace}.heartmail_accounts where heartmail = ?`
+    const values = [obj.heartmail]
+
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    return res
+  }
+
+  static async delete (heartmail) {
+    return new this(new HeartmailAccount(heartmail)).delete()
+  }
 }
