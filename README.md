@@ -37,10 +37,11 @@ Heartmails:
   - [x] Get pubKey for mbUserId
   - [x] Get pubKey for paymail
   - [x] If pubKeys are the same, grant the heartmail
-- [ ] Enable switching primary heartmail
+- [x] Enable switching primary heartmail
+- [ ] Fix affiliate system to use custom heartmails
 - [ ] Give better error message for unavailable heartmail
 - [ ] Update page without refresh when new heartmail is registered
-- [ ] Fix affiliate system to use custom heartmails
+- [ ] Update page without refresh when primary heartmail is changed
 - [ ] Fill from HeartMail emails: ryan, casey, diddy, ruth, lacy, markus, heartmail
 - [ ] Automatically switch primary heartmail if it is the first custom one
 - [ ] Automatically insert MB heartmails (primary paymail, mbUserId paymail) at new account
