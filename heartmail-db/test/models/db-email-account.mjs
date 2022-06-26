@@ -1,7 +1,7 @@
 /* global describe,it */
-import DbEmailAccount from '../../models/db-email-account.mjs'
-import EmailAccount from '../../structs/email-account.mjs'
-import MbAccount from '../../structs/mb-account.mjs'
+import DbEmailAccount from '../../lib/models/db-email-account.mjs'
+import EmailAccount from '../../lib/structs/email-account.mjs'
+import MbAccount from '../../lib/structs/mb-account.mjs'
 import { Random } from 'heartmail-lib'
 import should from 'should'
 

@@ -2,7 +2,19 @@
 
 <img src='./heartmail-landscape.png' alt='HeartMail' width='800'>
 
-## Milestone 3: Money Button Paymails
+## Milestones
+
+- [x] Milestone 1: Tipping Button
+- [x] Milestone 2: Early Access
+- [ ] Milestone 3: Money Button Paymails
+
+### Milestone 3: Money Button Paymails
+
+Pages and functions:
+- [x] Sign in / Sign out
+- [x] Accounts page
+- [x] Addresses page
+- [x] Settings page
 
 Accounts:
 - [x] Create account on front-page signs in the account
@@ -18,12 +30,14 @@ Heartmails:
 - [x] Creating new account should write heartmails to DB ([accountId]@heartmail.com)
 - [x] Migrate production (create tables)
 - [x] Fill existing account heartmails to DB
-- [ ] View existing heartmails
+- [x] Turn on PITR for new production tables
+- [ ] UI to view account heartmails
 - [ ] Register new heartmails with MB
   - [ ] Confirm heartmail is not already registered
   - [ ] Get pubKey for mbUserId
   - [ ] Get pubKey for paymail
   - [ ] If pubKeys are the same, grant the heartmail
+- [ ] Fill from HeartMail emails: ryan, casey, diddy, ruth, lacy, markus, heartmail
 - [ ] Fix affiliate system to use custom heartmails
 - [ ] Switch primary heartmail
 - [ ] Automatically switch primary heartmail if it is the first custom one
@@ -36,6 +50,12 @@ Avatars:
 - [ ] Fill existing MB avatars to DB
 - [ ] Enable avatar upload
 - [ ] Deploy to production
+
+### Milestone 4 Wishlist
+
+- [ ] Spinners for new account
+- [ ] Spinner for sign in
+- [ ] implement .toFrontEnd() for database structs
 
 ## Redirects: www and HTTPS
 

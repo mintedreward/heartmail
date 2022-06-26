@@ -5,7 +5,7 @@ import ContactCardSelector from '../components/ContactCardSelector'
 import SelfTabs from '../components/SelfTabs'
 import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
 import { withSessionSsr } from '../lib/session'
-import dbApi from 'heartmail-db/db-api/db-api'
+import { dbApi } from 'heartmail-db'
 import { useRouter } from 'next/router'
 
 export const getServerSideProps = withSessionSsr(

@@ -1,5 +1,5 @@
 /* global describe,it */
-import DbMbPayment from '../../models/db-mb-payment.mjs'
+import DbMbPayment from '../../lib/models/db-mb-payment.mjs'
 import { Random, Bn } from 'heartmail-lib'
 import should from 'should'
 

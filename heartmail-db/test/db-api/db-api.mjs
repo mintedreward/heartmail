@@ -1,11 +1,11 @@
 /* global describe,it */
-import dbApi from '../../db-api/db-api.mjs'
-import DbMbAccount from '../../models/db-mb-account.mjs'
-import DbAccount from '../../models/db-account.mjs'
-import DbEmailAccount from '../../models/db-email-account.mjs'
-import DbAccountHeartmail from '../../models/db-account-heartmail.mjs'
-import DbHeartmailAccount from '../../models/db-heartmail-account.mjs'
-import Account from '../../structs/account.mjs'
+import dbApi from '../../lib/db-api/db-api.mjs'
+import DbMbAccount from '../../lib/models/db-mb-account.mjs'
+import DbAccount from '../../lib/models/db-account.mjs'
+import DbEmailAccount from '../../lib/models/db-email-account.mjs'
+import DbAccountHeartmail from '../../lib/models/db-account-heartmail.mjs'
+import DbHeartmailAccount from '../../lib/models/db-heartmail-account.mjs'
+import Account from '../../lib/structs/account.mjs'
 import { Bn, Random } from 'heartmail-lib'
 import should from 'should'
 

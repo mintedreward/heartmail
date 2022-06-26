@@ -1,5 +1,5 @@
 /* global describe,it */
-import DbMbAccount from '../../models/db-mb-account.mjs'
+import DbMbAccount from '../../lib/models/db-mb-account.mjs'
 import { KeyAlias } from 'heartmail-lib'
 // import cassandra from 'cassandra-driver'
 import should from 'should'

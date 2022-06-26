@@ -1,5 +1,5 @@
 /* global describe,it */
-import AccountAvatar from '../../structs/account-avatar.mjs'
+import AccountAvatar from '../../lib/structs/account-avatar.mjs'
 import should from 'should'
 
 describe('AccountAvatar', function () {

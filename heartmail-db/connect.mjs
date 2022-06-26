@@ -1,6 +1,6 @@
 import * as cassandra from 'cassandra-driver'
 import * as sigV4 from 'aws-sigv4-auth-cassandra-plugin'
-import getCrt from './resources/sf-class2-root.crt.mjs'
+import getCrt from './lib/resources/sf-class2-root.crt.mjs'
 import loadenv from 'heartmail-loadenv'
 
 loadenv()

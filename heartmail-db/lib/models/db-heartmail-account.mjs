@@ -1,4 +1,4 @@
-import { getClient } from '../connect.mjs'
+import { getClient } from '../../connect.mjs'
 import { Struct } from 'heartmail-lib'
 import HeartmailAccount from '../structs/heartmail-account.mjs'
 import cassandra from 'cassandra-driver'

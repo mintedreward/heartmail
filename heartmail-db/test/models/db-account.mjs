@@ -1,8 +1,8 @@
 /* global describe,it */
-import DbAccount from '../../models/db-account.mjs'
-import DbMbAccount from '../../models/db-mb-account.mjs'
+import DbAccount from '../../lib/models/db-account.mjs'
+import DbMbAccount from '../../lib/models/db-mb-account.mjs'
 import should from 'should'
-import Account from '../../structs/account.mjs'
+import Account from '../../lib/structs/account.mjs'
 
 describe('DbAccount', () => {
   it('should exist', () => {

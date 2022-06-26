@@ -1,7 +1,7 @@
 import { getClient, useKeyspace } from './connect.mjs'
-import DbHeartmailAccount from './models/db-heartmail-account.mjs'
-import DbAccountHeartmail from './models/db-account-heartmail.mjs'
-import DbAccount from './models/db-account.mjs'
+import DbHeartmailAccount from './lib/models/db-heartmail-account.mjs'
+import DbAccountHeartmail from './lib/models/db-account-heartmail.mjs'
+import DbAccount from './lib/models/db-account.mjs'
 
 const client = getClient()
 

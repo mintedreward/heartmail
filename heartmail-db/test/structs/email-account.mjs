@@ -1,6 +1,6 @@
 /* global describe,it */
-import MbAccount from '../../structs/mb-account.mjs'
-import EmailAccount from '../../structs/email-account.mjs'
+import MbAccount from '../../lib/structs/mb-account.mjs'
+import EmailAccount from '../../lib/structs/email-account.mjs'
 import should from 'should'
 
 describe('EmailAccount', function () {

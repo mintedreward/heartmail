@@ -6,9 +6,9 @@ import DbMbPayment from '../models/db-mb-payment.mjs'
 import DbEmailAccount from '../models/db-email-account.mjs'
 import DbHeartmailAccount from '../models/db-heartmail-account.mjs'
 import DbAccountHeartmail from '../models/db-account-heartmail.mjs'
+import EmailAccount from '../structs/email-account.mjs'
 import { MoneyButtonClient } from '@moneybutton/api-client'
 import fetch from 'isomorphic-fetch'
-import { EmailAccount } from '../index.mjs'
 
 const dbApi = {}
 

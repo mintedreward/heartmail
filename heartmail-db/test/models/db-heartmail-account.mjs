@@ -1,7 +1,7 @@
 /* global describe,it */
-import DbHeartmailAccount from '../../models/db-heartmail-account.mjs'
-import HeartmailAccount from '../../structs/heartmail-account.mjs'
-import Account from '../../structs/account.mjs'
+import DbHeartmailAccount from '../../lib/models/db-heartmail-account.mjs'
+import HeartmailAccount from '../../lib/structs/heartmail-account.mjs'
+import Account from '../../lib/structs/account.mjs'
 import should from 'should'
 
 describe('DbHeartmailAccount', () => {
