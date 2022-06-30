@@ -1,31 +1,16 @@
 import Layout from '../components/Layout'
 import PageTitle from '../components/PageTitle'
 import MoneyButtonSignIn from '../components/MoneyButtonSignIn'
-import { useRouter } from 'next/router'
+import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
+import Link from '../components/Link'
 
 export default function SignInPage () {
-  const router = useRouter()
-
-  async function signIn (payment) {
-    const res = await fetch('/api/sign-in', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ payment })
-    })
-    const status = await res.status
-    // console.log(status)
-    if (status === 200) {
-      router.push('/accounts')
-    }
-  }
-
   return (
     <Layout title='Sign In'>
       <PageTitle>Sign In</PageTitle>
-      <MoneyButtonSignIn onPayment={signIn} />
+      <MoneyButtonSignIn />
+      <p>Don&#8217;t have an account yet? By buying an account, you agree to the <Link href='/terms'>Terms of Service</Link> and the <Link href='/privacy'>Privacy Policy</Link>.</p>
+      <MoneyButtonNewAccount />
     </Layout>
   )
 }

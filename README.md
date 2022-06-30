@@ -42,7 +42,21 @@ Heartmails:
 - [x] Fix affiliate system to use custom heartmails
 - [x] Deploy to production
 
-### Milestone 4: Public Profile
+### Milestone 4: Market for HeartMails
+
+Wishlist:
+
+- [x] Add new account button to sign in page
+- [ ] Put affiliate heartmail in localStorage
+- [ ] Dark mode
+- [ ] New accounts should have anonymous name if not the first account
+- [ ] Spinners for new account
+- [ ] Spinner for sign in
+- [ ] Implement .toFrontEnd() for database structs and put in front-end
+- [ ] Encrypt private keys in the database
+- [ ] Handle sign-in failures for non-accounts
+- [ ] Put API fetch methods into front-end client folder
+- [ ] Add test infrastructure for the front-end
 
 Improve custom heartmails:
 - [ ] Give better error message for unavailable heartmail
@@ -60,18 +74,6 @@ Avatars:
 - [ ] Deploy to production
 - [ ] Profile page
 - [ ] Protocol: extension to paymail profile
-
-Wishlist:
-
-- [ ] Dark mode
-- [ ] New accounts should have anonymous name if not the first account
-- [ ] Spinners for new account
-- [ ] Spinner for sign in
-- [ ] Implement .toFrontEnd() for database structs and put in front-end
-- [ ] Encrypt private keys in the database
-- [ ] Handle sign-in failures for non-accounts
-- [ ] Put API fetch methods into front-end client folder
-- [ ] Add test infrastructure for the front-end
 
 ## Redirects: www and HTTPS
 

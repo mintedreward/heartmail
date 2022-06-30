@@ -1,10 +1,11 @@
 import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
+import MoneyButtonSignIn from '../components/MoneyButtonSignIn'
 import Typography from '@mui/material/Typography'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
 import CurrencyInput from '../components/CurrencyInput'
 import { dbApi } from 'heartmail-db'
-import { useRouter } from 'next/router'
+import * as React from 'react'
 
 export async function getServerSideProps (context) {
   const affiliateEmail = context.query.a
@@ -17,39 +18,11 @@ export async function getServerSideProps (context) {
 }
 
 export default function HomePage (props) {
-  const router = useRouter()
-
-  const state = {}
-  state.affiliate = props.affiliate
-  state.contactFeeUsd = 1.00
-
-  async function handlePayment (payment) {
-    state.payment = payment
-    await buyAccount(state)
-  }
+  const [contactFeeUsd, setContactFeeUsd] = React.useState(1.00)
+  const affiliate = props.affiliate
 
   const handleChange = (contactFeeUsd) => {
-    state.contactFeeUsd = contactFeeUsd
-  }
-
-  async function buyAccount (state) {
-    const res = await fetch('/api/buy-account', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        affiliate: state.affiliate,
-        contactFeeUsd: state.contactFeeUsd,
-        payment: state.payment
-      })
-    })
-    const status = await res.status
-    // console.log(status)
-    if (status === 200) {
-      router.push('/accounts')
-    }
+    setContactFeeUsd(contactFeeUsd)
   }
 
   return (
@@ -73,7 +46,11 @@ export default function HomePage (props) {
       <p>
         By buying an account, you agree to the <Link href='/terms'>Terms of Service</Link> and the <Link href='/privacy'>Privacy Policy</Link>.
       </p>
-      <MoneyButtonNewAccount affiliate={props.affiliate} onPayment={handlePayment} />
+      <MoneyButtonNewAccount affiliate={affiliate} contactFeeUsd={contactFeeUsd} />
+      <p>
+        Already have an account?
+      </p>
+      <MoneyButtonSignIn />
     </Layout>
   )
 }

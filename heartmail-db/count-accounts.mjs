@@ -11,11 +11,13 @@ const client = getClient()
     const account = dbAccount.account
     const name = account.name
     const email = account.email
+    const paymail = account.paymail
     const heartmail = account.heartmail
     if (heartmail !== `${account.id}@heartmail.com`) {
-      continue
+      // continue
     }
-    console.log(`${name} <${email}> <${heartmail}>`)
+    // console.log(`${name} <${email}> <${heartmail}>`)
+    console.log(name, paymail, email)
     count++
   }
   console.log(count, 'uncompleted accounts')

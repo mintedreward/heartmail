@@ -1,11 +1,13 @@
 import MoneyButton from '@moneybutton/react-money-button'
+import { useRouter } from 'next/router'
 
 export default function MoneyButtonNewAccount (props) {
-  const onPayment = props.onPayment || function () {}
-  const affiliate = props.affiliate
+  const router = useRouter()
+  const affiliate = props.affiliate || null
+  const contactFeeUsd = props.contactFeeUsd || 1.00
   let outputs = []
 
-  if (affiliate && affiliate.hasAffiliate) {
+  if (affiliate?.hasAffiliate) {
     outputs = [
       {
         to: process.env.NEXT_PUBLIC_HEARTMAIL_PAYMAIL,
@@ -28,8 +30,25 @@ export default function MoneyButtonNewAccount (props) {
     ]
   }
 
-  const handlePayment = (payment) => {
-    onPayment(payment)
+  const handlePayment = async (payment) => {
+    const res = await fetch('/api/buy-account', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        affiliate,
+        contactFeeUsd,
+        payment
+      })
+    })
+    const status = await res.status
+    // console.log(status)
+    if (status === 200) {
+      router.push('/accounts')
+    }
+    props.onPayment?.(payment)
   }
 
   return (

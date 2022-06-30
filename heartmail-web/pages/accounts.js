@@ -39,31 +39,12 @@ export default function AccountsPage (props) {
   const router = useRouter()
   const { account, emailAccounts } = props
 
-  const handleNewAccount = async (payment) => {
-    const affiliate = {
-      hasAffiliate: true,
-      id: account.id,
-      mbPaymail: account.externalPaymail
-    }
-    const contactFeeUsd = 1.00
-    const res = await fetch('/api/buy-account', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        affiliate,
-        contactFeeUsd,
-        payment
-      })
-    })
-    const status = await res.status
-    // console.log(status)
-    if (status === 200) {
-      router.reload(window.location.pathname)
-    }
+  const affiliate = {
+    hasAffiliate: true,
+    id: account.id,
+    mbPaymail: account.paymail
   }
+  const contactFeeUsd = 1.00
 
   const handleSignIn = async (id) => {
     await fetch('/api/switch-account', {
@@ -74,6 +55,10 @@ export default function AccountsPage (props) {
       },
       body: JSON.stringify({ accountId: id })
     })
+    router.reload(window.location.pathname)
+  }
+
+  const handleNewAccount = async (payment) => {
     router.reload(window.location.pathname)
   }
 
@@ -89,7 +74,7 @@ export default function AccountsPage (props) {
       <PageTitle>Accounts</PageTitle>
       <ContactCard name={account.name} heartmail={account.heartmail} bio={account.bio} />
       <SelfTabs value={0} />
-      <MoneyButtonNewAccount onPayment={handleNewAccount} />
+      <MoneyButtonNewAccount affiliate={affiliate} contactFeeUsd={contactFeeUsd} onPayment={handleNewAccount} />
       {contactCardSelectors}
     </Layout>
   )
