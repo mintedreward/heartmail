@@ -42,7 +42,7 @@ Heartmails:
 - [x] Fix affiliate system to use custom heartmails
 - [x] Deploy to production
 
-### Milestone 4 Wishlist
+### Milestone 4: Public Profile
 
 Improve custom heartmails:
 - [ ] Give better error message for unavailable heartmail
@@ -58,9 +58,13 @@ Avatars:
 - [ ] Fill existing MB avatars to DB
 - [ ] Enable avatar upload
 - [ ] Deploy to production
+- [ ] Profile page
+- [ ] Protocol: extension to paymail profile
 
 Wishlist:
 
+- [ ] Dark mode
+- [ ] New accounts should have anonymous name if not the first account
 - [ ] Spinners for new account
 - [ ] Spinner for sign in
 - [ ] Implement .toFrontEnd() for database structs and put in front-end

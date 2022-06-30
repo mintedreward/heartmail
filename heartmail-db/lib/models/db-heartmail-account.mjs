@@ -44,6 +44,21 @@ export default class DbHeartmailAccount extends Struct {
     }
   }
 
+  static async findAll () {
+    const query = `select * from ${keyspace}.heartmail_accounts`
+    const values = []
+
+    const res = await client.execute(query, values, { prepare: true, consistency: cassandra.types.consistencies.localQuorum })
+
+    const arr = []
+
+    for (const row of res) {
+      arr.push(new this().fromCassandraObject(row))
+    }
+
+    return arr
+  }
+
   async findOne () {
     const query = `select * from ${keyspace}.heartmail_accounts where heartmail = ?`
     const values = [this.heartmailAccount.heartmail]
