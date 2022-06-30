@@ -8,9 +8,16 @@ const client = getClient()
   const dbAccounts = await DbAccount.findAll()
   let count = 0
   for (const dbAccount of dbAccounts) {
-    console.log(dbAccount.account.name, dbAccount.account.heartmail, dbAccount.account.paymail)
+    const account = dbAccount.account
+    const name = account.name
+    const email = account.email
+    const heartmail = account.heartmail
+    if (heartmail !== `${account.id}@heartmail.com`) {
+      continue
+    }
+    console.log(`${name} <${email}> <${heartmail}>`)
     count++
   }
-  console.log(count)
+  console.log(count, 'uncompleted accounts')
   await client.shutdown()
 })()
