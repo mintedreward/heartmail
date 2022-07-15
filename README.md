@@ -84,7 +84,13 @@ Heartmails:
 - [x] Fix affiliate system to use custom heartmails
 - [x] Deploy to production
 
-### Milestone 4: Market for HeartMails
+### Milestone 4: Web Wallet
+
+OpenSPV:
+
+- [ ] User can set password to encrypt Bitcoin wallet with client-side key management
+- [ ] Payment can be sent P2P HeartMail <-> HandCash with Merkle proofs
+- [ ] Deposits, withdrawals, transfers (Bitcoin = Stamps)
 
 Wishlist:
 
@@ -174,6 +180,7 @@ SPV and content modules:
 * [x] OpenSPV Lib
 * [x] OpenSPV Keyfile
 * [x] OpenSPV Paymail
+- [x] OpenSPV Docker
 * [x] OpenSPV DB
 * [ ] OpenSPV Kubernetes
 * [ ] OpenSPV Node Client <= Node Server Interface
@@ -345,20 +352,5 @@ architecture scales to billions of users per node.
 - Docker: The standard container tool.
 - Kubernetes: The standard container management tool.
 - Cassandra: The standard distributed database.
-
-## Yarn Workspaces
-
-[Yarn Workspaces](https://semaphoreci.com/blog/javascript-monorepos-yarn-workspaces) are used for cross-module dependencies. 
-
-From this directory, you can run the following commands:
-
-    $ yarn workspaces list
-    $ yarn workspace openspv-paymail lint
-    $ yarn workspaces foreach lint
-    $ yarn workspaces foreach test
-
-To reference a module from another module:
-
-    import { Email2 } from 'stamp-email2'
 
 Copyright (c) 2022 HeartMail Inc. All rights reserved.
