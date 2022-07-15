@@ -1,6 +1,8 @@
 # OpenSPV & Friends
 
-<img src='./heartmail-landscape.png' alt='HeartMail' width='800'>
+<img src='./logo-openspv.png' alt='OpenSPV' width='800'>
+
+<img src='./logo-heartmail.png' alt='HeartMail' width='800'>
 
 ## Introduction
 
