@@ -1,0 +1,17 @@
+{
+  "name": "openspv-currency",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "lint": "standard",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "mocha": "10",
+    "should": "13.2.3",
+    "standard": "17"
+  }
+}

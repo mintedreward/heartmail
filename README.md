@@ -1,8 +1,50 @@
-# HeartMail
+# OpenSPV & Friends
 
 <img src='./heartmail-landscape.png' alt='HeartMail' width='800'>
 
-## Milestones
+## Introduction
+
+**The Social Bitcoin Web (SBW)** is:
+
+- A set of protocols that bring identity, social features, and digital rights
+  management (DRM) to Bitcoin and the web.
+
+- A network with no central point of failure. A.k.a. a decentralized network.
+
+**The Social Bitcoin Web Consortium (SBWC)** is:
+
+- A group of businesses and invididuals who design and implement the protocols
+  for the SBW.
+
+**OpenSPV** is:
+
+- The reference implementation of protocols for the Social Bitcoin Web (SBW) in
+  javascript and other programming languages including go, rust, Swift, Kotlin,
+  Java, and C++.
+
+- A full-stack scalable Bitcoin SPV wallet including the UI, API, and library
+  for businesses and consumers that runs on Linux (backend), web, iOS, Android,
+  macOS and Windows with support for billions of users.
+
+- Intended to be integrated into proprietary software written by consortium
+  members rather than sold as a standalone product.
+
+- Everything that a business needs to build a Bitcoin application in all common
+  programming languages.
+
+- Open to consortium members and closed to outsiders.
+
+**HeartMail** is:
+
+- Email 2.0.
+
+- A peer-to-peer electronic postal system.
+
+- An instance of OpenSPV plus proprietary extensions.
+
+- A node on the SBW.
+
+## HeartMail Milestones
 
 - [x] Milestone 1: Tipping Button
 - [x] Milestone 2: Early Access
@@ -128,23 +170,26 @@ across cloud providers.
 ## Major Subprojects
 
 SPV and content modules:
+* [x] OpenSPV Web
+* [x] OpenSPV Lib
+* [x] OpenSPV Keyfile
+* [x] OpenSPV Paymail
+* [x] OpenSPV DB
+* [ ] OpenSPV Kubernetes
+* [ ] OpenSPV Node Client <= Node Server Interface
+* [ ] OpenSPV Price Client <= Price Server Interface
+* [ ] OpenSPV Crypto Workers
+* [ ] OpenSPV Wallet Web API
+* [ ] OpenSPV IFrame API
+* [ ] OpenSPV Media Workers
+* [ ] OpenSPV Web API
+* [ ] OpenSPV Components
+* [ ] OpenSPV Wallet Web
+* [ ] OpenSPV Search Web
+* [ ] OpenSPV Browser Web
+
+Products:
 * [x] HeartMail Web
-* [x] HeartMail Lib
-* [x] HeartMail Keyfile
-* [ ] HeartMail Email2
-* [ ] HeartMail DB
-* [ ] HeartMail Kubernetes
-* [ ] HeartMail Node Client <= Node Server Interface
-* [ ] HeartMail Price Client <= Price Server Interface
-* [ ] HeartMail Crypto Workers
-* [ ] HeartMail Wallet Web API
-* [ ] HeartMail IFrame API
-* [ ] HeartMail Media Workers
-* [ ] HeartMail Web API
-* [ ] HeartMail Components
-* [ ] HeartMail Wallet Web
-* [ ] HeartMail Search Web
-* [ ] HeartMail Browser Web
 
 Miner modules:
 * [ ] HeartMiner Node Server <= Node Client Interface
@@ -169,10 +214,10 @@ Private:
 * [ ] Coasetodian <= HeartX Cold Storage
 
 Private:
-* [ ] HeartMail HeartSign
-* [ ] HeartMail Transcription
-* [ ] HeartMail Wallet Expo
-* [ ] HeartMail Front-Page Expo
+* [ ] OpenSPV HeartSign
+* [ ] OpenSPV Transcription
+* [ ] OpenSPV Wallet Expo
+* [ ] OpenSPV Front-Page Expo
 
 Private:
 * [ ] HeartBayes (AI / ML)
@@ -308,7 +353,7 @@ architecture scales to billions of users per node.
 From this directory, you can run the following commands:
 
     $ yarn workspaces list
-    $ yarn workspace email2 lint
+    $ yarn workspace openspv-paymail lint
     $ yarn workspaces foreach lint
     $ yarn workspaces foreach test
 

@@ -27,20 +27,20 @@ COPY .env.production ./.env.production
 
 # these are explicitly copied separately to make sure they are each a layer
 
-COPY heartmail-curve ./heartmail-curve
-COPY heartmail-paymail ./heartmail-paymail
-COPY heartmail-keyfile ./heartmail-keyfile
-COPY heartmail-node ./heartmail-node
+COPY openspv-curve ./openspv-curve
+COPY openspv-paymail ./openspv-paymail
+COPY openspv-keyfile ./openspv-keyfile
+COPY openspv-node ./openspv-node
 COPY heartmail-redirect ./heartmail-redirect
-COPY heartmail-specs ./heartmail-specs
-COPY heartmail-stamp-db ./heartmail-stamp-db
-COPY heartmail-workers ./heartmail-workers
+COPY openspv-specs ./openspv-specs
+COPY openspv-stamp-db ./openspv-stamp-db
+COPY openspv-workers ./openspv-workers
 
-COPY heartmail-loadenv ./heartmail-loadenv
-COPY heartmail-elliptic ./heartmail-elliptic
-COPY heartmail-lib ./heartmail-lib
-COPY heartmail-currency ./heartmail-currency
-COPY heartmail-db ./heartmail-db
+COPY openspv-loadenv ./openspv-loadenv
+COPY openspv-elliptic ./openspv-elliptic
+COPY openspv-lib ./openspv-lib
+COPY openspv-currency ./openspv-currency
+COPY openspv-db ./openspv-db
 COPY heartmail-web ./heartmail-web
 
 RUN yarn install

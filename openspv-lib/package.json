@@ -1,0 +1,63 @@
+{
+  "name": "openspv-lib",
+  "description": "Data structures and cryptographic algorithms.",
+  "version": "1.0.0",
+  "author": "HeartMail",
+  "homepage": "https://github.com/heartmail/heartmail",
+  "main": "./index.mjs",
+  "exports": "./index.mjs",
+  "type": "module",
+  "scripts": {
+    "standard": "standard *.mjs *.cjs 'src/**/*.mjs' 'bin/**/*.mjs' 'test/**/*.mjs'",
+    "lint": "yarn run standard",
+    "pretest": "yarn run lint",
+    "test:mocha": "mocha",
+    "test": "yarn run pretest && yarn run test:mocha"
+  },
+  "keywords": [
+    "bitcoin",
+    "bsv",
+    "spv"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heartmail/heartmail.git"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "aes": "0.1.0",
+    "bn.js": "5.2.1",
+    "bs58": "5",
+    "hash.js": "1.1.7",
+    "is-hex": "1.1.3",
+    "openspv-elliptic": "workspace:*",
+    "pbkdf2": "3.1.2",
+    "randombytes": "2.1.0"
+  },
+  "devDependencies": {
+    "mocha": "10",
+    "should": "13.2.3",
+    "sinon": "14",
+    "standard": "17"
+  },
+  "license": "UNLICENSED",
+  "standard": {
+    "ignore": [
+      "src/interp.mjs",
+      "test/aes.mjs",
+      "test/aescbc.mjs",
+      "test/bip-39.mjs",
+      "test/block.mjs",
+      "test/ecdsa.mjs",
+      "test/hash.mjs",
+      "test/interp.mjs",
+      "test/script.mjs",
+      "test/sig.mjs",
+      "test/tx-verifier.mjs",
+      "test/tx.mjs"
+    ]
+  },
+  "packageManager": "yarn@3.0.2"
+}

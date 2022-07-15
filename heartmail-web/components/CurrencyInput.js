@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as currency from 'heartmail-currency'
+import * as currency from 'openspv-currency'
 import TextField from '@mui/material/TextField'
 
 export default function CurrencyInput (props) {

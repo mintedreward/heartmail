@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar'
 import SignOut from '../components/SignOut'
 import CurrencyInput from '../components/CurrencyInput'
 import { withSessionSsr } from '../lib/session'
-import { dbApi } from 'heartmail-db'
+import { dbApi } from 'openspv-db'
 import * as React from 'react'
 
 export const getServerSideProps = withSessionSsr(
