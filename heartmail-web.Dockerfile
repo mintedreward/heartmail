@@ -32,7 +32,7 @@ COPY openspv-paymail ./openspv-paymail
 COPY openspv-keyfile ./openspv-keyfile
 COPY openspv-node ./openspv-node
 COPY heartmail-redirect ./heartmail-redirect
-COPY openspv-specs ./openspv-specs
+COPY sbw-specs ./sbw-specs
 COPY openspv-stamp-db ./openspv-stamp-db
 COPY openspv-workers ./openspv-workers
 
