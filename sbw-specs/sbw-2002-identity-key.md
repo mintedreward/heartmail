@@ -1,4 +1,4 @@
-# SBW 2002: Paymail Identity Keys
+# SBW 2002: Identity Key
 
 ## Dependencies
 
@@ -6,7 +6,8 @@
 
 ## Introduction
 
-A Bitcoin public key in compressed DER hex format (the established standard) is provided in a paymail capability.
+A Bitcoin public key in compressed DER hex format (the established standard) is
+provided in a paymail capability.
 
 ## Paymail Capability
 
@@ -19,7 +20,9 @@ Paymail is extended with the ```pki``` capability like this:
   }
 }
 ```
-```{paymail}``` is replaced with the paymail when the query to the ```pki``` end point is performed.
+
+```{paymail}``` is replaced with the paymail when the query to the ```pki``` end
+point is performed.
 
 ## The PKI End Point
 
