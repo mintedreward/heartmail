@@ -1,7 +1,7 @@
 # SBW 2001: Simplified Paymail
 
-Simplified paymail is the same thing as paymail but simpler in a
-backwards-compatible way.
+Simplified paymail is the same thing as paymail but simpler in a backwards
+compatible way.
 
 **Names**: [name]@[domain], for instance name@example.com. Names are compatible
 with email addresses.
@@ -17,3 +17,5 @@ https://[domain]/.well-known/bsvalias
   "capabilities": {}
 }
 ```
+
+There are no required capabilities.

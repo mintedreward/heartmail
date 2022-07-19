@@ -1,10 +1,10 @@
-# SBW 2004: Email2 signatures without revocation
+# SBW 2004: Identity Signatures
 
 ## Dependencies
 
-* SBW 2001: Email2
-* SBW 2002: Email2 identity keys
-* SBW 2003: Email2 verify public key owner
+* SBW 2001: Simplified Paymail
+* SBW 2002: Identity Key
+* SBW 2003: Verify Identity Key
 
 ## Introduction
 
