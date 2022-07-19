@@ -6601,19 +6601,6 @@ fsevents@~2.3.2:
   languageName: unknown
   linkType: soft
 
-"openspv-stamp-db@workspace:openspv-stamp-db":
-  version: 0.0.0-use.local
-  resolution: "openspv-stamp-db@workspace:openspv-stamp-db"
-  dependencies:
-    "@aws-sdk/client-s3": 3.100.0
-    "@types/uuid": ^8.3.4
-    cassandra-driver: ^4.6.3
-    dotenv: ^16.0.0
-    ts-node: 10.8.0
-    uuid: ^8.3.2
-  languageName: unknown
-  linkType: soft
-
 "heartmail-web@workspace:heartmail-web":
   version: 0.0.0-use.local
   resolution: "heartmail-web@workspace:heartmail-web"
@@ -9313,6 +9300,19 @@ fsevents@~2.3.2:
     pug: 3.0.2
     should: 13.2.3
     standard: 17
+  languageName: unknown
+  linkType: soft
+
+"openspv-stamp-db@workspace:openspv-stamp-db":
+  version: 0.0.0-use.local
+  resolution: "openspv-stamp-db@workspace:openspv-stamp-db"
+  dependencies:
+    "@aws-sdk/client-s3": 3.100.0
+    "@types/uuid": ^8.3.4
+    cassandra-driver: ^4.6.3
+    dotenv: ^16.0.0
+    ts-node: 10.8.0
+    uuid: ^8.3.2
   languageName: unknown
   linkType: soft
 
