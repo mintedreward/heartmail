@@ -1,6 +1,4 @@
-# OpenSPV & Friends
-
-<img src='./logo-openspv.png' alt='OpenSPV' width='800'>
+# HeartMail
 
 <img src='./logo-heartmail.png' alt='HeartMail' width='800'>
 
@@ -18,7 +16,7 @@
 - A group of businesses and invididuals who design and implement the protocols
   for the SBW.
 
-**OpenSPV** is:
+**HeartMail** is:
 
 - The reference implementation of protocols for the Social Bitcoin Web (SBW) in
   javascript and other programming languages including go, rust, Swift, Kotlin,
@@ -36,13 +34,9 @@
 
 - Open to consortium members and closed to outsiders.
 
-**HeartMail** is:
-
 - Email 2.0.
 
 - A peer-to-peer electronic postal system.
-
-- An instance of OpenSPV plus proprietary extensions.
 
 - A node on the SBW.
 
@@ -88,7 +82,7 @@ Heartmails:
 
 ### Milestone 4: Web Wallet
 
-OpenSPV:
+HeartMail:
 
 - [ ] User can set password to encrypt Bitcoin wallet with client-side key management
 - [ ] Payment can be sent P2P HeartMail <-> HandCash with Merkle proofs
@@ -178,24 +172,24 @@ across cloud providers.
 ## Major Subprojects
 
 SPV and content modules:
-* [x] OpenSPV Web
-* [x] OpenSPV Lib
-* [x] OpenSPV Keyfile
-* [x] OpenSPV Paymail
-- [x] OpenSPV Docker
-* [x] OpenSPV DB
-* [ ] OpenSPV Kubernetes
-* [ ] OpenSPV Node Client <= Node Server Interface
-* [ ] OpenSPV Price Client <= Price Server Interface
-* [ ] OpenSPV Crypto Workers
-* [ ] OpenSPV Wallet Web API
-* [ ] OpenSPV IFrame API
-* [ ] OpenSPV Media Workers
-* [ ] OpenSPV Web API
-* [ ] OpenSPV Components
-* [ ] OpenSPV Wallet Web
-* [ ] OpenSPV Search Web
-* [ ] OpenSPV Browser Web
+* [x] HeartMail Web
+* [x] HeartMail Lib
+* [x] HeartMail Keyfile
+* [x] HeartMail Paymail
+- [x] HeartMail Docker
+* [x] HeartMail DB
+* [ ] HeartMail Kubernetes
+* [ ] HeartMail Node Client <= Node Server Interface
+* [ ] HeartMail Price Client <= Price Server Interface
+* [ ] HeartMail Crypto Workers
+* [ ] HeartMail Wallet Web API
+* [ ] HeartMail IFrame API
+* [ ] HeartMail Media Workers
+* [ ] HeartMail Web API
+* [ ] HeartMail Components
+* [ ] HeartMail Wallet Web
+* [ ] HeartMail Search Web
+* [ ] HeartMail Browser Web
 
 Products:
 * [x] HeartMail Web
@@ -223,15 +217,15 @@ Private:
 * [ ] Coasetodian <= HeartX Cold Storage
 
 Private:
-* [ ] OpenSPV HeartSign
-* [ ] OpenSPV Transcription
-* [ ] OpenSPV Wallet Expo
-* [ ] OpenSPV Front-Page Expo
+* [ ] HeartMail HeartSign
+* [ ] HeartMail Transcription
+* [ ] HeartMail Wallet Expo
+* [ ] HeartMail Front-Page Expo
 
 Private:
 * [ ] HeartBayes (AI / ML)
 
-## OpenSPV MVP
+## HeartMail MVP
 
 Key Properties
 * The user has their keys but never needs to write them down.
@@ -257,7 +251,7 @@ Alice
 Invites
 * Ryan sends $5.00 each to 100 first users
 
-## OpenSPV Key Manager
+## HeartMail Key Manager
 
 * passwords
 * ssh keys
@@ -279,7 +273,7 @@ Domain names are distributed across:
 * Patent: Email2 authentication
 * Patent: iframe API
 * Patent: Two Factor Friend
-* Trademark: OpenSPV
+* Trademark: HeartMail
 * Trademark: HeartMail
 * Trademark: HeartX
 * Trademark: HeartMiner
@@ -293,13 +287,13 @@ Domain names are distributed across:
 * Coasian: Create and license patents. Truth.
 * Coasian: Create and operate subsidiaries. Love.
 * Coasian: Create and license trademarks and brands. Beauty.
-* OpenSPV: Non-SPV transfers cost 3%. SPV transfers are fee.
-* OpenSPV: Email2 sales, trades, & auctions.
-* OpenSPV: Documentation sales & marketplace.
-* OpenSPV: Bug bounty marketplace.
-* OpenSPV: WaaS for businesses.
-* OpenSPV: Paid video mail hosting, processing, transmission.
-* OpenSPV: Paid ad placement for search results, front page, categories.
+* HeartMail: Non-SPV transfers cost 3%. SPV transfers are fee.
+* HeartMail: Email2 sales, trades, & auctions.
+* HeartMail: Documentation sales & marketplace.
+* HeartMail: Bug bounty marketplace.
+* HeartMail: WaaS for businesses.
+* HeartMail: Paid video mail hosting, processing, transmission.
+* HeartMail: Paid ad placement for search results, front page, categories.
 * Two Factor Friend: It's like a dating app, but for infosec. BFF+2FA=2FF.
 * HeartMail: Email2 sales, trades, & auctions.
 * HeartMail: Paid video mail hosting, processing, transmission.

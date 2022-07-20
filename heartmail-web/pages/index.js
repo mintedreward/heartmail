@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
 import CurrencyInput from '../components/CurrencyInput'
-import { dbApi } from 'openspv-db'
+import { dbApi } from 'heartmail-db'
 import * as React from 'react'
 
 export async function getServerSideProps (context) {

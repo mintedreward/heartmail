@@ -1,4 +1,4 @@
-import { dbApi, Account } from 'openspv-db'
+import { dbApi, Account } from 'heartmail-db'
 import assert from 'node:assert'
 import { withSessionApiRoute } from '../../lib/session.js'
 

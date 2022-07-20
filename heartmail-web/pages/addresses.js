@@ -13,7 +13,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 import { withSessionSsr } from '../lib/session'
-import { dbApi } from 'openspv-db'
+import { dbApi } from 'heartmail-db'
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps ({ req }) {
