@@ -3,10 +3,10 @@ API Documentation
 
 ### SPV Milestone
 
-* [x] API Capabilities
-* [x] API Documentation
-* [x] Identity Key
-* [x] Verify Identity Key
+* [x] [API Capabilities](./2001-api-capabilities.md)
+* [x] [API Documentation](./2002-api-documentation.md)
+* [x] [Identity Key](./2003-identity-key.md)
+* [x] [Verify Identity Key](./2004-verify-identity-key.md)
 * [ ] Identity Signatures
 * [ ] Merkle Proof
 * [ ] Transaction Ancestors
