@@ -32,7 +32,7 @@ COPY heartmail-paymail ./heartmail-paymail
 COPY heartmail-keyfile ./heartmail-keyfile
 COPY heartmail-node ./heartmail-node
 COPY heartmail-redirect ./heartmail-redirect
-COPY sbw-specs ./sbw-specs
+COPY heartmail-docs ./heartmail-docs
 COPY heartmail-stamp-db ./heartmail-stamp-db
 COPY heartmail-workers ./heartmail-workers
 
