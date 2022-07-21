@@ -1,4 +1,4 @@
-# SBW 2005: Merkle Proof
+# Merkle Proof
 
 ## Introduction
 

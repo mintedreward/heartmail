@@ -1,10 +1,10 @@
-# SBW 2004: Identity Signatures
+# Identity Signatures
 
 ## Dependencies
 
-* SBW 2001: Simplified Paymail
-* SBW 2002: Identity Key
-* SBW 2003: Verify Identity Key
+* API Capabilities
+* Identity Key
+* Verify Identity Key
 
 ## Introduction
 

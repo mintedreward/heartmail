@@ -1,7 +1,7 @@
-# SBW 2001: Simplified Paymail
+# API Capabilities
 
-Simplified paymail is the same thing as paymail but simpler in a backwards
-compatible way.
+API Capabilities is the same thing as paymail but simpler in a backwards compatible
+way.
 
 **Names**: [name]@[domain], for instance name@example.com. Names are compatible
 with email addresses.

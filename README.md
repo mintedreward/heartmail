@@ -2,98 +2,19 @@
 
 <img src='./logo-heartmail.png' alt='HeartMail' width='800'>
 
-## Introduction
-
-**The Social Bitcoin Web (SBW)** is:
-
-- A set of protocols that bring identity, social features, and digital rights
-  management (DRM) to Bitcoin and the web.
-
-- A network with no central point of failure. A.k.a. a decentralized network.
-
-**The Social Bitcoin Web Consortium (SBWC)** is:
-
-- A group of businesses and invididuals who design and implement the protocols
-  for the SBW.
-
-**HeartMail** is:
-
-- The reference implementation of protocols for the Social Bitcoin Web (SBW) in
-  javascript and other programming languages including go, rust, Swift, Kotlin,
-  Java, and C++.
-
-- A full-stack scalable Bitcoin SPV wallet including the UI, API, and library
-  for businesses and consumers that runs on Linux (backend), web, iOS, Android,
-  macOS and Windows with support for billions of users.
-
-- Intended to be integrated into proprietary software written by consortium
-  members rather than sold as a standalone product.
-
-- Everything that a business needs to build a Bitcoin application in all common
-  programming languages.
-
-- Open to consortium members and closed to outsiders.
-
-- Email 2.0.
-
-- A peer-to-peer electronic postal system.
-
-- A node on the SBW.
-
-## HeartMail Milestones
-
-- [x] Milestone 1: Tipping Button
-- [x] Milestone 2: Early Access
-- [x] Milestone 3: Money Button Paymails
-- [ ] Milestone 4: ???
-
-### Milestone 3: Money Button Paymails
-
-Pages and functions:
-- [x] Sign in / Sign out
-- [x] Accounts page
-- [x] Addresses page
-- [x] Settings page
-
-Accounts:
-- [x] Create account on front-page signs in the account
-- [x] Create account on accounts page signs in the account
-- [x] Redirect access key page to to sign in page if not signed in
-- [x] NavBar avatar: goes to settings page (if signed in) or sign in page (if not signed in)
-- [x] NavBar avatar also works on home, about, terms, privacy
-- [x] Deploy to production
-
-Heartmails:
-- [x] Heartmail structs
-- [x] Heartmail database models
-- [x] Creating new account should write heartmails to DB ([accountId]@heartmail.com)
-- [x] Migrate production (create tables)
-- [x] Fill existing account heartmails to DB
-- [x] Turn on PITR for new production tables
-- [x] UI to view account heartmails
-- [x] Register new heartmails with MB
-  - [x] Confirm heartmail is not already registered
-  - [x] Get pubKey for mbUserId
-  - [x] Get pubKey for paymail
-  - [x] If pubKeys are the same, grant the heartmail
-- [x] Enable switching primary heartmail
-- [x] Fix affiliate system to use custom heartmails
-- [x] Deploy to production
-
-### Milestone 4: Web Wallet
+### Milestone 4: Invoices
 
 HeartMail:
 
+- [ ] User can log in with email address
 - [ ] User can set password to encrypt Bitcoin wallet with client-side key management
-- [ ] Payment can be sent P2P HeartMail <-> HandCash with Merkle proofs
+- [ ] Payment can be sent P2P HeartMail <-> LiteClient with Merkle proofs
 - [ ] Deposits, withdrawals, transfers (Bitcoin = Stamps)
 
 Wishlist:
 
 - [x] Add new account button to sign in page
 - [ ] Put affiliate heartmail in localStorage
-- [ ] Dark mode
-- [ ] New accounts should have anonymous name if not the first account
 - [ ] Spinners for new account
 - [ ] Spinner for sign in
 - [ ] Implement .toFrontEnd() for database structs and put in front-end
@@ -118,6 +39,10 @@ Avatars:
 - [ ] Deploy to production
 - [ ] Profile page
 - [ ] Protocol: extension to paymail profile
+
+Later:
+- [ ] Dark mode
+- [ ] New accounts should have anonymous name if not the first account
 
 ## Redirects: www and HTTPS
 
@@ -281,12 +206,32 @@ Domain names are distributed across:
 * Trademark: Two Factor Friend
 * Trademark: Coasian
 
+## Principles
+
+* All protocols are open-source and open-protocol.
+* If someone dies, everything should keep working.
+* Everything should feel right.
+
+## Software stack
+
+This software stack is designed to bring the UI to every platform while running
+on scalable cloud infrastructure. When paired with scalable algorithms, this
+architecture scales to billions of users per node.
+
+- Javascript / node.js: Javascript is the only language that runs on every
+  platform and is the only candidate for the reference implementation of every
+  protocol. Furthermore, because all slow components are either already
+  implemented in C++ or can be in the form of a node.js module, there is no
+  advantage in using any other programming language.
+- next.js: A popular framework for creating the web front-end.
+- React Native: A popular framework for creating the mobile front-end.
+- Docker: The standard container tool.
+- Kubernetes: The standard container management tool.
+- Cassandra: The standard distributed database.
+
 ## Businesses
 
 * Ryan X. Charles: License content created by RXC.
-* Coasian: Create and license patents. Truth.
-* Coasian: Create and operate subsidiaries. Love.
-* Coasian: Create and license trademarks and brands. Beauty.
 * HeartMail: Non-SPV transfers cost 3%. SPV transfers are fee.
 * HeartMail: Email2 sales, trades, & auctions.
 * HeartMail: Documentation sales & marketplace.
@@ -325,28 +270,5 @@ Domain names are distributed across:
 * The Megabits: Band.
 * Theory of Bitcoin: Educational material on Bitcoin.
 * The Dream that Lasted Forever: Movies and video games.
-
-## Principles
-
-* All protocols are open-source and open-protocol.
-* If someone dies, everything should keep working.
-* Everything should feel right.
-
-## Software stack
-
-This software stack is designed to bring the UI to every platform while running
-on scalable cloud infrastructure. When paired with scalable algorithms, this
-architecture scales to billions of users per node.
-
-- Javascript / node.js: Javascript is the only language that runs on every
-  platform and is the only candidate for the reference implementation of every
-  protocol. Furthermore, because all slow components are either already
-  implemented in C++ or can be in the form of a node.js module, there is no
-  advantage in using any other programming language.
-- next.js: A popular framework for creating the web front-end.
-- React Native: A popular framework for creating the mobile front-end.
-- Docker: The standard container tool.
-- Kubernetes: The standard container management tool.
-- Cassandra: The standard distributed database.
 
 Copyright (c) 2022 HeartMail Inc. All rights reserved.
