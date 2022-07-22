@@ -2,14 +2,14 @@
 
 ## Dependencies
 
-* API Capabilities
+* [API Capabilities](./2001-api-capabilities.md)
+* [Public Key](../heartmail-lib/src/pub-key.mjs)
 
 ## Introduction
 
-A Bitcoin public key in compressed DER hex format (the established standard) is
-provided in an API capability.
+A public key in compressed DER hex format is provided for an email address.
 
-## Capability
+## API Capability
 
 A ```pki``` capability is added like this:
 

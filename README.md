@@ -2,6 +2,13 @@
 
 <img src='./logo-heartmail.png' alt='HeartMail' width='800'>
 
+## Milestone 4: Invoices
+
+* [ ] Send / receive merkle proofs
+* [ ] LiteClient compatibility
+* [ ] Money Button compatibility
+* [ ] Invoices UI
+
 ## API Documentation
 
 - [API Documentation](https://github.com/heartmail/heartmail/blob/master/heartmail-docs/index.md)

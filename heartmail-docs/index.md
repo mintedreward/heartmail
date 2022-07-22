@@ -7,7 +7,7 @@ API Documentation
 * [x] [API Documentation](./2002-api-documentation.md)
 * [x] [Identity Key](./2003-identity-key.md)
 * [x] [Verify Identity Key](./2004-verify-identity-key.md)
-* [ ] Identity Signatures
+* [x] [Identity Signatures](./2005-identity-signatures.md)
 * [ ] Merkle Proof
 * [ ] Transaction Ancestors
 * [ ] P2P Payments

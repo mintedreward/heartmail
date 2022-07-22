@@ -2,14 +2,14 @@
 
 ## Dependencies
 
-* API Capabilities
-* Identity Key
+* [API Capabilities](./2001-api-capabilities.md)
+* [Identity Key](./2003-identity-key.md)
 
 ## Introduction
 
 Allows clients to verify if a public key is a valid identity key for an email address.
 
-### Capability discovery
+## API Capability
 
 An capability is added with a new end point:
 
