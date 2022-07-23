@@ -100,7 +100,7 @@ export default function Layout (props) {
             >
               <Typography variant='body2' sx={{ textAlign: 'center' }}>
                 &copy; {new Date().getFullYear()} HeartMail Inc.<br />
-                <Link href='/about'>About</Link> · <Link href='/terms'>Terms</Link> · <Link href='/privacy'>Privacy</Link>
+                <Link href='/about'>About</Link> · <Link href='/terms'>Terms</Link> · <Link href='/privacy'>Privacy</Link> · <Link href='https://github.com/heartmail/heartmail'>Code</Link>
               </Typography>
             </Box>
           </Box>
