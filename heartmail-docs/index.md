@@ -8,9 +8,9 @@ API Documentation
 * [x] [Identity Key](./2003-identity-key.md)
 * [x] [Verify Identity Key](./2004-verify-identity-key.md)
 * [x] [Identity Signatures](./2005-identity-signatures.md)
+* [ ] Payments
 * [ ] Merkle Proof
 * [ ] Transaction Ancestors
-* [ ] P2P Payments
 * [ ] SPV Payments
 * [ ] Invoices
 * [ ] Signed Payments
