@@ -1,5 +1,7 @@
 # Identity Key
 
+A public key for signatures and encryption for email addresses.
+
 ## Dependencies
 
 * [API Capabilities](./2001-api-capabilities.md)
@@ -7,7 +9,8 @@
 
 ## Introduction
 
-A public key in compressed DER hex format is provided for an email address.
+A new capability to deliver a Bitcoin public key in compressed DER hex format
+(the de facto standard) is provided for an email address.
 
 ## API Capability
 
@@ -26,10 +29,16 @@ the ```pki``` end point is performed.
 
 ## The PKI End Point
 
-The ```pki``` end point provides a JSON object that looks like this:
+The ```pki``` end point provides a JSON object upon a GET request that looks
+like this:
 
 ```json
 {
-  "pubkey": "..."
+  "pubkey": "024ee0d073cb52afd3f4207cee0a65504d2fc85a184451c8688fd3788e60d521c5"
 }
 ```
+
+## References
+
+* https://docs.moneybutton.com/docs/paymail/paymail-03-public-key-infrastructure.html
+* https://bsvalias.org/03-public-key-infrastructure.html

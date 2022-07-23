@@ -1,7 +1,30 @@
 # API Capabilities
 
-API Capabilities is the same thing as paymail but simpler in a backwards compatible
-way.
+A standard way for web APIs to describe the capabilities they offer.
+
+## Introduction
+
+The standard way for web services to communicate is via REST-like APIs with JSON
+data delivered over HTTPS.
+
+A problem with this approach is that web services cannot automatically
+communicate with each other unless a human intervenes to read documentation and
+program API support.
+
+The need for human intervention can be removed to allow automatic web API
+capability discovery through the use of standardized API capability
+descriptions.
+
+For instance, a standardized API for making payments can be created. Any two
+services that share the payments capability in common can make payments to each
+other automatically with no human intervention.
+
+Web services may have users. The standard naming system for users is email
+addresses. Email addresses are decentralized globally unique identifiers that
+may be used for humans or entities of any sort such as businesses, machines, or
+functions.
+
+## API Description
 
 **Names**: [name]@[domain], for instance name@example.com. Names are compatible
 with email addresses.
@@ -19,3 +42,14 @@ https://[domain]/.well-known/bsvalias
 ```
 
 There are no required capabilities.
+
+## Comparison to Paymail
+
+API Capabilities is the same thing as [paymail](https://bsvalias.org) but
+simpler in a backwards compatible way. The primary difference is the removal of
+any need for DNS SRV records.
+
+## References
+
+* https://bsvalias.org
+* https://docs.moneybutton.com/docs/paymail/paymail-overview.html
