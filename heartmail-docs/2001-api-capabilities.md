@@ -45,11 +45,11 @@ There are no required capabilities.
 
 ## Comparison to Paymail
 
-API Capabilities is the same thing as [paymail](https://bsvalias.org) but
-simpler in a backwards compatible way. The primary difference is the removal of
-any need for DNS SRV records.
+API Capabilities is the same thing as paymail [1, 2] but simpler in a backwards
+compatible way. The primary difference is the removal of any need for DNS SRV
+records.
 
 ## References
 
-* https://bsvalias.org
-* https://docs.moneybutton.com/docs/paymail/paymail-overview.html
+1. https://bsvalias.org
+2. https://docs.moneybutton.com/docs/paymail/paymail-overview.html

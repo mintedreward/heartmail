@@ -1,6 +1,6 @@
 # API Documentation
 
-A URL for human-readable documentation for web APIs.
+A URL for human-readable documentation of web APIs.
 
 ## Dependencies
 
@@ -9,8 +9,8 @@ A URL for human-readable documentation for web APIs.
 ## Introduction
 
 API Capabilities provides a solution to machine-to-machine API capability
-discovery, but machine-to-human capability discovery requires human-readable
-documentation.
+discovery, but human-to-machine capability discovery still requires
+human-readable documentation.
 
 Standardized API documentation eliminates the need to have a centralized
 location for API capability documentation. Every service provides its own
