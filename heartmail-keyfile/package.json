@@ -9,7 +9,7 @@
     "test:mocha": "mocha",
     "test": "yarn run test:mocha"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "heartmail-lib": "workspace:*"
   },

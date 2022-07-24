@@ -8,5 +8,5 @@
   },
   "bin": "./bin/heartmail-loadenv.mjs",
   "author": "",
-  "license": "UNLICENSED"
+  "license": "MIT"
 }

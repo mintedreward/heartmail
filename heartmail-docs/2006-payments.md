@@ -19,7 +19,7 @@ address. In other words, the payments are always from [name1]@[domain1] to
 
 ## API Capabilities
 
-A new **Payment Terms** API capability is created like this:
+A new **Get Payment Terms** API capability is created like this:
 
 ```json
 {
@@ -34,7 +34,7 @@ The email address ```{alias}@{domain.tld}``` is where the payment is to be sent 
 The hex value ```2a40af698840``` is chosen for backwards-compatibility with the
 *P2P Payment Destination* protocol [1].
 
-A new **Payment** API capability is created like this:
+A new **Send Payment** API capability is created like this:
 
 ```json
 {
@@ -49,9 +49,9 @@ The email address ```{alias}@{domain.tld}``` is where the payment is being sent 
 The hex value ```5f1323cddf31``` is chosen for backwards-compatibility with the
 *P2P Transaction* protocol [2].
 
-## Payment Terms End Point
+## Get Payment Terms End Point
 
-## Payment End Point
+## Send Payment End Point
 
 ## References
 

@@ -8,7 +8,7 @@
     "test": "mocha"
   },
   "author": "",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "mocha": "10",
     "should": "13.2.3",

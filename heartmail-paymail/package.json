@@ -8,7 +8,7 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "serve": "node ./src/email2-server.mjs",
     "lint": "standard **/*.mjs",

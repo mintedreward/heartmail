@@ -2,11 +2,23 @@
 
 <img src='./logo-heartmail.png' alt='HeartMail' width='800'>
 
+## Introduction
+
+HeartMail is a full-stack open-source Simplified Payment Verification (SPV)
+wallet with digital rights management (DRM) for content. The software is
+MIT-licensed but the brand is a trademark of HeartMail Inc.
+
+HeartMail is based on open protocols. The vision for HeartMail is that many
+independent businesses use the same protocols to manage identity, payments, and
+content, so that the global economy can expand onto the internet.
+
+Each module is licensed separately. Please see the LICENSE file for each module.
+
 ## API Documentation
 
-- [API Documentation](https://github.com/heartmail/heartmail/blob/master/heartmail-docs/index.md)
+- [API Documentation](https://github.com/heartmail/heartmail/blob/master/heartmail-docs/README.md)
 
-## Milestone 4: Invoices
+## Milestone 4: SPV
 
 * [ ] Send / receive / get / sell block headers
 * [ ] Send / receive / get / sell merkle proofs

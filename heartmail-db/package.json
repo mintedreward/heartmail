@@ -12,7 +12,7 @@
     "test": "yarn run pretest && yarn run test:mocha"
   },
   "author": "",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "@moneybutton/api-client": "^0.38.8",
     "aws-sigv4-auth-cassandra-plugin": "^1.0.4",

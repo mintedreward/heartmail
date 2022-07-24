@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:openspv/openspv"
+    "url": "git@github.com:heartmail/heartmail"
   },
   "keywords": [
     "EC",
@@ -26,7 +26,7 @@
   ],
   "author": "Fedor Indutny <fedor@indutny.com>",
   "license": "MIT",
-  "homepage": "https://github.com/openspv/openspv",
+  "homepage": "https://github.com/heartmail/heartmail",
   "devDependencies": {
     "brfs": "^2.0.2",
     "coveralls": "^3.0.8",

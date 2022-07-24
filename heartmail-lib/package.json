@@ -42,7 +42,7 @@
     "sinon": "14",
     "standard": "17"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "standard": {
     "ignore": [
       "src/interp.mjs",
