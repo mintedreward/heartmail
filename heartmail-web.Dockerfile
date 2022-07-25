@@ -30,7 +30,6 @@ COPY .env.production ./.env.production
 COPY heartmail-curve ./heartmail-curve
 COPY heartmail-paymail ./heartmail-paymail
 COPY heartmail-keyfile ./heartmail-keyfile
-COPY heartmail-node ./heartmail-node
 COPY heartmail-redirect ./heartmail-redirect
 COPY heartmail-docs ./heartmail-docs
 COPY heartmail-stamp-db ./heartmail-stamp-db

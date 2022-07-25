@@ -1,7 +1,7 @@
 API Documentation
 =================
 
-### SPV Milestone
+### Milestone 4: SPV
 
 * [x] [API Capabilities](./2001-api-capabilities.md)
 * [x] [API Documentation](./2002-api-documentation.md)
@@ -15,33 +15,22 @@ API Documentation
 * [ ] Invoices
 * [ ] Signed Payments
 * [ ] Travel Rule
+* [ ] Block Store
 
-### Mailbox Milestone
-
-* [ ] Key Alias
-* [ ] Email Web Extension
-* [ ] Email identity keys
-* [ ] Email verify public key owner
-* [ ] Email signatures (without revocation)
-* [ ] Email authentication (without revocation)
+### Milestone 5: Social
+* [ ] Public Profile
 * [ ] Two Factor Friend (2FF)
 * [ ] Two Factor Friend (2FF) service
-* [ ] Email key logging and revocation data structures
+* [ ] Authentication
+* [ ] Email Invoices
 * [ ] Script template labels
-* [ ] Filter service API
-* [ ] Filter service Email2 extension
-* [ ] Filter for Email2 key logging and revocation
-* [ ] Email signatures (with revocation)
-* [ ] Email authentication (with revocation)
-* [ ] Email invoices and P2P payments
-* [ ] Merkle proof data structure
-* [ ] Transaction ancestry data structure
-* [ ] Merkle proof service
-* [ ] SPV payments
-* [ ] Paid Merkle proof service
+* [ ] Filters
+* [ ] Key logging and revocation
+* [ ] Key Alias
+* [ ] Name logging and revocation
 
-### Media milestone
-
+### Milestone 6: Content
+* [ ] Transferrable Web Objects
 * [ ] Media types: Video, images, text, software, ...
 * [ ] Media authorship attestation
 * [ ] Media basic rights (sell, resell)
@@ -62,4 +51,5 @@ API Documentation
 ### Other Misc Protocols
 
 * Email to phone (phone+14155150210@phone-host.com)
+* Email internationalization ([utf8 characters]@example.com)
 * Domain key, e.g. heartmail.com signs the transfer of an account

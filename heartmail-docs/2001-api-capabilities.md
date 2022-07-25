@@ -26,12 +26,12 @@ functions.
 
 ## API Description
 
-**Names**: [name]@[domain], for instance name@example.com. Names are compatible
+**Names**: {alias}@{domain.tld}, for instance name@example.com. Names are compatible
 with email addresses.
 
 **Capability Discovery**: A domain name hosts a JSON file at:
 
-https://[domain]/.well-known/bsvalias
+https://{domain.tld}/.well-known/bsvalias
 
 **API**: The JSON file format looks like this:
 
@@ -46,8 +46,13 @@ There are no required capabilities.
 ## Comparison to Paymail
 
 API Capabilities is the same thing as paymail [1, 2] but simpler in a backwards
-compatible way. The primary difference is the removal of any need for DNS SRV
-records.
+compatible way.
+
+The primary difference is the removal of any need for DNS SRV records. The only
+reason to use the SRV record is for "paymail hosting", which does not actually
+require an SRV record. Instead of an SRV record, use an HTTP redirect on the
+JSON document. Or, provide API capabilities that are all hosted at a different
+domain, e.g. https://api.{domain.tld} or https://{alternate-domain.tld}/api.
 
 ## References
 
