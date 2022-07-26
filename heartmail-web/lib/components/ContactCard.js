@@ -1,6 +1,6 @@
 import Card from '@mui/material/Card'
 import Avatar from '@mui/material/Avatar'
-import Link from '../components/Link'
+import Link from './Link'
 import Typography from '@mui/material/Typography'
 
 export default function ContactCard (props) {

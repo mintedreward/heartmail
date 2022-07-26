@@ -1,8 +1,8 @@
-import Layout from '../components/Layout'
-import PageTitle from '../components/PageTitle'
-import MoneyButtonSignIn from '../components/MoneyButtonSignIn'
-import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
-import Link from '../components/Link'
+import Layout from '../lib/components/Layout'
+import PageTitle from '../lib/components/PageTitle'
+import MoneyButtonSignIn from '../lib/components/MoneyButtonSignIn'
+import MoneyButtonNewAccount from '../lib/components/MoneyButtonNewAccount'
+import Link from '../lib/components/Link'
 
 export default function SignInPage () {
   return (

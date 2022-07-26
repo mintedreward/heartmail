@@ -1,5 +1,5 @@
-import Layout from '../components/Layout'
-import PageTitle from '../components/PageTitle'
+import Layout from '../lib/components/Layout'
+import PageTitle from '../lib/components/PageTitle'
 
 export default function PrivacyPage () {
   return (

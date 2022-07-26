@@ -1,12 +1,13 @@
-import Layout from '../components/Layout'
-import PageTitle from '../components/PageTitle'
-import ContactCard from '../components/ContactCard'
-import ContactCardSelector from '../components/ContactCardSelector'
-import SelfTabs from '../components/SelfTabs'
-import MoneyButtonNewAccount from '../components/MoneyButtonNewAccount'
+import Layout from '../lib/components/Layout'
+import PageTitle from '../lib/components/PageTitle'
+import ContactCard from '../lib/components/ContactCard'
+import ContactCardSelector from '../lib/components/ContactCardSelector'
+import SelfTabs from '../lib/components/SelfTabs'
+import MoneyButtonNewAccount from '../lib/components/MoneyButtonNewAccount'
 import { withSessionSsr } from '../lib/session'
 import { dbApi } from 'heartmail-db'
 import { useRouter } from 'next/router'
+import Client from '../lib/client'
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps ({ req }) {
@@ -46,15 +47,8 @@ export default function AccountsPage (props) {
   }
   const contactFeeUsd = 1.00
 
-  const handleSignIn = async (id) => {
-    await fetch('/api/switch-account', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ accountId: id })
-    })
+  const handleSignIn = async (accountId) => {
+    await Client.switchAccount(accountId)
     router.reload(window.location.pathname)
   }
 

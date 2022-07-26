@@ -1,5 +1,6 @@
 import MoneyButton from '@moneybutton/react-money-button'
 import { useRouter } from 'next/router'
+import Client from '../client'
 
 export default function MoneyButtonNewAccount (props) {
   const router = useRouter()
@@ -31,21 +32,8 @@ export default function MoneyButtonNewAccount (props) {
   }
 
   const handlePayment = async (payment) => {
-    const res = await fetch('/api/buy-account', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        affiliate,
-        contactFeeUsd,
-        payment
-      })
-    })
-    const status = await res.status
-    // console.log(status)
-    if (status === 200) {
+    const success = await Client.buyAccount(affiliate, contactFeeUsd, payment)
+    if (success) {
       router.push('/accounts')
     }
     props.onPayment?.(payment)

@@ -1,7 +1,7 @@
-import Layout from '../components/Layout'
-import PageTitle from '../components/PageTitle'
-import ContactCard from '../components/ContactCard'
-import SelfTabs from '../components/SelfTabs'
+import Layout from '../lib/components/Layout'
+import PageTitle from '../lib/components/PageTitle'
+import ContactCard from '../lib/components/ContactCard'
+import SelfTabs from '../lib/components/SelfTabs'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -14,6 +14,7 @@ import { useRouter } from 'next/router'
 import * as React from 'react'
 import { withSessionSsr } from '../lib/session'
 import { dbApi } from 'heartmail-db'
+import Client from '../lib/client'
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps ({ req }) {
@@ -131,35 +132,15 @@ export default function AddressesPage (props) {
   }
 
   const handleRegister = async () => {
-    const res = await fetch('/api/register-mb-paymail', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        heartmail
-      })
-    })
-    const status = res.status
-    if (status === 200) {
+    const registered = await Client.registerMbPaymail(heartmail)
+    if (registered) {
       router.reload(window.location.pathname)
     }
   }
 
   const handleSetPrimary = async (heartmail) => {
-    const res = await fetch('/api/set-primary-heartmail', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        heartmail
-      })
-    })
-    const status = res.status
-    if (status === 200) {
+    const set = await Client.setPrimaryHeartmail(heartmail)
+    if (set) {
       router.reload(window.location.pathname)
     }
   }

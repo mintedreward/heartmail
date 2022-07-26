@@ -1,18 +1,19 @@
-import Layout from '../components/Layout'
-import PageTitle from '../components/PageTitle'
-import ContactCard from '../components/ContactCard'
-import SelfTabs from '../components/SelfTabs'
+import Layout from '../lib/components/Layout'
+import PageTitle from '../lib/components/PageTitle'
+import ContactCard from '../lib/components/ContactCard'
+import SelfTabs from '../lib/components/SelfTabs'
 import TextField from '@mui/material/TextField'
-import AffiliateCard from '../components/AffiliateCard'
+import AffiliateCard from '../lib/components/AffiliateCard'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import Avatar from '@mui/material/Avatar'
-import SignOut from '../components/SignOut'
-import CurrencyInput from '../components/CurrencyInput'
+import SignOut from '../lib/components/SignOut'
+import CurrencyInput from '../lib/components/CurrencyInput'
 import { withSessionSsr } from '../lib/session'
 import { dbApi } from 'heartmail-db'
 import * as React from 'react'
+import Client from '../lib/client'
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps ({ req }) {
@@ -74,17 +75,7 @@ export default function SettingsPage (props) {
   const [bio, setBio] = React.useState(account.bio)
 
   async function updateAccountProfileSettings (account) {
-    const res = await fetch('/api/update-account', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        account
-      })
-    })
-    const id = await res.json()
+    const id = await Client.updateAccount(account)
     return id
   }
 

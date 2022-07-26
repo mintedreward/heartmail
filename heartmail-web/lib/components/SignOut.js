@@ -1,20 +1,13 @@
 import Button from '@mui/material/Button'
 import { useRouter } from 'next/router'
+import Client from '../client'
 
 export default function SignOut () {
   const router = useRouter()
 
   async function handleClick () {
-    const res = await fetch('/api/sign-out', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({})
-    })
-    const val = await res.json()
-    if (val) {
+    const success = await Client.signOut()
+    if (success) {
       router.push('/')
     }
   }

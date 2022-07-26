@@ -26,12 +26,12 @@ functions.
 
 ## API Description
 
-**Names**: {alias}@{domain.tld}, for instance name@example.com. Names are compatible
-with email addresses.
+**Names**: ```{alias}@{domain.tld}```, for instance name@example.com. Names are
+compatible with email addresses.
 
 **Capability Discovery**: A domain name hosts a JSON file at:
 
-https://{domain.tld}/.well-known/bsvalias
+```https://{domain.tld}/.well-known/bsvalias```
 
 **API**: The JSON file format looks like this:
 
@@ -52,7 +52,8 @@ The primary difference is the removal of any need for DNS SRV records. The only
 reason to use the SRV record is for "paymail hosting", which does not actually
 require an SRV record. Instead of an SRV record, use an HTTP redirect on the
 JSON document. Or, provide API capabilities that are all hosted at a different
-domain, e.g. https://api.{domain.tld} or https://{alternate-domain.tld}/api.
+domain, e.g. ```https://api.{domain.tld}``` or
+```https://{alternate-domain.tld}/api```.
 
 ## References
 
