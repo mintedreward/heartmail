@@ -115,11 +115,11 @@ Queries:
 Our redirect policy is:
 
 - ```[domain]``` redirects to ```www.[domain]```
-- ```http://[domain]}``` redirects to ```https://[domain]```
+- ```http://[domain]``` redirects to ```https://[domain]```
 
 This works by:
 
-- AWS instances ({```[domain]```}-redirect) are used to add www
+- AWS instances (```[domain]```-redirect) are used to add www
 - An AWS load balancer rewrites http traffic to https
 
 ## Central Points of Failure

@@ -73,7 +73,7 @@ is provided.
 
 ...
 
-## Social Bitcoin Web (SBW)
+## Internet Postal System (IPS)
 
 ...
 
